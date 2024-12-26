@@ -1,0 +1,184 @@
+---
+title: "Tabular data and variable summaries"
+format:  
+  revealjs: 
+    theme: [default, spring.scss]
+    incremental: true 
+    shift-heading-level-by: -1
+execute:
+  echo: true
+---
+
+```{r}
+#| include: false
+library(reticulate)
+use_python("/usr/local/bin/python3")
+```
+
+```{python}
+#| include: false
+import numpy as np
+import pandas as pd
+```
+
+
+
+### Data "on disk"
+
+### Data is stored in plain text files
+
+```
+name,pclass,survived,sex,age,sibsp,parch,ticket,fare,cabin,embarked,boat,body,home.dest
+"Allen, Miss. Elisabeth Walton",1,1,female,29,0,0,24160,211.3375,B5,S,2,,"St Louis, MO"
+"Allison, Master. Hudson Trevor",1,1,male,0.9167,1,2,113781,151.5500,C22 C26,S,11,,"Montreal, PQ / Chesterville, ON"
+"Allison, Miss. Helen Loraine",1,0,female,2,1,2,113781,151.5500,C22 C26,S,,,"Montreal, PQ / Chesterville, ON"
+"Allison, Mr. Hudson Joshua Creighton",1,0,male,30,1,2,113781,151.5500,C22 C26,S,,135,"Montreal, PQ / Chesterville, ON"
+"Allison, Mrs. Hudson J C (Bessie Waldo Daniels)",1,0,female,25,1,2,113781,151.5500,C22 C26,S,,,"Montreal, PQ / Chesterville, ON"
+"Anderson, Mr. Harry",1,1,male,48,0,0,19952,26.5500,E12,S,3,,"New York, NY"
+"Andrews, Miss. Kornelia Theodosia",1,1,female,63,1,0,13502,77.9583,D7,S,10,,"Hudson, NY"
+"Andrews, Mr. Thomas Jr",1,0,male,39,0,0,112050,0.0000,A36,S,,,"Belfast, NI"
+"Appleton, Mrs. Edward Dale (Charlotte Lamson)",1,1,female,53,2,0,11769,51.4792,C101,S,D,,"Bayside, Queens, NY"
+"Artagaveytia, Mr. Ramon",1,0,male,71,0,0,PC 17609,49.5042,,C,,22,"Montevideo, Uruguay"
+"Astor, Col. John Jacob",1,0,male,47,1,0,PC 17757,227.5250,C62 C64,C,,124,"New York, NY"
+```
+
+* This is called a **csv** (*comma-separated*) file.
+
+* You might see it as `something.csv` or `something.txt`
+
+* `.txt` files might have different separators
+
+### Reading data
+
+We *read the data* into a program like `python` by specifying:
+
+* what **type** of file it is
+
+* **where** the csv file is located (the **"path"**)
+
+* if the file has a **header**
+
+* ... and other information in special cases!
+
+### Example using `pandas` data frame:
+
+```{python}
+df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+df.head()
+```
+
+### Check in:
+
+```{python}
+df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+```
+
+:::{.callout}
+
+* What if this file lived on a computer instead of online?
+
+* Why didn't we have to specify that this dataset has a header?
+
+:::
+
+### Looking at rows
+
+```{python}
+df.loc[1, :]
+df.iloc[1, :]
+```
+
+### Looking at rows
+
+:::{.callout}
+
+* What is the difference between `.loc` and `.iloc`?
+
+* What **type** of object is returned?
+
+:::
+
+### loc, iloc, and index
+
+```{python}
+#| error: true
+df2 = df.set_index('name')
+df2.loc[1, :]
+df2.iloc[1, :]
+```
+### loc, iloc, and index
+
+Think of `iloc` as **integer location**.
+
+```{python}
+#| error: true
+df2.loc["Allison, Master. Hudson Trevor", :]
+```
+
+
+### Looking at columns
+
+```{python}
+df.columns
+df['home.dest']
+```
+
+### Caution: Object types
+
+```{python}
+
+type(df)
+type(df.loc[1, :])
+type(df['name'])
+```
+
+
+
+
+## Summarizing a data frame
+
+### Questions to ask
+
+* Which variables (columns) are **categorical**?
+
+* Which variables are **quantitative**?
+
+* Which variables are **labels** (e.g. names or ID numbers)?
+
+* Which variables are **text**?
+
+
+
+
+### A quick look at the data
+
+```{python}
+df.describe()
+```
+:::{.callout}
+
+* What percent of *Titanic* passengers survived?
+
+* What was the average (mean) fare paid for a ticket?
+
+* What percent of *Titanic* passengers were in First Class?
+
+:::
+
+### Variable types
+
+* The variable `pclass` was **categorical**, but python assumed it was *quantitative*.
+
+* It's our job to check and fix data!
+
+```{python}
+df["pclass"] = df["pclass"].astype("category")
+```
+
+### Summary of categorical variable
+
+```{python}
+df["pclass"].value_counts()
+df["pclass"].value_counts(normalize = True)
+```
+
