@@ -1,0 +1,42 @@
+---
+title: "Introduction to Data Science (in Python)"
+tbl-colwidths: [5,15,30,20,20,20,20]
+---
+
+This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.
+
+<!-- TODO: Switch to spreadsheet for content (like Mine and Maria do) -->
+
+| Week        | Date                    | Required Reading | Lecture Slides | Lab Activity | Weekly Assignment | Project                   |
+|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| 0           |                         |                  |                |              |                   |                           |
+| 1           |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+| 2           |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+| 3           |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+| 4           |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+| 5           |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+| 6           |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+| 7           |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   | Project Proposal Due      |
+| 8           |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+| 9           |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   | Posters Due to be Printed |
+| 10          |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+|             |                         |                  |                |              |                   |                           |
+| Finals Week | Saturday, 10:10am - 1pm |                  |                |              |                   | Poster Presentations      |
