@@ -2,150 +2,136 @@
 title: "Welcome, Intro, and Setup"
 format:
   revealjs: 
-    theme: [default, spring.scss]
+    theme: [default, style.scss]
     incremental: true 
 execute:
   echo: true
 ---
 
-```{r}
-#| include: false
-library(reticulate)
-use_python("/usr/local/bin/python3")
-```
-
-```{python}
-#| include: false
-import numpy as np
-import pandas as pd
-```
-
 ## About Me
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
-![](./images/xmas_card_2023.JPG)
+![](../images/headshot.jpg){fig-alt="A headshot of Dr. Theobold from the second floor of Building 25, facing Mount Bishop. Dr. Theobold is rocking a pink blazer to compliment their pink hair."}
 :::
 
 ::: {.column width="60%"}
-* Grew up in Cupertino, CA
+::: {.midi}
+-   Grew up in Grand Junction, CO
 
-* BA in Stats: 2011 from Harvard
+-   BA in Stats: 2014 from Colorado Mesa University
 
-* PhD in Stats: 2017 from UNC Chapel Hill
+-   PhD in Stats: 2020 from Montana State University
 
-* 2017-now: Professor of Stats and DS at Cal Poly
+-   2020 - now: Professor of Stats at Cal Poly
 
+-   My research: Statistics and data science education, R programming
+
+-   Things I like: Spending time outside (e.g., running, hiking, biking), travelling, Tegan and Sara
 :::
-
-::::
-
-* My research: Stats education, R programming, unsupervised learning, digital humanities, biology.
-
-* Things I like: Board games, hiking, books, roller derby, twenty one pilots, Lord of the Rings, travel.
-
+:::
+:::::
 
 # Syllabus tl;dr
 
 ## Grade Brakedown
 
-* **5%**:  Check-Ins, i.e., pay attention to lecture
+-   **5%**: Check-Ins -- pay attention to lecture
 
-* **10%**:  Section, attendance is required
+-   **10%**: Lab Activities -- Lab attendance is required
 
-* **25%**:  Lab assignments, due Fridays at 5pm
+-   **25%**: Weekly Assignments -- due Fridays at 5pm
 
-* **15% each:** Exams in Week 5 and Week 9.
+-   **15% each:** Exams in Week 5 and Week 9.
 
-* **30%:** Final project
+-   **30%:** Final project
 
 ## Important Dates
 
-* **Weds, May 1:** Exam 1 in class
+-   **Weds, May 1:** Exam 1 (in-class)
 
-* **Fri, May 17:** One-page project proposal/abstract
+-   **Fri, May 17:** 1-page Project Proposal Due
 
-* **Weds, May 29:** Exam 2 in class
+-   **Weds, May 29:** Exam 2 (in-class)
 
-* **Finals Week:**  Final project poster presentation
+-   **Saturday before Finals Week:** Final Project Poster Presentations
 
 ## Homework Late Policy
 
-* -10% per day for the first 5 days
+-   -10% per day for the first 5 days
 
-* After that, we won't grade your work - a perfect complete assignment gets 50%, anything else gets 0%.
+-   After that, I won't grade your work - a perfect complete assignment gets
+50%, anything else gets 0%.
 
-* (Yes, even if you turn it in at 5pm on Friday of Week 10.)
+-   (Yes, even if you turn it in at 5pm on Friday of Week 10.)
 
-* One "auto-extension": Fill out the form on Canvas before the deadline, get the "first 5 days" penalty removed.
+-   Two deadline extensions: Fill out the form on Canvas before the deadline, 
+get an automatic 3-day (72-hour) deadline extension. 
 
-## Missing Section
+## Missing Lab
 
-* **Best option:** Go to another section.  Email both TAs the day before.
+-   **Best option:** Go to another section. 
 
-* **Second-best option:** Turn in your work by email to your TA and CA.
+-   **Second-best option:** Turn in your work by email to me.
 
-* **Worst option:** Miss it entirely, get a 0.
+-   **Worst option:** Miss it entirely, get a 0.
 
-* *You may do each of these options only twice. If you need to miss/reschedule more than 6 of the sections in the quarter, you will need to retake the class.*
+-   *You may do each of these options only twice. If you need to miss / reschedule more than 3 of the sections in the quarter, you will need to retake the class.*
 
 ## Discord and Email
 
-* Class questions go on **DISCORD**
+-   Class questions go on **DISCORD**
 
-* Use the staff email list **only** for private questions, like grade questions or personal concerns.
-
-* Use my email **only** for personal concerns that you want to talk about privately to me.
+-   Use my email **only** for personal concerns that you want to talk about
+privately to me.
 
 # Setup
 
 ## Colab Notebooks
 
-* In Data Science, everyone uses **Notebooks**, not scripts, for coding.
+-   In Data Science, everyone uses **Notebooks**, not scripts, for coding.
 
-* We will be using **Jupyter Notebooks** (invented at Cal Poly!), hosted for free by **Google Colab**.
+-   We will be using **Jupyter Notebooks** (invented at Cal Poly!), hosted for
+free by **Google Colab**.
 
-* If you want to work offline, you can install **Anaconda** on your laptop.
+-   If you want to work offline, you can install **Anaconda** on your laptop.
 
-* I recommend an IDE like **PyCharm** as well.
-
+-   I recommend an IDE like **PyCharm** as well.
 
 # The Brave New World of GenAI
 
 ## Academic Integrity
 
-* If you copy text from a website into your essay, it's cheating.
+-   If you copy text from a website into your essay, it's cheating.
 
-* If you ask your friend to write your essay, it's cheating.
+-   If you ask your friend to write your essay, it's cheating.
 
-* If you pay someone else to write your essay, it's cheating.
+-   If you pay someone else to write your essay, it's cheating.
 
 ....
 
-* If you ask GenAI to do your work and then copy the answers, it's cheating.
-
+-   If you ask GenAI to do your work and then copy the answers, it's cheating.
 
 ## Conversation, not copying
 
 It is okay (in fact, encouraged) to ...
 
-* Ask GenAI for tips on how to get started on a coding problem
+-   Ask GenAI for tips on how to get started on a coding problem
 
-* Ask GenAI to help find bugs in your code
+-   Ask GenAI to help find bugs in your code
 
-* Ask GenAI to help explain concepts or functions
+-   Ask GenAI to help explain concepts or functions
 
-* **Pretend ChatGPT is your human tutor or TA!**
-
+-   **Pretend ChatGPT is your human tutor or TA!**
 
 ## Activity: Good and bad use of AI
 
-1. Open the activity notebook on Canvas.
+1.  Open the activity notebook on Canvas.
 
-2. 5 minutes:  Person A follow the instructions in Part 1 of the notebook.  Person B watch, but do not give input, unless they are stuck.
+2.  5 minutes: Person A follow the instructions in Part 1 of the notebook. 
+Person B watch, but do not give input, unless they are stuck.
 
-3. 5 minutes:  Person B follow the instructions in Part 2 of the notebook.  Person A watch, but do not give input, unless they are stuck.
+3.  5 minutes: Person B follow the instructions in Part 2 of the notebook. 
+Person A watch, but do not give input, unless they are stuck.
 
-4. 5 minutes:  Discuss and answer the questions at the bottom.
-
+4.  5 minutes: Discuss and answer the questions at the bottom.

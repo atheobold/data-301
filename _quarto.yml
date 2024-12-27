@@ -37,14 +37,14 @@ website:
     contents:
       - section: "Course information"
         contents:
-          - href: course-materials/course-syllabus.qmd
+          - href: course-materials/syllabus.qmd
             text: Syllabus
           - href: index.qmd
             text: Schedule
-      - section: "Weekly materials"
+      - section: "Lecture Slides"
         contents:
-          - href: weeks/week-0-discord.qmd
-            text: "Week 0 - Course Set-up"
+          - href: slides/00-welcome.qmd
+            text: "Week 0 - Welcome & Course Set-up"
           # - href: weeks/week-1-r-rstudio.qmd
           #   text: "Week 1, Part 1 - R & RStudio"
           # - href: weeks/week-1-quarto.qmd
@@ -75,10 +75,10 @@ website:
           #   text: "Week 9 - Simulating Data"
           # - href: weeks/week-10.qmd
           #   text: "Week 10"
-      - section: "Labs"
-        contents:
-          - href: labs/instructions/lab-1-instructions.qmd
-            text: "Lab 1 Instructions"
+      # - section: "Lab Assignments"
+      #   contents:
+      #     - href: labs/instructions/lab-1-instructions.qmd
+      #       text: "Lab 1 Instructions"
           # - href: labs/instructions/lab-2-instructions.qmd
           #   text: "Lab 2 Instructions"
           # - href: labs/instructions/challenge-2-instructions.qmd

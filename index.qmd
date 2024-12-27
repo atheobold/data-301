@@ -7,36 +7,36 @@ This page contains an outline of the topics, content, and assignments for the qu
 
 <!-- TODO: Switch to spreadsheet for content (like Mine and Maria do) -->
 
-| Week        | Date                    | Required Reading | Lecture Slides | Lab Activity | Weekly Assignment | Project                   |
+| Week | Date | Required Reading | Lecture Slides | Lab Activity | Weekly Assignment | Project |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| 0           |                         |                  |                |              |                   |                           |
-| 1           |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-| 2           |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-| 3           |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-| 4           |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-| 5           |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-| 6           |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-| 7           |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   | Project Proposal Due      |
-| 8           |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-| 9           |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   | Posters Due to be Printed |
-| 10          |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-|             |                         |                  |                |              |                   |                           |
-| Finals Week | Saturday, 10:10am - 1pm |                  |                |              |                   | Poster Presentations      |
+| 0 |  |  | [Welcome to DATA 301!](/slides/00-welcome.qmd "Welcome to DATA 301!") |  |  |  |
+| 1 |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+| 2 |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+| 3 |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+| 4 |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+| 5 |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+| 6 |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+| 7 |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  | Project Proposal Due |
+| 8 |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+| 9 |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  | Posters Due to be Printed |
+| 10 |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |
+| Finals Week | Saturday, 10:10am - 1pm |  |  |  |  | Poster Presentations |
