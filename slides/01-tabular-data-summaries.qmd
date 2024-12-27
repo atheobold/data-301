@@ -11,28 +11,34 @@ execute:
 
 ```{r}
 #| include: false
-#| eval: false
-#| label: how-to-install-packages
-
-## Just for my own reference
-py_install("numpy", pip = TRUE)
-py_install("pandas", pip = TRUE)
-```
-
-
-```{r}
-#| include: false
+#| label: load-packages-declare-python-directory
 
 library(reticulate)
 use_python("/usr/local/bin/python3")
+
+```
+
+```{r}
+#| include: false
+#| eval: false
+#| label: how-to-install-packages
+
+## How to install packages through reticulate
+reticulate::py_install("numpy", pip = TRUE)
+reticulate::py_install("pandas", pip = TRUE)
+
+## How to check if the packages were successfully installed
+reticulate::import("numpy")
+reticulate::import("pandas")
+
 ```
 
 ```{python}
 #| include: false
+#| label: importing-python-packages
 
 import numpy as np
 import pandas as pd
-# import ssl
 
 ```
 
