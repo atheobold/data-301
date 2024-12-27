@@ -4,7 +4,6 @@ format:
   revealjs: 
     theme: [default, style.scss]
     incremental: true 
-    # shift-heading-level-by: -1
 execute:
   echo: true
 ---
