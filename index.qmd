@@ -10,7 +10,7 @@ This page contains an outline of the topics, content, and assignments for the qu
 | Week | Date | Required Reading | Lecture Slides | Lab Activity | Weekly Assignment | Project |
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 | 0 |  |  | [Welcome to DATA 301!](/slides/00-welcome.qmd "Welcome to DATA 301!") |  |  |  |
-| 1 |  |  |  |  |  |  |
+| 1 |  |  | [Tabular Data & Variable Summaries](/slides/01-tabular-data-summaries.qmd "Tabular Data & Variable Summaries") |  |  |  |
 |  |  |  |  |  |  |  |
 | 2 |  |  |  |  |  |  |
 |  |  |  |  |  |  |  |
