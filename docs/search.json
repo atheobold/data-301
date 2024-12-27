@@ -247,5 +247,124 @@
     "title": "Tabular data and variable summaries",
     "section": "Summarizing a data frame",
     "text": "Summarizing a data frame\nQuestions to ask\n\nWhich variables (columns) are categorical?\nWhich variables are quantitative?\nWhich variables are labels (e.g. names or ID numbers)?\nWhich variables are text?\n\nA quick look at the data\n\ndf.describe()\n\n            pclass     survived  ...         fare        body\ncount  1309.000000  1309.000000  ...  1308.000000  121.000000\nmean      2.294882     0.381971  ...    33.295479  160.809917\nstd       0.837836     0.486055  ...    51.758668   97.696922\nmin       1.000000     0.000000  ...     0.000000    1.000000\n25%       2.000000     0.000000  ...     7.895800   72.000000\n50%       3.000000     0.000000  ...    14.454200  155.000000\n75%       3.000000     1.000000  ...    31.275000  256.000000\nmax       3.000000     1.000000  ...   512.329200  328.000000\n\n[8 rows x 7 columns]\n\n\n\n\n\n\nWhat percent of Titanic passengers survived?\nWhat was the average (mean) fare paid for a ticket?\nWhat percent of Titanic passengers were in First Class?\n\n\n\n\nVariable types\n\nThe variable pclass was categorical, but python assumed it was quantitative.\nIt’s our job to check and fix data!\n\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\n\nSummary of categorical variable\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#data-are-stored-in-plain-text-files",
+    "href": "slides/01-tabular-data-summaries.html#data-are-stored-in-plain-text-files",
+    "title": "Tabular data and variable summaries",
+    "section": "Data are stored in plain text files",
+    "text": "Data are stored in plain text files\n\nname,pclass,survived,sex,age,sibsp,parch,ticket,fare,cabin,embarked,boat,body,home.dest\n\"Allen, Miss. Elisabeth Walton\",1,1,female,29,0,0,24160,211.3375,B5,S,2,,\"St Louis, MO\"\n\"Allison, Master. Hudson Trevor\",1,1,male,0.9167,1,2,113781,151.5500,C22 C26,S,11,,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Miss. Helen Loraine\",1,0,female,2,1,2,113781,151.5500,C22 C26,S,,,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Mr. Hudson Joshua Creighton\",1,0,male,30,1,2,113781,151.5500,C22 C26,S,,135,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Mrs. Hudson J C (Bessie Waldo Daniels)\",1,0,female,25,1,2,113781,151.5500,C22 C26,S,,,\"Montreal, PQ / Chesterville, ON\"\n\"Anderson, Mr. Harry\",1,1,male,48,0,0,19952,26.5500,E12,S,3,,\"New York, NY\"\n\"Andrews, Miss. Kornelia Theodosia\",1,1,female,63,1,0,13502,77.9583,D7,S,10,,\"Hudson, NY\"\n\"Andrews, Mr. Thomas Jr\",1,0,male,39,0,0,112050,0.0000,A36,S,,,\"Belfast, NI\"\n\"Appleton, Mrs. Edward Dale (Charlotte Lamson)\",1,1,female,53,2,0,11769,51.4792,C101,S,D,,\"Bayside, Queens, NY\"\n\"Artagaveytia, Mr. Ramon\",1,0,male,71,0,0,PC 17609,49.5042,,C,,22,\"Montevideo, Uruguay\"\n\"Astor, Col. John Jacob\",1,0,male,47,1,0,PC 17757,227.5250,C62 C64,C,,124,\"New York, NY\"\n\n\n\nThis is called a csv (comma-separated) file.\nYou might see it stored as something.csv or something.txt\n.txt files might have different delimiters (separators)"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#reading-data",
+    "href": "slides/01-tabular-data-summaries.html#reading-data",
+    "title": "Tabular data and variable summaries",
+    "section": "Reading data",
+    "text": "Reading data\nWe read the data into a program like Python by specifying:\n\nwhat type of file it is (e.g., .csv, .txt, .xlsx)\nwhere the csv file is located (the “path”)\nif the file has a header\n… and other information in special cases!"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#example-using-pandas-data-frame",
+    "href": "slides/01-tabular-data-summaries.html#example-using-pandas-data-frame",
+    "title": "Tabular data and variable summaries",
+    "section": "Example using pandas data frame:",
+    "text": "Example using pandas data frame:\n\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\n\n\n\n\n\nread_csv() lives in pandas\n\n\n\n\n\n\n\n\ndf.head()\n\n\n\n\n                                              name  ...                        home.dest\n0                    Allen, Miss. Elisabeth Walton  ...                     St Louis, MO\n1                   Allison, Master. Hudson Trevor  ...  Montreal, PQ / Chesterville, ON\n2                     Allison, Miss. Helen Loraine  ...  Montreal, PQ / Chesterville, ON\n3             Allison, Mr. Hudson Joshua Creighton  ...  Montreal, PQ / Chesterville, ON\n4  Allison, Mrs. Hudson J C (Bessie Waldo Daniels)  ...  Montreal, PQ / Chesterville, ON\n\n[5 rows x 14 columns]"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#check-in",
+    "href": "slides/01-tabular-data-summaries.html#check-in",
+    "title": "Tabular data and variable summaries",
+    "section": "Check in:",
+    "text": "Check in:\n\n\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\n\n\n\n\nWhat if this file lived on a computer instead of online?\nWhy didn’t we have to specify that this dataset has a header?"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#looking-at-the-rows",
+    "href": "slides/01-tabular-data-summaries.html#looking-at-the-rows",
+    "title": "Tabular data and variable summaries",
+    "section": "Looking at the rows",
+    "text": "Looking at the rows\n\n\n\n\ndf.loc[1, :]\n\nname          Allison, Master. Hudson Trevor\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: 1, dtype: object\n\n\n\n\n\n\n\n\ndf.iloc[1, :]\n\nname          Allison, Master. Hudson Trevor\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: 1, dtype: object\n\n\n\n\n\n\nWhat is the difference between .loc and .iloc?\nWhat type of object is returned?"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#lecture-1.1-check-in",
+    "href": "slides/01-tabular-data-summaries.html#lecture-1.1-check-in",
+    "title": "Tabular data and variable summaries",
+    "section": "Lecture 1.1 Check in",
+    "text": "Lecture 1.1 Check in\n\n\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\n\n\n\nQuestion 1: What if this file lived on a computer instead of online?\nQuestion 2: Why didn’t we have to specify that this dataset has a header?"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#loc-iloc-and-index",
+    "href": "slides/01-tabular-data-summaries.html#loc-iloc-and-index",
+    "title": "Tabular data and variable summaries",
+    "section": "loc, iloc, and index",
+    "text": "loc, iloc, and index\n\ndf2 = df.set_index('name')\n\n\n\n\n                                                 pclass  ...                        home.dest\nname                                                     ...                                 \nAllen, Miss. Elisabeth Walton                         1  ...                     St Louis, MO\nAllison, Master. Hudson Trevor                        1  ...  Montreal, PQ / Chesterville, ON\nAllison, Miss. Helen Loraine                          1  ...  Montreal, PQ / Chesterville, ON\nAllison, Mr. Hudson Joshua Creighton                  1  ...  Montreal, PQ / Chesterville, ON\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)       1  ...  Montreal, PQ / Chesterville, ON\n\n[5 rows x 13 columns]\n\n\n\n\n\n\n\n\n\n\nWhy are there 13 columns now? (There were 14 before!)"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#loc-iloc-and-index-1",
+    "href": "slides/01-tabular-data-summaries.html#loc-iloc-and-index-1",
+    "title": "Tabular data and variable summaries",
+    "section": "loc, iloc, and index",
+    "text": "loc, iloc, and index\n\n\n\ndf2.loc[1, :]\n\nKeyError: 1\n\n\n\n\n\n\ndf2.iloc[1, :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object\n\n\n\n\n\n\nWhy is .loc returning an error?\n\n\n\n\n\nWhy is .iloc not returning an error?"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#loc-iloc-and-index-2",
+    "href": "slides/01-tabular-data-summaries.html#loc-iloc-and-index-2",
+    "title": "Tabular data and variable summaries",
+    "section": "loc, iloc, and index",
+    "text": "loc, iloc, and index\n\n\n.loc – label-based location\n\n\nUses labels from rows (rownames) to select data\n\n\n\ndf2.loc[\"Allison, Master. Hudson Trevor\", :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object\n\n\n\n\n\n\n\n\n.iloc – integer location\n\n\nUses indices (positions) from rows to select data\n\n\n\ndf2.iloc[1, :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#looking-at-columns",
+    "href": "slides/01-tabular-data-summaries.html#looking-at-columns",
+    "title": "Tabular data and variable summaries",
+    "section": "Looking at columns",
+    "text": "Looking at columns\n\n\n\ndf.columns\n\nIndex(['name', 'pclass', 'survived', 'sex', 'age', 'sibsp', 'parch', 'ticket',\n       'fare', 'cabin', 'embarked', 'boat', 'body', 'home.dest'],\n      dtype='object')\n\n\n\n\n\n\n\ndf['home.dest']\n\n0                          St Louis, MO\n1       Montreal, PQ / Chesterville, ON\n2       Montreal, PQ / Chesterville, ON\n3       Montreal, PQ / Chesterville, ON\n4       Montreal, PQ / Chesterville, ON\n                     ...               \n1304                                NaN\n1305                                NaN\n1306                                NaN\n1307                                NaN\n1308                                NaN\nName: home.dest, Length: 1309, dtype: object\n\n\n\n\n\n\n\n\n\n\n\nNaN (Not a Number) represents missing or null data"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#caution-object-types",
+    "href": "slides/01-tabular-data-summaries.html#caution-object-types",
+    "title": "Tabular data and variable summaries",
+    "section": "Caution: Object types",
+    "text": "Caution: Object types\n\ntype(df)\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\n\n\n\n\n\ntype(df.iloc[1, :])\n\n&lt;class 'pandas.core.series.Series'&gt;\n\n\n\n\n\n\ntype(df['name'])\n\n&lt;class 'pandas.core.series.Series'&gt;\n\n\n\n\n\n\n\n\n\n\nA Series is a one-dimensional labeled array (a vector with labels)"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#questions-to-ask",
+    "href": "slides/01-tabular-data-summaries.html#questions-to-ask",
+    "title": "Tabular data and variable summaries",
+    "section": "Questions to ask",
+    "text": "Questions to ask\n\nWhich variables (columns) are categorical?\nWhich variables are quantitative?\nWhich variables are labels (e.g. names or ID numbers)?\nWhich variables are text?"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#a-quick-look-at-the-data",
+    "href": "slides/01-tabular-data-summaries.html#a-quick-look-at-the-data",
+    "title": "Tabular data and variable summaries",
+    "section": "A quick look at the data",
+    "text": "A quick look at the data\n\n\ndf.describe()\n\n            pclass     survived  ...         fare        body\ncount  1309.000000  1309.000000  ...  1308.000000  121.000000\nmean      2.294882     0.381971  ...    33.295479  160.809917\nstd       0.837836     0.486055  ...    51.758668   97.696922\nmin       1.000000     0.000000  ...     0.000000    1.000000\n25%       2.000000     0.000000  ...     7.895800   72.000000\n50%       3.000000     0.000000  ...    14.454200  155.000000\n75%       3.000000     1.000000  ...    31.275000  256.000000\nmax       3.000000     1.000000  ...   512.329200  328.000000\n\n[8 rows x 7 columns]\n\n\n\n\nLecture 1.1 Check in\n\n\n\nQuestion 3: What percent of Titanic passengers survived?\nQuestion 4: What was the average (mean) fare paid for a ticket?"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#variable-types",
+    "href": "slides/01-tabular-data-summaries.html#variable-types",
+    "title": "Tabular data and variable summaries",
+    "section": "Variable types",
+    "text": "Variable types\n\nThe variable pclass was categorical, but python assumed it was quantitative.\nIt’s our job to check and fix data!\n\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\n\nLecture 1.1 Check in\n\n\n\nQuestion 6: Which is the correct way to change a numeric column to a categorical variable?"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#summary-of-categorical-variable",
+    "href": "slides/01-tabular-data-summaries.html#summary-of-categorical-variable",
+    "title": "Tabular data and variable summaries",
+    "section": "Summary of categorical variable",
+    "text": "Summary of categorical variable\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\n\n\n\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#changing-variable-types",
+    "href": "slides/01-tabular-data-summaries.html#changing-variable-types",
+    "title": "Tabular data and variable summaries",
+    "section": "Changing Variable Types",
+    "text": "Changing Variable Types\n\nThe variable pclass was categorical, but Python assumed it was quantitative.\nIt’s our job to check and fix data!\n\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\n\n\n\n\n\n\n\n\n\n\nWhy choose to store pclass as a \"category\" instead of a \"string\"?"
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#lecture-1.1-check-in-2",
+    "href": "slides/01-tabular-data-summaries.html#lecture-1.1-check-in-2",
+    "title": "Tabular data and variable summaries",
+    "section": "Lecture 1.1 Check in",
+    "text": "Lecture 1.1 Check in\nQuestion 5: What percent of Titanic passengers were in First Class?\nQuestion 6: Which is the correct way to change a numeric column to a categorical variable?"
   }
 ]

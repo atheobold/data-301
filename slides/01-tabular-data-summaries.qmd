@@ -42,10 +42,11 @@ import pandas as pd
 
 ```
 
-### Data "on disk"
+# Data "on disk"
 
-### Data are stored in plain text files
+## Data are stored in plain text files
 
+::: {.small}
 ```
 name,pclass,survived,sex,age,sibsp,parch,ticket,fare,cabin,embarked,boat,body,home.dest
 "Allen, Miss. Elisabeth Walton",1,1,female,29,0,0,24160,211.3375,B5,S,2,,"St Louis, MO"
@@ -60,18 +61,21 @@ name,pclass,survived,sex,age,sibsp,parch,ticket,fare,cabin,embarked,boat,body,ho
 "Artagaveytia, Mr. Ramon",1,0,male,71,0,0,PC 17609,49.5042,,C,,22,"Montevideo, Uruguay"
 "Astor, Col. John Jacob",1,0,male,47,1,0,PC 17757,227.5250,C62 C64,C,,124,"New York, NY"
 ```
+:::
 
+::: {.small}
 * This is called a **csv** (*comma-separated*) file.
 
-* You might see it as `something.csv` or `something.txt`
+* You might see it stored as `something.csv` or `something.txt`
 
-* `.txt` files might have different separators
+* `.txt` files might have different delimiters (separators)
+:::
 
-### Reading data
+## Reading data
 
-We *read the data* into a program like `python` by specifying:
+We *read the data* into a program like `Python` by specifying:
 
-* what **type** of file it is
+* what **type** of file it is (e.g., `.csv`, `.txt`, `.xlsx`)
 
 * **where** the csv file is located (the **"path"**)
 
@@ -79,92 +83,283 @@ We *read the data* into a program like `python` by specifying:
 
 * ... and other information in special cases!
 
-### Example using `pandas` data frame:
+## Example using `pandas` data frame:
 
 ```{python}
+#| code-line-numbers: false
+#| label: read-in-data-from-online
 
 df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+```
+
+::: {.callout-tip}
+# `read_csv()` lives in `pandas`
+:::
+
+. . .
+
+```{python}
+#| code-line-numbers: false
+#| label: inspect-data-code
+#| eval: false
 
 df.head()
 ```
 
-### Check in:
-
+::: {.small}
 ```{python}
-df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+#| code-line-numbers: false
+#| label: inspect-data-preview
+#| echo: false
 
 df.head()
 ```
+:::
+
+## Lecture 1.1 Check in
+
+::: {.small}
+
+```{python}
+#| code-line-numbers: false
+#| label: check-in-part-1
+
+df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+```
+:::
 
 :::{.callout}
 
-* What if this file lived on a computer instead of online?
+**Question 1:** What if this file lived on a computer instead of online?
 
-* Why didn't we have to specify that this dataset has a header?
+**Question 2:** Why didn't we have to specify that this dataset has a header?
 
 :::
 
-### Looking at rows
+## Looking at the rows
 
+::: columns
+::: {.column width="48%"}
+::: {.small}
 ```{python}
+#| code-line-numbers: false
+#| label: inspecting-rows-loc
+
 df.loc[1, :]
+```
+:::
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="47%"}
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| label: inspecting-rows-iloc
+
 df.iloc[1, :]
 ```
+:::
+:::
+:::
 
-### Looking at rows
-
-:::{.callout}
+. . .
 
 * What is the difference between `.loc` and `.iloc`?
 
 * What **type** of object is returned?
 
-:::
-
-### loc, iloc, and index
+## loc, iloc, and index
 
 ```{python}
-#| error: true
+#| code-line-numbers: false
+#| label: moving-name-to-row-ID
 
 df2 = df.set_index('name')
-df2.loc[1, :]
-df2.iloc[1, :]
 ```
-### loc, iloc, and index
+::: {.small}
+```{python}
+#| echo: false
+#| label: preview-data-with-rownames
 
-Think of `iloc` as **integer location**.
+df2.head()
+```
+:::
 
+</br>
+
+::: {.callout-warning}
+# Why are there 13 columns now? (There were 14 before!)
+:::
+
+## loc, iloc, and index
+
+::: columns
+::: {.column width="48%"}
 ```{python}
 #| error: true
+#| code-line-numbers: false
+#| label: loc-without-row-label
+
+
+df2.loc[1, :]
+```
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="47%"}
+```{python}
+#| code-line-numbers: false
+#| label: iloc-with-row-label
+
+df2.iloc[1, :]
+```
+:::
+:::
+
+
+::: columns
+::: {.column width="48%"}
+::: {.fragment}
+Why is `.loc` returning an error? 
+:::
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="47%"}
+::: {.fragment}
+Why is `.iloc` not returning an error? 
+:::
+:::
+:::
+
+
+
+## loc, iloc, and index
+
+::: columns
+::: {.column width="48%"}
+**`.loc`** -- label-based location
+
+::: {.small}
+- Uses labels from rows (rownames) to select data
+
+::: {.fragment}
+```{python}
+#| code-line-numbers: false
+#| label: loc-with-row-label
 
 df2.loc["Allison, Master. Hudson Trevor", :]
 ```
+:::
+:::
+:::
 
+::: {.column width="3%"}
+:::
 
-### Looking at columns
+::: {.column width="47%"}
+::: {.fragment}
+**`.iloc`** -- integer location
 
+::: {.small}
+- Uses indices (positions) from rows to select data
+
+::: {.fragment}
 ```{python}
+#| code-line-numbers: false
+#| label: iloc-with-row-label-2
+
+df2.iloc[1, :]
+```
+:::
+:::
+:::
+:::
+:::
+
+
+## Looking at columns
+
+::: columns
+::: {.column width="50%"}
+```{python}
+#| label: column-names
+#| code-line-numbers: false
 
 df.columns
+```
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+```{python}
+#| code-line-numbers: false
+#| label: extract-column
 
 df['home.dest']
 ```
+:::
+:::
+:::
 
-### Caution: Object types
+. . .
+
+::: {.callout-tip}
+# `NaN` (Not a Number) represents missing or null data
+:::
+
+## Caution: Object types
 
 ```{python}
+#| code-line-numbers: false
+#| label: object-types-df
 
 type(df)
-type(df.loc[1, :])
+```
+
+</br> 
+
+. . .
+
+```{python}
+#| code-line-numbers: false
+#| label: object-types-loc
+
+type(df.iloc[1, :])
+```
+
+. . .
+
+</br> 
+
+```{python}
+#| code-line-numbers: false
+#| label: object-types-column-extract
+
 type(df['name'])
 ```
 
+. . .
+
+::: {.callout-tip}
+# A `Series` is a one-dimensional labeled array (a vector with labels)
+:::
 
 
+# Summarizing a Data Frame
 
-## Summarizing a data frame
-
-### Questions to ask
+## Questions to ask
 
 * Which variables (columns) are **categorical**?
 
@@ -174,42 +369,75 @@ type(df['name'])
 
 * Which variables are **text**?
 
+## A quick look at the data
 
-
-
-### A quick look at the data
-
+::: {.small}
 ```{python}
+#| code-line-numbers: false
+#| label: data-summary
 
 df.describe()
 ```
-:::{.callout}
-
-* What percent of *Titanic* passengers survived?
-
-* What was the average (mean) fare paid for a ticket?
-
-* What percent of *Titanic* passengers were in First Class?
-
 :::
 
-### Variable types
+</br> 
 
-* The variable `pclass` was **categorical**, but python assumed it was *quantitative*.
+#### Lecture 1.1 Check in
+
+::: {.callout}
+
+**Question 3:** What percent of *Titanic* passengers survived?
+
+**Question 4:** What was the average (mean) fare paid for a ticket?
+:::
+
+## Changing Variable Types
+
+* The variable `pclass` was **categorical**, but Python assumed it was
+*quantitative*.
 
 * It's our job to check and fix data!
 
+. . .
+
 ```{python}
+#| code-line-numbers: false
+#| label: changing-data-types
 
 df["pclass"] = df["pclass"].astype("category")
 ```
 
-### Summary of categorical variable
+</br>
+
+. . .
+
+::: {.callout-note}
+# Why choose to store `pclass` as a `"category"` instead of a `"string"`?
+:::
+
+## Summary of categorical variable
 
 ```{python}
+#| code-line-numbers: false
+#| label: counts-of-class-variable
 
 df["pclass"].value_counts()
+```
+
+. . .
+
+</br> 
+
+```{python}
+#| code-line-numbers: false
+#| label: proportions-of-class-variable
 
 df["pclass"].value_counts(normalize = True)
 ```
 
+## Lecture 1.1 Check in
+
+**Question 5:** What percent of *Titanic* passengers were in First Class?
+
+**Question 6:** Which is the correct way to change a numeric column to a
+categorical variable? 
