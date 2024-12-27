@@ -2,30 +2,43 @@
 title: "Tabular data and variable summaries"
 format:  
   revealjs: 
-    theme: [default, spring.scss]
+    theme: [default, style.scss]
     incremental: true 
-    shift-heading-level-by: -1
+    # shift-heading-level-by: -1
 execute:
   echo: true
 ---
 
 ```{r}
 #| include: false
+#| eval: false
+#| label: how-to-install-packages
+
+## Just for my own reference
+py_install("numpy", pip = TRUE)
+py_install("pandas", pip = TRUE)
+```
+
+
+```{r}
+#| include: false
+
 library(reticulate)
 use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
 #| include: false
+
 import numpy as np
 import pandas as pd
+# import ssl
+
 ```
-
-
 
 ### Data "on disk"
 
-### Data is stored in plain text files
+### Data are stored in plain text files
 
 ```
 name,pclass,survived,sex,age,sibsp,parch,ticket,fare,cabin,embarked,boat,body,home.dest
@@ -63,7 +76,9 @@ We *read the data* into a program like `python` by specifying:
 ### Example using `pandas` data frame:
 
 ```{python}
+
 df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+
 df.head()
 ```
 
@@ -71,6 +86,8 @@ df.head()
 
 ```{python}
 df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+
+df.head()
 ```
 
 :::{.callout}
@@ -102,6 +119,7 @@ df.iloc[1, :]
 
 ```{python}
 #| error: true
+
 df2 = df.set_index('name')
 df2.loc[1, :]
 df2.iloc[1, :]
@@ -112,6 +130,7 @@ Think of `iloc` as **integer location**.
 
 ```{python}
 #| error: true
+
 df2.loc["Allison, Master. Hudson Trevor", :]
 ```
 
@@ -119,7 +138,9 @@ df2.loc["Allison, Master. Hudson Trevor", :]
 ### Looking at columns
 
 ```{python}
+
 df.columns
+
 df['home.dest']
 ```
 
@@ -153,6 +174,7 @@ type(df['name'])
 ### A quick look at the data
 
 ```{python}
+
 df.describe()
 ```
 :::{.callout}
@@ -172,13 +194,16 @@ df.describe()
 * It's our job to check and fix data!
 
 ```{python}
+
 df["pclass"] = df["pclass"].astype("category")
 ```
 
 ### Summary of categorical variable
 
 ```{python}
+
 df["pclass"].value_counts()
+
 df["pclass"].value_counts(normalize = True)
 ```
 
