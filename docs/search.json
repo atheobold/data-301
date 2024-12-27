@@ -1,0 +1,251 @@
+[
+  {
+    "objectID": "course-materials/syllabus.html#course-objectives",
+    "href": "course-materials/syllabus.html#course-objectives",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Course Objectives",
+    "text": "Course Objectives\nAfter taking this course, you will be able to:\n\nAcquire and process tabular, textual, hierarchical, and geospatial data.\nUncover patterns by summarizing and visualizing data.\nApply machine learning to answer real-world prediction problems.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#prerequisites",
+    "href": "course-materials/syllabus.html#prerequisites",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nI expect you to enter this class with:\n\nBasic knowledge of Python and computer programming concepts.\nFamiliarity with computers and technology (e.g., Internet browsing, word processing, opening/saving files, converting files to PDF format, sending and receiving e-mail, etc.).\nA positive attitude, a curious mind, and a respect for ethical use of data science tools.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lecture-check-ins-5",
+    "href": "course-materials/syllabus.html#lecture-check-ins-5",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lecture Check-Ins (5%)",
+    "text": "Lecture Check-Ins (5%)\nEvery lecture will be accompanied by a simple “Check-In Quiz” on Canvas. This will ask you to input a few answers covered in lecture, and one short mid-lecture practice exercise. Infinite submissions are allowed without penalty, so there is no reason anyone should not get 100% in this category.\nIf you miss lecture, you can still complete the Check-Ins on your own time, by midnight the next day.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lab-attendance-and-activities-10",
+    "href": "course-materials/syllabus.html#lab-attendance-and-activities-10",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lab Attendance and Activities (10%)",
+    "text": "Lab Attendance and Activities (10%)\nAttendance and participation in the lab portion of class is required. Do not take this class if you cannot commit to attending every lecture and every lab.\n\nSwapping Lab Sections\nIf you cannot make it to your assigned lab, but you can attend another section’s lab on the same day, please e-mail Dr. Theobold to inform them that you wish to swap lab sections. You may do this two times throughout the quarter.\n\n\nMissing Lab\nIf you cannot make it to any lab sections that day, you may complete the Colab assignment from lab on your own, and e-mail a PDF to Dr. Theobold by midnight that night (the day you missed class). Dr. Theobold will grade your Colab, and this score will replace your attendance for that day. You may do this two times throughout the quarter.\nTo allow for emergencies, we will also forgive one absence at the end of the quarter.\n\n\n\n\n\n\nNote\n\n\n\nWe are effectively allowing you to miss / reschedule up to three labs out of 10. If you need to miss more than three, then you will need to retake this course next quarter.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lab-assignments-25",
+    "href": "course-materials/syllabus.html#lab-assignments-25",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lab Assignments (25%)",
+    "text": "Lab Assignments (25%)\nEach week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are due every Friday at 5pm. See the Late Work section below for information on extensions or deductions for late submissions.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#exams-15-each",
+    "href": "course-materials/syllabus.html#exams-15-each",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Exams (15% each)",
+    "text": "Exams (15% each)\nYou will have two in-class exams, in Week 5 and Week 10. These will each cover half of the class material. Except in very extreme unforeseeable circumstances, no alternate exams will be given; please plan to be in class these days.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#project-30",
+    "href": "course-materials/syllabus.html#project-30",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Project (30%)",
+    "text": "Project (30%)\nAt the end of the quarter, you will formally present a poster of your findings on a real-world data question. To ensure that you start thinking about your project early, you are required to submit a 1-page abstract proposal in Week 7.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#communication",
+    "href": "course-materials/syllabus.html#communication",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Communication",
+    "text": "Communication\nFor questions of general interest, such as deadline clarifications or conceptual questions, please use the Class Discord Server. You should check the relevant thread of the server, as well as the syllabus, before reaching out to Dr. Theobold.\nOf course, if your question is truly private, such as a grade inquiry or a personal concern, you may email me directly.\n\n\n\n\n\n\nNote\n\n\n\nIf you email me to ask a question that should be public, I will likely ask you to post your question on Discord instead. Please don’t take this personally! It just means that you asked a good question, and I think the rest of the class could benefit from seeing the answer.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#late-work",
+    "href": "course-materials/syllabus.html#late-work",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Late Work",
+    "text": "Late Work\nLate assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!\n\n\n\n\n\n\nNote\n\n\n\nNote that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.\n\n\n\nDeadline Extensions\nIn case of emergency, you have two deadline “extensions” to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.\nThe rules for these are as follows:\n\nYou must request the extension through the Google form linked on Canvas. Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.\nThe extension must be requested before the deadline has passed (i.e., before Friday at 5pm). I do not grant after-deadline extensions for any reason.\n\nProperly requested extensions are automatically granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.\n\n\n\n\n\n\nNote\n\n\n\nThese deadline extensions are automatic! You don’t have to tell why you need the extension - maybe you have a busy week with other work, maybe you are traveling with a sports team, maybe you partied too hard for your friend’s birthday. It doesn’t matter to me!\nThe flip side of this, though, is that if you use your deadline extensions early on in the course, and then run into a bigger issues later on, you’re out of luck.\n\n\n\n\nSpecial cases\nSometimes, issues arise require more time than the auto-extension gives. In general, if something comes up in your life, I always want to find a way to help. Please let me know what your situation is, and we’ll work together to find a good solution.\nThe most important thing is that you tell me early. As a rule, I do not grant extensions after the deadline.\n\n\n\n\n\n\nNote\n\n\n\nOf course, in the case of a major crisis, that is truly exceptional and unforeseen, all these rules go out the window. I want you to feel comfortable reaching out to me when you are facing something extra difficult. We’ll figure it out.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#academic-integrity",
+    "href": "course-materials/syllabus.html#academic-integrity",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\nYou are expected to abide by the Cal Poly Code of Conduct at all times.\n\nPlagiarism\nYou are encouraged to work with other classmates on all but the exam portions of this class. You are also encouraged (realistically, required!) to make use of online resources to accomplish tasks.\nWhen dealing with code, follow these guidelines:\n\nNever copy-paste more than small snippets of code. That is, you might borrow a little three-line function from StackOverflow, but you should not copy over a full analysis you find on Kaggle.\nAttribute all code that is not completely your own. If you do borrow that StackOverflow snippet, provide a link to the source. If you reference a similar analysis for ideas, mention that in your description.\n\n\n\n\n\n\n\nWarning\n\n\n\nA good “rule of thumb” is: If I sat you down by yourself in a room with no internet, could you explain to me roughly what each line of code is doing? If not, you are probably borrowing more than you should from your online source.\n(In fact, this is exactly what I will do if I need to investigate possible cheating.)\n\n\n\nAI tools\nNew AI models like Chat GPT offer a whole new world of online coding resources. This is exciting! You should absolutely feel free to get help from these tools, they are excellent at answering questions.\nHowever, from an academic integrity perspective, treat these AI generative chat resources like, say, a tutor. Asking a tutor to help explain a homework concept to you or help debug your code? Totally fine! Giving the tutor a homework question and having them answer the whole thing? Nope. Talking to a tutor at all, about anything, during the course of the exam? Unacceptable.\n\n\n\nIntegrity Violations\nIf you accidentally forget a small citation, or go a little overboard in how much you “borrow” from StackOverflow, you’ll get a warning and a grade deduction on that assignment.\nAny instance of willful and deliberate cheating will result in a failing grade on the assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.\n\n\n\n\n\n\nWarning\n\n\n\nBe careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have both received a failing grade on the assignment and a report filed to OSRR.\n\n\n\n\nIntellectual property\nThe materials for this course are legally the professor’s intellectual property.\nMost class materials are publicly shared, and you are welcome to direct others to this resource at any time. You are also welcome to publicly share any or all of your work on the class project.\nNon-public class materials—most importantly, assignment solutions and any exam materials—may never be shared.\n\n\n\n\n\n\nWarning\n\n\n\nThis is not just an issue of academic honestly, it is quite literally a legal copyright scenario. Please do not distribute solutions or exam questions from this class anywhere, for any reason. Doing so is a violation of the Code of Conduct, and it may constitute a violation of U.S. copyright law.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#class-conduct",
+    "href": "course-materials/syllabus.html#class-conduct",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Class Conduct",
+    "text": "Class Conduct\nIn this classroom, I expect you to be polite, respectful, inclusive, and open-minded.\nSome examples of how to be a good classmate include:\n\nDoing your best to avoid language that is ableist, racist, sexist, transphobic, or classist; or that perpetuates harmful stereotypes.\nAddressing your classmates (and your professor!) by their preferred name and pronouns.\nDoing your best to be aware of your own biases, privileges, and areas of ignorance.\nListening to others’ opinions, and making an effort to understand their perspective.\nTaking the time to help your classmates grasp concepts or solve problems, even when you are ready to move on.\n\n\nAttendance\nIt is my general expectation that you will attend lecture, and remain present until you have finished the day’s in-class work. However, I do not take formal attendance in class; as long as you engage with the material and complete the small check-ins, you can decide which lectures are useful to you.\nPlease do not email me letting me know when you are missing class - I don’t need to know if you are attending, it is your responsibility to catch up on the materials and check-ins you miss.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Data Science (in Python)",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nProject\n\n\n\n\n0\n\n\nWelcome to DATA 301!\n\n\n\n\n\n1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject Proposal Due\n\n\n8\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosters Due to be Printed\n\n\n10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinals Week\nSaturday, 10:10am - 1pm\n\n\n\n\nPoster Presentations",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#about-me",
+    "href": "slides/00-welcome.html#about-me",
+    "title": "Welcome, Intro, and Setup",
+    "section": "About Me",
+    "text": "About Me\n\n\n\n\n\n\nGrew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, Tegan and Sara",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#grade-brakedown",
+    "href": "slides/00-welcome.html#grade-brakedown",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Grade Brakedown",
+    "text": "Grade Brakedown\n\n5%: Check-Ins – pay attention to lecture\n10%: Lab Activities – Lab attendance is required\n25%: Weekly Assignments – due Fridays at 5pm\n15% each: Exams in Week 5 and Week 9.\n30%: Final project",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#important-dates",
+    "href": "slides/00-welcome.html#important-dates",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Important Dates",
+    "text": "Important Dates\n\nWeds, May 1: Exam 1 (in-class)\nFri, May 17: 1-page Project Proposal Due\nWeds, May 29: Exam 2 (in-class)\nSaturday before Finals Week: Final Project Poster Presentations",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#homework-late-policy",
+    "href": "slides/00-welcome.html#homework-late-policy",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Homework Late Policy",
+    "text": "Homework Late Policy\n\n-10% per day for the first 5 days\nAfter that, I won’t grade your work - a perfect complete assignment gets 50%, anything else gets 0%.\n(Yes, even if you turn it in at 5pm on Friday of Week 10.)\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#missing-lab",
+    "href": "slides/00-welcome.html#missing-lab",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Missing Lab",
+    "text": "Missing Lab\n\nBest option: Go to another section.\nSecond-best option: Turn in your work by email to me.\nWorst option: Miss it entirely, get a 0.\nYou may do each of these options only twice. If you need to miss / reschedule more than 3 of the sections in the quarter, you will need to retake the class.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#discord-and-email",
+    "href": "slides/00-welcome.html#discord-and-email",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Discord and Email",
+    "text": "Discord and Email\n\nClass questions go on DISCORD\nUse my email only for personal concerns that you want to talk about privately to me.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#colab-notebooks",
+    "href": "slides/00-welcome.html#colab-notebooks",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Colab Notebooks",
+    "text": "Colab Notebooks\n\nIn Data Science, everyone uses Notebooks, not scripts, for coding.\nWe will be using Jupyter Notebooks (invented at Cal Poly!), hosted for free by Google Colab.\nIf you want to work offline, you can install Anaconda on your laptop.\nI recommend an IDE like PyCharm as well.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#academic-integrity",
+    "href": "slides/00-welcome.html#academic-integrity",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\n\nIf you copy text from a website into your essay, it’s cheating.\nIf you ask your friend to write your essay, it’s cheating.\nIf you pay someone else to write your essay, it’s cheating.\n\n….\n\nIf you ask GenAI to do your work and then copy the answers, it’s cheating.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#conversation-not-copying",
+    "href": "slides/00-welcome.html#conversation-not-copying",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Conversation, not copying",
+    "text": "Conversation, not copying\nIt is okay (in fact, encouraged) to …\n\nAsk GenAI for tips on how to get started on a coding problem\nAsk GenAI to help find bugs in your code\nAsk GenAI to help explain concepts or functions\nPretend ChatGPT is your human tutor or TA!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
+    "href": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Activity: Good and bad use of AI",
+    "text": "Activity: Good and bad use of AI\n\nOpen the activity notebook on Canvas.\n5 minutes: Person A follow the instructions in Part 1 of the notebook. Person B watch, but do not give input, unless they are stuck.\n5 minutes: Person B follow the instructions in Part 2 of the notebook. Person A watch, but do not give input, unless they are stuck.\n5 minutes: Discuss and answer the questions at the bottom.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/01-tabular-data-summaries.html#summarizing-a-data-frame",
+    "href": "slides/01-tabular-data-summaries.html#summarizing-a-data-frame",
+    "title": "Tabular data and variable summaries",
+    "section": "Summarizing a data frame",
+    "text": "Summarizing a data frame\nQuestions to ask\n\nWhich variables (columns) are categorical?\nWhich variables are quantitative?\nWhich variables are labels (e.g. names or ID numbers)?\nWhich variables are text?\n\nA quick look at the data\n\ndf.describe()\n\n            pclass     survived  ...         fare        body\ncount  1309.000000  1309.000000  ...  1308.000000  121.000000\nmean      2.294882     0.381971  ...    33.295479  160.809917\nstd       0.837836     0.486055  ...    51.758668   97.696922\nmin       1.000000     0.000000  ...     0.000000    1.000000\n25%       2.000000     0.000000  ...     7.895800   72.000000\n50%       3.000000     0.000000  ...    14.454200  155.000000\n75%       3.000000     1.000000  ...    31.275000  256.000000\nmax       3.000000     1.000000  ...   512.329200  328.000000\n\n[8 rows x 7 columns]\n\n\n\n\n\n\nWhat percent of Titanic passengers survived?\nWhat was the average (mean) fare paid for a ticket?\nWhat percent of Titanic passengers were in First Class?\n\n\n\n\nVariable types\n\nThe variable pclass was categorical, but python assumed it was quantitative.\nIt’s our job to check and fix data!\n\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\n\nSummary of categorical variable\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64"
+  }
+]
