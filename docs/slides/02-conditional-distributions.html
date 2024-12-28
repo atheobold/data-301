@@ -868,7 +868,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 
-<img data-src="02-conditional-distributions_files/figure-revealjs/stacked-bar-plot-11.png" width="614" class="r-stretch"></section>
+<img data-src="02-conditional-distributions_files/figure-revealjs/stacked-bar-plot-11.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
 <section id="option-1-stacked-bar-plot-1" class="slide level2">
 <h2>Option 1: Stacked Bar Plot</h2>
 <blockquote>
@@ -914,7 +914,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 
-<img data-src="02-conditional-distributions_files/figure-revealjs/side-by-side-barplot-13.png" width="614" class="r-stretch"></section>
+<img data-src="02-conditional-distributions_files/figure-revealjs/side-by-side-barplot-13.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
 <section id="option-2-side-by-side-bar-plot-1" class="slide level2">
 <h2>Option 2: Side-by-side Bar Plot</h2>
 <blockquote>
@@ -961,7 +961,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 
-<img data-src="02-conditional-distributions_files/figure-revealjs/stacked-percentage-barplot-15.png" width="614" class="r-stretch"></section>
+<img data-src="02-conditional-distributions_files/figure-revealjs/stacked-percentage-barplot-15.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
 <section id="option-3-stacked-percentage-bar-plot-1" class="slide level2">
 <h2>Option 3: Stacked Percentage Bar Plot</h2>
 <blockquote>
@@ -1032,9 +1032,9 @@ Name: proportion, dtype: float64</code></pre>
 
 </section>
 <section id="two-categorical-variables" class="slide level2">
-<h2>Two categorical variables</h2>
+<h2>Two Categorical Variables</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>pclass  sex   
 3       male      493
@@ -1049,8 +1049,14 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="two-way-table" class="slide level2">
 <h2>Two-way Table</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]].value_counts().unstack()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]]</span>
+<span id="cb25-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts()</span>
+<span id="cb25-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
+<span id="cb25-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>sex     female  male
 pclass              
@@ -1058,15 +1064,33 @@ pclass
 2          106   171
 3          216   493</code></pre>
 </div>
-</div>
+</div></div>
+<p><br></p>
 <ul>
 <li>This is sometimes called a <em>cross-tab</em> or <em>cross-tabulation</em>.</li>
 </ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Pivot Table</strong></p>
+</div>
+<div class="callout-content">
+<p>Essentially <code>unstack()</code> has pivoted the <code>sex</code> column from <strong>long format</strong> (where the values are included in one column) to <strong>wide format</strong> where each value has its own column.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="two-way-table---percents" class="slide level2">
 <h2>Two-way Table - Percents</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]].value_counts(normalize<span class="op">=</span><span class="va">True</span>).unstack()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]]</span>
+<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
+<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sex       female      male
 pclass                    
@@ -1075,14 +1099,22 @@ pclass
 3       0.165011  0.376623</code></pre>
 </div>
 </div>
+<p><br></p>
 <ul>
-<li>This should add up to 1, aka, 100%!</li>
+<li>All of these values should sum to 1, aka, 100%!</li>
 </ul>
 </section>
-<section id="switching-variables" class="slide level2">
-<h2>Switching variables</h2>
+<section id="switching-variable-order" class="slide level2">
+<h2>Switching Variable Order</h2>
+<p><strong>What cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if <code>"sex"</code> came first and <code>"pclass"</code> came second?</strong></p>
+<div class="fragment">
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>df[[<span class="st">"sex"</span>, <span class="st">"pclass"</span>]].value_counts(normalize<span class="op">=</span><span class="va">True</span>).unstack()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"sex"</span>, <span class="st">"pclass"</span>]]</span>
+<span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb29-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
+<span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>pclass         1         2         3
 sex                                 
@@ -1090,10 +1122,11 @@ female  0.110008  0.080978  0.165011
 male    0.136746  0.130634  0.376623</code></pre>
 </div>
 </div>
+</div>
 </section>
 <section id="interpretation" class="slide level2">
 <h2>Interpretation</h2>
-<p>We call this the <strong>joint distribution</strong> of the two variables.</p>
+<p>We call this the <strong><em>joint distribution</em></strong> of the two variables.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>sex       female      male
@@ -1103,71 +1136,90 @@ pclass
 3       0.165011  0.376623</code></pre>
 </div>
 </div>
+<p><br></p>
 <blockquote>
-<p>Of all the passengers on the Titanic, 11% were females riding in first class.</p>
+<p>Of all the passengers on the Titanic, 11% were female passengers riding in first class.</p>
 </blockquote>
+<div class="fragment">
 <ul>
 <li>NOT “11% of all females on Titanic…”</li>
 <li>NOT “11% of all first class passengers…”</li>
 </ul>
+</div>
 </section>
 <section id="conditional-distribution-from-counts" class="slide level2">
-<h2>Conditional distribution from counts</h2>
+<h2>Conditional Distribution from Counts</h2>
 <p>We know that:</p>
 <ul>
-<li><p>466 passengers were <strong>female</strong></p></li>
-<li><p>144 passengers were <strong>females in first class</strong></p></li>
+<li><p>466 passengers identified as <strong>female</strong></p></li>
+<li><p>Of those 466 passengers, 144 <strong>rode in first class</strong></p></li>
 </ul>
+<div class="fragment">
 <p>So:</p>
 <ul>
-<li>144/466 = 31% <strong>of female passengers</strong> rode in first class</li>
+<li>144 / 466 = 31% <strong>of female identifying passengers</strong> rode in first class</li>
 </ul>
-<p>Here we <strong>conditioned on</strong> the passenger being female, and then looked at the <strong>conditional distribution</strong> of <code>pclass</code>.</p>
+<p>Here we <strong><em>conditioned on</em></strong> the passenger being female, and then looked at the <strong><em>conditional distribution</em></strong> of <code>pclass</code>.</p>
+</div>
 </section>
-<section id="conditional-distribution-from-counts-1" class="slide level2">
-<h2>Conditional distribution from counts</h2>
+<section id="conditional-distribution-from-percentages" class="slide level2">
+<h2>Conditional Distribution from Percentages</h2>
 <p>We know that:</p>
 <ul>
-<li><p>35.5% of all passengers were <strong>female</strong></p></li>
-<li><p>11% of all passengers were <strong>females in first class</strong></p></li>
+<li><p>35.5% of all passengers identified as <strong>female</strong></p></li>
+<li><p>Of those 35.5% of passengers, 11% <strong>rode in first class</strong></p></li>
 </ul>
 <p>So:</p>
 <ul>
-<li>0.11/0.355 = 31% <strong>of female passengers</strong> rode in first class</li>
+<li>0.11 / 0.355 = 31% <strong>of female identifying passengers</strong> rode in first class</li>
 </ul>
-<p>Here we <strong>conditioned on</strong> the passenger being female, and then looked at the <strong>conditional distribution</strong> of <code>pclass</code>.</p>
+<p>Here we <strong><em>conditioned on</em></strong> the passenger being female, and then looked at the <strong><em>conditional distribution</em></strong> of <code>pclass</code>.</p>
 </section>
 <section id="swapping-variables" class="slide level2">
-<h2>Swapping variables</h2>
+<h2>Swapping Variables</h2>
 <p>We know that:</p>
 <ul>
 <li><p>323 passengers <strong>rode in first class</strong></p></li>
-<li><p>144 passengers were <strong>females in first class</strong></p></li>
+<li><p>Of those 323 passengers, 144 <strong>identified as female</strong></p></li>
 </ul>
 <p>So:</p>
 <ul>
-<li>144/323 = 44.6% <strong>of first class passengers</strong> were female</li>
+<li>144 / 323 = 44.6% <strong>of first class passengers</strong> identified as female</li>
 </ul>
-<p>Here we <strong>conditioned on</strong> the passenger being in first class, and then looked at the <strong>conditional distribution</strong> of <code>sex</code>.</p>
+<p>Here we <strong><em>conditioned on</em></strong> the passenger being in first class, and then looked at the <strong><em>conditional distribution</em></strong> of <code>sex</code>.</p>
 </section>
 <section id="which-one-to-condition-on" class="slide level2">
 <h2>Which one to condition on?</h2>
-<ul>
-<li><p>This depends on the <strong>research question</strong> you are trying to answer.</p></li>
-<li><p>“What class did most female passengers ride in?”</p></li>
-<li><p>-&gt; Of all <em>female passengers</em>, what is the conditional distribution of <em>class</em>?</p></li>
-<li><p>“What was the gender breakdown of first class?”</p></li>
-<li><p>-&gt; Of all <em>first class passengers</em>, what is the conditional distribution of <em>sex</em>?</p></li>
-</ul>
+<p>This depends on the <strong>research question</strong> you are trying to answer.</p>
+<div class="fragment">
+<blockquote>
+<p>“What class did most female identifying passengers ride in?”</p>
+</blockquote>
+<p>-&gt; Of all <em>female passengers</em>, what is the conditional distribution of <em>class</em>?</p>
+</div>
+<div class="fragment">
+<blockquote>
+<p>“What was the gender breakdown of first class?”</p>
+</blockquote>
+<p>-&gt; Of all <em>first class passengers</em>, what is the conditional distribution of <em>sex</em>?</p>
+</div>
 </section>
 <section id="calculating-in-python" class="slide level2">
-<h2>Calculating in python</h2>
+<h2>Calculating in Python</h2>
+<div class="midi">
 <p>When we study two variables, we call the individual one-variable distributions the <strong>marginal distribution</strong> of that variable.</p>
+</div>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:47%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>marginal_class <span class="op">=</span> df[<span class="st">'pclass'</span>].value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb32-2"><a></a>marginal_class</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a>marginal_class <span class="op">=</span> (</span>
+<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'pclass'</span>]</span>
+<span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb32-4"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>marginal_class</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>pclass
 3    0.541635
@@ -1176,10 +1228,18 @@ pclass
 Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:3%;">
+
+</div><div class="column" style="width:48%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>marginal_sex <span class="op">=</span> df[<span class="st">'sex'</span>].value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb34-2"><a></a>marginal_sex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>marginal_sex <span class="op">=</span> (</span>
+<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'sex'</span>]</span>
+<span id="cb35-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb35-4"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>marginal_sex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sex
 male      0.644003
@@ -1190,11 +1250,18 @@ Name: proportion, dtype: float64</code></pre>
 </div></div>
 </section>
 <section id="calculating-in-python-1" class="slide level2">
-<h2>Calculating in python</h2>
+<h2>Calculating in Python</h2>
+<div class="midi">
 <p>We need to divide the <strong>joint distribution</strong> (e.g.&nbsp;“11% of passengers were first class female”) by the <strong>marginal distribution</strong> of the variable we want to <strong>condition on</strong> (e.g.&nbsp;35.5% of passengers were female).</p>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>joint_class_sex <span class="op">=</span> df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]].value_counts(normalize<span class="op">=</span><span class="va">True</span>).unstack()</span>
-<span id="cb36-2"><a></a>joint_class_sex.divide(marginal_sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex <span class="op">=</span> (</span>
+<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]]</span>
+<span id="cb38-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb38-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
+<span id="cb38-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb38-6"><a aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb38-7"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex.divide(marginal_sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sex       female      male
 pclass                    
@@ -1204,9 +1271,55 @@ pclass
 </div>
 </div>
 </section>
-<section id="conditional-on-sex" class="slide level2">
-<h2>Conditional on sex</h2>
-<p>Check: Should the <strong>rows</strong> or <strong>columns</strong> add up to 100%? Why?</p>
+<section id="check-in-1" class="slide level2">
+<h2>Check-In</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a>marginal_sex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sex
+male      0.644003
+female    0.355997
+Name: proportion, dtype: float64</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sex       female      male
+pclass                    
+1       0.110008  0.136746
+2       0.080978  0.130634
+3       0.165011  0.376623</code></pre>
+</div>
+</div>
+</div></div>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:65%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex.divide(marginal_sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sex       female      male
+pclass                    
+1       0.309013  0.212337
+2       0.227468  0.202847
+3       0.463519  0.584816</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:30%;">
+<p><strong>How do you think <code>divide()</code> works?</strong></p>
+</div></div>
+</section>
+<section id="check-in-2" class="slide level2">
+<h2>Check-In</h2>
+<p>Should the <strong>rows</strong> or <strong>columns</strong> add up to 100%? Why?</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>sex       female      male
@@ -1216,16 +1329,17 @@ pclass
 3       0.463519  0.584816</code></pre>
 </div>
 </div>
-</section>
-<section id="check-in-on-the-board" class="slide level2">
-<h2>Check-In (on the board)</h2>
-<p>How does <code>.divide()</code> work?</p>
 </section>
 <section id="conditional-on-class" class="slide level2">
-<h2>Conditional on class</h2>
+<h2>Conditional on Class</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>joint_class_sex <span class="op">=</span> df[[<span class="st">"sex"</span>,<span class="st">"pclass"</span>]].value_counts(normalize<span class="op">=</span><span class="va">True</span>).unstack()</span>
-<span id="cb39-2"><a></a>joint_class_sex.divide(marginal_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex <span class="op">=</span> (</span>
+<span id="cb47-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"sex"</span>, <span class="st">"pclass"</span>]]</span>
+<span id="cb47-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb47-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
+<span id="cb47-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb47-6"><a aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb47-7"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex.divide(marginal_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>pclass        1         2         3
 sex                                
@@ -1237,8 +1351,13 @@ male    0.55418  0.617329  0.695346</code></pre>
 <section id="what-if-you-get-it-backwards" class="slide level2">
 <h2>What if you get it backwards?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>joint_class_sex <span class="op">=</span> df[[<span class="st">"pclass"</span>,<span class="st">"sex"</span>]].value_counts(normalize<span class="op">=</span><span class="va">True</span>).unstack()</span>
-<span id="cb41-2"><a></a>joint_class_sex.divide(marginal_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex <span class="op">=</span> (</span>
+<span id="cb49-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]]</span>
+<span id="cb49-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb49-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
+<span id="cb49-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb49-6"><a aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb49-7"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex.divide(marginal_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         1   2   3  female  male
 pclass                          
@@ -1248,34 +1367,50 @@ pclass
 </div>
 </div>
 </section>
-<section id="visualization" class="slide level2">
-<h2>Visualization</h2>
-<p>Which plot better answers the question, “Did women tend to ride in first class more than men?”</p>
+<section id="which-plot-better-answers-the-question" class="slide level2">
+<h2>Which plot better answers the question:</h2>
+<blockquote>
+<p>“Did women tend to ride in first class more than men?”</p>
+</blockquote>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>(ggplot(df, aes(x <span class="op">=</span> <span class="st">"pclass"</span>, fill <span class="op">=</span> <span class="st">"sex"</span>))</span>
-<span id="cb43-2"><a></a><span class="op">+</span> geom_bar(position <span class="op">=</span> <span class="st">"fill"</span>)</span>
-<span id="cb43-3"><a></a><span class="op">+</span> theme_bw()</span>
-<span id="cb43-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb51-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">"pclass"</span>, fill <span class="op">=</span> <span class="st">"sex"</span>)) <span class="op">+</span> </span>
+<span id="cb51-3"><a aria-hidden="true" tabindex="-1"></a>  geom_bar(position <span class="op">=</span> <span class="st">"fill"</span>) <span class="op">+</span> </span>
+<span id="cb51-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb51-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x1503bf790&gt;</code></pre>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02-conditional-distributions_files/figure-revealjs/filled-bar-plot-question-17.png" width="614"></p>
+</figure>
+</div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>(ggplot(df, aes(x <span class="op">=</span> <span class="st">"sex"</span>, fill <span class="op">=</span> <span class="st">"pclass"</span>))</span>
-<span id="cb45-2"><a></a><span class="op">+</span> geom_bar(position <span class="op">=</span> <span class="st">"fill"</span>)</span>
-<span id="cb45-3"><a></a><span class="op">+</span> theme_bw()</span>
-<span id="cb45-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb52-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">"sex"</span>, fill <span class="op">=</span> <span class="st">"pclass)) + </span></span>
+<span id="cb52-3"><a aria-hidden="true" tabindex="-1"></a><span class="er">  geom_bar</span>(position <span class="op">=</span> <span class="st">"fill"</span>) <span class="op">+</span> </span>
+<span id="cb52-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb52-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x12bf2be10&gt;</code></pre>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02-conditional-distributions_files/figure-revealjs/filled-bar-plot-question-2-19.png" width="614"></p>
+</figure>
+</div>
 </div>
 </div>
 </div></div>
@@ -1287,15 +1422,17 @@ pclass
 </section>
 <section id="takeaways-1" class="slide level2">
 <h2>Takeaways</h2>
-<div class="small">
+<div class="midi">
+<div>
 <ul>
-<li><p>We use <code>plotnine</code> and the <strong>grammar of graphics</strong> to make visuals.</p></li>
-<li><p>For two categorical variables, we might use a <strong>stacked bar plot</strong>, a <strong>side-by-side bar plot</strong>, or a <strong>stacked percentage bar plot</strong> - depending on what we are trying to show.</p></li>
-<li><p>The <strong>joint distribution</strong> of two variables gives the percents in each subcategory.</p></li>
-<li><p>The <strong>marginal distribution</strong> of a variable is its individual distribution.</p></li>
-<li><p>The <strong>conditional distribution</strong> of a variable is its distribution among <em>only one category</em> of a different variable.</p></li>
-<li><p>We calculate the <strong>conditional distribution</strong> by dividing the <strong>joint</strong> by the <strong>marginal</strong>.</p></li>
+<li class="fragment"><p>We use <code>plotnine</code> and the <strong>grammar of graphics</strong> to make visuals.</p></li>
+<li class="fragment"><p>For two categorical variables, we might use a <strong>stacked bar plot</strong>, a <strong>side-by-side bar plot</strong>, or a <strong>stacked percentage bar plot</strong> - depending on what we are trying to show.</p></li>
+<li class="fragment"><p>The <strong>joint distribution</strong> of two variables gives the percents in each subcategory.</p></li>
+<li class="fragment"><p>The <strong>marginal distribution</strong> of a variable is its individual distribution.</p></li>
+<li class="fragment"><p>The <strong>conditional distribution</strong> of a variable is its distribution among <em>only one category</em> of a different variable.</p></li>
+<li class="fragment"><p>We calculate the <strong>conditional distribution</strong> by dividing the <strong>joint</strong> by the <strong>marginal</strong>.</p></li>
 </ul>
+</div>
 </div>
 
 <div class="quarto-auto-generated-content">

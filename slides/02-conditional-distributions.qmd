@@ -390,6 +390,7 @@ Technically, you could still use `geom_bar()`, but you would need to specify tha
 ```{python}
 #| label: stacked-bar-plot
 #| echo: false
+#| fig-align: center
 
 plot = (
   ggplot(data = df, mapping = aes(x = "pclass", fill = "sex")) + 
@@ -451,6 +452,7 @@ plot.draw(plot)
 ```{python}
 #| label: side-by-side-barplot
 #| echo: false
+#| fig-align: center
 
 plot = (
   ggplot(data = df, mapping = aes(x = "pclass", fill = "sex")) + 
@@ -516,6 +518,7 @@ plot.draw(plot)
 ```{python}
 #| label: stacked-percentage-barplot
 #| echo: false
+#| fig-align: center
 
 plot = (
   ggplot(data = df, mapping = aes(x = "pclass", fill = "sex")) + 
@@ -591,181 +594,389 @@ You can do this by:
 
 # Joint distributions
 
-## Two categorical variables
+## Two Categorical Variables
 
 ```{python}
+#| code-line-numbers: false
+#| label: counts-for-two-categorical-variables
+
 df[["pclass", "sex"]].value_counts()
 ```
 
 ## Two-way Table
 
 ```{python}
-df[["pclass", "sex"]].value_counts().unstack()
+#| output-location: column
+#| code-line-numbers: false
+#| label: pivoting-table-of-counts
+
+(
+  df[["pclass", "sex"]]
+  .value_counts()
+  .unstack()
+  )
 ```
 
+</br>
+
 -   This is sometimes called a *cross-tab* or *cross-tabulation*.
+
+::: {.callout-tip}
+# Pivot Table
+
+Essentially `unstack()` has pivoted the `sex` column from **long format** 
+(where the values are included in one column) to **wide format** where each 
+value has its own column. 
+:::
 
 ## Two-way Table - Percents
 
 ```{python}
-df[["pclass", "sex"]].value_counts(normalize=True).unstack()
+#| code-line-numbers: false
+#| label: pivoted-table-of-percents
+
+(
+  df[["pclass", "sex"]]
+  .value_counts(normalize = True)
+  .unstack()
+  )
 ```
 
--   This should add up to 1, aka, 100%!
+</br>
 
-## Switching variables
+-   All of these values should sum to 1, aka, 100%!
+
+## Switching Variable Order
+
+**What cross-tabulation would you expect if we changed the order of the
+variables? In other words, what would happen if `"sex"` came first and 
+`"pclass"` came second?**
+
+. . .
+
+</br>
 
 ```{python}
-df[["sex", "pclass"]].value_counts(normalize=True).unstack()
+#| code-line-numbers: false
+#| label: changing-order-of-categorical-variables
+
+(
+  df[["sex", "pclass"]]
+  .value_counts(normalize = True)
+  .unstack()
+  )
 ```
 
 ## Interpretation
 
-We call this the **joint distribution** of the two variables.
+We call this the ***joint distribution*** of the two variables.
 
 ```{python}
 #| echo: false
-df[["pclass", "sex"]].value_counts(normalize=True).unstack()
+#| label: joint-distribution-pclass-sex
+
+( 
+  df[["pclass", "sex"]]
+  .value_counts(normalize = True)
+  .unstack()
+  )
+  
+# Add row totals
+#table["Total"] = table.sum(axis = 1)
+
+# Add column totals
+#table.loc["Total"] = table.sum(axis = 0)
 ```
 
-> Of all the passengers on the Titanic, 11% were females riding in first class.
+</br>
+
+> Of all the passengers on the Titanic, 11% were female passengers riding in
+> first class.
+
+. . .
 
 -   NOT "11% of all females on Titanic..."
 -   NOT "11% of all first class passengers..."
 
-## Conditional distribution from counts
+## Conditional Distribution from Counts
 
 We know that:
 
--   466 passengers were **female**
+-   466 passengers identified as **female**
 
--   144 passengers were **females in first class**
+-   Of those 466 passengers, 144 **rode in first class**
+
+. . .
 
 So:
 
--   144/466 = 31% **of female passengers** rode in first class
+-   144 / 466 = 31% **of female identifying passengers** rode in first class
 
-Here we **conditioned on** the passenger being female, and then looked at the **conditional distribution** of `pclass`.
+Here we ***conditioned on*** the passenger being female, and then looked at the
+***conditional distribution*** of `pclass`.
 
-## Conditional distribution from counts
+## Conditional Distribution from Percentages
 
 We know that:
 
--   35.5% of all passengers were **female**
+-   35.5% of all passengers identified as **female**
 
--   11% of all passengers were **females in first class**
+-   Of those 35.5% of passengers, 11% **rode in first class**
 
 So:
 
--   0.11/0.355 = 31% **of female passengers** rode in first class
+-   0.11 / 0.355 = 31% **of female identifying passengers** rode in first class
 
-Here we **conditioned on** the passenger being female, and then looked at the **conditional distribution** of `pclass`.
+Here we ***conditioned on*** the passenger being female, and then looked at the ***conditional distribution*** of `pclass`.
 
-## Swapping variables
+## Swapping Variables
 
 We know that:
 
 -   323 passengers **rode in first class**
 
--   144 passengers were **females in first class**
+-   Of those 323 passengers, 144 **identified as female**
 
 So:
 
--   144/323 = 44.6% **of first class passengers** were female
+-   144 / 323 = 44.6% **of first class passengers** identified as female
 
-Here we **conditioned on** the passenger being in first class, and then looked at the **conditional distribution** of `sex`.
+Here we ***conditioned on*** the passenger being in first class, and then looked
+at the ***conditional distribution*** of `sex`.
 
 ## Which one to condition on?
 
--   This depends on the **research question** you are trying to answer.
+This depends on the **research question** you are trying to answer.
 
--   "What class did most female passengers ride in?"
+. . .
 
--   -\> Of all *female passengers*, what is the conditional distribution of *class*?
+> "What class did most female identifying passengers ride in?"
 
--   "What was the gender breakdown of first class?"
+-\> Of all *female passengers*, what is the conditional distribution of
+*class*?
 
--   -\> Of all *first class passengers*, what is the conditional distribution of *sex*?
+. . .
 
-## Calculating in python
+> "What was the gender breakdown of first class?"
 
-When we study two variables, we call the individual one-variable distributions the **marginal distribution** of that variable.
+-\> Of all *first class passengers*, what is the conditional distribution of *sex*?
 
-::::: columns
-::: {.column width="50%"}
-```{python}
-marginal_class = df['pclass'].value_counts(normalize = True)
-marginal_class
-```
+## Calculating in Python
+
+::: {.midi}
+When we study two variables, we call the individual one-variable distributions
+the **marginal distribution** of that variable.
 :::
 
-::: {.column width="50%"}
+::::: columns
+::: {.column width="47%"}
 ```{python}
-marginal_sex = df['sex'].value_counts(normalize = True)
+#| code-line-numbers: false
+#| label: marginal-class
+
+marginal_class = (
+  df['pclass']
+  .value_counts(normalize = True)
+  )
+```
+
+</br> 
+
+```{python}
+#| code-line-numbers: false
+marginal_class
+```
+
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="48%"}
+```{python}
+#| code-line-numbers: false
+#| label: marginal-sex
+
+marginal_sex = (
+  df['sex']
+  .value_counts(normalize = True)
+  )
+```
+
+</br>
+
+```{python}
+#| code-line-numbers: false
 marginal_sex
 ```
+
 :::
 :::::
 
-## Calculating in python
+## Calculating in Python
 
+::: {.midi}
 We need to divide the **joint distribution** (e.g. "11% of passengers were first class female") by the **marginal distribution** of the variable we want to **condition on** (e.g. 35.5% of passengers were female).
+:::
 
 ```{python}
-joint_class_sex = df[["pclass", "sex"]].value_counts(normalize=True).unstack()
+#| code-line-numbers: false
+#| label: joint-to-marginal-sex
+
+joint_class_sex = (
+  df[["pclass", "sex"]]
+  .value_counts(normalize = True)
+  .unstack()
+  )
+  
 joint_class_sex.divide(marginal_sex)
 ```
 
-## Conditional on sex
+## Check-In 
 
-Check: Should the **rows** or **columns** add up to 100%? Why?
+::: columns
+::: {.column width="40%"}
+```{python}
+#| code-line-numbers: false
+#| label: joint-to-marginal-sex-check-in-part-1
+
+marginal_sex
+```
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+```{python}
+#| code-line-numbers: false
+#| label: joint-to-marginal-sex-check-in-part-2
+
+joint_class_sex
+```
+:::
+:::
+
+</br>
+
+::: columns
+::: {.column width="65%"}
+```{python}
+#| code-line-numbers: false
+#| label: joint-to-marginal-sex-check-in-part-3
+
+joint_class_sex.divide(marginal_sex)
+```
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="30%"}
+**How do you think `divide()` works?**
+:::
+:::
+
+
+## Check-In 
+
+Should the **rows** or **columns** add up to 100%? Why?
 
 ```{python}
 #| echo: false
-joint_class_sex = df[["pclass","sex"]].value_counts(normalize=True).unstack()
+
 joint_class_sex.divide(marginal_sex)
 ```
 
-## Check-In (on the board)
-
-How does `.divide()` work?
-
-## Conditional on class
+## Conditional on Class
 
 ```{python}
-joint_class_sex = df[["sex","pclass"]].value_counts(normalize=True).unstack()
+#| code-line-numbers: false
+#| label: joint-conditional-on-class
+
+joint_class_sex = (
+  df[["sex", "pclass"]]
+  .value_counts(normalize = True)
+  .unstack()
+  )
+  
 joint_class_sex.divide(marginal_class)
 ```
 
 ## What if you get it backwards?
 
 ```{python}
-joint_class_sex = df[["pclass","sex"]].value_counts(normalize=True).unstack()
+#| code-line-numbers: false
+#| label: joint-conditional-wrong-division
+
+joint_class_sex = (
+  df[["pclass", "sex"]]
+  .value_counts(normalize = True)
+  .unstack()
+  )
+  
 joint_class_sex.divide(marginal_class)
 ```
 
-## Visualization
+## Which plot better answers the question:
 
-Which plot better answers the question, "Did women tend to ride in first class more than men?"
+> "Did women tend to ride in first class more than men?"
 
 ::::: columns
 ::: {.column width="50%"}
 ```{python}
 #| code-fold: true
-(ggplot(df, aes(x = "pclass", fill = "sex"))
-+ geom_bar(position = "fill")
-+ theme_bw()
+#| code-line-numbers: false
+#| label: filled-bar-plot-question-code
+#| eval: false
+
+(
+  ggplot(df, aes(x = "pclass", fill = "sex")) + 
+  geom_bar(position = "fill") + 
+  theme_bw()
 )
+```
+
+```{python}
+#| label: filled-bar-plot-question
+#| echo: false
+
+plot = (
+  ggplot(df, aes(x = "pclass", fill = "sex")) + 
+  geom_bar(position = "fill") + 
+  theme_bw()
+)
+
+plot.draw(plot)
 ```
 :::
 
 ::: {.column width="50%"}
 ```{python}
 #| code-fold: true
-(ggplot(df, aes(x = "sex", fill = "pclass"))
-+ geom_bar(position = "fill")
-+ theme_bw()
+#| code-line-numbers: false
+#| label: filled-bar-plot-question-code-2
+#| eval: false
+
+(
+  ggplot(df, aes(x = "sex", fill = "pclass)) + 
+  geom_bar(position = "fill") + 
+  theme_bw()
 )
+```
+
+```{python}
+#| label: filled-bar-plot-question-2
+#| echo: false
+
+plot = (
+  ggplot(df, aes(x = "sex", fill = "pclass")) + 
+  geom_bar(position = "fill") + 
+  theme_bw()
+)
+
+plot.draw(plot)
 ```
 :::
 :::::
@@ -774,7 +985,8 @@ Which plot better answers the question, "Did women tend to ride in first class m
 
 ## Takeaways
 
-::: small
+::: {.midi}
+::: {.incremental}
 -   We use `plotnine` and the **grammar of graphics** to make visuals.
 
 -   For two categorical variables, we might use a **stacked bar plot**, a **side-by-side bar plot**, or a **stacked percentage bar plot** - depending on what we are trying to show.
@@ -786,4 +998,5 @@ Which plot better answers the question, "Did women tend to ride in first class m
 -   The **conditional distribution** of a variable is its distribution among *only one category* of a different variable.
 
 -   We calculate the **conditional distribution** by dividing the **joint** by the **marginal**.
+:::
 :::

@@ -223,8 +223,8 @@
     "objectID": "slides/02-conditional-distributions.html#two-categorical-variables",
     "href": "slides/02-conditional-distributions.html#two-categorical-variables",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Two categorical variables",
-    "text": "Two categorical variables\n\ndf[[\"pclass\", \"sex\"]].value_counts()\n\npclass  sex   \n3       male      493\n        female    216\n1       male      179\n2       male      171\n1       female    144\n2       female    106\nName: count, dtype: int64",
+    "section": "Two Categorical Variables",
+    "text": "Two Categorical Variables\n\ndf[[\"pclass\", \"sex\"]].value_counts()\n\npclass  sex   \n3       male      493\n        female    216\n1       male      179\n2       male      171\n1       female    144\n2       female    106\nName: count, dtype: int64",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -235,7 +235,7 @@
     "href": "slides/02-conditional-distributions.html#two-way-table",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Two-way Table",
-    "text": "Two-way Table\n\ndf[[\"pclass\", \"sex\"]].value_counts().unstack()\n\nsex     female  male\npclass              \n1          144   179\n2          106   171\n3          216   493\n\n\n\nThis is sometimes called a cross-tab or cross-tabulation.",
+    "text": "Two-way Table\n\n\n(\n  df[[\"pclass\", \"sex\"]]\n  .value_counts()\n  .unstack()\n  )\n\n\nsex     female  male\npclass              \n1          144   179\n2          106   171\n3          216   493\n\n\n\n\nThis is sometimes called a cross-tab or cross-tabulation.\n\n\n\n\n\n\n\nPivot Table\n\n\nEssentially unstack() has pivoted the sex column from long format (where the values are included in one column) to wide format where each value has its own column.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -246,7 +246,7 @@
     "href": "slides/02-conditional-distributions.html#two-way-table---percents",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Two-way Table - Percents",
-    "text": "Two-way Table - Percents\n\ndf[[\"pclass\", \"sex\"]].value_counts(normalize=True).unstack()\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\nThis should add up to 1, aka, 100%!",
+    "text": "Two-way Table - Percents\n\n(\n  df[[\"pclass\", \"sex\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\nAll of these values should sum to 1, aka, 100%!",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -257,7 +257,7 @@
     "href": "slides/02-conditional-distributions.html#switching-variables",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Switching variables",
-    "text": "Switching variables\n\ndf[[\"sex\", \"pclass\"]].value_counts(normalize=True).unstack()\n\npclass         1         2         3\nsex                                 \nfemale  0.110008  0.080978  0.165011\nmale    0.136746  0.130634  0.376623",
+    "text": "Switching variables\nWhat cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if \"sex\" came first and \"pclass\" came second?\n\n\n\n(\n  df[[\"sex\", \"pclass\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\npclass         1         2         3\nsex                                 \nfemale  0.110008  0.080978  0.165011\nmale    0.136746  0.130634  0.376623",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -268,7 +268,7 @@
     "href": "slides/02-conditional-distributions.html#interpretation",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Interpretation",
-    "text": "Interpretation\nWe call this the joint distribution of the two variables.\n\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\nOf all the passengers on the Titanic, 11% were females riding in first class.\n\n\nNOT “11% of all females on Titanic…”\nNOT “11% of all first class passengers…”",
+    "text": "Interpretation\nWe call this the joint distribution of the two variables.\n\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\nOf all the passengers on the Titanic, 11% were female passengers riding in first class.\n\n\n\nNOT “11% of all females on Titanic…”\nNOT “11% of all first class passengers…”",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -278,8 +278,8 @@
     "objectID": "slides/02-conditional-distributions.html#conditional-distribution-from-counts",
     "href": "slides/02-conditional-distributions.html#conditional-distribution-from-counts",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Conditional distribution from counts",
-    "text": "Conditional distribution from counts\nWe know that:\n\n466 passengers were female\n144 passengers were females in first class\n\nSo:\n\n144/466 = 31% of female passengers rode in first class\n\nHere we conditioned on the passenger being female, and then looked at the conditional distribution of pclass.",
+    "section": "Conditional Distribution from Counts",
+    "text": "Conditional Distribution from Counts\nWe know that:\n\n466 passengers identified as female\nOf those 466 passengers, 144 rode in first class\n\n\nSo:\n\n144 / 466 = 31% of female identifying passengers rode in first class\n\nHere we conditioned on the passenger being female, and then looked at the conditional distribution of pclass.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -300,8 +300,8 @@
     "objectID": "slides/02-conditional-distributions.html#swapping-variables",
     "href": "slides/02-conditional-distributions.html#swapping-variables",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Swapping variables",
-    "text": "Swapping variables\nWe know that:\n\n323 passengers rode in first class\n144 passengers were females in first class\n\nSo:\n\n144/323 = 44.6% of first class passengers were female\n\nHere we conditioned on the passenger being in first class, and then looked at the conditional distribution of sex.",
+    "section": "Swapping Variables",
+    "text": "Swapping Variables\nWe know that:\n\n323 passengers rode in first class\nOf those 323 passengers, 144 identified as female\n\nSo:\n\n144 / 323 = 44.6% of first class passengers identified as female\n\nHere we conditioned on the passenger being in first class, and then looked at the conditional distribution of sex.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -312,7 +312,7 @@
     "href": "slides/02-conditional-distributions.html#which-one-to-condition-on",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Which one to condition on?",
-    "text": "Which one to condition on?\n\nThis depends on the research question you are trying to answer.\n“What class did most female passengers ride in?”\n-&gt; Of all female passengers, what is the conditional distribution of class?\n“What was the gender breakdown of first class?”\n-&gt; Of all first class passengers, what is the conditional distribution of sex?",
+    "text": "Which one to condition on?\nThis depends on the research question you are trying to answer.\n\n\n“What class did most female identifying passengers ride in?”\n\n-&gt; Of all female passengers, what is the conditional distribution of class?\n\n\n\n“What was the gender breakdown of first class?”\n\n-&gt; Of all first class passengers, what is the conditional distribution of sex?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -322,8 +322,8 @@
     "objectID": "slides/02-conditional-distributions.html#calculating-in-python",
     "href": "slides/02-conditional-distributions.html#calculating-in-python",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Calculating in python",
-    "text": "Calculating in python\nWhen we study two variables, we call the individual one-variable distributions the marginal distribution of that variable.\n\n\n\nmarginal_class = df['pclass'].value_counts(normalize = True)\nmarginal_class\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64\n\n\n\n\nmarginal_sex = df['sex'].value_counts(normalize = True)\nmarginal_sex\n\nsex\nmale      0.644003\nfemale    0.355997\nName: proportion, dtype: float64",
+    "section": "Calculating in Python",
+    "text": "Calculating in Python\n\nWhen we study two variables, we call the individual one-variable distributions the marginal distribution of that variable.\n\n\n\n\nmarginal_class = (\n  df['pclass']\n  .value_counts(normalize = True)\n  )\n\n\n\nmarginal_class\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64\n\n\n\n\n\n\nmarginal_sex = (\n  df['sex']\n  .value_counts(normalize = True)\n  )\n\n\n\nmarginal_sex\n\nsex\nmale      0.644003\nfemale    0.355997\nName: proportion, dtype: float64",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -333,8 +333,8 @@
     "objectID": "slides/02-conditional-distributions.html#calculating-in-python-1",
     "href": "slides/02-conditional-distributions.html#calculating-in-python-1",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Calculating in python",
-    "text": "Calculating in python\nWe need to divide the joint distribution (e.g. “11% of passengers were first class female”) by the marginal distribution of the variable we want to condition on (e.g. 35.5% of passengers were female).\n\njoint_class_sex = df[[\"pclass\", \"sex\"]].value_counts(normalize=True).unstack()\njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816",
+    "section": "Calculating in Python",
+    "text": "Calculating in Python\n\nWe need to divide the joint distribution (e.g. “11% of passengers were first class female”) by the marginal distribution of the variable we want to condition on (e.g. 35.5% of passengers were female).\n\n\njoint_class_sex = (\n  df[[\"pclass\", \"sex\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n  \njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -344,8 +344,8 @@
     "objectID": "slides/02-conditional-distributions.html#conditional-on-sex",
     "href": "slides/02-conditional-distributions.html#conditional-on-sex",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Conditional on sex",
-    "text": "Conditional on sex\nCheck: Should the rows or columns add up to 100%? Why?\n\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816",
+    "section": "Conditional on Sex",
+    "text": "Conditional on Sex\nCheck: Should the rows or columns add up to 100%? Why?\n\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -366,8 +366,8 @@
     "objectID": "slides/02-conditional-distributions.html#conditional-on-class",
     "href": "slides/02-conditional-distributions.html#conditional-on-class",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Conditional on class",
-    "text": "Conditional on class\n\njoint_class_sex = df[[\"sex\",\"pclass\"]].value_counts(normalize=True).unstack()\njoint_class_sex.divide(marginal_class)\n\npclass        1         2         3\nsex                                \nfemale  0.44582  0.382671  0.304654\nmale    0.55418  0.617329  0.695346",
+    "section": "Conditional on Class",
+    "text": "Conditional on Class\n\njoint_class_sex = (\n  df[[\"sex\", \"pclass\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n  \njoint_class_sex.divide(marginal_class)\n\npclass        1         2         3\nsex                                \nfemale  0.44582  0.382671  0.304654\nmale    0.55418  0.617329  0.695346",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -378,7 +378,7 @@
     "href": "slides/02-conditional-distributions.html#what-if-you-get-it-backwards",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "What if you get it backwards?",
-    "text": "What if you get it backwards?\n\njoint_class_sex = df[[\"pclass\",\"sex\"]].value_counts(normalize=True).unstack()\njoint_class_sex.divide(marginal_class)\n\n         1   2   3  female  male\npclass                          \n1      NaN NaN NaN     NaN   NaN\n2      NaN NaN NaN     NaN   NaN\n3      NaN NaN NaN     NaN   NaN",
+    "text": "What if you get it backwards?\n\njoint_class_sex = (\n  df[[\"pclass\", \"sex\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n  \njoint_class_sex.divide(marginal_class)\n\n         1   2   3  female  male\npclass                          \n1      NaN NaN NaN     NaN   NaN\n2      NaN NaN NaN     NaN   NaN\n3      NaN NaN NaN     NaN   NaN",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -389,7 +389,7 @@
     "href": "slides/02-conditional-distributions.html#visualization",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Visualization",
-    "text": "Visualization\nWhich plot better answers the question, “Did women tend to ride in first class more than men?”\n\n\n\n\nCode\n(ggplot(df, aes(x = \"pclass\", fill = \"sex\"))\n+ geom_bar(position = \"fill\")\n+ theme_bw()\n)\n\n\n&lt;plotnine.ggplot.ggplot object at 0x1503bf790&gt;\n\n\n\n\n\nCode\n(ggplot(df, aes(x = \"sex\", fill = \"pclass\"))\n+ geom_bar(position = \"fill\")\n+ theme_bw()\n)\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12bf2be10&gt;",
+    "text": "Visualization\nWhich plot better answers the question:\n\n“Did women tend to ride in first class more than men?”\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(x = \"pclass\", fill = \"sex\")) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(x = \"sex\", fill = \"pclass)) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -400,7 +400,7 @@
     "href": "slides/02-conditional-distributions.html#takeaways-1",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Takeaways",
-    "text": "Takeaways\n\n\nWe use plotnine and the grammar of graphics to make visuals.\nFor two categorical variables, we might use a stacked bar plot, a side-by-side bar plot, or a stacked percentage bar plot - depending on what we are trying to show.\nThe joint distribution of two variables gives the percents in each subcategory.\nThe marginal distribution of a variable is its individual distribution.\nThe conditional distribution of a variable is its distribution among only one category of a different variable.\nWe calculate the conditional distribution by dividing the joint by the marginal.",
+    "text": "Takeaways\n\n\n\nWe use plotnine and the grammar of graphics to make visuals.\nFor two categorical variables, we might use a stacked bar plot, a side-by-side bar plot, or a stacked percentage bar plot - depending on what we are trying to show.\nThe joint distribution of two variables gives the percents in each subcategory.\nThe marginal distribution of a variable is its individual distribution.\nThe conditional distribution of a variable is its distribution among only one category of a different variable.\nWe calculate the conditional distribution by dividing the joint by the marginal.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -811,6 +811,61 @@
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
+    ]
+  },
+  {
+    "objectID": "slides/02-conditional-distributions.html#switching-variable-order",
+    "href": "slides/02-conditional-distributions.html#switching-variable-order",
+    "title": "Visualizing and Comparing Categorical Variables",
+    "section": "Switching Variable Order",
+    "text": "Switching Variable Order\nWhat cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if \"sex\" came first and \"pclass\" came second?\n\n\n\n(\n  df[[\"sex\", \"pclass\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\npclass         1         2         3\nsex                                 \nfemale  0.110008  0.080978  0.165011\nmale    0.136746  0.130634  0.376623",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
+    ]
+  },
+  {
+    "objectID": "slides/02-conditional-distributions.html#conditional-distribution-from-percentages",
+    "href": "slides/02-conditional-distributions.html#conditional-distribution-from-percentages",
+    "title": "Visualizing and Comparing Categorical Variables",
+    "section": "Conditional Distribution from Percentages",
+    "text": "Conditional Distribution from Percentages\nWe know that:\n\n35.5% of all passengers identified as female\nOf those 35.5% of passengers, 11% rode in first class\n\nSo:\n\n0.11 / 0.355 = 31% of female identifying passengers rode in first class\n\nHere we conditioned on the passenger being female, and then looked at the conditional distribution of pclass.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
+    ]
+  },
+  {
+    "objectID": "slides/02-conditional-distributions.html#check-in-1",
+    "href": "slides/02-conditional-distributions.html#check-in-1",
+    "title": "Visualizing and Comparing Categorical Variables",
+    "section": "Check-In",
+    "text": "Check-In\n\n\n\nmarginal_sex\n\nsex\nmale      0.644003\nfemale    0.355997\nName: proportion, dtype: float64\n\n\n\n\n\n\njoint_class_sex\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\n\n\n\njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816\n\n\n\n\n\nHow do you think divide() works?",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
+    ]
+  },
+  {
+    "objectID": "slides/02-conditional-distributions.html#check-in-2",
+    "href": "slides/02-conditional-distributions.html#check-in-2",
+    "title": "Visualizing and Comparing Categorical Variables",
+    "section": "Check-In",
+    "text": "Check-In\nShould the rows or columns add up to 100%? Why?\n\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
+    ]
+  },
+  {
+    "objectID": "slides/02-conditional-distributions.html#which-plot-better-answers-the-question",
+    "href": "slides/02-conditional-distributions.html#which-plot-better-answers-the-question",
+    "title": "Visualizing and Comparing Categorical Variables",
+    "section": "Which plot better answers the question:",
+    "text": "Which plot better answers the question:\n\n“Did women tend to ride in first class more than men?”\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(x = \"pclass\", fill = \"sex\")) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(x = \"sex\", fill = \"pclass)) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
     ]
   }
 ]
