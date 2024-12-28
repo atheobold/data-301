@@ -25,37 +25,36 @@ library(tidyverse)
 library(RColorBrewer)
 ```
 
-::: {.panel-tabset group="coures-resources"}
+::::::: {.panel-tabset group="coures-resources"}
 ## Instructor Contact
 
-::: columns
+:::::: columns
 ::: {.column width="50%"}
 **Dr. Allison Theobold**
 
 -   Email: atheobol\@calpoly.edu
 -   Office: Building 25, Office 105
-
 :::
 
 ::: {.column width="10%"}
 :::
 
 ::: {.column width="40%"}
-![](../images/headshot.jpg){fig-alt="A headshot of Dr. Theobold, in a pink blazer at the top floor of Building 25, overlooking Bishop Peak" width=60%} 
+![](../images/headshot.jpg){fig-alt="A headshot of Dr. Theobold, in a pink blazer at the top floor of Building 25, overlooking Bishop Peak" width="60%"}
 :::
-:::
+::::::
 
 ## Course Info
 
 **Section 01**
 
-- Lecture: 8:10am - 9:30am
-- Lab: 9:40am - 11:00am
+-   Lecture: 8:10am - 9:30am
+-   Lab: 9:40am - 11:00am
 
 **Section 02**
 
-- Lecture: 12:10pm - 1:30pm
-- Lab: 1:40pm - 3:00pm
+-   Lecture: 12:10pm - 1:30pm
+-   Lab: 1:40pm - 3:00pm
 
 ## Student Hours
 
@@ -64,16 +63,10 @@ library(RColorBrewer)
 | Wednesdays, in-person | 12:00 - 3:00pm (drop-in)        |
 | Fridays, Zoom         | 12:10 - 1:00pm (by appointment) |
 
+Student hours held in-person on Wednesday afternoons. You can find me in my office, but if there's a lot of people we will likely move to one of the conference rooms in the Statistics Department (I'll leave a note on my door!).
 
-Student hours held in-person on Wednesday afternoons. You can find me in my 
-office, but if there's a lot of people we will likely move to one of the 
-conference rooms in the Statistics Department (I'll leave a note on my door!). 
-
-I also have reserved time on Friday afternoons for short (10-minute) one-on-one 
-meetings. These meetings can be to ask clarifying questions about the homework
-or to discuss grades, but do know that you will be limited to 10-minutes! You
-can schedule Friday appointments through Calendly, using the following link: <https://calendly.com/allisontheobold/>
-:::
+I also have reserved time on Friday afternoons for short (10-minute) one-on-one meetings. These meetings can be to ask clarifying questions about the homework or to discuss grades, but do know that you will be limited to 10-minutes! You can schedule Friday appointments through Calendly, using the following link: <https://calendly.com/allisontheobold/>
+:::::::
 
 ```{r}
 #| include: false
@@ -176,7 +169,6 @@ Cal <- Cal %>%
    )
 
 ```
-
 
 ```{r}
 #| include: false
@@ -284,33 +276,26 @@ class_days <- filter(Cal, category == "Class Day") %>%
 
 # Course Resources {.tabset .tabset-fade}
 
-::: {.panel-tabset group="course-resources"}
-
+::::: {.panel-tabset group="course-resources"}
 ## Textbooks
 
-There is no required textbook for this course; we will use course notes and
-documents.
+There is no required textbook for this course; we will use course notes and documents.
 
 Some good extra resources are:
 
-* The [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
+-   The [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
 
-* Readings and videos from [StatQuest!](https://statquest.org/).
+-   Readings and videos from [StatQuest!](https://statquest.org/).
 
-* *Introduction to Statistical Learning*, which can be found free online here: <https://www.statlearning.com/>
-
+-   *Introduction to Statistical Learning*, which can be found free online here: <https://www.statlearning.com/>
 
 ## Required Technology
 
-You will need a working laptop to bring to class and lab.  If this is a
-limiting factor for you, please email me privately or speak to me after class,
-and we will find resources for you.
+You will need a working laptop to bring to class and lab. If this is a limiting factor for you, please email me privately or speak to me after class, and we will find resources for you.
 
 ## Canvas
 
-Canvas will be your resource for the course materials necessary for each week. 
-Each module will walk you through what you are expected to do each week, 
-including:
+Canvas will be your resource for the course materials necessary for each week. Each module will walk you through what you are expected to do each week, including:
 
 -   lectures slides and check-ins
 -   optional extra reading
@@ -318,47 +303,32 @@ including:
 -   lab assignments
 -   project checkpoints
 
-::: {.callout-note} 
-Make sure you are receiving email notifications for announcements in Canvas. In
-Canvas, click on your name, then Notifications. Check that Canvas is using an
-email address that you regularly check; you have the option of registering a
-mobile number. Check the boxes to get notifications for announcements, and
-optionally other Canvas activity.
+::: callout-note
+Make sure you are receiving email notifications for announcements in Canvas. In Canvas, click on your name, then Notifications. Check that Canvas is using an email address that you regularly check; you have the option of registering a mobile number. Check the boxes to get notifications for announcements, and optionally other Canvas activity.
 :::
 
 ## Discord
 
-This quarter, we will make use of a classwide Discord Server. The link on Canvas
-will help you join this server.  Refer to the Using Discord guide on Canvas for
-more information on how to effectively use this server.  
+This quarter, we will make use of a classwide Discord Server. The link on Canvas will help you join this server. Refer to the Using Discord guide on Canvas for more information on how to effectively use this server.
 
-Joining the Discord is not optional. Important information and discussion will
-happen here, and sometimes I will share hints and code snippets for activities
-or assignments.
+Joining the Discord is not optional. Important information and discussion will happen here, and sometimes I will share hints and code snippets for activities or assignments.
 
-::: {.callout-note}
-Discord is also the best way to possibly get your questions answered outside of
-ordinary class and office hours. While I can't promise anything, I also often 
-check Discord throughout the day, or on weekends.  Don't hesitate to ping a
-question, you might catch me feeling helpful - or you might catch a classmate
-who can help!
+::: callout-note
+Discord is also the best way to possibly get your questions answered outside of ordinary class and student hours. While I can't promise anything, I also often check Discord throughout the day, or on weekends. Don't hesitate to ping a question, you might catch me feeling helpful - or you might catch a classmate who can help!
 :::
-:::
+:::::
 
 # Course Description
 
-DATA 301 is an introduction to data science with very few prerequisites.  This quarter, you will learn to use `Python` to perform common data analysis tasks, 
-and you will be introduced to machine learning with `scikit-learn`.  Throughout the course, you will practice drawing conclusions and making predictions from
-real data.  For your final project, you will apply your knowledge to a complex, real-world dataset.
+DATA 301 is an introduction to data science with very few prerequisites. This quarter, you will learn to use `Python` to perform common data analysis tasks, and you will be introduced to machine learning with `scikit-learn`. Throughout the course, you will practice drawing conclusions and making predictions from real data. For your final project, you will apply your knowledge to a complex, real-world dataset.
 
 ## Course Objectives
 
 After taking this course, you will be able to:
 
-- Acquire and process tabular, textual, hierarchical, and geospatial data.
-- Uncover patterns by summarizing and visualizing data.
-- Apply machine learning to answer real-world prediction problems.
-
+-   Acquire and process tabular, textual, hierarchical, and geospatial data.
+-   Uncover patterns by summarizing and visualizing data.
+-   Apply machine learning to answer real-world prediction problems.
 
 ## Prerequisites
 
@@ -366,12 +336,9 @@ I expect you to enter this class with:
 
 -   Basic knowledge of Python and computer programming concepts.
 
--   Familiarity with computers and technology (e.g., Internet browsing, word
-processing, opening/saving files, converting files to PDF format, sending and 
-receiving e-mail, etc.).
+-   Familiarity with computers and technology (e.g., Internet browsing, word processing, opening/saving files, converting files to PDF format, sending and receiving e-mail, etc.).
 
--   A positive attitude, a curious mind, and a respect for ethical use of data
-science tools.
+-   A positive attitude, a curious mind, and a respect for ethical use of data science tools.
 
 ------------------------------------------------------------------------
 
@@ -402,7 +369,6 @@ kableExtra::kable(
   format = "simple"
   )
 ```
-
 
 # Assessment
 
@@ -454,134 +420,86 @@ grades %>%
 
 ## Lecture Check-Ins (5%)
 
-Every lecture will be accompanied by a simple "Check-In Quiz" on Canvas. This
-will ask you to input a few answers covered in lecture, and one short mid-lecture practice exercise.  Infinite submissions are allowed without penalty, so there is no reason anyone should not get 100% in this category.
+Every lecture will be accompanied by a simple "Check-In Quiz" on Canvas. This will ask you to input a few answers covered in lecture, and one short mid-lecture practice exercise. Infinite submissions are allowed without penalty, so there is no reason anyone should not get 100% in this category.
 
 If you miss lecture, you can still complete the Check-Ins on your own time, by midnight the next day.
 
 ## Lab Attendance and Activities (10%)
 
-Attendance and participation in the lab portion of class is required. Do not
-take this class if you cannot commit to attending every lecture and every lab.
+Attendance and participation in the lab portion of class is required. Do not take this class if you cannot commit to attending every lecture and every lab.
 
 ### Swapping Lab Sections
 
-If you cannot make it to your assigned lab, but you can attend another 
-section's lab on the same day, please e-mail Dr. Theobold to inform them that 
-you wish to swap lab sections. You may do this **two times** throughout the
-quarter.
+If you cannot make it to your assigned lab, but you can attend another section's lab on the same day, please e-mail Dr. Theobold to inform them that you wish to swap lab sections. You may do this **two times** throughout the quarter.
 
 ### Missing Lab
 
-If you cannot make it to any lab sections that day, you may complete the Colab
-assignment from lab on your own, and e-mail a PDF to Dr. Theobold by midnight 
-that night (the day you missed class). Dr. Theobold will grade your Colab, and
-this score will replace your attendance for that day. You may do this 
-**two times** throughout the quarter.
+If you cannot make it to any lab sections that day, you may complete the Colab assignment from lab on your own, and e-mail a PDF to Dr. Theobold by midnight that night (the day you missed class). Dr. Theobold will grade your Colab, and this score will replace your attendance for that day. You may do this **two times** throughout the quarter.
 
-To allow for emergencies, we will also forgive **one** absence at the end of
-the quarter.
+To allow for emergencies, we will also forgive **one** absence at the end of the quarter.
 
-:::{.callout-note}
-We are effectively allowing you to miss / reschedule up to three labs out of 10.
-If you need to miss more than three, then you will need to retake this course
-next quarter.
+::: callout-note
+We are effectively allowing you to miss / reschedule up to three labs out of 10. If you need to miss more than three, then you will need to retake this course next quarter.
 :::
 
 ## Lab Assignments (25%)
 
-Each week, you will be assigned longer homeworks, which will ask you to analyze
-a real-world data scenario. These assignments are **due every Friday at 5pm**. 
-See the Late Work section below for information on extensions or deductions for
-late submissions.
+Each week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are **due every Saturday at 11:59pm**. See the Late Work section below for information on extensions or deductions for late submissions.
 
 ## Exams (15% each)
 
-You will have two in-class exams, in Week 5 and Week 10.  These will each cover
-half of the class material.  Except in very extreme unforeseeable circumstances,
-no alternate exams will be given; please plan to be in class these days.
+You will have two in-class exams, in Week 5 and Week 10. These will each cover half of the class material. Except in very extreme unforeseeable circumstances, no alternate exams will be given; please plan to be in class these days.
 
 ## Project (30%)
 
-At the end of the quarter, you will formally present a poster of your findings 
-on a real-world data question.  To ensure that you start thinking about your
-project early, you are required to submit a 1-page abstract proposal in Week 7.  
+At the end of the quarter, you will formally present a poster of your findings on a real-world data question. To ensure that you start thinking about your project early, you are required to submit a 1-page abstract proposal in Week 7.
 
 # Policies
 
 ## Communication
 
-For questions of general interest, such as deadline clarifications or conceptual
-questions, please use the **Class Discord Server**.  You should check the
-relevant thread of the server, as well as the syllabus, *before* reaching out to
-Dr. Theobold.
+For questions of general interest, such as deadline clarifications or conceptual questions, please use the **Class Discord Server**. You should check the relevant thread of the server, as well as the syllabus, *before* reaching out to Dr. Theobold.
 
-Of course, if your question is truly private, such as a grade inquiry or a
-personal concern, you may email me directly. 
+Of course, if your question is truly private, such as a grade inquiry or a personal concern, you may email me directly.
 
-::: {.callout-note}
-If you email me to ask a question that should be public, I will likely ask you 
-to post your question on Discord instead. Please don't take this personally! It
-just means that you asked a good question, and I think the rest of the class
-could benefit from seeing the answer.
+::: callout-note
+If you email me to ask a question that should be public, I will likely ask you to post your question on Discord instead. Please don't take this personally! It just means that you asked a good question, and I think the rest of the class could benefit from seeing the answer.
 :::
 
 ## Late Work
 
-Late assignments will automatically be docked -10% per day, up to a maximum
-grade penalty of 50%.  That is, as long as your work is turned in by the end of
-Week 10, you will still get half credit for it!
+Late assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!
 
-::: {.callout-note}
-Note that turning in an assignment late means you will not get any feedback, and
-using lecture or section time to work on late assignments will not be tolerated.
+::: callout-note
+Note that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.
 :::
 
 ### Deadline Extensions
 
-In case of emergency, you have two deadline "extensions" to use throughout the
-quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension. 
+In case of emergency, you have two deadline "extensions" to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.
 
 The rules for these are as follows:
 
-1. You must request the extension through the 
-[Google form linked on Canvas](https://forms.gle/odWHxjS46mqqWTCN9). Any other
-request (e.g., by email, Discord message, verbally, etc.) does not count unless
-the Google form is filled out.
+1.  You must request the extension through the [Google form linked on Canvas](https://forms.gle/odWHxjS46mqqWTCN9). Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.
 
-2. The extension must be requested ***before*** the deadline has passed (i.e., 
-before Friday at 5pm).  I do not grant after-deadline extensions for any reason.
+2.  The extension must be requested ***before*** the deadline has passed (i.e., before Friday at 11:59pm). I do not grant after-deadline extensions for any reason.
 
-Properly requested extensions are **automatically** granted; you will not get a
-confirmation email or message, you will simply see your late penalties disappear
-at some point.  
+Properly requested extensions are **automatically** granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.
 
-::: {.callout-note}
-These deadline extensions are automatic! You don't have to tell why you need the
-extension - maybe you have a busy week with other work, maybe you are traveling
-with a sports team, maybe you partied too hard for your friend's birthday.  It 
-doesn't matter to me!
+::: callout-note
+These deadline extensions are automatic! You don't have to tell why you need the extension - maybe you have a busy week with other work, maybe you are traveling with a sports team, maybe you partied too hard for your friend's birthday. It doesn't matter to me!
 
-The flip side of this, though, is that if you use your deadline extensions
-early on in the course, and then run into a bigger issues later on, you're out
-of luck.
+The flip side of this, though, is that if you use your deadline extensions early on in the course, and then run into a bigger issues later on, you're out of luck.
 :::
 
 ### Special cases
 
-Sometimes, issues arise require more time than the auto-extension gives. In
-general, if something comes up in your life, I **always** want to find a way to
-help. Please let me know what your situation is, and we'll work together to 
-find a good solution.
+Sometimes, issues arise require more time than the auto-extension gives. In general, if something comes up in your life, I **always** want to find a way to help. Please let me know what your situation is, and we'll work together to find a good solution.
 
-The most important thing is that you tell me early. As a rule, I **do not**
-grant extensions after the deadline.
+The most important thing is that you tell me early. As a rule, I **do not** grant extensions after the deadline.
 
-::: {.callout-note}
-Of course, in the case of a major crisis, that is truly exceptional and
-unforeseen, all these rules go out the window. I want you to feel comfortable
-reaching out to me when you are facing something extra difficult.  We'll figure
-it out. 
+::: callout-note
+Of course, in the case of a major crisis, that is truly exceptional and unforeseen, all these rules go out the window. I want you to feel comfortable reaching out to me when you are facing something extra difficult. We'll figure it out.
 :::
 
 ## Academic Integrity
@@ -590,108 +508,66 @@ You are expected to abide by the [Cal Poly Code of Conduct](https://content-calp
 
 ### Plagiarism
 
-You are encouraged to work with other classmates on all but the exam portions
-of this class. You are also encouraged (realistically, required!) to make use of
-online resources to accomplish tasks.  
+You are encouraged to work with other classmates on all but the exam portions of this class. You are also encouraged (realistically, required!) to make use of online resources to accomplish tasks.
 
 When dealing with code, follow these guidelines:
 
-* Never copy-paste more than small snippets of code. That is, you might borrow a
-little three-line function from StackOverflow, but you should not copy over a
-full analysis you find on Kaggle.
+-   Never copy-paste more than small snippets of code. That is, you might borrow a little three-line function from StackOverflow, but you should not copy over a full analysis you find on Kaggle.
 
-* Attribute **all** code that is not completely your own. If you do borrow that
-StackOverflow snippet, provide a link to the source. If you reference a similar
-analysis for ideas, mention that in your description.
+-   Attribute **all** code that is not completely your own. If you do borrow that StackOverflow snippet, provide a link to the source. If you reference a similar analysis for ideas, mention that in your description.
 
-:::{.callout-warning}
+::: callout-warning
+A good "rule of thumb" is: If I sat you down by yourself in a room with no internet, could you explain to me roughly what each line of code is doing? If not, you are probably borrowing more than you should from your online source.
 
-A good "rule of thumb" is: If I sat you down by yourself in a room with no
-internet, could you explain to me roughly what each line of code is doing? If
-not, you are probably borrowing more than you should from your online source.
-
-(In fact, this is exactly what I will do if I need to investigate possible 
-cheating.)
+(In fact, this is exactly what I will do if I need to investigate possible cheating.)
 :::
 
 #### AI tools
 
-New AI models like Chat GPT offer a whole new world of online coding resources. 
-This is exciting! You should absolutely feel free to get help from these tools,
-they are excellent at answering questions.
+New AI models like Chat GPT offer a whole new world of online coding resources. This is exciting! You should absolutely feel free to get help from these tools, they are excellent at answering questions.
 
-However, from an academic integrity perspective, treat these AI generative chat
-resources like, say, a tutor.  Asking a tutor to help explain a homework concept
-to you or help debug your code?  Totally fine!  Giving the tutor a homework
-question and having them answer the whole thing?  Nope.  Talking to a tutor at
-all, about anything, during the course of the exam?  Unacceptable.
-
+However, from an academic integrity perspective, treat these AI generative chat resources like, say, a tutor. Asking a tutor to help explain a homework concept to you or help debug your code? Totally fine! Giving the tutor a homework question and having them answer the whole thing? Nope. Talking to a tutor at all, about anything, during the course of the exam? Unacceptable.
 
 ### Integrity Violations
 
-If you accidentally forget a small citation, or go a little overboard in how
-much you "borrow" from StackOverflow, you'll get a warning and a grade deduction
-on that assignment.
+If you accidentally forget a small citation, or go a little overboard in how much you "borrow" from StackOverflow, you'll get a warning and a grade deduction on that assignment.
 
-Any instance of willful and deliberate cheating will result in a failing grade
-on the assignment and I will file a academic integrity report with the Office
-of Student Rights and responsibilities. 
+Any instance of willful and deliberate cheating will result in a failing grade on the assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.
 
-:::{.callout-warning}
-Be careful about being on the giving end as well as the taking end. 
-For example:  If you send your finished assignment to a friend, and that friend
-copies it, you have **both** received a failing grade on the assignment and a 
-report filed to OSRR. 
+::: callout-warning
+Be careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have **both** received a failing grade on the assignment and a report filed to OSRR.
 :::
 
 ### Intellectual property
 
 The materials for this course are legally the professor's intellectual property.
 
-Most class materials are publicly shared, and you are welcome to direct others
-to this resource at any time.  You are also welcome to publicly share any or all
-of your work on the class project.
+Most class materials are publicly shared, and you are welcome to direct others to this resource at any time. You are also welcome to publicly share any or all of your work on the class project.
 
-Non-public class materials---most importantly, assignment solutions and any exam
-materials---may never be shared.
+Non-public class materials---most importantly, assignment solutions and any exam materials---may never be shared.
 
-:::{.callout-warning}
-
-This is not just an issue of academic honestly, it is quite literally a legal
-copyright scenario.  Please do not distribute solutions or exam questions from 
-this class anywhere, for any reason. Doing so is a violation of the Code of 
-Conduct, *and* it may constitute a violation of U.S. copyright law.
+::: callout-warning
+This is not just an issue of academic honestly, it is quite literally a legal copyright scenario. Please do not distribute solutions or exam questions from this class anywhere, for any reason. Doing so is a violation of the Code of Conduct, *and* it may constitute a violation of U.S. copyright law.
 :::
 
 ## Class Conduct
 
-In this classroom, I expect you to be polite, respectful, inclusive, and
-open-minded.
+In this classroom, I expect you to be polite, respectful, inclusive, and open-minded.
 
 Some examples of how to be a good classmate include:
 
-* Doing your best to avoid language that is ableist, racist, sexist, 
-transphobic, or classist; or that perpetuates harmful stereotypes.
+-   Doing your best to avoid language that is ableist, racist, sexist, transphobic, or classist; or that perpetuates harmful stereotypes.
 
-* Addressing your classmates (and your professor!) by their preferred name and
-pronouns.
+-   Addressing your classmates (and your professor!) by their preferred name and pronouns.
 
-* Doing your best to be aware of your own biases, privileges, and areas of
-ignorance.
+-   Doing your best to be aware of your own biases, privileges, and areas of ignorance.
 
-* Listening to others' opinions, and making an effort to understand their
-perspective.
+-   Listening to others' opinions, and making an effort to understand their perspective.
 
-* Taking the time to help your classmates grasp concepts or solve problems, even
-when you are ready to move on.
+-   Taking the time to help your classmates grasp concepts or solve problems, even when you are ready to move on.
 
 ### Attendance
 
-It is my general expectation that you will attend lecture, and remain present
-until you have finished the day's in-class work.  However, I do not take formal
-attendance in class; as long as you engage with the material and complete the
-small check-ins, you can decide which lectures are useful to you.
+It is my general expectation that you will attend lecture, and remain present until you have finished the day's in-class work. However, I do not take formal attendance in class; as long as you engage with the material and complete the small check-ins, you can decide which lectures are useful to you.
 
-Please do **not** email me letting me know when you are missing class - I don't
-need to know if you are attending, it is your responsibility to catch up on the
-materials and check-ins you miss.
+Please do **not** email me letting me know when you are missing class - I don't need to know if you are attending, it is your responsibility to catch up on the materials and check-ins you miss.

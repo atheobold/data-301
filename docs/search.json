@@ -253,11 +253,11 @@
     ]
   },
   {
-    "objectID": "slides/02-conditional-distributions.html#switching-variables",
-    "href": "slides/02-conditional-distributions.html#switching-variables",
+    "objectID": "slides/02-conditional-distributions.html#switching-variable-order",
+    "href": "slides/02-conditional-distributions.html#switching-variable-order",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Switching variables",
-    "text": "Switching variables\nWhat cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if \"sex\" came first and \"pclass\" came second?\n\n\n\n(\n  df[[\"sex\", \"pclass\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\npclass         1         2         3\nsex                                 \nfemale  0.110008  0.080978  0.165011\nmale    0.136746  0.130634  0.376623",
+    "section": "Switching Variable Order",
+    "text": "Switching Variable Order\nWhat cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if \"sex\" came first and \"pclass\" came second?\n\n\n\n(\n  df[[\"sex\", \"pclass\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\npclass         1         2         3\nsex                                 \nfemale  0.110008  0.080978  0.165011\nmale    0.136746  0.130634  0.376623",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -286,11 +286,11 @@
     ]
   },
   {
-    "objectID": "slides/02-conditional-distributions.html#conditional-distribution-from-counts-1",
-    "href": "slides/02-conditional-distributions.html#conditional-distribution-from-counts-1",
+    "objectID": "slides/02-conditional-distributions.html#conditional-distribution-from-percentages",
+    "href": "slides/02-conditional-distributions.html#conditional-distribution-from-percentages",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Conditional distribution from counts",
-    "text": "Conditional distribution from counts\nWe know that:\n\n35.5% of all passengers were female\n11% of all passengers were females in first class\n\nSo:\n\n0.11/0.355 = 31% of female passengers rode in first class\n\nHere we conditioned on the passenger being female, and then looked at the conditional distribution of pclass.",
+    "section": "Conditional Distribution from Percentages",
+    "text": "Conditional Distribution from Percentages\nWe know that:\n\n35.5% of all passengers identified as female\nOf those 35.5% of passengers, 11% rode in first class\n\nSo:\n\n0.11 / 0.355 = 31% of female identifying passengers rode in first class\n\nHere we conditioned on the passenger being female, and then looked at the conditional distribution of pclass.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -341,22 +341,22 @@
     ]
   },
   {
-    "objectID": "slides/02-conditional-distributions.html#conditional-on-sex",
-    "href": "slides/02-conditional-distributions.html#conditional-on-sex",
+    "objectID": "slides/02-conditional-distributions.html#check-in-1",
+    "href": "slides/02-conditional-distributions.html#check-in-1",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Conditional on Sex",
-    "text": "Conditional on Sex\nCheck: Should the rows or columns add up to 100%? Why?\n\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816",
+    "section": "Check-In",
+    "text": "Check-In\n\n\n\nmarginal_sex\n\nsex\nmale      0.644003\nfemale    0.355997\nName: proportion, dtype: float64\n\n\n\n\n\n\njoint_class_sex\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\n\n\n\njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816\n\n\n\n\n\nHow do you think divide() works?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
     ]
   },
   {
-    "objectID": "slides/02-conditional-distributions.html#check-in-on-the-board",
-    "href": "slides/02-conditional-distributions.html#check-in-on-the-board",
+    "objectID": "slides/02-conditional-distributions.html#check-in-2",
+    "href": "slides/02-conditional-distributions.html#check-in-2",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Check-In (on the board)",
-    "text": "Check-In (on the board)\nHow does .divide() work?",
+    "section": "Check-In",
+    "text": "Check-In\nShould the rows or columns add up to 100%? Why?\n\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -385,11 +385,11 @@
     ]
   },
   {
-    "objectID": "slides/02-conditional-distributions.html#visualization",
-    "href": "slides/02-conditional-distributions.html#visualization",
+    "objectID": "slides/02-conditional-distributions.html#which-plot-better-answers-the-question",
+    "href": "slides/02-conditional-distributions.html#which-plot-better-answers-the-question",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Visualization",
-    "text": "Visualization\nWhich plot better answers the question:\n\n“Did women tend to ride in first class more than men?”\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(x = \"pclass\", fill = \"sex\")) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(x = \"sex\", fill = \"pclass)) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)",
+    "section": "Which plot better answers the question:",
+    "text": "Which plot better answers the question:\n\n“Did women tend to ride in first class more than men?”\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(x = \"pclass\", fill = \"sex\")) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(x = \"sex\", fill = \"pclass)) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -455,7 +455,7 @@
     "href": "course-materials/syllabus.html#lab-assignments-25",
     "title": "DATA 301: Introduction to Data Science",
     "section": "Lab Assignments (25%)",
-    "text": "Lab Assignments (25%)\nEach week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are due every Friday at 5pm. See the Late Work section below for information on extensions or deductions for late submissions.",
+    "text": "Lab Assignments (25%)\nEach week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are due every Saturday at 11:59pm. See the Late Work section below for information on extensions or deductions for late submissions.",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -499,7 +499,7 @@
     "href": "course-materials/syllabus.html#late-work",
     "title": "DATA 301: Introduction to Data Science",
     "section": "Late Work",
-    "text": "Late Work\nLate assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!\n\n\n\n\n\n\nNote\n\n\n\nNote that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.\n\n\n\nDeadline Extensions\nIn case of emergency, you have two deadline “extensions” to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.\nThe rules for these are as follows:\n\nYou must request the extension through the Google form linked on Canvas. Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.\nThe extension must be requested before the deadline has passed (i.e., before Friday at 5pm). I do not grant after-deadline extensions for any reason.\n\nProperly requested extensions are automatically granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.\n\n\n\n\n\n\nNote\n\n\n\nThese deadline extensions are automatic! You don’t have to tell why you need the extension - maybe you have a busy week with other work, maybe you are traveling with a sports team, maybe you partied too hard for your friend’s birthday. It doesn’t matter to me!\nThe flip side of this, though, is that if you use your deadline extensions early on in the course, and then run into a bigger issues later on, you’re out of luck.\n\n\n\n\nSpecial cases\nSometimes, issues arise require more time than the auto-extension gives. In general, if something comes up in your life, I always want to find a way to help. Please let me know what your situation is, and we’ll work together to find a good solution.\nThe most important thing is that you tell me early. As a rule, I do not grant extensions after the deadline.\n\n\n\n\n\n\nNote\n\n\n\nOf course, in the case of a major crisis, that is truly exceptional and unforeseen, all these rules go out the window. I want you to feel comfortable reaching out to me when you are facing something extra difficult. We’ll figure it out.",
+    "text": "Late Work\nLate assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!\n\n\n\n\n\n\nNote\n\n\n\nNote that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.\n\n\n\nDeadline Extensions\nIn case of emergency, you have two deadline “extensions” to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.\nThe rules for these are as follows:\n\nYou must request the extension through the Google form linked on Canvas. Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.\nThe extension must be requested before the deadline has passed (i.e., before Friday at 11:59pm). I do not grant after-deadline extensions for any reason.\n\nProperly requested extensions are automatically granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.\n\n\n\n\n\n\nNote\n\n\n\nThese deadline extensions are automatic! You don’t have to tell why you need the extension - maybe you have a busy week with other work, maybe you are traveling with a sports team, maybe you partied too hard for your friend’s birthday. It doesn’t matter to me!\nThe flip side of this, though, is that if you use your deadline extensions early on in the course, and then run into a bigger issues later on, you’re out of luck.\n\n\n\n\nSpecial cases\nSometimes, issues arise require more time than the auto-extension gives. In general, if something comes up in your life, I always want to find a way to help. Please let me know what your situation is, and we’ll work together to find a good solution.\nThe most important thing is that you tell me early. As a rule, I do not grant extensions after the deadline.\n\n\n\n\n\n\nNote\n\n\n\nOf course, in the case of a major crisis, that is truly exceptional and unforeseen, all these rules go out the window. I want you to feel comfortable reaching out to me when you are facing something extra difficult. We’ll figure it out.",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -542,8 +542,8 @@
     "objectID": "slides/00-welcome.html#about-me",
     "href": "slides/00-welcome.html#about-me",
     "title": "Welcome, Intro, and Setup",
-    "section": "",
-    "text": "Grew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, Tegan and Sara",
+    "section": "About Me",
+    "text": "About Me\n\n\n\n\n\n\nGrew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, Tegan and Sara",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -652,8 +652,8 @@
     "objectID": "slides/01-tabular-data-summaries.html#data-are-stored-in-plain-text-files",
     "href": "slides/01-tabular-data-summaries.html#data-are-stored-in-plain-text-files",
     "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": "name,pclass,survived,sex,age,sibsp,parch,ticket,fare,cabin,embarked,boat,body,home.dest\n\"Allen, Miss. Elisabeth Walton\",1,1,female,29,0,0,24160,211.3375,B5,S,2,,\"St Louis, MO\"\n\"Allison, Master. Hudson Trevor\",1,1,male,0.9167,1,2,113781,151.5500,C22 C26,S,11,,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Miss. Helen Loraine\",1,0,female,2,1,2,113781,151.5500,C22 C26,S,,,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Mr. Hudson Joshua Creighton\",1,0,male,30,1,2,113781,151.5500,C22 C26,S,,135,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Mrs. Hudson J C (Bessie Waldo Daniels)\",1,0,female,25,1,2,113781,151.5500,C22 C26,S,,,\"Montreal, PQ / Chesterville, ON\"\n\"Anderson, Mr. Harry\",1,1,male,48,0,0,19952,26.5500,E12,S,3,,\"New York, NY\"\n\"Andrews, Miss. Kornelia Theodosia\",1,1,female,63,1,0,13502,77.9583,D7,S,10,,\"Hudson, NY\"\n\"Andrews, Mr. Thomas Jr\",1,0,male,39,0,0,112050,0.0000,A36,S,,,\"Belfast, NI\"\n\"Appleton, Mrs. Edward Dale (Charlotte Lamson)\",1,1,female,53,2,0,11769,51.4792,C101,S,D,,\"Bayside, Queens, NY\"\n\"Artagaveytia, Mr. Ramon\",1,0,male,71,0,0,PC 17609,49.5042,,C,,22,\"Montevideo, Uruguay\"\n\"Astor, Col. John Jacob\",1,0,male,47,1,0,PC 17757,227.5250,C62 C64,C,,124,\"New York, NY\"\n\n\n\nThis is called a csv (comma-separated) file.\nYou might see it stored as something.csv or something.txt\n.txt files might have different delimiters (separators)",
+    "section": "Data are stored in plain text files",
+    "text": "Data are stored in plain text files\n\nname,pclass,survived,sex,age,sibsp,parch,ticket,fare,cabin,embarked,boat,body,home.dest\n\"Allen, Miss. Elisabeth Walton\",1,1,female,29,0,0,24160,211.3375,B5,S,2,,\"St Louis, MO\"\n\"Allison, Master. Hudson Trevor\",1,1,male,0.9167,1,2,113781,151.5500,C22 C26,S,11,,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Miss. Helen Loraine\",1,0,female,2,1,2,113781,151.5500,C22 C26,S,,,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Mr. Hudson Joshua Creighton\",1,0,male,30,1,2,113781,151.5500,C22 C26,S,,135,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Mrs. Hudson J C (Bessie Waldo Daniels)\",1,0,female,25,1,2,113781,151.5500,C22 C26,S,,,\"Montreal, PQ / Chesterville, ON\"\n\"Anderson, Mr. Harry\",1,1,male,48,0,0,19952,26.5500,E12,S,3,,\"New York, NY\"\n\"Andrews, Miss. Kornelia Theodosia\",1,1,female,63,1,0,13502,77.9583,D7,S,10,,\"Hudson, NY\"\n\"Andrews, Mr. Thomas Jr\",1,0,male,39,0,0,112050,0.0000,A36,S,,,\"Belfast, NI\"\n\"Appleton, Mrs. Edward Dale (Charlotte Lamson)\",1,1,female,53,2,0,11769,51.4792,C101,S,D,,\"Bayside, Queens, NY\"\n\"Artagaveytia, Mr. Ramon\",1,0,male,71,0,0,PC 17609,49.5042,,C,,22,\"Montevideo, Uruguay\"\n\"Astor, Col. John Jacob\",1,0,male,47,1,0,PC 17757,227.5250,C62 C64,C,,124,\"New York, NY\"\n\n\n\nThis is called a csv (comma-separated) file.\nYou might see it stored as something.csv or something.txt\n.txt files might have different delimiters (separators)",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -663,8 +663,8 @@
     "objectID": "slides/01-tabular-data-summaries.html#reading-data",
     "href": "slides/01-tabular-data-summaries.html#reading-data",
     "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": "We read the data into a program like Python by specifying:\n\nwhat type of file it is (e.g., .csv, .txt, .xlsx)\nwhere the csv file is located (the “path”)\nif the file has a header\n… and other information in special cases!",
+    "section": "Reading data",
+    "text": "Reading data\nWe read the data into a program like Python by specifying:\n\nwhat type of file it is (e.g., .csv, .txt, .xlsx)\nwhere the csv file is located (the “path”)\nif the file has a header\n… and other information in special cases!",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -674,8 +674,8 @@
     "objectID": "slides/01-tabular-data-summaries.html#example-using-pandas-data-frame",
     "href": "slides/01-tabular-data-summaries.html#example-using-pandas-data-frame",
     "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": "df = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\n\n\n\n\n\nread_csv() lives in pandas\n\n\n\n\n\n\n. . .\n\ndf.head()\n\n\n\n\n                                              name  ...                        home.dest\n0                    Allen, Miss. Elisabeth Walton  ...                     St Louis, MO\n1                   Allison, Master. Hudson Trevor  ...  Montreal, PQ / Chesterville, ON\n2                     Allison, Miss. Helen Loraine  ...  Montreal, PQ / Chesterville, ON\n3             Allison, Mr. Hudson Joshua Creighton  ...  Montreal, PQ / Chesterville, ON\n4  Allison, Mrs. Hudson J C (Bessie Waldo Daniels)  ...  Montreal, PQ / Chesterville, ON\n\n[5 rows x 14 columns]",
+    "section": "Example using pandas data frame:",
+    "text": "Example using pandas data frame:\n\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\n\n\n\n\n\nread_csv() lives in pandas\n\n\n\n\n\n\n\n\ndf.head()\n\n\n\n\n                                              name  ...                        home.dest\n0                    Allen, Miss. Elisabeth Walton  ...                     St Louis, MO\n1                   Allison, Master. Hudson Trevor  ...  Montreal, PQ / Chesterville, ON\n2                     Allison, Miss. Helen Loraine  ...  Montreal, PQ / Chesterville, ON\n3             Allison, Mr. Hudson Joshua Creighton  ...  Montreal, PQ / Chesterville, ON\n4  Allison, Mrs. Hudson J C (Bessie Waldo Daniels)  ...  Montreal, PQ / Chesterville, ON\n\n[5 rows x 14 columns]",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -685,8 +685,8 @@
     "objectID": "slides/01-tabular-data-summaries.html#lecture-1.1-check-in",
     "href": "slides/01-tabular-data-summaries.html#lecture-1.1-check-in",
     "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": "df = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\n\n\n\n\n\n\nQuestion 1: What if this file lived on a computer instead of online?\nQuestion 2: Why didn’t we have to specify that this dataset has a header?",
+    "section": "Lecture 1.1 Check in",
+    "text": "Lecture 1.1 Check in\n\n\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\n\n\n\nQuestion 1: What if this file lived on a computer instead of online?\nQuestion 2: Why didn’t we have to specify that this dataset has a header?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -696,8 +696,8 @@
     "objectID": "slides/01-tabular-data-summaries.html#looking-at-the-rows",
     "href": "slides/01-tabular-data-summaries.html#looking-at-the-rows",
     "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": "df.loc[1, :]\n\nname          Allison, Master. Hudson Trevor\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: 1, dtype: object\n\n\n\n\n\n\n\n\ndf.iloc[1, :]\n\nname          Allison, Master. Hudson Trevor\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: 1, dtype: object\n\n\n\n\n\n. . .\n\nWhat is the difference between .loc and .iloc?\nWhat type of object is returned?",
+    "section": "Looking at the rows",
+    "text": "Looking at the rows\n\n\n\n\ndf.loc[1, :]\n\nname          Allison, Master. Hudson Trevor\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: 1, dtype: object\n\n\n\n\n\n\n\n\ndf.iloc[1, :]\n\nname          Allison, Master. Hudson Trevor\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: 1, dtype: object\n\n\n\n\n\n\nWhat is the difference between .loc and .iloc?\nWhat type of object is returned?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -707,8 +707,8 @@
     "objectID": "slides/01-tabular-data-summaries.html#loc-iloc-and-index",
     "href": "slides/01-tabular-data-summaries.html#loc-iloc-and-index",
     "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": "df2 = df.set_index('name')\n\n\n\n\n                                                 pclass  ...                        home.dest\nname                                                     ...                                 \nAllen, Miss. Elisabeth Walton                         1  ...                     St Louis, MO\nAllison, Master. Hudson Trevor                        1  ...  Montreal, PQ / Chesterville, ON\nAllison, Miss. Helen Loraine                          1  ...  Montreal, PQ / Chesterville, ON\nAllison, Mr. Hudson Joshua Creighton                  1  ...  Montreal, PQ / Chesterville, ON\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)       1  ...  Montreal, PQ / Chesterville, ON\n\n[5 rows x 13 columns]\n\n\n\n\n\n\n\n\n\n\nWhy are there 13 columns now? (There were 14 before!)",
+    "section": "loc, iloc, and index",
+    "text": "loc, iloc, and index\n\ndf2 = df.set_index('name')\n\n\n\n\n                                                 pclass  ...                        home.dest\nname                                                     ...                                 \nAllen, Miss. Elisabeth Walton                         1  ...                     St Louis, MO\nAllison, Master. Hudson Trevor                        1  ...  Montreal, PQ / Chesterville, ON\nAllison, Miss. Helen Loraine                          1  ...  Montreal, PQ / Chesterville, ON\nAllison, Mr. Hudson Joshua Creighton                  1  ...  Montreal, PQ / Chesterville, ON\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)       1  ...  Montreal, PQ / Chesterville, ON\n\n[5 rows x 13 columns]\n\n\n\n\n\n\n\n\n\n\nWhy are there 13 columns now? (There were 14 before!)",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -718,8 +718,8 @@
     "objectID": "slides/01-tabular-data-summaries.html#loc-iloc-and-index-1",
     "href": "slides/01-tabular-data-summaries.html#loc-iloc-and-index-1",
     "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": "df2.loc[1, :]\n\nKeyError: 1\n\n\n\n\n\n\ndf2.iloc[1, :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object\n\n\n\n\n\n\n\nWhy is .loc returning an error?\n\n\n\n\n\nWhy is .iloc not returning an error?",
+    "section": "loc, iloc, and index",
+    "text": "loc, iloc, and index\n\n\n\ndf2.loc[1, :]\n\nKeyError: 1\n\n\n\n\n\n\ndf2.iloc[1, :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object\n\n\n\n\n\n\nWhy is .loc returning an error?\n\n\n\n\n\nWhy is .iloc not returning an error?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -729,8 +729,8 @@
     "objectID": "slides/01-tabular-data-summaries.html#loc-iloc-and-index-2",
     "href": "slides/01-tabular-data-summaries.html#loc-iloc-and-index-2",
     "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": ".loc – label-based location\n\n\nUses labels from rows (rownames) to select data\n\n\n\ndf2.loc[\"Allison, Master. Hudson Trevor\", :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object\n\n\n\n\n\n\n\n\n.iloc – integer location\n\n\nUses indices (positions) from rows to select data\n\n\n\ndf2.iloc[1, :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object",
+    "section": "loc, iloc, and index",
+    "text": "loc, iloc, and index\n\n\n.loc – label-based location\n\n\nUses labels from rows (rownames) to select data\n\n\n\ndf2.loc[\"Allison, Master. Hudson Trevor\", :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object\n\n\n\n\n\n\n\n\n.iloc – integer location\n\n\nUses indices (positions) from rows to select data\n\n\n\ndf2.iloc[1, :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -740,8 +740,8 @@
     "objectID": "slides/01-tabular-data-summaries.html#looking-at-columns",
     "href": "slides/01-tabular-data-summaries.html#looking-at-columns",
     "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": "df.columns\n\nIndex(['name', 'pclass', 'survived', 'sex', 'age', 'sibsp', 'parch', 'ticket',\n       'fare', 'cabin', 'embarked', 'boat', 'body', 'home.dest'],\n      dtype='object')\n\n\n\n\n\n\n\ndf['home.dest']\n\n0                          St Louis, MO\n1       Montreal, PQ / Chesterville, ON\n2       Montreal, PQ / Chesterville, ON\n3       Montreal, PQ / Chesterville, ON\n4       Montreal, PQ / Chesterville, ON\n                     ...               \n1304                                NaN\n1305                                NaN\n1306                                NaN\n1307                                NaN\n1308                                NaN\nName: home.dest, Length: 1309, dtype: object\n\n\n\n\n\n. . .\n\n\n\n\n\n\nNaN (Not a Number) represents missing or null data",
+    "section": "Looking at columns",
+    "text": "Looking at columns\n\n\n\ndf.columns\n\nIndex(['name', 'pclass', 'survived', 'sex', 'age', 'sibsp', 'parch', 'ticket',\n       'fare', 'cabin', 'embarked', 'boat', 'body', 'home.dest'],\n      dtype='object')\n\n\n\n\n\n\n\ndf['home.dest']\n\n0                          St Louis, MO\n1       Montreal, PQ / Chesterville, ON\n2       Montreal, PQ / Chesterville, ON\n3       Montreal, PQ / Chesterville, ON\n4       Montreal, PQ / Chesterville, ON\n                     ...               \n1304                                NaN\n1305                                NaN\n1306                                NaN\n1307                                NaN\n1308                                NaN\nName: home.dest, Length: 1309, dtype: object\n\n\n\n\n\n\n\n\n\n\n\nNaN (Not a Number) represents missing or null data",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -751,8 +751,8 @@
     "objectID": "slides/01-tabular-data-summaries.html#caution-object-types",
     "href": "slides/01-tabular-data-summaries.html#caution-object-types",
     "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": "type(df)\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\n\n\n\n. . .\n\ntype(df.iloc[1, :])\n\n&lt;class 'pandas.core.series.Series'&gt;\n\n\n. . .\n\n\ntype(df['name'])\n\n&lt;class 'pandas.core.series.Series'&gt;\n\n\n. . .\n\n\n\n\n\n\nA Series is a one-dimensional labeled array (a vector with labels)",
+    "section": "Caution: Object types",
+    "text": "Caution: Object types\n\ntype(df)\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\n\n\n\n\n\ntype(df.iloc[1, :])\n\n&lt;class 'pandas.core.series.Series'&gt;\n\n\n\n\n\n\ntype(df['name'])\n\n&lt;class 'pandas.core.series.Series'&gt;\n\n\n\n\n\n\n\n\n\n\nA Series is a one-dimensional labeled array (a vector with labels)",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -774,7 +774,7 @@
     "href": "slides/01-tabular-data-summaries.html#a-quick-look-at-the-data",
     "title": "Tabular Data and Variable Summaries",
     "section": "A quick look at the data",
-    "text": "A quick look at the data\n\n\ndf.describe()\n\n            pclass     survived  ...         fare        body\ncount  1309.000000  1309.000000  ...  1308.000000  121.000000\nmean      2.294882     0.381971  ...    33.295479  160.809917\nstd       0.837836     0.486055  ...    51.758668   97.696922\nmin       1.000000     0.000000  ...     0.000000    1.000000\n25%       2.000000     0.000000  ...     7.895800   72.000000\n50%       3.000000     0.000000  ...    14.454200  155.000000\n75%       3.000000     1.000000  ...    31.275000  256.000000\nmax       3.000000     1.000000  ...   512.329200  328.000000\n\n[8 rows x 7 columns]\n\n\n\n\n\nLecture 1.1 Check in\n\n\n\n\n\n\nQuestion 3: What percent of Titanic passengers survived?\nQuestion 4: What was the average (mean) fare paid for a ticket?",
+    "text": "A quick look at the data\n\n\ndf.describe()\n\n            pclass     survived  ...         fare        body\ncount  1309.000000  1309.000000  ...  1308.000000  121.000000\nmean      2.294882     0.381971  ...    33.295479  160.809917\nstd       0.837836     0.486055  ...    51.758668   97.696922\nmin       1.000000     0.000000  ...     0.000000    1.000000\n25%       2.000000     0.000000  ...     7.895800   72.000000\n50%       3.000000     0.000000  ...    14.454200  155.000000\n75%       3.000000     1.000000  ...    31.275000  256.000000\nmax       3.000000     1.000000  ...   512.329200  328.000000\n\n[8 rows x 7 columns]\n\n\n\n\nLecture 1.1 Check in\n\n\n\nQuestion 3: What percent of Titanic passengers survived?\nQuestion 4: What was the average (mean) fare paid for a ticket?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -785,7 +785,7 @@
     "href": "slides/01-tabular-data-summaries.html#changing-variable-types",
     "title": "Tabular Data and Variable Summaries",
     "section": "Changing Variable Types",
-    "text": "Changing Variable Types\n\nThe variable pclass was categorical, but Python assumed it was quantitative.\nIt’s our job to check and fix data!\n\n. . .\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\n\n\n. . .\n\n\n\n\n\n\nWhy choose to store pclass as a \"category\" instead of a \"string\"?",
+    "text": "Changing Variable Types\n\nThe variable pclass was categorical, but Python assumed it was quantitative.\nIt’s our job to check and fix data!\n\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\n\n\n\n\n\n\n\n\n\n\nWhy choose to store pclass as a \"category\" instead of a \"string\"?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -796,7 +796,7 @@
     "href": "slides/01-tabular-data-summaries.html#summary-of-categorical-variable",
     "title": "Tabular Data and Variable Summaries",
     "section": "Summary of categorical variable",
-    "text": "Summary of categorical variable\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\n\n. . .\n\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64",
+    "text": "Summary of categorical variable\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\n\n\n\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
@@ -811,83 +811,6 @@
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
-    ]
-  },
-  {
-    "objectID": "slides/02-conditional-distributions.html#switching-variable-order",
-    "href": "slides/02-conditional-distributions.html#switching-variable-order",
-    "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Switching Variable Order",
-    "text": "Switching Variable Order\nWhat cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if \"sex\" came first and \"pclass\" came second?\n\n\n\n(\n  df[[\"sex\", \"pclass\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\npclass         1         2         3\nsex                                 \nfemale  0.110008  0.080978  0.165011\nmale    0.136746  0.130634  0.376623",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
-    ]
-  },
-  {
-    "objectID": "slides/02-conditional-distributions.html#conditional-distribution-from-percentages",
-    "href": "slides/02-conditional-distributions.html#conditional-distribution-from-percentages",
-    "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Conditional Distribution from Percentages",
-    "text": "Conditional Distribution from Percentages\nWe know that:\n\n35.5% of all passengers identified as female\nOf those 35.5% of passengers, 11% rode in first class\n\nSo:\n\n0.11 / 0.355 = 31% of female identifying passengers rode in first class\n\nHere we conditioned on the passenger being female, and then looked at the conditional distribution of pclass.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
-    ]
-  },
-  {
-    "objectID": "slides/02-conditional-distributions.html#check-in-1",
-    "href": "slides/02-conditional-distributions.html#check-in-1",
-    "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Check-In",
-    "text": "Check-In\n\n\n\nmarginal_sex\n\nsex\nmale      0.644003\nfemale    0.355997\nName: proportion, dtype: float64\n\n\n\n\n\n\njoint_class_sex\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\n\n\n\njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816\n\n\n\n\n\nHow do you think divide() works?",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
-    ]
-  },
-  {
-    "objectID": "slides/02-conditional-distributions.html#check-in-2",
-    "href": "slides/02-conditional-distributions.html#check-in-2",
-    "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Check-In",
-    "text": "Check-In\nShould the rows or columns add up to 100%? Why?\n\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
-    ]
-  },
-  {
-    "objectID": "slides/02-conditional-distributions.html#which-plot-better-answers-the-question",
-    "href": "slides/02-conditional-distributions.html#which-plot-better-answers-the-question",
-    "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Which plot better answers the question:",
-    "text": "Which plot better answers the question:\n\n“Did women tend to ride in first class more than men?”\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(x = \"pclass\", fill = \"sex\")) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(x = \"sex\", fill = \"pclass)) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
-    ]
-  },
-  {
-    "objectID": "slides/01-tabular-data-summaries.html",
-    "href": "slides/01-tabular-data-summaries.html",
-    "title": "Tabular Data and Variable Summaries",
-    "section": "",
-    "text": "name,pclass,survived,sex,age,sibsp,parch,ticket,fare,cabin,embarked,boat,body,home.dest\n\"Allen, Miss. Elisabeth Walton\",1,1,female,29,0,0,24160,211.3375,B5,S,2,,\"St Louis, MO\"\n\"Allison, Master. Hudson Trevor\",1,1,male,0.9167,1,2,113781,151.5500,C22 C26,S,11,,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Miss. Helen Loraine\",1,0,female,2,1,2,113781,151.5500,C22 C26,S,,,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Mr. Hudson Joshua Creighton\",1,0,male,30,1,2,113781,151.5500,C22 C26,S,,135,\"Montreal, PQ / Chesterville, ON\"\n\"Allison, Mrs. Hudson J C (Bessie Waldo Daniels)\",1,0,female,25,1,2,113781,151.5500,C22 C26,S,,,\"Montreal, PQ / Chesterville, ON\"\n\"Anderson, Mr. Harry\",1,1,male,48,0,0,19952,26.5500,E12,S,3,,\"New York, NY\"\n\"Andrews, Miss. Kornelia Theodosia\",1,1,female,63,1,0,13502,77.9583,D7,S,10,,\"Hudson, NY\"\n\"Andrews, Mr. Thomas Jr\",1,0,male,39,0,0,112050,0.0000,A36,S,,,\"Belfast, NI\"\n\"Appleton, Mrs. Edward Dale (Charlotte Lamson)\",1,1,female,53,2,0,11769,51.4792,C101,S,D,,\"Bayside, Queens, NY\"\n\"Artagaveytia, Mr. Ramon\",1,0,male,71,0,0,PC 17609,49.5042,,C,,22,\"Montevideo, Uruguay\"\n\"Astor, Col. John Jacob\",1,0,male,47,1,0,PC 17757,227.5250,C62 C64,C,,124,\"New York, NY\"\n\n\n\nThis is called a csv (comma-separated) file.\nYou might see it stored as something.csv or something.txt\n.txt files might have different delimiters (separators)\n\n\n\n\n\nWe read the data into a program like Python by specifying:\n\nwhat type of file it is (e.g., .csv, .txt, .xlsx)\nwhere the csv file is located (the “path”)\nif the file has a header\n… and other information in special cases!\n\n\n\n\n\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\n\n\n\n\n\nread_csv() lives in pandas\n\n\n\n\n\n\n. . .\n\ndf.head()\n\n\n\n\n                                              name  ...                        home.dest\n0                    Allen, Miss. Elisabeth Walton  ...                     St Louis, MO\n1                   Allison, Master. Hudson Trevor  ...  Montreal, PQ / Chesterville, ON\n2                     Allison, Miss. Helen Loraine  ...  Montreal, PQ / Chesterville, ON\n3             Allison, Mr. Hudson Joshua Creighton  ...  Montreal, PQ / Chesterville, ON\n4  Allison, Mrs. Hudson J C (Bessie Waldo Daniels)  ...  Montreal, PQ / Chesterville, ON\n\n[5 rows x 14 columns]\n\n\n\n\n\n\n\n\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\n\n\n\n\n\n\nQuestion 1: What if this file lived on a computer instead of online?\nQuestion 2: Why didn’t we have to specify that this dataset has a header?\n\n\n\n\n\n\n\n\n\n\ndf.loc[1, :]\n\nname          Allison, Master. Hudson Trevor\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: 1, dtype: object\n\n\n\n\n\n\n\n\ndf.iloc[1, :]\n\nname          Allison, Master. Hudson Trevor\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: 1, dtype: object\n\n\n\n\n\n. . .\n\nWhat is the difference between .loc and .iloc?\nWhat type of object is returned?\n\n\n\n\n\ndf2 = df.set_index('name')\n\n\n\n\n                                                 pclass  ...                        home.dest\nname                                                     ...                                 \nAllen, Miss. Elisabeth Walton                         1  ...                     St Louis, MO\nAllison, Master. Hudson Trevor                        1  ...  Montreal, PQ / Chesterville, ON\nAllison, Miss. Helen Loraine                          1  ...  Montreal, PQ / Chesterville, ON\nAllison, Mr. Hudson Joshua Creighton                  1  ...  Montreal, PQ / Chesterville, ON\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)       1  ...  Montreal, PQ / Chesterville, ON\n\n[5 rows x 13 columns]\n\n\n\n\n\n\n\n\n\n\nWhy are there 13 columns now? (There were 14 before!)\n\n\n\n\n\n\n\n\n\n\n\n\ndf2.loc[1, :]\n\nKeyError: 1\n\n\n\n\n\n\ndf2.iloc[1, :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object\n\n\n\n\n\n\n\nWhy is .loc returning an error?\n\n\n\n\n\nWhy is .iloc not returning an error?\n\n\n\n\n\n\n\n\n.loc – label-based location\n\n\nUses labels from rows (rownames) to select data\n\n\n\ndf2.loc[\"Allison, Master. Hudson Trevor\", :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object\n\n\n\n\n\n\n\n\n.iloc – integer location\n\n\nUses indices (positions) from rows to select data\n\n\n\ndf2.iloc[1, :]\n\npclass                                     1\nsurvived                                   1\nsex                                     male\nage                                   0.9167\nsibsp                                      1\nparch                                      2\nticket                                113781\nfare                                  151.55\ncabin                                C22 C26\nembarked                                   S\nboat                                      11\nbody                                     NaN\nhome.dest    Montreal, PQ / Chesterville, ON\nName: Allison, Master. Hudson Trevor, dtype: object\n\n\n\n\n\n\n\n\n\n\n\n\n\ndf.columns\n\nIndex(['name', 'pclass', 'survived', 'sex', 'age', 'sibsp', 'parch', 'ticket',\n       'fare', 'cabin', 'embarked', 'boat', 'body', 'home.dest'],\n      dtype='object')\n\n\n\n\n\n\n\ndf['home.dest']\n\n0                          St Louis, MO\n1       Montreal, PQ / Chesterville, ON\n2       Montreal, PQ / Chesterville, ON\n3       Montreal, PQ / Chesterville, ON\n4       Montreal, PQ / Chesterville, ON\n                     ...               \n1304                                NaN\n1305                                NaN\n1306                                NaN\n1307                                NaN\n1308                                NaN\nName: home.dest, Length: 1309, dtype: object\n\n\n\n\n\n. . .\n\n\n\n\n\n\nNaN (Not a Number) represents missing or null data\n\n\n\n\n\n\n\n\n\n\ntype(df)\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\n\n\n\n. . .\n\ntype(df.iloc[1, :])\n\n&lt;class 'pandas.core.series.Series'&gt;\n\n\n. . .\n\n\ntype(df['name'])\n\n&lt;class 'pandas.core.series.Series'&gt;\n\n\n. . .\n\n\n\n\n\n\nA Series is a one-dimensional labeled array (a vector with labels)",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 1, Part 1 - Tabular Data and Variable Summaries"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html",
-    "href": "slides/00-welcome.html",
-    "title": "Welcome, Intro, and Setup",
-    "section": "",
-    "text": "Grew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, Tegan and Sara",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
     ]
   }
 ]
