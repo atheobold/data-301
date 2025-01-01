@@ -49,11 +49,9 @@ website:
             text: "Week 1, Part 1 - Tabular Data and Variable Summaries"
           - href: slides/02-conditional-distributions.qmd
             text: "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
-          # - href: weeks/week-1-version-control.qmd
-          #   text: "Week 1, Part 3 - Version Control"
-          # - href: weeks/week-2-ggplot.qmd
-          #   text: "Week 2, Part 1 - ggplot"
-          # - href: weeks/week-2-projects-data-import.qmd
+          - href: slides/03-quantitative-variables.qmd
+            text: "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
+          - href: weeks/week-2-projects-data-import.qmd
           #   text: "Week 2, Part 2 - Data Import"
           # - href: weeks/week-3-dplyr.qmd
           #   text: "Week 3 - dplyr"
