@@ -6,6 +6,7 @@ format:
     incremental: true 
 execute:
   echo: true
+editor: source
 ---
 
 ```{r}
