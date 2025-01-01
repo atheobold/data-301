@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/atheobold/data-301/slides/02-conditional-distributions.html</loc>
-    <lastmod>2024-12-28T21:02:58.398Z</lastmod>
+    <lastmod>2025-01-01T23:56:09.067Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/course-materials/syllabus.html</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/index.html</loc>
-    <lastmod>2025-01-01T22:11:51.006Z</lastmod>
+    <lastmod>2025-01-01T23:56:16.488Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/00-welcome.html</loc>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/01-tabular-data-summaries.html</loc>
-    <lastmod>2024-12-27T20:26:35.415Z</lastmod>
+    <lastmod>2025-01-01T23:55:53.753Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/04-group_by.html</loc>
@@ -26,6 +26,14 @@
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/03-quantitative_variables.html</loc>
-    <lastmod>2025-01-01T22:09:43.094Z</lastmod>
+    <lastmod>2025-01-01T23:53:58.988Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/atheobold/data-301/slides/03-quantitative-variables.html</loc>
+    <lastmod>2025-01-01T23:54:36.937Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/atheobold/data-301/slides/04-group-by.html</loc>
+    <lastmod>2025-01-01T20:13:06.635Z</lastmod>
   </url>
 </urlset>
