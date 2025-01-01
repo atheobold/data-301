@@ -5,6 +5,7 @@ format:
     theme: [default, style.scss]
 execute:
   echo: true
+editor: source
 ---
 
 ```{r}
@@ -621,12 +622,10 @@ df[["pclass", "sex"]].value_counts()
 
 -   This is sometimes called a *cross-tab* or *cross-tabulation*.
 
-::: {.callout-tip}
+::: callout-tip
 # Pivot Table
 
-Essentially `unstack()` has pivoted the `sex` column from **long format** 
-(where the values are included in one column) to **wide format** where each 
-value has its own column. 
+Essentially `unstack()` has pivoted the `sex` column from **long format** (where the values are included in one column) to **wide format** where each value has its own column.
 :::
 
 ## Two-way Table - Percents
@@ -648,9 +647,7 @@ value has its own column.
 
 ## Switching Variable Order
 
-**What cross-tabulation would you expect if we changed the order of the
-variables? In other words, what would happen if `"sex"` came first and 
-`"pclass"` came second?**
+**What cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if `"sex"` came first and `"pclass"` came second?**
 
 . . .
 
@@ -690,8 +687,7 @@ We call this the ***joint distribution*** of the two variables.
 
 </br>
 
-> Of all the passengers on the Titanic, 11% were female passengers riding in
-> first class.
+> Of all the passengers on the Titanic, 11% were female passengers riding in first class.
 
 . . .
 
@@ -712,8 +708,7 @@ So:
 
 -   144 / 466 = 31% **of female identifying passengers** rode in first class
 
-Here we ***conditioned on*** the passenger being female, and then looked at the
-***conditional distribution*** of `pclass`.
+Here we ***conditioned on*** the passenger being female, and then looked at the ***conditional distribution*** of `pclass`.
 
 ## Conditional Distribution from Percentages
 
@@ -741,8 +736,7 @@ So:
 
 -   144 / 323 = 44.6% **of first class passengers** identified as female
 
-Here we ***conditioned on*** the passenger being in first class, and then looked
-at the ***conditional distribution*** of `sex`.
+Here we ***conditioned on*** the passenger being in first class, and then looked at the ***conditional distribution*** of `sex`.
 
 ## Which one to condition on?
 
@@ -752,8 +746,7 @@ This depends on the **research question** you are trying to answer.
 
 > "What class did most female identifying passengers ride in?"
 
--\> Of all *female passengers*, what is the conditional distribution of
-*class*?
+-\> Of all *female passengers*, what is the conditional distribution of *class*?
 
 . . .
 
@@ -763,12 +756,11 @@ This depends on the **research question** you are trying to answer.
 
 ## Calculating in Python
 
-::: {.midi}
-When we study two variables, we call the individual one-variable distributions
-the **marginal distribution** of that variable.
+::: midi
+When we study two variables, we call the individual one-variable distributions the **marginal distribution** of that variable.
 :::
 
-::::: columns
+:::::: columns
 ::: {.column width="47%"}
 ```{python}
 #| code-line-numbers: false
@@ -780,13 +772,12 @@ marginal_class = (
   )
 ```
 
-</br> 
+</br>
 
 ```{python}
 #| code-line-numbers: false
 marginal_class
 ```
-
 :::
 
 ::: {.column width="3%"}
@@ -809,13 +800,12 @@ marginal_sex = (
 #| code-line-numbers: false
 marginal_sex
 ```
-
 :::
-:::::
+::::::
 
 ## Calculating in Python
 
-::: {.midi}
+::: midi
 We need to divide the **joint distribution** (e.g. "11% of passengers were first class female") by the **marginal distribution** of the variable we want to **condition on** (e.g. 35.5% of passengers were female).
 :::
 
@@ -832,9 +822,9 @@ joint_class_sex = (
 joint_class_sex.divide(marginal_sex)
 ```
 
-## Check-In 
+## Check-In
 
-::: columns
+:::::: columns
 ::: {.column width="40%"}
 ```{python}
 #| code-line-numbers: false
@@ -842,7 +832,6 @@ joint_class_sex.divide(marginal_sex)
 
 marginal_sex
 ```
-
 :::
 
 ::: {.column width="5%"}
@@ -856,11 +845,11 @@ marginal_sex
 joint_class_sex
 ```
 :::
-:::
+::::::
 
 </br>
 
-::: columns
+:::::: columns
 ::: {.column width="65%"}
 ```{python}
 #| code-line-numbers: false
@@ -876,10 +865,9 @@ joint_class_sex.divide(marginal_sex)
 ::: {.column width="30%"}
 **How do you think `divide()` works?**
 :::
-:::
+::::::
 
-
-## Check-In 
+## Check-In
 
 Should the **rows** or **columns** add up to 100%? Why?
 
@@ -985,8 +973,8 @@ plot.draw(plot)
 
 ## Takeaways
 
-::: {.midi}
-::: {.incremental}
+:::: midi
+::: incremental
 -   We use `plotnine` and the **grammar of graphics** to make visuals.
 
 -   For two categorical variables, we might use a **stacked bar plot**, a **side-by-side bar plot**, or a **stacked percentage bar plot** - depending on what we are trying to show.
@@ -999,4 +987,4 @@ plot.draw(plot)
 
 -   We calculate the **conditional distribution** by dividing the **joint** by the **marginal**.
 :::
-:::
+::::
