@@ -532,7 +532,7 @@
     "href": "index.html",
     "title": "Introduction to Data Science (in Python)",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2\n\n\n\n\n\nFriday, January 10\n\n\n\nLab 1 Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\n\nActivity 2.1\n\n\n\n\n\nThursday, January 16\n\n\nActivity 2.2\n\n\n\n\n\nFriday, January 17\n\n\n\nLab 2 Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\n\n\nActivity 3.1\n\n\n\n\n\nThursday, January 23\n\n\nActivity 3.2\n\n\n\n\n\nFriday, January 24\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nif-idf & k-nearest neighbors\nTuesday, January 28\n\n\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\n\nActivity 4.2\n\n\n\n\n\nFriday, January 31\n\n\n\nLab 4 Due by Midnight\n\n\n\n5\nIntro to Modeling & Midterm Exam\nTuesday, February 4\n\n\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\n\nActivity 5.2\n\nMidterm Exam (in-class)\n\n\n\nFriday, February 7\n\n\n\nLab 5 Due by Midnight\n\n\n\n6\nModel Selection & Classification\nTuesday, February 11\n\n\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\n\nActivity 6.2\n\n\n\n\n\nFriday, February 14\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\n\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\n\nActivity 7.2\n\n\n\n\n\nFriday, February 21\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\n\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\n\nActivity 8.2\n\n\n\n\n\nFriday, February 28\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nWebscraping\nTuesday, March 4\n\n\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\n\nActivity 9.2\n\n\n\n\n\nFriday, March 7\n\n\n\nLab 9 Due by Midnight\nPosters Due to be Printed\n\n\n10\nChloropleths & Final Exam\nTuesday, March 11\n\n\nActivity 10.1\n\n\n\n\n\nThursday, January 13\n\n\n\n\nFinal Exam (in-class)\n\n\nFinals Week\nSaturday, March 15 10:10am - 1pm\n\n\n\n\nPoster Presentations",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2\n\n\n\n\n\nFriday, January 10\n\n\n\nLab 1 Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\n\nActivity 2.1\n\n\n\n\n\nThursday, January 16\n\n\nActivity 2.2\n\n\n\n\n\nFriday, January 17\n\n\n\nLab 2 Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\n\n\nActivity 3.1\n\n\n\n\n\nThursday, January 23\n\n\nActivity 3.2\n\n\n\n\n\nFriday, January 24\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nif-idf & k-nearest neighbors\nTuesday, January 28\n\n\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\n\nActivity 4.2\n\n\n\n\n\nFriday, January 31\n\n\n\nLab 4 Due by Midnight\n\n\n\n5\nIntro to Modeling & Midterm Exam\nTuesday, February 4\n\n\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\n\nActivity 5.2\n\nMidterm Exam (in-class)\n\n\n\nFriday, February 7\n\n\n\nLab 5 Due by Midnight\n\n\n\n6\nModel Selection & Classification\nTuesday, February 11\n\n\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\n\nActivity 6.2\n\n\n\n\n\nFriday, February 14\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\n\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\n\nActivity 7.2\n\n\n\n\n\nFriday, February 21\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\n\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\n\nActivity 8.2\n\n\n\n\n\nFriday, February 28\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nWebscraping\nTuesday, March 4\n\n\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\n\nActivity 9.2\n\n\n\n\n\nFriday, March 7\n\n\n\nLab 9 Due by Midnight\nPosters Due to be Printed\n\n\n10\nChloropleths & Final Exam\nTuesday, March 11\n\n\nActivity 10.1\n\n\n\n\n\nThursday, March 13\n\n\n\n\nFinal Exam (in-class)\n\n\nFinals Week\nSaturday, March 15 10:10am - 1pm\n\n\n\n\nPoster Presentations",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -543,7 +543,7 @@
     "href": "slides/00-welcome.html#about-me",
     "title": "Welcome, Intro, and Setup",
     "section": "About Me",
-    "text": "About Me\n\n\n\n\n\n\nGrew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, Tegan and Sara",
+    "text": "About Me\n\n\n\n\n\n\nGrew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, going to concerts and musicals",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -554,7 +554,7 @@
     "href": "slides/00-welcome.html#grade-brakedown",
     "title": "Welcome, Intro, and Setup",
     "section": "Grade Brakedown",
-    "text": "Grade Brakedown\n\n5%: Check-Ins – pay attention to lecture\n10%: Lab Activities – Lab attendance is required\n25%: Weekly Assignments – due Fridays at 5pm\n15% each: Exams in Week 5 and Week 9.\n30%: Final project",
+    "text": "Grade Brakedown\n\n5%: Check-Ins – Questions interspersed throughout lecture\n10%: Lab Activities – Lab attendance is required\n25%: Weekly Assignments – due Saturdays at midnight\n15% each: Exams in Week 5 and Week 10.\n30%: Final project",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -565,7 +565,7 @@
     "href": "slides/00-welcome.html#important-dates",
     "title": "Welcome, Intro, and Setup",
     "section": "Important Dates",
-    "text": "Important Dates\n\nWeds, May 1: Exam 1 (in-class)\nFri, May 17: 1-page Project Proposal Due\nWeds, May 29: Exam 2 (in-class)\nSaturday before Finals Week: Final Project Poster Presentations",
+    "text": "Important Dates\n\nThurs, February 6: Exam 1 (in-class)\nFri, February 21: 1-page Project Proposal Due\nThurs, March 13: Exam 2 (in-class)\nSaturday, March 16 (before Finals Week: Final Project Poster Presentations",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -576,7 +576,7 @@
     "href": "slides/00-welcome.html#homework-late-policy",
     "title": "Welcome, Intro, and Setup",
     "section": "Homework Late Policy",
-    "text": "Homework Late Policy\n\n-10% per day for the first 5 days\nAfter that, I won’t grade your work - a perfect complete assignment gets 50%, anything else gets 0%.\n(Yes, even if you turn it in at 5pm on Friday of Week 10.)\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.",
+    "text": "Homework Late Policy\n\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.\nIf you’ve used your deadline extensions, late work has a 10% deduction per day for up to 5 days.\n\nThis policy also applies to deadline extension requests that are not submitted before the assignment’s deadline.",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -587,7 +587,7 @@
     "href": "slides/00-welcome.html#missing-lab",
     "title": "Welcome, Intro, and Setup",
     "section": "Missing Lab",
-    "text": "Missing Lab\n\nBest option: Go to another section.\nSecond-best option: Turn in your work by email to me.\nWorst option: Miss it entirely, get a 0.\nYou may do each of these options only twice. If you need to miss / reschedule more than 3 of the sections in the quarter, you will need to retake the class.",
+    "text": "Missing Lab\n\nBest option: Go to another section.\nSecond-best option: Turn in your work by email to me.\nWorst option: Miss it entirely, get a 0.\nYou may miss lab up to two times during the quarter. If you need to miss / reschedule more than two of the labs this quarter, you will need to retake the class.",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -609,7 +609,7 @@
     "href": "slides/00-welcome.html#colab-notebooks",
     "title": "Welcome, Intro, and Setup",
     "section": "Colab Notebooks",
-    "text": "Colab Notebooks\n\nIn Data Science, everyone uses Notebooks, not scripts, for coding.\nWe will be using Jupyter Notebooks (invented at Cal Poly!), hosted for free by Google Colab.\nIf you want to work offline, you can install Anaconda on your laptop.\nI recommend an IDE like PyCharm as well.",
+    "text": "Colab Notebooks\n\nIn Data Science, everyone uses Notebooks, not scripts, for coding.\nWe will be using Jupyter Notebooks (invented at Cal Poly!), hosted for free by Google Colab.\nIf you want to work offline, you can install Anaconda on your laptop.\nI recommend an IDE like PyCharm (or Positron) as well.",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -620,7 +620,7 @@
     "href": "slides/00-welcome.html#academic-integrity",
     "title": "Welcome, Intro, and Setup",
     "section": "Academic Integrity",
-    "text": "Academic Integrity\n\nIf you copy text from a website into your essay, it’s cheating.\nIf you ask your friend to write your essay, it’s cheating.\nIf you pay someone else to write your essay, it’s cheating.\n\n….\n\nIf you ask GenAI to do your work and then copy the answers, it’s cheating.",
+    "text": "Academic Integrity\n\nIf you copy text from a website into your essay, it’s cheating.\nIf you ask your friend to write your essay, it’s cheating.\nIf you pay someone else to write your essay, it’s cheating.\nIf you ask GenAI to do your work and then copy the answers, it’s cheating.",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -642,7 +642,7 @@
     "href": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
     "title": "Welcome, Intro, and Setup",
     "section": "Activity: Good and bad use of AI",
-    "text": "Activity: Good and bad use of AI\n\nOpen the activity notebook on Canvas.\n5 minutes: Person A follow the instructions in Part 1 of the notebook. Person B watch, but do not give input, unless they are stuck.\n5 minutes: Person B follow the instructions in Part 2 of the notebook. Person A watch, but do not give input, unless they are stuck.\n5 minutes: Discuss and answer the questions at the bottom.",
+    "text": "Activity: Good and bad use of AI\n\nFind your group member\n\nIn the “People” tab on Canvas, find your “Day 1 Group”\n\nOnce you have found your group member, open the Activity 1.1 notebook (linked on Canvas).\n\n\n15-minutes:\n\nFirst, Person A follows the instructions in Part 1 of the notebook.\nThen, Person B follows the instructions in Part 2 of the notebook.\nFinally, discuss and answer the questions at the bottom.\n\n\n\n\n\n\n\n\n\nIf it is not your turn to type, you watch!\n\n\nDo not give input unless your partner asks for help.",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -812,5 +812,275 @@
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
     ]
+  },
+  {
+    "objectID": "slides/04-group_by.html",
+    "href": "slides/04-group_by.html",
+    "title": "Multivariate summaries",
+    "section": "",
+    "text": "Reading in data and cleaning/prepping it\nSummarizing one categorical variable with a distribution\nSummarizing two categorical variables with joint and conditional distributions\nUsing plotnine and the grammar of graphics to make bar plots and column plots.\n\n\n\n\n\nVisualizing by converting to categorical\nVisualizing with histograms or densities\nEstimating probabilities from histograms and densities.\nDescribing the skew\nCalculating and explaining the mean and the median.\nCalculating and explaining the standard deviation and variance."
+  },
+  {
+    "objectID": "slides/04-group_by.html#the-story-so-far",
+    "href": "slides/04-group_by.html#the-story-so-far",
+    "title": "Multivariate summaries",
+    "section": "",
+    "text": "Reading in data and cleaning/prepping it\nSummarizing one categorical variable with a distribution\nSummarizing two categorical variables with joint and conditional distributions\nUsing plotnine and the grammar of graphics to make bar plots and column plots.\n\n\n\n\n\nVisualizing by converting to categorical\nVisualizing with histograms or densities\nEstimating probabilities from histograms and densities.\nDescribing the skew\nCalculating and explaining the mean and the median.\nCalculating and explaining the standard deviation and variance."
+  },
+  {
+    "objectID": "slides/04-group_by.html#comparing-quantities-across-categories",
+    "href": "slides/04-group_by.html#comparing-quantities-across-categories",
+    "title": "Multivariate summaries",
+    "section": "Comparing quantities across categories",
+    "text": "Comparing quantities across categories\n\nNew dataset: airplane flights\nRQ: Which airline carriers are most likely to be delayed?\nLet’s look at a data set of all domestic flights that departed from one of the New York City airports (JFK, LaGuardia, and Newark) on November 16, 2013.\n\ndata_dir = \"https://datasci112.stanford.edu/data/\"\ndf = pd.read_csv(data_dir + \"flights_nyc_20131116.csv\")\ndf\n\n    carrier  flight origin dest  dep_delay\n0        US    1895    EWR  CLT       -5.0\n1        UA    1014    LGA  IAH       -3.0\n2        AA    2243    JFK  MIA        2.0\n3        UA     303    JFK  SFO       -8.0\n4        US     795    LGA  PHL       -8.0\n..      ...     ...    ...  ...        ...\n573      B6     745    JFK  PSE       -3.0\n574      B6     839    JFK  BQN        0.0\n575      UA     360    EWR  PBI        NaN\n576      US    1946    EWR  CLT        NaN\n577      US    2142    LGA  BOS        NaN\n\n[578 rows x 5 columns]\n\n\n\n\nDelays\nWe already know how to summarize the flight delays:\n(Check-in: Interpret these numbers!)\n\ndf['dep_delay'].median()\n\nnp.float64(-4.0)\n\ndf['dep_delay'].mean()\n\nnp.float64(2.0469565217391303)\n\ndf['dep_delay'].std()\n\nnp.float64(23.52882923523891)\n\n\n\n\nDelays\nWe already know how to visualize the flight delays:\n(Check-in: How would you describe this distribution?)\n\n(ggplot(df, aes(x = 'dep_delay'))\n+ geom_histogram()\n+ theme_classic())\n\n&lt;plotnine.ggplot.ggplot object at 0x12e78bd90&gt;\n\n\n\n\nDelays by origin\nRQ: Do the three origin airports (JFK, LGA, EWR) have different delay patterns?\nCheck-in: What could you change in this code to include the origin variable?\n\n(ggplot(df, aes(x = 'dep_delay'))\n+ geom_histogram()\n+ theme_classic())\n\n\n\nDelays by origin\nOverlapping histograms can be really hard to read…\n\n\nCode\n(ggplot(df, aes(x = 'dep_delay', fill = 'origin'))\n+ geom_histogram()\n+ theme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12e75b0b0&gt;\n\n\n\n\nDelays by origin\n… but overlapping densities often look nicer…\n\n\nCode\n(ggplot(df, aes(x = 'dep_delay', fill = 'origin'))\n+ geom_density()\n+ theme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12e76ea50&gt;\n\n\n\n\nDelays by origin\n… especially if we make them a little see-through!\n\n\nCode\n(ggplot(df, aes(x = 'dep_delay', fill = 'origin'))\n+ geom_density(alpha = 0.5)\n+ theme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12e4df7a0&gt;\n\n\n\n\nVariable transformations\n\nThat last plot was okay, but it was hard to see the details, because the distribution is so skewed right.\nSometimes, for easier visualization, it is worth transforming a variable.\nOften we use a log transformation.\n\n\n\nLog transformation\n\nExample: Salaries of $10,000 and $100,000 and $10,000,000:\n\n\n\nCode\ndat = pd.DataFrame({\"salary\": [10000, 100000, 10000000]})\ndat[\"log_salary\"] = np.log(dat[\"salary\"])\n\n\n\n\n\n\nCode\n(ggplot(dat, aes(x = \"salary\"))\n+ geom_histogram(bins = 100)\n+ theme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12e7bd7e0&gt;\n\n\n\n\n\nCode\n(ggplot(dat, aes(x = \"log_salary\"))\n+ geom_histogram(bins = 100)\n+ theme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12e3e2c90&gt;\n\n\n\n\n\n\nLog transformations\n\nUsually, we use the natural log, just for convenience.\nPros: Skewed data looks less skewed, so it is easier to see patterns\nCons: The variable is now on a different scale so it is not as interpretable\nCaution! Log transformations need positive numbers.\n\n\n\nDelays by origin - transformed\n\n\nCode\n# Shift delays to be above zero\ndf['delay_shifted'] = df['dep_delay'] - df['dep_delay'].min() + 1\n\n# Log transform\ndf['log_delay'] = np.log(df['delay_shifted'])\n\n(ggplot(df, aes(x = 'log_delay', fill = 'origin'))\n+ geom_density(alpha = 0.5)\n+ theme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12e3e34d0&gt;"
+  },
+  {
+    "objectID": "slides/04-group_by.html#boxplots",
+    "href": "slides/04-group_by.html#boxplots",
+    "title": "Multivariate summaries",
+    "section": "Boxplots",
+    "text": "Boxplots\n\nAnother option: Boxplots\n\n\nCode\n(ggplot(df, aes(y = 'log_delay', x = 'origin'))\n+ geom_boxplot()\n+ theme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12e3e3d10&gt;"
+  },
+  {
+    "objectID": "slides/04-group_by.html#facetting",
+    "href": "slides/04-group_by.html#facetting",
+    "title": "Multivariate summaries",
+    "section": "Facetting",
+    "text": "Facetting\n\nFacetting\n\nThis plot still was a little hard to read.\nWhat if we just made separate plots for each origin?\nKind of annoying…\n\n\nis_jfk = (df['origin'] == \"JFK\")\ndf_jfk = df[is_jfk]\ndf_jfk\n\n    carrier  flight origin dest  dep_delay  delay_shifted  log_delay\n2        AA    2243    JFK  MIA        2.0           22.0   3.091042\n3        UA     303    JFK  SFO       -8.0           12.0   2.484907\n11       EV    5716    JFK  IAD       -4.0           16.0   2.772589\n12       B6     583    JFK  MCO       -3.0           17.0   2.833213\n14       B6    1403    JFK  SJU       -2.0           18.0   2.890372\n..      ...     ...    ...  ...        ...            ...        ...\n570      B6     718    JFK  BOS        1.0           21.0   3.044522\n571      B6    1816    JFK  SYR       20.0           40.0   3.688879\n572      B6    1503    JFK  SJU      -10.0           10.0   2.302585\n573      B6     745    JFK  PSE       -3.0           17.0   2.833213\n574      B6     839    JFK  BQN        0.0           20.0   2.995732\n\n[208 rows x 7 columns]\n\n\n\n\n(Aside: Boolean masking)\n\nis_jfk = (df['origin'] == \"JFK\")\nis_jfk\n\n0      False\n1      False\n2       True\n3       True\n4      False\n       ...  \n573     True\n574     True\n575    False\n576    False\n577    False\nName: origin, Length: 578, dtype: bool\n\n\n\n\nFacetting\nFortunately, plotnine (and other plotting packages) has a trick for you!\n\n(ggplot(df, aes(x = 'dep_delay'))\n+ geom_density()\n+ facet_wrap('origin'))\n\n&lt;plotnine.ggplot.ggplot object at 0x12e3e34d0&gt;"
+  },
+  {
+    "objectID": "slides/04-group_by.html#summaries-by-groups",
+    "href": "slides/04-group_by.html#summaries-by-groups",
+    "title": "Multivariate summaries",
+    "section": "Summaries by groups",
+    "text": "Summaries by groups\n\nSplit-apply-combine\n\nOur visualizations told us some of the story, but can we use numeric summaries as well?\nTo do this, we want to calculate the mean or median delay time for each origin airport.\nWe call this split-apply-combine:\n\nsplit the dataset up by a categorical variable origin\napply a calculation like mean\ncombine the results back into one dataset\n\nIn pandas, we use the groupby() function to take care of the split and combine steps!\n\n\n\nGroup-by\n\ndf.groupby(\"origin\")[\"dep_delay\"].mean()\n\norigin\nEWR    4.064935\nJFK    1.461538\nLGA   -0.485294\nName: dep_delay, dtype: float64\n\ndf.groupby(\"origin\")[\"dep_delay\"].median()\n\norigin\nEWR   -3.0\nJFK   -4.0\nLGA   -6.0\nName: dep_delay, dtype: float64\n\n\n\n\nGroup-by\nCheck-in:\n\nWhich code is causing “split by origin”?\nWhich code is causing “calculate the mean of delays”?\nWhich code is causing the re-combining of the data?\n\n\ndf.groupby(\"origin\")[\"dep_delay\"].mean()"
+  },
+  {
+    "objectID": "slides/04-group_by.html#standardized-values",
+    "href": "slides/04-group_by.html#standardized-values",
+    "title": "Multivariate summaries",
+    "section": "Standardized values",
+    "text": "Standardized values\n\nToy example: exam scores\nHermione’s exam scores are is:\n\nPotions class: 77/100\nCharms class: 95/100\nHerbology class: 90/100\n\nIn which class did she do best?\n\n\nToy example: exam scores\nBut wait!\nThe class means are:\n\nPotions class: 75/100\nCharms class: 85/100\nHerbology class: 85/100\n\nIn which class did she do best?\n\n\nToy example: exam scores\nBut wait!\nThe class standard deviations are:\n\nPotions class: 2 points\nCharms class: 5 points\nHerbology class: 1 point\n\nIn which class did she do best?\n\n\nDifferent variabilities by origin\n\nIn addition to having different centers, the three origins also have different spreads.\n\n\ndf.groupby(\"origin\")[\"dep_delay\"].std()\n\norigin\nEWR    25.646258\nJFK    18.713927\nLGA    26.121365\nName: dep_delay, dtype: float64\n\n\n\nThat is, values are less close to the mean in general for flights from LGA than from JFK.\n\n\n\nStandardized values\nSuppose you fly from LGA and your flight is 40 minutes late\nYour friend flies from JFK and their flight is 30 minutes late\nWho got “unluckier”?\n\n(40 + 0.48)/26\n\n1.5569230769230769\n\n(30 - 1.46)/18.7\n\n1.5262032085561497\n\n\n\n\nStandardized values\n\nWe standardize values by subtracting the mean and dividing by the standard deviation.\nThis tells us how much better/worse than typical values our target value is.\nThis is also called the z-score. \\[z_i = \\frac{x_i - \\bar{x}}{s_x}\\]\n\n\n\nActivity\nResearch question: What airlines have the most delays?\n\nMake a plot to answer the question.\nCalculate values to answer the question.\nThe first row is a flight from EWR to CLT on US Airways. The second row is a flight from LGA to IAH on United Airlines. Which one was a “more extreme” delay?"
+  },
+  {
+    "objectID": "slides/04-group_by.html#relationships-between-quantitative-variables",
+    "href": "slides/04-group_by.html#relationships-between-quantitative-variables",
+    "title": "Multivariate summaries",
+    "section": "Relationships between quantitative variables",
+    "text": "Relationships between quantitative variables\n\nScatter plots\nTo visualize two quantitative variables, we make a scatter plot (or point geometry).\nRQ: Did older passengers pay a higher fare on the Titanic?\n\ndf_titanic = pd.read_csv(data_dir + \"titanic.csv\")\n\n(ggplot(df_titanic, aes(x = 'age', y = 'fare'))\n+ geom_point())\n\n&lt;plotnine.ggplot.ggplot object at 0x12e3e2a50&gt;\n\n\n\n\nScatter plots\nNotice:\n\nThe explanatory variable was on the x-axis.\nThe response variable was on the y-axis.\n“If you are older, you pay more” not “If you pay more, you get older”.\n\n\n(ggplot(df_titanic, aes(x = 'age', y = 'fare'))\n+ geom_point())\n\n\n\nScatter plots\nHow could we make this nicer?\n\nDo a log-transformation of fare, because it is very skewed.\nAdd in a third variable, pclass. How might you do this?\n\n\n\nScatter plots\nChallenge: Can you re-create this plot?\n\n\n/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12e3e3ad0&gt;\n\n\n\n\nDescribing the relationship\nLet’s look at just third class:\n\n\nCode\nis_third= df_titanic['pclass'] == 3\ndf_third = df_titanic[is_third]\n\n(ggplot(df_third, aes(x = 'age', y = 'fare'))\n+ geom_point()\n+ theme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12e3e2c90&gt;\n\n\n\n\nDescribing the relationship\nThis relationship was:\n\nNot very strong: the points don’t follow a clear pattern\nSlightly negative: When age was higher, fare was a little lower.\nNot very linear: the points don’t form a straight line\n\n\n\nCorrelation\n\nWhat if we want a numerical summary of the relationship between variables?\nDo “older than average” people pay “higher than average” fares?\nWhen the z-score of age was high, was the z-score of fare high?\n\n\n\nCorrelation\n\n\nCode\nis_third= df_titanic['pclass'] == 3\ndf_first = df_titanic[is_third]\n\nmean_age = df_third['age'].mean()\nmean_fare = df_third['fare'].mean()\n\n(ggplot(df_third, aes(x = 'age', y = 'fare'))\n+ geom_point()\n+ geom_vline(xintercept = mean_age, color = \"red\")\n+ geom_hline(yintercept = mean_fare, color = \"red\")\n+ theme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12e3e3b90&gt;\n\n\n\n\nCorrelation\nInterpret this result:\n\ndf_third[['age', 'fare']].corr()\n\n           age      fare\nage   1.000000 -0.238137\nfare -0.238137  1.000000\n\n\n\n\nCorrelation\nInterpret this result:\n\ndf_third[['age', 'fare']].corr()\n\n           age      fare\nage   1.000000 -0.238137\nfare -0.238137  1.000000\n\n\nAge and fare are slightly negatively correlated.\nCan you think of an explanation for this?\n\n\nCorrelation is not slope or relationship\n\nJust for fun: Guess the Correlation Game"
+  },
+  {
+    "objectID": "slides/04-group_by.html#takeaways",
+    "href": "slides/04-group_by.html#takeaways",
+    "title": "Multivariate summaries",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nTakeaways\n\nPlot quantitative variables across groups with overlapping density plots, boxplots, or by facetting.\nSummarize quantitative variables across groups by using groupby() and then calculating summary statisics.\nKnow what split-apply-combine means.\nPlot relationships between quantitative variables with a scatter plot\nDescribe the strength, direction, and shape of the relationship.\nSummarize relationships between quantitative variables with the correlation"
+  },
+  {
+    "objectID": "slides/00-welcome.html",
+    "href": "slides/00-welcome.html",
+    "title": "Welcome, Intro, and Setup",
+    "section": "",
+    "text": "Grew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, Tegan and Sara",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html",
+    "href": "slides/03-quantitative_variables.html",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "",
+    "text": "df = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\ndf[\"survived\"] = df[\"survived\"].astype(\"category\")\n\n\n\n\nIf I choose a passenger at random, what is the probability they rode in 1st class?\n\nmarginal_class = df['pclass'].value_counts(normalize = True)\nmarginal_class\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64\n\n\n\n\n\nIf I choose a passenger at random, what is the probability they are a woman who rode in first class?\n\njoint_class_sex = df[[\"pclass\", \"sex\"]].value_counts(normalize=True).unstack()\njoint_class_sex\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\n\nIf I choose a woman at random, what is the probability they rode in first class?\n\nmarginal_sex = df['sex'].value_counts(normalize = True)\njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816\n\n\n\n\n\n\n(ggplot(df, aes(x = \"sex\", fill = \"pclass\"))\n+ geom_bar(position = \"fill\")\n+ theme_classic()\n)\n\n&lt;plotnine.ggplot.ggplot object at 0x12cfbfed0&gt;"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#getting-prepping-and-summarizing-data",
+    "href": "slides/03-quantitative_variables.html#getting-prepping-and-summarizing-data",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "",
+    "text": "df = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\ndf[\"survived\"] = df[\"survived\"].astype(\"category\")"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#marginal-distributions",
+    "href": "slides/03-quantitative_variables.html#marginal-distributions",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "",
+    "text": "If I choose a passenger at random, what is the probability they rode in 1st class?\n\nmarginal_class = df['pclass'].value_counts(normalize = True)\nmarginal_class\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#joint-distributions",
+    "href": "slides/03-quantitative_variables.html#joint-distributions",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "",
+    "text": "If I choose a passenger at random, what is the probability they are a woman who rode in first class?\n\njoint_class_sex = df[[\"pclass\", \"sex\"]].value_counts(normalize=True).unstack()\njoint_class_sex\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#conditional-distributions",
+    "href": "slides/03-quantitative_variables.html#conditional-distributions",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "",
+    "text": "If I choose a woman at random, what is the probability they rode in first class?\n\nmarginal_sex = df['sex'].value_counts(normalize = True)\njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#visualizing-with-the-grammar-of-graphics",
+    "href": "slides/03-quantitative_variables.html#visualizing-with-the-grammar-of-graphics",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "",
+    "text": "(ggplot(df, aes(x = \"sex\", fill = \"pclass\"))\n+ geom_bar(position = \"fill\")\n+ theme_classic()\n)\n\n&lt;plotnine.ggplot.ggplot object at 0x12cfbfed0&gt;"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#quantitative-variables-1",
+    "href": "slides/03-quantitative_variables.html#quantitative-variables-1",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Quantitative Variables",
+    "text": "Quantitative Variables\nWe have analyzed a quantitative variable already. Where?\nIn the Colombia COVID data!\n\ndf_CO = pd.read_csv(\"http://dlsun.github.io/pods/data/covid/colombia_2020-05-28.csv\")\ndf_CO\n\n            Departamento  Edad  ... Fecha de diagnóstico Fecha recuperado\n0            Bogotá D.C.    19  ...           2020-03-06       2020-03-13\n1        Valle del Cauca    34  ...           2020-03-09       2020-03-19\n2              Antioquia    50  ...           2020-03-09       2020-03-15\n3              Antioquia    55  ...           2020-03-11       2020-03-26\n4              Antioquia    25  ...           2020-03-11       2020-03-23\n...                  ...   ...  ...                  ...              ...\n25361  Buenaventura D.E.    48  ...           2020-05-28              NaN\n25362    Valle del Cauca    55  ...           2020-05-28              NaN\n25363  Buenaventura D.E.    39  ...           2020-05-28              NaN\n25364    Valle del Cauca    13  ...           2020-05-28              NaN\n25365            Córdoba     0  ...           2020-05-28              NaN\n\n[25366 rows x 10 columns]"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#option-1-convert-it-to-categorical",
+    "href": "slides/03-quantitative_variables.html#option-1-convert-it-to-categorical",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Option 1: Convert it to categorical",
+    "text": "Option 1: Convert it to categorical\nTo visualize the age variable, we did the following:\n\ndf_CO[\"age\"] = pd.cut(\n    df_CO[\"Edad\"],\n    bins=[0, 10, 20, 30, 40, 50, 60, 70, 80, 120],\n    labels=[\"0-9\", \"10-19\", \"20-29\", \"30-39\", \"40-49\", \"50-59\", \"60-69\", \"70-79\", \"80+\"],\n    right=False)"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#option-1-then-make-a-barplot",
+    "href": "slides/03-quantitative_variables.html#option-1-then-make-a-barplot",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Option 1: Then make a barplot",
+    "text": "Option 1: Then make a barplot\nThen, we could treat age as categorical and make a barplot:\n\n\nCode\n(ggplot(df_CO, aes(x = \"age\"))\n+ geom_bar()\n+ theme_classic()\n)\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12d0e4290&gt;"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#option-2-treat-it-as-a-quantitative-variable",
+    "href": "slides/03-quantitative_variables.html#option-2-treat-it-as-a-quantitative-variable",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Option 2: Treat it as a quantitative variable!",
+    "text": "Option 2: Treat it as a quantitative variable!\nA histogram uses equal sized bins to summarize a quantitative variable.\n\n(ggplot(df_CO, aes(x = \"Edad\"))\n+ geom_histogram()\n+ theme_classic()\n)\n\n&lt;plotnine.ggplot.ggplot object at 0x12cf9f950&gt;"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#histograms-of-categorical-variables",
+    "href": "slides/03-quantitative_variables.html#histograms-of-categorical-variables",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Histograms of Categorical Variables?",
+    "text": "Histograms of Categorical Variables?\nA histogram must use a quantitative variable to look right:\n\n(ggplot(df_CO, aes(x = \"age\"))\n+ geom_histogram()\n+ theme_classic()\n)\n\n&lt;plotnine.ggplot.ggplot object at 0x12ccdf890&gt;"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#changing-binwidth",
+    "href": "slides/03-quantitative_variables.html#changing-binwidth",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Changing Binwidth",
+    "text": "Changing Binwidth\nTo tweak your histogram, you can change the binwith:\n\n\n\n\nCode\n(ggplot(df_CO, aes(x = \"Edad\"))\n+ geom_histogram(bins = 10)\n+ theme_classic()\n)\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12cff0ef0&gt;\n\n\n\n\n\nCode\n(ggplot(df_CO, aes(x = \"Edad\"))\n+ geom_histogram(bins = 100)\n+ theme_classic()\n)\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12cbe2750&gt;\n\n\n\n\n\nUsing Percents Instead of Counts\n\n(ggplot(df_CO, aes(x = \"Edad\", y = '..density..'))\n+ geom_histogram(bins = 10)\n+ theme_classic()\n)\n\n&lt;plotnine.ggplot.ggplot object at 0x12cbe3f50&gt;"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#distributions",
+    "href": "slides/03-quantitative_variables.html#distributions",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Distributions",
+    "text": "Distributions\n\nRecall the distribution of a categorical variable: What are the possible values and how common is each?\nThe distribution of a quantitative variable is similar: The total area in the histogram is 1.0 (or 100%).\n\n\n\nCode\n(ggplot(df_CO, aes(x = \"Edad\", y = '..density..'))\n+ geom_histogram(bins = 10)\n+ theme_classic()\n)\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12cbe2990&gt;"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#densities",
+    "href": "slides/03-quantitative_variables.html#densities",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Densities",
+    "text": "Densities\n\nIn this example, we have a limited set of possible values for age: 0, 1, 2, …., 100. We call this discrete.\nWhat if had a quantitative variable with infinite values?\nFor example: Price of a ticket on Titanic.\nWe call this continuous.\nIn this case, it is not possible to list all possible values and how likely each one is.\n\nOne person paid $2.35\nTwo people paid $12.50\nOne person paid $34.98\n…..?\n\nInstead, we talk about ranges of values."
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#densities-1",
+    "href": "slides/03-quantitative_variables.html#densities-1",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Densities",
+    "text": "Densities\nAbout what percent of people in this dataset are below 18?\n\n\nCode\n(ggplot(df_CO, aes(x = \"Edad\", y = '..density..'))\n+ geom_histogram(bins = 10)\n+ theme_classic()\n)\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12cbe3410&gt;"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#densities-2",
+    "href": "slides/03-quantitative_variables.html#densities-2",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Densities",
+    "text": "Densities\nAbout what percent of people in this dataset are below 18?\n\n\nCode\n(ggplot(df_CO, aes(x = \"Edad\"))\n+ geom_density()\n+ theme_classic()\n)\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12cbe3f50&gt;"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#mean",
+    "href": "slides/03-quantitative_variables.html#mean",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Mean",
+    "text": "Mean\n\nOne summary of the center of a quantitative variable is the mean.\nWhen you hear “The average age is…” or the “The average income is…”, this probably refers to the mean.\nSuppose we have five people, ages: 4, 84, 12, 27, 7\nThe mean age is: \\[(4 + 84 + 12 + 27 + 7)/5 = 134/5 = 26.8\\]"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#notation-interlude",
+    "href": "slides/03-quantitative_variables.html#notation-interlude",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Notation interlude",
+    "text": "Notation interlude\n\nTo refer to our data without having to list all the numbers, we use \\(x_1, x_2, ..., x_n\\)\nIn the previous example, \\(x_1 = 4, x_2 = 84, x_3 = 12, x_4 = 27, x_5 = 7\\). So, \\(n = 5\\).\nTo add up all the numbers, we use the summation notation: \\[ \\sum_{i = 1}^n x_i = 134\\]\nTherefore, the mean is: \\[\\bar{x} = \\frac{1}{n} \\sum_{i = 1}^n x_i\\]"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#means-in-python",
+    "href": "slides/03-quantitative_variables.html#means-in-python",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Means in Python",
+    "text": "Means in Python\nLong version: find the sum and the number of observations\n\nsum_age = df_CO[\"Edad\"].sum()\nn = len(df_CO)\n\nsum_age/n\n\nnp.float64(39.04742568792872)\n\n\nShort version: use the built-in function!\n\ndf_CO[\"Edad\"].mean()\n\nnp.float64(39.04742568792872)"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#activity",
+    "href": "slides/03-quantitative_variables.html#activity",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Activity",
+    "text": "Activity\nThe mean is only one option for summarizing the center of a quantitative variable. It isn’t perfec!\nLet’s investigate this.\n\nPlot the density of ticket prices on titanic\nCalculate the mean price\nSee how many people paid more than mean price"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#what-happened",
+    "href": "slides/03-quantitative_variables.html#what-happened",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "What happened",
+    "text": "What happened\n\nOur fare data was skewed right: Most values were small, but a few values were very large.\nThese large values “pull” the mean up; just how the value 84 pulled the average age up in our previous example.\nSo, why do we like the mean?"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#squared-error",
+    "href": "slides/03-quantitative_variables.html#squared-error",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Squared Error",
+    "text": "Squared Error\n\nRecall: Ages 4, 84, 12, 27, 7.\nImagine that we had to “guess” the age of the next person.\nIf we guess 26.8, then our “squared error” for these five people is:\n\n\nages = np.array([4, 84, 12, 27, 7])\nsq_error = (ages - 26.8)**2\nsq_error.round(decimals = 1)\n\narray([ 519.8, 3271.8,  219. ,    0. ,  392. ])\n\n\n\nIf we guess 20, then our “squared error” for these five people is:\n\n\nsq_error = (ages - 20)**2\nsq_error.round(decimals = 1)\n\narray([ 256, 4096,   64,   49,  169])"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#minimizing-squared-error",
+    "href": "slides/03-quantitative_variables.html#minimizing-squared-error",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Minimizing squared error",
+    "text": "Minimizing squared error\n\n\nCode\ncs = range(1, 60)\nsum_squared_distances = []\n\nfor c in cs:\n  sum_squared_distances.append(((df_CO[\"Edad\"] - c) ** 2).sum())\n\nres_df = pd.DataFrame({\"center\": cs, \"sq_error\":sum_squared_distances})\n\n(ggplot(res_df, aes(x = 'center', y = 'sq_error'))\n+ geom_line())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x12cbe3710&gt;"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#median",
+    "href": "slides/03-quantitative_variables.html#median",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Median",
+    "text": "Median\nAnother summary of center is the median, which is the “middle” of the sorted values.\nTo calculate the median of a quantitative variable with values \\(x_1, x_2, x_3, ..., x_n\\), we do the following steps:\n\nSort the values from smallest to largest: \\[x_{(1)}, x_{(2)}, x_{(3)}, ..., x_{(n)}.\\]\nThe “middle” value depends on whether we have an odd or an even number of observations.\n\nIf \\(n\\) is odd, then the middle value is \\(x_{(\\frac{n+1}{2})}\\).\nIf \\(n\\) is even, then there are two middle values, \\(x_{(\\frac{n}{2})}\\) and \\(x_{(\\frac{n}{2} + 1)}\\). It is conventional to report the mean of the two values (but you can actually pick any value between them)."
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#median-1",
+    "href": "slides/03-quantitative_variables.html#median-1",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Median",
+    "text": "Median\nAges: 4, 84, 12, 7, 27. What is the median?\nMedian age in the Columbia data:\n\ndf_CO[\"Edad\"].median()\n\nnp.float64(37.0)"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#variance",
+    "href": "slides/03-quantitative_variables.html#variance",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Variance",
+    "text": "Variance\n\nOne measure of spread is the variance.\nThe variance of a variable whose values are \\(x_1, x_2, x_3, ..., x_n\\) is calculated using the formula \\[\\textrm{var(X)} = \\frac{\\sum_{i=1}^n (x_i - \\bar{x})^2}{n - 1}\\]\nDoes this look familiar? It’s the sum of squared error! (Divided by \\(n-1\\), the “degrees of freedom”)"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#variance-in-python",
+    "href": "slides/03-quantitative_variables.html#variance-in-python",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Variance in python",
+    "text": "Variance in python\nWe could do this manually:\n\n(((df_CO[\"Edad\"] - df_CO[\"Edad\"].mean()) ** 2).sum() /\n (len(df_CO) - 1))\n\nnp.float64(348.0870469898451)\n\n\n…or using a built-in Python function.\n\ndf_CO[\"Edad\"].var()\n\nnp.float64(348.0870469898451)\n\n\n348.0870469898451"
+  },
+  {
+    "objectID": "slides/03-quantitative_variables.html#takeaway-messages",
+    "href": "slides/03-quantitative_variables.html#takeaway-messages",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Takeaway Messages",
+    "text": "Takeaway Messages\n\nVisualize quantitative variables with histograms or densities.\nSummarize the center of a quantitative variable with mean or median.\nDescribe the shape of a quantitative variable with skew\nSummarize the spread of a quantitative variable with the variance or the standard deviation."
   }
 ]
