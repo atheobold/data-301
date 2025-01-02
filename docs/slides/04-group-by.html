@@ -682,7 +682,7 @@
 </div>
 </section>
 <section id="delays-by-origin---transformed" class="slide level2">
-<h2>Delays by origin - transformed</h2>
+<h2>Delays by Origin - Transformed</h2>
 <div class="small">
 <div class="cell">
 <details class="code-fold">
@@ -710,17 +710,61 @@
 </section>
 <section id="another-option-boxplots" class="slide level2">
 <h2>Another option: Boxplots</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="small">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>(ggplot(df, aes(y <span class="op">=</span> <span class="st">'log_delay'</span>, x <span class="op">=</span> <span class="st">'origin'</span>))</span>
-<span id="cb17-2"><a></a><span class="op">+</span> geom_boxplot()</span>
-<span id="cb17-3"><a></a><span class="op">+</span> theme_bw())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">'log_delay'</span>, x <span class="op">=</span> <span class="st">'origin'</span>)) <span class="op">+</span> </span>
+<span id="cb17-3"><a aria-hidden="true" tabindex="-1"></a>  geom_boxplot() <span class="op">+</span> </span>
+<span id="cb17-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Log Delay (minutes)"</span>, </span>
+<span id="cb17-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Comparing Departure Delays for NYC Airports"</span>) <span class="op">+</span></span>
+<span id="cb17-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb17-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x14b9bbba0&gt;</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-group-by_files/figure-revealjs/vertical-boxplots-15.png" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:50%;">
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">'log_delay'</span>, x <span class="op">=</span> <span class="st">'origin'</span>)) <span class="op">+</span> </span>
+<span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a>  geom_boxplot() <span class="op">+</span></span>
+<span id="cb18-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb18-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Log Delay (minutes)"</span>, </span>
+<span id="cb18-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Comparing Departure Delays for NYC Airports"</span>) <span class="op">+</span></span>
+<span id="cb18-7"><a aria-hidden="true" tabindex="-1"></a>  coord_flip() <span class="op">+</span></span>
+<span id="cb18-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb18-9"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-group-by_files/figure-revealjs/horizontal-boxplots-17.png" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
 </section></section>
 <section>
 <section id="facetting" class="title-slide slide level1 center">
@@ -729,15 +773,18 @@
 </section>
 <section id="facetting-1" class="slide level2">
 <h2>Facetting</h2>
-<ul>
-<li><p>This plot still was a <em>little</em> hard to read.</p></li>
-<li><p>What if we just made <strong>separate plots</strong> for each origin?</p></li>
-<li><p>Kind of annoying…</p></li>
-</ul>
+
+<img data-src="04-group-by_files/figure-revealjs/unnamed-chunk-24-19.png" class="quarto-figure quarto-figure-center r-stretch" width="614"><p>This plot still was a <em>little</em> hard to read.</p>
+<p>What if we just made <strong>separate plots</strong> for each origin?</p>
+</section>
+<section id="separate-plots-for-each-origin" class="slide level2">
+<h2>Separate Plots for Each Origin</h2>
+<p>One option would be to create separate data frames for each origin.</p>
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>is_jfk <span class="op">=</span> (df[<span class="st">'origin'</span>] <span class="op">==</span> <span class="st">"JFK"</span>)</span>
-<span id="cb19-2"><a></a>df_jfk <span class="op">=</span> df[is_jfk]</span>
-<span id="cb19-3"><a></a>df_jfk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>is_jfk <span class="op">=</span> (df[<span class="st">'origin'</span>] <span class="op">==</span> <span class="st">"JFK"</span>)</span>
+<span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a>df_jfk <span class="op">=</span> df[is_jfk]</span>
+<span id="cb19-3"><a aria-hidden="true" tabindex="-1"></a>df_jfk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    carrier  flight origin dest  dep_delay  delay_shifted  log_delay
 2        AA    2243    JFK  MIA        2.0           22.0   3.091042
@@ -755,12 +802,22 @@
 [208 rows x 7 columns]</code></pre>
 </div>
 </div>
+</div>
+<div class="fragment">
+<p>This seems kind of annoying…</p>
+</div>
 </section>
-<section id="aside-boolean-masking" class="slide level2">
-<h2>(Aside: Boolean masking)</h2>
+<section id="fyi-boolean-masking" class="slide level2">
+<h2>FYI: Boolean Masking</h2>
+<p>How did we filter the previous <code>df</code> to only include <code>"JFK"</code> origins?</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="fragment">
+<p><strong>Step 1</strong></p>
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>is_jfk <span class="op">=</span> (df[<span class="st">'origin'</span>] <span class="op">==</span> <span class="st">"JFK"</span>)</span>
-<span id="cb21-2"><a></a>is_jfk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>is_jfk <span class="op">=</span> (df[<span class="st">'origin'</span>] <span class="op">==</span> <span class="st">"JFK"</span>)</span>
+<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a>is_jfk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0      False
 1      False
@@ -776,42 +833,99 @@
 Name: origin, Length: 578, dtype: bool</code></pre>
 </div>
 </div>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:55%;">
+<div class="fragment">
+<p><strong>Step 2</strong></p>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>df_jfk <span class="op">=</span> df[is_jfk]</span>
+<span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a>df_jfk[<span class="st">"origin"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2      JFK
+3      JFK
+11     JFK
+12     JFK
+14     JFK
+      ... 
+570    JFK
+571    JFK
+572    JFK
+573    JFK
+574    JFK
+Name: origin, Length: 208, dtype: object</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div></div>
 </section>
 <section id="facetting-2" class="slide level2">
 <h2>Facetting</h2>
 <p>Fortunately, <code>plotnine</code> (and other plotting packages) has a trick for you!</p>
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>(ggplot(df, aes(x <span class="op">=</span> <span class="st">'dep_delay'</span>))</span>
-<span id="cb23-2"><a></a><span class="op">+</span> geom_density()</span>
-<span id="cb23-3"><a></a><span class="op">+</span> facet_wrap(<span class="st">'origin'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x14bb37520&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">'dep_delay'</span>)) <span class="op">+</span> </span>
+<span id="cb25-3"><a aria-hidden="true" tabindex="-1"></a>  geom_density() <span class="op">+</span> </span>
+<span id="cb25-4"><a aria-hidden="true" tabindex="-1"></a>  facet_wrap(<span class="st">'origin'</span>)</span>
+<span id="cb25-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section></section>
+
+<img data-src="04-group-by_files/figure-revealjs/faceting-plot-21.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<section id="freeing-the-scales" class="slide level2">
+<h2>Freeing the Scales</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">'dep_delay'</span>)) <span class="op">+</span> </span>
+<span id="cb26-3"><a aria-hidden="true" tabindex="-1"></a>  geom_density() <span class="op">+</span> </span>
+<span id="cb26-4"><a aria-hidden="true" tabindex="-1"></a>  facet_wrap(<span class="st">'origin'</span>, scales <span class="op">=</span> <span class="st">"free_y"</span>) <span class="op">+</span></span>
+<span id="cb26-5"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Departure Delay (minutes)"</span>)</span>
+<span id="cb26-6"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+<img data-src="04-group-by_files/figure-revealjs/faceting-free-y-23.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section></section>
 <section>
-<section id="summaries-by-groups" class="title-slide slide level1 center">
-<h1>Summaries by groups</h1>
+<section id="summaries-by-group" class="title-slide slide level1 center">
+<h1>Summaries by Group</h1>
 
 </section>
-<section id="split-apply-combine" class="slide level2 smaller">
+<section id="split-apply-combine" class="slide level2">
 <h2>Split-apply-combine</h2>
+<div class="midi">
+<div>
 <ul>
-<li><p>Our visualizations told us some of the story, but can we use <strong>numeric summaries</strong> as well?</p></li>
-<li><p>To do this, we want to calculate the <strong>mean</strong> or <strong>median</strong> delay time for <strong>each</strong> origin airport.</p></li>
-<li><p>We call this <strong>split-apply-combine</strong>:</p>
+<li class="fragment"><p>Our visualizations told us some of the story, but can we use <strong>numeric summaries</strong> as well?</p></li>
+<li class="fragment"><p>To do this, we want to calculate the <strong>mean</strong> or <strong>median</strong> delay time for <strong>each</strong> origin airport.</p></li>
+<li class="fragment"><p>We call this <strong>split-apply-combine</strong>:</p>
 <ul>
-<li><strong>split</strong> the dataset up by a categorical variable <code>origin</code></li>
-<li><strong>apply</strong> a calculation like <code>mean</code></li>
-<li><strong>combine</strong> the results back into one dataset</li>
+<li class="fragment"><strong>split</strong> the dataset up by a categorical variable <code>origin</code></li>
+<li class="fragment"><strong>apply</strong> a calculation like <code>mean</code></li>
+<li class="fragment"><strong>combine</strong> the results back into one dataset</li>
 </ul></li>
-<li><p>In <code>pandas</code>, we use the <code>groupby()</code> function to take care of the <em>split</em> and <em>combine</em> steps!</p></li>
+<li class="fragment"><p>In <code>pandas</code>, we use the <code>groupby()</code> function to take care of the <em>split</em> and <em>combine</em> steps!</p></li>
 </ul>
+</div>
+</div>
 </section>
 <section id="group-by" class="slide level2">
 <h2>Group-by</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>df.groupby(<span class="st">"origin"</span>)[<span class="st">"dep_delay"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a>  df</span>
+<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a>  .groupby(by <span class="op">=</span> <span class="st">"origin"</span>)[<span class="st">"dep_delay"</span>]</span>
+<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>  .mean()</span>
+<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>origin
 EWR    4.064935
@@ -819,7 +933,18 @@ JFK    1.461538
 LGA   -0.485294
 Name: dep_delay, dtype: float64</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>df.groupby(<span class="st">"origin"</span>)[<span class="st">"dep_delay"</span>].median()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a>  df</span>
+<span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a>  .groupby(by <span class="op">=</span> <span class="st">"origin"</span>)[<span class="st">"dep_delay"</span>]</span>
+<span id="cb29-4"><a aria-hidden="true" tabindex="-1"></a>  .median()</span>
+<span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>origin
 EWR   -3.0
@@ -828,26 +953,43 @@ LGA   -6.0
 Name: dep_delay, dtype: float64</code></pre>
 </div>
 </div>
+</div>
+</div></div>
 </section>
-<section id="group-by-1" class="slide level2">
-<h2>Group-by</h2>
-<p><em>Check-in:</em></p>
+<section id="group-by-check-in" class="slide level2">
+<h2>Group-by Check-in</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Check-in 2.2</strong></p>
+</div>
+<div class="callout-content">
 <ul>
 <li><p>Which code is causing “split by origin”?</p></li>
 <li><p>Which code is causing “calculate the mean of delays”?</p></li>
 <li><p>Which code is causing the re-combining of the data?</p></li>
 </ul>
+</div>
+</div>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>df.groupby(<span class="st">"origin"</span>)[<span class="st">"dep_delay"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a>  df</span>
+<span id="cb31-3"><a aria-hidden="true" tabindex="-1"></a>  .groupby(by <span class="op">=</span> <span class="st">"origin"</span>)[<span class="st">"dep_delay"</span>]</span>
+<span id="cb31-4"><a aria-hidden="true" tabindex="-1"></a>  .mean()</span>
+<span id="cb31-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
 <section>
 <section id="standardized-values" class="title-slide slide level1 center">
-<h1>Standardized values</h1>
+<h1>Standardized Values</h1>
 
 </section>
-<section id="toy-example-exam-scores" class="slide level2">
-<h2>Toy example: exam scores</h2>
+<section id="simple-example-exam-scores" class="slide level2">
+<h2>Simple Example: Exam Scores</h2>
 <p>Hermione’s exam scores are is:</p>
 <ul>
 <li><p>Potions class: 77/100</p></li>
@@ -856,9 +998,8 @@ Name: dep_delay, dtype: float64</code></pre>
 </ul>
 <p>In which class did she do best?</p>
 </section>
-<section id="toy-example-exam-scores-1" class="slide level2">
-<h2>Toy example: exam scores</h2>
-<p><strong>But wait!</strong></p>
+<section id="but-wait" class="slide level2">
+<h2>But wait!</h2>
 <p>The class <strong>means</strong> are:</p>
 <ul>
 <li><p>Potions class: 75/100</p></li>
@@ -867,9 +1008,8 @@ Name: dep_delay, dtype: float64</code></pre>
 </ul>
 <p>In which class did she do best?</p>
 </section>
-<section id="toy-example-exam-scores-2" class="slide level2">
-<h2>Toy example: exam scores</h2>
-<p><strong>But wait!</strong></p>
+<section id="but-wait-1" class="slide level2">
+<h2>But wait!</h2>
 <p>The class <strong>standard deviations</strong> are:</p>
 <ul>
 <li><p>Potions class: 2 points</p></li>
@@ -880,11 +1020,14 @@ Name: dep_delay, dtype: float64</code></pre>
 </section>
 <section id="different-variabilities-by-origin" class="slide level2">
 <h2>Different variabilities by origin</h2>
-<ul>
-<li>In addition to having different <strong>centers</strong>, the three origins also have different <strong>spreads</strong>.</li>
-</ul>
+<div class="midi">
+<p>In addition to having different <strong>centers</strong>, the three origins also have different <strong>spreads</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>df.groupby(<span class="st">"origin"</span>)[<span class="st">"dep_delay"</span>].std()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a>  df</span>
+<span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a>  .groupby(<span class="st">"origin"</span>)[<span class="st">"dep_delay"</span>]</span>
+<span id="cb32-4"><a aria-hidden="true" tabindex="-1"></a>  .std()</span>
+<span id="cb32-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>origin
 EWR    25.646258
@@ -893,37 +1036,55 @@ LGA    26.121365
 Name: dep_delay, dtype: float64</code></pre>
 </div>
 </div>
-<ul>
-<li>That is, values are <strong>less close</strong> to the mean in general for flights from <code>LGA</code> than from <code>JFK</code>.</li>
-</ul>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="midi">
+<p>In general flights from <code>"LGA"</code> have departure delays that are the <strong>furthest from</strong> the mean.</p>
+</div>
+</div>
 </section>
 <section id="standardized-values-1" class="slide level2">
 <h2>Standardized values</h2>
-<p>Suppose you fly from <code>LGA</code> and your flight is 40 minutes late</p>
-<p>Your friend flies from <code>JFK</code> and their flight is 30 minutes late</p>
-<p>Who got “unluckier”?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>(<span class="dv">40</span> <span class="op">+</span> <span class="fl">0.48</span>)<span class="op">/</span><span class="dv">26</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1.5569230769230769</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>(<span class="dv">30</span> <span class="op">-</span> <span class="fl">1.46</span>)<span class="op">/</span><span class="fl">18.7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1.5262032085561497</code></pre>
-</div>
-</div>
-</section>
-<section id="standardized-values-2" class="slide level2">
-<h2>Standardized values</h2>
 <ul>
-<li><p>We <strong>standardize</strong> values by subtracting the mean and dividing by the standard deviation.</p></li>
+<li><p>We <strong><em>standardize</em></strong> values by subtracting the mean and dividing by the standard deviation.</p></li>
 <li><p>This tells us how much better/worse <em>than typical values</em> our target value is.</p></li>
 <li><p>This is also called the <strong>z-score</strong>. <span class="math display">\[z_i = \frac{x_i - \bar{x}}{s_x}\]</span></p></li>
 </ul>
 </section>
-<section id="activity" class="slide level2">
-<h2>Activity</h2>
-<p>Research question: What airlines have the most delays?</p>
+<section id="standardized-values-2" class="slide level2">
+<h2>Standardized values</h2>
+<div class="midi">
+<p>Suppose you fly from <code>LGA</code> and your flight is 40 minutes late. Your friend flies from <code>JFK</code> and their flight is 30 minutes late.</p>
+<p>Who got “unluckier”?</p>
+</div>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>You?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">40</span> <span class="op">-</span> <span class="op">-</span><span class="fl">0.48</span>) <span class="op">/</span> <span class="fl">26.12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.5497702909647777</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><strong>Your friend?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>(<span class="dv">30</span> <span class="op">-</span> <span class="fl">1.46</span>) <span class="op">/</span> <span class="fl">18.71</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.5253874933190805</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="activity-2.2" class="slide level2">
+<h2>Activity 2.2</h2>
+<blockquote>
+<p>What airlines have the most delays?</p>
+</blockquote>
 <ul>
 <li><p>Make a <strong>plot</strong> to answer the question.</p></li>
 <li><p>Calculate values to answer the question.</p></li>
@@ -932,140 +1093,244 @@ Name: dep_delay, dtype: float64</code></pre>
 </section></section>
 <section>
 <section id="relationships-between-quantitative-variables" class="title-slide slide level1 center">
-<h1>Relationships between quantitative variables</h1>
+<h1>Relationships Between Quantitative Variables</h1>
 
 </section>
-<section id="scatter-plots" class="slide level2">
-<h2>Scatter plots</h2>
-<p>To <strong>visualize</strong> two quantitative variables, we make a <strong>scatter plot</strong> (or <em>point</em> geometry).</p>
-<p>RQ: Did <em>older</em> passengers pay a <em>higher</em> fare on the Titanic?</p>
+<section id="did-older-passengers-pay-a-higher-fare-on-the-titanic" class="slide level2">
+<h2><span class="midi">Did <em>older</em> passengers pay a <em>higher</em> fare on the Titanic?</span></h2>
+<div class="small">
+<p>To <strong>visualize</strong> two quantitative variables, we make a <strong>scatterplot</strong> (or <em>point</em> geometry).</p>
+</div>
+<div class="fragment">
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>df_titanic <span class="op">=</span> pd.read_csv(data_dir <span class="op">+</span> <span class="st">"titanic.csv"</span>)</span>
-<span id="cb36-2"><a></a></span>
-<span id="cb36-3"><a></a>(ggplot(df_titanic, aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>))</span>
-<span id="cb36-4"><a></a><span class="op">+</span> geom_point())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x14bb460d0&gt;</code></pre>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_titanic, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)) <span class="op">+</span> </span>
+<span id="cb38-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span></span>
+<span id="cb38-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Age of Passenger"</span>, </span>
+<span id="cb38-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Fare Paid on Titanic"</span>)</span>
+<span id="cb38-6"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-group-by_files/figure-revealjs/age-fare-scatterplot-25.png" class="quarto-figure quarto-figure-center" width="614"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </section>
-<section id="scatter-plots-1" class="slide level2">
-<h2>Scatter plots</h2>
-<p>Notice:</p>
+<section id="scatterplots" class="slide level2">
+<h2>Scatterplots</h2>
+<div class="midi">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Notice</strong></p>
+</div>
+<div class="callout-content">
 <ul>
 <li><p>The <strong>explanatory variable</strong> was on the <strong>x-axis</strong>.</p></li>
 <li><p>The <strong>response variable</strong> was on the <strong>y-axis</strong>.</p></li>
 <li><p>“If you are older, you pay more” not “If you pay more, you get older”.</p></li>
 </ul>
+</div>
+</div>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>(ggplot(df_titanic, aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>))</span>
-<span id="cb38-2"><a></a><span class="op">+</span> geom_point())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="scatter-plots-2" class="slide level2">
-<h2>Scatter plots</h2>
-<p>How could we make this nicer?</p>
-<ol type="1">
-<li><p>Do a log-transformation of <code>fare</code>, because it is very skewed.</p></li>
-<li><p>Add in a third variable, <code>pclass</code>. How might you do this?</p></li>
-</ol>
-</section>
-<section id="scatter-plots-3" class="slide level2">
-<h2>Scatter plots</h2>
-<p>Challenge: Can you re-create this plot?</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x14bb47110&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_titanic, </span>
+<span id="cb39-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)</span>
+<span id="cb39-4"><a aria-hidden="true" tabindex="-1"></a>         ) <span class="op">+</span> </span>
+<span id="cb39-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span></span>
+<span id="cb39-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Age of Passenger"</span>, </span>
+<span id="cb39-7"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Fare Paid on Titanic"</span>)</span>
+<span id="cb39-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
-<section id="describing-the-relationship" class="slide level2">
-<h2>Describing the relationship</h2>
-<p>Let’s look at just third class:</p>
+<section id="making-a-clearer-plot" class="slide level2">
+<h2>Making a Clearer Plot</h2>
+<p>Did you notice how difficult it was to pick out each point?</p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>Jittering</strong></p>
+<div class="small">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>is_third<span class="op">=</span> df_titanic[<span class="st">'pclass'</span>] <span class="op">==</span> <span class="dv">3</span></span>
-<span id="cb40-2"><a></a>df_third <span class="op">=</span> df_titanic[is_third]</span>
-<span id="cb40-3"><a></a></span>
-<span id="cb40-4"><a></a>(ggplot(df_third, aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>))</span>
-<span id="cb40-5"><a></a><span class="op">+</span> geom_point()</span>
-<span id="cb40-6"><a></a><span class="op">+</span> theme_bw())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb40-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_titanic, </span>
+<span id="cb40-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)</span>
+<span id="cb40-4"><a aria-hidden="true" tabindex="-1"></a>         ) <span class="op">+</span> </span>
+<span id="cb40-5"><a aria-hidden="true" tabindex="-1"></a>  geom_jitter() <span class="op">+</span></span>
+<span id="cb40-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Age of Passenger"</span>, </span>
+<span id="cb40-7"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Fare Paid on Titanic"</span>)</span>
+<span id="cb40-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x14bb47ad0&gt;</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-group-by_files/figure-revealjs/scatterplot-jitter-27.png" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:3%;">
+
+</div><div class="column" style="width:49%;">
+<div class="fragment">
+<p><strong>Transparency</strong></p>
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb41-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_titanic, </span>
+<span id="cb41-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)</span>
+<span id="cb41-4"><a aria-hidden="true" tabindex="-1"></a>         ) <span class="op">+</span> </span>
+<span id="cb41-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point(alpha <span class="op">=</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb41-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Age of Passenger"</span>, </span>
+<span id="cb41-7"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Fare Paid on Titanic"</span>)</span>
+<span id="cb41-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="04-group-by_files/figure-revealjs/scatterplot-alpha-29.png" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div></div>
 </section>
-<section id="describing-the-relationship-1" class="slide level2">
-<h2>Describing the relationship</h2>
-<p>This relationship was:</p>
+<section id="spicing-things-up" class="slide level2">
+<h2>Spicing Things Up</h2>
+<p>How could we make this more interesting?</p>
 <ul>
-<li><p>Not very <strong>strong</strong>: the points don’t follow a clear pattern</p></li>
-<li><p>Slightly <strong>negative</strong>: When age was higher, fare was a little lower.</p></li>
-<li><p>Not very <strong>linear</strong>: the points don’t form a straight line</p></li>
+<li><p>Use a log-transformation for <code>fare</code> because it is very skewed.</p></li>
+<li><p>Add in a third variable, <code>pclass</code>. How might you do this?</p></li>
 </ul>
+</section>
+<section id="challenge" class="slide level2">
+<h2>Challenge</h2>
+<p>Can you re-create this plot?</p>
+
+<img data-src="04-group-by_files/figure-revealjs/scatterplot-recreate-31.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<section id="describing-a-scatterplot" class="slide level2">
+<h2>Describing a Scatterplot</h2>
+<p>Let’s look at just third class:</p>
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>is_third<span class="op">=</span> df_titanic[<span class="st">'pclass'</span>] <span class="op">==</span> <span class="dv">3</span></span>
+<span id="cb42-2"><a aria-hidden="true" tabindex="-1"></a>df_third <span class="op">=</span> df_titanic[is_third]</span>
+<span id="cb42-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb42-5"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df_third, aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)) <span class="op">+</span> </span>
+<span id="cb42-6"><a aria-hidden="true" tabindex="-1"></a>  geom_jitter(alpha <span class="op">=</span> <span class="fl">0.8</span>) <span class="op">+</span> </span>
+<span id="cb42-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb42-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+
+<img data-src="04-group-by_files/figure-revealjs/third-class-scatterplot-33.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<section id="describing-the-relationship" class="slide level2">
+<h2>Describing the Relationship</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><strong>Strength</strong></p>
+<p>Not very <strong>strong</strong>: the points don’t follow a clear pattern.</p>
+</div><div class="column" style="width:3%;">
+
+</div><div class="column" style="width:30%;">
+<div class="fragment">
+<p><strong>Direction</strong></p>
+<p>Slightly <strong>negative</strong>: When age was higher, fare was a little lower.</p>
+</div>
+</div><div class="column" style="width:3%;">
+
+</div><div class="column" style="width:30%;">
+<div class="fragment">
+<p><strong>Shape</strong></p>
+<p>Not very <strong>linear</strong>: the points don’t form a straight line.</p>
+</div>
+</div></div>
 </section>
 <section id="correlation" class="slide level2">
 <h2>Correlation</h2>
+<p>What if we want a <strong>numerical summary</strong> of the relationship between variables?</p>
 <ul>
-<li><p>What if we want a <strong>numerical summary</strong> of the relationship between variables?</p></li>
-<li><p>Do “older than average” people pay “higher than average” fares?</p></li>
-<li><p>When the <strong>z-score</strong> of age was high, was the <strong>z-score</strong> of fare high?</p></li>
+<li><p>Do “older than average” people pay “higher than average” fares?</p>
+<ul>
+<li>In other words, when the <strong>z-score</strong> of age was high, was the <strong>z-score</strong> of fare also high?</li>
+</ul></li>
 </ul>
 </section>
-<section id="correlation-1" class="slide level2">
-<h2>Correlation</h2>
+<section id="age-fare-correlation" class="slide level2">
+<h2>Age &amp; Fare Correlation</h2>
+<div class="small">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>is_third<span class="op">=</span> df_titanic[<span class="st">'pclass'</span>] <span class="op">==</span> <span class="dv">3</span></span>
-<span id="cb42-2"><a></a>df_first <span class="op">=</span> df_titanic[is_third]</span>
-<span id="cb42-3"><a></a></span>
-<span id="cb42-4"><a></a>mean_age <span class="op">=</span> df_third[<span class="st">'age'</span>].mean()</span>
-<span id="cb42-5"><a></a>mean_fare <span class="op">=</span> df_third[<span class="st">'fare'</span>].mean()</span>
-<span id="cb42-6"><a></a></span>
-<span id="cb42-7"><a></a>(ggplot(df_third, aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>))</span>
-<span id="cb42-8"><a></a><span class="op">+</span> geom_point()</span>
-<span id="cb42-9"><a></a><span class="op">+</span> geom_vline(xintercept <span class="op">=</span> mean_age, color <span class="op">=</span> <span class="st">"red"</span>)</span>
-<span id="cb42-10"><a></a><span class="op">+</span> geom_hline(yintercept <span class="op">=</span> mean_fare, color <span class="op">=</span> <span class="st">"red"</span>)</span>
-<span id="cb42-11"><a></a><span class="op">+</span> theme_bw())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a>mean_age <span class="op">=</span> df_third[<span class="st">'age'</span>].mean()</span>
+<span id="cb43-2"><a aria-hidden="true" tabindex="-1"></a>mean_fare <span class="op">=</span> df_third[<span class="st">'fare'</span>].mean()</span>
+<span id="cb43-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb43-5"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_third, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)) <span class="op">+</span> </span>
+<span id="cb43-6"><a aria-hidden="true" tabindex="-1"></a>  geom_jitter(alpha <span class="op">=</span> <span class="fl">0.8</span>) <span class="op">+</span> </span>
+<span id="cb43-7"><a aria-hidden="true" tabindex="-1"></a>  geom_vline(xintercept <span class="op">=</span> mean_age, color <span class="op">=</span> <span class="st">"red"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>) <span class="op">+</span> </span>
+<span id="cb43-8"><a aria-hidden="true" tabindex="-1"></a>  geom_hline(yintercept <span class="op">=</span> mean_fare, color <span class="op">=</span> <span class="st">"red"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>) <span class="op">+</span> </span>
+<span id="cb43-9"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Age of Passenger"</span>, </span>
+<span id="cb43-10"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Titanic Fare Paid"</span>)</span>
+<span id="cb43-11"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb43-12"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x14bb9b110&gt;</code></pre>
 </div>
 </div>
-</section>
-<section id="correlation-2" class="slide level2">
+
+<img data-src="04-group-by_files/figure-revealjs/age-fare-scatterplot-with-means-35.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<section id="correlation-1" class="slide level2">
 <h2>Correlation</h2>
 <p>Interpret this result:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>df_third[[<span class="st">'age'</span>, <span class="st">'fare'</span>]].corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>df_third[[<span class="st">'age'</span>, <span class="st">'fare'</span>]].corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           age      fare
 age   1.000000 -0.238137
 fare -0.238137  1.000000</code></pre>
 </div>
 </div>
-</section>
-<section id="correlation-3" class="slide level2">
-<h2>Correlation</h2>
-<p>Interpret this result:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a>df_third[[<span class="st">'age'</span>, <span class="st">'fare'</span>]].corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>           age      fare
-age   1.000000 -0.238137
-fare -0.238137  1.000000</code></pre>
-</div>
-</div>
+<div class="fragment">
+<p><br></p>
 <p>Age and fare are <strong>slightly negatively correlated</strong>.</p>
 <p><em>Can you think of an explanation for this?</em></p>
+</div>
 </section>
-<section id="correlation-is-not-slope-or-relationship" class="slide level2">
-<h2>Correlation is not <strong>slope</strong> or <strong>relationship</strong></h2>
+<section id="correlation-is-not-the-relationship" class="slide level2">
+<h2>Correlation <strong><em>is not</em></strong> the Relationship</h2>
 
-<img data-src="./images/correlation2.png" class="r-stretch"><p>Just for fun: <a href="https://www.guessthecorrelation.com/">Guess the Correlation Game</a></p>
+<img data-src="./images/04-correlation.png" alt="The image contains a 3x7 grid of scatterplots illustrating varying correlation patterns. Each scatterplot is labeled with its respective correlation coefficient. The first row demonstrates linear correlations ranging from a perfect positive correlation (1.0) to a perfect negative correlation (-1.0) in decrements of 0.2. The scatterplots show the corresponding transition from a tight upward-sloping line (1.0) to a tight downward-sloping line (-1.0), with increasing dispersion at intermediate values. The second row depicts perfect positive and negative correlations (1.0 and -1.0) represented by straight lines, while the others in the row maintain similar relationships. The third row shows scatterplots with non-linear or no correlation, all labeled as 0. These include distinct shapes like a sine wave, diamond, parabola, hourglass, circle, and clustered points. These shapes demonstrate the absence of linear relationships despite structured patterns." class="r-stretch"><p>Just for fun: <a href="https://www.guessthecorrelation.com/">Guess the Correlation Game</a></p>
 </section></section>
 <section>
 <section id="takeaways" class="title-slide slide level1 center">
@@ -1074,14 +1339,16 @@ fare -0.238137  1.000000</code></pre>
 </section>
 <section id="takeaways-1" class="slide level2">
 <h2>Takeaways</h2>
+<div class="midi">
 <ul>
 <li><p>Plot <strong>quantitative variables</strong> across <strong>groups</strong> with <strong>overlapping density</strong> plots, <strong>boxplots</strong>, or by <strong>facetting</strong>.</p></li>
 <li><p>Summarize <strong>quantitative variables</strong> across <strong>groups</strong> by using <code>groupby()</code> and then calculating summary statistics.</p></li>
 <li><p>Know what <strong>split-apply-combine</strong> means.</p></li>
-<li><p>Plot <strong>relationships between quantitative variables</strong> with a <strong>scatter plot</strong></p></li>
-<li><p>Describe the <strong>strength</strong>, <strong>direction</strong>, and <strong>shape</strong> of the relationship.</p></li>
+<li><p>Plot <strong>relationships between quantitative variables</strong> with a <strong>scatterplot</strong>.</p></li>
+<li><p>Describe the <strong>strength</strong>, <strong>direction</strong>, and <strong>shape</strong> of the relationship displayed in a scatterplot.</p></li>
 <li><p>Summarize <strong>relationships between quantitative variables</strong> with the <strong>correlation</strong></p></li>
 </ul>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
