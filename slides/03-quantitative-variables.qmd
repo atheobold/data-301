@@ -111,6 +111,7 @@ joint_class_sex.divide(marginal_sex)
 #| code-line-numbers: false
 #| label: barplot-sex-classes
 #| echo: false
+#| fig-align: center
 
 plot = (
   ggplot(df, aes(x = "pclass", fill = "sex")) + 
@@ -329,18 +330,68 @@ plot.draw(plot)
 :::
 :::::
 
-## Using Percents Instead of Counts
+## Adding Color & Outline
 
 ::: {.small}
 ```{python}
 #| code-line-numbers: false
+#| label: histogram-color-outline-code
+#| code-fold: true
+#| eval: false
+
+(
+  ggplot(df_CO, aes(x = "Edad")) + 
+  geom_histogram(binwidth = 10, 
+                 color = "white", 
+                 fill = "gray") + 
+  labs(x = "", 
+       y = "", 
+       title = "Age Demographics of Columbia's Population (2020)"
+       ) +
+  theme_bw()
+)
+
+```
+:::
+
+```{python}
+#| code-line-numbers: false
+#| label: histogram-color-outline
+#| echo: false
+#| fig-align: center
+
+plot = (
+  ggplot(df_CO, aes(x = "Edad")) + 
+  geom_histogram(binwidth = 10, 
+                 color = "white", 
+                 fill = "gray") + 
+  labs(x = "", 
+       y = "", 
+       title = "Age Demographics of Columbia's Population (2020)"
+       ) +
+  theme_bw()
+)
+
+plot.draw(plot)
+```
+
+
+## Using Percents Instead of Counts
+
+::: {.small}
+```{python}
+#| code-line-numbers: "3"
 #| label: histogram-percents-code
+#| code-fold: true
 #| eval: false
 #| echo: true
 
 (
-  ggplot(df_CO, aes(x = "Edad", y = '..density..')) + 
-  geom_histogram(binwith = 10) + 
+  ggplot(df_CO, mapping = aes(x = "Edad")) + 
+  geom_histogram(mapping = aes(y = '..density..'), 
+                 binwidth = 10, 
+                 color = "white", 
+                 fill = "gray") + 
   labs(x = "", 
        y = "", 
        title = "Age Demographics of Columbia's Population (2020)"
@@ -360,7 +411,9 @@ plot.draw(plot)
 plot = (
   ggplot(df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(mapping = aes(y = '..density..'), 
-                 binwidth = 10) + 
+                 binwidth = 10, 
+                 color = "white", 
+                 fill = "gray") + 
   labs(x = "", 
        y = "", 
        title = "Age Demographics of Columbia's Population (2020)"
@@ -461,6 +514,12 @@ plot = (
 plot.draw(plot)
 ```
 
+. . .
+
+::: {.callout-tip}
+# How would you code it?
+:::
+
 # [Summarizing One Quantitative Variable]{.midi}
 
 . . .
@@ -539,12 +598,16 @@ Short version: use the built-in `.mean()` function!
 df_CO["Edad"].mean()
 ```
 
-## Activity
+## Activity 2.1
 
 The mean is only **one option** for summarizing the center of a quantitative
 variable. It isn't perfect!
 
 Let's investigate this.
+
+-   Open the Activity 2.1 Collab notebook
+
+-   Read in the Titanic data
 
 -   Plot the density of ticket prices on titanic
 
