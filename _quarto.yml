@@ -51,9 +51,9 @@ website:
             text: "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
           - href: slides/03-quantitative-variables.qmd
             text: "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
-          - href: weeks/week-2-projects-data-import.qmd
-          #   text: "Week 2, Part 2 - Data Import"
-          # - href: weeks/week-3-dplyr.qmd
+          - href: slides/04-group-by.qmd
+            text: "Week 2, Part 2 - Multivariate Summaries"
+          # - href: 
           #   text: "Week 3 - dplyr"
           # - href: weeks/week-4-reshaping-joining.qmd
           #   text: "Week 4, Part 1 - Data Transformation"
