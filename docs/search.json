@@ -1571,5 +1571,222 @@
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
     ]
+  },
+  {
+    "objectID": "slides/05-distances.html#summarizing",
+    "href": "slides/05-distances.html#summarizing",
+    "title": "Distances Between Observations",
+    "section": "Summarizing",
+    "text": "Summarizing\n\nOne categorical variable: marginal distribution\nTwo categorical variables: joint and conditional distributions\nOne quantitative variable: mean, median, variance, standard deviation.\nOne quantitative, one categorical: mean, median, and std dev across groups (groupby(), split-apply-combine)\nTwo quantitative variables: z-scores, correlation"
+  },
+  {
+    "objectID": "slides/05-distances.html#visualizing",
+    "href": "slides/05-distances.html#visualizing",
+    "title": "Distances Between Observations",
+    "section": "Visualizing",
+    "text": "Visualizing\n\nOne categorical variable: bar plot or column plot\nTwo categorical variables: stacked bar plot, side-by-side bar plot, or stacked percentage bar plot\nOne quantitative variable: histogram, density plot, or boxplot\nOne quantitative, one categorical: overlapping densities, side-by-side boxplots, or facetting\nTwo quantitative variables: scatterplot"
+  },
+  {
+    "objectID": "slides/05-distances.html#ames-house-prices",
+    "href": "slides/05-distances.html#ames-house-prices",
+    "title": "Distances Between Observations",
+    "section": "Ames house prices",
+    "text": "Ames house prices\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\",\n                    sep = \"\\\\t\")\ndf.head()\n\n         PID  Gr Liv Area  Bedroom AbvGr  ...  Sale Type  Sale Condition  SalePrice\n0  526301100         1656              3  ...        WD           Normal     215000\n1  526350040          896              2  ...        WD           Normal     105000\n2  526351010         1329              3  ...        WD           Normal     172000\n3  526353030         2110              3  ...        WD           Normal     244000\n4  527105010         1629              3  ...        WD           Normal     189900\n\n[5 rows x 81 columns]\n\n\n\n\n\n\n\n\nread_table not read_csv\n\n\nThis is a tsv file (tab separated values), so we need to use a different function to read in our data! The sep argument allows you to specify the delimiter the file uses, but you can also allow the system to autodetect the delimiter."
+  },
+  {
+    "objectID": "slides/05-distances.html#how-does-size-relate-to-number-of-bedrooms",
+    "href": "slides/05-distances.html#how-does-size-relate-to-number-of-bedrooms",
+    "title": "Distances Between Observations",
+    "section": "How does size relate to number of bedrooms?",
+    "text": "How does size relate to number of bedrooms?\nWhat statistic would you calculate?\n\n\ndf[[\"Gr Liv Area\", \"Bedroom AbvGr\"]].corr()\n\n               Gr Liv Area  Bedroom AbvGr\nGr Liv Area       1.000000       0.516808\nBedroom AbvGr     0.516808       1.000000"
+  },
+  {
+    "objectID": "slides/05-distances.html#how-does-size-relate-to-number-of-bedrooms-1",
+    "href": "slides/05-distances.html#how-does-size-relate-to-number-of-bedrooms-1",
+    "title": "Distances Between Observations",
+    "section": "How does size relate to number of bedrooms?",
+    "text": "How does size relate to number of bedrooms?\nWhat statistic would you calculate?\n\n\ndf[[\"Gr Liv Area\", \"Bedroom AbvGr\"]].corr()\n\n               Gr Liv Area  Bedroom AbvGr\nGr Liv Area       1.000000       0.516808\nBedroom AbvGr     0.516808       1.000000"
+  },
+  {
+    "objectID": "slides/05-distances.html#similarity",
+    "href": "slides/05-distances.html#similarity",
+    "title": "Distances Between Observations",
+    "section": "Similarity",
+    "text": "Similarity\nHow might we answer the question, “Are these two houses similar?”\n\n\n\n\ndf.loc[1707, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\n\n\n\n\n\n\n\ndf.loc[290, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2650\nBedroom AbvGr       6\nName: 290, dtype: object"
+  },
+  {
+    "objectID": "slides/05-distances.html#distance",
+    "href": "slides/05-distances.html#distance",
+    "title": "Distances Between Observations",
+    "section": "Distance",
+    "text": "Distance\nThe distance between the two observations is:\n\\[ \\sqrt{ (2956 - 2650)^2 + (5 - 6)^2} = 306 \\]\n\n… what does this number mean? Not much!\nBut we can use it to compare sets of houses and find houses that appear to be the most similar."
+  },
+  {
+    "objectID": "slides/05-distances.html#distance-1",
+    "href": "slides/05-distances.html#distance-1",
+    "title": "Distances Between Observations",
+    "section": "Distance",
+    "text": "Distance\nConsider House 1707 and another one:\n\ndf.loc[1707, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\ndf.loc[291, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      1666\nBedroom AbvGr       3\nName: 291, dtype: object\n\n\n\\[ \\sqrt{ (2956 - 1666)^2 + (5 - 3)^2} = 1290 \\] House 1707 is more similar to House 290 than to House 291."
+  },
+  {
+    "objectID": "slides/05-distances.html#lecture-activity-part-1",
+    "href": "slides/05-distances.html#lecture-activity-part-1",
+    "title": "Distances Between Observations",
+    "section": "Lecture Activity Part 1",
+    "text": "Lecture Activity Part 1\n\nComplete Part One of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/05-distances.html#house-160-seems-more-similar",
+    "href": "slides/05-distances.html#house-160-seems-more-similar",
+    "title": "Distances Between Observations",
+    "section": "House 160 seems more similar…",
+    "text": "House 160 seems more similar…\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 2, shape = 17) + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\")\n)"
+  },
+  {
+    "objectID": "slides/05-distances.html#even-if-we-zoom-in",
+    "href": "slides/05-distances.html#even-if-we-zoom-in",
+    "title": "Distances Between Observations",
+    "section": "…even if we zoom in…",
+    "text": "…even if we zoom in…\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\") +\n  scale_y_continuous(limits = (2500, 3500))\n)"
+  },
+  {
+    "objectID": "slides/05-distances.html#but-not-if-we-put-the-axes-on-the-same-scale",
+    "href": "slides/05-distances.html#but-not-if-we-put-the-axes-on-the-same-scale",
+    "title": "Distances Between Observations",
+    "section": "…but not if we put the axes on the same scale!",
+    "text": "…but not if we put the axes on the same scale!\n\n\n\nCode\n(\n  ggplot(df, aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\") +\n  scale_y_continuous(limits = (2900, 3000)) +\n  scale_x_continuous(limits = (0, 100))\n)"
+  },
+  {
+    "objectID": "slides/05-distances.html#scaling",
+    "href": "slides/05-distances.html#scaling",
+    "title": "Distances Between Observations",
+    "section": "Scaling",
+    "text": "Scaling\nWe need to make sure our features are on the same scale before we can use distances to measure similarity.\n\n\n\n\n\n\nStandardizing\n\n\nsubtract the mean, divide by the standard deviation"
+  },
+  {
+    "objectID": "slides/05-distances.html#scaling-1",
+    "href": "slides/05-distances.html#scaling-1",
+    "title": "Distances Between Observations",
+    "section": "Scaling",
+    "text": "Scaling\n\n\ndf['size_scaled'] = (df['Gr Liv Area'] - df['Gr Liv Area'].mean()) / df['Gr Liv Area'].std()\ndf['bdrm_scaled'] = (df['Bedroom AbvGr'] - df['Bedroom AbvGr'].mean()) / df['Bedroom AbvGr'].std()\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(y = \"size_scaled\", x = \"bdrm_scaled\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Standardized)\", \n       x = \"Number of Bedrooms (Standardized)\") \n)"
+  },
+  {
+    "objectID": "slides/05-distances.html#lecture-activity-part-2",
+    "href": "slides/05-distances.html#lecture-activity-part-2",
+    "title": "Distances Between Observations",
+    "section": "Lecture Activity Part 2",
+    "text": "Lecture Activity Part 2\n\nComplete Part Two of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/05-distances.html#scikit-learn-1",
+    "href": "slides/05-distances.html#scikit-learn-1",
+    "title": "Distances Between Observations",
+    "section": "Scikit-learn",
+    "text": "Scikit-learn\n\nscikit-learn is a library for machine learning and modeling\nWe will use it a lot in this class!\nFor now, we will use it as a shortcut for scaling and for computing distances\n\n\n\nThe philosophy of sklearn is:\n\nspecify your analysis\nfit on the data to prepare the analysis\ntransform the data"
+  },
+  {
+    "objectID": "slides/05-distances.html#specify",
+    "href": "slides/05-distances.html#specify",
+    "title": "Distances Between Observations",
+    "section": "Specify",
+    "text": "Specify\n\nfrom sklearn.preprocessing import StandardScaler\n\nscaler = StandardScaler()\nscaler\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriNot fittedStandardScaler() \n\n\nNo calculations have happened yet!"
+  },
+  {
+    "objectID": "slides/05-distances.html#fit",
+    "href": "slides/05-distances.html#fit",
+    "title": "Distances Between Observations",
+    "section": "Fit",
+    "text": "Fit\nThe scaler object “learns” the means and standard deviations.\n\n\ndf_orig = df[['Gr Liv Area', 'Bedroom AbvGr']]\nscaler.fit(df_orig)\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFittedStandardScaler() \n\nscaler.mean_\n\narray([1499.69044369,    2.85426621])\n\nscaler.scale_\n\narray([505.4226158 ,   0.82758988])\n\n\n\n\nWe still have not altered the data at all!"
+  },
+  {
+    "objectID": "slides/05-distances.html#transform",
+    "href": "slides/05-distances.html#transform",
+    "title": "Distances Between Observations",
+    "section": "Transform",
+    "text": "Transform\n\ndf_scaled = scaler.transform(df_orig)\ndf_scaled\n\narray([[ 0.30926506,  0.17609421],\n       [-1.19442705, -1.03223376],\n       [-0.33771825,  0.17609421],\n       ...,\n       [-1.04801492,  0.17609421],\n       [-0.21900572, -1.03223376],\n       [ 0.9898836 ,  0.17609421]], shape=(2930, 2))"
+  },
+  {
+    "objectID": "slides/05-distances.html#sklearn-numpy-and-pandas",
+    "href": "slides/05-distances.html#sklearn-numpy-and-pandas",
+    "title": "Distances Between Observations",
+    "section": "sklearn, numpy, and pandas",
+    "text": "sklearn, numpy, and pandas\n\n\nBy default, sklearn functions return numpy objects.\nThis is sometimes annoying, maybe we want to plot things after scaling.\nSolution: remake it, with the original column names.\n\n\n\n\n\npd.DataFrame(df_scaled, columns = df_orig.columns)\n\n      Gr Liv Area  Bedroom AbvGr\n0        0.309265       0.176094\n1       -1.194427      -1.032234\n2       -0.337718       0.176094\n3        1.207523       0.176094\n4        0.255844       0.176094\n...           ...            ...\n2925    -0.982723       0.176094\n2926    -1.182556      -1.032234\n2927    -1.048015       0.176094\n2928    -0.219006      -1.032234\n2929     0.989884       0.176094\n\n[2930 rows x 2 columns]"
+  },
+  {
+    "objectID": "slides/05-distances.html#distances-with-sklearn",
+    "href": "slides/05-distances.html#distances-with-sklearn",
+    "title": "Distances Between Observations",
+    "section": "Distances with sklearn",
+    "text": "Distances with sklearn\n\nfrom sklearn.metrics import pairwise_distances\n\npairwise_distances(df_scaled[[1707]], df_scaled)\n\narray([[3.52929876, 5.45459713, 4.0252646 , ..., 4.61305666, 4.76999349,\n        3.06886734]], shape=(1, 2930))"
+  },
+  {
+    "objectID": "slides/05-distances.html#finding-the-most-similar",
+    "href": "slides/05-distances.html#finding-the-most-similar",
+    "title": "Distances Between Observations",
+    "section": "Finding the Most Similar",
+    "text": "Finding the Most Similar\n\n\n\n\ndists = pairwise_distances(df_scaled[[1707]], \n                           df_scaled)\ndists.argsort()\n\narray([[1707,  160,  909, ...,  158, 2723, 2279]], shape=(1, 2930))\n\n\n\n\n\n\n\n\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\n  \ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr\n160          2978              5\n909          3082              5\n1288         2792              5\n2350         2784              5\n253          3222              5\n2592         2640              5\n585          2640              5\n2027         2526              5\n2330         3390              5"
+  },
+  {
+    "objectID": "slides/05-distances.html#lecture-activity-part-3",
+    "href": "slides/05-distances.html#lecture-activity-part-3",
+    "title": "Distances Between Observations",
+    "section": "Lecture Activity Part 3",
+    "text": "Lecture Activity Part 3\n\nComplete Part Three of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/05-distances.html#other-scaling",
+    "href": "slides/05-distances.html#other-scaling",
+    "title": "Distances Between Observations",
+    "section": "Other scaling",
+    "text": "Other scaling\n\nStandardization \\[x_i \\leftarrow \\frac{x_i - \\bar{X}}{\\text{sd}(X)}\\]\nMin-Max Scaling \\[x_i \\leftarrow \\frac{x_i - \\text{min}(X)}{\\text{max}(X) - \\text{min}(X)}\\]"
+  },
+  {
+    "objectID": "slides/05-distances.html#other-distances",
+    "href": "slides/05-distances.html#other-distances",
+    "title": "Distances Between Observations",
+    "section": "Other distances",
+    "text": "Other distances\n\nEuclidean (\\(\\ell_2\\))\n\\[\\sqrt{\\sum_{j=1}^m (x_j - x'_j)^2}\\]\nManhattan (\\(\\ell_1\\))\n\\[\\sum_{j=1}^m |x_j - x'_j|\\]"
+  },
+  {
+    "objectID": "slides/05-distances.html#lecture-activity-part-4",
+    "href": "slides/05-distances.html#lecture-activity-part-4",
+    "title": "Distances Between Observations",
+    "section": "Lecture Activity Part 4",
+    "text": "Lecture Activity Part 4\n\nComplete Part Four of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/05-distances.html#takeaways-1",
+    "href": "slides/05-distances.html#takeaways-1",
+    "title": "Distances Between Observations",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nWe measure similarity between observations by calculating distances.\nIt is important that all our features be on the same scale for distances to be meaningful.\nWe can use scikit-learn functions to fit and transform data, and to compute pairwise distances.\nThere are many options of ways to scale data; most common is standardizing\nThere are many options of ways to measure distances; most common is Euclidean distance."
+  },
+  {
+    "objectID": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms",
+    "href": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms",
+    "title": "Distances Between Observations",
+    "section": "How does house size relate to number of bedrooms?",
+    "text": "How does house size relate to number of bedrooms?\n\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(x = \"Gr Liv Area\", y = \"Bedroom AbvGr\"))  + \n  geom_point() +\n  labs(x = \"Total Living Area\", \n       y = \"Number of Bedrooms\")\n )"
+  },
+  {
+    "objectID": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms-1",
+    "href": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms-1",
+    "title": "Distances Between Observations",
+    "section": "How does house size relate to number of bedrooms?",
+    "text": "How does house size relate to number of bedrooms?\nWhat statistic would you calculate?\n\n\ndf[[\"Gr Liv Area\", \"Bedroom AbvGr\"]].corr()\n\n               Gr Liv Area  Bedroom AbvGr\nGr Liv Area       1.000000       0.516808\nBedroom AbvGr     0.516808       1.000000"
+  },
+  {
+    "objectID": "slides/05-distances.html#another-house-to-consider",
+    "href": "slides/05-distances.html#another-house-to-consider",
+    "title": "Distances Between Observations",
+    "section": "Another House to Consider",
+    "text": "Another House to Consider\n\n\n\ndf.loc[1707, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\n\n\n\n\n\ndf.loc[291, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      1666\nBedroom AbvGr       3\nName: 291, dtype: object\n\n\n\n\n\\[ \\sqrt{ (2956 - 1666)^2 + (5 - 3)^2} = 1290 \\]\nThus, house 1707 is more similar to house 290 than to house 291."
+  },
+  {
+    "objectID": "slides/05-distances.html#lecture-activity-part-1-1",
+    "href": "slides/05-distances.html#lecture-activity-part-1-1",
+    "title": "Distances Between Observations",
+    "section": "Lecture Activity Part 1",
+    "text": "Lecture Activity Part 1\n\nComplete Part Two of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
   }
 ]
