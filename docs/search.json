@@ -1225,7 +1225,7 @@
     "href": "slides/02-conditional-distributions.html#the-grammar-of-graphics",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "The Grammar of Graphics",
-    "text": "The Grammar of Graphics\nThe grammar of graphics is a framework for creating data visualizations.\nA visualization consists of:\n\nThe aesthetic: Which variables are dictating which plot elements.\nThe geometry: What shape of plot you are making.\nThe theme: Other choices about the appearance.",
+    "text": "The Grammar of Graphics\nThe grammar of graphics is a framework for creating data visualizations.\n\n\n\nA visualization consists of:\n\nThe aesthetic: Which variables are dictating which plot elements.\nThe geometry: What shape of plot you are making.\nThe theme: Other choices about the appearance.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"

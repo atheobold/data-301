@@ -105,6 +105,9 @@ df["pclass"].value_counts(normalize = True)
 
 The *grammar of graphics* is a framework for creating data visualizations.
 
+::: columns
+::: {.column width="40%"}
+::: {.small}
 A visualization consists of:
 
 -   The **aesthetic**: Which *variables* are dictating which *plot elements*.
@@ -112,6 +115,16 @@ A visualization consists of:
 -   The **geometry**: What *shape* of plot you are making.
 
 -   The **theme**: Other choices about the appearance.
+:::
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+![](images/02-ggplot-layers.png)
+:::
+:::
 
 ## Example
 
