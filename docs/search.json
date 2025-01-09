@@ -1181,7 +1181,7 @@
     "href": "slides/02-conditional-distributions.html#thinking-about-variable-types",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Thinking About Variable Types",
-    "text": "Thinking About Variable Types\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nname\npclass\nsurvived\nsex\nage\nsibsp\nparch\nticket\nfare\ncabin\nembarked\nboat\nbody\nhome.dest\n\n\n\n\nAllen, Miss. Elisabeth Walton\n1\n1\nfemale\n29.0000\n0\n0\n24160\n211.3375\nB5\nS\n2\nNaN\nSt Louis, MO\n\n\nAllison, Master. Hudson Trevor\n1\n1\nmale\n0.9167\n1\n2\n113781\n151.5500\nC22 C26\nS\n11\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Miss. Helen Loraine\n1\n0\nfemale\n2.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mr. Hudson Joshua Creighton\n1\n0\nmale\n30.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\n135\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)\n1\n0\nfemale\n25.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAnderson, Mr. Harry\n1\n1\nmale\n48.0000\n0\n0\n19952\n26.5500\nE12\nS\n3\nNaN\nNew York, NY",
+    "text": "Thinking About Variable Types\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nname\npclass\nsurvived\nsex\nage\nsibsp\nparch\nticket\nfare\ncabin\nembarked\nboat\nbody\nhome.dest\n\n\n\n\nAllen, Miss. Elisabeth Walton\n1\n1\nfemale\n29.0000\n0\n0\n24160\n211.3375\nB5\nS\n2\nNaN\nSt Louis, MO\n\n\nAllison, Master. Hudson Trevor\n1\n1\nmale\n0.9167\n1\n2\n113781\n151.5500\nC22 C26\nS\n11\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Miss. Helen Loraine\n1\n0\nfemale\n2.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mr. Hudson Joshua Creighton\n1\n0\nmale\n30.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\n135\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)\n1\n0\nfemale\n25.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAnderson, Mr. Harry\n1\n1\nmale\n48.0000\n0\n0\n19952\n26.5500\nE12\nS\n3\nNaN\nNew York, NY",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1203,7 +1203,7 @@
     "href": "slides/02-conditional-distributions.html#quick-summary-of-quantitative-variables",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Quick Summary of Quantitative Variables",
-    "text": "Quick Summary of Quantitative Variables\n\ndf.describe()\n\n               age        sibsp        parch         fare        body\ncount  1046.000000  1309.000000  1309.000000  1308.000000  121.000000\nmean     29.881135     0.498854     0.385027    33.295479  160.809917\nstd      14.413500     1.041658     0.865560    51.758668   97.696922\nmin       0.166700     0.000000     0.000000     0.000000    1.000000\n25%      21.000000     0.000000     0.000000     7.895800   72.000000\n50%      28.000000     0.000000     0.000000    14.454200  155.000000\n75%      39.000000     1.000000     0.000000    31.275000  256.000000\nmax      80.000000     8.000000     9.000000   512.329200  328.000000",
+    "text": "Quick Summary of Quantitative Variables\n\n\ndf.describe()\n\n               age        sibsp        parch         fare        body\ncount  1046.000000  1309.000000  1309.000000  1308.000000  121.000000\nmean     29.881135     0.498854     0.385027    33.295479  160.809917\nstd      14.413500     1.041658     0.865560    51.758668   97.696922\nmin       0.166700     0.000000     0.000000     0.000000    1.000000\n25%      21.000000     0.000000     0.000000     7.895800   72.000000\n50%      28.000000     0.000000     0.000000    14.454200  155.000000\n75%      39.000000     1.000000     0.000000    31.275000  256.000000\nmax      80.000000     8.000000     9.000000   512.329200  328.000000",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1258,7 +1258,7 @@
     "href": "slides/02-conditional-distributions.html#themes",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Themes",
-    "text": "Themes\n\n\n\n\n\nCode\n(\n  ggplot(data = penguins, mapping = aes(x = \"species\", \n                                        y = \"bill_length_mm\", \n                                        fill = \"species\")\n         ) + \n  geom_boxplot()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nfrom plotnine import theme_bw\n\n(\n  ggplot(penguins, aes(x = \"species\", \n                       y = \"bill_length_mm\", \n                       fill = \"sex\")\n                       ) + \n  geom_boxplot() + \n  theme_bw()\n)",
+    "text": "Themes\n\n\n\n\n\nCode\n(\n  ggplot(data = penguins, mapping = aes(x = \"species\", \n                                        y = \"bill_length_mm\", \n                                        fill = \"sex\")\n         ) + \n  geom_boxplot()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nfrom plotnine import theme_bw\n\n(\n  ggplot(penguins, aes(x = \"species\", \n                       y = \"bill_length_mm\", \n                       fill = \"sex\")\n                       ) + \n  geom_boxplot() + \n  theme_bw()\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1291,7 +1291,7 @@
     "href": "slides/02-conditional-distributions.html#calculating-percents",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Calculating Percents",
-    "text": "Calculating Percents\n\npclass_dist = (\n  df['pclass']\n  .value_counts(normalize = True)\n  .to_frame()\n  .reset_index()\n  )\n  \npclass_dist\n\n  pclass  proportion\n0      3    0.541635\n1      1    0.246753\n2      2    0.211612",
+    "text": "Calculating Percents\n\npclass_dist = (\n  df['pclass']\n  .value_counts(normalize = True)\n  .reset_index()\n  )\n  \npclass_dist\n\n  pclass  proportion\n0      3    0.541635\n1      1    0.246753\n2      2    0.211612",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1302,7 +1302,7 @@
     "href": "slides/02-conditional-distributions.html#percents-on-plots",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Percents on Plots",
-    "text": "Percents on Plots\n\n\n\nCode\n(\n  ggplot(data = pclass_dist, \n         mapping = aes(x = \"pclass\", y = \"proportion\")) + \n  geom_col() + ### notice this change to a column plot!\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nTechnically, you could still use geom_bar(), but you would need to specify that you didn’t want it to use stat = \"count\" (the default). You’ve already calculated the proportions, so you would use geom_bar(stat = \"identity\").",
+    "text": "Percents on Plots\n\n\n\nCode\n(\n  ggplot(data = pclass_dist, \n         mapping = aes(x = \"pclass\", y = \"proportion\")) + \n  geom_col() + ### notice this change to a column plot!\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nTechnically, you could still use geom_bar(), but you would need to specify that you didn’t want it to use stat = \"count\" (the default). You’ve already calculated the proportions, so you would use geom_bar(stat = \"identity\").",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1401,7 +1401,7 @@
     "href": "slides/02-conditional-distributions.html#two-way-table",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Two-way Table",
-    "text": "Two-way Table\n\n\n(\n  df[[\"pclass\", \"sex\"]]\n  .value_counts()\n  .unstack()\n  )\n\n\nsex     female  male\npclass              \n1          144   179\n2          106   171\n3          216   493\n\n\n\n\nThis is sometimes called a cross-tab or cross-tabulation.\n\n\n\n\n\n\n\nPivot Table\n\n\nEssentially unstack() has pivoted the sex column from long format (where the values are included in one column) to wide format where each value has its own column.",
+    "text": "Two-way Table\n\n\n(\n  df[[\"pclass\", \"sex\"]]\n  .value_counts()\n  .unstack()\n  )\n\n\nsex     female  male\npclass              \n1          144   179\n2          106   171\n3          216   493\n\n\n\nThis is sometimes called a cross-tab or cross-tabulation.\n\n\n\n\n\n\nPivot Table\n\n\nEssentially unstack() has pivoted the sex column from long format (where the values are included in one column) to wide format where each value has its own column.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1412,7 +1412,7 @@
     "href": "slides/02-conditional-distributions.html#two-way-table---percents",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Two-way Table - Percents",
-    "text": "Two-way Table - Percents\n\n(\n  df[[\"pclass\", \"sex\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\nAll of these values should sum to 1, aka, 100%!",
+    "text": "Two-way Table - Percents\n\n(\n  df[[\"pclass\", \"sex\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\nAll of these values should sum to 1, aka, 100%!",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"

@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 ```
 
-# The story so far
+# The story so far...
 
 ## Getting and Prepping Data
 
@@ -45,12 +45,15 @@ df["survived"] = df["survived"].astype("category")
 
 ## Thinking About Variable Types
 
+::: {.small}
 ```{r}
 #| echo: false
 #| label: data-frame-table
 
 knitr::kable(head(py$df))
 ```
+:::
+
 
 ## Accessing Rows and Columns
 
@@ -75,12 +78,14 @@ df["name"].head()
 
 ## Quick Summary of Quantitative Variables
 
+::: {.small}
 ```{python}
 #| code-line-numbers: false
 #| label: summarizing-data
 
 df.describe()
 ```
+:::
 
 ## Summarizing Categorical Variables
 
@@ -200,7 +205,7 @@ The `plotnine` library implements the *grammar of graphics* in Python.
 (
   ggplot(data = penguins, mapping = aes(x = "species", 
                                         y = "bill_length_mm", 
-                                        fill = "species")
+                                        fill = "sex")
          ) + 
   geom_boxplot()
 )
@@ -214,7 +219,7 @@ The `plotnine` library implements the *grammar of graphics* in Python.
 plot = (
   ggplot(penguins, aes(x = "species", 
                        y = "bill_length_mm", 
-                       fill = "species")
+                       fill = "sex")
          ) + 
   geom_boxplot()
 )
@@ -315,7 +320,6 @@ plot.draw(plot)
 pclass_dist = (
   df['pclass']
   .value_counts(normalize = True)
-  .to_frame()
   .reset_index()
   )
   
@@ -362,8 +366,10 @@ plot.draw(plot)
 
 ::::: {.column width="40%"}
 :::: fragment
+::: small
 ::: callout-tip
 Technically, you could still use `geom_bar()`, but you would need to specify that you didn't want it to use `stat = "count"` (the default). You've already calculated the proportions, so you would use `geom_bar(stat = "identity")`.
+:::
 :::
 ::::
 :::::
@@ -620,7 +626,7 @@ df[["pclass", "sex"]].value_counts()
 
 </br>
 
--   This is sometimes called a *cross-tab* or *cross-tabulation*.
+This is sometimes called a *cross-tab* or *cross-tabulation*.
 
 ::: callout-tip
 # Pivot Table
@@ -643,7 +649,7 @@ Essentially `unstack()` has pivoted the `sex` column from **long format** (where
 
 </br>
 
--   All of these values should sum to 1, aka, 100%!
+All of these values should sum to 1, aka, 100%!
 
 ## Switching Variable Order
 

@@ -398,7 +398,7 @@
 </section>
 <section>
 <section id="the-story-so-far" class="title-slide slide level1 center">
-<h1>The story so far</h1>
+<h1>The story so far…</h1>
 
 </section>
 <section id="getting-and-prepping-data" class="slide level2">
@@ -413,6 +413,7 @@
 </section>
 <section id="thinking-about-variable-types" class="slide level2">
 <h2>Thinking About Variable Types</h2>
+<div class="small">
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top">
@@ -551,6 +552,7 @@
 </table>
 </div>
 </div>
+</div>
 </section>
 <section id="accessing-rows-and-columns" class="slide level2">
 <h2>Accessing Rows and Columns</h2>
@@ -592,6 +594,7 @@ Name: name, dtype: object</code></pre>
 </section>
 <section id="quick-summary-of-quantitative-variables" class="slide level2">
 <h2>Quick Summary of Quantitative Variables</h2>
+<div class="small">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -604,6 +607,7 @@ min       0.166700     0.000000     0.000000     0.000000    1.000000
 50%      28.000000     0.000000     0.000000    14.454200  155.000000
 75%      39.000000     1.000000     0.000000    31.275000  256.000000
 max      80.000000     8.000000     9.000000   512.329200  328.000000</code></pre>
+</div>
 </div>
 </div>
 </section>
@@ -714,7 +718,7 @@ Name: proportion, dtype: float64</code></pre>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> penguins, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"species"</span>, </span>
 <span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a>                                        y <span class="op">=</span> <span class="st">"bill_length_mm"</span>, </span>
-<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>                                        fill <span class="op">=</span> <span class="st">"species"</span>)</span>
+<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>                                        fill <span class="op">=</span> <span class="st">"sex"</span>)</span>
 <span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a>         ) <span class="op">+</span> </span>
 <span id="cb14-6"><a aria-hidden="true" tabindex="-1"></a>  geom_boxplot()</span>
 <span id="cb14-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -789,11 +793,10 @@ Name: proportion, dtype: float64</code></pre>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a>pclass_dist <span class="op">=</span> (</span>
 <span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'pclass'</span>]</span>
 <span id="cb17-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb17-4"><a aria-hidden="true" tabindex="-1"></a>  .to_frame()</span>
-<span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a>  .reset_index()</span>
-<span id="cb17-6"><a aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb17-7"><a aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-8"><a aria-hidden="true" tabindex="-1"></a>pclass_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-4"><a aria-hidden="true" tabindex="-1"></a>  .reset_index()</span>
+<span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-6"><a aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-7"><a aria-hidden="true" tabindex="-1"></a>pclass_dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  pclass  proportion
 0      3    0.541635
@@ -832,6 +835,7 @@ Name: proportion, dtype: float64</code></pre>
 
 </div><div class="column" style="width:40%;">
 <div class="fragment">
+<div class="small">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -842,6 +846,7 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 <div class="callout-content">
 <p>Technically, you could still use <code>geom_bar()</code>, but you would need to specify that you didn’t want it to use <code>stat = "count"</code> (the default). You’ve already calculated the proportions, so you would use <code>geom_bar(stat = "identity")</code>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1066,9 +1071,7 @@ pclass
 </div>
 </div></div>
 <p><br></p>
-<ul>
-<li>This is sometimes called a <em>cross-tab</em> or <em>cross-tabulation</em>.</li>
-</ul>
+<p>This is sometimes called a <em>cross-tab</em> or <em>cross-tabulation</em>.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1100,9 +1103,7 @@ pclass
 </div>
 </div>
 <p><br></p>
-<ul>
-<li>All of these values should sum to 1, aka, 100%!</li>
-</ul>
+<p>All of these values should sum to 1, aka, 100%!</p>
 </section>
 <section id="switching-variable-order" class="slide level2">
 <h2>Switching Variable Order</h2>
