@@ -759,248 +759,6 @@
     ]
   },
   {
-    "objectID": "course-materials/syllabus.html#course-objectives",
-    "href": "course-materials/syllabus.html#course-objectives",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Course Objectives",
-    "text": "Course Objectives\nAfter taking this course, you will be able to:\n\nAcquire and process tabular, textual, hierarchical, and geospatial data.\nUncover patterns by summarizing and visualizing data.\nApply machine learning to answer real-world prediction problems.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#prerequisites",
-    "href": "course-materials/syllabus.html#prerequisites",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nI expect you to enter this class with:\n\nBasic knowledge of Python and computer programming concepts.\nFamiliarity with computers and technology (e.g., Internet browsing, word processing, opening/saving files, converting files to PDF format, sending and receiving e-mail, etc.).\nA positive attitude, a curious mind, and a respect for ethical use of data science tools.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#lecture-check-ins-5",
-    "href": "course-materials/syllabus.html#lecture-check-ins-5",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Lecture Check-Ins (5%)",
-    "text": "Lecture Check-Ins (5%)\nEvery lecture will be accompanied by a simple “Check-In Quiz” on Canvas. This will ask you to input a few answers covered in lecture, and one short mid-lecture practice exercise. Infinite submissions are allowed without penalty, so there is no reason anyone should not get 100% in this category.\nIf you miss lecture, you can still complete the Check-Ins on your own time, by midnight the next day.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#lab-attendance-and-activities-10",
-    "href": "course-materials/syllabus.html#lab-attendance-and-activities-10",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Lab Attendance and Activities (10%)",
-    "text": "Lab Attendance and Activities (10%)\nAttendance and participation in the lab portion of class is required. Do not take this class if you cannot commit to attending every lecture and every lab.\n\nSwapping Lab Sections\nIf you cannot make it to your assigned lab, but you can attend another section’s lab on the same day, please e-mail Dr. Theobold to inform them that you wish to swap lab sections. You may do this two times throughout the quarter.\n\n\nMissing Lab\nIf you cannot make it to any lab sections that day, you may complete the Colab assignment from lab on your own, and e-mail a PDF to Dr. Theobold by midnight that night (the day you missed class). Dr. Theobold will grade your Colab, and this score will replace your attendance for that day. You may do this two times throughout the quarter.\nTo allow for emergencies, we will also forgive one absence at the end of the quarter.\n\n\n\n\n\n\nNote\n\n\n\nWe are effectively allowing you to miss / reschedule up to three labs out of 10. If you need to miss more than three, then you will need to retake this course next quarter.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#lab-assignments-25",
-    "href": "course-materials/syllabus.html#lab-assignments-25",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Lab Assignments (25%)",
-    "text": "Lab Assignments (25%)\nEach week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are due every Saturday at 11:59pm. See the Late Work section below for information on extensions or deductions for late submissions.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#exams-15-each",
-    "href": "course-materials/syllabus.html#exams-15-each",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Exams (15% each)",
-    "text": "Exams (15% each)\nYou will have two in-class exams, in Week 5 and Week 10. These will each cover half of the class material. Except in very extreme unforeseeable circumstances, no alternate exams will be given; please plan to be in class these days.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#project-30",
-    "href": "course-materials/syllabus.html#project-30",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Project (30%)",
-    "text": "Project (30%)\nAt the end of the quarter, you will formally present a poster of your findings on a real-world data question. To ensure that you start thinking about your project early, you are required to submit a 1-page abstract proposal in Week 7.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#communication",
-    "href": "course-materials/syllabus.html#communication",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Communication",
-    "text": "Communication\nFor questions of general interest, such as deadline clarifications or conceptual questions, please use the Class Discord Server. You should check the relevant thread of the server, as well as the syllabus, before reaching out to Dr. Theobold.\nOf course, if your question is truly private, such as a grade inquiry or a personal concern, you may email me directly.\n\n\n\n\n\n\nNote\n\n\n\nIf you email me to ask a question that should be public, I will likely ask you to post your question on Discord instead. Please don’t take this personally! It just means that you asked a good question, and I think the rest of the class could benefit from seeing the answer.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#late-work",
-    "href": "course-materials/syllabus.html#late-work",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Late Work",
-    "text": "Late Work\nLate assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!\n\n\n\n\n\n\nNote\n\n\n\nNote that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.\n\n\n\nDeadline Extensions\nIn case of emergency, you have two deadline “extensions” to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.\nThe rules for these are as follows:\n\nYou must request the extension through the Google form linked on Canvas. Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.\nThe extension must be requested before the deadline has passed (i.e., before Friday at 11:59pm). I do not grant after-deadline extensions for any reason.\n\nProperly requested extensions are automatically granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.\n\n\n\n\n\n\nNote\n\n\n\nThese deadline extensions are automatic! You don’t have to tell why you need the extension - maybe you have a busy week with other work, maybe you are traveling with a sports team, maybe you partied too hard for your friend’s birthday. It doesn’t matter to me!\nThe flip side of this, though, is that if you use your deadline extensions early on in the course, and then run into a bigger issues later on, you’re out of luck.\n\n\n\n\nSpecial cases\nSometimes, issues arise require more time than the auto-extension gives. In general, if something comes up in your life, I always want to find a way to help. Please let me know what your situation is, and we’ll work together to find a good solution.\nThe most important thing is that you tell me early. As a rule, I do not grant extensions after the deadline.\n\n\n\n\n\n\nNote\n\n\n\nOf course, in the case of a major crisis, that is truly exceptional and unforeseen, all these rules go out the window. I want you to feel comfortable reaching out to me when you are facing something extra difficult. We’ll figure it out.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#academic-integrity",
-    "href": "course-materials/syllabus.html#academic-integrity",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Academic Integrity",
-    "text": "Academic Integrity\nYou are expected to abide by the Cal Poly Code of Conduct at all times.\n\nPlagiarism\nYou are encouraged to work with other classmates on all but the exam portions of this class. You are also encouraged (realistically, required!) to make use of online resources to accomplish tasks.\nWhen dealing with code, follow these guidelines:\n\nNever copy-paste more than small snippets of code. That is, you might borrow a little three-line function from StackOverflow, but you should not copy over a full analysis you find on Kaggle.\nAttribute all code that is not completely your own. If you do borrow that StackOverflow snippet, provide a link to the source. If you reference a similar analysis for ideas, mention that in your description.\n\n\n\n\n\n\n\nWarning\n\n\n\nA good “rule of thumb” is: If I sat you down by yourself in a room with no internet, could you explain to me roughly what each line of code is doing? If not, you are probably borrowing more than you should from your online source.\n(In fact, this is exactly what I will do if I need to investigate possible cheating.)\n\n\n\nAI tools\nNew AI models like Chat GPT offer a whole new world of online coding resources. This is exciting! You should absolutely feel free to get help from these tools, they are excellent at answering questions.\nHowever, from an academic integrity perspective, treat these AI generative chat resources like, say, a tutor. Asking a tutor to help explain a homework concept to you or help debug your code? Totally fine! Giving the tutor a homework question and having them answer the whole thing? Nope. Talking to a tutor at all, about anything, during the course of the exam? Unacceptable.\n\n\n\nIntegrity Violations\nIf you accidentally forget a small citation, or go a little overboard in how much you “borrow” from StackOverflow, you’ll get a warning and a grade deduction on that assignment.\nAny instance of willful and deliberate cheating will result in a failing grade on the assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.\n\n\n\n\n\n\nWarning\n\n\n\nBe careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have both received a failing grade on the assignment and a report filed to OSRR.\n\n\n\n\nIntellectual property\nThe materials for this course are legally the professor’s intellectual property.\nMost class materials are publicly shared, and you are welcome to direct others to this resource at any time. You are also welcome to publicly share any or all of your work on the class project.\nNon-public class materials—most importantly, assignment solutions and any exam materials—may never be shared.\n\n\n\n\n\n\nWarning\n\n\n\nThis is not just an issue of academic honestly, it is quite literally a legal copyright scenario. Please do not distribute solutions or exam questions from this class anywhere, for any reason. Doing so is a violation of the Code of Conduct, and it may constitute a violation of U.S. copyright law.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#class-conduct",
-    "href": "course-materials/syllabus.html#class-conduct",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Class Conduct",
-    "text": "Class Conduct\nIn this classroom, I expect you to be polite, respectful, inclusive, and open-minded.\nSome examples of how to be a good classmate include:\n\nDoing your best to avoid language that is ableist, racist, sexist, transphobic, or classist; or that perpetuates harmful stereotypes.\nAddressing your classmates (and your professor!) by their preferred name and pronouns.\nDoing your best to be aware of your own biases, privileges, and areas of ignorance.\nListening to others’ opinions, and making an effort to understand their perspective.\nTaking the time to help your classmates grasp concepts or solve problems, even when you are ready to move on.\n\n\nAttendance\nIt is my general expectation that you will attend lecture, and remain present until you have finished the day’s in-class work. However, I do not take formal attendance in class; as long as you engage with the material and complete the small check-ins, you can decide which lectures are useful to you.\nPlease do not email me letting me know when you are missing class - I don’t need to know if you are attending, it is your responsibility to catch up on the materials and check-ins you miss.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Data Science (in Python)",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nFriday, January 10\n\n\n\nLab 1 Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nFriday, January 17\n\n\n\nLab 2 Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nFriday, January 24\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-words and TF-IDF\nActivity 4.2\n\n\n\n\n\nFriday, January 31\n\n\n\nLab 4 Due by Midnight\n\n\n\n5\nK-Nearest Neighbors, Intro to Modeling & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nIntroduction to Modeling\nActivity 5.2\n\nMidterm Exam (in-class)\n\n\n\nFriday, February 7\n\n\n\nLab 5 Due by Midnight\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nCross-Validation and Grid Search\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nClassification\nActivity 6.2\n\n\n\n\n\nFriday, February 14\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nLogistic Regression\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nUnsupervised Learning with K-Means\nActivity 7.2\n\n\n\n\n\nFriday, February 21\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\nCombining Datasets\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nHierarchical Data\nActivity 8.2\n\n\n\n\n\nFriday, February 28\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nWebscraping\nTuesday, March 4\n\nWebscraping\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\n\nActivity 9.2\n\n\n\n\n\nFriday, March 7\n\n\n\nLab 9 Due by Midnight\n\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\n\n\n\nPosters Due to be Printed\n\n\n\nThursday, March 13\n\n\n\n\nFinal Exam (in-class)\n\n\nFinals Week\nSaturday, March 15 10:10am - 1pm\n\n\n\n\nPoster Presentations",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#about-me",
-    "href": "slides/00-welcome.html#about-me",
-    "title": "Welcome, Intro, and Setup",
-    "section": "About Me",
-    "text": "About Me\n\n\n\n\n\n\nGrew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, going to concerts and musicals",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#grade-brakedown",
-    "href": "slides/00-welcome.html#grade-brakedown",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Grade Brakedown",
-    "text": "Grade Brakedown\n\n5%: Check-Ins – Questions interspersed throughout lecture\n10%: Lab Activities – Lab attendance is required\n25%: Weekly Assignments – due Saturdays at midnight\n15% each: Exams in Week 5 and Week 10.\n30%: Final project",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#important-dates",
-    "href": "slides/00-welcome.html#important-dates",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Important Dates",
-    "text": "Important Dates\n\nThurs, February 6: Exam 1 (in-class)\nFri, February 21: 1-page Project Proposal Due\nThurs, March 13: Exam 2 (in-class)\nSaturday, March 16 (before Finals Week: Final Project Poster Presentations",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#homework-late-policy",
-    "href": "slides/00-welcome.html#homework-late-policy",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Homework Late Policy",
-    "text": "Homework Late Policy\n\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.\nIf you’ve used your deadline extensions, late work has a 10% deduction per day for up to 5 days.\n\nThis policy also applies to deadline extension requests that are not submitted before the assignment’s deadline.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#missing-lab",
-    "href": "slides/00-welcome.html#missing-lab",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Missing Lab",
-    "text": "Missing Lab\n\nBest option: Go to another section.\nSecond-best option: Turn in your work by email to me.\nWorst option: Miss it entirely, get a 0.\nYou may miss lab up to two times during the quarter. If you need to miss / reschedule more than two of the labs this quarter, you will need to retake the class.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#discord-and-email",
-    "href": "slides/00-welcome.html#discord-and-email",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Discord and Email",
-    "text": "Discord and Email\n\nClass questions go on DISCORD\nUse my email only for personal concerns that you want to talk about privately to me.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#colab-notebooks",
-    "href": "slides/00-welcome.html#colab-notebooks",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Colab Notebooks",
-    "text": "Colab Notebooks\n\nIn Data Science, everyone uses Notebooks, not scripts, for coding.\nWe will be using Jupyter Notebooks (invented at Cal Poly!), hosted for free by Google Colab.\nIf you want to work offline, you can install Anaconda on your laptop.\nI recommend an IDE like PyCharm (or Positron) as well.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#academic-integrity",
-    "href": "slides/00-welcome.html#academic-integrity",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Academic Integrity",
-    "text": "Academic Integrity\n\nIf you copy text from a website into your essay, it’s cheating.\nIf you ask your friend to write your essay, it’s cheating.\nIf you pay someone else to write your essay, it’s cheating.\nIf you ask GenAI to do your work and then copy the answers, it’s cheating.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#conversation-not-copying",
-    "href": "slides/00-welcome.html#conversation-not-copying",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Conversation, not copying",
-    "text": "Conversation, not copying\nIt is okay (in fact, encouraged) to …\n\nAsk GenAI for tips on how to get started on a coding problem\nAsk GenAI to help find bugs in your code\nAsk GenAI to help explain concepts or functions\nPretend ChatGPT is your human tutor or TA!",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
-    "href": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Activity: Good and bad use of AI",
-    "text": "Activity: Good and bad use of AI\n\nFind your group member\n\nIn the “People” tab on Canvas, find your “Day 1 Group”\n\nOnce you have found your group member, open the Activity 1.1 notebook (linked on Canvas).\n\n\n15-minutes:\n\nFirst, Person A follows the instructions in Part 1 of the notebook.\nThen, Person B follows the instructions in Part 2 of the notebook.\nFinally, discuss and answer the questions at the bottom.\n\n\n\n\n\n\n\n\n\nIf it is not your turn to type, you watch!\n\n\nDo not give input unless your partner asks for help.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
     "objectID": "slides/01-tabular-data-summaries.html#data-are-stored-in-plain-text-files",
     "href": "slides/01-tabular-data-summaries.html#data-are-stored-in-plain-text-files",
     "title": "Tabular Data and Variable Summaries",
@@ -1164,6 +922,437 @@
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
     ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#about-me",
+    "href": "slides/00-welcome.html#about-me",
+    "title": "Welcome, Intro, and Setup",
+    "section": "About Me",
+    "text": "About Me\n\n\n\n\n\n\nGrew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, going to concerts and musicals",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#grade-brakedown",
+    "href": "slides/00-welcome.html#grade-brakedown",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Grade Brakedown",
+    "text": "Grade Brakedown\n\n5%: Check-Ins – Questions interspersed throughout lecture\n10%: Lab Activities – Lab attendance is required\n25%: Weekly Assignments – due Saturdays at midnight\n15% each: Exams in Week 5 and Week 10.\n30%: Final project",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#important-dates",
+    "href": "slides/00-welcome.html#important-dates",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Important Dates",
+    "text": "Important Dates\n\nThurs, February 6: Exam 1 (in-class)\nFri, February 21: 1-page Project Proposal Due\nThurs, March 13: Exam 2 (in-class)\nSaturday, March 16 (before Finals Week: Final Project Poster Presentations",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#homework-late-policy",
+    "href": "slides/00-welcome.html#homework-late-policy",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Homework Late Policy",
+    "text": "Homework Late Policy\n\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.\nIf you’ve used your deadline extensions, late work has a 10% deduction per day for up to 5 days.\n\nThis policy also applies to deadline extension requests that are not submitted before the assignment’s deadline.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#missing-lab",
+    "href": "slides/00-welcome.html#missing-lab",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Missing Lab",
+    "text": "Missing Lab\n\nBest option: Go to another section.\nSecond-best option: Turn in your work by email to me.\nWorst option: Miss it entirely, get a 0.\nYou may miss lab up to two times during the quarter. If you need to miss / reschedule more than two of the labs this quarter, you will need to retake the class.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#discord-and-email",
+    "href": "slides/00-welcome.html#discord-and-email",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Discord and Email",
+    "text": "Discord and Email\n\nClass questions go on DISCORD\nUse my email only for personal concerns that you want to talk about privately to me.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#colab-notebooks",
+    "href": "slides/00-welcome.html#colab-notebooks",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Colab Notebooks",
+    "text": "Colab Notebooks\n\nIn Data Science, everyone uses Notebooks, not scripts, for coding.\nWe will be using Jupyter Notebooks (invented at Cal Poly!), hosted for free by Google Colab.\nIf you want to work offline, you can install Anaconda on your laptop.\nI recommend an IDE like PyCharm (or Positron) as well.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#academic-integrity",
+    "href": "slides/00-welcome.html#academic-integrity",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\n\nIf you copy text from a website into your essay, it’s cheating.\nIf you ask your friend to write your essay, it’s cheating.\nIf you pay someone else to write your essay, it’s cheating.\nIf you ask GenAI to do your work and then copy the answers, it’s cheating.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#conversation-not-copying",
+    "href": "slides/00-welcome.html#conversation-not-copying",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Conversation, not copying",
+    "text": "Conversation, not copying\nIt is okay (in fact, encouraged) to …\n\nAsk GenAI for tips on how to get started on a coding problem\nAsk GenAI to help find bugs in your code\nAsk GenAI to help explain concepts or functions\nPretend ChatGPT is your human tutor or TA!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
+    "href": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Activity: Good and bad use of AI",
+    "text": "Activity: Good and bad use of AI\n\nFind your group member\n\nIn the “People” tab on Canvas, find your “Day 1 Group”\n\nOnce you have found your group member, open the Activity 1.1 notebook (linked on Canvas).\n\n\n15-minutes:\n\nFirst, Person A follows the instructions in Part 1 of the notebook.\nThen, Person B follows the instructions in Part 2 of the notebook.\nFinally, discuss and answer the questions at the bottom.\n\n\n\n\n\n\n\n\n\nIf it is not your turn to type, you watch!\n\n\nDo not give input unless your partner asks for help.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Data Science (in Python)",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nFriday, January 10\n\n\n\nLab 1 Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nFriday, January 17\n\n\n\nLab 2 Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nFriday, January 24\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-words and TF-IDF\nActivity 4.2\n\n\n\n\n\nFriday, January 31\n\n\n\nLab 4 Due by Midnight\n\n\n\n5\nK-Nearest Neighbors, Intro to Modeling & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nIntroduction to Modeling\nActivity 5.2\n\nMidterm Exam (in-class)\n\n\n\nFriday, February 7\n\n\n\nLab 5 Due by Midnight\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nCross-Validation and Grid Search\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nClassification\nActivity 6.2\n\n\n\n\n\nFriday, February 14\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nLogistic Regression\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nUnsupervised Learning with K-Means\nActivity 7.2\n\n\n\n\n\nFriday, February 21\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\nCombining Datasets\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nHierarchical Data\nActivity 8.2\n\n\n\n\n\nFriday, February 28\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nWebscraping\nTuesday, March 4\n\nWebscraping\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\n\nActivity 9.2\n\n\n\n\n\nFriday, March 7\n\n\n\nLab 9 Due by Midnight\n\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\n\n\n\nPosters Due to be Printed\n\n\n\nThursday, March 13\n\n\n\n\nFinal Exam (in-class)\n\n\nFinals Week\nSaturday, March 15 10:10am - 1pm\n\n\n\n\nPoster Presentations",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#course-objectives",
+    "href": "course-materials/syllabus.html#course-objectives",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Course Objectives",
+    "text": "Course Objectives\nAfter taking this course, you will be able to:\n\nAcquire and process tabular, textual, hierarchical, and geospatial data.\nUncover patterns by summarizing and visualizing data.\nApply machine learning to answer real-world prediction problems.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#prerequisites",
+    "href": "course-materials/syllabus.html#prerequisites",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nI expect you to enter this class with:\n\nBasic knowledge of Python and computer programming concepts.\nFamiliarity with computers and technology (e.g., Internet browsing, word processing, opening/saving files, converting files to PDF format, sending and receiving e-mail, etc.).\nA positive attitude, a curious mind, and a respect for ethical use of data science tools.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lecture-check-ins-5",
+    "href": "course-materials/syllabus.html#lecture-check-ins-5",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lecture Check-Ins (5%)",
+    "text": "Lecture Check-Ins (5%)\nEvery lecture will be accompanied by a simple “Check-In Quiz” on Canvas. This will ask you to input a few answers covered in lecture, and one short mid-lecture practice exercise. Infinite submissions are allowed without penalty, so there is no reason anyone should not get 100% in this category.\nIf you miss lecture, you can still complete the Check-Ins on your own time, by midnight the next day.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lab-attendance-and-activities-10",
+    "href": "course-materials/syllabus.html#lab-attendance-and-activities-10",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lab Attendance and Activities (10%)",
+    "text": "Lab Attendance and Activities (10%)\nAttendance and participation in the lab portion of class is required. Do not take this class if you cannot commit to attending every lecture and every lab.\n\nSwapping Lab Sections\nIf you cannot make it to your assigned lab, but you can attend another section’s lab on the same day, please e-mail Dr. Theobold to inform them that you wish to swap lab sections. You may do this two times throughout the quarter.\n\n\nMissing Lab\nIf you cannot make it to any lab sections that day, you may complete the Colab assignment from lab on your own, and e-mail a PDF to Dr. Theobold by midnight that night (the day you missed class). Dr. Theobold will grade your Colab, and this score will replace your attendance for that day. You may do this two times throughout the quarter.\nTo allow for emergencies, we will also forgive one absence at the end of the quarter.\n\n\n\n\n\n\nNote\n\n\n\nWe are effectively allowing you to miss / reschedule up to three labs out of 10. If you need to miss more than three, then you will need to retake this course next quarter.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lab-assignments-25",
+    "href": "course-materials/syllabus.html#lab-assignments-25",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lab Assignments (25%)",
+    "text": "Lab Assignments (25%)\nEach week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are due every Saturday at 11:59pm. See the Late Work section below for information on extensions or deductions for late submissions.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#exams-15-each",
+    "href": "course-materials/syllabus.html#exams-15-each",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Exams (15% each)",
+    "text": "Exams (15% each)\nYou will have two in-class exams, in Week 5 and Week 10. These will each cover half of the class material. Except in very extreme unforeseeable circumstances, no alternate exams will be given; please plan to be in class these days.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#project-30",
+    "href": "course-materials/syllabus.html#project-30",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Project (30%)",
+    "text": "Project (30%)\nAt the end of the quarter, you will formally present a poster of your findings on a real-world data question. To ensure that you start thinking about your project early, you are required to submit a 1-page abstract proposal in Week 7.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#communication",
+    "href": "course-materials/syllabus.html#communication",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Communication",
+    "text": "Communication\nFor questions of general interest, such as deadline clarifications or conceptual questions, please use the Class Discord Server. You should check the relevant thread of the server, as well as the syllabus, before reaching out to Dr. Theobold.\nOf course, if your question is truly private, such as a grade inquiry or a personal concern, you may email me directly.\n\n\n\n\n\n\nNote\n\n\n\nIf you email me to ask a question that should be public, I will likely ask you to post your question on Discord instead. Please don’t take this personally! It just means that you asked a good question, and I think the rest of the class could benefit from seeing the answer.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#late-work",
+    "href": "course-materials/syllabus.html#late-work",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Late Work",
+    "text": "Late Work\nLate assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!\n\n\n\n\n\n\nNote\n\n\n\nNote that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.\n\n\n\nDeadline Extensions\nIn case of emergency, you have two deadline “extensions” to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.\nThe rules for these are as follows:\n\nYou must request the extension through the Google form linked on Canvas. Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.\nThe extension must be requested before the deadline has passed (i.e., before Friday at 11:59pm). I do not grant after-deadline extensions for any reason.\n\nProperly requested extensions are automatically granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.\n\n\n\n\n\n\nNote\n\n\n\nThese deadline extensions are automatic! You don’t have to tell why you need the extension - maybe you have a busy week with other work, maybe you are traveling with a sports team, maybe you partied too hard for your friend’s birthday. It doesn’t matter to me!\nThe flip side of this, though, is that if you use your deadline extensions early on in the course, and then run into a bigger issues later on, you’re out of luck.\n\n\n\n\nSpecial cases\nSometimes, issues arise require more time than the auto-extension gives. In general, if something comes up in your life, I always want to find a way to help. Please let me know what your situation is, and we’ll work together to find a good solution.\nThe most important thing is that you tell me early. As a rule, I do not grant extensions after the deadline.\n\n\n\n\n\n\nNote\n\n\n\nOf course, in the case of a major crisis, that is truly exceptional and unforeseen, all these rules go out the window. I want you to feel comfortable reaching out to me when you are facing something extra difficult. We’ll figure it out.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#academic-integrity",
+    "href": "course-materials/syllabus.html#academic-integrity",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\nYou are expected to abide by the Cal Poly Code of Conduct at all times.\n\nPlagiarism\nYou are encouraged to work with other classmates on all but the exam portions of this class. You are also encouraged (realistically, required!) to make use of online resources to accomplish tasks.\nWhen dealing with code, follow these guidelines:\n\nNever copy-paste more than small snippets of code. That is, you might borrow a little three-line function from StackOverflow, but you should not copy over a full analysis you find on Kaggle.\nAttribute all code that is not completely your own. If you do borrow that StackOverflow snippet, provide a link to the source. If you reference a similar analysis for ideas, mention that in your description.\n\n\n\n\n\n\n\nWarning\n\n\n\nA good “rule of thumb” is: If I sat you down by yourself in a room with no internet, could you explain to me roughly what each line of code is doing? If not, you are probably borrowing more than you should from your online source.\n(In fact, this is exactly what I will do if I need to investigate possible cheating.)\n\n\n\nAI tools\nNew AI models like Chat GPT offer a whole new world of online coding resources. This is exciting! You should absolutely feel free to get help from these tools, they are excellent at answering questions.\nHowever, from an academic integrity perspective, treat these AI generative chat resources like, say, a tutor. Asking a tutor to help explain a homework concept to you or help debug your code? Totally fine! Giving the tutor a homework question and having them answer the whole thing? Nope. Talking to a tutor at all, about anything, during the course of the exam? Unacceptable.\n\n\n\nIntegrity Violations\nIf you accidentally forget a small citation, or go a little overboard in how much you “borrow” from StackOverflow, you’ll get a warning and a grade deduction on that assignment.\nAny instance of willful and deliberate cheating will result in a failing grade on the assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.\n\n\n\n\n\n\nWarning\n\n\n\nBe careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have both received a failing grade on the assignment and a report filed to OSRR.\n\n\n\n\nIntellectual property\nThe materials for this course are legally the professor’s intellectual property.\nMost class materials are publicly shared, and you are welcome to direct others to this resource at any time. You are also welcome to publicly share any or all of your work on the class project.\nNon-public class materials—most importantly, assignment solutions and any exam materials—may never be shared.\n\n\n\n\n\n\nWarning\n\n\n\nThis is not just an issue of academic honestly, it is quite literally a legal copyright scenario. Please do not distribute solutions or exam questions from this class anywhere, for any reason. Doing so is a violation of the Code of Conduct, and it may constitute a violation of U.S. copyright law.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#class-conduct",
+    "href": "course-materials/syllabus.html#class-conduct",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Class Conduct",
+    "text": "Class Conduct\nIn this classroom, I expect you to be polite, respectful, inclusive, and open-minded.\nSome examples of how to be a good classmate include:\n\nDoing your best to avoid language that is ableist, racist, sexist, transphobic, or classist; or that perpetuates harmful stereotypes.\nAddressing your classmates (and your professor!) by their preferred name and pronouns.\nDoing your best to be aware of your own biases, privileges, and areas of ignorance.\nListening to others’ opinions, and making an effort to understand their perspective.\nTaking the time to help your classmates grasp concepts or solve problems, even when you are ready to move on.\n\n\nAttendance\nIt is my general expectation that you will attend lecture, and remain present until you have finished the day’s in-class work. However, I do not take formal attendance in class; as long as you engage with the material and complete the small check-ins, you can decide which lectures are useful to you.\nPlease do not email me letting me know when you are missing class - I don’t need to know if you are attending, it is your responsibility to catch up on the materials and check-ins you miss.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "slides/05-distances.html#summarizing",
+    "href": "slides/05-distances.html#summarizing",
+    "title": "Distances Between Observations",
+    "section": "Summarizing",
+    "text": "Summarizing\n\nOne categorical variable: marginal distribution\nTwo categorical variables: joint and conditional distributions\nOne quantitative variable: mean, median, variance, standard deviation.\nOne quantitative, one categorical: mean, median, and std dev across groups (groupby(), split-apply-combine)\nTwo quantitative variables: z-scores, correlation"
+  },
+  {
+    "objectID": "slides/05-distances.html#visualizing",
+    "href": "slides/05-distances.html#visualizing",
+    "title": "Distances Between Observations",
+    "section": "Visualizing",
+    "text": "Visualizing\n\nOne categorical variable: bar plot or column plot\nTwo categorical variables: stacked bar plot, side-by-side bar plot, or stacked percentage bar plot\nOne quantitative variable: histogram, density plot, or boxplot\nOne quantitative, one categorical: overlapping densities, side-by-side boxplots, or facetting\nTwo quantitative variables: scatterplot"
+  },
+  {
+    "objectID": "slides/05-distances.html#ames-house-prices",
+    "href": "slides/05-distances.html#ames-house-prices",
+    "title": "Distances Between Observations",
+    "section": "Ames house prices",
+    "text": "Ames house prices\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\",\n                    sep = \"\\\\t\")\ndf.head()\n\n         PID  Gr Liv Area  Bedroom AbvGr  ...  Sale Type  Sale Condition  SalePrice\n0  526301100         1656              3  ...        WD           Normal     215000\n1  526350040          896              2  ...        WD           Normal     105000\n2  526351010         1329              3  ...        WD           Normal     172000\n3  526353030         2110              3  ...        WD           Normal     244000\n4  527105010         1629              3  ...        WD           Normal     189900\n\n[5 rows x 81 columns]\n\n\n\n\n\n\n\n\nread_table not read_csv\n\n\nThis is a tsv file (tab separated values), so we need to use a different function to read in our data! The sep argument allows you to specify the delimiter the file uses, but you can also allow the system to autodetect the delimiter."
+  },
+  {
+    "objectID": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms",
+    "href": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms",
+    "title": "Distances Between Observations",
+    "section": "How does house size relate to number of bedrooms?",
+    "text": "How does house size relate to number of bedrooms?\n\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(x = \"Gr Liv Area\", y = \"Bedroom AbvGr\"))  + \n  geom_point() +\n  labs(x = \"Total Living Area\", \n       y = \"Number of Bedrooms\")\n )"
+  },
+  {
+    "objectID": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms-1",
+    "href": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms-1",
+    "title": "Distances Between Observations",
+    "section": "How does house size relate to number of bedrooms?",
+    "text": "How does house size relate to number of bedrooms?\nWhat statistic would you calculate?\n\n\ndf[[\"Gr Liv Area\", \"Bedroom AbvGr\"]].corr()\n\n               Gr Liv Area  Bedroom AbvGr\nGr Liv Area       1.000000       0.516808\nBedroom AbvGr     0.516808       1.000000"
+  },
+  {
+    "objectID": "slides/05-distances.html#similarity",
+    "href": "slides/05-distances.html#similarity",
+    "title": "Distances Between Observations",
+    "section": "Similarity",
+    "text": "Similarity\nHow might we answer the question, “Are these two houses similar?”\n\n\n\n\ndf.loc[1707, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\n\n\n\n\n\n\n\ndf.loc[290, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2650\nBedroom AbvGr       6\nName: 290, dtype: object"
+  },
+  {
+    "objectID": "slides/05-distances.html#distance",
+    "href": "slides/05-distances.html#distance",
+    "title": "Distances Between Observations",
+    "section": "Distance",
+    "text": "Distance\nThe distance between the two observations is:\n\\[ \\sqrt{ (2956 - 2650)^2 + (5 - 6)^2} = 306 \\]\n\n… what does this number mean? Not much!\nBut we can use it to compare sets of houses and find houses that appear to be the most similar."
+  },
+  {
+    "objectID": "slides/05-distances.html#another-house-to-consider",
+    "href": "slides/05-distances.html#another-house-to-consider",
+    "title": "Distances Between Observations",
+    "section": "Another House to Consider",
+    "text": "Another House to Consider\n\n\n\ndf.loc[1707, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\n\n\n\n\n\ndf.loc[291, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      1666\nBedroom AbvGr       3\nName: 291, dtype: object\n\n\n\n\n\\[ \\sqrt{ (2956 - 1666)^2 + (5 - 3)^2} = 1290 \\]\nThus, house 1707 is more similar to house 290 than to house 291."
+  },
+  {
+    "objectID": "slides/05-distances.html#lecture-activity-part-1",
+    "href": "slides/05-distances.html#lecture-activity-part-1",
+    "title": "Distances Between Observations",
+    "section": "Lecture Activity Part 1",
+    "text": "Lecture Activity Part 1\n\nComplete Part One of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/05-distances.html#house-160-seems-more-similar",
+    "href": "slides/05-distances.html#house-160-seems-more-similar",
+    "title": "Distances Between Observations",
+    "section": "House 160 seems more similar…",
+    "text": "House 160 seems more similar…\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 2, shape = 17) + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\")\n)"
+  },
+  {
+    "objectID": "slides/05-distances.html#even-if-we-zoom-in",
+    "href": "slides/05-distances.html#even-if-we-zoom-in",
+    "title": "Distances Between Observations",
+    "section": "…even if we zoom in…",
+    "text": "…even if we zoom in…\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\") +\n  scale_y_continuous(limits = (2500, 3500))\n)"
+  },
+  {
+    "objectID": "slides/05-distances.html#but-not-if-we-put-the-axes-on-the-same-scale",
+    "href": "slides/05-distances.html#but-not-if-we-put-the-axes-on-the-same-scale",
+    "title": "Distances Between Observations",
+    "section": "…but not if we put the axes on the same scale!",
+    "text": "…but not if we put the axes on the same scale!\n\n\n\nCode\n(\n  ggplot(df, aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\") +\n  scale_y_continuous(limits = (2900, 3000)) +\n  scale_x_continuous(limits = (0, 100))\n)"
+  },
+  {
+    "objectID": "slides/05-distances.html#scaling",
+    "href": "slides/05-distances.html#scaling",
+    "title": "Distances Between Observations",
+    "section": "Scaling",
+    "text": "Scaling\nWe need to make sure our features are on the same scale before we can use distances to measure similarity.\n\n\n\n\n\n\nStandardizing\n\n\nsubtract the mean, divide by the standard deviation"
+  },
+  {
+    "objectID": "slides/05-distances.html#scaling-1",
+    "href": "slides/05-distances.html#scaling-1",
+    "title": "Distances Between Observations",
+    "section": "Scaling",
+    "text": "Scaling\n\n\ndf['size_scaled'] = (df['Gr Liv Area'] - df['Gr Liv Area'].mean()) / df['Gr Liv Area'].std()\ndf['bdrm_scaled'] = (df['Bedroom AbvGr'] - df['Bedroom AbvGr'].mean()) / df['Bedroom AbvGr'].std()\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(y = \"size_scaled\", x = \"bdrm_scaled\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Standardized)\", \n       x = \"Number of Bedrooms (Standardized)\") \n)"
+  },
+  {
+    "objectID": "slides/05-distances.html#lecture-activity-part-2",
+    "href": "slides/05-distances.html#lecture-activity-part-2",
+    "title": "Distances Between Observations",
+    "section": "Lecture Activity Part 2",
+    "text": "Lecture Activity Part 2\n\nComplete Part Two of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/05-distances.html#scikit-learn-1",
+    "href": "slides/05-distances.html#scikit-learn-1",
+    "title": "Distances Between Observations",
+    "section": "Scikit-learn",
+    "text": "Scikit-learn\n\nscikit-learn is a library for machine learning and modeling\nWe will use it a lot in this class!\nFor now, we will use it as a shortcut for scaling and for computing distances\n\n\n\nThe philosophy of sklearn is:\n\nspecify your analysis\nfit on the data to prepare the analysis\ntransform the data"
+  },
+  {
+    "objectID": "slides/05-distances.html#specify",
+    "href": "slides/05-distances.html#specify",
+    "title": "Distances Between Observations",
+    "section": "Specify",
+    "text": "Specify\n\nfrom sklearn.preprocessing import StandardScaler\n\nscaler = StandardScaler()\nscaler\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriNot fittedStandardScaler() \n\n\nNo calculations have happened yet!"
+  },
+  {
+    "objectID": "slides/05-distances.html#fit",
+    "href": "slides/05-distances.html#fit",
+    "title": "Distances Between Observations",
+    "section": "Fit",
+    "text": "Fit\nThe scaler object “learns” the means and standard deviations.\n\n\ndf_orig = df[['Gr Liv Area', 'Bedroom AbvGr']]\nscaler.fit(df_orig)\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFittedStandardScaler() \n\nscaler.mean_\n\narray([1499.69044369,    2.85426621])\n\nscaler.scale_\n\narray([505.4226158 ,   0.82758988])\n\n\n\n\nWe still have not altered the data at all!"
+  },
+  {
+    "objectID": "slides/05-distances.html#transform",
+    "href": "slides/05-distances.html#transform",
+    "title": "Distances Between Observations",
+    "section": "Transform",
+    "text": "Transform\n\ndf_scaled = scaler.transform(df_orig)\ndf_scaled\n\narray([[ 0.30926506,  0.17609421],\n       [-1.19442705, -1.03223376],\n       [-0.33771825,  0.17609421],\n       ...,\n       [-1.04801492,  0.17609421],\n       [-0.21900572, -1.03223376],\n       [ 0.9898836 ,  0.17609421]], shape=(2930, 2))"
+  },
+  {
+    "objectID": "slides/05-distances.html#sklearn-numpy-and-pandas",
+    "href": "slides/05-distances.html#sklearn-numpy-and-pandas",
+    "title": "Distances Between Observations",
+    "section": "sklearn, numpy, and pandas",
+    "text": "sklearn, numpy, and pandas\n\n\nBy default, sklearn functions return numpy objects.\nThis is sometimes annoying, maybe we want to plot things after scaling.\nSolution: remake it, with the original column names.\n\n\n\n\n\npd.DataFrame(df_scaled, columns = df_orig.columns)\n\n      Gr Liv Area  Bedroom AbvGr\n0        0.309265       0.176094\n1       -1.194427      -1.032234\n2       -0.337718       0.176094\n3        1.207523       0.176094\n4        0.255844       0.176094\n...           ...            ...\n2925    -0.982723       0.176094\n2926    -1.182556      -1.032234\n2927    -1.048015       0.176094\n2928    -0.219006      -1.032234\n2929     0.989884       0.176094\n\n[2930 rows x 2 columns]"
+  },
+  {
+    "objectID": "slides/05-distances.html#distances-with-sklearn",
+    "href": "slides/05-distances.html#distances-with-sklearn",
+    "title": "Distances Between Observations",
+    "section": "Distances with sklearn",
+    "text": "Distances with sklearn\n\nfrom sklearn.metrics import pairwise_distances\n\npairwise_distances(df_scaled[[1707]], df_scaled)\n\narray([[3.52929876, 5.45459713, 4.0252646 , ..., 4.61305666, 4.76999349,\n        3.06886734]], shape=(1, 2930))"
+  },
+  {
+    "objectID": "slides/05-distances.html#finding-the-most-similar",
+    "href": "slides/05-distances.html#finding-the-most-similar",
+    "title": "Distances Between Observations",
+    "section": "Finding the Most Similar",
+    "text": "Finding the Most Similar\n\n\n\n\ndists = pairwise_distances(df_scaled[[1707]], \n                           df_scaled)\ndists.argsort()\n\narray([[1707,  160,  909, ...,  158, 2723, 2279]], shape=(1, 2930))\n\n\n\n\n\n\n\n\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\n  \ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr\n160          2978              5\n909          3082              5\n1288         2792              5\n2350         2784              5\n253          3222              5\n585          2640              5\n2592         2640              5\n2027         2526              5\n2330         3390              5"
+  },
+  {
+    "objectID": "slides/05-distances.html#lecture-activity-part-3",
+    "href": "slides/05-distances.html#lecture-activity-part-3",
+    "title": "Distances Between Observations",
+    "section": "Lecture Activity Part 3",
+    "text": "Lecture Activity Part 3\n\nComplete Part Three of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/05-distances.html#other-scaling",
+    "href": "slides/05-distances.html#other-scaling",
+    "title": "Distances Between Observations",
+    "section": "Other scaling",
+    "text": "Other scaling\n\nStandardization \\[x_i \\leftarrow \\frac{x_i - \\bar{X}}{\\text{sd}(X)}\\]\nMin-Max Scaling \\[x_i \\leftarrow \\frac{x_i - \\text{min}(X)}{\\text{max}(X) - \\text{min}(X)}\\]"
+  },
+  {
+    "objectID": "slides/05-distances.html#other-distances",
+    "href": "slides/05-distances.html#other-distances",
+    "title": "Distances Between Observations",
+    "section": "Other distances",
+    "text": "Other distances\n\nEuclidean (\\(\\ell_2\\))\n\\[\\sqrt{\\sum_{j=1}^m (x_j - x'_j)^2}\\]\nManhattan (\\(\\ell_1\\))\n\\[\\sum_{j=1}^m |x_j - x'_j|\\]"
+  },
+  {
+    "objectID": "slides/05-distances.html#lecture-activity-part-4",
+    "href": "slides/05-distances.html#lecture-activity-part-4",
+    "title": "Distances Between Observations",
+    "section": "Lecture Activity Part 4",
+    "text": "Lecture Activity Part 4\n\nComplete Part Four of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
+  },
+  {
+    "objectID": "slides/05-distances.html#takeaways-1",
+    "href": "slides/05-distances.html#takeaways-1",
+    "title": "Distances Between Observations",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nWe measure similarity between observations by calculating distances.\nIt is important that all our features be on the same scale for distances to be meaningful.\nWe can use scikit-learn functions to fit and transform data, and to compute pairwise distances.\nThere are many options of ways to scale data; most common is standardizing\nThere are many options of ways to measure distances; most common is Euclidean distance."
   },
   {
     "objectID": "slides/02-conditional-distributions.html#getting-and-prepping-data",
@@ -1571,264 +1760,5 @@
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
     ]
-  },
-  {
-    "objectID": "slides/05-distances.html#summarizing",
-    "href": "slides/05-distances.html#summarizing",
-    "title": "Distances Between Observations",
-    "section": "Summarizing",
-    "text": "Summarizing\n\nOne categorical variable: marginal distribution\nTwo categorical variables: joint and conditional distributions\nOne quantitative variable: mean, median, variance, standard deviation.\nOne quantitative, one categorical: mean, median, and std dev across groups (groupby(), split-apply-combine)\nTwo quantitative variables: z-scores, correlation"
-  },
-  {
-    "objectID": "slides/05-distances.html#visualizing",
-    "href": "slides/05-distances.html#visualizing",
-    "title": "Distances Between Observations",
-    "section": "Visualizing",
-    "text": "Visualizing\n\nOne categorical variable: bar plot or column plot\nTwo categorical variables: stacked bar plot, side-by-side bar plot, or stacked percentage bar plot\nOne quantitative variable: histogram, density plot, or boxplot\nOne quantitative, one categorical: overlapping densities, side-by-side boxplots, or facetting\nTwo quantitative variables: scatterplot"
-  },
-  {
-    "objectID": "slides/05-distances.html#ames-house-prices",
-    "href": "slides/05-distances.html#ames-house-prices",
-    "title": "Distances Between Observations",
-    "section": "Ames house prices",
-    "text": "Ames house prices\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\",\n                    sep = \"\\\\t\")\ndf.head()\n\n         PID  Gr Liv Area  Bedroom AbvGr  ...  Sale Type  Sale Condition  SalePrice\n0  526301100         1656              3  ...        WD           Normal     215000\n1  526350040          896              2  ...        WD           Normal     105000\n2  526351010         1329              3  ...        WD           Normal     172000\n3  526353030         2110              3  ...        WD           Normal     244000\n4  527105010         1629              3  ...        WD           Normal     189900\n\n[5 rows x 81 columns]\n\n\n\n\n\n\n\n\nread_table not read_csv\n\n\nThis is a tsv file (tab separated values), so we need to use a different function to read in our data! The sep argument allows you to specify the delimiter the file uses, but you can also allow the system to autodetect the delimiter."
-  },
-  {
-    "objectID": "slides/05-distances.html#how-does-size-relate-to-number-of-bedrooms",
-    "href": "slides/05-distances.html#how-does-size-relate-to-number-of-bedrooms",
-    "title": "Distances Between Observations",
-    "section": "How does size relate to number of bedrooms?",
-    "text": "How does size relate to number of bedrooms?\nWhat statistic would you calculate?\n\n\ndf[[\"Gr Liv Area\", \"Bedroom AbvGr\"]].corr()\n\n               Gr Liv Area  Bedroom AbvGr\nGr Liv Area       1.000000       0.516808\nBedroom AbvGr     0.516808       1.000000"
-  },
-  {
-    "objectID": "slides/05-distances.html#how-does-size-relate-to-number-of-bedrooms-1",
-    "href": "slides/05-distances.html#how-does-size-relate-to-number-of-bedrooms-1",
-    "title": "Distances Between Observations",
-    "section": "How does size relate to number of bedrooms?",
-    "text": "How does size relate to number of bedrooms?\nWhat statistic would you calculate?\n\n\ndf[[\"Gr Liv Area\", \"Bedroom AbvGr\"]].corr()\n\n               Gr Liv Area  Bedroom AbvGr\nGr Liv Area       1.000000       0.516808\nBedroom AbvGr     0.516808       1.000000"
-  },
-  {
-    "objectID": "slides/05-distances.html#similarity",
-    "href": "slides/05-distances.html#similarity",
-    "title": "Distances Between Observations",
-    "section": "Similarity",
-    "text": "Similarity\nHow might we answer the question, “Are these two houses similar?”\n\n\n\n\ndf.loc[1707, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\n\n\n\n\n\n\n\ndf.loc[290, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2650\nBedroom AbvGr       6\nName: 290, dtype: object"
-  },
-  {
-    "objectID": "slides/05-distances.html#distance",
-    "href": "slides/05-distances.html#distance",
-    "title": "Distances Between Observations",
-    "section": "Distance",
-    "text": "Distance\nThe distance between the two observations is:\n\\[ \\sqrt{ (2956 - 2650)^2 + (5 - 6)^2} = 306 \\]\n\n… what does this number mean? Not much!\nBut we can use it to compare sets of houses and find houses that appear to be the most similar."
-  },
-  {
-    "objectID": "slides/05-distances.html#distance-1",
-    "href": "slides/05-distances.html#distance-1",
-    "title": "Distances Between Observations",
-    "section": "Distance",
-    "text": "Distance\nConsider House 1707 and another one:\n\ndf.loc[1707, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\ndf.loc[291, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      1666\nBedroom AbvGr       3\nName: 291, dtype: object\n\n\n\\[ \\sqrt{ (2956 - 1666)^2 + (5 - 3)^2} = 1290 \\] House 1707 is more similar to House 290 than to House 291."
-  },
-  {
-    "objectID": "slides/05-distances.html#lecture-activity-part-1",
-    "href": "slides/05-distances.html#lecture-activity-part-1",
-    "title": "Distances Between Observations",
-    "section": "Lecture Activity Part 1",
-    "text": "Lecture Activity Part 1\n\nComplete Part One of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
-  },
-  {
-    "objectID": "slides/05-distances.html#house-160-seems-more-similar",
-    "href": "slides/05-distances.html#house-160-seems-more-similar",
-    "title": "Distances Between Observations",
-    "section": "House 160 seems more similar…",
-    "text": "House 160 seems more similar…\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 2, shape = 17) + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\")\n)"
-  },
-  {
-    "objectID": "slides/05-distances.html#even-if-we-zoom-in",
-    "href": "slides/05-distances.html#even-if-we-zoom-in",
-    "title": "Distances Between Observations",
-    "section": "…even if we zoom in…",
-    "text": "…even if we zoom in…\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\") +\n  scale_y_continuous(limits = (2500, 3500))\n)"
-  },
-  {
-    "objectID": "slides/05-distances.html#but-not-if-we-put-the-axes-on-the-same-scale",
-    "href": "slides/05-distances.html#but-not-if-we-put-the-axes-on-the-same-scale",
-    "title": "Distances Between Observations",
-    "section": "…but not if we put the axes on the same scale!",
-    "text": "…but not if we put the axes on the same scale!\n\n\n\nCode\n(\n  ggplot(df, aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\") +\n  scale_y_continuous(limits = (2900, 3000)) +\n  scale_x_continuous(limits = (0, 100))\n)"
-  },
-  {
-    "objectID": "slides/05-distances.html#scaling",
-    "href": "slides/05-distances.html#scaling",
-    "title": "Distances Between Observations",
-    "section": "Scaling",
-    "text": "Scaling\nWe need to make sure our features are on the same scale before we can use distances to measure similarity.\n\n\n\n\n\n\nStandardizing\n\n\nsubtract the mean, divide by the standard deviation"
-  },
-  {
-    "objectID": "slides/05-distances.html#scaling-1",
-    "href": "slides/05-distances.html#scaling-1",
-    "title": "Distances Between Observations",
-    "section": "Scaling",
-    "text": "Scaling\n\n\ndf['size_scaled'] = (df['Gr Liv Area'] - df['Gr Liv Area'].mean()) / df['Gr Liv Area'].std()\ndf['bdrm_scaled'] = (df['Bedroom AbvGr'] - df['Bedroom AbvGr'].mean()) / df['Bedroom AbvGr'].std()\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(y = \"size_scaled\", x = \"bdrm_scaled\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Standardized)\", \n       x = \"Number of Bedrooms (Standardized)\") \n)"
-  },
-  {
-    "objectID": "slides/05-distances.html#lecture-activity-part-2",
-    "href": "slides/05-distances.html#lecture-activity-part-2",
-    "title": "Distances Between Observations",
-    "section": "Lecture Activity Part 2",
-    "text": "Lecture Activity Part 2\n\nComplete Part Two of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
-  },
-  {
-    "objectID": "slides/05-distances.html#scikit-learn-1",
-    "href": "slides/05-distances.html#scikit-learn-1",
-    "title": "Distances Between Observations",
-    "section": "Scikit-learn",
-    "text": "Scikit-learn\n\nscikit-learn is a library for machine learning and modeling\nWe will use it a lot in this class!\nFor now, we will use it as a shortcut for scaling and for computing distances\n\n\n\nThe philosophy of sklearn is:\n\nspecify your analysis\nfit on the data to prepare the analysis\ntransform the data"
-  },
-  {
-    "objectID": "slides/05-distances.html#specify",
-    "href": "slides/05-distances.html#specify",
-    "title": "Distances Between Observations",
-    "section": "Specify",
-    "text": "Specify\n\nfrom sklearn.preprocessing import StandardScaler\n\nscaler = StandardScaler()\nscaler\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriNot fittedStandardScaler() \n\n\nNo calculations have happened yet!"
-  },
-  {
-    "objectID": "slides/05-distances.html#fit",
-    "href": "slides/05-distances.html#fit",
-    "title": "Distances Between Observations",
-    "section": "Fit",
-    "text": "Fit\nThe scaler object “learns” the means and standard deviations.\n\n\ndf_orig = df[['Gr Liv Area', 'Bedroom AbvGr']]\nscaler.fit(df_orig)\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFittedStandardScaler() \n\nscaler.mean_\n\narray([1499.69044369,    2.85426621])\n\nscaler.scale_\n\narray([505.4226158 ,   0.82758988])\n\n\n\n\nWe still have not altered the data at all!"
-  },
-  {
-    "objectID": "slides/05-distances.html#transform",
-    "href": "slides/05-distances.html#transform",
-    "title": "Distances Between Observations",
-    "section": "Transform",
-    "text": "Transform\n\ndf_scaled = scaler.transform(df_orig)\ndf_scaled\n\narray([[ 0.30926506,  0.17609421],\n       [-1.19442705, -1.03223376],\n       [-0.33771825,  0.17609421],\n       ...,\n       [-1.04801492,  0.17609421],\n       [-0.21900572, -1.03223376],\n       [ 0.9898836 ,  0.17609421]], shape=(2930, 2))"
-  },
-  {
-    "objectID": "slides/05-distances.html#sklearn-numpy-and-pandas",
-    "href": "slides/05-distances.html#sklearn-numpy-and-pandas",
-    "title": "Distances Between Observations",
-    "section": "sklearn, numpy, and pandas",
-    "text": "sklearn, numpy, and pandas\n\n\nBy default, sklearn functions return numpy objects.\nThis is sometimes annoying, maybe we want to plot things after scaling.\nSolution: remake it, with the original column names.\n\n\n\n\n\npd.DataFrame(df_scaled, columns = df_orig.columns)\n\n      Gr Liv Area  Bedroom AbvGr\n0        0.309265       0.176094\n1       -1.194427      -1.032234\n2       -0.337718       0.176094\n3        1.207523       0.176094\n4        0.255844       0.176094\n...           ...            ...\n2925    -0.982723       0.176094\n2926    -1.182556      -1.032234\n2927    -1.048015       0.176094\n2928    -0.219006      -1.032234\n2929     0.989884       0.176094\n\n[2930 rows x 2 columns]"
-  },
-  {
-    "objectID": "slides/05-distances.html#distances-with-sklearn",
-    "href": "slides/05-distances.html#distances-with-sklearn",
-    "title": "Distances Between Observations",
-    "section": "Distances with sklearn",
-    "text": "Distances with sklearn\n\nfrom sklearn.metrics import pairwise_distances\n\npairwise_distances(df_scaled[[1707]], df_scaled)\n\narray([[3.52929876, 5.45459713, 4.0252646 , ..., 4.61305666, 4.76999349,\n        3.06886734]], shape=(1, 2930))"
-  },
-  {
-    "objectID": "slides/05-distances.html#finding-the-most-similar",
-    "href": "slides/05-distances.html#finding-the-most-similar",
-    "title": "Distances Between Observations",
-    "section": "Finding the Most Similar",
-    "text": "Finding the Most Similar\n\n\n\n\ndists = pairwise_distances(df_scaled[[1707]], \n                           df_scaled)\ndists.argsort()\n\narray([[1707,  160,  909, ...,  158, 2723, 2279]], shape=(1, 2930))\n\n\n\n\n\n\n\n\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\n  \ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr\n160          2978              5\n909          3082              5\n1288         2792              5\n2350         2784              5\n253          3222              5\n2592         2640              5\n585          2640              5\n2027         2526              5\n2330         3390              5"
-  },
-  {
-    "objectID": "slides/05-distances.html#lecture-activity-part-3",
-    "href": "slides/05-distances.html#lecture-activity-part-3",
-    "title": "Distances Between Observations",
-    "section": "Lecture Activity Part 3",
-    "text": "Lecture Activity Part 3\n\nComplete Part Three of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
-  },
-  {
-    "objectID": "slides/05-distances.html#other-scaling",
-    "href": "slides/05-distances.html#other-scaling",
-    "title": "Distances Between Observations",
-    "section": "Other scaling",
-    "text": "Other scaling\n\nStandardization \\[x_i \\leftarrow \\frac{x_i - \\bar{X}}{\\text{sd}(X)}\\]\nMin-Max Scaling \\[x_i \\leftarrow \\frac{x_i - \\text{min}(X)}{\\text{max}(X) - \\text{min}(X)}\\]"
-  },
-  {
-    "objectID": "slides/05-distances.html#other-distances",
-    "href": "slides/05-distances.html#other-distances",
-    "title": "Distances Between Observations",
-    "section": "Other distances",
-    "text": "Other distances\n\nEuclidean (\\(\\ell_2\\))\n\\[\\sqrt{\\sum_{j=1}^m (x_j - x'_j)^2}\\]\nManhattan (\\(\\ell_1\\))\n\\[\\sum_{j=1}^m |x_j - x'_j|\\]"
-  },
-  {
-    "objectID": "slides/05-distances.html#lecture-activity-part-4",
-    "href": "slides/05-distances.html#lecture-activity-part-4",
-    "title": "Distances Between Observations",
-    "section": "Lecture Activity Part 4",
-    "text": "Lecture Activity Part 4\n\nComplete Part Four of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
-  },
-  {
-    "objectID": "slides/05-distances.html#takeaways-1",
-    "href": "slides/05-distances.html#takeaways-1",
-    "title": "Distances Between Observations",
-    "section": "Takeaways",
-    "text": "Takeaways\n\nWe measure similarity between observations by calculating distances.\nIt is important that all our features be on the same scale for distances to be meaningful.\nWe can use scikit-learn functions to fit and transform data, and to compute pairwise distances.\nThere are many options of ways to scale data; most common is standardizing\nThere are many options of ways to measure distances; most common is Euclidean distance."
-  },
-  {
-    "objectID": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms",
-    "href": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms",
-    "title": "Distances Between Observations",
-    "section": "How does house size relate to number of bedrooms?",
-    "text": "How does house size relate to number of bedrooms?\n\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(x = \"Gr Liv Area\", y = \"Bedroom AbvGr\"))  + \n  geom_point() +\n  labs(x = \"Total Living Area\", \n       y = \"Number of Bedrooms\")\n )"
-  },
-  {
-    "objectID": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms-1",
-    "href": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms-1",
-    "title": "Distances Between Observations",
-    "section": "How does house size relate to number of bedrooms?",
-    "text": "How does house size relate to number of bedrooms?\nWhat statistic would you calculate?\n\n\ndf[[\"Gr Liv Area\", \"Bedroom AbvGr\"]].corr()\n\n               Gr Liv Area  Bedroom AbvGr\nGr Liv Area       1.000000       0.516808\nBedroom AbvGr     0.516808       1.000000"
-  },
-  {
-    "objectID": "slides/05-distances.html#another-house-to-consider",
-    "href": "slides/05-distances.html#another-house-to-consider",
-    "title": "Distances Between Observations",
-    "section": "Another House to Consider",
-    "text": "Another House to Consider\n\n\n\ndf.loc[1707, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\n\n\n\n\n\ndf.loc[291, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      1666\nBedroom AbvGr       3\nName: 291, dtype: object\n\n\n\n\n\\[ \\sqrt{ (2956 - 1666)^2 + (5 - 3)^2} = 1290 \\]\nThus, house 1707 is more similar to house 290 than to house 291."
-  },
-  {
-    "objectID": "slides/05-distances.html#lecture-activity-part-1-1",
-    "href": "slides/05-distances.html#lecture-activity-part-1-1",
-    "title": "Distances Between Observations",
-    "section": "Lecture Activity Part 1",
-    "text": "Lecture Activity Part 1\n\nComplete Part Two of the activity linked in Canvas.\n\n\n\n\n−+\n10:00"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html",
-    "href": "slides/06-preprocessing.html",
-    "title": "Dummy variables and Column Transformers",
-    "section": "",
-    "text": "We measure similarity between observations by calculating distances.\nEuclidean distance: sum of squared differences, then square root\nManhattan distance: sum of absolute differences\nIn scikit-learn, use the pairwise_distances function to get back a 2D numpy array of distances.\n\n\n\n\n\nIt is important that all our features be on the same scale for distances to be meaningful.\nStandardize: Subtract the mean (of the column) and divide by the standard deviation (of the column).\nMinMax: Subtract the minimum value, divide by the range.\nIn scikit-learn, use the StandardScaler() or MinMaxScaler() functions.\nFollow the specify - fit - transform code structure.\n\n\n\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")\nfeatures = [\"Gr Liv Area\", \"Bedroom AbvGr\", \"Full Bath\", \"Half Bath\", \"Bldg Type\", \"Neighborhood\"]\ndf[features].head()\n\n   Gr Liv Area  Bedroom AbvGr  Full Bath  Half Bath Bldg Type Neighborhood\n0         1656              3          1          0      1Fam        NAmes\n1          896              2          1          0      1Fam        NAmes\n2         1329              3          1          1      1Fam        NAmes\n3         2110              3          2          1      1Fam        NAmes\n4         1629              3          2          1      1Fam      Gilbert"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#the-story-this-week",
-    "href": "slides/06-preprocessing.html#the-story-this-week",
-    "title": "Dummy variables and Column Transformers",
-    "section": "",
-    "text": "We measure similarity between observations by calculating distances.\nEuclidean distance: sum of squared differences, then square root\nManhattan distance: sum of absolute differences\nIn scikit-learn, use the pairwise_distances function to get back a 2D numpy array of distances.\n\n\n\n\n\nIt is important that all our features be on the same scale for distances to be meaningful.\nStandardize: Subtract the mean (of the column) and divide by the standard deviation (of the column).\nMinMax: Subtract the minimum value, divide by the range.\nIn scikit-learn, use the StandardScaler() or MinMaxScaler() functions.\nFollow the specify - fit - transform code structure.\n\n\n\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")\nfeatures = [\"Gr Liv Area\", \"Bedroom AbvGr\", \"Full Bath\", \"Half Bath\", \"Bldg Type\", \"Neighborhood\"]\ndf[features].head()\n\n   Gr Liv Area  Bedroom AbvGr  Full Bath  Half Bath Bldg Type Neighborhood\n0         1656              3          1          0      1Fam        NAmes\n1          896              2          1          0      1Fam        NAmes\n2         1329              3          1          1      1Fam        NAmes\n3         2110              3          2          1      1Fam        NAmes\n4         1629              3          2          1      1Fam      Gilbert"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#distances-and-categorical-variables",
-    "href": "slides/06-preprocessing.html#distances-and-categorical-variables",
-    "title": "Dummy variables and Column Transformers",
-    "section": "Distances and Categorical Variables",
-    "text": "Distances and Categorical Variables\n\nWhat about categorical variables?\nSuppose we want to include the variable Bldg Type in our distance calculation…\n\ndf[\"Bldg Type\"].value_counts()\n\nBldg Type\n1Fam      2425\nTwnhsE     233\nDuplex     109\nTwnhs      101\n2fmCon      62\nName: count, dtype: int64\n\n\nWhat is “single family minus townhouse squared”?\n\n\nConverting to binary\nLet’s instead think about “Single family, or not”\n\ndf[\"is_single_fam\"] = df[\"Bldg Type\"] == \"1Fam\"\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\nTrue     2425\nFalse     505\nName: count, dtype: int64\n\n\n\n\nConverting to binary\nRecall that True/False is the same as 1/0 for computers:\n\ndf[\"is_single_fam\"] = df[\"is_single_fam\"].astype(\"int\")\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\n1    2425\n0     505\nName: count, dtype: int64\n\n\nWe call this a dummy variable or a one-hot-encoding.\n\n\nNow we can do math!\n\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import pairwise_distances\nscaler = StandardScaler()\n\ndf_orig = df[['Gr Liv Area', 'Bedroom AbvGr', 'is_single_fam']]\nscaler.fit(df_orig)\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFittedStandardScaler() \n\ndf_scaled = scaler.transform(df_orig)\n\ndists = pairwise_distances(df_scaled[[1707]], df_scaled)\nbest = dists.argsort().flatten()[1:10]\ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr  is_single_fam\n160          2978              5              1\n909          3082              5              1\n1288         2792              5              1\n2350         2784              5              1\n253          3222              5              1\n585          2640              5              1\n2027         2526              5              1\n2330         3390              5              1\n2501         2520              5              1\n\n\n\n\nQuick look back\n\nWhere have you seen some one-hot-encoded variables already?\n\n\n\nLet’s reset the dataset now…\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#dummifying-variables",
-    "href": "slides/06-preprocessing.html#dummifying-variables",
-    "title": "Dummy variables and Column Transformers",
-    "section": "Dummifying Variables",
-    "text": "Dummifying Variables\n\nDummifying Variables\n\nWhat if we don’t just want to study is_single_fam, but rather, all categories of the Bldg Type variable?\nIn principle, we just make dummy variables for each category: is_single_fam, is_twnhse, etc.\nEach category becomes one column, with 0’s and 1’s to show if the observation in that row matches that category.\nThis is called dummifying or one-hot-encoding a categorical variable\nLuckily, we have shortcuts in both pandas and sklearn…\n\n\n\nDummifying in Pandas\n\npd.get_dummies(df[[\"Bldg Type\"]])\n\n      Bldg Type_1Fam  Bldg Type_2fmCon  ...  Bldg Type_Twnhs  Bldg Type_TwnhsE\n0               True             False  ...            False             False\n1               True             False  ...            False             False\n2               True             False  ...            False             False\n3               True             False  ...            False             False\n4               True             False  ...            False             False\n...              ...               ...  ...              ...               ...\n2925            True             False  ...            False             False\n2926            True             False  ...            False             False\n2927            True             False  ...            False             False\n2928            True             False  ...            False             False\n2929            True             False  ...            False             False\n\n[2930 rows x 5 columns]\n\n\n\n\nDummifying in Pandas\nSome things to notice here…\n\nWhat is the naming convention for the new columns?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat happens if you put the whole dataframe into the get_dummies function? What problems might arise from this?\n\n\n\nDummifying in sklearn\n\nfrom sklearn.preprocessing import OneHotEncoder\n\nencoder = OneHotEncoder()\n\nencoder.fit(df[[\"Bldg Type\"]])\n\nOneHotEncoder()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.OneHotEncoder?Documentation for OneHotEncoderiFittedOneHotEncoder() \n\ndf_bldg = encoder.transform(df[[\"Bldg Type\"]])\n\ndf_bldg\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 2930 stored elements and shape (2930, 5)&gt;\n\n\n\n\nDummifying in sklearn\n\ndf_bldg.todense()\n\nmatrix([[1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        ...,\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.]], shape=(2930, 5))\n\n\n\n\nDummifying in sklearn\nThings to notice:\n\nWhat object type was the result?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat happens if you fit the whole dataframe with the OneHotEncoder? What problems might arise from this?\nWhat pros and cons do you see for the pandas approach vs the sklearn approach?"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#column-transformers",
-    "href": "slides/06-preprocessing.html#column-transformers",
-    "title": "Dummy variables and Column Transformers",
-    "section": "Column Transformers",
-    "text": "Column Transformers\n\nPreprocessing\n\nWe have now seen two preprocessing steps that might need to happen to do an analysis of distances:\n\nScaling the quantitative variables\nDummifying the categorical variables\n\nPreprocessing steps are things you do only to make the following analysis/visualization better.\nThis is not the same as data cleaning, which are changes you make to fix the data.\nThis is not the same as data wrangling, which are changes you make to restructure the data; i.e., adding or deleting rows or columns to reflect what you are trying to study.\n\n\n\nQuick quiz\nIdentify the following as cleaning, wrangling, or preprocessing:\n\nRemoving the $ symbol from a column and converting it to numeric.\nNarrowing your data down to only first class Titanic passengers, because you are not studying the others.\nConverting a Zip Code variable from numeric to categorical using .astype().\nCreating a new column called n_investment that counts the number of people who invested in a project.\nLog-transforming a column because it is very skewed.\n\n\n\nPreprocessing in sklearn\n\nUnlike cleaning and wrangling, the preprocessing steps are “temporary” changes to the dataframe.\nIt would be nice if we could trigger these changes as part of our analysis, instead of doing them “by hand”.\nThis is why the specify - fit - transform process is useful!\nWe will first specify all our preprocessing steps.\nThen we will fit the whole preprocess\nThen we will save the transform step for only when we need it.\n\n\n\nColumn Transformers\n\nfrom sklearn.compose import make_column_transformer\n\npreproc = make_column_transformer(\n    (OneHotEncoder(), [\"Bldg Type\", \"Neighborhood\"]),\n    remainder=\"passthrough\")\n    \npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])]) onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder() remainder['Gr Liv Area', 'Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough \n\npreproc.transform(df[features])\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 15717 stored elements and shape (2930, 37)&gt;\n\n\n\n\nColumn Transformers\nThings to notice…\n\nWhat submodule did we import make_column_transformer from?\nWhat are the two arguments to the make_column_transformer function? What object structures are they?\nWhat happens if you fit and transform on the whole dataset, not just df[features]? Why might this be useful?\n\n\n\nColumn Transformers\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output=False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: (keep the sparse_output=False when you try this)\n\npreproc.set_output(transform = \"pandas\")\n\nLook at the preproc object. What does it show you?\n\n\n\nMultiple preprocessing steps\nWhy are column transformers so useful?\nWell, now we can do multiple preprocessing steps at once!\n\nfrom sklearn.preprocessing import StandardScaler\n\npreproc = make_column_transformer(\n        (StandardScaler(), [\"Gr Liv Area\"]),\n        (OneHotEncoder(sparse_output=False), [\"Bldg Type\",\n                                          \"Neighborhood\"]),\n    remainder=\"passthrough\")\n    \npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])]) standardscaler['Gr Liv Area'] StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder['Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough \n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])]) standardscaler['Gr Liv Area'] StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder['Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough \n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  remainder__Half Bath\n0                        0.309265  ...                     0\n1                       -1.194427  ...                     0\n2                       -0.337718  ...                     1\n3                        1.207523  ...                     1\n4                        0.255844  ...                     1\n...                           ...  ...                   ...\n2925                    -0.982723  ...                     0\n2926                    -1.182556  ...                     0\n2927                    -1.048015  ...                     0\n2928                    -0.219006  ...                     0\n2929                     0.989884  ...                     1\n\n[2930 rows x 37 columns]\n\n\n\n\nFinding all variables\nWhat if we just want to say “Please dummify all categorical variables?”\nUse a selector instead of exact column names.\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  make_column_selector(dtype_include=np.number)),\n    (OneHotEncoder(sparse_output=False), make_column_selector(dtype_include=object)),\n    remainder=\"passthrough\")\n    \npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d245a90&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d1e3110&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d245a90&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d1e3110&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d245a90&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d1e3110&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough \n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d245a90&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d1e3110&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d245a90&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d1e3110&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d245a90&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13d1e3110&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough \n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  onehotencoder__Neighborhood_Veenker\n0                        0.309265  ...                                  0.0\n1                       -1.194427  ...                                  0.0\n2                       -0.337718  ...                                  0.0\n3                        1.207523  ...                                  0.0\n4                        0.255844  ...                                  0.0\n...                           ...  ...                                  ...\n2925                    -0.982723  ...                                  0.0\n2926                    -1.182556  ...                                  0.0\n2927                    -1.048015  ...                                  0.0\n2928                    -0.219006  ...                                  0.0\n2929                     0.989884  ...                                  0.0\n\n[2930 rows x 37 columns]\n\n\n\n\nThink about it\n\nWhat are the advantages of using a selector?\nWhat are the possible disadvantages of using a selector?\nDoes the order matter when using selectors? Try switching the steps and see what happens!"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#takeaways",
-    "href": "slides/06-preprocessing.html#takeaways",
-    "title": "Dummy variables and Column Transformers",
-    "section": "Takeaways",
-    "text": "Takeaways\n\nTakeaways\n\nWe dummify or one-hot-encode categorical variables to make them numbers.\nWe can do this with pd.get_dummies() or with OneHotEncoder()\nColumn Transformers let us apply multiple preprocessing steps all together.\n\nThink about which variables you want to apply the steps to\nThink about options for the steps, like sparseness\nThink about passthrough in your transformer"
   }
 ]
