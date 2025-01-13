@@ -1161,10 +1161,11 @@ Name: dep_delay, dtype: float64</code></pre>
 <section id="making-a-clearer-plot" class="slide level2">
 <h2>Making a Clearer Plot</h2>
 <p>Did you notice how difficult it was to pick out each point?</p>
+<!-- change to point size -->
 <div class="columns">
 <div class="column" style="width:48%;">
 <div class="fragment">
-<p><strong>Jittering</strong></p>
+<p><strong>Point Size</strong></p>
 <div class="small">
 <div class="cell">
 <details class="code-fold">
@@ -1173,7 +1174,7 @@ Name: dep_delay, dtype: float64</code></pre>
 <span id="cb40-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_titanic, </span>
 <span id="cb40-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)</span>
 <span id="cb40-4"><a aria-hidden="true" tabindex="-1"></a>         ) <span class="op">+</span> </span>
-<span id="cb40-5"><a aria-hidden="true" tabindex="-1"></a>  geom_jitter() <span class="op">+</span></span>
+<span id="cb40-5"><a aria-hidden="true" tabindex="-1"></a>  geom_jitter(size <span class="op">=</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
 <span id="cb40-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Age of Passenger"</span>, </span>
 <span id="cb40-7"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Fare Paid on Titanic"</span>)</span>
 <span id="cb40-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

@@ -925,15 +925,16 @@ plot.draw(plot)
 
 Did you notice how difficult it was to pick out each point?
 
+<!-- change to point size -->
 ::: columns
 ::: {.column width="48%"}
 ::: {.fragment}
-**Jittering**
+**Point Size**
 
 ::: {.small}
 ```{python}
 #| code-line-numbers: false
-#| label: scatterplot-jittering-code
+#| label: scatterplot-point-size-code
 #| code-fold: true
 #| eval: false
 
@@ -941,7 +942,7 @@ Did you notice how difficult it was to pick out each point?
   ggplot(data = df_titanic, 
          mapping = aes(x = 'age', y = 'fare')
          ) + 
-  geom_jitter() +
+  geom_jitter(size = 0.5) +
   labs(x = "Age of Passenger", 
        y = "Fare Paid on Titanic")
 )
@@ -957,7 +958,7 @@ plot = (
   ggplot(data = df_titanic, 
          mapping = aes(x = 'age', y = 'fare')
          ) + 
-  geom_jitter() +
+  geom_jitter(size = 0.5) +
   labs(x = "Age of Passenger", 
        y = "Fare Paid on Titanic")
 )

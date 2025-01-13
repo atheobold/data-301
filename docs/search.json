@@ -345,7 +345,7 @@
     "href": "slides/04-group-by.html#making-a-clearer-plot",
     "title": "Multivariate Summaries",
     "section": "Making a Clearer Plot",
-    "text": "Making a Clearer Plot\nDid you notice how difficult it was to pick out each point?\n\n\n\nJittering\n\n\n\nCode\n(\n  ggplot(data = df_titanic, \n         mapping = aes(x = 'age', y = 'fare')\n         ) + \n  geom_jitter() +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransparency\n\n\n\nCode\n(\n  ggplot(data = df_titanic, \n         mapping = aes(x = 'age', y = 'fare')\n         ) + \n  geom_point(alpha = 0.5) +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)",
+    "text": "Making a Clearer Plot\nDid you notice how difficult it was to pick out each point?\n\n\n\n\nPoint Size\n\n\n\nCode\n(\n  ggplot(data = df_titanic, \n         mapping = aes(x = 'age', y = 'fare')\n         ) + \n  geom_jitter(size = 0.5) +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransparency\n\n\n\nCode\n(\n  ggplot(data = df_titanic, \n         mapping = aes(x = 'age', y = 'fare')\n         ) + \n  geom_point(alpha = 0.5) +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
