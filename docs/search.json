@@ -759,6 +759,451 @@
     ]
   },
   {
+    "objectID": "slides/06-preprocessing.html#distances",
+    "href": "slides/06-preprocessing.html#distances",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Distances",
+    "text": "Distances\n\nWe measure similarity between observations by calculating distances.\n\n\n\nEuclidean distance: sum of squared differences, then square root\nManhattan distance: sum of absolute differences\n\n\n\n\n\n\n\n\n\nscikit-learn\n\n\nUse the pairwise_distances() function to get back a 2D numpy array of distances."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#scaling",
+    "href": "slides/06-preprocessing.html#scaling",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Scaling",
+    "text": "Scaling\n\nIt is important that all our features be on the same scale for distances to be meaningful.\n\n\n\nStandardize: Subtract the mean (of the column) and divide by the standard deviation (of the column).\nMinMax: Subtract the minimum value, divide by the range.\n\n\n\n\n\n\n\n\n\nscikit-learn\n\n\nFollow the specify - fit - transform code structure. In the specify step, you should use the StandardScaler() or MinMaxScaler() functions."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#recall-ames-housing-data",
+    "href": "slides/06-preprocessing.html#recall-ames-housing-data",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Recall: AMES Housing data",
+    "text": "Recall: AMES Housing data\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")\nfeatures = [\"Gr Liv Area\", \"Bedroom AbvGr\", \"Full Bath\", \"Half Bath\", \"Bldg Type\", \"Neighborhood\"]\ndf[features].head()\n\n   Gr Liv Area  Bedroom AbvGr  Full Bath  Half Bath Bldg Type Neighborhood\n0         1656              3          1          0      1Fam        NAmes\n1          896              2          1          0      1Fam        NAmes\n2         1329              3          1          1      1Fam        NAmes\n3         2110              3          2          1      1Fam        NAmes\n4         1629              3          2          1      1Fam      Gilbert"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#what-about-categorical-variables",
+    "href": "slides/06-preprocessing.html#what-about-categorical-variables",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "What about categorical variables?",
+    "text": "What about categorical variables?\nSuppose we want to include the variable Bldg Type in our distance calculation…\n\ndf[\"Bldg Type\"].value_counts()\n\nBldg Type\n1Fam      2425\nTwnhsE     233\nDuplex     109\nTwnhs      101\n2fmCon      62\nName: count, dtype: int64\n\n\n\n\nThen we need a way to calculate \\((\\texttt{1Fam} - \\texttt{Twnhs} )^ 2\\)."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#converting-to-binary",
+    "href": "slides/06-preprocessing.html#converting-to-binary",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Converting to Binary",
+    "text": "Converting to Binary\nLet’s instead think about a variable that summarizes whether an observation is a single family home or not.\n\ndf[\"is_single_fam\"] = df[\"Bldg Type\"] == \"1Fam\"\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\nTrue     2425\nFalse     505\nName: count, dtype: int64\n\n\n\n\n\n\n\n\n\nWhat does a value of True represent? False?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummy-variables",
+    "href": "slides/06-preprocessing.html#dummy-variables",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummy Variables",
+    "text": "Dummy Variables\n\nWhen we transform a variable into binary (True / False), we call this variable a dummy variable or we say the variable has been one-hot-encoded.\n\n\nRemember that that computers interpret logical values (True / False) the same as 1 / 0:\n\ndf[\"is_single_fam\"] = df[\"is_single_fam\"].astype(\"int\")\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\n1    2425\n0     505\nName: count, dtype: int64"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#now-we-can-do-math",
+    "href": "slides/06-preprocessing.html#now-we-can-do-math",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Now we can do math!",
+    "text": "Now we can do math!\nSpecify\n\n\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import pairwise_distances\n\nscaler = StandardScaler()\n\n\n\nFit\n\n\n\ndf_orig = df[['Gr Liv Area', 'Bedroom AbvGr', 'is_single_fam']]\nscaler.fit(df_orig)\n\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFittedStandardScaler() \n\n\n\n\n\nTransform\n\n\ndf_scaled = scaler.transform(df_orig)"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#calculating-distances",
+    "href": "slides/06-preprocessing.html#calculating-distances",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Calculating Distances",
+    "text": "Calculating Distances\n\n\ndists = pairwise_distances(df_scaled[[1707]], df_scaled)\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr  is_single_fam\n160          2978              5              1\n909          3082              5              1\n1288         2792              5              1\n2350         2784              5              1\n253          3222              5              1\n585          2640              5              1\n2027         2526              5              1\n2330         3390              5              1\n436          2520              5              1"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-variables-1",
+    "href": "slides/06-preprocessing.html#dummifying-variables-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying Variables",
+    "text": "Dummifying Variables\n\n\n\nWhat if we don’t just want to study is_single_fam, but rather, all categories of the Bldg Type variable?\nIn principle, we just make dummy variables for each category: is_single_fam, is_twnhse, etc.\nEach category becomes one column, with 0’s and 1’s to show if the observation in that row matches that category.\nThat sounds pretty tedious, especially if you have a lot of categories…\nLuckily, we have shortcuts in both pandas and sklearn!"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-in-pandas",
+    "href": "slides/06-preprocessing.html#dummifying-in-pandas",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying in Pandas",
+    "text": "Dummifying in Pandas\n\n\npd.get_dummies(df[[\"Bldg Type\"]])\n\n      Bldg Type_1Fam  Bldg Type_2fmCon  ...  Bldg Type_Twnhs  Bldg Type_TwnhsE\n0               True             False  ...            False             False\n1               True             False  ...            False             False\n2               True             False  ...            False             False\n3               True             False  ...            False             False\n4               True             False  ...            False             False\n...              ...               ...  ...              ...               ...\n2925            True             False  ...            False             False\n2926            True             False  ...            False             False\n2927            True             False  ...            False             False\n2928            True             False  ...            False             False\n2929            True             False  ...            False             False\n\n[2930 rows x 5 columns]"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-in-pandas-1",
+    "href": "slides/06-preprocessing.html#dummifying-in-pandas-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying in Pandas",
+    "text": "Dummifying in Pandas\n\n\n\n      Bldg Type_1Fam  Bldg Type_2fmCon  ...  Bldg Type_Twnhs  Bldg Type_TwnhsE\n0               True             False  ...            False             False\n1               True             False  ...            False             False\n2               True             False  ...            False             False\n3               True             False  ...            False             False\n4               True             False  ...            False             False\n...              ...               ...  ...              ...               ...\n2925            True             False  ...            False             False\n2926            True             False  ...            False             False\n2927            True             False  ...            False             False\n2928            True             False  ...            False             False\n2929            True             False  ...            False             False\n\n[2930 rows x 5 columns]\n\n\n\n\nSome things to notice here…\n\n\n\n\nWhat is the naming convention for the new columns?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat happens if you put the whole dataframe into the get_dummies function? What problems might arise from this?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-in-sklearn",
+    "href": "slides/06-preprocessing.html#dummifying-in-sklearn",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying in sklearn",
+    "text": "Dummifying in sklearn\nSpecify\n\n\nfrom sklearn.preprocessing import OneHotEncoder\n\nencoder = OneHotEncoder()\n\n\n\nFit\n\n\n\nencoder.fit(df[[\"Bldg Type\"]])\n\n\nOneHotEncoder()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.OneHotEncoder?Documentation for OneHotEncoderiFittedOneHotEncoder() \n\n\n\n\n\nTransform\n\n\ndf_bldg = encoder.transform(df[[\"Bldg Type\"]])\ndf_bldg\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 2930 stored elements and shape (2930, 5)&gt;"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-in-sklearn-1",
+    "href": "slides/06-preprocessing.html#dummifying-in-sklearn-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying in sklearn",
+    "text": "Dummifying in sklearn\n\n\n\n\ndf_bldg.todense()\n\n\n\n\n\n\n\n\nmatrix([[1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        ...,\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.]], shape=(2930, 5))\n\n\n\n\n\nThings to notice:\n\n\n\nWhat object type was the result?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat pros and cons do you see for the pandas approach vs the sklearn approach?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#preprocessing",
+    "href": "slides/06-preprocessing.html#preprocessing",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Preprocessing",
+    "text": "Preprocessing\n\nSo far, we have now seen two preprocessing steps that might need to happen to do an analysis of distances:\n\nScaling the quantitative variables\nDummifying the categorical variables\n\n\n\n\nPreprocessing steps are things you do only to make the following analysis/visualization better.\n\nThis is not the same as data cleaning, where you make changes to fix the data (e.g., changing data types).\nThis is not the same as data wrangling, where you change the structure of the data (e.g., adding or deleting rows or columns)."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#lecture-4.1-quiz",
+    "href": "slides/06-preprocessing.html#lecture-4.1-quiz",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Lecture 4.1 Quiz",
+    "text": "Lecture 4.1 Quiz\nIdentify the following as cleaning, wrangling, or preprocessing:\n\n\nRemoving the $ symbol from a column and converting it to numeric.\nNarrowing your data down to only first class Titanic passengers, because you are not studying the others.\nConverting a Zip Code variable from numeric to categorical using .astype().\nCreating a new column called n_investment that counts the number of people who invested in a project.\nLog-transforming a column because it is very skewed."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#preprocessing-in-sklearn",
+    "href": "slides/06-preprocessing.html#preprocessing-in-sklearn",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Preprocessing in sklearn",
+    "text": "Preprocessing in sklearn\n\n\nUnlike cleaning and wrangling, the preprocessing steps are “temporary” changes to the dataframe.\n\n\n\n\n\nIt would be nice if we could trigger these changes as part of our analysis, instead of doing them “by hand”.\n\nThis is why the specify - fit - transform process is useful!\nWe will first specify all our preprocessing steps.\nThen we will fit the whole preprocess\nThen we will save the transform step for only when we need it."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#column-transformers-specify",
+    "href": "slides/06-preprocessing.html#column-transformers-specify",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Column Transformers – Specify",
+    "text": "Column Transformers – Specify\n\nfrom sklearn.compose import make_column_transformer\n\n\n\n\npreproc = make_column_transformer(\n  (OneHotEncoder(), [\"Bldg Type\", \"Neighborhood\"]),\n    remainder = \"passthrough\")"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#column-transformers-fit",
+    "href": "slides/06-preprocessing.html#column-transformers-fit",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Column Transformers – Fit",
+    "text": "Column Transformers – Fit\n\npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])]) onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder() remainder['Gr Liv Area', 'Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#column-transformers-transform",
+    "href": "slides/06-preprocessing.html#column-transformers-transform",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Column Transformers – Transform",
+    "text": "Column Transformers – Transform\n\npreproc.transform(df[features])\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 15717 stored elements and shape (2930, 37)&gt;"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#things-to-notice",
+    "href": "slides/06-preprocessing.html#things-to-notice",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Things to notice…",
+    "text": "Things to notice…\n\nWhat submodule did we import make_column_transformer from?\nWhat are the two arguments to the make_column_transformer() function? What object structures are they?\nWhat happens if you fit and transform on the whole dataset, not just df[features]? Why might this be useful?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#lecture-activity-4.2",
+    "href": "slides/06-preprocessing.html#lecture-activity-4.2",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Lecture Activity 4.2",
+    "text": "Lecture Activity 4.2\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output = False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: preproc.set_output(transform = \"pandas\") (keep the sparse_output = False when you try this)"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#multiple-preprocessing-steps",
+    "href": "slides/06-preprocessing.html#multiple-preprocessing-steps",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Multiple Preprocessing Steps",
+    "text": "Multiple Preprocessing Steps\nWhy are column transformers so useful? We can do multiple preprocessing steps at once!\n\n\nfrom sklearn.preprocessing import StandardScaler\n\npreproc = make_column_transformer(\n        (StandardScaler(), [\"Gr Liv Area\"]),\n        (OneHotEncoder(sparse_output = False), [\"Bldg Type\", \"Neighborhood\"]),\n        remainder = \"passthrough\")"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#fit",
+    "href": "slides/06-preprocessing.html#fit",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Fit!",
+    "text": "Fit!\n\n(\n  preproc\n  .fit(df[features])\n  .set_output(transform = \"pandas\")\n)\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])]) standardscaler['Gr Liv Area'] StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder['Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#transform",
+    "href": "slides/06-preprocessing.html#transform",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Transform!",
+    "text": "Transform!\n\n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  remainder__Half Bath\n0                        0.309265  ...                     0\n1                       -1.194427  ...                     0\n2                       -0.337718  ...                     1\n3                        1.207523  ...                     1\n4                        0.255844  ...                     1\n...                           ...  ...                   ...\n2925                    -0.982723  ...                     0\n2926                    -1.182556  ...                     0\n2927                    -1.048015  ...                     0\n2928                    -0.219006  ...                     0\n2929                     0.989884  ...                     1\n\n[2930 rows x 37 columns]"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#finding-all-categorical-variables",
+    "href": "slides/06-preprocessing.html#finding-all-categorical-variables",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Finding All Categorical Variables",
+    "text": "Finding All Categorical Variables\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#fit-1",
+    "href": "slides/06-preprocessing.html#fit-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Fit!",
+    "text": "Fit!\n\n(\n  preproc\n  .fit(df[features])\n  .set_output(transform = \"pandas\")\n)\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x115366410&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x115366fb0&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x115366410&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x115366fb0&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x115366410&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x115366fb0&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#transform-1",
+    "href": "slides/06-preprocessing.html#transform-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Transform!",
+    "text": "Transform!\n\n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  onehotencoder__Neighborhood_Veenker\n0                        0.309265  ...                                  0.0\n1                       -1.194427  ...                                  0.0\n2                       -0.337718  ...                                  0.0\n3                        1.207523  ...                                  0.0\n4                        0.255844  ...                                  0.0\n...                           ...  ...                                  ...\n2925                    -0.982723  ...                                  0.0\n2926                    -1.182556  ...                                  0.0\n2927                    -1.048015  ...                                  0.0\n2928                    -0.219006  ...                                  0.0\n2929                     0.989884  ...                                  0.0\n\n[2930 rows x 37 columns]"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#think-about-it",
+    "href": "slides/06-preprocessing.html#think-about-it",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Think about it",
+    "text": "Think about it\n\nWhat are the advantages of using a selector?\nWhat are the possible disadvantages of using a selector?\nDoes the order matter when using selectors? Try switching the steps and see what happens!"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#takeaways-1",
+    "href": "slides/06-preprocessing.html#takeaways-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nWe dummify or one-hot-encode categorical variables to make them numbers.\nWe can do this with pd.get_dummies() or with OneHotEncoder() from sklearn.\nColumn Transformers let us apply multiple preprocessing steps at the same time.\n\nThink about which variables you want to apply the steps to\nThink about options for the steps, like sparseness\nThink about passthrough in your transformer"
+  },
+  {
+    "objectID": "course-materials/syllabus.html#course-objectives",
+    "href": "course-materials/syllabus.html#course-objectives",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Course Objectives",
+    "text": "Course Objectives\nAfter taking this course, you will be able to:\n\nAcquire and process tabular, textual, hierarchical, and geospatial data.\nUncover patterns by summarizing and visualizing data.\nApply machine learning to answer real-world prediction problems.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#prerequisites",
+    "href": "course-materials/syllabus.html#prerequisites",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nI expect you to enter this class with:\n\nBasic knowledge of Python and computer programming concepts.\nFamiliarity with computers and technology (e.g., Internet browsing, word processing, opening/saving files, converting files to PDF format, sending and receiving e-mail, etc.).\nA positive attitude, a curious mind, and a respect for ethical use of data science tools.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lecture-check-ins-5",
+    "href": "course-materials/syllabus.html#lecture-check-ins-5",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lecture Check-Ins (5%)",
+    "text": "Lecture Check-Ins (5%)\nEvery lecture will be accompanied by a simple “Check-In Quiz” on Canvas. This will ask you to input a few answers covered in lecture, and one short mid-lecture practice exercise. Infinite submissions are allowed without penalty, so there is no reason anyone should not get 100% in this category.\nIf you miss lecture, you can still complete the Check-Ins on your own time, by midnight the next day.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lab-attendance-and-activities-10",
+    "href": "course-materials/syllabus.html#lab-attendance-and-activities-10",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lab Attendance and Activities (10%)",
+    "text": "Lab Attendance and Activities (10%)\nAttendance and participation in the lab portion of class is required. Do not take this class if you cannot commit to attending every lecture and every lab.\n\nSwapping Lab Sections\nIf you cannot make it to your assigned lab, but you can attend another section’s lab on the same day, please e-mail Dr. Theobold to inform them that you wish to swap lab sections. You may do this two times throughout the quarter.\n\n\nMissing Lab\nIf you cannot make it to any lab sections that day, you may complete the Colab assignment from lab on your own, and e-mail a PDF to Dr. Theobold by midnight that night (the day you missed class). Dr. Theobold will grade your Colab, and this score will replace your attendance for that day. You may do this two times throughout the quarter.\nTo allow for emergencies, we will also forgive one absence at the end of the quarter.\n\n\n\n\n\n\nNote\n\n\n\nWe are effectively allowing you to miss / reschedule up to three labs out of 10. If you need to miss more than three, then you will need to retake this course next quarter.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lab-assignments-25",
+    "href": "course-materials/syllabus.html#lab-assignments-25",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lab Assignments (25%)",
+    "text": "Lab Assignments (25%)\nEach week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are due every Saturday at 11:59pm. See the Late Work section below for information on extensions or deductions for late submissions.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#exams-15-each",
+    "href": "course-materials/syllabus.html#exams-15-each",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Exams (15% each)",
+    "text": "Exams (15% each)\nYou will have two in-class exams, in Week 5 and Week 10. These will each cover half of the class material. Except in very extreme unforeseeable circumstances, no alternate exams will be given; please plan to be in class these days.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#project-30",
+    "href": "course-materials/syllabus.html#project-30",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Project (30%)",
+    "text": "Project (30%)\nAt the end of the quarter, you will formally present a poster of your findings on a real-world data question. To ensure that you start thinking about your project early, you are required to submit a 1-page abstract proposal in Week 7.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#communication",
+    "href": "course-materials/syllabus.html#communication",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Communication",
+    "text": "Communication\nFor questions of general interest, such as deadline clarifications or conceptual questions, please use the Class Discord Server. You should check the relevant thread of the server, as well as the syllabus, before reaching out to Dr. Theobold.\nOf course, if your question is truly private, such as a grade inquiry or a personal concern, you may email me directly.\n\n\n\n\n\n\nNote\n\n\n\nIf you email me to ask a question that should be public, I will likely ask you to post your question on Discord instead. Please don’t take this personally! It just means that you asked a good question, and I think the rest of the class could benefit from seeing the answer.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#late-work",
+    "href": "course-materials/syllabus.html#late-work",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Late Work",
+    "text": "Late Work\nLate assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!\n\n\n\n\n\n\nNote\n\n\n\nNote that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.\n\n\n\nDeadline Extensions\nIn case of emergency, you have two deadline “extensions” to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.\nThe rules for these are as follows:\n\nYou must request the extension through the Google form linked on Canvas. Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.\nThe extension must be requested before the deadline has passed (i.e., before Friday at 11:59pm). I do not grant after-deadline extensions for any reason.\n\nProperly requested extensions are automatically granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.\n\n\n\n\n\n\nNote\n\n\n\nThese deadline extensions are automatic! You don’t have to tell why you need the extension - maybe you have a busy week with other work, maybe you are traveling with a sports team, maybe you partied too hard for your friend’s birthday. It doesn’t matter to me!\nThe flip side of this, though, is that if you use your deadline extensions early on in the course, and then run into a bigger issues later on, you’re out of luck.\n\n\n\n\nSpecial cases\nSometimes, issues arise require more time than the auto-extension gives. In general, if something comes up in your life, I always want to find a way to help. Please let me know what your situation is, and we’ll work together to find a good solution.\nThe most important thing is that you tell me early. As a rule, I do not grant extensions after the deadline.\n\n\n\n\n\n\nNote\n\n\n\nOf course, in the case of a major crisis, that is truly exceptional and unforeseen, all these rules go out the window. I want you to feel comfortable reaching out to me when you are facing something extra difficult. We’ll figure it out.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#academic-integrity",
+    "href": "course-materials/syllabus.html#academic-integrity",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\nYou are expected to abide by the Cal Poly Code of Conduct at all times.\n\nPlagiarism\nYou are encouraged to work with other classmates on all but the exam portions of this class. You are also encouraged (realistically, required!) to make use of online resources to accomplish tasks.\nWhen dealing with code, follow these guidelines:\n\nNever copy-paste more than small snippets of code. That is, you might borrow a little three-line function from StackOverflow, but you should not copy over a full analysis you find on Kaggle.\nAttribute all code that is not completely your own. If you do borrow that StackOverflow snippet, provide a link to the source. If you reference a similar analysis for ideas, mention that in your description.\n\n\n\n\n\n\n\nWarning\n\n\n\nA good “rule of thumb” is: If I sat you down by yourself in a room with no internet, could you explain to me roughly what each line of code is doing? If not, you are probably borrowing more than you should from your online source.\n(In fact, this is exactly what I will do if I need to investigate possible cheating.)\n\n\n\nAI tools\nNew AI models like Chat GPT offer a whole new world of online coding resources. This is exciting! You should absolutely feel free to get help from these tools, they are excellent at answering questions.\nHowever, from an academic integrity perspective, treat these AI generative chat resources like, say, a tutor. Asking a tutor to help explain a homework concept to you or help debug your code? Totally fine! Giving the tutor a homework question and having them answer the whole thing? Nope. Talking to a tutor at all, about anything, during the course of the exam? Unacceptable.\n\n\n\nIntegrity Violations\nIf you accidentally forget a small citation, or go a little overboard in how much you “borrow” from StackOverflow, you’ll get a warning and a grade deduction on that assignment.\nAny instance of willful and deliberate cheating will result in a failing grade on the assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.\n\n\n\n\n\n\nWarning\n\n\n\nBe careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have both received a failing grade on the assignment and a report filed to OSRR.\n\n\n\n\nIntellectual property\nThe materials for this course are legally the professor’s intellectual property.\nMost class materials are publicly shared, and you are welcome to direct others to this resource at any time. You are also welcome to publicly share any or all of your work on the class project.\nNon-public class materials—most importantly, assignment solutions and any exam materials—may never be shared.\n\n\n\n\n\n\nWarning\n\n\n\nThis is not just an issue of academic honestly, it is quite literally a legal copyright scenario. Please do not distribute solutions or exam questions from this class anywhere, for any reason. Doing so is a violation of the Code of Conduct, and it may constitute a violation of U.S. copyright law.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#class-conduct",
+    "href": "course-materials/syllabus.html#class-conduct",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Class Conduct",
+    "text": "Class Conduct\nIn this classroom, I expect you to be polite, respectful, inclusive, and open-minded.\nSome examples of how to be a good classmate include:\n\nDoing your best to avoid language that is ableist, racist, sexist, transphobic, or classist; or that perpetuates harmful stereotypes.\nAddressing your classmates (and your professor!) by their preferred name and pronouns.\nDoing your best to be aware of your own biases, privileges, and areas of ignorance.\nListening to others’ opinions, and making an effort to understand their perspective.\nTaking the time to help your classmates grasp concepts or solve problems, even when you are ready to move on.\n\n\nAttendance\nIt is my general expectation that you will attend lecture, and remain present until you have finished the day’s in-class work. However, I do not take formal attendance in class; as long as you engage with the material and complete the small check-ins, you can decide which lectures are useful to you.\nPlease do not email me letting me know when you are missing class - I don’t need to know if you are attending, it is your responsibility to catch up on the materials and check-ins you miss.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Data Science (in Python)",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nFriday, January 10\n\n\n\nLab 1 Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nFriday, January 17\n\n\n\nLab 2 Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nFriday, January 24\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-words and TF-IDF\nActivity 4.2\nLab 4A\nLab 4B\n\n\n\n\nFriday, January 31\n\n\n\nLab 4 Due by Midnight\n\n\n\n5\nK-Nearest Neighbors, Intro to Modeling & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nIntroduction to Modeling\nActivity 5.2\n\nMidterm Exam (in-class)\n\n\n\nFriday, February 7\n\n\n\nLab 5 Due by Midnight\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nCross-Validation and Grid Search\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nClassification\nActivity 6.2\n\n\n\n\n\nFriday, February 14\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nLogistic Regression\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nUnsupervised Learning with K-Means\nActivity 7.2\n\n\n\n\n\nFriday, February 21\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\nCombining Datasets\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nHierarchical Data\nActivity 8.2\n\n\n\n\n\nFriday, February 28\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nWebscraping\nTuesday, March 4\n\nWebscraping\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\n\nActivity 9.2\n\n\n\n\n\nFriday, March 7\n\n\n\nLab 9 Due by Midnight\n\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\n\n\n\nPosters Due to be Printed\n\n\n\nThursday, March 13\n\n\n\n\nFinal Exam (in-class)\n\n\nFinals Week\nSaturday, March 15 10:10am - 1pm\n\n\n\n\nPoster Presentations",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#about-me",
+    "href": "slides/00-welcome.html#about-me",
+    "title": "Welcome, Intro, and Setup",
+    "section": "About Me",
+    "text": "About Me\n\n\n\n\n\n\nGrew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, going to concerts and musicals",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#grade-brakedown",
+    "href": "slides/00-welcome.html#grade-brakedown",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Grade Brakedown",
+    "text": "Grade Brakedown\n\n5%: Check-Ins – Questions interspersed throughout lecture\n10%: Lab Activities – Lab attendance is required\n25%: Weekly Assignments – due Saturdays at midnight\n15% each: Exams in Week 5 and Week 10.\n30%: Final project",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#important-dates",
+    "href": "slides/00-welcome.html#important-dates",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Important Dates",
+    "text": "Important Dates\n\nThurs, February 6: Exam 1 (in-class)\nFri, February 21: 1-page Project Proposal Due\nThurs, March 13: Exam 2 (in-class)\nSaturday, March 16 (before Finals Week: Final Project Poster Presentations",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#homework-late-policy",
+    "href": "slides/00-welcome.html#homework-late-policy",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Homework Late Policy",
+    "text": "Homework Late Policy\n\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.\nIf you’ve used your deadline extensions, late work has a 10% deduction per day for up to 5 days.\n\nThis policy also applies to deadline extension requests that are not submitted before the assignment’s deadline.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#missing-lab",
+    "href": "slides/00-welcome.html#missing-lab",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Missing Lab",
+    "text": "Missing Lab\n\nBest option: Go to another section.\nSecond-best option: Turn in your work by email to me.\nWorst option: Miss it entirely, get a 0.\nYou may miss lab up to two times during the quarter. If you need to miss / reschedule more than two of the labs this quarter, you will need to retake the class.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#discord-and-email",
+    "href": "slides/00-welcome.html#discord-and-email",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Discord and Email",
+    "text": "Discord and Email\n\nClass questions go on DISCORD\nUse my email only for personal concerns that you want to talk about privately to me.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#colab-notebooks",
+    "href": "slides/00-welcome.html#colab-notebooks",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Colab Notebooks",
+    "text": "Colab Notebooks\n\nIn Data Science, everyone uses Notebooks, not scripts, for coding.\nWe will be using Jupyter Notebooks (invented at Cal Poly!), hosted for free by Google Colab.\nIf you want to work offline, you can install Anaconda on your laptop.\nI recommend an IDE like PyCharm (or Positron) as well.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#academic-integrity",
+    "href": "slides/00-welcome.html#academic-integrity",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\n\nIf you copy text from a website into your essay, it’s cheating.\nIf you ask your friend to write your essay, it’s cheating.\nIf you pay someone else to write your essay, it’s cheating.\nIf you ask GenAI to do your work and then copy the answers, it’s cheating.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#conversation-not-copying",
+    "href": "slides/00-welcome.html#conversation-not-copying",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Conversation, not copying",
+    "text": "Conversation, not copying\nIt is okay (in fact, encouraged) to …\n\nAsk GenAI for tips on how to get started on a coding problem\nAsk GenAI to help find bugs in your code\nAsk GenAI to help explain concepts or functions\nPretend ChatGPT is your human tutor or TA!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
+    "href": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Activity: Good and bad use of AI",
+    "text": "Activity: Good and bad use of AI\n\nFind your group member\n\nIn the “People” tab on Canvas, find your “Day 1 Group”\n\nOnce you have found your group member, open the Activity 1.1 notebook (linked on Canvas).\n\n\n15-minutes:\n\nFirst, Person A follows the instructions in Part 1 of the notebook.\nThen, Person B follows the instructions in Part 2 of the notebook.\nFinally, discuss and answer the questions at the bottom.\n\n\n\n\n\n\n\n\n\nIf it is not your turn to type, you watch!\n\n\nDo not give input unless your partner asks for help.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
     "objectID": "slides/01-tabular-data-summaries.html#data-are-stored-in-plain-text-files",
     "href": "slides/01-tabular-data-summaries.html#data-are-stored-in-plain-text-files",
     "title": "Tabular Data and Variable Summaries",
@@ -924,248 +1369,6 @@
     ]
   },
   {
-    "objectID": "slides/00-welcome.html#about-me",
-    "href": "slides/00-welcome.html#about-me",
-    "title": "Welcome, Intro, and Setup",
-    "section": "About Me",
-    "text": "About Me\n\n\n\n\n\n\nGrew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, going to concerts and musicals",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#grade-brakedown",
-    "href": "slides/00-welcome.html#grade-brakedown",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Grade Brakedown",
-    "text": "Grade Brakedown\n\n5%: Check-Ins – Questions interspersed throughout lecture\n10%: Lab Activities – Lab attendance is required\n25%: Weekly Assignments – due Saturdays at midnight\n15% each: Exams in Week 5 and Week 10.\n30%: Final project",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#important-dates",
-    "href": "slides/00-welcome.html#important-dates",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Important Dates",
-    "text": "Important Dates\n\nThurs, February 6: Exam 1 (in-class)\nFri, February 21: 1-page Project Proposal Due\nThurs, March 13: Exam 2 (in-class)\nSaturday, March 16 (before Finals Week: Final Project Poster Presentations",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#homework-late-policy",
-    "href": "slides/00-welcome.html#homework-late-policy",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Homework Late Policy",
-    "text": "Homework Late Policy\n\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.\nIf you’ve used your deadline extensions, late work has a 10% deduction per day for up to 5 days.\n\nThis policy also applies to deadline extension requests that are not submitted before the assignment’s deadline.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#missing-lab",
-    "href": "slides/00-welcome.html#missing-lab",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Missing Lab",
-    "text": "Missing Lab\n\nBest option: Go to another section.\nSecond-best option: Turn in your work by email to me.\nWorst option: Miss it entirely, get a 0.\nYou may miss lab up to two times during the quarter. If you need to miss / reschedule more than two of the labs this quarter, you will need to retake the class.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#discord-and-email",
-    "href": "slides/00-welcome.html#discord-and-email",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Discord and Email",
-    "text": "Discord and Email\n\nClass questions go on DISCORD\nUse my email only for personal concerns that you want to talk about privately to me.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#colab-notebooks",
-    "href": "slides/00-welcome.html#colab-notebooks",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Colab Notebooks",
-    "text": "Colab Notebooks\n\nIn Data Science, everyone uses Notebooks, not scripts, for coding.\nWe will be using Jupyter Notebooks (invented at Cal Poly!), hosted for free by Google Colab.\nIf you want to work offline, you can install Anaconda on your laptop.\nI recommend an IDE like PyCharm (or Positron) as well.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#academic-integrity",
-    "href": "slides/00-welcome.html#academic-integrity",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Academic Integrity",
-    "text": "Academic Integrity\n\nIf you copy text from a website into your essay, it’s cheating.\nIf you ask your friend to write your essay, it’s cheating.\nIf you pay someone else to write your essay, it’s cheating.\nIf you ask GenAI to do your work and then copy the answers, it’s cheating.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#conversation-not-copying",
-    "href": "slides/00-welcome.html#conversation-not-copying",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Conversation, not copying",
-    "text": "Conversation, not copying\nIt is okay (in fact, encouraged) to …\n\nAsk GenAI for tips on how to get started on a coding problem\nAsk GenAI to help find bugs in your code\nAsk GenAI to help explain concepts or functions\nPretend ChatGPT is your human tutor or TA!",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
-    "href": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Activity: Good and bad use of AI",
-    "text": "Activity: Good and bad use of AI\n\nFind your group member\n\nIn the “People” tab on Canvas, find your “Day 1 Group”\n\nOnce you have found your group member, open the Activity 1.1 notebook (linked on Canvas).\n\n\n15-minutes:\n\nFirst, Person A follows the instructions in Part 1 of the notebook.\nThen, Person B follows the instructions in Part 2 of the notebook.\nFinally, discuss and answer the questions at the bottom.\n\n\n\n\n\n\n\n\n\nIf it is not your turn to type, you watch!\n\n\nDo not give input unless your partner asks for help.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Data Science (in Python)",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nFriday, January 10\n\n\n\nLab 1 Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nFriday, January 17\n\n\n\nLab 2 Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nFriday, January 24\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-words and TF-IDF\nActivity 4.2\nLab 4A\nLab 4B\n\n\n\n\nFriday, January 31\n\n\n\nLab 4 Due by Midnight\n\n\n\n5\nK-Nearest Neighbors, Intro to Modeling & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nIntroduction to Modeling\nActivity 5.2\n\nMidterm Exam (in-class)\n\n\n\nFriday, February 7\n\n\n\nLab 5 Due by Midnight\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nCross-Validation and Grid Search\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nClassification\nActivity 6.2\n\n\n\n\n\nFriday, February 14\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nLogistic Regression\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nUnsupervised Learning with K-Means\nActivity 7.2\n\n\n\n\n\nFriday, February 21\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\nCombining Datasets\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nHierarchical Data\nActivity 8.2\n\n\n\n\n\nFriday, February 28\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nWebscraping\nTuesday, March 4\n\nWebscraping\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\n\nActivity 9.2\n\n\n\n\n\nFriday, March 7\n\n\n\nLab 9 Due by Midnight\n\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\n\n\n\nPosters Due to be Printed\n\n\n\nThursday, March 13\n\n\n\n\nFinal Exam (in-class)\n\n\nFinals Week\nSaturday, March 15 10:10am - 1pm\n\n\n\n\nPoster Presentations",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#course-objectives",
-    "href": "course-materials/syllabus.html#course-objectives",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Course Objectives",
-    "text": "Course Objectives\nAfter taking this course, you will be able to:\n\nAcquire and process tabular, textual, hierarchical, and geospatial data.\nUncover patterns by summarizing and visualizing data.\nApply machine learning to answer real-world prediction problems.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#prerequisites",
-    "href": "course-materials/syllabus.html#prerequisites",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nI expect you to enter this class with:\n\nBasic knowledge of Python and computer programming concepts.\nFamiliarity with computers and technology (e.g., Internet browsing, word processing, opening/saving files, converting files to PDF format, sending and receiving e-mail, etc.).\nA positive attitude, a curious mind, and a respect for ethical use of data science tools.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#lecture-check-ins-5",
-    "href": "course-materials/syllabus.html#lecture-check-ins-5",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Lecture Check-Ins (5%)",
-    "text": "Lecture Check-Ins (5%)\nEvery lecture will be accompanied by a simple “Check-In Quiz” on Canvas. This will ask you to input a few answers covered in lecture, and one short mid-lecture practice exercise. Infinite submissions are allowed without penalty, so there is no reason anyone should not get 100% in this category.\nIf you miss lecture, you can still complete the Check-Ins on your own time, by midnight the next day.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#lab-attendance-and-activities-10",
-    "href": "course-materials/syllabus.html#lab-attendance-and-activities-10",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Lab Attendance and Activities (10%)",
-    "text": "Lab Attendance and Activities (10%)\nAttendance and participation in the lab portion of class is required. Do not take this class if you cannot commit to attending every lecture and every lab.\n\nSwapping Lab Sections\nIf you cannot make it to your assigned lab, but you can attend another section’s lab on the same day, please e-mail Dr. Theobold to inform them that you wish to swap lab sections. You may do this two times throughout the quarter.\n\n\nMissing Lab\nIf you cannot make it to any lab sections that day, you may complete the Colab assignment from lab on your own, and e-mail a PDF to Dr. Theobold by midnight that night (the day you missed class). Dr. Theobold will grade your Colab, and this score will replace your attendance for that day. You may do this two times throughout the quarter.\nTo allow for emergencies, we will also forgive one absence at the end of the quarter.\n\n\n\n\n\n\nNote\n\n\n\nWe are effectively allowing you to miss / reschedule up to three labs out of 10. If you need to miss more than three, then you will need to retake this course next quarter.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#lab-assignments-25",
-    "href": "course-materials/syllabus.html#lab-assignments-25",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Lab Assignments (25%)",
-    "text": "Lab Assignments (25%)\nEach week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are due every Saturday at 11:59pm. See the Late Work section below for information on extensions or deductions for late submissions.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#exams-15-each",
-    "href": "course-materials/syllabus.html#exams-15-each",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Exams (15% each)",
-    "text": "Exams (15% each)\nYou will have two in-class exams, in Week 5 and Week 10. These will each cover half of the class material. Except in very extreme unforeseeable circumstances, no alternate exams will be given; please plan to be in class these days.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#project-30",
-    "href": "course-materials/syllabus.html#project-30",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Project (30%)",
-    "text": "Project (30%)\nAt the end of the quarter, you will formally present a poster of your findings on a real-world data question. To ensure that you start thinking about your project early, you are required to submit a 1-page abstract proposal in Week 7.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#communication",
-    "href": "course-materials/syllabus.html#communication",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Communication",
-    "text": "Communication\nFor questions of general interest, such as deadline clarifications or conceptual questions, please use the Class Discord Server. You should check the relevant thread of the server, as well as the syllabus, before reaching out to Dr. Theobold.\nOf course, if your question is truly private, such as a grade inquiry or a personal concern, you may email me directly.\n\n\n\n\n\n\nNote\n\n\n\nIf you email me to ask a question that should be public, I will likely ask you to post your question on Discord instead. Please don’t take this personally! It just means that you asked a good question, and I think the rest of the class could benefit from seeing the answer.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#late-work",
-    "href": "course-materials/syllabus.html#late-work",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Late Work",
-    "text": "Late Work\nLate assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!\n\n\n\n\n\n\nNote\n\n\n\nNote that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.\n\n\n\nDeadline Extensions\nIn case of emergency, you have two deadline “extensions” to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.\nThe rules for these are as follows:\n\nYou must request the extension through the Google form linked on Canvas. Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.\nThe extension must be requested before the deadline has passed (i.e., before Friday at 11:59pm). I do not grant after-deadline extensions for any reason.\n\nProperly requested extensions are automatically granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.\n\n\n\n\n\n\nNote\n\n\n\nThese deadline extensions are automatic! You don’t have to tell why you need the extension - maybe you have a busy week with other work, maybe you are traveling with a sports team, maybe you partied too hard for your friend’s birthday. It doesn’t matter to me!\nThe flip side of this, though, is that if you use your deadline extensions early on in the course, and then run into a bigger issues later on, you’re out of luck.\n\n\n\n\nSpecial cases\nSometimes, issues arise require more time than the auto-extension gives. In general, if something comes up in your life, I always want to find a way to help. Please let me know what your situation is, and we’ll work together to find a good solution.\nThe most important thing is that you tell me early. As a rule, I do not grant extensions after the deadline.\n\n\n\n\n\n\nNote\n\n\n\nOf course, in the case of a major crisis, that is truly exceptional and unforeseen, all these rules go out the window. I want you to feel comfortable reaching out to me when you are facing something extra difficult. We’ll figure it out.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#academic-integrity",
-    "href": "course-materials/syllabus.html#academic-integrity",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Academic Integrity",
-    "text": "Academic Integrity\nYou are expected to abide by the Cal Poly Code of Conduct at all times.\n\nPlagiarism\nYou are encouraged to work with other classmates on all but the exam portions of this class. You are also encouraged (realistically, required!) to make use of online resources to accomplish tasks.\nWhen dealing with code, follow these guidelines:\n\nNever copy-paste more than small snippets of code. That is, you might borrow a little three-line function from StackOverflow, but you should not copy over a full analysis you find on Kaggle.\nAttribute all code that is not completely your own. If you do borrow that StackOverflow snippet, provide a link to the source. If you reference a similar analysis for ideas, mention that in your description.\n\n\n\n\n\n\n\nWarning\n\n\n\nA good “rule of thumb” is: If I sat you down by yourself in a room with no internet, could you explain to me roughly what each line of code is doing? If not, you are probably borrowing more than you should from your online source.\n(In fact, this is exactly what I will do if I need to investigate possible cheating.)\n\n\n\nAI tools\nNew AI models like Chat GPT offer a whole new world of online coding resources. This is exciting! You should absolutely feel free to get help from these tools, they are excellent at answering questions.\nHowever, from an academic integrity perspective, treat these AI generative chat resources like, say, a tutor. Asking a tutor to help explain a homework concept to you or help debug your code? Totally fine! Giving the tutor a homework question and having them answer the whole thing? Nope. Talking to a tutor at all, about anything, during the course of the exam? Unacceptable.\n\n\n\nIntegrity Violations\nIf you accidentally forget a small citation, or go a little overboard in how much you “borrow” from StackOverflow, you’ll get a warning and a grade deduction on that assignment.\nAny instance of willful and deliberate cheating will result in a failing grade on the assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.\n\n\n\n\n\n\nWarning\n\n\n\nBe careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have both received a failing grade on the assignment and a report filed to OSRR.\n\n\n\n\nIntellectual property\nThe materials for this course are legally the professor’s intellectual property.\nMost class materials are publicly shared, and you are welcome to direct others to this resource at any time. You are also welcome to publicly share any or all of your work on the class project.\nNon-public class materials—most importantly, assignment solutions and any exam materials—may never be shared.\n\n\n\n\n\n\nWarning\n\n\n\nThis is not just an issue of academic honestly, it is quite literally a legal copyright scenario. Please do not distribute solutions or exam questions from this class anywhere, for any reason. Doing so is a violation of the Code of Conduct, and it may constitute a violation of U.S. copyright law.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#class-conduct",
-    "href": "course-materials/syllabus.html#class-conduct",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Class Conduct",
-    "text": "Class Conduct\nIn this classroom, I expect you to be polite, respectful, inclusive, and open-minded.\nSome examples of how to be a good classmate include:\n\nDoing your best to avoid language that is ableist, racist, sexist, transphobic, or classist; or that perpetuates harmful stereotypes.\nAddressing your classmates (and your professor!) by their preferred name and pronouns.\nDoing your best to be aware of your own biases, privileges, and areas of ignorance.\nListening to others’ opinions, and making an effort to understand their perspective.\nTaking the time to help your classmates grasp concepts or solve problems, even when you are ready to move on.\n\n\nAttendance\nIt is my general expectation that you will attend lecture, and remain present until you have finished the day’s in-class work. However, I do not take formal attendance in class; as long as you engage with the material and complete the small check-ins, you can decide which lectures are useful to you.\nPlease do not email me letting me know when you are missing class - I don’t need to know if you are attending, it is your responsibility to catch up on the materials and check-ins you miss.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
     "objectID": "slides/05-distances.html#summarizing",
     "href": "slides/05-distances.html#summarizing",
     "title": "Distances Between Observations",
@@ -1317,7 +1520,7 @@
     "href": "slides/05-distances.html#finding-the-most-similar",
     "title": "Distances Between Observations",
     "section": "Finding the Most Similar",
-    "text": "Finding the Most Similar\n\n\n\n\ndists = pairwise_distances(df_scaled[[1707]], \n                           df_scaled)\ndists.argsort()\n\narray([[1707,  160,  909, ...,  158, 2723, 2279]], shape=(1, 2930))\n\n\n\n\n\n\n\n\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\n  \ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr\n160          2978              5\n909          3082              5\n1288         2792              5\n2350         2784              5\n253          3222              5\n2592         2640              5\n585          2640              5\n2027         2526              5\n2330         3390              5"
+    "text": "Finding the Most Similar\n\n\n\n\ndists = pairwise_distances(df_scaled[[1707]], \n                           df_scaled)\ndists.argsort()\n\narray([[1707,  160,  909, ...,  158, 2723, 2279]], shape=(1, 2930))\n\n\n\n\n\n\n\n\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\n  \ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr\n160          2978              5\n909          3082              5\n1288         2792              5\n2350         2784              5\n253          3222              5\n585          2640              5\n2592         2640              5\n2027         2526              5\n2330         3390              5"
   },
   {
     "objectID": "slides/05-distances.html#lecture-activity-part-3",
@@ -1358,8 +1561,8 @@
     "objectID": "slides/02-conditional-distributions.html#getting-and-prepping-data",
     "href": "slides/02-conditional-distributions.html#getting-and-prepping-data",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "",
-    "text": "df = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\ndf[\"survived\"] = df[\"survived\"].astype(\"category\")",
+    "section": "Getting and Prepping Data",
+    "text": "Getting and Prepping Data\n\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\ndf[\"survived\"] = df[\"survived\"].astype(\"category\")",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1369,8 +1572,8 @@
     "objectID": "slides/02-conditional-distributions.html#thinking-about-variable-types",
     "href": "slides/02-conditional-distributions.html#thinking-about-variable-types",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "",
-    "text": "name\npclass\nsurvived\nsex\nage\nsibsp\nparch\nticket\nfare\ncabin\nembarked\nboat\nbody\nhome.dest\n\n\n\n\nAllen, Miss. Elisabeth Walton\n1\n1\nfemale\n29.0000\n0\n0\n24160\n211.3375\nB5\nS\n2\nNaN\nSt Louis, MO\n\n\nAllison, Master. Hudson Trevor\n1\n1\nmale\n0.9167\n1\n2\n113781\n151.5500\nC22 C26\nS\n11\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Miss. Helen Loraine\n1\n0\nfemale\n2.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mr. Hudson Joshua Creighton\n1\n0\nmale\n30.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\n135\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)\n1\n0\nfemale\n25.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAnderson, Mr. Harry\n1\n1\nmale\n48.0000\n0\n0\n19952\n26.5500\nE12\nS\n3\nNaN\nNew York, NY",
+    "section": "Thinking About Variable Types",
+    "text": "Thinking About Variable Types\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nname\npclass\nsurvived\nsex\nage\nsibsp\nparch\nticket\nfare\ncabin\nembarked\nboat\nbody\nhome.dest\n\n\n\n\nAllen, Miss. Elisabeth Walton\n1\n1\nfemale\n29.0000\n0\n0\n24160\n211.3375\nB5\nS\n2\nNaN\nSt Louis, MO\n\n\nAllison, Master. Hudson Trevor\n1\n1\nmale\n0.9167\n1\n2\n113781\n151.5500\nC22 C26\nS\n11\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Miss. Helen Loraine\n1\n0\nfemale\n2.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mr. Hudson Joshua Creighton\n1\n0\nmale\n30.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\n135\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)\n1\n0\nfemale\n25.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAnderson, Mr. Harry\n1\n1\nmale\n48.0000\n0\n0\n19952\n26.5500\nE12\nS\n3\nNaN\nNew York, NY",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1380,8 +1583,8 @@
     "objectID": "slides/02-conditional-distributions.html#accessing-rows-and-columns",
     "href": "slides/02-conditional-distributions.html#accessing-rows-and-columns",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "",
-    "text": "df.iloc[5,]\n\nname         Anderson, Mr. Harry\npclass                         1\nsurvived                       1\nsex                         male\nage                         48.0\nsibsp                          0\nparch                          0\nticket                     19952\nfare                       26.55\ncabin                        E12\nembarked                       S\nboat                           3\nbody                         NaN\nhome.dest           New York, NY\nName: 5, dtype: object\n\n\n\n\ndf[\"name\"].head()\n\n0                      Allen, Miss. Elisabeth Walton\n1                     Allison, Master. Hudson Trevor\n2                       Allison, Miss. Helen Loraine\n3               Allison, Mr. Hudson Joshua Creighton\n4    Allison, Mrs. Hudson J C (Bessie Waldo Daniels)\nName: name, dtype: object",
+    "section": "Accessing Rows and Columns",
+    "text": "Accessing Rows and Columns\n\n\n\ndf.iloc[5,]\n\nname         Anderson, Mr. Harry\npclass                         1\nsurvived                       1\nsex                         male\nage                         48.0\nsibsp                          0\nparch                          0\nticket                     19952\nfare                       26.55\ncabin                        E12\nembarked                       S\nboat                           3\nbody                         NaN\nhome.dest           New York, NY\nName: 5, dtype: object\n\n\n\n\ndf[\"name\"].head()\n\n0                      Allen, Miss. Elisabeth Walton\n1                     Allison, Master. Hudson Trevor\n2                       Allison, Miss. Helen Loraine\n3               Allison, Mr. Hudson Joshua Creighton\n4    Allison, Mrs. Hudson J C (Bessie Waldo Daniels)\nName: name, dtype: object",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1391,8 +1594,8 @@
     "objectID": "slides/02-conditional-distributions.html#quick-summary-of-quantitative-variables",
     "href": "slides/02-conditional-distributions.html#quick-summary-of-quantitative-variables",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "",
-    "text": "df.describe()\n\n               age        sibsp        parch         fare        body\ncount  1046.000000  1309.000000  1309.000000  1308.000000  121.000000\nmean     29.881135     0.498854     0.385027    33.295479  160.809917\nstd      14.413500     1.041658     0.865560    51.758668   97.696922\nmin       0.166700     0.000000     0.000000     0.000000    1.000000\n25%      21.000000     0.000000     0.000000     7.895800   72.000000\n50%      28.000000     0.000000     0.000000    14.454200  155.000000\n75%      39.000000     1.000000     0.000000    31.275000  256.000000\nmax      80.000000     8.000000     9.000000   512.329200  328.000000",
+    "section": "Quick Summary of Quantitative Variables",
+    "text": "Quick Summary of Quantitative Variables\n\n\ndf.describe()\n\n               age        sibsp        parch         fare        body\ncount  1046.000000  1309.000000  1309.000000  1308.000000  121.000000\nmean     29.881135     0.498854     0.385027    33.295479  160.809917\nstd      14.413500     1.041658     0.865560    51.758668   97.696922\nmin       0.166700     0.000000     0.000000     0.000000    1.000000\n25%      21.000000     0.000000     0.000000     7.895800   72.000000\n50%      28.000000     0.000000     0.000000    14.454200  155.000000\n75%      39.000000     1.000000     0.000000    31.275000  256.000000\nmax      80.000000     8.000000     9.000000   512.329200  328.000000",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1402,8 +1605,8 @@
     "objectID": "slides/02-conditional-distributions.html#summarizing-categorical-variables",
     "href": "slides/02-conditional-distributions.html#summarizing-categorical-variables",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "",
-    "text": "The list of percents for each category is called the distribution of the variable.\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64",
+    "section": "Summarizing Categorical Variables",
+    "text": "Summarizing Categorical Variables\nThe list of percents for each category is called the distribution of the variable.\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1425,7 +1628,7 @@
     "href": "slides/02-conditional-distributions.html#example",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Example",
-    "text": "Example\n\n\n\n\nimport pandas as pd\nfrom palmerpenguins import load_penguins\nfrom plotnine import ggplot, geom_point, aes, geom_boxplot\n\npenguins = load_penguins()\n\n(\n  ggplot(data = penguins, mapping = aes(x = \"species\", \n                                        y = \"bill_length_mm\", \n                                        fill = \"sex\")\n        ) +\n  geom_boxplot()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n. . .\n\n\nAesthetics\nWhere are variables mapped to aspects of the plot?\n\n\nGeometry\nWhat shape(s) are used to represent the data / observations?",
+    "text": "Example\n\n\n\n\nimport pandas as pd\nfrom palmerpenguins import load_penguins\nfrom plotnine import ggplot, geom_point, aes, geom_boxplot\n\npenguins = load_penguins()\n\n(\n  ggplot(data = penguins, mapping = aes(x = \"species\", \n                                        y = \"bill_length_mm\", \n                                        fill = \"sex\")\n        ) +\n  geom_boxplot()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAesthetics\nWhere are variables mapped to aspects of the plot?\n\n\nGeometry\nWhat shape(s) are used to represent the data / observations?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1458,7 +1661,7 @@
     "href": "slides/02-conditional-distributions.html#check-in",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Check-In",
-    "text": "Check-In\nWhat are the aesthetics and geometry in the cartoon plot below?\n\n\n\nAn XKCD comic",
+    "text": "Check-In\nWhat are the aesthetics and geometry in the cartoon plot below?\n\nAn XKCD comic",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1491,7 +1694,7 @@
     "href": "slides/02-conditional-distributions.html#percents-on-plots",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Percents on Plots",
-    "text": "Percents on Plots\n\n\n\nCode\n(\n  ggplot(data = pclass_dist, \n         mapping = aes(x = \"pclass\", y = \"proportion\")) + \n  geom_col() + ### notice this change to a column plot!\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nTechnically, you could still use geom_bar(), but you would need to specify that you didn’t want it to use stat = \"count\" (the default). You’ve already calculated the proportions, so you would use geom_bar(stat = \"identity\").",
+    "text": "Percents on Plots\n\n\n\nCode\n(\n  ggplot(data = pclass_dist, \n         mapping = aes(x = \"pclass\", y = \"proportion\")) + \n  geom_col() + ### notice this change to a column plot!\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nTechnically, you could still use geom_bar(), but you would need to specify that you didn’t want it to use stat = \"count\" (the default). You’ve already calculated the proportions, so you would use geom_bar(stat = \"identity\").",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1568,7 +1771,7 @@
     "href": "slides/02-conditional-distributions.html#activity-1.2",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Activity 1.2",
-    "text": "Activity 1.2\n\nChoose one of the plots from lecture so far and “upgrade” it.\n\n\nYou can do this by:\n\nFinding and using a different theme\nUsing labs() to change the axis labels\nTrying different variables\nTrying a different geometries\nUsing + scale_fill_manual() to change the colors being used\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nYou will need to use documentation of plotnine and online resources!\nCheck out https://www.data-to-viz.com/ for ideas and example code.\nAsk GenAI questions like, “What do I add to a plotnine bar plot to change the colors?” (But of course, make sure you understand the code you use!)",
+    "text": "Activity 1.2\n\nChoose one of the plots from lecture so far and “upgrade” it.\n\n\nYou can do this by:\n\nFinding and using a different theme\nUsing labs() to change the axis labels\nTrying different variables\nTrying a different geometries\nUsing + scale_fill_manual() to change the colors being used\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou will need to use documentation of plotnine and online resources!\nCheck out https://www.data-to-viz.com/ for ideas and example code.\nAsk GenAI questions like, “What do I add to a plotnine bar plot to change the colors?” (But of course, make sure you understand the code you use!)",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1590,7 +1793,7 @@
     "href": "slides/02-conditional-distributions.html#two-way-table",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Two-way Table",
-    "text": "Two-way Table\n\n(\n  df[[\"pclass\", \"sex\"]]\n  .value_counts()\n  .unstack()\n  )\n\nsex     female  male\npclass              \n1          144   179\n2          106   171\n3          216   493\n\n\n\nThis is sometimes called a cross-tab or cross-tabulation.\n\n\n\n\n\n\nPivot Table\n\n\n\nEssentially unstack() has pivoted the sex column from long format (where the values are included in one column) to wide format where each value has its own column.",
+    "text": "Two-way Table\n\n\n(\n  df[[\"pclass\", \"sex\"]]\n  .value_counts()\n  .unstack()\n  )\n\n\nsex     female  male\npclass              \n1          144   179\n2          106   171\n3          216   493\n\n\n\nThis is sometimes called a cross-tab or cross-tabulation.\n\n\n\n\n\n\nPivot Table\n\n\nEssentially unstack() has pivoted the sex column from long format (where the values are included in one column) to wide format where each value has its own column.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1612,7 +1815,7 @@
     "href": "slides/02-conditional-distributions.html#switching-variable-order",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Switching Variable Order",
-    "text": "Switching Variable Order\nWhat cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if \"sex\" came first and \"pclass\" came second?\n. . .\n\n\n(\n  df[[\"sex\", \"pclass\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\npclass         1         2         3\nsex                                 \nfemale  0.110008  0.080978  0.165011\nmale    0.136746  0.130634  0.376623",
+    "text": "Switching Variable Order\nWhat cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if \"sex\" came first and \"pclass\" came second?\n\n\n\n(\n  df[[\"sex\", \"pclass\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\npclass         1         2         3\nsex                                 \nfemale  0.110008  0.080978  0.165011\nmale    0.136746  0.130634  0.376623",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1623,7 +1826,7 @@
     "href": "slides/02-conditional-distributions.html#interpretation",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Interpretation",
-    "text": "Interpretation\nWe call this the joint distribution of the two variables.\n\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\nOf all the passengers on the Titanic, 11% were female passengers riding in first class.\n\n. . .\n\nNOT “11% of all females on Titanic…”\nNOT “11% of all first class passengers…”",
+    "text": "Interpretation\nWe call this the joint distribution of the two variables.\n\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\nOf all the passengers on the Titanic, 11% were female passengers riding in first class.\n\n\n\nNOT “11% of all females on Titanic…”\nNOT “11% of all first class passengers…”",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1634,7 +1837,7 @@
     "href": "slides/02-conditional-distributions.html#conditional-distribution-from-counts",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Conditional Distribution from Counts",
-    "text": "Conditional Distribution from Counts\nWe know that:\n\n466 passengers identified as female\nOf those 466 passengers, 144 rode in first class\n\n. . .\nSo:\n\n144 / 466 = 31% of female identifying passengers rode in first class\n\nHere we conditioned on the passenger being female, and then looked at the conditional distribution of pclass.",
+    "text": "Conditional Distribution from Counts\nWe know that:\n\n466 passengers identified as female\nOf those 466 passengers, 144 rode in first class\n\n\nSo:\n\n144 / 466 = 31% of female identifying passengers rode in first class\n\nHere we conditioned on the passenger being female, and then looked at the conditional distribution of pclass.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1667,7 +1870,7 @@
     "href": "slides/02-conditional-distributions.html#which-one-to-condition-on",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Which one to condition on?",
-    "text": "Which one to condition on?\nThis depends on the research question you are trying to answer.\n. . .\n\n“What class did most female identifying passengers ride in?”\n\n-&gt; Of all female passengers, what is the conditional distribution of class?\n. . .\n\n“What was the gender breakdown of first class?”\n\n-&gt; Of all first class passengers, what is the conditional distribution of sex?",
+    "text": "Which one to condition on?\nThis depends on the research question you are trying to answer.\n\n\n“What class did most female identifying passengers ride in?”\n\n-&gt; Of all female passengers, what is the conditional distribution of class?\n\n\n\n“What was the gender breakdown of first class?”\n\n-&gt; Of all first class passengers, what is the conditional distribution of sex?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1700,7 +1903,7 @@
     "href": "slides/02-conditional-distributions.html#check-in-1",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Check-In",
-    "text": "Check-In\n\n\n\nmarginal_sex\n\nsex\nmale      0.644003\nfemale    0.355997\nName: proportion, dtype: float64\n\n\n\n\n\n\njoint_class_sex\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\n\n\n\n\njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816\n\n\n\n\n\nHow do you think divide() works?",
+    "text": "Check-In\n\n\n\nmarginal_sex\n\nsex\nmale      0.644003\nfemale    0.355997\nName: proportion, dtype: float64\n\n\n\n\n\n\njoint_class_sex\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\n\n\n\njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816\n\n\n\n\n\nHow do you think divide() works?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1756,290 +1959,6 @@
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Takeaways",
     "text": "Takeaways\n\n\n\nWe use plotnine and the grammar of graphics to make visuals.\nFor two categorical variables, we might use a stacked bar plot, a side-by-side bar plot, or a stacked percentage bar plot - depending on what we are trying to show.\nThe joint distribution of two variables gives the percents in each subcategory.\nThe marginal distribution of a variable is its individual distribution.\nThe conditional distribution of a variable is its distribution among only one category of a different variable.\nWe calculate the conditional distribution by dividing the joint by the marginal.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
-    ]
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#distances",
-    "href": "slides/06-preprocessing.html#distances",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Distances",
-    "text": "Distances\n\nWe measure similarity between observations by calculating distances.\n\n\n\nEuclidean distance: sum of squared differences, then square root\nManhattan distance: sum of absolute differences\n\n\n\n\n\n\n\n\n\nscikit-learn\n\n\nUse the pairwise_distances() function to get back a 2D numpy array of distances."
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#scaling",
-    "href": "slides/06-preprocessing.html#scaling",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Scaling",
-    "text": "Scaling\n\nIt is important that all our features be on the same scale for distances to be meaningful.\n\n\n\nStandardize: Subtract the mean (of the column) and divide by the standard deviation (of the column).\nMinMax: Subtract the minimum value, divide by the range.\n\n\n\n\n\n\n\n\n\nscikit-learn\n\n\nFollow the specify - fit - transform code structure. In the specify step, you should use the StandardScaler() or MinMaxScaler() functions."
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#recall-ames-housing-data",
-    "href": "slides/06-preprocessing.html#recall-ames-housing-data",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Recall: AMES Housing data",
-    "text": "Recall: AMES Housing data\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")\nfeatures = [\"Gr Liv Area\", \"Bedroom AbvGr\", \"Full Bath\", \"Half Bath\", \"Bldg Type\", \"Neighborhood\"]\ndf[features].head()\n\n   Gr Liv Area  Bedroom AbvGr  Full Bath  Half Bath Bldg Type Neighborhood\n0         1656              3          1          0      1Fam        NAmes\n1          896              2          1          0      1Fam        NAmes\n2         1329              3          1          1      1Fam        NAmes\n3         2110              3          2          1      1Fam        NAmes\n4         1629              3          2          1      1Fam      Gilbert"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#what-about-categorical-variables",
-    "href": "slides/06-preprocessing.html#what-about-categorical-variables",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "What about categorical variables?",
-    "text": "What about categorical variables?\nSuppose we want to include the variable Bldg Type in our distance calculation…\n\ndf[\"Bldg Type\"].value_counts()\n\nBldg Type\n1Fam      2425\nTwnhsE     233\nDuplex     109\nTwnhs      101\n2fmCon      62\nName: count, dtype: int64\n\n\n\n\nThen we need a way to calculate \\((\\texttt{1Fam} - \\texttt{Twnhs} )^ 2\\)."
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#converting-to-binary",
-    "href": "slides/06-preprocessing.html#converting-to-binary",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Converting to Binary",
-    "text": "Converting to Binary\nLet’s instead think about a variable that summarizes whether an observation is a single family home or not.\n\ndf[\"is_single_fam\"] = df[\"Bldg Type\"] == \"1Fam\"\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\nTrue     2425\nFalse     505\nName: count, dtype: int64\n\n\n\n\n\n\n\n\n\nWhat does a value of True represent? False?"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#converting-to-binary-1",
-    "href": "slides/06-preprocessing.html#converting-to-binary-1",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Converting to binary",
-    "text": "Converting to binary\nRecall that True/False is the same as 1/0 for computers:\n\ndf[\"is_single_fam\"] = df[\"is_single_fam\"].astype(\"int\")\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\n1    2425\n0     505\nName: count, dtype: int64\n\n\nWe call this a dummy variable or a one-hot-encoding."
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#now-we-can-do-math",
-    "href": "slides/06-preprocessing.html#now-we-can-do-math",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Now we can do math!",
-    "text": "Now we can do math!\nSpecify\n\n\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import pairwise_distances\n\nscaler = StandardScaler()\n\n\n\nFit\n\n\n\ndf_orig = df[['Gr Liv Area', 'Bedroom AbvGr', 'is_single_fam']]\nscaler.fit(df_orig)\n\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFittedStandardScaler() \n\n\n\n\n\nTransform\n\n\ndf_scaled = scaler.transform(df_orig)"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#lets-reset-the-dataset-now",
-    "href": "slides/06-preprocessing.html#lets-reset-the-dataset-now",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Let’s reset the dataset now…",
-    "text": "Let’s reset the dataset now…\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#dummifying-variables-1",
-    "href": "slides/06-preprocessing.html#dummifying-variables-1",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Dummifying Variables",
-    "text": "Dummifying Variables\n\n\n\nWhat if we don’t just want to study is_single_fam, but rather, all categories of the Bldg Type variable?\nIn principle, we just make dummy variables for each category: is_single_fam, is_twnhse, etc.\nEach category becomes one column, with 0’s and 1’s to show if the observation in that row matches that category.\nThat sounds pretty tedious, especially if you have a lot of categories…\nLuckily, we have shortcuts in both pandas and sklearn!"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#dummifying-in-pandas",
-    "href": "slides/06-preprocessing.html#dummifying-in-pandas",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Dummifying in Pandas",
-    "text": "Dummifying in Pandas\n\n\npd.get_dummies(df[[\"Bldg Type\"]])\n\n      Bldg Type_1Fam  Bldg Type_2fmCon  ...  Bldg Type_Twnhs  Bldg Type_TwnhsE\n0               True             False  ...            False             False\n1               True             False  ...            False             False\n2               True             False  ...            False             False\n3               True             False  ...            False             False\n4               True             False  ...            False             False\n...              ...               ...  ...              ...               ...\n2925            True             False  ...            False             False\n2926            True             False  ...            False             False\n2927            True             False  ...            False             False\n2928            True             False  ...            False             False\n2929            True             False  ...            False             False\n\n[2930 rows x 5 columns]"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#dummifying-in-pandas-1",
-    "href": "slides/06-preprocessing.html#dummifying-in-pandas-1",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Dummifying in Pandas",
-    "text": "Dummifying in Pandas\n\n\n\n      Bldg Type_1Fam  Bldg Type_2fmCon  ...  Bldg Type_Twnhs  Bldg Type_TwnhsE\n0               True             False  ...            False             False\n1               True             False  ...            False             False\n2               True             False  ...            False             False\n3               True             False  ...            False             False\n4               True             False  ...            False             False\n...              ...               ...  ...              ...               ...\n2925            True             False  ...            False             False\n2926            True             False  ...            False             False\n2927            True             False  ...            False             False\n2928            True             False  ...            False             False\n2929            True             False  ...            False             False\n\n[2930 rows x 5 columns]\n\n\n\n\nSome things to notice here…\n\n\n\n\nWhat is the naming convention for the new columns?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat happens if you put the whole dataframe into the get_dummies function? What problems might arise from this?"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#dummifying-in-sklearn",
-    "href": "slides/06-preprocessing.html#dummifying-in-sklearn",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Dummifying in sklearn",
-    "text": "Dummifying in sklearn\nSpecify\n\n\nfrom sklearn.preprocessing import OneHotEncoder\n\nencoder = OneHotEncoder()\n\n\n\nFit\n\n\n\nencoder.fit(df[[\"Bldg Type\"]])\n\n\nOneHotEncoder()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.OneHotEncoder?Documentation for OneHotEncoderiFittedOneHotEncoder() \n\n\n\n\n\nTransform\n\n\ndf_bldg = encoder.transform(df[[\"Bldg Type\"]])\ndf_bldg\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 2930 stored elements and shape (2930, 5)&gt;"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#dummifying-in-sklearn-1",
-    "href": "slides/06-preprocessing.html#dummifying-in-sklearn-1",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Dummifying in sklearn",
-    "text": "Dummifying in sklearn\n\n\n\n\ndf_bldg.todense()\n\n\n\n\n\n\n\n\nmatrix([[1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        ...,\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.]], shape=(2930, 5))\n\n\n\n\n\nThings to notice:\n\n\n\nWhat object type was the result?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat pros and cons do you see for the pandas approach vs the sklearn approach?"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#dummifying-in-sklearn-2",
-    "href": "slides/06-preprocessing.html#dummifying-in-sklearn-2",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Dummifying in sklearn",
-    "text": "Dummifying in sklearn\nThings to notice:\n\n\nWhat object type was the result?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat happens if you fit the whole dataframe with the OneHotEncoder? What problems might arise from this?\nWhat pros and cons do you see for the pandas approach vs the sklearn approach?"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#preprocessing",
-    "href": "slides/06-preprocessing.html#preprocessing",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Preprocessing",
-    "text": "Preprocessing\n\nSo far, we have now seen two preprocessing steps that might need to happen to do an analysis of distances:\n\nScaling the quantitative variables\nDummifying the categorical variables\n\n\n\n\nPreprocessing steps are things you do only to make the following analysis/visualization better.\n\nThis is not the same as data cleaning, where you make changes to fix the data (e.g., changing data types).\nThis is not the same as data wrangling, where you change the structure of the data (e.g., adding or deleting rows or columns)."
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#quick-quiz",
-    "href": "slides/06-preprocessing.html#quick-quiz",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Quick quiz",
-    "text": "Quick quiz\nIdentify the following as cleaning, wrangling, or preprocessing:\n\nRemoving the $ symbol from a column and converting it to numeric.\nNarrowing your data down to only first class Titanic passengers, because you are not studying the others.\nConverting a Zip Code variable from numeric to categorical using .astype().\nCreating a new column called n_investment that counts the number of people who invested in a project.\nLog-transforming a column because it is very skewed."
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#preprocessing-in-sklearn",
-    "href": "slides/06-preprocessing.html#preprocessing-in-sklearn",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Preprocessing in sklearn",
-    "text": "Preprocessing in sklearn\n\n\nUnlike cleaning and wrangling, the preprocessing steps are “temporary” changes to the dataframe.\n\n\n\n\n\nIt would be nice if we could trigger these changes as part of our analysis, instead of doing them “by hand”.\n\nThis is why the specify - fit - transform process is useful!\nWe will first specify all our preprocessing steps.\nThen we will fit the whole preprocess\nThen we will save the transform step for only when we need it."
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#column-transformers-1",
-    "href": "slides/06-preprocessing.html#column-transformers-1",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Column Transformers",
-    "text": "Column Transformers\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output=False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: (keep the sparse_output=False when you try this)\n\npreproc.set_output(transform = \"pandas\")\n\nLook at the preproc object. What does it show you?"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#column-transformers-2",
-    "href": "slides/06-preprocessing.html#column-transformers-2",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Column Transformers",
-    "text": "Column Transformers\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output=False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: (keep the sparse_output=False when you try this)\n\npreproc.set_output(transform = \"pandas\")\n\nLook at the preproc object. What does it show you?"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#column-transformers-3",
-    "href": "slides/06-preprocessing.html#column-transformers-3",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Column Transformers",
-    "text": "Column Transformers\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output=False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: (keep the sparse_output=False when you try this)\n\npreproc.set_output(transform = \"pandas\")\n\nLook at the preproc object. What does it show you?"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#multiple-preprocessing-steps",
-    "href": "slides/06-preprocessing.html#multiple-preprocessing-steps",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Multiple Preprocessing Steps",
-    "text": "Multiple Preprocessing Steps\nWhy are column transformers so useful? We can do multiple preprocessing steps at once!\n\n\nfrom sklearn.preprocessing import StandardScaler\n\npreproc = make_column_transformer(\n        (StandardScaler(), [\"Gr Liv Area\"]),\n        (OneHotEncoder(sparse_output = False), [\"Bldg Type\", \"Neighborhood\"]),\n        remainder = \"passthrough\")"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#finding-all-variables",
-    "href": "slides/06-preprocessing.html#finding-all-variables",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Finding all variables",
-    "text": "Finding all variables\nWhat if we just want to say “Please dummify all categorical variables”?\nUse a selector instead of exact column names.\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  make_column_selector(dtype_include=np.number)),\n    (OneHotEncoder(sparse_output=False), make_column_selector(dtype_include=object)),\n    remainder=\"passthrough\")\n    \npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough \n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough \n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  onehotencoder__Neighborhood_Veenker\n0                        0.309265  ...                                  0.0\n1                       -1.194427  ...                                  0.0\n2                       -0.337718  ...                                  0.0\n3                        1.207523  ...                                  0.0\n4                        0.255844  ...                                  0.0\n...                           ...  ...                                  ...\n2925                    -0.982723  ...                                  0.0\n2926                    -1.182556  ...                                  0.0\n2927                    -1.048015  ...                                  0.0\n2928                    -0.219006  ...                                  0.0\n2929                     0.989884  ...                                  0.0\n\n[2930 rows x 37 columns]"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#think-about-it",
-    "href": "slides/06-preprocessing.html#think-about-it",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Think about it",
-    "text": "Think about it\n\nWhat are the advantages of using a selector?\nWhat are the possible disadvantages of using a selector?\nDoes the order matter when using selectors? Try switching the steps and see what happens!"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#takeaways-1",
-    "href": "slides/06-preprocessing.html#takeaways-1",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Takeaways",
-    "text": "Takeaways\n\nWe dummify or one-hot-encode categorical variables to make them numbers.\nWe can do this with pd.get_dummies() or with OneHotEncoder() from sklearn.\nColumn Transformers let us apply multiple preprocessing steps at the same time.\n\nThink about which variables you want to apply the steps to\nThink about options for the steps, like sparseness\nThink about passthrough in your transformer"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#dummy-variables",
-    "href": "slides/06-preprocessing.html#dummy-variables",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Dummy Variables",
-    "text": "Dummy Variables\n\nWhen we transform a variable into binary (True / False), we call this variable a dummy variable or we say the variable has been one-hot-encoded.\n\n\nRemember that that computers interpret logical values (True / False) the same as 1 / 0:\n\ndf[\"is_single_fam\"] = df[\"is_single_fam\"].astype(\"int\")\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\n1    2425\n0     505\nName: count, dtype: int64"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#calculating-distances",
-    "href": "slides/06-preprocessing.html#calculating-distances",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Calculating Distances",
-    "text": "Calculating Distances\n\n\ndists = pairwise_distances(df_scaled[[1707]], df_scaled)\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr  is_single_fam\n160          2978              5              1\n909          3082              5              1\n1288         2792              5              1\n2350         2784              5              1\n253          3222              5              1\n585          2640              5              1\n2027         2526              5              1\n2330         3390              5              1\n2501         2520              5              1"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#lecture-3.2-quiz",
-    "href": "slides/06-preprocessing.html#lecture-3.2-quiz",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Lecture 3.2 Quiz",
-    "text": "Lecture 3.2 Quiz\nIdentify the following as cleaning, wrangling, or preprocessing:\n\n\nRemoving the $ symbol from a column and converting it to numeric.\nNarrowing your data down to only first class Titanic passengers, because you are not studying the others.\nConverting a Zip Code variable from numeric to categorical using .astype().\nCreating a new column called n_investment that counts the number of people who invested in a project.\nLog-transforming a column because it is very skewed."
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#column-transformers-specify",
-    "href": "slides/06-preprocessing.html#column-transformers-specify",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Column Transformers – Specify",
-    "text": "Column Transformers – Specify\n\nfrom sklearn.compose import make_column_transformer\n\n\n\n\npreproc = make_column_transformer(\n  (OneHotEncoder(), [\"Bldg Type\", \"Neighborhood\"]),\n    remainder = \"passthrough\")"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#column-transformers-fit-transform",
-    "href": "slides/06-preprocessing.html#column-transformers-fit-transform",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Column Transformers – Fit & Transform",
-    "text": "Column Transformers – Fit & Transform\nFit\n\n\n\npreproc.fit(df[features])\n\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])]) onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder() remainder['Gr Liv Area', 'Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough \n\n\n\n\nTransform\n\n\npreproc.transform(df[features])\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 15717 stored elements and shape (2930, 37)&gt;\n\n\n\nColumn Transformers\nThings to notice…\n\nWhat submodule did we import make_column_transformer from?\nWhat are the two arguments to the make_column_transformer function? What object structures are they?\nWhat happens if you fit and transform on the whole dataset, not just df[features]? Why might this be useful?\n\n\n\nColumn Transformers\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output=False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: (keep the sparse_output=False when you try this)\n\npreproc.set_output(transform = \"pandas\")\n\nLook at the preproc object. What does it show you?\n\n\n\nMultiple preprocessing steps\nWhy are column transformers so useful?\nWell, now we can do multiple preprocessing steps at once!\n\nfrom sklearn.preprocessing import StandardScaler\n\npreproc = make_column_transformer(\n        (StandardScaler(), [\"Gr Liv Area\"]),\n        (OneHotEncoder(sparse_output=False), [\"Bldg Type\",\n                                          \"Neighborhood\"]),\n    remainder=\"passthrough\")\n    \npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])]) standardscaler['Gr Liv Area'] StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder['Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough \n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])]) standardscaler['Gr Liv Area'] StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder['Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough \n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  remainder__Half Bath\n0                        0.309265  ...                     0\n1                       -1.194427  ...                     0\n2                       -0.337718  ...                     1\n3                        1.207523  ...                     1\n4                        0.255844  ...                     1\n...                           ...  ...                   ...\n2925                    -0.982723  ...                     0\n2926                    -1.182556  ...                     0\n2927                    -1.048015  ...                     0\n2928                    -0.219006  ...                     0\n2929                     0.989884  ...                     1\n\n[2930 rows x 37 columns]\n\n\n\n\nFinding all variables\nWhat if we just want to say “Please dummify all categorical variables?”\nUse a selector instead of exact column names.\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  make_column_selector(dtype_include=np.number)),\n    (OneHotEncoder(sparse_output=False), make_column_selector(dtype_include=object)),\n    remainder=\"passthrough\")\n    \npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough \n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough \n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  onehotencoder__Neighborhood_Veenker\n0                        0.309265  ...                                  0.0\n1                       -1.194427  ...                                  0.0\n2                       -0.337718  ...                                  0.0\n3                        1.207523  ...                                  0.0\n4                        0.255844  ...                                  0.0\n...                           ...  ...                                  ...\n2925                    -0.982723  ...                                  0.0\n2926                    -1.182556  ...                                  0.0\n2927                    -1.048015  ...                                  0.0\n2928                    -0.219006  ...                                  0.0\n2929                     0.989884  ...                                  0.0\n\n[2930 rows x 37 columns]\n\n\n\n\nThink about it\n\nWhat are the advantages of using a selector?\nWhat are the possible disadvantages of using a selector?\nDoes the order matter when using selectors? Try switching the steps and see what happens!\n\n\n\nTakeaways\n\n\n\nTakeaways\n\nWe dummify or one-hot-encode categorical variables to make them numbers.\nWe can do this with pd.get_dummies() or with OneHotEncoder()\nColumn Transformers let us apply multiple preprocessing steps all together.\n\nThink about which variables you want to apply the steps to\nThink about options for the steps, like sparseness\nThink about passthrough in your transformer"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#column-transformers-fit",
-    "href": "slides/06-preprocessing.html#column-transformers-fit",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Column Transformers – Fit",
-    "text": "Column Transformers – Fit\n\npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])]) onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder() remainder['Gr Liv Area', 'Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#column-transformers-transform",
-    "href": "slides/06-preprocessing.html#column-transformers-transform",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Column Transformers – Transform",
-    "text": "Column Transformers – Transform\n\npreproc.transform(df[features])\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 15717 stored elements and shape (2930, 37)&gt;"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#things-to-notice",
-    "href": "slides/06-preprocessing.html#things-to-notice",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Things to notice…",
-    "text": "Things to notice…\n\nWhat submodule did we import make_column_transformer from?\nWhat are the two arguments to the make_column_transformer() function? What object structures are they?\nWhat happens if you fit and transform on the whole dataset, not just df[features]? Why might this be useful?"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#lecture-4.1-quiz",
-    "href": "slides/06-preprocessing.html#lecture-4.1-quiz",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Lecture 4.1 Quiz",
-    "text": "Lecture 4.1 Quiz\nIdentify the following as cleaning, wrangling, or preprocessing:\n\n\nRemoving the $ symbol from a column and converting it to numeric.\nNarrowing your data down to only first class Titanic passengers, because you are not studying the others.\nConverting a Zip Code variable from numeric to categorical using .astype().\nCreating a new column called n_investment that counts the number of people who invested in a project.\nLog-transforming a column because it is very skewed."
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#lecture-activity-4.2",
-    "href": "slides/06-preprocessing.html#lecture-activity-4.2",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Lecture Activity 4.2",
-    "text": "Lecture Activity 4.2\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output = False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: preproc.set_output(transform = \"pandas\") (keep the sparse_output = False when you try this)"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#fit",
-    "href": "slides/06-preprocessing.html#fit",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Fit!",
-    "text": "Fit!\n\n(\n  preproc\n  .fit(df[features])\n  .set_output(transform = \"pandas\")\n)\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])]) standardscaler['Gr Liv Area'] StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder['Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#transform",
-    "href": "slides/06-preprocessing.html#transform",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Transform!",
-    "text": "Transform!\n\n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  remainder__Half Bath\n0                        0.309265  ...                     0\n1                       -1.194427  ...                     0\n2                       -0.337718  ...                     1\n3                        1.207523  ...                     1\n4                        0.255844  ...                     1\n...                           ...  ...                   ...\n2925                    -0.982723  ...                     0\n2926                    -1.182556  ...                     0\n2927                    -1.048015  ...                     0\n2928                    -0.219006  ...                     0\n2929                     0.989884  ...                     1\n\n[2930 rows x 37 columns]"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#finding-all-categorical-variables",
-    "href": "slides/06-preprocessing.html#finding-all-categorical-variables",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Finding All Categorical Variables",
-    "text": "Finding All Categorical Variables\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#fit-1",
-    "href": "slides/06-preprocessing.html#fit-1",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Fit!",
-    "text": "Fit!\n\n(\n  preproc\n  .fit(df[features])\n  .set_output(transform = \"pandas\")\n)\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x112529be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1124c6fd0&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x112529be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1124c6fd0&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x112529be0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1124c6fd0&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough"
-  },
-  {
-    "objectID": "slides/06-preprocessing.html#transform-1",
-    "href": "slides/06-preprocessing.html#transform-1",
-    "title": "Dummy Variables and Column Transformers",
-    "section": "Transform!",
-    "text": "Transform!\n\n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  onehotencoder__Neighborhood_Veenker\n0                        0.309265  ...                                  0.0\n1                       -1.194427  ...                                  0.0\n2                       -0.337718  ...                                  0.0\n3                        1.207523  ...                                  0.0\n4                        0.255844  ...                                  0.0\n...                           ...  ...                                  ...\n2925                    -0.982723  ...                                  0.0\n2926                    -1.182556  ...                                  0.0\n2927                    -1.048015  ...                                  0.0\n2928                    -0.219006  ...                                  0.0\n2929                     0.989884  ...                                  0.0\n\n[2930 rows x 37 columns]"
-  },
-  {
-    "objectID": "slides/02-conditional-distributions.html",
-    "href": "slides/02-conditional-distributions.html",
-    "title": "Visualizing and Comparing Categorical Variables",
-    "section": "",
-    "text": "df = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\ndf[\"survived\"] = df[\"survived\"].astype(\"category\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nname\npclass\nsurvived\nsex\nage\nsibsp\nparch\nticket\nfare\ncabin\nembarked\nboat\nbody\nhome.dest\n\n\n\n\nAllen, Miss. Elisabeth Walton\n1\n1\nfemale\n29.0000\n0\n0\n24160\n211.3375\nB5\nS\n2\nNaN\nSt Louis, MO\n\n\nAllison, Master. Hudson Trevor\n1\n1\nmale\n0.9167\n1\n2\n113781\n151.5500\nC22 C26\nS\n11\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Miss. Helen Loraine\n1\n0\nfemale\n2.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mr. Hudson Joshua Creighton\n1\n0\nmale\n30.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\n135\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)\n1\n0\nfemale\n25.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAnderson, Mr. Harry\n1\n1\nmale\n48.0000\n0\n0\n19952\n26.5500\nE12\nS\n3\nNaN\nNew York, NY\n\n\n\n\n\n\n\n\n\n\n\n\ndf.iloc[5,]\n\nname         Anderson, Mr. Harry\npclass                         1\nsurvived                       1\nsex                         male\nage                         48.0\nsibsp                          0\nparch                          0\nticket                     19952\nfare                       26.55\ncabin                        E12\nembarked                       S\nboat                           3\nbody                         NaN\nhome.dest           New York, NY\nName: 5, dtype: object\n\n\n\n\ndf[\"name\"].head()\n\n0                      Allen, Miss. Elisabeth Walton\n1                     Allison, Master. Hudson Trevor\n2                       Allison, Miss. Helen Loraine\n3               Allison, Mr. Hudson Joshua Creighton\n4    Allison, Mrs. Hudson J C (Bessie Waldo Daniels)\nName: name, dtype: object\n\n\n\n\n\n\n\n\n\ndf.describe()\n\n               age        sibsp        parch         fare        body\ncount  1046.000000  1309.000000  1309.000000  1308.000000  121.000000\nmean     29.881135     0.498854     0.385027    33.295479  160.809917\nstd      14.413500     1.041658     0.865560    51.758668   97.696922\nmin       0.166700     0.000000     0.000000     0.000000    1.000000\n25%      21.000000     0.000000     0.000000     7.895800   72.000000\n50%      28.000000     0.000000     0.000000    14.454200  155.000000\n75%      39.000000     1.000000     0.000000    31.275000  256.000000\nmax      80.000000     8.000000     9.000000   512.329200  328.000000\n\n\n\n\n\n\nThe list of percents for each category is called the distribution of the variable.\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"

@@ -332,7 +332,6 @@ df_bldg.todense()
 ```{python}
 #| echo: false
 #| label: show-dense-matrix
-#| output-location: column
 
 df_bldg.todense()
 ```
