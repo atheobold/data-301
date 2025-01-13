@@ -1038,7 +1038,7 @@
     "href": "index.html",
     "title": "Introduction to Data Science (in Python)",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nFriday, January 10\n\n\n\nLab 1 Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nFriday, January 17\n\n\n\nLab 2 Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nFriday, January 24\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-words and TF-IDF\nActivity 4.2\n\n\n\n\n\nFriday, January 31\n\n\n\nLab 4 Due by Midnight\n\n\n\n5\nK-Nearest Neighbors, Intro to Modeling & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nIntroduction to Modeling\nActivity 5.2\n\nMidterm Exam (in-class)\n\n\n\nFriday, February 7\n\n\n\nLab 5 Due by Midnight\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nCross-Validation and Grid Search\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nClassification\nActivity 6.2\n\n\n\n\n\nFriday, February 14\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nLogistic Regression\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nUnsupervised Learning with K-Means\nActivity 7.2\n\n\n\n\n\nFriday, February 21\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\nCombining Datasets\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nHierarchical Data\nActivity 8.2\n\n\n\n\n\nFriday, February 28\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nWebscraping\nTuesday, March 4\n\nWebscraping\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\n\nActivity 9.2\n\n\n\n\n\nFriday, March 7\n\n\n\nLab 9 Due by Midnight\n\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\n\n\n\nPosters Due to be Printed\n\n\n\nThursday, March 13\n\n\n\n\nFinal Exam (in-class)\n\n\nFinals Week\nSaturday, March 15 10:10am - 1pm\n\n\n\n\nPoster Presentations",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nFriday, January 10\n\n\n\nLab 1 Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nFriday, January 17\n\n\n\nLab 2 Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nFriday, January 24\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-words and TF-IDF\nActivity 4.2\nLab 4A\nLab 4B\n\n\n\n\nFriday, January 31\n\n\n\nLab 4 Due by Midnight\n\n\n\n5\nK-Nearest Neighbors, Intro to Modeling & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nIntroduction to Modeling\nActivity 5.2\n\nMidterm Exam (in-class)\n\n\n\nFriday, February 7\n\n\n\nLab 5 Due by Midnight\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nCross-Validation and Grid Search\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nClassification\nActivity 6.2\n\n\n\n\n\nFriday, February 14\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nLogistic Regression\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nUnsupervised Learning with K-Means\nActivity 7.2\n\n\n\n\n\nFriday, February 21\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\nCombining Datasets\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nHierarchical Data\nActivity 8.2\n\n\n\n\n\nFriday, February 28\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nWebscraping\nTuesday, March 4\n\nWebscraping\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\n\nActivity 9.2\n\n\n\n\n\nFriday, March 7\n\n\n\nLab 9 Due by Midnight\n\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\n\n\n\nPosters Due to be Printed\n\n\n\nThursday, March 13\n\n\n\n\nFinal Exam (in-class)\n\n\nFinals Week\nSaturday, March 15 10:10am - 1pm\n\n\n\n\nPoster Presentations",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -1317,7 +1317,7 @@
     "href": "slides/05-distances.html#finding-the-most-similar",
     "title": "Distances Between Observations",
     "section": "Finding the Most Similar",
-    "text": "Finding the Most Similar\n\n\n\n\ndists = pairwise_distances(df_scaled[[1707]], \n                           df_scaled)\ndists.argsort()\n\narray([[1707,  160,  909, ...,  158, 2723, 2279]], shape=(1, 2930))\n\n\n\n\n\n\n\n\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\n  \ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr\n160          2978              5\n909          3082              5\n1288         2792              5\n2350         2784              5\n253          3222              5\n585          2640              5\n2592         2640              5\n2027         2526              5\n2330         3390              5"
+    "text": "Finding the Most Similar\n\n\n\n\ndists = pairwise_distances(df_scaled[[1707]], \n                           df_scaled)\ndists.argsort()\n\narray([[1707,  160,  909, ...,  158, 2723, 2279]], shape=(1, 2930))\n\n\n\n\n\n\n\n\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\n  \ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr\n160          2978              5\n909          3082              5\n1288         2792              5\n2350         2784              5\n253          3222              5\n2592         2640              5\n585          2640              5\n2027         2526              5\n2330         3390              5"
   },
   {
     "objectID": "slides/05-distances.html#lecture-activity-part-3",
@@ -1358,8 +1358,8 @@
     "objectID": "slides/02-conditional-distributions.html#getting-and-prepping-data",
     "href": "slides/02-conditional-distributions.html#getting-and-prepping-data",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Getting and Prepping Data",
-    "text": "Getting and Prepping Data\n\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\ndf[\"survived\"] = df[\"survived\"].astype(\"category\")",
+    "section": "",
+    "text": "df = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\ndf[\"survived\"] = df[\"survived\"].astype(\"category\")",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1369,8 +1369,8 @@
     "objectID": "slides/02-conditional-distributions.html#thinking-about-variable-types",
     "href": "slides/02-conditional-distributions.html#thinking-about-variable-types",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Thinking About Variable Types",
-    "text": "Thinking About Variable Types\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nname\npclass\nsurvived\nsex\nage\nsibsp\nparch\nticket\nfare\ncabin\nembarked\nboat\nbody\nhome.dest\n\n\n\n\nAllen, Miss. Elisabeth Walton\n1\n1\nfemale\n29.0000\n0\n0\n24160\n211.3375\nB5\nS\n2\nNaN\nSt Louis, MO\n\n\nAllison, Master. Hudson Trevor\n1\n1\nmale\n0.9167\n1\n2\n113781\n151.5500\nC22 C26\nS\n11\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Miss. Helen Loraine\n1\n0\nfemale\n2.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mr. Hudson Joshua Creighton\n1\n0\nmale\n30.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\n135\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)\n1\n0\nfemale\n25.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAnderson, Mr. Harry\n1\n1\nmale\n48.0000\n0\n0\n19952\n26.5500\nE12\nS\n3\nNaN\nNew York, NY",
+    "section": "",
+    "text": "name\npclass\nsurvived\nsex\nage\nsibsp\nparch\nticket\nfare\ncabin\nembarked\nboat\nbody\nhome.dest\n\n\n\n\nAllen, Miss. Elisabeth Walton\n1\n1\nfemale\n29.0000\n0\n0\n24160\n211.3375\nB5\nS\n2\nNaN\nSt Louis, MO\n\n\nAllison, Master. Hudson Trevor\n1\n1\nmale\n0.9167\n1\n2\n113781\n151.5500\nC22 C26\nS\n11\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Miss. Helen Loraine\n1\n0\nfemale\n2.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mr. Hudson Joshua Creighton\n1\n0\nmale\n30.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\n135\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)\n1\n0\nfemale\n25.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAnderson, Mr. Harry\n1\n1\nmale\n48.0000\n0\n0\n19952\n26.5500\nE12\nS\n3\nNaN\nNew York, NY",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1380,8 +1380,8 @@
     "objectID": "slides/02-conditional-distributions.html#accessing-rows-and-columns",
     "href": "slides/02-conditional-distributions.html#accessing-rows-and-columns",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Accessing Rows and Columns",
-    "text": "Accessing Rows and Columns\n\n\n\ndf.iloc[5,]\n\nname         Anderson, Mr. Harry\npclass                         1\nsurvived                       1\nsex                         male\nage                         48.0\nsibsp                          0\nparch                          0\nticket                     19952\nfare                       26.55\ncabin                        E12\nembarked                       S\nboat                           3\nbody                         NaN\nhome.dest           New York, NY\nName: 5, dtype: object\n\n\n\n\ndf[\"name\"].head()\n\n0                      Allen, Miss. Elisabeth Walton\n1                     Allison, Master. Hudson Trevor\n2                       Allison, Miss. Helen Loraine\n3               Allison, Mr. Hudson Joshua Creighton\n4    Allison, Mrs. Hudson J C (Bessie Waldo Daniels)\nName: name, dtype: object",
+    "section": "",
+    "text": "df.iloc[5,]\n\nname         Anderson, Mr. Harry\npclass                         1\nsurvived                       1\nsex                         male\nage                         48.0\nsibsp                          0\nparch                          0\nticket                     19952\nfare                       26.55\ncabin                        E12\nembarked                       S\nboat                           3\nbody                         NaN\nhome.dest           New York, NY\nName: 5, dtype: object\n\n\n\n\ndf[\"name\"].head()\n\n0                      Allen, Miss. Elisabeth Walton\n1                     Allison, Master. Hudson Trevor\n2                       Allison, Miss. Helen Loraine\n3               Allison, Mr. Hudson Joshua Creighton\n4    Allison, Mrs. Hudson J C (Bessie Waldo Daniels)\nName: name, dtype: object",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1391,8 +1391,8 @@
     "objectID": "slides/02-conditional-distributions.html#quick-summary-of-quantitative-variables",
     "href": "slides/02-conditional-distributions.html#quick-summary-of-quantitative-variables",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Quick Summary of Quantitative Variables",
-    "text": "Quick Summary of Quantitative Variables\n\n\ndf.describe()\n\n               age        sibsp        parch         fare        body\ncount  1046.000000  1309.000000  1309.000000  1308.000000  121.000000\nmean     29.881135     0.498854     0.385027    33.295479  160.809917\nstd      14.413500     1.041658     0.865560    51.758668   97.696922\nmin       0.166700     0.000000     0.000000     0.000000    1.000000\n25%      21.000000     0.000000     0.000000     7.895800   72.000000\n50%      28.000000     0.000000     0.000000    14.454200  155.000000\n75%      39.000000     1.000000     0.000000    31.275000  256.000000\nmax      80.000000     8.000000     9.000000   512.329200  328.000000",
+    "section": "",
+    "text": "df.describe()\n\n               age        sibsp        parch         fare        body\ncount  1046.000000  1309.000000  1309.000000  1308.000000  121.000000\nmean     29.881135     0.498854     0.385027    33.295479  160.809917\nstd      14.413500     1.041658     0.865560    51.758668   97.696922\nmin       0.166700     0.000000     0.000000     0.000000    1.000000\n25%      21.000000     0.000000     0.000000     7.895800   72.000000\n50%      28.000000     0.000000     0.000000    14.454200  155.000000\n75%      39.000000     1.000000     0.000000    31.275000  256.000000\nmax      80.000000     8.000000     9.000000   512.329200  328.000000",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1402,8 +1402,8 @@
     "objectID": "slides/02-conditional-distributions.html#summarizing-categorical-variables",
     "href": "slides/02-conditional-distributions.html#summarizing-categorical-variables",
     "title": "Visualizing and Comparing Categorical Variables",
-    "section": "Summarizing Categorical Variables",
-    "text": "Summarizing Categorical Variables\nThe list of percents for each category is called the distribution of the variable.\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64",
+    "section": "",
+    "text": "The list of percents for each category is called the distribution of the variable.\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1425,7 +1425,7 @@
     "href": "slides/02-conditional-distributions.html#example",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Example",
-    "text": "Example\n\n\n\n\nimport pandas as pd\nfrom palmerpenguins import load_penguins\nfrom plotnine import ggplot, geom_point, aes, geom_boxplot\n\npenguins = load_penguins()\n\n(\n  ggplot(data = penguins, mapping = aes(x = \"species\", \n                                        y = \"bill_length_mm\", \n                                        fill = \"sex\")\n        ) +\n  geom_boxplot()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAesthetics\nWhere are variables mapped to aspects of the plot?\n\n\nGeometry\nWhat shape(s) are used to represent the data / observations?",
+    "text": "Example\n\n\n\n\nimport pandas as pd\nfrom palmerpenguins import load_penguins\nfrom plotnine import ggplot, geom_point, aes, geom_boxplot\n\npenguins = load_penguins()\n\n(\n  ggplot(data = penguins, mapping = aes(x = \"species\", \n                                        y = \"bill_length_mm\", \n                                        fill = \"sex\")\n        ) +\n  geom_boxplot()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n. . .\n\n\nAesthetics\nWhere are variables mapped to aspects of the plot?\n\n\nGeometry\nWhat shape(s) are used to represent the data / observations?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1458,7 +1458,7 @@
     "href": "slides/02-conditional-distributions.html#check-in",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Check-In",
-    "text": "Check-In\nWhat are the aesthetics and geometry in the cartoon plot below?\n\nAn XKCD comic",
+    "text": "Check-In\nWhat are the aesthetics and geometry in the cartoon plot below?\n\n\n\nAn XKCD comic",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1491,7 +1491,7 @@
     "href": "slides/02-conditional-distributions.html#percents-on-plots",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Percents on Plots",
-    "text": "Percents on Plots\n\n\n\nCode\n(\n  ggplot(data = pclass_dist, \n         mapping = aes(x = \"pclass\", y = \"proportion\")) + \n  geom_col() + ### notice this change to a column plot!\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nTechnically, you could still use geom_bar(), but you would need to specify that you didn’t want it to use stat = \"count\" (the default). You’ve already calculated the proportions, so you would use geom_bar(stat = \"identity\").",
+    "text": "Percents on Plots\n\n\n\nCode\n(\n  ggplot(data = pclass_dist, \n         mapping = aes(x = \"pclass\", y = \"proportion\")) + \n  geom_col() + ### notice this change to a column plot!\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nTechnically, you could still use geom_bar(), but you would need to specify that you didn’t want it to use stat = \"count\" (the default). You’ve already calculated the proportions, so you would use geom_bar(stat = \"identity\").",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1568,7 +1568,7 @@
     "href": "slides/02-conditional-distributions.html#activity-1.2",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Activity 1.2",
-    "text": "Activity 1.2\n\nChoose one of the plots from lecture so far and “upgrade” it.\n\n\nYou can do this by:\n\nFinding and using a different theme\nUsing labs() to change the axis labels\nTrying different variables\nTrying a different geometries\nUsing + scale_fill_manual() to change the colors being used\n\n\n\n\n\n\n\n\nTip\n\n\n\nYou will need to use documentation of plotnine and online resources!\nCheck out https://www.data-to-viz.com/ for ideas and example code.\nAsk GenAI questions like, “What do I add to a plotnine bar plot to change the colors?” (But of course, make sure you understand the code you use!)",
+    "text": "Activity 1.2\n\nChoose one of the plots from lecture so far and “upgrade” it.\n\n\nYou can do this by:\n\nFinding and using a different theme\nUsing labs() to change the axis labels\nTrying different variables\nTrying a different geometries\nUsing + scale_fill_manual() to change the colors being used\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nYou will need to use documentation of plotnine and online resources!\nCheck out https://www.data-to-viz.com/ for ideas and example code.\nAsk GenAI questions like, “What do I add to a plotnine bar plot to change the colors?” (But of course, make sure you understand the code you use!)",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1590,7 +1590,7 @@
     "href": "slides/02-conditional-distributions.html#two-way-table",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Two-way Table",
-    "text": "Two-way Table\n\n\n(\n  df[[\"pclass\", \"sex\"]]\n  .value_counts()\n  .unstack()\n  )\n\n\nsex     female  male\npclass              \n1          144   179\n2          106   171\n3          216   493\n\n\n\nThis is sometimes called a cross-tab or cross-tabulation.\n\n\n\n\n\n\nPivot Table\n\n\nEssentially unstack() has pivoted the sex column from long format (where the values are included in one column) to wide format where each value has its own column.",
+    "text": "Two-way Table\n\n(\n  df[[\"pclass\", \"sex\"]]\n  .value_counts()\n  .unstack()\n  )\n\nsex     female  male\npclass              \n1          144   179\n2          106   171\n3          216   493\n\n\n\nThis is sometimes called a cross-tab or cross-tabulation.\n\n\n\n\n\n\nPivot Table\n\n\n\nEssentially unstack() has pivoted the sex column from long format (where the values are included in one column) to wide format where each value has its own column.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1612,7 +1612,7 @@
     "href": "slides/02-conditional-distributions.html#switching-variable-order",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Switching Variable Order",
-    "text": "Switching Variable Order\nWhat cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if \"sex\" came first and \"pclass\" came second?\n\n\n\n(\n  df[[\"sex\", \"pclass\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\npclass         1         2         3\nsex                                 \nfemale  0.110008  0.080978  0.165011\nmale    0.136746  0.130634  0.376623",
+    "text": "Switching Variable Order\nWhat cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if \"sex\" came first and \"pclass\" came second?\n. . .\n\n\n(\n  df[[\"sex\", \"pclass\"]]\n  .value_counts(normalize = True)\n  .unstack()\n  )\n\npclass         1         2         3\nsex                                 \nfemale  0.110008  0.080978  0.165011\nmale    0.136746  0.130634  0.376623",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1623,7 +1623,7 @@
     "href": "slides/02-conditional-distributions.html#interpretation",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Interpretation",
-    "text": "Interpretation\nWe call this the joint distribution of the two variables.\n\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\nOf all the passengers on the Titanic, 11% were female passengers riding in first class.\n\n\n\nNOT “11% of all females on Titanic…”\nNOT “11% of all first class passengers…”",
+    "text": "Interpretation\nWe call this the joint distribution of the two variables.\n\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\nOf all the passengers on the Titanic, 11% were female passengers riding in first class.\n\n. . .\n\nNOT “11% of all females on Titanic…”\nNOT “11% of all first class passengers…”",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1634,7 +1634,7 @@
     "href": "slides/02-conditional-distributions.html#conditional-distribution-from-counts",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Conditional Distribution from Counts",
-    "text": "Conditional Distribution from Counts\nWe know that:\n\n466 passengers identified as female\nOf those 466 passengers, 144 rode in first class\n\n\nSo:\n\n144 / 466 = 31% of female identifying passengers rode in first class\n\nHere we conditioned on the passenger being female, and then looked at the conditional distribution of pclass.",
+    "text": "Conditional Distribution from Counts\nWe know that:\n\n466 passengers identified as female\nOf those 466 passengers, 144 rode in first class\n\n. . .\nSo:\n\n144 / 466 = 31% of female identifying passengers rode in first class\n\nHere we conditioned on the passenger being female, and then looked at the conditional distribution of pclass.",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1667,7 +1667,7 @@
     "href": "slides/02-conditional-distributions.html#which-one-to-condition-on",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Which one to condition on?",
-    "text": "Which one to condition on?\nThis depends on the research question you are trying to answer.\n\n\n“What class did most female identifying passengers ride in?”\n\n-&gt; Of all female passengers, what is the conditional distribution of class?\n\n\n\n“What was the gender breakdown of first class?”\n\n-&gt; Of all first class passengers, what is the conditional distribution of sex?",
+    "text": "Which one to condition on?\nThis depends on the research question you are trying to answer.\n. . .\n\n“What class did most female identifying passengers ride in?”\n\n-&gt; Of all female passengers, what is the conditional distribution of class?\n. . .\n\n“What was the gender breakdown of first class?”\n\n-&gt; Of all first class passengers, what is the conditional distribution of sex?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1700,7 +1700,7 @@
     "href": "slides/02-conditional-distributions.html#check-in-1",
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Check-In",
-    "text": "Check-In\n\n\n\nmarginal_sex\n\nsex\nmale      0.644003\nfemale    0.355997\nName: proportion, dtype: float64\n\n\n\n\n\n\njoint_class_sex\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\n\n\n\njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816\n\n\n\n\n\nHow do you think divide() works?",
+    "text": "Check-In\n\n\n\nmarginal_sex\n\nsex\nmale      0.644003\nfemale    0.355997\nName: proportion, dtype: float64\n\n\n\n\n\n\njoint_class_sex\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623\n\n\n\n\n\n\n\n\njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816\n\n\n\n\n\nHow do you think divide() works?",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
@@ -1756,6 +1756,290 @@
     "title": "Visualizing and Comparing Categorical Variables",
     "section": "Takeaways",
     "text": "Takeaways\n\n\n\nWe use plotnine and the grammar of graphics to make visuals.\nFor two categorical variables, we might use a stacked bar plot, a side-by-side bar plot, or a stacked percentage bar plot - depending on what we are trying to show.\nThe joint distribution of two variables gives the percents in each subcategory.\nThe marginal distribution of a variable is its individual distribution.\nThe conditional distribution of a variable is its distribution among only one category of a different variable.\nWe calculate the conditional distribution by dividing the joint by the marginal.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
+    ]
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#distances",
+    "href": "slides/06-preprocessing.html#distances",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Distances",
+    "text": "Distances\n\nWe measure similarity between observations by calculating distances.\n\n\n\nEuclidean distance: sum of squared differences, then square root\nManhattan distance: sum of absolute differences\n\n\n\n\n\n\n\n\n\nscikit-learn\n\n\nUse the pairwise_distances() function to get back a 2D numpy array of distances."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#scaling",
+    "href": "slides/06-preprocessing.html#scaling",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Scaling",
+    "text": "Scaling\n\nIt is important that all our features be on the same scale for distances to be meaningful.\n\n\n\nStandardize: Subtract the mean (of the column) and divide by the standard deviation (of the column).\nMinMax: Subtract the minimum value, divide by the range.\n\n\n\n\n\n\n\n\n\nscikit-learn\n\n\nFollow the specify - fit - transform code structure. In the specify step, you should use the StandardScaler() or MinMaxScaler() functions."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#recall-ames-housing-data",
+    "href": "slides/06-preprocessing.html#recall-ames-housing-data",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Recall: AMES Housing data",
+    "text": "Recall: AMES Housing data\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")\nfeatures = [\"Gr Liv Area\", \"Bedroom AbvGr\", \"Full Bath\", \"Half Bath\", \"Bldg Type\", \"Neighborhood\"]\ndf[features].head()\n\n   Gr Liv Area  Bedroom AbvGr  Full Bath  Half Bath Bldg Type Neighborhood\n0         1656              3          1          0      1Fam        NAmes\n1          896              2          1          0      1Fam        NAmes\n2         1329              3          1          1      1Fam        NAmes\n3         2110              3          2          1      1Fam        NAmes\n4         1629              3          2          1      1Fam      Gilbert"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#what-about-categorical-variables",
+    "href": "slides/06-preprocessing.html#what-about-categorical-variables",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "What about categorical variables?",
+    "text": "What about categorical variables?\nSuppose we want to include the variable Bldg Type in our distance calculation…\n\ndf[\"Bldg Type\"].value_counts()\n\nBldg Type\n1Fam      2425\nTwnhsE     233\nDuplex     109\nTwnhs      101\n2fmCon      62\nName: count, dtype: int64\n\n\n\n\nThen we need a way to calculate \\((\\texttt{1Fam} - \\texttt{Twnhs} )^ 2\\)."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#converting-to-binary",
+    "href": "slides/06-preprocessing.html#converting-to-binary",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Converting to Binary",
+    "text": "Converting to Binary\nLet’s instead think about a variable that summarizes whether an observation is a single family home or not.\n\ndf[\"is_single_fam\"] = df[\"Bldg Type\"] == \"1Fam\"\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\nTrue     2425\nFalse     505\nName: count, dtype: int64\n\n\n\n\n\n\n\n\n\nWhat does a value of True represent? False?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#converting-to-binary-1",
+    "href": "slides/06-preprocessing.html#converting-to-binary-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Converting to binary",
+    "text": "Converting to binary\nRecall that True/False is the same as 1/0 for computers:\n\ndf[\"is_single_fam\"] = df[\"is_single_fam\"].astype(\"int\")\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\n1    2425\n0     505\nName: count, dtype: int64\n\n\nWe call this a dummy variable or a one-hot-encoding."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#now-we-can-do-math",
+    "href": "slides/06-preprocessing.html#now-we-can-do-math",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Now we can do math!",
+    "text": "Now we can do math!\nSpecify\n\n\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import pairwise_distances\n\nscaler = StandardScaler()\n\n\n\nFit\n\n\n\ndf_orig = df[['Gr Liv Area', 'Bedroom AbvGr', 'is_single_fam']]\nscaler.fit(df_orig)\n\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFittedStandardScaler() \n\n\n\n\n\nTransform\n\n\ndf_scaled = scaler.transform(df_orig)"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#lets-reset-the-dataset-now",
+    "href": "slides/06-preprocessing.html#lets-reset-the-dataset-now",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Let’s reset the dataset now…",
+    "text": "Let’s reset the dataset now…\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-variables-1",
+    "href": "slides/06-preprocessing.html#dummifying-variables-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying Variables",
+    "text": "Dummifying Variables\n\n\n\nWhat if we don’t just want to study is_single_fam, but rather, all categories of the Bldg Type variable?\nIn principle, we just make dummy variables for each category: is_single_fam, is_twnhse, etc.\nEach category becomes one column, with 0’s and 1’s to show if the observation in that row matches that category.\nThat sounds pretty tedious, especially if you have a lot of categories…\nLuckily, we have shortcuts in both pandas and sklearn!"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-in-pandas",
+    "href": "slides/06-preprocessing.html#dummifying-in-pandas",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying in Pandas",
+    "text": "Dummifying in Pandas\n\n\npd.get_dummies(df[[\"Bldg Type\"]])\n\n      Bldg Type_1Fam  Bldg Type_2fmCon  ...  Bldg Type_Twnhs  Bldg Type_TwnhsE\n0               True             False  ...            False             False\n1               True             False  ...            False             False\n2               True             False  ...            False             False\n3               True             False  ...            False             False\n4               True             False  ...            False             False\n...              ...               ...  ...              ...               ...\n2925            True             False  ...            False             False\n2926            True             False  ...            False             False\n2927            True             False  ...            False             False\n2928            True             False  ...            False             False\n2929            True             False  ...            False             False\n\n[2930 rows x 5 columns]"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-in-pandas-1",
+    "href": "slides/06-preprocessing.html#dummifying-in-pandas-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying in Pandas",
+    "text": "Dummifying in Pandas\n\n\n\n      Bldg Type_1Fam  Bldg Type_2fmCon  ...  Bldg Type_Twnhs  Bldg Type_TwnhsE\n0               True             False  ...            False             False\n1               True             False  ...            False             False\n2               True             False  ...            False             False\n3               True             False  ...            False             False\n4               True             False  ...            False             False\n...              ...               ...  ...              ...               ...\n2925            True             False  ...            False             False\n2926            True             False  ...            False             False\n2927            True             False  ...            False             False\n2928            True             False  ...            False             False\n2929            True             False  ...            False             False\n\n[2930 rows x 5 columns]\n\n\n\n\nSome things to notice here…\n\n\n\n\nWhat is the naming convention for the new columns?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat happens if you put the whole dataframe into the get_dummies function? What problems might arise from this?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-in-sklearn",
+    "href": "slides/06-preprocessing.html#dummifying-in-sklearn",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying in sklearn",
+    "text": "Dummifying in sklearn\nSpecify\n\n\nfrom sklearn.preprocessing import OneHotEncoder\n\nencoder = OneHotEncoder()\n\n\n\nFit\n\n\n\nencoder.fit(df[[\"Bldg Type\"]])\n\n\nOneHotEncoder()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.OneHotEncoder?Documentation for OneHotEncoderiFittedOneHotEncoder() \n\n\n\n\n\nTransform\n\n\ndf_bldg = encoder.transform(df[[\"Bldg Type\"]])\ndf_bldg\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 2930 stored elements and shape (2930, 5)&gt;"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-in-sklearn-1",
+    "href": "slides/06-preprocessing.html#dummifying-in-sklearn-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying in sklearn",
+    "text": "Dummifying in sklearn\n\n\n\n\ndf_bldg.todense()\n\n\n\n\n\n\n\n\nmatrix([[1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        ...,\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.]], shape=(2930, 5))\n\n\n\n\n\nThings to notice:\n\n\n\nWhat object type was the result?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat pros and cons do you see for the pandas approach vs the sklearn approach?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummifying-in-sklearn-2",
+    "href": "slides/06-preprocessing.html#dummifying-in-sklearn-2",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummifying in sklearn",
+    "text": "Dummifying in sklearn\nThings to notice:\n\n\nWhat object type was the result?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat happens if you fit the whole dataframe with the OneHotEncoder? What problems might arise from this?\nWhat pros and cons do you see for the pandas approach vs the sklearn approach?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#preprocessing",
+    "href": "slides/06-preprocessing.html#preprocessing",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Preprocessing",
+    "text": "Preprocessing\n\nSo far, we have now seen two preprocessing steps that might need to happen to do an analysis of distances:\n\nScaling the quantitative variables\nDummifying the categorical variables\n\n\n\n\nPreprocessing steps are things you do only to make the following analysis/visualization better.\n\nThis is not the same as data cleaning, where you make changes to fix the data (e.g., changing data types).\nThis is not the same as data wrangling, where you change the structure of the data (e.g., adding or deleting rows or columns)."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#quick-quiz",
+    "href": "slides/06-preprocessing.html#quick-quiz",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Quick quiz",
+    "text": "Quick quiz\nIdentify the following as cleaning, wrangling, or preprocessing:\n\nRemoving the $ symbol from a column and converting it to numeric.\nNarrowing your data down to only first class Titanic passengers, because you are not studying the others.\nConverting a Zip Code variable from numeric to categorical using .astype().\nCreating a new column called n_investment that counts the number of people who invested in a project.\nLog-transforming a column because it is very skewed."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#preprocessing-in-sklearn",
+    "href": "slides/06-preprocessing.html#preprocessing-in-sklearn",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Preprocessing in sklearn",
+    "text": "Preprocessing in sklearn\n\n\nUnlike cleaning and wrangling, the preprocessing steps are “temporary” changes to the dataframe.\n\n\n\n\n\nIt would be nice if we could trigger these changes as part of our analysis, instead of doing them “by hand”.\n\nThis is why the specify - fit - transform process is useful!\nWe will first specify all our preprocessing steps.\nThen we will fit the whole preprocess\nThen we will save the transform step for only when we need it."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#column-transformers-1",
+    "href": "slides/06-preprocessing.html#column-transformers-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Column Transformers",
+    "text": "Column Transformers\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output=False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: (keep the sparse_output=False when you try this)\n\npreproc.set_output(transform = \"pandas\")\n\nLook at the preproc object. What does it show you?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#column-transformers-2",
+    "href": "slides/06-preprocessing.html#column-transformers-2",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Column Transformers",
+    "text": "Column Transformers\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output=False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: (keep the sparse_output=False when you try this)\n\npreproc.set_output(transform = \"pandas\")\n\nLook at the preproc object. What does it show you?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#column-transformers-3",
+    "href": "slides/06-preprocessing.html#column-transformers-3",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Column Transformers",
+    "text": "Column Transformers\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output=False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: (keep the sparse_output=False when you try this)\n\npreproc.set_output(transform = \"pandas\")\n\nLook at the preproc object. What does it show you?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#multiple-preprocessing-steps",
+    "href": "slides/06-preprocessing.html#multiple-preprocessing-steps",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Multiple Preprocessing Steps",
+    "text": "Multiple Preprocessing Steps\nWhy are column transformers so useful? We can do multiple preprocessing steps at once!\n\n\nfrom sklearn.preprocessing import StandardScaler\n\npreproc = make_column_transformer(\n        (StandardScaler(), [\"Gr Liv Area\"]),\n        (OneHotEncoder(sparse_output = False), [\"Bldg Type\", \"Neighborhood\"]),\n        remainder = \"passthrough\")"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#finding-all-variables",
+    "href": "slides/06-preprocessing.html#finding-all-variables",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Finding all variables",
+    "text": "Finding all variables\nWhat if we just want to say “Please dummify all categorical variables”?\nUse a selector instead of exact column names.\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  make_column_selector(dtype_include=np.number)),\n    (OneHotEncoder(sparse_output=False), make_column_selector(dtype_include=object)),\n    remainder=\"passthrough\")\n    \npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough \n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x148ce9be0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x148c87110&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough \n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  onehotencoder__Neighborhood_Veenker\n0                        0.309265  ...                                  0.0\n1                       -1.194427  ...                                  0.0\n2                       -0.337718  ...                                  0.0\n3                        1.207523  ...                                  0.0\n4                        0.255844  ...                                  0.0\n...                           ...  ...                                  ...\n2925                    -0.982723  ...                                  0.0\n2926                    -1.182556  ...                                  0.0\n2927                    -1.048015  ...                                  0.0\n2928                    -0.219006  ...                                  0.0\n2929                     0.989884  ...                                  0.0\n\n[2930 rows x 37 columns]"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#think-about-it",
+    "href": "slides/06-preprocessing.html#think-about-it",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Think about it",
+    "text": "Think about it\n\nWhat are the advantages of using a selector?\nWhat are the possible disadvantages of using a selector?\nDoes the order matter when using selectors? Try switching the steps and see what happens!"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#takeaways-1",
+    "href": "slides/06-preprocessing.html#takeaways-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nWe dummify or one-hot-encode categorical variables to make them numbers.\nWe can do this with pd.get_dummies() or with OneHotEncoder() from sklearn.\nColumn Transformers let us apply multiple preprocessing steps at the same time.\n\nThink about which variables you want to apply the steps to\nThink about options for the steps, like sparseness\nThink about passthrough in your transformer"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#dummy-variables",
+    "href": "slides/06-preprocessing.html#dummy-variables",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Dummy Variables",
+    "text": "Dummy Variables\n\nWhen we transform a variable into binary (True / False), we call this variable a dummy variable or we say the variable has been one-hot-encoded.\n\n\nRemember that that computers interpret logical values (True / False) the same as 1 / 0:\n\ndf[\"is_single_fam\"] = df[\"is_single_fam\"].astype(\"int\")\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\n1    2425\n0     505\nName: count, dtype: int64"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#calculating-distances",
+    "href": "slides/06-preprocessing.html#calculating-distances",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Calculating Distances",
+    "text": "Calculating Distances\n\n\ndists = pairwise_distances(df_scaled[[1707]], df_scaled)\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr  is_single_fam\n160          2978              5              1\n909          3082              5              1\n1288         2792              5              1\n2350         2784              5              1\n253          3222              5              1\n585          2640              5              1\n2027         2526              5              1\n2330         3390              5              1\n2501         2520              5              1"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#lecture-3.2-quiz",
+    "href": "slides/06-preprocessing.html#lecture-3.2-quiz",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Lecture 3.2 Quiz",
+    "text": "Lecture 3.2 Quiz\nIdentify the following as cleaning, wrangling, or preprocessing:\n\n\nRemoving the $ symbol from a column and converting it to numeric.\nNarrowing your data down to only first class Titanic passengers, because you are not studying the others.\nConverting a Zip Code variable from numeric to categorical using .astype().\nCreating a new column called n_investment that counts the number of people who invested in a project.\nLog-transforming a column because it is very skewed."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#column-transformers-specify",
+    "href": "slides/06-preprocessing.html#column-transformers-specify",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Column Transformers – Specify",
+    "text": "Column Transformers – Specify\n\nfrom sklearn.compose import make_column_transformer\n\n\n\n\npreproc = make_column_transformer(\n  (OneHotEncoder(), [\"Bldg Type\", \"Neighborhood\"]),\n    remainder = \"passthrough\")"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#column-transformers-fit-transform",
+    "href": "slides/06-preprocessing.html#column-transformers-fit-transform",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Column Transformers – Fit & Transform",
+    "text": "Column Transformers – Fit & Transform\nFit\n\n\n\npreproc.fit(df[features])\n\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])]) onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder() remainder['Gr Liv Area', 'Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough \n\n\n\n\nTransform\n\n\npreproc.transform(df[features])\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 15717 stored elements and shape (2930, 37)&gt;\n\n\n\nColumn Transformers\nThings to notice…\n\nWhat submodule did we import make_column_transformer from?\nWhat are the two arguments to the make_column_transformer function? What object structures are they?\nWhat happens if you fit and transform on the whole dataset, not just df[features]? Why might this be useful?\n\n\n\nColumn Transformers\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output=False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: (keep the sparse_output=False when you try this)\n\npreproc.set_output(transform = \"pandas\")\n\nLook at the preproc object. What does it show you?\n\n\n\nMultiple preprocessing steps\nWhy are column transformers so useful?\nWell, now we can do multiple preprocessing steps at once!\n\nfrom sklearn.preprocessing import StandardScaler\n\npreproc = make_column_transformer(\n        (StandardScaler(), [\"Gr Liv Area\"]),\n        (OneHotEncoder(sparse_output=False), [\"Bldg Type\",\n                                          \"Neighborhood\"]),\n    remainder=\"passthrough\")\n    \npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])]) standardscaler['Gr Liv Area'] StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder['Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough \n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])]) standardscaler['Gr Liv Area'] StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder['Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough \n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  remainder__Half Bath\n0                        0.309265  ...                     0\n1                       -1.194427  ...                     0\n2                       -0.337718  ...                     1\n3                        1.207523  ...                     1\n4                        0.255844  ...                     1\n...                           ...  ...                   ...\n2925                    -0.982723  ...                     0\n2926                    -1.182556  ...                     0\n2927                    -1.048015  ...                     0\n2928                    -0.219006  ...                     0\n2929                     0.989884  ...                     1\n\n[2930 rows x 37 columns]\n\n\n\n\nFinding all variables\nWhat if we just want to say “Please dummify all categorical variables?”\nUse a selector instead of exact column names.\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  make_column_selector(dtype_include=np.number)),\n    (OneHotEncoder(sparse_output=False), make_column_selector(dtype_include=object)),\n    remainder=\"passthrough\")\n    \npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough \n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1107c1be0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11075ae90&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough \n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  onehotencoder__Neighborhood_Veenker\n0                        0.309265  ...                                  0.0\n1                       -1.194427  ...                                  0.0\n2                       -0.337718  ...                                  0.0\n3                        1.207523  ...                                  0.0\n4                        0.255844  ...                                  0.0\n...                           ...  ...                                  ...\n2925                    -0.982723  ...                                  0.0\n2926                    -1.182556  ...                                  0.0\n2927                    -1.048015  ...                                  0.0\n2928                    -0.219006  ...                                  0.0\n2929                     0.989884  ...                                  0.0\n\n[2930 rows x 37 columns]\n\n\n\n\nThink about it\n\nWhat are the advantages of using a selector?\nWhat are the possible disadvantages of using a selector?\nDoes the order matter when using selectors? Try switching the steps and see what happens!\n\n\n\nTakeaways\n\n\n\nTakeaways\n\nWe dummify or one-hot-encode categorical variables to make them numbers.\nWe can do this with pd.get_dummies() or with OneHotEncoder()\nColumn Transformers let us apply multiple preprocessing steps all together.\n\nThink about which variables you want to apply the steps to\nThink about options for the steps, like sparseness\nThink about passthrough in your transformer"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#column-transformers-fit",
+    "href": "slides/06-preprocessing.html#column-transformers-fit",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Column Transformers – Fit",
+    "text": "Column Transformers – Fit\n\npreproc.fit(df[features])\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('onehotencoder', OneHotEncoder(),\n                                 ['Bldg Type', 'Neighborhood'])]) onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder() remainder['Gr Liv Area', 'Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#column-transformers-transform",
+    "href": "slides/06-preprocessing.html#column-transformers-transform",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Column Transformers – Transform",
+    "text": "Column Transformers – Transform\n\npreproc.transform(df[features])\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 15717 stored elements and shape (2930, 37)&gt;"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#things-to-notice",
+    "href": "slides/06-preprocessing.html#things-to-notice",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Things to notice…",
+    "text": "Things to notice…\n\nWhat submodule did we import make_column_transformer from?\nWhat are the two arguments to the make_column_transformer() function? What object structures are they?\nWhat happens if you fit and transform on the whole dataset, not just df[features]? Why might this be useful?"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#lecture-4.1-quiz",
+    "href": "slides/06-preprocessing.html#lecture-4.1-quiz",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Lecture 4.1 Quiz",
+    "text": "Lecture 4.1 Quiz\nIdentify the following as cleaning, wrangling, or preprocessing:\n\n\nRemoving the $ symbol from a column and converting it to numeric.\nNarrowing your data down to only first class Titanic passengers, because you are not studying the others.\nConverting a Zip Code variable from numeric to categorical using .astype().\nCreating a new column called n_investment that counts the number of people who invested in a project.\nLog-transforming a column because it is very skewed."
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#lecture-activity-4.2",
+    "href": "slides/06-preprocessing.html#lecture-activity-4.2",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Lecture Activity 4.2",
+    "text": "Lecture Activity 4.2\nTry the following:\n\nWhat happens if you change remainder = \"passthrough\" to remainder = \"drop\"?\nWhat happens if you add the argument sparse_output = False to the OneHotEncoder() function?\nWhat happens if you add this line before the transform step: preproc.set_output(transform = \"pandas\") (keep the sparse_output = False when you try this)"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#fit",
+    "href": "slides/06-preprocessing.html#fit",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Fit!",
+    "text": "Fit!\n\n(\n  preproc\n  .fit(df[features])\n  .set_output(transform = \"pandas\")\n)\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 ['Gr Liv Area']),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 ['Bldg Type', 'Neighborhood'])]) standardscaler['Gr Liv Area'] StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder['Bldg Type', 'Neighborhood'] OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder['Bedroom AbvGr', 'Full Bath', 'Half Bath'] passthroughpassthrough"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#transform",
+    "href": "slides/06-preprocessing.html#transform",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Transform!",
+    "text": "Transform!\n\n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  remainder__Half Bath\n0                        0.309265  ...                     0\n1                       -1.194427  ...                     0\n2                       -0.337718  ...                     1\n3                        1.207523  ...                     1\n4                        0.255844  ...                     1\n...                           ...  ...                   ...\n2925                    -0.982723  ...                     0\n2926                    -1.182556  ...                     0\n2927                    -1.048015  ...                     0\n2928                    -0.219006  ...                     0\n2929                     0.989884  ...                     1\n\n[2930 rows x 37 columns]"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#finding-all-categorical-variables",
+    "href": "slides/06-preprocessing.html#finding-all-categorical-variables",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Finding All Categorical Variables",
+    "text": "Finding All Categorical Variables\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#fit-1",
+    "href": "slides/06-preprocessing.html#fit-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Fit!",
+    "text": "Fit!\n\n(\n  preproc\n  .fit(df[features])\n  .set_output(transform = \"pandas\")\n)\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x112529be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1124c6fd0&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x112529be0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1124c6fd0&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x112529be0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1124c6fd0&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#transform-1",
+    "href": "slides/06-preprocessing.html#transform-1",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Transform!",
+    "text": "Transform!\n\n\ndf_transformed = preproc.transform(df[features])\ndf_transformed\n\n      standardscaler__Gr Liv Area  ...  onehotencoder__Neighborhood_Veenker\n0                        0.309265  ...                                  0.0\n1                       -1.194427  ...                                  0.0\n2                       -0.337718  ...                                  0.0\n3                        1.207523  ...                                  0.0\n4                        0.255844  ...                                  0.0\n...                           ...  ...                                  ...\n2925                    -0.982723  ...                                  0.0\n2926                    -1.182556  ...                                  0.0\n2927                    -1.048015  ...                                  0.0\n2928                    -0.219006  ...                                  0.0\n2929                     0.989884  ...                                  0.0\n\n[2930 rows x 37 columns]"
+  },
+  {
+    "objectID": "slides/02-conditional-distributions.html",
+    "href": "slides/02-conditional-distributions.html",
+    "title": "Visualizing and Comparing Categorical Variables",
+    "section": "",
+    "text": "df = pd.read_csv(\"https://datasci112.stanford.edu/data/titanic.csv\")\n\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\ndf[\"survived\"] = df[\"survived\"].astype(\"category\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nname\npclass\nsurvived\nsex\nage\nsibsp\nparch\nticket\nfare\ncabin\nembarked\nboat\nbody\nhome.dest\n\n\n\n\nAllen, Miss. Elisabeth Walton\n1\n1\nfemale\n29.0000\n0\n0\n24160\n211.3375\nB5\nS\n2\nNaN\nSt Louis, MO\n\n\nAllison, Master. Hudson Trevor\n1\n1\nmale\n0.9167\n1\n2\n113781\n151.5500\nC22 C26\nS\n11\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Miss. Helen Loraine\n1\n0\nfemale\n2.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mr. Hudson Joshua Creighton\n1\n0\nmale\n30.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\n135\nMontreal, PQ / Chesterville, ON\n\n\nAllison, Mrs. Hudson J C (Bessie Waldo Daniels)\n1\n0\nfemale\n25.0000\n1\n2\n113781\n151.5500\nC22 C26\nS\nNA\nNaN\nMontreal, PQ / Chesterville, ON\n\n\nAnderson, Mr. Harry\n1\n1\nmale\n48.0000\n0\n0\n19952\n26.5500\nE12\nS\n3\nNaN\nNew York, NY\n\n\n\n\n\n\n\n\n\n\n\n\ndf.iloc[5,]\n\nname         Anderson, Mr. Harry\npclass                         1\nsurvived                       1\nsex                         male\nage                         48.0\nsibsp                          0\nparch                          0\nticket                     19952\nfare                       26.55\ncabin                        E12\nembarked                       S\nboat                           3\nbody                         NaN\nhome.dest           New York, NY\nName: 5, dtype: object\n\n\n\n\ndf[\"name\"].head()\n\n0                      Allen, Miss. Elisabeth Walton\n1                     Allison, Master. Hudson Trevor\n2                       Allison, Miss. Helen Loraine\n3               Allison, Mr. Hudson Joshua Creighton\n4    Allison, Mrs. Hudson J C (Bessie Waldo Daniels)\nName: name, dtype: object\n\n\n\n\n\n\n\n\n\ndf.describe()\n\n               age        sibsp        parch         fare        body\ncount  1046.000000  1309.000000  1309.000000  1308.000000  121.000000\nmean     29.881135     0.498854     0.385027    33.295479  160.809917\nstd      14.413500     1.041658     0.865560    51.758668   97.696922\nmin       0.166700     0.000000     0.000000     0.000000    1.000000\n25%      21.000000     0.000000     0.000000     7.895800   72.000000\n50%      28.000000     0.000000     0.000000    14.454200  155.000000\n75%      39.000000     1.000000     0.000000    31.275000  256.000000\nmax      80.000000     8.000000     9.000000   512.329200  328.000000\n\n\n\n\n\n\nThe list of percents for each category is called the distribution of the variable.\n\ndf[\"pclass\"].value_counts()\n\npclass\n3    709\n1    323\n2    277\nName: count, dtype: int64\n\ndf[\"pclass\"].value_counts(normalize = True)\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64",
     "crumbs": [
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
