@@ -925,7 +925,6 @@ plot.draw(plot)
 
 Did you notice how difficult it was to pick out each point?
 
-<!-- change to point size -->
 ::: columns
 ::: {.column width="48%"}
 ::: {.fragment}
