@@ -53,11 +53,11 @@ website:
             text: "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
           - href: slides/04-group-by.qmd
             text: "Week 2, Part 2 - Multivariate Summaries"
-          # - href: 
-          #   text: "Week 3 - dplyr"
-          # - href: weeks/week-4-reshaping-joining.qmd
-          #   text: "Week 4, Part 1 - Data Transformation"
-          # - href: weeks/week-4-factors.qmd
+          - href: slides/05-distances.qmd
+            text: "Week 3 - Distances Between Observations"
+          - href: slides/06-preprocessing.qmd
+            text: "Week 4, Part 1 - Dummy Variables & Column Transformers"
+          #- href: weeks/week-4-factors.qmd
           #   text: "Week 4, Part 2 - Factors"
           # - href: weeks/week-5-strings-dates.qmd
           #   text: "Week 5 - Strings & Dates"

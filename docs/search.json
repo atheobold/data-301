@@ -2313,5 +2313,27 @@
     "title": "Bag-of-Words and TF-IDF",
     "section": "Specific Words",
     "text": "Specific Words\n\nWe can extract specific words from the vocabulary as follows:\n\nvec.vocabulary_[\"fish\"]\n\n388\n\nvec.vocabulary_[\"pop\"]\n\n850\n\nvec.vocabulary_[\"eggs\"]\n\n326"
+  },
+  {
+    "objectID": "slides/03-quantitative-variables.html#updates",
+    "href": "slides/03-quantitative-variables.html#updates",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Updates",
+    "text": "Updates\nWeek 1 taught me that I need to make some adjustments!\n\n\n\nLab Attendance\nIs not required. However, if you do not attend lab and come to student hours or post questions on Discord about the lab, I will be displeased.\n\n\n\n\n\nDeadlines\n\nLabs are due the day after lab (like lecture quizzes / activities).\n\nTuesday’s lab is due on Wednesday at 11:59pm.\nThursday’s lab is due on Friday at 11:59pm.\n\nEnd of week assignments are due on Sundays at 11:59pm (not Saturdays).\n\n\n\n\n\n\nLab Submissions\n\nPDFs will be required for every Collab submission.\n\nYour code cannot be more than 80 characters—where the grey line appears in Collab.\nUse returns!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
+    ]
+  },
+  {
+    "objectID": "slides/03-quantitative-variables.html#changes-from-week-1",
+    "href": "slides/03-quantitative-variables.html#changes-from-week-1",
+    "title": "Visualizing and Summarizing Quantitative Variables",
+    "section": "Changes from Week 1",
+    "text": "Changes from Week 1\n\nWeek 1 taught me that I need to make some adjustments!\n\n\n\n\n\nLab Attendance\n\n\nIs not required. However, if you do not attend lab and come to student hours or post questions on Discord about the lab, I will be displeased.\n\n\n\n\n\n\n\nDeadlines\n\n\n\n\nLabs are due the day after lab (like lecture quizzes / activities).\n\nTuesday’s lab is due on Wednesday at 11:59pm.\nThursday’s lab is due on Friday at 11:59pm.\n\nEnd of week assignments are due on Sundays at 11:59pm (not Saturdays).\n\n\n\n\n\n\n\n\n\nLab Submissions\n\n\n\nPDFs will be required for every Collab submission.\n\nYour code cannot be more than 80 characters—where the grey line appears in Collab.\nUse returns!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
+    ]
   }
 ]

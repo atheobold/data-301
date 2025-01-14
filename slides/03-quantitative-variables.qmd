@@ -25,6 +25,69 @@ import pandas as pd
 from plotnine import *
 ```
 
+# Some Class Updates!
+
+## Changes from Week 1
+
+::: {.midi}
+Week 1 taught me that I need to make some adjustments! 
+:::
+
+::: columns
+::: {.column width="30%"}
+::: {.fragment}
+::: {.midi}
+**Lab Attendance**
+:::
+
+::: {.small}
+Is not required. However, if you do not attend lab and come to student hours or
+post questions on Discord about the lab, I will be displeased. 
+:::
+:::
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="30%"}
+::: {.fragment}
+::: {.midi}
+**Deadlines**
+:::
+
+::: {.small}
+::: {.incremental}
+- Labs are due the day after lab (like lecture quizzes / activities). 
+    * Tuesday's lab is due on Wednesday at 11:59pm.
+    * Thursday's lab is due on Friday at 11:59pm.
+    
+- End of week assignments are due on Sundays at 11:59pm (not Saturdays). 
+:::
+:::
+:::
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="30%"}
+::: {.fragment}
+::: {.midi}
+**Lab Submissions**
+:::
+
+::: {.small}
+- PDFs will be required for [every]{.underline} Collab submission. 
+  * Your code cannot be more than 80 characters---where the grey line appears in
+  Collab. 
+  * Use returns! 
+:::
+:::
+:::
+:::
+
+
 # The story so far...
 
 ## Getting, prepping, and summarizing data
