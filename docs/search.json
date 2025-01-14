@@ -1997,7 +1997,7 @@
     "href": "slides/07-text-data.html#activity",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Activity",
-    "text": "Activity\nActivity 1\nUsing bi-grams, unigrams, and tri-grams, which Dr. Seuss document is closest to “One Fish Two Fish”?"
+    "text": "Activity\nUsing bi-grams, unigrams, and tri-grams, which Dr. Seuss document is closest to “One Fish Two Fish”?"
   },
   {
     "objectID": "slides/07-text-data.html#motivating-example",
@@ -2144,14 +2144,14 @@
     "href": "slides/07-text-data.html#similar-documents",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Similar Documents",
-    "text": "Similar Documents\nNow, we can use this bag-of-words data to measure similarities between documents!\n\nfrom sklearn.metrics import pairwise_distances\n\nvec = CountVectorizer(ngram_range = (1, 2))\nvec.fit(docs.values())\n\nCountVectorizer(ngram_range=(1, 2))In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.CountVectorizer?Documentation for CountVectorizeriFittedCountVectorizer(ngram_range=(1, 2)) \n\ndat = vec.transform(docs.values())\n\ndists = pairwise_distances(dat)\ndists\n\narray([[  0.        , 204.84628383, 178.52730884, 219.79535937,\n        168.42802617, 228.52570971, 183.5973856 , 178.83511959],\n       [204.84628383,   0.        , 189.45711916, 157.15597348,\n        186.2793601 , 152.32859219, 175.28262892, 156.12815249],\n       [178.52730884, 189.45711916,   0.        , 171.66828478,\n         95.21554495, 189.95262567, 141.52031656, 130.11533345],\n       [219.79535937, 157.15597348, 171.66828478,   0.        ,\n        163.84138671, 138.97481786, 174.56230979, 162.59766296],\n       [168.42802617, 186.2793601 ,  95.21554495, 163.84138671,\n          0.        , 188.92855793, 133.1990991 , 112.89818422],\n       [228.52570971, 152.32859219, 189.95262567, 138.97481786,\n        188.92855793,   0.        , 162.83120094, 164.95453919],\n       [183.5973856 , 175.28262892, 141.52031656, 174.56230979,\n        133.1990991 , 162.83120094,   0.        , 134.98888843],\n       [178.83511959, 156.12815249, 130.11533345, 162.59766296,\n        112.89818422, 164.95453919, 134.98888843,   0.        ]])"
+    "text": "Similar Documents\nNow, we can use this bag-of-words data to measure similarities between documents!\n\n\nfrom sklearn.metrics import pairwise_distances\n\ndat = vec.transform(docs.values())\n\ndists = pairwise_distances(dat)\ndists\n\narray([[  0.        , 204.84628383, 178.52730884, 219.79535937,\n        168.42802617, 228.52570971, 183.5973856 , 178.83511959],\n       [204.84628383,   0.        , 189.45711916, 157.15597348,\n        186.2793601 , 152.32859219, 175.28262892, 156.12815249],\n       [178.52730884, 189.45711916,   0.        , 171.66828478,\n         95.21554495, 189.95262567, 141.52031656, 130.11533345],\n       [219.79535937, 157.15597348, 171.66828478,   0.        ,\n        163.84138671, 138.97481786, 174.56230979, 162.59766296],\n       [168.42802617, 186.2793601 ,  95.21554495, 163.84138671,\n          0.        , 188.92855793, 133.1990991 , 112.89818422],\n       [228.52570971, 152.32859219, 189.95262567, 138.97481786,\n        188.92855793,   0.        , 162.83120094, 164.95453919],\n       [183.5973856 , 175.28262892, 141.52031656, 174.56230979,\n        133.1990991 , 162.83120094,   0.        , 134.98888843],\n       [178.83511959, 156.12815249, 130.11533345, 162.59766296,\n        112.89818422, 164.95453919, 134.98888843,   0.        ]])"
   },
   {
     "objectID": "slides/07-text-data.html#similar-documents-1",
     "href": "slides/07-text-data.html#similar-documents-1",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Similar Documents",
-    "text": "Similar Documents\n\ndists[0].argsort()\n\narray([0, 4, 2, 7, 6, 1, 3, 5])\n\ndocs.keys()\n\ndict_keys(['green_eggs_and_ham.txt', 'cat_in_the_hat.txt', 'fox_in_socks.txt', 'how_the_grinch_stole_christmas.txt', 'hop_on_pop.txt', 'horton_hears_a_who.txt', 'oh_the_places_youll_go.txt', 'one_fish_two_fish.txt'])\n\n\n\nThis is how data scientists do authorship identification!"
+    "text": "Similar Documents\n\n\n\ndists[0].argsort()\n\narray([0, 4, 2, 7, 6, 1, 3, 5])\n\n\n\n\n\n\ndocs.keys()\n\ndict_keys(['green_eggs_and_ham.txt', 'cat_in_the_hat.txt', 'fox_in_socks.txt', 'how_the_grinch_stole_christmas.txt', 'hop_on_pop.txt', 'horton_hears_a_who.txt', 'oh_the_places_youll_go.txt', 'one_fish_two_fish.txt'])\n\n\n\n\n\n\n\n\n\nTip\n\n\nThis is how data scientists do authorship identification!"
   },
   {
     "objectID": "slides/07-text-data.html#activity-1",
@@ -2193,21 +2193,21 @@
     "href": "slides/07-text-data.html#measuring-similarity",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Measuring Similarity",
-    "text": "Measuring Similarity\n\n\nCode\nfrom sklearn.metrics import pairwise_distances\n\npairwise_distances(bow_matrix)\n\n\narray([[0.        , 4.69041576, 6.244998  , 5.38516481],\n       [4.69041576, 0.        , 6.08276253, 5.        ],\n       [6.244998  , 6.08276253, 0.        , 6.92820323],\n       [5.38516481, 5.        , 6.92820323, 0.        ]])"
+    "text": "Measuring Similarity\n\n\n\nCode\nfrom sklearn.metrics import pairwise_distances\n\ndists = pairwise_distances(bow_matrix)\ndists[0].argsort()\n\n\narray([0, 1, 3, 2])\n\n\n\n“Whoever has hate for his brother is in the darkness and walks in the darkness.”\n\n\n“Hello darkness, my old friend, I’ve come to talk with you again.”\n\n\n“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”\n\n\n“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”"
   },
   {
     "objectID": "slides/07-text-data.html#choosing-your-distance-metric",
     "href": "slides/07-text-data.html#choosing-your-distance-metric",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Choosing Your Distance Metric",
-    "text": "Choosing Your Distance Metric\nIs euclidean distance really the best choice?!\n\nMy name is James Bond, James Bond is my name.\n\n\nMy name is James Bond.\n\n\nMy name is James.\n\n\nIf we count words the second two will be the most similar.\nThe first document is longer, so it has “double” counts.\nBut, it has the exact same words as the first document!\nSolution: cosine distance (on the board)"
+    "text": "Choosing Your Distance Metric\nIs euclidean distance really the best choice?!\n\n\nMy name is James Bond, James Bond is my name.\n\n\nMy name is James Bond.\n\n\nMy name is James.\n\n\nIf we count words the second two will be the most similar.\nThe first document is longer, so it has “double” counts.\nBut, it has the exact same words as the first document!\nSolution: cosine distance (on board)"
   },
   {
     "objectID": "slides/07-text-data.html#cosine-distance-1",
     "href": "slides/07-text-data.html#cosine-distance-1",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Cosine Distance",
-    "text": "Cosine Distance\nAs a rule, cosine distance is a better choice for bag-of-words data!\n\nfrom sklearn.metrics.pairwise import cosine_distances\ncosine_distances(bow_matrix)\n\narray([[0.        , 0.80481999, 0.64600384, 0.70722998],\n       [0.80481999, 0.        , 0.78235712, 1.        ],\n       [0.64600384, 0.78235712, 0.        , 0.81863094],\n       [0.70722998, 1.        , 0.81863094, 0.        ]])"
+    "text": "Cosine Distance\nAs a rule, cosine distance is a better choice for bag-of-words data!\n\n\nfrom sklearn.metrics.pairwise import cosine_distances\n\ndists = cosine_distances(bow_matrix)\ndists[0].argsort()\n\narray([0, 2, 3, 1])\n\n\n\n“Whoever has hate for his brother is in the darkness and walks in the darkness.”\n\n\n“Hello darkness, my old friend, I’ve come to talk with you again.”\n\n\n“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”\n\n\n“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”"
   },
   {
     "objectID": "slides/07-text-data.html#scaling-terms",
@@ -2221,7 +2221,7 @@
     "href": "slides/07-text-data.html#term-frequencies-tf",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Term Frequencies (TF)",
-    "text": "Term Frequencies (TF)\n\nIf a document is longer, it is more likely to share words.\nLet’s use frequencies instead of counts\n\n\nbow_totals = bow_dataframe.sum(axis = 1)\nbow_totals\n\n0    15\n1     5\n2    26\n3    18\ndtype: int64\n\nbow_tf = bow_dataframe.divide(bow_totals, axis = 0)\nbow_tf\n\n          a    adding   already  ...      turn     walks   whoever\n0  0.000000  0.000000  0.000000  ...  0.000000  0.066667  0.066667\n1  0.000000  0.000000  0.000000  ...  0.000000  0.000000  0.000000\n2  0.038462  0.038462  0.038462  ...  0.000000  0.000000  0.000000\n3  0.000000  0.000000  0.000000  ...  0.055556  0.000000  0.000000\n\n[4 rows x 45 columns]"
+    "text": "Term Frequencies (TF)\nLet’s use frequencies instead of counts.\n\nbow_tf = bow_dataframe.divide(bow_totals, axis = 0)\nbow_tf\n\n          a    adding   already  ...      turn     walks   whoever\n0  0.000000  0.000000  0.000000  ...  0.000000  0.066667  0.066667\n1  0.000000  0.000000  0.000000  ...  0.000000  0.000000  0.000000\n2  0.038462  0.038462  0.038462  ...  0.000000  0.000000  0.000000\n3  0.000000  0.000000  0.000000  ...  0.055556  0.000000  0.000000\n\n[4 rows x 45 columns]"
   },
   {
     "objectID": "slides/07-text-data.html#term-frequencies-tf-1",
@@ -2235,21 +2235,21 @@
     "href": "slides/07-text-data.html#inverse-document-frequency-idf",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Inverse Document Frequency (IDF)",
-    "text": "Inverse Document Frequency (IDF)\n\nIn principle, if two documents share rarer words they are more similar.\nWhat matters is not overall word frequency but how many of the documents have that word.\nCompute document frequency:\n\n\nhas_word = (bow_dataframe &gt; 0)\nhas_word[[\"darkness\", \"light\"]]\n\n   darkness  light\n0      True  False\n1      True  False\n2      True   True\n3     False   True"
+    "text": "Inverse Document Frequency (IDF)\n\nIn principle, if two documents share rarer words they are more similar.\nWhat matters is not overall word frequency but how many of the documents have that word.\n\n\n\nbow_dataframe\n\n   a  adding  already  and  be  brother  ...  the  times  to  turn  walks  whoever\n0  0       0        0    1   0        1  ...    2      0   0     0      1        1\n1  0       0        0    0   0        0  ...    0      0   0     0      0        0\n2  1       1        1    0   0        0  ...    0      0   1     0      0        0\n3  0       0        0    0   1        0  ...    2      1   1     1      0        0\n\n[4 rows x 45 columns]"
   },
   {
     "objectID": "slides/07-text-data.html#idf",
     "href": "slides/07-text-data.html#idf",
     "title": "Bag-of-Words and TF-IDF",
     "section": "IDF",
-    "text": "IDF\n\nbow_df = has_word.sum(axis = 0)/4\nbow_df\n\na             0.25\nadding        0.25\nalready       0.25\nand           0.25\nbe            0.25\nbrother       0.25\ncan           0.50\ncannot        0.25\ndarkest       0.25\ndarkness      0.75\ndeeper        0.25\ndevoid        0.25\ndo            0.25\ndrive         0.25\nfor           0.50\nfound         0.25\nfriend        0.25\nhappiness     0.25\nhas           0.25\nhate          0.50\nhello         0.25\nhis           0.25\nif            0.25\nin            0.50\nis            0.25\nlight         0.50\nmultiplies    0.25\nmy            0.25\nnight         0.25\nof            0.50\nold           0.25\non            0.25\none           0.25\nonly          0.50\nout           0.25\nremembers     0.25\nreturning     0.25\nstars         0.25\nthat          0.25\nthe           0.50\ntimes         0.25\nto            0.50\nturn          0.25\nwalks         0.25\nwhoever       0.25\ndtype: float64"
+    "text": "IDF\nFirst, isolate the words that occured in each document.\n\nhas_word = (bow_dataframe &gt; 0)\nhas_word[[\"darkness\", \"light\"]]\n\n   darkness  light\n0      True  False\n1      True  False\n2      True   True\n3     False   True\n\n\n\nThen, let’s calculate how often the word occurred across the four documents.\n\nbow_df = has_word.sum(axis = 0)/4\nbow_df\n\na             0.25\nadding        0.25\nalready       0.25\nand           0.25\nbe            0.25\nbrother       0.25\ncan           0.50\ncannot        0.25\ndarkest       0.25\ndarkness      0.75\ndeeper        0.25\ndevoid        0.25\ndo            0.25\ndrive         0.25\nfor           0.50\nfound         0.25\nfriend        0.25\nhappiness     0.25\nhas           0.25\nhate          0.50\nhello         0.25\nhis           0.25\nif            0.25\nin            0.50\nis            0.25\nlight         0.50\nmultiplies    0.25\nmy            0.25\nnight         0.25\nof            0.50\nold           0.25\non            0.25\none           0.25\nonly          0.50\nout           0.25\nremembers     0.25\nreturning     0.25\nstars         0.25\nthat          0.25\nthe           0.50\ntimes         0.25\nto            0.50\nturn          0.25\nwalks         0.25\nwhoever       0.25\ndtype: float64"
   },
   {
     "objectID": "slides/07-text-data.html#idf-1",
     "href": "slides/07-text-data.html#idf-1",
     "title": "Bag-of-Words and TF-IDF",
     "section": "IDF",
-    "text": "IDF\nAdjust for inverse document frequencies:\n\nbow_log_idf = np.log(1/bow_df)\nbow_tf_idf = bow_tf.multiply(bow_log_idf, axis = 1)\nbow_tf_idf[[\"darkness\", \"light\"]]\n\n   darkness     light\n0  0.038358  0.000000\n1  0.057536  0.000000\n2  0.033194  0.026660\n3  0.000000  0.038508"
+    "text": "IDF\nNow, we adjust for inverse document frequencies:\n\nbow_log_idf = np.log(1 / bow_df)\nbow_log_idf\n\na             1.386294\nadding        1.386294\nalready       1.386294\nand           1.386294\nbe            1.386294\nbrother       1.386294\ncan           0.693147\ncannot        1.386294\ndarkest       1.386294\ndarkness      0.287682\ndeeper        1.386294\ndevoid        1.386294\ndo            1.386294\ndrive         1.386294\nfor           0.693147\nfound         1.386294\nfriend        1.386294\nhappiness     1.386294\nhas           1.386294\nhate          0.693147\nhello         1.386294\nhis           1.386294\nif            1.386294\nin            0.693147\nis            1.386294\nlight         0.693147\nmultiplies    1.386294\nmy            1.386294\nnight         1.386294\nof            0.693147\nold           1.386294\non            1.386294\none           1.386294\nonly          0.693147\nout           1.386294\nremembers     1.386294\nreturning     1.386294\nstars         1.386294\nthat          1.386294\nthe           0.693147\ntimes         1.386294\nto            0.693147\nturn          1.386294\nwalks         1.386294\nwhoever       1.386294\ndtype: float64\n\n\n\n\nbow_tf_idf = bow_tf.multiply(bow_log_idf, axis = 1)\nbow_tf_idf[[\"darkness\", \"light\"]]\n\n   darkness     light\n0  0.038358  0.000000\n1  0.057536  0.000000\n2  0.033194  0.026660\n3  0.000000  0.038508"
   },
   {
     "objectID": "slides/07-text-data.html#tf-idf-1",
@@ -2262,8 +2262,8 @@
     "objectID": "slides/07-text-data.html#tf-idf-in-sklearn",
     "href": "slides/07-text-data.html#tf-idf-in-sklearn",
     "title": "Bag-of-Words and TF-IDF",
-    "section": "TF-IDF in Sklearn",
-    "text": "TF-IDF in Sklearn\n\nfrom sklearn.feature_extraction.text import TfidfVectorizer\n\n# The options ensure that the numbers match our example above.\nvec = TfidfVectorizer(smooth_idf=False, norm=None)\nvec.fit(documents)\n\nTfidfVectorizer(norm=None, smooth_idf=False)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.TfidfVectorizer?Documentation for TfidfVectorizeriFittedTfidfVectorizer(norm=None, smooth_idf=False) \n\ntfidf_matrix = vec.transform(documents)\n\ncosine_distances(tfidf_matrix)\n\narray([[0.        , 0.92261817, 0.78495457, 0.78557322],\n       [0.92261817, 0.        , 0.91239706, 1.        ],\n       [0.78495457, 0.91239706, 0.        , 0.86513906],\n       [0.78557322, 1.        , 0.86513906, 0.        ]])"
+    "section": "TF-IDF in sklearn",
+    "text": "TF-IDF in sklearn\nSpecify\n\n\nfrom sklearn.feature_extraction.text import TfidfVectorizer\n\n# These options ensure that the numbers match our example above\nvec = TfidfVectorizer(smooth_idf = False, norm = None)\n\n\nFit\n\n\n\nvec.fit(documents)\n\n\nTfidfVectorizer(norm=None, smooth_idf=False)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.TfidfVectorizer?Documentation for TfidfVectorizeriFittedTfidfVectorizer(norm=None, smooth_idf=False) \n\n\n\nTransform\n\n\ntfidf_matrix = vec.transform(documents)"
   },
   {
     "objectID": "slides/07-text-data.html#activity-3",
@@ -2335,5 +2335,96 @@
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
     ]
+  },
+  {
+    "objectID": "slides/07-text-data.html#one-fish-two-fish",
+    "href": "slides/07-text-data.html#one-fish-two-fish",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "One Fish Two Fish",
+    "text": "One Fish Two Fish\nUsing bi-grams, unigrams, and tri-grams, which Dr. Seuss document is closest to “One Fish Two Fish”?"
+  },
+  {
+    "objectID": "slides/07-text-data.html#example-with-code",
+    "href": "slides/07-text-data.html#example-with-code",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "Example with Code",
+    "text": "Example with Code\n\n\nCode\ndocuments = [\n    \"whoever has hate for his brother is in the darkness and walks in the darkness\",\n    \"hello darkness my old friend\",\n    \"returning hate for hate multiplies hate adding deeper darkness to a night already devoid of stars darkness cannot drive out darkness only light can do that\",\n    \"happiness can be found in the darkest of times if only one remembers to turn on the light\"\n]\n\n\n\n\nCode\nfrom sklearn.feature_extraction.text import CountVectorizer\n\nvec = CountVectorizer(token_pattern = r\"\\w+\")\nvec.fit(documents)\n\n\nCountVectorizer(token_pattern='\\\\w+')In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.CountVectorizer?Documentation for CountVectorizeriFittedCountVectorizer(token_pattern='\\\\w+') \n\n\nCode\nbow_matrix = vec.transform(documents)\nbow_matrix\n\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'int64'\n    with 56 stored elements and shape (4, 45)&gt;"
+  },
+  {
+    "objectID": "slides/07-text-data.html#example-output",
+    "href": "slides/07-text-data.html#example-output",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "Example Output",
+    "text": "Example Output\n\nbow_dataframe = pd.DataFrame(\n  bow_matrix.todense(), \n  columns = vec.get_feature_names_out()\n  )\nbow_dataframe[[\"darkness\", \"light\"]]\n\n   darkness  light\n0         2      0\n1         1      0\n2         3      1\n3         0      1"
+  },
+  {
+    "objectID": "slides/07-text-data.html#measuring-similarity-1",
+    "href": "slides/07-text-data.html#measuring-similarity-1",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "Measuring Similarity",
+    "text": "Measuring Similarity\nWhich of these seems most important for measuring similarity?\n\nDocument B, C, D all have the word “to”\nDocuments A, B, and C all have the word darkness.\nDocument A and Document C both have the word “hate”\nDocument C and Document D both have the word “light”"
+  },
+  {
+    "objectID": "slides/07-text-data.html#tf-idf-scaling",
+    "href": "slides/07-text-data.html#tf-idf-scaling",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "TF-IDF Scaling",
+    "text": "TF-IDF Scaling\nWe would like to scale our word counts by the document length (TF).\n\nWe would also like to scale our word counts by the number of documents they appear in. (IDF)"
+  },
+  {
+    "objectID": "slides/07-text-data.html#document-lengths",
+    "href": "slides/07-text-data.html#document-lengths",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "Document Lengths",
+    "text": "Document Lengths\nIf a document is longer, it is more likely to share words with other documents.\n\nbow_totals = bow_dataframe.sum(axis = 1)\nbow_totals\n\n0    15\n1     5\n2    26\n3    18\ndtype: int64"
+  },
+  {
+    "objectID": "slides/07-text-data.html#distance-of-term-frequencies-tf",
+    "href": "slides/07-text-data.html#distance-of-term-frequencies-tf",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "Distance of Term Frequencies (TF)",
+    "text": "Distance of Term Frequencies (TF)\n\n\ndists = cosine_distances(bow_tf)\ndists[0].argsort()\n\narray([0, 2, 3, 1])\n\n\n\n\n\n“Whoever has hate for his brother is in the darkness and walks in the darkness.”\n\n\n“Hello darkness, my old friend, I’ve come to talk with you again.”\n\n\n“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”\n\n\n“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”"
+  },
+  {
+    "objectID": "slides/07-text-data.html#idf---step-1",
+    "href": "slides/07-text-data.html#idf---step-1",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "IDF - Step 1",
+    "text": "IDF - Step 1\nFirst, isolate the words that occurred in each document.\n\nhas_word = (bow_dataframe &gt; 0)\nhas_word[[\"darkness\", \"light\", \"hate\"]]\n\n   darkness  light   hate\n0      True  False   True\n1      True  False  False\n2      True   True   True\n3     False   True  False"
+  },
+  {
+    "objectID": "slides/07-text-data.html#idf---step-2",
+    "href": "slides/07-text-data.html#idf---step-2",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "IDF - Step 2",
+    "text": "IDF - Step 2\nThen, let’s calculate how often the word occurred across the four documents.\n\n\n\nbow_df = (\n  has_word\n  .sum(axis = 0) / 4\n  )\nbow_df\n\na             0.25\nadding        0.25\nalready       0.25\nand           0.25\nbe            0.25\nbrother       0.25\ncan           0.50\ncannot        0.25\ndarkest       0.25\ndarkness      0.75\ndeeper        0.25\ndevoid        0.25\ndo            0.25\ndrive         0.25\nfor           0.50\nfound         0.25\nfriend        0.25\nhappiness     0.25\nhas           0.25\nhate          0.50\nhello         0.25\nhis           0.25\nif            0.25\nin            0.50\nis            0.25\nlight         0.50\nmultiplies    0.25\nmy            0.25\nnight         0.25\nof            0.50\nold           0.25\non            0.25\none           0.25\nonly          0.50\nout           0.25\nremembers     0.25\nreturning     0.25\nstars         0.25\nthat          0.25\nthe           0.50\ntimes         0.25\nto            0.50\nturn          0.25\nwalks         0.25\nwhoever       0.25\ndtype: float64\n\n\n\n\n\n\n\n\n\n\n\naxis = 0\n\n\nWhat values are we summing?"
+  },
+  {
+    "objectID": "slides/07-text-data.html#idf---step-3",
+    "href": "slides/07-text-data.html#idf---step-3",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "IDF - Step 3",
+    "text": "IDF - Step 3\nFind the inverse document frequencies:\n\n\n\nbow_log_idf = np.log(1 / bow_df)\nbow_log_idf\n\na             1.386294\nadding        1.386294\nalready       1.386294\nand           1.386294\nbe            1.386294\nbrother       1.386294\ncan           0.693147\ncannot        1.386294\ndarkest       1.386294\ndarkness      0.287682\ndeeper        1.386294\ndevoid        1.386294\ndo            1.386294\ndrive         1.386294\nfor           0.693147\nfound         1.386294\nfriend        1.386294\nhappiness     1.386294\nhas           1.386294\nhate          0.693147\nhello         1.386294\nhis           1.386294\nif            1.386294\nin            0.693147\nis            1.386294\nlight         0.693147\nmultiplies    1.386294\nmy            1.386294\nnight         1.386294\nof            0.693147\nold           1.386294\non            1.386294\none           1.386294\nonly          0.693147\nout           1.386294\nremembers     1.386294\nreturning     1.386294\nstars         1.386294\nthat          1.386294\nthe           0.693147\ntimes         1.386294\nto            0.693147\nturn          1.386294\nwalks         1.386294\nwhoever       1.386294\ndtype: float64\n\n\n\n\n\n\n\n\n\n\n\nMore than just the inverse!\n\n\nNotice we are using \\(log(\\frac{1}{p_i})\\) to get the IDFs."
+  },
+  {
+    "objectID": "slides/07-text-data.html#idf---step-4",
+    "href": "slides/07-text-data.html#idf---step-4",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "IDF - Step 4",
+    "text": "IDF - Step 4\nAdjust for the inverse document frequencies:\n\n\n\n\nbow_tf[[\"darkness\", \"light\", \"hate\"]]\n\n   darkness     light      hate\n0  0.133333  0.000000  0.066667\n1  0.200000  0.000000  0.000000\n2  0.115385  0.038462  0.115385\n3  0.000000  0.055556  0.000000\n\n\n\n\n\n\n\n\nbow_log_idf[[\"darkness\", \"light\", \"hate\"]]\n\ndarkness    0.287682\nlight       0.693147\nhate        0.693147\ndtype: float64\n\n\n\n\n\n\nbow_tf_idf = bow_tf.multiply(bow_log_idf, axis = 1)\n\n\n\n\n\nbow_tf_idf[[\"darkness\", \"light\", \"hate\"]]\n\n   darkness     light      hate\n0  0.038358  0.000000  0.046210\n1  0.057536  0.000000  0.000000\n2  0.033194  0.026660  0.079979\n3  0.000000  0.038508  0.000000"
+  },
+  {
+    "objectID": "slides/07-text-data.html#tf-idf-distances",
+    "href": "slides/07-text-data.html#tf-idf-distances",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "TF-IDF Distances",
+    "text": "TF-IDF Distances\n\n\ndists = cosine_distances(bow_tf_idf).round(decimals = 2)\ndists[0].argsort()\n\narray([0, 3, 2, 1])\n\n\n\n“Whoever has hate for his brother is in the darkness and walks in the darkness.”\n\n\n“Hello darkness, my old friend, I’ve come to talk with you again.”\n\n\n“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”\n\n\n“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”"
+  },
+  {
+    "objectID": "slides/07-text-data.html#tf-idf-in-sklearn-1",
+    "href": "slides/07-text-data.html#tf-idf-in-sklearn-1",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "TF-IDF in sklearn",
+    "text": "TF-IDF in sklearn\n\n\ndists = cosine_distances(tfidf_matrix).round(decimals = 2)\ndists[0].argsort()\n\narray([0, 2, 3, 1])\n\n\n\n“Whoever has hate for his brother is in the darkness and walks in the darkness.”\n\n\n“Hello darkness, my old friend, I’ve come to talk with you again.”\n\n\n“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”\n\n\n“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”"
   }
 ]

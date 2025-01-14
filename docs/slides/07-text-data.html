@@ -2541,13 +2541,138 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="similar-documents" class="slide level2">
 <h2>Similar Documents</h2>
 <p>Now, we can use this <strong>bag-of-words</strong> data to measure <strong>similarities</strong> between documents!</p>
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
-<span id="cb38-2"><a></a></span>
-<span id="cb38-3"><a></a>vec <span class="op">=</span> CountVectorizer(ngram_range <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb38-4"><a></a>vec.fit(docs.values())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
+<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a aria-hidden="true" tabindex="-1"></a>dat <span class="op">=</span> vec.transform(docs.values())</span>
+<span id="cb38-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> pairwise_distances(dat)</span>
+<span id="cb38-6"><a aria-hidden="true" tabindex="-1"></a>dists</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>array([[  0.        , 204.84628383, 178.52730884, 219.79535937,
+        168.42802617, 228.52570971, 183.5973856 , 178.83511959],
+       [204.84628383,   0.        , 189.45711916, 157.15597348,
+        186.2793601 , 152.32859219, 175.28262892, 156.12815249],
+       [178.52730884, 189.45711916,   0.        , 171.66828478,
+         95.21554495, 189.95262567, 141.52031656, 130.11533345],
+       [219.79535937, 157.15597348, 171.66828478,   0.        ,
+        163.84138671, 138.97481786, 174.56230979, 162.59766296],
+       [168.42802617, 186.2793601 ,  95.21554495, 163.84138671,
+          0.        , 188.92855793, 133.1990991 , 112.89818422],
+       [228.52570971, 152.32859219, 189.95262567, 138.97481786,
+        188.92855793,   0.        , 162.83120094, 164.95453919],
+       [183.5973856 , 175.28262892, 141.52031656, 174.56230979,
+        133.1990991 , 162.83120094,   0.        , 134.98888843],
+       [178.83511959, 156.12815249, 130.11533345, 162.59766296,
+        112.89818422, 164.95453919, 134.98888843,   0.        ]])</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="similar-documents-1" class="slide level2">
+<h2>Similar Documents</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a>dists[<span class="dv">0</span>].argsort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>array([0, 4, 2, 7, 6, 1, 3, 5])</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>docs.keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dict_keys(['green_eggs_and_ham.txt', 'cat_in_the_hat.txt', 'fox_in_socks.txt', 'how_the_grinch_stole_christmas.txt', 'hop_on_pop.txt', 'horton_hears_a_who.txt', 'oh_the_places_youll_go.txt', 'one_fish_two_fish.txt'])</code></pre>
+</div>
+</div>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>This is how data scientists do <strong>authorship identification</strong>!</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="lecture-activity-4.2---part-1" class="title-slide slide level1 center">
+<h1>Lecture Activity 4.2 - Part 1</h1>
+
+</section>
+<section id="one-fish-two-fish" class="slide level2">
+<h2>One Fish Two Fish</h2>
+<p>Using bi-grams, unigrams, and tri-grams, which Dr.&nbsp;Seuss document is closest to “One Fish Two Fish”?</p>
+</section></section>
+<section>
+<section id="motivating-example" class="title-slide slide level1 center">
+<h1>Motivating Example</h1>
+
+</section>
+<section id="issues-with-the-distance-approach" class="slide level2">
+<h2>Issues with the Distance Approach</h2>
+<p><strong>BUT WAIT!</strong></p>
+<ul>
+<li><p>Don’t we care more about <em>word choice</em> than <em>total words used</em>?</p></li>
+<li><p>Wouldn’t a <em>longer document</em> have <em>more words</em>, and thus be able to “match” other documents?</p></li>
+<li><p>Wouldn’t <em>more common words</em> appear in more documents, and thus cause them to “match”?</p></li>
+<li><p>Recall: We have many options for <strong>scaling</strong></p></li>
+<li><p>Recall: We have many options for <strong>distance metrics</strong>.</p></li>
+</ul>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<div class="small">
+<p><strong>Document A:</strong></p>
+<blockquote>
+<p>“Whoever has hate for his brother is in the darkness and walks in the darkness.”</p>
+</blockquote>
+<p><strong>Document B:</strong></p>
+<blockquote>
+<p>“Hello darkness, my old friend, I’ve come to talk with you again.”</p>
+</blockquote>
+<p><strong>Document C:</strong></p>
+<blockquote>
+<p>“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”</p>
+</blockquote>
+<p><strong>Document D:</strong></p>
+<blockquote>
+<p>“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”</p>
+</blockquote>
+</div>
+</section>
+<section id="example-with-code" class="slide level2">
+<h2>Example with Code</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>documents <span class="op">=</span> [</span>
+<span id="cb44-2"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"whoever has hate for his brother is in the darkness and walks in the darkness"</span>,</span>
+<span id="cb44-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"hello darkness my old friend"</span>,</span>
+<span id="cb44-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"returning hate for hate multiplies hate adding deeper darkness to a night already devoid of stars darkness cannot drive out darkness only light can do that"</span>,</span>
+<span id="cb44-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="st">"happiness can be found in the darkest of times if only one remembers to turn on the light"</span></span>
+<span id="cb44-6"><a aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
+<span id="cb45-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> CountVectorizer(token_pattern <span class="op">=</span> <span class="vs">r"\w+"</span>)</span>
+<span id="cb45-4"><a aria-hidden="true" tabindex="-1"></a>vec.fit(documents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-<style>#sk-container-id-5 {
+<style>#sk-container-id-6 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: #000;
   --sklearn-color-text-muted: #666;
@@ -2578,15 +2703,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   }
 }
 
-#sk-container-id-5 {
+#sk-container-id-6 {
   color: var(--sklearn-color-text);
 }
 
-#sk-container-id-5 pre {
+#sk-container-id-6 pre {
   padding: 0;
 }
 
-#sk-container-id-5 input.sk-hidden--visually {
+#sk-container-id-6 input.sk-hidden--visually {
   border: 0;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
@@ -2598,7 +2723,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   width: 1px;
 }
 
-#sk-container-id-5 div.sk-dashed-wrapped {
+#sk-container-id-6 div.sk-dashed-wrapped {
   border: 1px dashed var(--sklearn-color-line);
   margin: 0 0.4em 0.5em 0.4em;
   box-sizing: border-box;
@@ -2606,7 +2731,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   background-color: var(--sklearn-color-background);
 }
 
-#sk-container-id-5 div.sk-container {
+#sk-container-id-6 div.sk-container {
   /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
      but bootstrap.min.css set `[hidden] { display: none !important; }`
      so we also need the `!important` here to be able to override the
@@ -2616,7 +2741,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   position: relative;
 }
 
-#sk-container-id-5 div.sk-text-repr-fallback {
+#sk-container-id-6 div.sk-text-repr-fallback {
   display: none;
 }
 
@@ -2632,14 +2757,14 @@ div.sk-item {
 
 /* Parallel-specific style estimator block */
 
-#sk-container-id-5 div.sk-parallel-item::after {
+#sk-container-id-6 div.sk-parallel-item::after {
   content: "";
   width: 100%;
   border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
   flex-grow: 1;
 }
 
-#sk-container-id-5 div.sk-parallel {
+#sk-container-id-6 div.sk-parallel {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -2647,28 +2772,28 @@ div.sk-item {
   position: relative;
 }
 
-#sk-container-id-5 div.sk-parallel-item {
+#sk-container-id-6 div.sk-parallel-item {
   display: flex;
   flex-direction: column;
 }
 
-#sk-container-id-5 div.sk-parallel-item:first-child::after {
+#sk-container-id-6 div.sk-parallel-item:first-child::after {
   align-self: flex-end;
   width: 50%;
 }
 
-#sk-container-id-5 div.sk-parallel-item:last-child::after {
+#sk-container-id-6 div.sk-parallel-item:last-child::after {
   align-self: flex-start;
   width: 50%;
 }
 
-#sk-container-id-5 div.sk-parallel-item:only-child::after {
+#sk-container-id-6 div.sk-parallel-item:only-child::after {
   width: 0;
 }
 
 /* Serial-specific style estimator block */
 
-#sk-container-id-5 div.sk-serial {
+#sk-container-id-6 div.sk-serial {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2686,14 +2811,14 @@ clickable and can be expanded/collapsed.
 
 /* Pipeline and ColumnTransformer style (default) */
 
-#sk-container-id-5 div.sk-toggleable {
+#sk-container-id-6 div.sk-toggleable {
   /* Default theme specific background. It is overwritten whether we have a
   specific estimator or a Pipeline/ColumnTransformer */
   background-color: var(--sklearn-color-background);
 }
 
 /* Toggleable label */
-#sk-container-id-5 label.sk-toggleable__label {
+#sk-container-id-6 label.sk-toggleable__label {
   cursor: pointer;
   display: flex;
   width: 100%;
@@ -2706,13 +2831,13 @@ clickable and can be expanded/collapsed.
   gap: 0.5em;
 }
 
-#sk-container-id-5 label.sk-toggleable__label .caption {
+#sk-container-id-6 label.sk-toggleable__label .caption {
   font-size: 0.6rem;
   font-weight: lighter;
   color: var(--sklearn-color-text-muted);
 }
 
-#sk-container-id-5 label.sk-toggleable__label-arrow:before {
+#sk-container-id-6 label.sk-toggleable__label-arrow:before {
   /* Arrow on the left of the label */
   content: "▸";
   float: left;
@@ -2720,13 +2845,13 @@ clickable and can be expanded/collapsed.
   color: var(--sklearn-color-icon);
 }
 
-#sk-container-id-5 label.sk-toggleable__label-arrow:hover:before {
+#sk-container-id-6 label.sk-toggleable__label-arrow:hover:before {
   color: var(--sklearn-color-text);
 }
 
 /* Toggleable content - dropdown */
 
-#sk-container-id-5 div.sk-toggleable__content {
+#sk-container-id-6 div.sk-toggleable__content {
   max-height: 0;
   max-width: 0;
   overflow: hidden;
@@ -2735,12 +2860,12 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-5 div.sk-toggleable__content.fitted {
+#sk-container-id-6 div.sk-toggleable__content.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-5 div.sk-toggleable__content pre {
+#sk-container-id-6 div.sk-toggleable__content pre {
   margin: 0.2em;
   border-radius: 0.25em;
   color: var(--sklearn-color-text);
@@ -2748,79 +2873,79 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-5 div.sk-toggleable__content.fitted pre {
+#sk-container-id-6 div.sk-toggleable__content.fitted pre {
   /* unfitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-5 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+#sk-container-id-6 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
   max-height: 200px;
   max-width: 100%;
   overflow: auto;
 }
 
-#sk-container-id-5 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+#sk-container-id-6 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
   content: "▾";
 }
 
 /* Pipeline/ColumnTransformer-specific style */
 
-#sk-container-id-5 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-6 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-5 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-6 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator-specific style */
 
 /* Colorize estimator box */
-#sk-container-id-5 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-6 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-5 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-6 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
-#sk-container-id-5 div.sk-label label.sk-toggleable__label,
-#sk-container-id-5 div.sk-label label {
+#sk-container-id-6 div.sk-label label.sk-toggleable__label,
+#sk-container-id-6 div.sk-label label {
   /* The background is the default theme color */
   color: var(--sklearn-color-text-on-default-background);
 }
 
 /* On hover, darken the color of the background */
-#sk-container-id-5 div.sk-label:hover label.sk-toggleable__label {
+#sk-container-id-6 div.sk-label:hover label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
 /* Label box, darken color on hover, fitted */
-#sk-container-id-5 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+#sk-container-id-6 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator label */
 
-#sk-container-id-5 div.sk-label label {
+#sk-container-id-6 div.sk-label label {
   font-family: monospace;
   font-weight: bold;
   display: inline-block;
   line-height: 1.2em;
 }
 
-#sk-container-id-5 div.sk-label-container {
+#sk-container-id-6 div.sk-label-container {
   text-align: center;
 }
 
 /* Estimator-specific */
-#sk-container-id-5 div.sk-estimator {
+#sk-container-id-6 div.sk-estimator {
   font-family: monospace;
   border: 1px dotted var(--sklearn-color-border-box);
   border-radius: 0.25em;
@@ -2830,18 +2955,18 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-5 div.sk-estimator.fitted {
+#sk-container-id-6 div.sk-estimator.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
 /* on hover */
-#sk-container-id-5 div.sk-estimator:hover {
+#sk-container-id-6 div.sk-estimator:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-5 div.sk-estimator.fitted:hover {
+#sk-container-id-6 div.sk-estimator.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
@@ -2929,7 +3054,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 /* "?"-specific style due to the `<a>` HTML tag */
 
-#sk-container-id-5 a.estimator_doc_link {
+#sk-container-id-6 a.estimator_doc_link {
   float: right;
   font-size: 1rem;
   line-height: 1em;
@@ -2944,133 +3069,498 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
 }
 
-#sk-container-id-5 a.estimator_doc_link.fitted {
+#sk-container-id-6 a.estimator_doc_link.fitted {
   /* fitted */
   border: var(--sklearn-color-fitted-level-1) 1pt solid;
   color: var(--sklearn-color-fitted-level-1);
 }
 
 /* On hover */
-#sk-container-id-5 a.estimator_doc_link:hover {
+#sk-container-id-6 a.estimator_doc_link:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-3);
   color: var(--sklearn-color-background);
   text-decoration: none;
 }
 
-#sk-container-id-5 a.estimator_doc_link.fitted:hover {
+#sk-container-id-6 a.estimator_doc_link.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</a></style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>CountVectorizer(ngram_range=(1, 2))</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" checked=""><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>CountVectorizer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">?<span>Documentation for CountVectorizer</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>CountVectorizer(ngram_range=(1, 2))</pre></div> </div></div></div></div>
+</a></style><div id="sk-container-id-6" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>CountVectorizer(token_pattern='\\w+')</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" checked=""><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>CountVectorizer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">?<span>Documentation for CountVectorizer</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>CountVectorizer(token_pattern='\\w+')</pre></div> </div></div></div></div>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>dat <span class="op">=</span> vec.transform(docs.values())</span>
-<span id="cb39-2"><a></a></span>
-<span id="cb39-3"><a></a>dists <span class="op">=</span> pairwise_distances(dat)</span>
-<span id="cb39-4"><a></a>dists</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a aria-hidden="true" tabindex="-1"></a>bow_matrix <span class="op">=</span> vec.transform(documents)</span>
+<span id="cb46-2"><a aria-hidden="true" tabindex="-1"></a>bow_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>array([[  0.        , 204.84628383, 178.52730884, 219.79535937,
-        168.42802617, 228.52570971, 183.5973856 , 178.83511959],
-       [204.84628383,   0.        , 189.45711916, 157.15597348,
-        186.2793601 , 152.32859219, 175.28262892, 156.12815249],
-       [178.52730884, 189.45711916,   0.        , 171.66828478,
-         95.21554495, 189.95262567, 141.52031656, 130.11533345],
-       [219.79535937, 157.15597348, 171.66828478,   0.        ,
-        163.84138671, 138.97481786, 174.56230979, 162.59766296],
-       [168.42802617, 186.2793601 ,  95.21554495, 163.84138671,
-          0.        , 188.92855793, 133.1990991 , 112.89818422],
-       [228.52570971, 152.32859219, 189.95262567, 138.97481786,
-        188.92855793,   0.        , 162.83120094, 164.95453919],
-       [183.5973856 , 175.28262892, 141.52031656, 174.56230979,
-        133.1990991 , 162.83120094,   0.        , 134.98888843],
-       [178.83511959, 156.12815249, 130.11533345, 162.59766296,
-        112.89818422, 164.95453919, 134.98888843,   0.        ]])</code></pre>
+<pre><code>&lt;Compressed Sparse Row sparse matrix of dtype 'int64'
+    with 56 stored elements and shape (4, 45)&gt;</code></pre>
 </div>
 </div>
 </section>
-<section id="similar-documents-1" class="slide level2">
-<h2>Similar Documents</h2>
+<section id="example-output" class="slide level2">
+<h2>Example Output</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>dists[<span class="dv">0</span>].argsort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a aria-hidden="true" tabindex="-1"></a>bow_dataframe <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb48-2"><a aria-hidden="true" tabindex="-1"></a>  bow_matrix.todense(), </span>
+<span id="cb48-3"><a aria-hidden="true" tabindex="-1"></a>  columns <span class="op">=</span> vec.get_feature_names_out()</span>
+<span id="cb48-4"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb48-5"><a aria-hidden="true" tabindex="-1"></a>bow_dataframe[[<span class="st">"darkness"</span>, <span class="st">"light"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>array([0, 4, 2, 7, 6, 1, 3, 5])</code></pre>
+<pre><code>   darkness  light
+0         2      0
+1         1      0
+2         3      1
+3         0      1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>docs.keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>dict_keys(['green_eggs_and_ham.txt', 'cat_in_the_hat.txt', 'fox_in_socks.txt', 'how_the_grinch_stole_christmas.txt', 'hop_on_pop.txt', 'horton_hears_a_who.txt', 'oh_the_places_youll_go.txt', 'one_fish_two_fish.txt'])</code></pre>
 </div>
-</div>
-<ul>
-<li>This is how data scientists do <strong>authorship identification</strong>!</li>
-</ul>
-</section></section>
-<section>
-<section id="activity" class="title-slide slide level1 center">
-<h1>Activity</h1>
-
 </section>
-<section id="activity-1" class="slide level2">
-<h2>Activity 1</h2>
-<p>Using bi-grams, unigrams, and tri-grams, which Dr.&nbsp;Seuss document is closest to “One Fish Two Fish”?</p>
-</section></section>
-<section>
-<section id="motivating-example" class="title-slide slide level1 center">
-<h1>Motivating Example</h1>
-
-</section>
-<section id="issues-with-the-distance-approach" class="slide level2">
-<h2>Issues with the Distance Approach</h2>
-<p><strong>BUT WAIT!</strong></p>
-<ul>
-<li><p>Don’t we care more about <em>word choice</em> than <em>total words used</em>?</p></li>
-<li><p>Wouldn’t a <em>longer document</em> have <em>more words</em>, and thus be able to “match” other documents?</p></li>
-<li><p>Wouldn’t <em>more common words</em> appear in more documents, and thus cause them to “match”?</p></li>
-<li><p>Recall: We have many options for <strong>scaling</strong></p></li>
-<li><p>Recall: We have many options for <strong>distance metrics</strong>.</p></li>
-</ul>
-</section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
+<section id="measuring-similarity" class="slide level2">
+<h2>Measuring Similarity</h2>
 <div class="small">
-<p><strong>Document A:</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
+<span id="cb50-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> pairwise_distances(bow_matrix)</span>
+<span id="cb50-4"><a aria-hidden="true" tabindex="-1"></a>dists[<span class="dv">0</span>].argsort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>array([0, 1, 3, 2])</code></pre>
+</div>
+</div>
 <blockquote>
 <p>“Whoever has hate for his brother is in the darkness and walks in the darkness.”</p>
 </blockquote>
-<p><strong>Document B:</strong></p>
 <blockquote>
 <p>“Hello darkness, my old friend, I’ve come to talk with you again.”</p>
 </blockquote>
-<p><strong>Document C:</strong></p>
 <blockquote>
 <p>“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”</p>
 </blockquote>
-<p><strong>Document D:</strong></p>
+<blockquote>
+<p>“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”</p>
+</blockquote>
+</div>
+</section></section>
+<section>
+<section id="cosine-distance" class="title-slide slide level1 center">
+<h1>Cosine Distance</h1>
+
+</section>
+<section id="choosing-your-distance-metric" class="slide level2">
+<h2>Choosing Your Distance Metric</h2>
+<p>Is <strong>euclidean distance</strong> really the best choice?!</p>
+<div class="midi">
+<blockquote>
+<p>My name is James Bond, James Bond is my name.</p>
+</blockquote>
+<blockquote>
+<p>My name is James Bond.</p>
+</blockquote>
+<blockquote>
+<p>My name is James.</p>
+</blockquote>
+<ul>
+<li><p>If we count words the second two will be the most similar.</p></li>
+<li><p>The first document is longer, so it has “double” counts.</p></li>
+<li><p>But, it has the exact same words as the first document!</p></li>
+<li><p>Solution: <strong>cosine distance</strong> (on board)</p></li>
+</ul>
+</div>
+<!-- https://medium.com/@milana.shxanukova15/cosine-distance-and-cosine-similarity-a5da0e4d9ded -->
+<!-- cosine distance = the dot product of the vectors divided by the product of their lengths -->
+</section>
+<section id="cosine-distance-1" class="slide level2">
+<h2>Cosine Distance</h2>
+<p>As a rule, <strong>cosine distance</strong> is a better choice for bag-of-words data!</p>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics.pairwise <span class="im">import</span> cosine_distances</span>
+<span id="cb52-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> cosine_distances(bow_matrix)</span>
+<span id="cb52-4"><a aria-hidden="true" tabindex="-1"></a>dists[<span class="dv">0</span>].argsort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>array([0, 2, 3, 1])</code></pre>
+</div>
+</div>
+<blockquote>
+<p>“Whoever has hate for his brother is in the darkness and walks in the darkness.”</p>
+</blockquote>
+<blockquote>
+<p>“Hello darkness, my old friend, I’ve come to talk with you again.”</p>
+</blockquote>
+<blockquote>
+<p>“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”</p>
+</blockquote>
+<blockquote>
+<p>“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”</p>
+</blockquote>
+</div>
+</section></section>
+<section>
+<section id="tf-idf" class="title-slide slide level1 center">
+<h1>TF-IDF</h1>
+
+</section>
+<section id="measuring-similarity-1" class="slide level2">
+<h2>Measuring Similarity</h2>
+<p>Which of these seems most important for measuring similarity?</p>
+<ul>
+<li><p>Document B, C, D all have the word “to”</p></li>
+<li><p>Documents A, B, and C all have the word <strong>darkness</strong>.</p></li>
+<li><p>Document A and Document C both have the word “hate”</p></li>
+<li><p>Document C and Document D both have the word “light”</p></li>
+</ul>
+</section>
+<section id="tf-idf-scaling" class="slide level2">
+<h2>TF-IDF Scaling</h2>
+<p>We would like to <strong>scale</strong> our <strong>word counts</strong> by the <strong>document length</strong> (TF).</p>
+<p><br></p>
+<p>We would also like to <strong>scale</strong> our <strong>word counts</strong> by the <strong>number of documents they appear in</strong>. (IDF)</p>
+</section>
+<section id="document-lengths" class="slide level2">
+<h2>Document Lengths</h2>
+<p>If a document is longer, it is more likely to share words with other documents.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a aria-hidden="true" tabindex="-1"></a>bow_totals <span class="op">=</span> bow_dataframe.<span class="bu">sum</span>(axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb54-2"><a aria-hidden="true" tabindex="-1"></a>bow_totals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0    15
+1     5
+2    26
+3    18
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="term-frequencies-tf" class="slide level2">
+<h2>Term Frequencies (TF)</h2>
+<p>Let’s use <em>frequencies</em> instead of <em>counts</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a aria-hidden="true" tabindex="-1"></a>bow_tf <span class="op">=</span> bow_dataframe.divide(bow_totals, axis <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb56-2"><a aria-hidden="true" tabindex="-1"></a>bow_tf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          a    adding   already  ...      turn     walks   whoever
+0  0.000000  0.000000  0.000000  ...  0.000000  0.066667  0.066667
+1  0.000000  0.000000  0.000000  ...  0.000000  0.000000  0.000000
+2  0.038462  0.038462  0.038462  ...  0.000000  0.000000  0.000000
+3  0.000000  0.000000  0.000000  ...  0.055556  0.000000  0.000000
+
+[4 rows x 45 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="distance-of-term-frequencies-tf" class="slide level2">
+<h2>Distance of Term Frequencies (TF)</h2>
+<div class="midi">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> cosine_distances(bow_tf)</span>
+<span id="cb58-2"><a aria-hidden="true" tabindex="-1"></a>dists[<span class="dv">0</span>].argsort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>array([0, 2, 3, 1])</code></pre>
+</div>
+</div>
+</div>
+<div class="small">
+<blockquote>
+<p>“Whoever has hate for his brother is in the darkness and walks in the darkness.”</p>
+</blockquote>
+<blockquote>
+<p>“Hello darkness, my old friend, I’ve come to talk with you again.”</p>
+</blockquote>
+<blockquote>
+<p>“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”</p>
+</blockquote>
 <blockquote>
 <p>“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”</p>
 </blockquote>
 </div>
 </section>
-<section id="example-1" class="slide level2">
-<h2>Example</h2>
+<section id="inverse-document-frequency-idf" class="slide level2">
+<h2>Inverse Document Frequency (IDF)</h2>
+<ul>
+<li><p>In principle, if two documents <strong>share rarer words</strong> they are <strong>more similar</strong>.</p></li>
+<li><p>What matters is not <em>overall word frequency</em> but <strong>how many of the documents</strong> have that word.</p></li>
+</ul>
+<div class="small">
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>documents <span class="op">=</span> [</span>
-<span id="cb45-2"><a></a>    <span class="st">"whoever has hate for his brother is in the darkness and walks in the darkness"</span>,</span>
-<span id="cb45-3"><a></a>    <span class="st">"hello darkness my old friend"</span>,</span>
-<span id="cb45-4"><a></a>    <span class="st">"returning hate for hate multiplies hate adding deeper darkness to a night already devoid of stars darkness cannot drive out darkness only light can do that"</span>,</span>
-<span id="cb45-5"><a></a>    <span class="st">"happiness can be found in the darkest of times if only one remembers to turn on the light"</span></span>
-<span id="cb45-6"><a></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a aria-hidden="true" tabindex="-1"></a>bow_dataframe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   a  adding  already  and  be  brother  ...  the  times  to  turn  walks  whoever
+0  0       0        0    1   0        1  ...    2      0   0     0      1        1
+1  0       0        0    0   0        0  ...    0      0   0     0      0        0
+2  1       1        1    0   0        0  ...    0      0   1     0      0        0
+3  0       0        0    0   1        0  ...    2      1   1     1      0        0
+
+[4 rows x 45 columns]</code></pre>
 </div>
+</div>
+</div>
+</section>
+<section id="idf---step-1" class="slide level2">
+<h2>IDF - Step 1</h2>
+<p>First, isolate the words that occurred in each document.</p>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
-<span id="cb46-2"><a></a></span>
-<span id="cb46-3"><a></a>vec <span class="op">=</span> CountVectorizer(token_pattern<span class="op">=</span><span class="vs">r"\w+"</span>)</span>
-<span id="cb46-4"><a></a>vec.fit(documents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a aria-hidden="true" tabindex="-1"></a>has_word <span class="op">=</span> (bow_dataframe <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb62-2"><a aria-hidden="true" tabindex="-1"></a>has_word[[<span class="st">"darkness"</span>, <span class="st">"light"</span>, <span class="st">"hate"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   darkness  light   hate
+0      True  False   True
+1      True  False  False
+2      True   True   True
+3     False   True  False</code></pre>
+</div>
+</div>
+</section>
+<section id="idf---step-2" class="slide level2">
+<h2>IDF - Step 2</h2>
+<p>Then, let’s calculate how often the word occurred across the four documents.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a aria-hidden="true" tabindex="-1"></a>bow_df <span class="op">=</span> (</span>
+<span id="cb64-2"><a aria-hidden="true" tabindex="-1"></a>  has_word</span>
+<span id="cb64-3"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">sum</span>(axis <span class="op">=</span> <span class="dv">0</span>) <span class="op">/</span> <span class="dv">4</span></span>
+<span id="cb64-4"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb64-5"><a aria-hidden="true" tabindex="-1"></a>bow_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>a             0.25
+adding        0.25
+already       0.25
+and           0.25
+be            0.25
+brother       0.25
+can           0.50
+cannot        0.25
+darkest       0.25
+darkness      0.75
+deeper        0.25
+devoid        0.25
+do            0.25
+drive         0.25
+for           0.50
+found         0.25
+friend        0.25
+happiness     0.25
+has           0.25
+hate          0.50
+hello         0.25
+his           0.25
+if            0.25
+in            0.50
+is            0.25
+light         0.50
+multiplies    0.25
+my            0.25
+night         0.25
+of            0.50
+old           0.25
+on            0.25
+one           0.25
+only          0.50
+out           0.25
+remembers     0.25
+returning     0.25
+stars         0.25
+that          0.25
+the           0.50
+times         0.25
+to            0.50
+turn          0.25
+walks         0.25
+whoever       0.25
+dtype: float64</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:35%;">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><code>axis = 0</code></strong></p>
+</div>
+<div class="callout-content">
+<p>What values are we summing?</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="idf---step-3" class="slide level2">
+<h2>IDF - Step 3</h2>
+<p>Find the inverse document frequencies:</p>
+<div class="columns">
+<div class="column" style="width:65%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a aria-hidden="true" tabindex="-1"></a>bow_log_idf <span class="op">=</span> np.log(<span class="dv">1</span> <span class="op">/</span> bow_df)</span>
+<span id="cb66-2"><a aria-hidden="true" tabindex="-1"></a>bow_log_idf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>a             1.386294
+adding        1.386294
+already       1.386294
+and           1.386294
+be            1.386294
+brother       1.386294
+can           0.693147
+cannot        1.386294
+darkest       1.386294
+darkness      0.287682
+deeper        1.386294
+devoid        1.386294
+do            1.386294
+drive         1.386294
+for           0.693147
+found         1.386294
+friend        1.386294
+happiness     1.386294
+has           1.386294
+hate          0.693147
+hello         1.386294
+his           1.386294
+if            1.386294
+in            0.693147
+is            1.386294
+light         0.693147
+multiplies    1.386294
+my            1.386294
+night         1.386294
+of            0.693147
+old           1.386294
+on            1.386294
+one           1.386294
+only          0.693147
+out           1.386294
+remembers     1.386294
+returning     1.386294
+stars         1.386294
+that          1.386294
+the           0.693147
+times         1.386294
+to            0.693147
+turn          1.386294
+walks         1.386294
+whoever       1.386294
+dtype: float64</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:30%;">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>More than just the inverse!</strong></p>
+</div>
+<div class="callout-content">
+<p>Notice we are using <span class="math inline">\(log(\frac{1}{p_i})\)</span> to get the IDFs.</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="idf---step-4" class="slide level2">
+<h2>IDF - Step 4</h2>
+<p>Adjust for the inverse document frequencies:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a aria-hidden="true" tabindex="-1"></a>bow_tf[[<span class="st">"darkness"</span>, <span class="st">"light"</span>, <span class="st">"hate"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   darkness     light      hate
+0  0.133333  0.000000  0.066667
+1  0.200000  0.000000  0.000000
+2  0.115385  0.038462  0.115385
+3  0.000000  0.055556  0.000000</code></pre>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:55%;">
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a aria-hidden="true" tabindex="-1"></a>bow_log_idf[[<span class="st">"darkness"</span>, <span class="st">"light"</span>, <span class="st">"hate"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>darkness    0.287682
+light       0.693147
+hate        0.693147
+dtype: float64</code></pre>
+</div>
+</div>
+</div>
+</div></div>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a aria-hidden="true" tabindex="-1"></a>bow_tf_idf <span class="op">=</span> bow_tf.multiply(bow_log_idf, axis <span class="op">=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p><br></p>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a aria-hidden="true" tabindex="-1"></a>bow_tf_idf[[<span class="st">"darkness"</span>, <span class="st">"light"</span>, <span class="st">"hate"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   darkness     light      hate
+0  0.038358  0.000000  0.046210
+1  0.057536  0.000000  0.000000
+2  0.033194  0.026660  0.079979
+3  0.000000  0.038508  0.000000</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="tf-idf-distances" class="slide level2">
+<h2>TF-IDF Distances</h2>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> cosine_distances(bow_tf_idf).<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb75-2"><a aria-hidden="true" tabindex="-1"></a>dists[<span class="dv">0</span>].argsort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>array([0, 3, 2, 1])</code></pre>
+</div>
+</div>
+<blockquote>
+<p>“Whoever has hate for his brother is in the darkness and walks in the darkness.”</p>
+</blockquote>
+<blockquote>
+<p>“Hello darkness, my old friend, I’ve come to talk with you again.”</p>
+</blockquote>
+<blockquote>
+<p>“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”</p>
+</blockquote>
+<blockquote>
+<p>“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”</p>
+</blockquote>
+</div>
+</section>
+<section id="tf-idf-in-sklearn" class="slide level2">
+<h2>TF-IDF in <code>sklearn</code></h2>
+<p><strong>Specify</strong></p>
+<div class="midi">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
+<span id="cb77-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-3"><a aria-hidden="true" tabindex="-1"></a><span class="co"># These options ensure that the numbers match our example above</span></span>
+<span id="cb77-4"><a aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> TfidfVectorizer(smooth_idf <span class="op">=</span> <span class="va">False</span>, norm <span class="op">=</span> <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p><strong>Fit</strong></p>
+<div class="midi">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a aria-hidden="true" tabindex="-1"></a>vec.fit(documents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <style>#sk-container-id-7 {
   /* Definition of color scheme common for light and dark mode */
@@ -3487,691 +3977,47 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</a></style><div id="sk-container-id-7" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>CountVectorizer(token_pattern='\\w+')</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked=""><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>CountVectorizer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">?<span>Documentation for CountVectorizer</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>CountVectorizer(token_pattern='\\w+')</pre></div> </div></div></div></div>
+</a></style><div id="sk-container-id-7" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>TfidfVectorizer(norm=None, smooth_idf=False)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked=""><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>TfidfVectorizer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html">?<span>Documentation for TfidfVectorizer</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>TfidfVectorizer(norm=None, smooth_idf=False)</pre></div> </div></div></div></div>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>bow_matrix <span class="op">=</span> vec.transform(documents)</span>
-<span id="cb47-2"><a></a>bow_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;Compressed Sparse Row sparse matrix of dtype 'int64'
-    with 56 stored elements and shape (4, 45)&gt;</code></pre>
+</div></div>
+</div>
+<p><strong>Transform</strong></p>
+<div class="midi">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a aria-hidden="true" tabindex="-1"></a>tfidf_matrix <span class="op">=</span> vec.transform(documents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
-<section id="example-2" class="slide level2">
-<h2>Example</h2>
+<section id="tf-idf-in-sklearn-1" class="slide level2">
+<h2>TF-IDF in <code>sklearn</code></h2>
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>bow_dataframe <span class="op">=</span> pd.DataFrame(bow_matrix.todense(), columns<span class="op">=</span>vec.get_feature_names_out())</span>
-<span id="cb49-2"><a></a>bow_dataframe[[<span class="st">"darkness"</span>, <span class="st">"light"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> cosine_distances(tfidf_matrix).<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb80-2"><a aria-hidden="true" tabindex="-1"></a>dists[<span class="dv">0</span>].argsort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   darkness  light
-0         2      0
-1         1      0
-2         3      1
-3         0      1</code></pre>
+<pre><code>array([0, 2, 3, 1])</code></pre>
 </div>
 </div>
-</section>
-<section id="measuring-similarity" class="slide level2">
-<h2>Measuring Similarity</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
-<span id="cb51-2"><a></a></span>
-<span id="cb51-3"><a></a>pairwise_distances(bow_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>array([[0.        , 4.69041576, 6.244998  , 5.38516481],
-       [4.69041576, 0.        , 6.08276253, 5.        ],
-       [6.244998  , 6.08276253, 0.        , 6.92820323],
-       [5.38516481, 5.        , 6.92820323, 0.        ]])</code></pre>
-</div>
+<blockquote>
+<p>“Whoever has hate for his brother is in the darkness and walks in the darkness.”</p>
+</blockquote>
+<blockquote>
+<p>“Hello darkness, my old friend, I’ve come to talk with you again.”</p>
+</blockquote>
+<blockquote>
+<p>“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”</p>
+</blockquote>
+<blockquote>
+<p>“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”</p>
+</blockquote>
 </div>
 </section></section>
 <section>
-<section id="cosine-distance" class="title-slide slide level1 center">
-<h1>Cosine Distance</h1>
+<section id="lecture-activity-4.2---part-2" class="title-slide slide level1 center">
+<h1>Lecture Activity 4.2 - Part 2</h1>
 
 </section>
-<section id="choosing-your-distance-metric" class="slide level2">
-<h2>Choosing Your Distance Metric</h2>
-<p>Is <strong>euclidean distance</strong> really the best choice?!</p>
-<blockquote>
-<p>My name is James Bond, James Bond is my name.</p>
-</blockquote>
-<blockquote>
-<p>My name is James Bond.</p>
-</blockquote>
-<blockquote>
-<p>My name is James.</p>
-</blockquote>
-<ul>
-<li><p>If we count words the second two will be the most similar.</p></li>
-<li><p>The first document is longer, so it has “double” counts.</p></li>
-<li><p>But, it has the exact same words as the first document!</p></li>
-<li><p>Solution: <strong>cosine distance</strong> (on the board)</p></li>
-</ul>
-</section>
-<section id="cosine-distance-1" class="slide level2">
-<h2>Cosine Distance</h2>
-<p>As a rule, <strong>cosine distance</strong> is a better choice for bag-of-words data!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a><span class="im">from</span> sklearn.metrics.pairwise <span class="im">import</span> cosine_distances</span>
-<span id="cb53-2"><a></a>cosine_distances(bow_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>array([[0.        , 0.80481999, 0.64600384, 0.70722998],
-       [0.80481999, 0.        , 0.78235712, 1.        ],
-       [0.64600384, 0.78235712, 0.        , 0.81863094],
-       [0.70722998, 1.        , 0.81863094, 0.        ]])</code></pre>
-</div>
-</div>
-</section></section>
-<section>
-<section id="tf-idf" class="title-slide slide level1 center">
-<h1>TF-IDF</h1>
-
-</section>
-<section id="scaling-terms" class="slide level2">
-<h2>Scaling Terms</h2>
-<p>Which of these seems most important for measuring similarity?</p>
-<ul>
-<li><p>Document B, C, D all have the word “to”</p></li>
-<li><p>Documents A, B, and C all have the word <strong>darkness</strong>.</p></li>
-<li><p>Document A and Document C both have the word “hate”</p></li>
-<li><p>Document C and Document D both have the word “light”</p></li>
-<li><p>We would like to <strong>scale</strong> our <strong>word counts</strong> by the <strong>document length</strong> (TF).</p></li>
-<li><p>We would also like to <strong>scale</strong> our <strong>word counts</strong> by the <strong>number of documents they appear in</strong>. (IDF)</p></li>
-</ul>
-</section>
-<section id="term-frequencies-tf" class="slide level2">
-<h2>Term Frequencies (TF)</h2>
-<ul>
-<li><p>If a document is longer, it is more likely to share words.</p></li>
-<li><p>Let’s use <em>frequencies</em> instead of <em>counts</em></p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>bow_totals <span class="op">=</span> bow_dataframe.<span class="bu">sum</span>(axis <span class="op">=</span> <span class="dv">1</span>)</span>
-<span id="cb55-2"><a></a>bow_totals</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0    15
-1     5
-2    26
-3    18
-dtype: int64</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a></a>bow_tf <span class="op">=</span> bow_dataframe.divide(bow_totals, axis <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb57-2"><a></a>bow_tf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          a    adding   already  ...      turn     walks   whoever
-0  0.000000  0.000000  0.000000  ...  0.000000  0.066667  0.066667
-1  0.000000  0.000000  0.000000  ...  0.000000  0.000000  0.000000
-2  0.038462  0.038462  0.038462  ...  0.000000  0.000000  0.000000
-3  0.000000  0.000000  0.000000  ...  0.055556  0.000000  0.000000
-
-[4 rows x 45 columns]</code></pre>
-</div>
-</div>
-</section>
-<section id="term-frequencies-tf-1" class="slide level2">
-<h2>Term Frequencies (TF)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a></a>cosine_distances(bow_tf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>array([[0.        , 0.80481999, 0.64600384, 0.70722998],
-       [0.80481999, 0.        , 0.78235712, 1.        ],
-       [0.64600384, 0.78235712, 0.        , 0.81863094],
-       [0.70722998, 1.        , 0.81863094, 0.        ]])</code></pre>
-</div>
-</div>
-</section>
-<section id="inverse-document-frequency-idf" class="slide level2">
-<h2>Inverse Document Frequency (IDF)</h2>
-<ul>
-<li><p>In principle, if two documents <strong>share rarer words</strong> they are <strong>more similar</strong>.</p></li>
-<li><p>What matters is not <em>overall word frequency</em> but <strong>how many of the documents</strong> have that word.</p></li>
-<li><p>Compute document frequency:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>has_word <span class="op">=</span> (bow_dataframe <span class="op">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb61-2"><a></a>has_word[[<span class="st">"darkness"</span>, <span class="st">"light"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   darkness  light
-0      True  False
-1      True  False
-2      True   True
-3     False   True</code></pre>
-</div>
-</div>
-</section>
-<section id="idf" class="slide level2">
-<h2>IDF</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a></a>bow_df <span class="op">=</span> has_word.<span class="bu">sum</span>(axis <span class="op">=</span> <span class="dv">0</span>)<span class="op">/</span><span class="dv">4</span></span>
-<span id="cb63-2"><a></a>bow_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>a             0.25
-adding        0.25
-already       0.25
-and           0.25
-be            0.25
-brother       0.25
-can           0.50
-cannot        0.25
-darkest       0.25
-darkness      0.75
-deeper        0.25
-devoid        0.25
-do            0.25
-drive         0.25
-for           0.50
-found         0.25
-friend        0.25
-happiness     0.25
-has           0.25
-hate          0.50
-hello         0.25
-his           0.25
-if            0.25
-in            0.50
-is            0.25
-light         0.50
-multiplies    0.25
-my            0.25
-night         0.25
-of            0.50
-old           0.25
-on            0.25
-one           0.25
-only          0.50
-out           0.25
-remembers     0.25
-returning     0.25
-stars         0.25
-that          0.25
-the           0.50
-times         0.25
-to            0.50
-turn          0.25
-walks         0.25
-whoever       0.25
-dtype: float64</code></pre>
-</div>
-</div>
-</section>
-<section id="idf-1" class="slide level2">
-<h2>IDF</h2>
-<p>Adjust for inverse document frequencies:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a></a>bow_log_idf <span class="op">=</span> np.log(<span class="dv">1</span><span class="op">/</span>bow_df)</span>
-<span id="cb65-2"><a></a>bow_tf_idf <span class="op">=</span> bow_tf.multiply(bow_log_idf, axis <span class="op">=</span> <span class="dv">1</span>)</span>
-<span id="cb65-3"><a></a>bow_tf_idf[[<span class="st">"darkness"</span>, <span class="st">"light"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   darkness     light
-0  0.038358  0.000000
-1  0.057536  0.000000
-2  0.033194  0.026660
-3  0.000000  0.038508</code></pre>
-</div>
-</div>
-</section>
-<section id="tf-idf-1" class="slide level2">
-<h2>TF-IDF</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a></a>cosine_distances(bow_tf_idf).<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>array([[0.  , 0.99, 0.9 , 0.86],
-       [0.99, 0.  , 0.98, 1.  ],
-       [0.9 , 0.98, 0.  , 0.92],
-       [0.86, 1.  , 0.92, 0.  ]])</code></pre>
-</div>
-</div>
-</section>
-<section id="tf-idf-in-sklearn" class="slide level2">
-<h2>TF-IDF in Sklearn</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
-<span id="cb69-2"><a></a></span>
-<span id="cb69-3"><a></a><span class="co"># The options ensure that the numbers match our example above.</span></span>
-<span id="cb69-4"><a></a>vec <span class="op">=</span> TfidfVectorizer(smooth_idf<span class="op">=</span><span class="va">False</span>, norm<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb69-5"><a></a>vec.fit(documents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<style>#sk-container-id-8 {
-  /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: #000;
-  --sklearn-color-text-muted: #666;
-  --sklearn-color-line: gray;
-  /* Definition of color scheme for unfitted estimators */
-  --sklearn-color-unfitted-level-0: #fff5e6;
-  --sklearn-color-unfitted-level-1: #f6e4d2;
-  --sklearn-color-unfitted-level-2: #ffe0b3;
-  --sklearn-color-unfitted-level-3: chocolate;
-  /* Definition of color scheme for fitted estimators */
-  --sklearn-color-fitted-level-0: #f0f8ff;
-  --sklearn-color-fitted-level-1: #d4ebff;
-  --sklearn-color-fitted-level-2: #b3dbfd;
-  --sklearn-color-fitted-level-3: cornflowerblue;
-
-  /* Specific color for light theme */
-  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
-  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-icon: #696969;
-
-  @media (prefers-color-scheme: dark) {
-    /* Redefinition of color scheme for dark theme */
-    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
-    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-icon: #878787;
-  }
-}
-
-#sk-container-id-8 {
-  color: var(--sklearn-color-text);
-}
-
-#sk-container-id-8 pre {
-  padding: 0;
-}
-
-#sk-container-id-8 input.sk-hidden--visually {
-  border: 0;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-#sk-container-id-8 div.sk-dashed-wrapped {
-  border: 1px dashed var(--sklearn-color-line);
-  margin: 0 0.4em 0.5em 0.4em;
-  box-sizing: border-box;
-  padding-bottom: 0.4em;
-  background-color: var(--sklearn-color-background);
-}
-
-#sk-container-id-8 div.sk-container {
-  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
-     but bootstrap.min.css set `[hidden] { display: none !important; }`
-     so we also need the `!important` here to be able to override the
-     default hidden behavior on the sphinx rendered scikit-learn.org.
-     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
-  display: inline-block !important;
-  position: relative;
-}
-
-#sk-container-id-8 div.sk-text-repr-fallback {
-  display: none;
-}
-
-div.sk-parallel-item,
-div.sk-serial,
-div.sk-item {
-  /* draw centered vertical line to link estimators */
-  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
-  background-size: 2px 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-/* Parallel-specific style estimator block */
-
-#sk-container-id-8 div.sk-parallel-item::after {
-  content: "";
-  width: 100%;
-  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
-  flex-grow: 1;
-}
-
-#sk-container-id-8 div.sk-parallel {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  background-color: var(--sklearn-color-background);
-  position: relative;
-}
-
-#sk-container-id-8 div.sk-parallel-item {
-  display: flex;
-  flex-direction: column;
-}
-
-#sk-container-id-8 div.sk-parallel-item:first-child::after {
-  align-self: flex-end;
-  width: 50%;
-}
-
-#sk-container-id-8 div.sk-parallel-item:last-child::after {
-  align-self: flex-start;
-  width: 50%;
-}
-
-#sk-container-id-8 div.sk-parallel-item:only-child::after {
-  width: 0;
-}
-
-/* Serial-specific style estimator block */
-
-#sk-container-id-8 div.sk-serial {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--sklearn-color-background);
-  padding-right: 1em;
-  padding-left: 1em;
-}
-
-
-/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
-clickable and can be expanded/collapsed.
-- Pipeline and ColumnTransformer use this feature and define the default style
-- Estimators will overwrite some part of the style using the `sk-estimator` class
-*/
-
-/* Pipeline and ColumnTransformer style (default) */
-
-#sk-container-id-8 div.sk-toggleable {
-  /* Default theme specific background. It is overwritten whether we have a
-  specific estimator or a Pipeline/ColumnTransformer */
-  background-color: var(--sklearn-color-background);
-}
-
-/* Toggleable label */
-#sk-container-id-8 label.sk-toggleable__label {
-  cursor: pointer;
-  display: flex;
-  width: 100%;
-  margin-bottom: 0;
-  padding: 0.5em;
-  box-sizing: border-box;
-  text-align: center;
-  align-items: start;
-  justify-content: space-between;
-  gap: 0.5em;
-}
-
-#sk-container-id-8 label.sk-toggleable__label .caption {
-  font-size: 0.6rem;
-  font-weight: lighter;
-  color: var(--sklearn-color-text-muted);
-}
-
-#sk-container-id-8 label.sk-toggleable__label-arrow:before {
-  /* Arrow on the left of the label */
-  content: "▸";
-  float: left;
-  margin-right: 0.25em;
-  color: var(--sklearn-color-icon);
-}
-
-#sk-container-id-8 label.sk-toggleable__label-arrow:hover:before {
-  color: var(--sklearn-color-text);
-}
-
-/* Toggleable content - dropdown */
-
-#sk-container-id-8 div.sk-toggleable__content {
-  max-height: 0;
-  max-width: 0;
-  overflow: hidden;
-  text-align: left;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-8 div.sk-toggleable__content.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-8 div.sk-toggleable__content pre {
-  margin: 0.2em;
-  border-radius: 0.25em;
-  color: var(--sklearn-color-text);
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-8 div.sk-toggleable__content.fitted pre {
-  /* unfitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-8 input.sk-toggleable__control:checked~div.sk-toggleable__content {
-  /* Expand drop-down */
-  max-height: 200px;
-  max-width: 100%;
-  overflow: auto;
-}
-
-#sk-container-id-8 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
-  content: "▾";
-}
-
-/* Pipeline/ColumnTransformer-specific style */
-
-#sk-container-id-8 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-8 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator-specific style */
-
-/* Colorize estimator box */
-#sk-container-id-8 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-8 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-#sk-container-id-8 div.sk-label label.sk-toggleable__label,
-#sk-container-id-8 div.sk-label label {
-  /* The background is the default theme color */
-  color: var(--sklearn-color-text-on-default-background);
-}
-
-/* On hover, darken the color of the background */
-#sk-container-id-8 div.sk-label:hover label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-/* Label box, darken color on hover, fitted */
-#sk-container-id-8 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator label */
-
-#sk-container-id-8 div.sk-label label {
-  font-family: monospace;
-  font-weight: bold;
-  display: inline-block;
-  line-height: 1.2em;
-}
-
-#sk-container-id-8 div.sk-label-container {
-  text-align: center;
-}
-
-/* Estimator-specific */
-#sk-container-id-8 div.sk-estimator {
-  font-family: monospace;
-  border: 1px dotted var(--sklearn-color-border-box);
-  border-radius: 0.25em;
-  box-sizing: border-box;
-  margin-bottom: 0.5em;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-8 div.sk-estimator.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-/* on hover */
-#sk-container-id-8 div.sk-estimator:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-8 div.sk-estimator.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Specification for estimator info (e.g. "i" and "?") */
-
-/* Common style for "i" and "?" */
-
-.sk-estimator-doc-link,
-a:link.sk-estimator-doc-link,
-a:visited.sk-estimator-doc-link {
-  float: right;
-  font-size: smaller;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1em;
-  height: 1em;
-  width: 1em;
-  text-decoration: none !important;
-  margin-left: 0.5em;
-  text-align: center;
-  /* unfitted */
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-  color: var(--sklearn-color-unfitted-level-1);
-}
-
-.sk-estimator-doc-link.fitted,
-a:link.sk-estimator-doc-link.fitted,
-a:visited.sk-estimator-doc-link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-div.sk-estimator:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover,
-div.sk-label-container:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover,
-div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-/* Span, style for the box shown on hovering the info icon */
-.sk-estimator-doc-link span {
-  display: none;
-  z-index: 9999;
-  position: relative;
-  font-weight: normal;
-  right: .2ex;
-  padding: .5ex;
-  margin: .5ex;
-  width: min-content;
-  min-width: 20ex;
-  max-width: 50ex;
-  color: var(--sklearn-color-text);
-  box-shadow: 2pt 2pt 4pt #999;
-  /* unfitted */
-  background: var(--sklearn-color-unfitted-level-0);
-  border: .5pt solid var(--sklearn-color-unfitted-level-3);
-}
-
-.sk-estimator-doc-link.fitted span {
-  /* fitted */
-  background: var(--sklearn-color-fitted-level-0);
-  border: var(--sklearn-color-fitted-level-3);
-}
-
-.sk-estimator-doc-link:hover span {
-  display: block;
-}
-
-/* "?"-specific style due to the `<a>` HTML tag */
-
-#sk-container-id-8 a.estimator_doc_link {
-  float: right;
-  font-size: 1rem;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1rem;
-  height: 1rem;
-  width: 1rem;
-  text-decoration: none;
-  /* unfitted */
-  color: var(--sklearn-color-unfitted-level-1);
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-}
-
-#sk-container-id-8 a.estimator_doc_link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-#sk-container-id-8 a.estimator_doc_link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-#sk-container-id-8 a.estimator_doc_link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-}
-</a></style><div id="sk-container-id-8" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>TfidfVectorizer(norm=None, smooth_idf=False)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox" checked=""><label for="sk-estimator-id-8" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>TfidfVectorizer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html">?<span>Documentation for TfidfVectorizer</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>TfidfVectorizer(norm=None, smooth_idf=False)</pre></div> </div></div></div></div>
-</div>
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a>tfidf_matrix <span class="op">=</span> vec.transform(documents)</span>
-<span id="cb70-2"><a></a></span>
-<span id="cb70-3"><a></a>cosine_distances(tfidf_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>array([[0.        , 0.92261817, 0.78495457, 0.78557322],
-       [0.92261817, 0.        , 0.91239706, 1.        ],
-       [0.78495457, 0.91239706, 0.        , 0.86513906],
-       [0.78557322, 1.        , 0.86513906, 0.        ]])</code></pre>
-</div>
-</div>
-</section></section>
-<section>
-<section id="activity-2" class="title-slide slide level1 center">
-<h1>Activity 2</h1>
-
-</section>
-<section id="activity-3" class="slide level2">
+<section id="activity" class="slide level2">
 <h2>Activity</h2>
 <p>Using bi-grams, unigrams, and tri-grams, which Dr.&nbsp;Seuss document is closest to “One Fish Two Fish”?</p>
 </section></section>
