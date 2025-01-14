@@ -26,7 +26,7 @@
     "href": "slides/04-group-by.html#new-dataset-airplane-flights",
     "title": "Multivariate Summaries",
     "section": "New dataset: Airplane Flights",
-    "text": "New dataset: Airplane Flights\n\nWhich airline carriers are most likely to be delayed?\n\n\nLet’s look at a data set of all domestic flights that departed from one of New York City’s airports (JFK, LaGuardia, and Newark) on November 16, 2013.\n\n\ndata_dir = \"https://datasci112.stanford.edu/data/\"\ndf = pd.read_csv(data_dir + \"flights_nyc_20131116.csv\")\ndf\n\n    carrier  flight origin dest  dep_delay\n0        US    1895    EWR  CLT       -5.0\n1        UA    1014    LGA  IAH       -3.0\n2        AA    2243    JFK  MIA        2.0\n3        UA     303    JFK  SFO       -8.0\n4        US     795    LGA  PHL       -8.0\n..      ...     ...    ...  ...        ...\n573      B6     745    JFK  PSE       -3.0\n574      B6     839    JFK  BQN        0.0\n575      UA     360    EWR  PBI        NaN\n576      US    1946    EWR  CLT        NaN\n577      US    2142    LGA  BOS        NaN\n\n[578 rows x 5 columns]",
+    "text": "New dataset: Airplane Flights\n\nWhich airline carriers are most likely to be delayed?\n\n. . .\nLet’s look at a data set of all domestic flights that departed from one of New York City’s airports (JFK, LaGuardia, and Newark) on November 16, 2013.\n\n\ndata_dir = \"https://datasci112.stanford.edu/data/\"\ndf = pd.read_csv(data_dir + \"flights_nyc_20131116.csv\")\ndf\n\n    carrier  flight origin dest  dep_delay\n0        US    1895    EWR  CLT       -5.0\n1        UA    1014    LGA  IAH       -3.0\n2        AA    2243    JFK  MIA        2.0\n3        UA     303    JFK  SFO       -8.0\n4        US     795    LGA  PHL       -8.0\n..      ...     ...    ...  ...        ...\n573      B6     745    JFK  PSE       -3.0\n574      B6     839    JFK  BQN        0.0\n575      UA     360    EWR  PBI        NaN\n576      US    1946    EWR  CLT        NaN\n577      US    2142    LGA  BOS        NaN\n\n[578 rows x 5 columns]",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -59,7 +59,7 @@
     "href": "slides/04-group-by.html#delays-by-origin",
     "title": "Multivariate Summaries",
     "section": "Delays by Origin",
-    "text": "Delays by Origin\n\nDo the three origin airports (JFK, LGA, EWR) have different delay patterns?\n\n\n\n\n\n\n\n\nCheck-in 2.2: What could you change in this code to include the origin variable?\n\n\n\n\n\n\n\n(\n  ggplot(df, aes(x = 'dep_delay')) + \n  geom_histogram() + \n  theme_bw()\n)",
+    "text": "Delays by Origin\n\nDo the three origin airports (JFK, LGA, EWR) have different delay patterns?\n\n. . .\n\n\n\n\n\n\nCheck-in 2.2: What could you change in this code to include the origin variable?\n\n\n\n\n\n\n\n(\n  ggplot(df, aes(x = 'dep_delay')) + \n  geom_histogram() + \n  theme_bw()\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -125,7 +125,7 @@
     "href": "slides/04-group-by.html#log-transformations",
     "title": "Multivariate Summaries",
     "section": "Log transformations",
-    "text": "Log transformations\n\nUsually, we use the natural log, just for convenience.\n\n\n\nPros:\nSkewed data looks less skewed, so it is easier to see patterns.\n\n\n\nCons:\nThe variable is now on a different scale so it is not as interpretable.\n\n\n\n\n\n\n\n\nRemember, log transformations need positive numbers!",
+    "text": "Log transformations\n\nUsually, we use the natural log, just for convenience.\n\n\n\nPros:\nSkewed data looks less skewed, so it is easier to see patterns.\n\n\n\nCons:\nThe variable is now on a different scale so it is not as interpretable.\n\n\n. . .\n\n\n\n\n\n\nRemember, log transformations need positive numbers!",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -158,7 +158,7 @@
     "href": "slides/04-group-by.html#facetting-1",
     "title": "Multivariate Summaries",
     "section": "Facetting",
-    "text": "Facetting\n\nThis plot still was a little hard to read.\nWhat if we just made separate plots for each origin?",
+    "text": "Facetting\n\n\n\n\n\n\n\n\n\nThis plot still was a little hard to read.\nWhat if we just made separate plots for each origin?",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -169,7 +169,7 @@
     "href": "slides/04-group-by.html#separate-plots-for-each-origin",
     "title": "Multivariate Summaries",
     "section": "Separate Plots for Each Origin",
-    "text": "Separate Plots for Each Origin\nOne option would be to create separate data frames for each origin.\n\n\nis_jfk = (df['origin'] == \"JFK\")\ndf_jfk = df[is_jfk]\ndf_jfk\n\n    carrier  flight origin dest  dep_delay  delay_shifted  log_delay\n2        AA    2243    JFK  MIA        2.0           22.0   3.091042\n3        UA     303    JFK  SFO       -8.0           12.0   2.484907\n11       EV    5716    JFK  IAD       -4.0           16.0   2.772589\n12       B6     583    JFK  MCO       -3.0           17.0   2.833213\n14       B6    1403    JFK  SJU       -2.0           18.0   2.890372\n..      ...     ...    ...  ...        ...            ...        ...\n570      B6     718    JFK  BOS        1.0           21.0   3.044522\n571      B6    1816    JFK  SYR       20.0           40.0   3.688879\n572      B6    1503    JFK  SJU      -10.0           10.0   2.302585\n573      B6     745    JFK  PSE       -3.0           17.0   2.833213\n574      B6     839    JFK  BQN        0.0           20.0   2.995732\n\n[208 rows x 7 columns]\n\n\n\n\nThis seems kind of annoying…",
+    "text": "Separate Plots for Each Origin\nOne option would be to create separate data frames for each origin.\n\n\nis_jfk = (df['origin'] == \"JFK\")\ndf_jfk = df[is_jfk]\ndf_jfk\n\n    carrier  flight origin dest  dep_delay  delay_shifted  log_delay\n2        AA    2243    JFK  MIA        2.0           22.0   3.091042\n3        UA     303    JFK  SFO       -8.0           12.0   2.484907\n11       EV    5716    JFK  IAD       -4.0           16.0   2.772589\n12       B6     583    JFK  MCO       -3.0           17.0   2.833213\n14       B6    1403    JFK  SJU       -2.0           18.0   2.890372\n..      ...     ...    ...  ...        ...            ...        ...\n570      B6     718    JFK  BOS        1.0           21.0   3.044522\n571      B6    1816    JFK  SYR       20.0           40.0   3.688879\n572      B6    1503    JFK  SJU      -10.0           10.0   2.302585\n573      B6     745    JFK  PSE       -3.0           17.0   2.833213\n574      B6     839    JFK  BQN        0.0           20.0   2.995732\n\n[208 rows x 7 columns]\n\n\n\n. . .\nThis seems kind of annoying…",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -235,7 +235,7 @@
     "href": "slides/04-group-by.html#group-by-check-in",
     "title": "Multivariate Summaries",
     "section": "Group-by Check-in",
-    "text": "Group-by Check-in\n\n\n\n\n\n\nCheck-in 2.2\n\n\n\nWhich code is causing “split by origin”?\nWhich code is causing “calculate the mean of delays”?\nWhich code is causing the re-combining of the data?\n\n\n\n\n\n(\n  df\n  .groupby(by = \"origin\")[\"dep_delay\"]\n  .mean()\n)",
+    "text": "Group-by Check-in\n\n\n\n\n\n\nCheck-in 2.2\n\n\n\n\nWhich code is causing “split by origin”?\nWhich code is causing “calculate the mean of delays”?\nWhich code is causing the re-combining of the data?\n\n\n\n\n(\n  df\n  .groupby(by = \"origin\")[\"dep_delay\"]\n  .mean()\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -279,7 +279,7 @@
     "href": "slides/04-group-by.html#different-variabilities-by-origin",
     "title": "Multivariate Summaries",
     "section": "Different variabilities by origin",
-    "text": "Different variabilities by origin\n\nIn addition to having different centers, the three origins also have different spreads.\n\n(\n  df\n  .groupby(\"origin\")[\"dep_delay\"]\n  .std()\n)\n\norigin\nEWR    25.646258\nJFK    18.713927\nLGA    26.121365\nName: dep_delay, dtype: float64\n\n\n\n\n\n\nIn general flights from \"LGA\" have departure delays that are the furthest from the mean.",
+    "text": "Different variabilities by origin\n\nIn addition to having different centers, the three origins also have different spreads.\n\n(\n  df\n  .groupby(\"origin\")[\"dep_delay\"]\n  .std()\n)\n\norigin\nEWR    25.646258\nJFK    18.713927\nLGA    26.121365\nName: dep_delay, dtype: float64\n\n\n\n. . .\n\n\nIn general flights from \"LGA\" have departure delays that are the furthest from the mean.",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -323,7 +323,7 @@
     "href": "slides/04-group-by.html#did-older-passengers-pay-a-higher-fare-on-the-titanic",
     "title": "Multivariate Summaries",
     "section": "Did older passengers pay a higher fare on the Titanic?",
-    "text": "Did older passengers pay a higher fare on the Titanic?\n\nTo visualize two quantitative variables, we make a scatterplot (or point geometry).\n\n\n\n\n\nCode\n(\n  ggplot(data = df_titanic, mapping = aes(x = 'age', y = 'fare')) + \n  geom_point() +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)",
+    "text": "Did older passengers pay a higher fare on the Titanic?\n\nTo visualize two quantitative variables, we make a scatterplot (or point geometry).\n\n. . .\n\n\n\nCode\n(\n  ggplot(data = df_titanic, mapping = aes(x = 'age', y = 'fare')) + \n  geom_point() +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -334,7 +334,7 @@
     "href": "slides/04-group-by.html#scatterplots",
     "title": "Multivariate Summaries",
     "section": "Scatterplots",
-    "text": "Scatterplots\n\n\n\n\n\n\n\nNotice\n\n\n\nThe explanatory variable was on the x-axis.\nThe response variable was on the y-axis.\n“If you are older, you pay more” not “If you pay more, you get older”.\n\n\n\n\n\n(\n  ggplot(data = df_titanic, \n         mapping = aes(x = 'age', y = 'fare')\n         ) + \n  geom_point() +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)",
+    "text": "Scatterplots\n\n\n\n\n\n\n\nNotice\n\n\n\n\nThe explanatory variable was on the x-axis.\nThe response variable was on the y-axis.\n“If you are older, you pay more” not “If you pay more, you get older”.\n\n\n\n\n(\n  ggplot(data = df_titanic, \n         mapping = aes(x = 'age', y = 'fare')\n         ) + \n  geom_point() +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -345,7 +345,7 @@
     "href": "slides/04-group-by.html#making-a-clearer-plot",
     "title": "Multivariate Summaries",
     "section": "Making a Clearer Plot",
-    "text": "Making a Clearer Plot\nDid you notice how difficult it was to pick out each point?\n\n\n\n\nPoint Size\n\n\n\nCode\n(\n  ggplot(data = df_titanic, \n         mapping = aes(x = 'age', y = 'fare')\n         ) + \n  geom_jitter(size = 0.5) +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransparency\n\n\n\nCode\n(\n  ggplot(data = df_titanic, \n         mapping = aes(x = 'age', y = 'fare')\n         ) + \n  geom_point(alpha = 0.5) +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)",
+    "text": "Making a Clearer Plot\nDid you notice how difficult it was to pick out each point?\n\n\n\nPoint Size\n\n\n\nCode\n(\n  ggplot(data = df_titanic, \n         mapping = aes(x = 'age', y = 'fare')\n         ) + \n  geom_jitter(size = 0.5) +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransparency\n\n\n\nCode\n(\n  ggplot(data = df_titanic, \n         mapping = aes(x = 'age', y = 'fare')\n         ) + \n  geom_point(alpha = 0.5) +\n  labs(x = \"Age of Passenger\", \n       y = \"Fare Paid on Titanic\")\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -367,7 +367,7 @@
     "href": "slides/04-group-by.html#challenge",
     "title": "Multivariate Summaries",
     "section": "Challenge",
-    "text": "Challenge\nCan you re-create this plot?",
+    "text": "Challenge\nCan you re-create this plot?\n\n\n/usr/local/lib/python3.10/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
@@ -422,7 +422,7 @@
     "href": "slides/04-group-by.html#correlation-1",
     "title": "Multivariate Summaries",
     "section": "Correlation",
-    "text": "Correlation\nInterpret this result:\n\ndf_third[['age', 'fare']].corr()\n\n           age      fare\nage   1.000000 -0.238137\nfare -0.238137  1.000000\n\n\n\n\nAge and fare are slightly negatively correlated.\nCan you think of an explanation for this?",
+    "text": "Correlation\nInterpret this result:\n\ndf_third[['age', 'fare']].corr()\n\n           age      fare\nage   1.000000 -0.238137\nfare -0.238137  1.000000\n\n\n. . .\n\nAge and fare are slightly negatively correlated.\nCan you think of an explanation for this?",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
