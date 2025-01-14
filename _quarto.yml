@@ -57,9 +57,9 @@ website:
             text: "Week 3 - Distances Between Observations"
           - href: slides/06-preprocessing.qmd
             text: "Week 4, Part 1 - Dummy Variables & Column Transformers"
-          #- href: weeks/week-4-factors.qmd
-          #   text: "Week 4, Part 2 - Factors"
-          # - href: weeks/week-5-strings-dates.qmd
+          - href: slides/07-text-data.qmd
+            text: "Week 4, Part 2 - Bag-of-Words and TF-IDF"
+          #- href: weeks/week-5-strings-dates.qmd
           #   text: "Week 5 - Strings & Dates"
           # - href: portfolio/midterm-portfolio-targets.qmd
           #   text: "Week 6 - Midterm Portfolio Week"
