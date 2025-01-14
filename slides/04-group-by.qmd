@@ -21,6 +21,12 @@ import pandas as pd
 from plotnine import *
 ```
 
+# Lab 1A Debrief
+
+## The Importance of Axis Labels
+
+<!-- Insert two images of axis labels -->
+
 # The story so far...
 
 ## Last Week
