@@ -25,7 +25,22 @@ from plotnine import *
 
 ## The Importance of Axis Labels
 
-<!-- Insert two images of axis labels -->
+::: columns
+::: {.column width="48%"}
+![](images/04-lab1-plot-good.png){fig-alt="A plot of the proportion of the times the first digit of the volume of stocks sold by a stock market company started with each digit (1-9). The plot has an x-axis label describing the context of the digits ('First Digit of Volume') and the y-axis label describes the context of the proportions ('Proportion of Occurrances'). The plot title states 'Distribution of First Digit of Volume'."}
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="49%"}
+![](images/04-lab1-plot-bad.png){fig-alt="A plot of the proportion of the times the first digit of the volume of stocks sold by a stock market company started with each digit (1-9). This is the same plot as above, but the axis labels do not have the contextual information included in the previous plot. The x-axis says 'digit' which leaves the reader wondering what the context of this 'digit' is. The y-axis says 'proportion' which also makes the reader wonder what these are a proportion of."}
+:::
+:::
+
+::: {.centered}
+**Does your plot communicate the context of the data you are plotting?** 
+:::
 
 # The story so far...
 
