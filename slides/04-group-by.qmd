@@ -854,7 +854,7 @@ Who got "unluckier"?
 
 ## Activity 2.2
 
-> What airlines have the most delays?
+> Do the different airlines have different patterns of flight delays?
 
 -   Make a **plot** to answer the question.
 

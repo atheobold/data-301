@@ -312,7 +312,7 @@
     "href": "slides/04-group-by.html#activity-2.2",
     "title": "Multivariate Summaries",
     "section": "Activity 2.2",
-    "text": "Activity 2.2\n\nWhat airlines have the most delays?\n\n\nMake a plot to answer the question.\nCalculate values to answer the question.\nThe first row is a flight from EWR to CLT on US Airways. The second row is a flight from LGA to IAH on United Airlines. Which one was a “more extreme” delay?",
+    "text": "Activity 2.2\n\nDo the different airlines have different patterns of flight delays?\n\n\nMake a plot to answer the question.\nCalculate values to answer the question.\nThe first row is a flight from EWR to CLT on US Airways. The second row is a flight from LGA to IAH on United Airlines. Which one was a “more extreme” delay?",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
