@@ -894,7 +894,7 @@ dists[0].argsort()
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # These options ensure that the numbers match our example above
-vec = TfidfVectorizer(smooth_idf = False, norm = None)
+vec = TfidfVectorizer(smooth_idf = False)
 ```
 :::
 
@@ -921,26 +921,26 @@ tfidf_matrix = vec.transform(documents)
 ```
 :::
 
-## TF-IDF in `sklearn`
+<!-- ## TF-IDF in `sklearn` -->
 
-::: {.small}
-```{python}
-#| code-line-numbers: false
-#| label: sklearn-if-idf-distance
+<!-- ::: {.small} -->
+<!-- ```{python} -->
+<!-- #| code-line-numbers: false -->
+<!-- #| label: sklearn-if-idf-distance -->
 
-dists = cosine_distances(tfidf_matrix).round(decimals = 2)
-dists[0].argsort()
-```
+<!-- dists = cosine_distances(tfidf_matrix).round(decimals = 2) -->
+<!-- dists[0].argsort() -->
+<!-- ``` -->
 
-> "Whoever has hate for his brother is in the darkness and walks in the darkness."
+<!-- > "Whoever has hate for his brother is in the darkness and walks in the darkness." -->
 
-> "Hello darkness, my old friend, I've come to talk with you again."
+<!-- > "Hello darkness, my old friend, I've come to talk with you again." -->
 
-> "Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that."
+<!-- > "Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that." -->
 
-> "Happiness can be found in the darkest of times, if only one remembers to turn on the light."
+<!-- > "Happiness can be found in the darkest of times, if only one remembers to turn on the light." -->
 
-:::
+<!-- ::: -->
 
 # Lecture Activity 4.2 - Part 2
 

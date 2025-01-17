@@ -3552,7 +3552,7 @@ dtype: float64</code></pre>
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
 <span id="cb77-2"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb77-3"><a aria-hidden="true" tabindex="-1"></a><span class="co"># These options ensure that the numbers match our example above</span></span>
-<span id="cb77-4"><a aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> TfidfVectorizer(smooth_idf <span class="op">=</span> <span class="va">False</span>, norm <span class="op">=</span> <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb77-4"><a aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> TfidfVectorizer(smooth_idf <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p><strong>Fit</strong></p>
@@ -3977,7 +3977,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</a></style><div id="sk-container-id-7" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>TfidfVectorizer(norm=None, smooth_idf=False)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked=""><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>TfidfVectorizer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html">?<span>Documentation for TfidfVectorizer</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>TfidfVectorizer(norm=None, smooth_idf=False)</pre></div> </div></div></div></div>
+</a></style><div id="sk-container-id-7" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>TfidfVectorizer(smooth_idf=False)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked=""><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>TfidfVectorizer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html">?<span>Documentation for TfidfVectorizer</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>TfidfVectorizer(smooth_idf=False)</pre></div> </div></div></div></div>
 </div>
 </div></div>
 </div>
@@ -3987,30 +3987,19 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a aria-hidden="true" tabindex="-1"></a>tfidf_matrix <span class="op">=</span> vec.transform(documents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="tf-idf-in-sklearn-1" class="slide level2">
-<h2>TF-IDF in <code>sklearn</code></h2>
-<div class="small">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> cosine_distances(tfidf_matrix).<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">2</span>)</span>
-<span id="cb80-2"><a aria-hidden="true" tabindex="-1"></a>dists[<span class="dv">0</span>].argsort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>array([0, 2, 3, 1])</code></pre>
-</div>
-</div>
-<blockquote>
-<p>“Whoever has hate for his brother is in the darkness and walks in the darkness.”</p>
-</blockquote>
-<blockquote>
-<p>“Hello darkness, my old friend, I’ve come to talk with you again.”</p>
-</blockquote>
-<blockquote>
-<p>“Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that.”</p>
-</blockquote>
-<blockquote>
-<p>“Happiness can be found in the darkest of times, if only one remembers to turn on the light.”</p>
-</blockquote>
-</div>
+<!-- ## TF-IDF in `sklearn` -->
+<!-- ::: {.small} -->
+<!-- ```{python} -->
+<!-- #| code-line-numbers: false -->
+<!-- #| label: sklearn-if-idf-distance -->
+<!-- dists = cosine_distances(tfidf_matrix).round(decimals = 2) -->
+<!-- dists[0].argsort() -->
+<!-- ``` -->
+<!-- > "Whoever has hate for his brother is in the darkness and walks in the darkness." -->
+<!-- > "Hello darkness, my old friend, I've come to talk with you again." -->
+<!-- > "Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that." -->
+<!-- > "Happiness can be found in the darkest of times, if only one remembers to turn on the light." -->
+<!-- ::: -->
 </section></section>
 <section>
 <section id="lecture-activity-4.2---part-2" class="title-slide slide level1 center">
