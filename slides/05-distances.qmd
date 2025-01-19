@@ -21,6 +21,143 @@ import pandas as pd
 from plotnine import *
 ```
 
+# More words about ChatGPT...
+
+## Using the tools I teach
+
+::: {.small}
+```{python}
+#| eval: false
+#| label: merge-datasets
+#| echo: true
+
+event_stats = df_phelps.groupby('Event')['Time_in_seconds'].agg(['mean', 'st
+df_phelps = df_phelps.merge(event_stats, on='Event')
+df_phelps['Standardized_Time'] = (
+(df_phelps['Time_in_seconds'] - df_phelps['mean']) / df_phelps['std']
+)
+
+```
+:::
+
+. . .
+
+::: {.small}
+```{python}
+#| eval: false
+#| label: individual-datasets
+#| echo: true
+
+is_100m = df_bolt["Event"] == "2008 Olympics 100m"
+df_100m = df_bolt[is_100m]
+one_mean = df_100m["Time"].mean()
+one_std = df_100m["Time"].std()
+
+df_bolt["Standardized_Time"] = 0.0
+df_bolt.loc[is_100m, "Standardized_Time"] = (df_bolt.loc[is_100m, "Time"] - 
+```
+:::
+
+## A nice clean, efficient approach
+
+```{python}
+#| echo: true
+#| eval: false
+#| label: nice-solution-standardize
+
+standardized_bolt = (
+  df_bolt
+  .set_index(['Event', 'Athlete'])['Time']
+  .subtract(bolt_mean)
+  .div(bolt_std)
+  )
+```
+
+
+## `lambda` Functions
+
+::: {.small}
+```{python}
+#| eval: false
+#| label: lambda-function-times
+#| echo: true
+
+phelps_sec = (
+  df_phelps["Time"]
+  .str.split(":")
+  .apply(lambda x: float(x[0])*60 + float(x[1]))
+)
+```
+:::
+
+. . .
+
+::: {.small}
+```{python}
+#| eval: false
+#| label: my-approach-times
+#| echo: true
+
+df_phelps[["Minutes", "Seconds"]] = df_phelps["Time"].str.split(":")
+df_phelps["Time_New"] = (
+  df_phelps["Minutes"].astype(float) * 60 +
+  df_phelps["Seconds"].astype(float)
+  )
+```
+:::
+
+
+## A loop is often not necessary
+
+::: {.small}
+```{python}
+#| eval: false
+#| label: loop-for-times
+#| echo: true
+
+split_times = df_phelps["Time"].str.split(":")
+seconds = []
+
+for time in split_times:
+  minute = int(time[0])
+  second = float(time[1])
+  seconds.append((minute * 60) + second)
+  df_phelps["Seconds"] = seconds
+
+```
+:::
+
+
+## When to make a function?
+
+::: {.small}
+```{python}
+#| eval: false
+#| label: time-function
+#| echo: true
+
+def time_to_secs(time_str):
+  mins, secs = time_str.split(':')
+  return float(mins) * 60 + float(secs)
+
+df_phelps['time_secs'] = df_phelps['Time'].apply(time_to_secs)
+```
+:::
+
+
+::: {.small}
+```{python}
+#| eval: false
+#| label: simpsons-function
+#| echo: true
+
+```
+:::
+
+## Choosing different plot themes
+
+<!-- Why theme_classic sucks -->
+
 # The story so far...
 
 ## Summarizing
