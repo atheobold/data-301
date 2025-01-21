@@ -23,29 +23,50 @@ from plotnine import *
 
 # More words about ChatGPT...
 
-## Using the tools I teach
+## What is my job?
 
-::: {.small}
-```{python}
-#| eval: false
-#| label: merge-datasets
-#| echo: true
+</br> 
 
-event_stats = df_phelps.groupby('Event')['Time_in_seconds'].agg(['mean', 'st
-df_phelps = df_phelps.merge(event_stats, on='Event')
-df_phelps['Standardized_Time'] = (
-(df_phelps['Time_in_seconds'] - df_phelps['mean']) / df_phelps['std']
-)
+::: columns
+::: {.column width="40%"}
+::: {.fragment}
+**Teaching you stuff**
 
-```
+</br> 
+
+(Thoughtfully) choosing what to teach and how to teach it.
+::: 
 :::
 
-. . .
+::: {.column width="5%"}
+:::
 
-::: {.small}
+::: {.column width="55%"}
+::: {.fragment}
+**Assessing what you've learned**
+
+</br> 
+
+What do you understand about the tools I've taught you? 
+
+</br>
+
+::: {.fragment}
+This [**is not**]{.underline} the same as assessing if you figured out a way to 
+accomplish a given task.
+::: 
+:::
+:::
+:::
+
+
+## Using the tools I teach
+
+::: {.midi}
 ```{python}
 #| eval: false
 #| label: individual-datasets
+#| code-line-numbers: false
 #| echo: true
 
 is_100m = df_bolt["Event"] == "2008 Olympics 100m"
@@ -58,29 +79,56 @@ df_bolt.loc[is_100m, "Standardized_Time"] = (df_bolt.loc[is_100m, "Time"] -
 ```
 :::
 
+. . .
+
+</br>
+
+::: {.midi}
+```{python}
+#| eval: false
+#| label: merge-datasets
+#| code-line-numbers: false
+#| echo: true
+
+event_stats = df_phelps.groupby('Event')['Time_in_seconds'].agg(['mean', 'std'])
+df_phelps = df_phelps.merge(event_stats, on='Event')
+df_phelps['Standardized_Time'] = (
+(df_phelps['Time_in_seconds'] - df_phelps['mean']) / df_phelps['std']
+)
+
+```
+:::
+
 ## A nice clean, efficient approach
 
 ```{python}
 #| echo: true
 #| eval: false
 #| label: nice-solution-standardize
+#| code-line-numbers: false
+
+bolt_stats = (
+  df_bolt
+  .groupby("Event")["Time"]
+  .aggregate(["mean", "std"])
+  )
 
 standardized_bolt = (
   df_bolt
   .set_index(['Event', 'Athlete'])['Time']
-  .subtract(bolt_mean)
-  .div(bolt_std)
+  .subtract(bolt_stats["mean"])
+  .divide(bolt_stats["std"])
   )
 ```
 
 
 ## `lambda` Functions
 
-::: {.small}
 ```{python}
 #| eval: false
 #| label: lambda-function-times
 #| echo: true
+#| code-line-numbers: false
 
 phelps_sec = (
   df_phelps["Time"]
@@ -88,15 +136,16 @@ phelps_sec = (
   .apply(lambda x: float(x[0])*60 + float(x[1]))
 )
 ```
-:::
 
 . . .
 
-::: {.small}
+</br>
+
 ```{python}
 #| eval: false
 #| label: my-approach-times
 #| echo: true
+#| code-line-numbers: false
 
 df_phelps[["Minutes", "Seconds"]] = df_phelps["Time"].str.split(":")
 df_phelps["Time_New"] = (
@@ -104,16 +153,14 @@ df_phelps["Time_New"] = (
   df_phelps["Seconds"].astype(float)
   )
 ```
-:::
-
 
 ## A loop is often not necessary
 
-::: {.small}
 ```{python}
 #| eval: false
 #| label: loop-for-times
 #| echo: true
+#| code-line-numbers: false
 
 split_times = df_phelps["Time"].str.split(":")
 seconds = []
@@ -125,8 +172,6 @@ for time in split_times:
   df_phelps["Seconds"] = seconds
 
 ```
-:::
-
 
 ## When to make a function?
 
@@ -135,6 +180,7 @@ for time in split_times:
 #| eval: false
 #| label: time-function
 #| echo: true
+#| code-line-numbers: false
 
 def time_to_secs(time_str):
   mins, secs = time_str.split(':')
@@ -144,19 +190,34 @@ df_phelps['time_secs'] = df_phelps['Time'].apply(time_to_secs)
 ```
 :::
 
+. . .
+
+</br> 
 
 ::: {.small}
 ```{python}
 #| eval: false
 #| label: simpsons-function
 #| echo: true
+#| code-line-numbers: false
 
+def calculate_simpson_index(values, position):
+    
+    # Convert values to a Pandas Series, ensuring they are strings
+    values_series = pd.Series(values).astype(str)
+    
+    # Extract the specified character based on the position
+    extracted_character = values_series.str[position]
+    
+    # Calculate the frequency of each character
+    character_counts = extracted_character.value_counts(normalize=True)
+    
+    # Compute the Simpson's Index
+    simpson_index = 1 - sum(character_counts ** 2)
+    
+    return simpson_index
 ```
 :::
-
-## Choosing different plot themes
-
-<!-- Why theme_classic sucks -->
 
 # The story so far...
 
