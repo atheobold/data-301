@@ -3987,19 +3987,79 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a aria-hidden="true" tabindex="-1"></a>tfidf_matrix <span class="op">=</span> vec.transform(documents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<!-- ## TF-IDF in `sklearn` -->
-<!-- ::: {.small} -->
-<!-- ```{python} -->
-<!-- #| code-line-numbers: false -->
-<!-- #| label: sklearn-if-idf-distance -->
-<!-- dists = cosine_distances(tfidf_matrix).round(decimals = 2) -->
-<!-- dists[0].argsort() -->
-<!-- ``` -->
-<!-- > "Whoever has hate for his brother is in the darkness and walks in the darkness." -->
-<!-- > "Hello darkness, my old friend, I've come to talk with you again." -->
-<!-- > "Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that." -->
-<!-- > "Happiness can be found in the darkest of times, if only one remembers to turn on the light." -->
-<!-- ::: -->
+</section>
+<section id="tf-idf-in-sklearn-1" class="slide level2">
+<h2>TF-IDF in <code>sklearn</code></h2>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> cosine_distances(tfidf_matrix).<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb80-2"><a aria-hidden="true" tabindex="-1"></a>dists[<span class="dv">0</span>].argsort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>array([0, 2, 3, 1])</code></pre>
+</div>
+</div>
+</div>
+<p><br> <br></p>
+<div class="fragment">
+<div class="larger">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>😕 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-happened" class="slide level2">
+<h2>What happened?</h2>
+<blockquote>
+<p>The formula that is used to compute the tf-idf for a term t of a document d in a document set is:<br>
+<strong>tf-idf(t, d) = tf(t, d) * idf(t)</strong>,<br>
+and the idf is computed as:<br>
+<strong>idf(t) = log [ n / df(t) ] + 1</strong>,<br>
+where n is the total number of documents in the document set and df(t) is the document frequency of t; the document frequency is the number of documents in the document set that contain the term t.</p>
+</blockquote>
+</section>
+<section id="sklearn-idf" class="slide level2">
+<h2><code>sklearn</code> IDF</h2>
+<blockquote>
+<p>the idf is computed as: <strong>idf(t) = log [ n / df(t) ] + 1</strong></p>
+</blockquote>
+<p>We used <span class="math inline">\(\text{log} \Bigg ( \frac{1}{\frac{\text{df(t)}}{n}} \Bigg )\)</span> which is the same as <span class="math inline">\(\text{log} \Big ( \frac{n}{df(t)} \Big )\)</span></p>
+<div class="fragment">
+<p><br></p>
+<p>But, we never added 1 before taking the log…</p>
+<blockquote>
+<p>The effect of adding “1” to the idf in the equation above is that terms with zero idf, i.e., terms that occur in all documents in a training set, will not be entirely ignored.</p>
+</blockquote>
+</div>
+</section>
+<section id="sklearn-tf" class="slide level2">
+<h2><code>sklearn</code> TF</h2>
+<p>In the documentation of <code>TfidfVectorizer()</code> it states that the function uses <code>CountVectorizer()</code> to obtain the TF matrix.</p>
+<blockquote>
+<p><code>CountVectorizer()</code>: Transforms text into a sparse matrix of n-gram counts.</p>
+</blockquote>
+<div class="fragment">
+<p><br></p>
+<p>This means that <code>sklearn</code> <u><strong>is not</strong></u> dividing the counts of each term by the length of each document.</p>
+</div>
+</section>
+<section id="what-should-you-do" class="slide level2">
+<h2>What should you do?</h2>
+<div class="midi">
+<p>Here’s what I know:</p>
+<ul>
+<li><code>sklearn</code> is used by the majority of data scientists</li>
+<li><code>sklearn</code> is focusing on “training” data not being overly specific with the documents in the training set</li>
+</ul>
+<p>Both of these are points in favor of <code>sklearn</code>.</p>
+</div>
+<div class="fragment">
+<div class="midi">
+<p>The fact that the authors aren’t scaling the counts by the length of each document is a major bummer, but maybe not enough to outweigh the benefits?</p>
+</div>
+</div>
 </section></section>
 <section>
 <section id="lecture-activity-4.2---part-2" class="title-slide slide level1 center">

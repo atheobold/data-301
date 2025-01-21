@@ -921,26 +921,80 @@ tfidf_matrix = vec.transform(documents)
 ```
 :::
 
-<!-- ## TF-IDF in `sklearn` -->
+## TF-IDF in `sklearn`
 
-<!-- ::: {.small} -->
-<!-- ```{python} -->
-<!-- #| code-line-numbers: false -->
-<!-- #| label: sklearn-if-idf-distance -->
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| label: sklearn-if-idf-distance
 
-<!-- dists = cosine_distances(tfidf_matrix).round(decimals = 2) -->
-<!-- dists[0].argsort() -->
-<!-- ``` -->
+dists = cosine_distances(tfidf_matrix).round(decimals = 2)
+dists[0].argsort()
+```
+:::
 
-<!-- > "Whoever has hate for his brother is in the darkness and walks in the darkness." -->
+</br>
+</br> 
 
-<!-- > "Hello darkness, my old friend, I've come to talk with you again." -->
+. . .
 
-<!-- > "Returning hate for hate multiplies hate, adding deeper darkness to a night already devoid of stars. Darkness cannot drive out darkness; only light can do that." -->
+::: {.larger}
+```{r}
+#| echo: false
+emo::ji("confused")
+```
+:::
 
-<!-- > "Happiness can be found in the darkest of times, if only one remembers to turn on the light." -->
+## What happened?
 
-<!-- ::: -->
+> The formula that is used to compute the tf-idf for a term t of a document d in a document set is:  
+> **tf-idf(t, d) = tf(t, d) * idf(t)**,   
+> and the idf is computed as:  
+> **idf(t) = log [ n / df(t) ] + 1**,   
+> where n is the total number of documents in the document set and df(t) is the document frequency of t; the document frequency is the number of documents in the document set that contain the term t.
+
+## `sklearn` IDF
+
+> the idf is computed as: **idf(t) = log [ n / df(t) ] + 1**
+
+We used $\text{log} \Bigg ( \frac{1}{\frac{\text{df(t)}}{n}} \Bigg )$ which is the same as $\text{log} \Big ( \frac{n}{df(t)} \Big )$
+
+. . .
+
+</br>
+
+But, we never added 1 before taking the log...
+
+> The effect of adding "1" to the idf in the equation above is that terms with zero idf, i.e., terms that occur in all documents in a training set, will not be entirely ignored. 
+
+## `sklearn` TF
+
+In the documentation of `TfidfVectorizer()` it states that the function uses `CountVectorizer()` to obtain the TF matrix.
+
+> `CountVectorizer()`: Transforms text into a sparse matrix of n-gram counts.
+
+. . .
+
+</br>
+
+This means that `sklearn` [**is not**]{.underline} dividing the counts of each term by the length of each document. 
+
+## What should you do?
+
+::: {.midi}
+Here's what I know:
+
+- `sklearn` is used by the majority of data scientists
+- `sklearn` is focusing on "training" data not being overly specific with the documents in the training set
+
+Both of these are points in favor of `sklearn`. 
+:::
+
+. . .
+
+::: {.midi}
+The fact that the authors aren't scaling the counts by the length of each document is a major bummer, but maybe not enough to outweigh the benefits?
+:::
 
 # Lecture Activity 4.2 - Part 2
 
