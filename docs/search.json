@@ -1627,42 +1627,42 @@
     "href": "slides/08-knn.html#data-wine-qualities-1",
     "title": "K-Nearest-Neighbors",
     "section": "Data: Wine qualities",
-    "text": "Data: Wine qualities\n\nOur goal is to predict what will be the quality (price) of wines in a future year.\nIdea: Wines with similar features probably have similar quality.\nInputs: Summer temperature, harvest rainfall, september temperature, winter rainfall, age of wine.\nOutput: Price in 1992.\n“Inputs” = “Features” = “Predictors” = “Independent variables”\n“Output” = “Target” = “Dependent variable”"
+    "text": "Data: Wine qualities\n\nGoal: Predict what will be the quality (price) of wines in a future year.\n\n\nIdea: Wines with similar features probably have similar quality.\n\n\n\nInputs: Summer temperature, harvest rainfall, September temperature, winter rainfall, age of wine\n\n“Inputs” = “Features” = “Predictors” = “Independent variables”\n\nOutput: Price in 1992\n\n“Output” = “Target” = “Dependent variable”"
   },
   {
     "objectID": "slides/08-knn.html#similar-wines",
     "href": "slides/08-knn.html#similar-wines",
     "title": "K-Nearest-Neighbors",
-    "section": "Similar wines",
-    "text": "Similar wines\nWhich wines have similar summer temps and winter rainfall to the 1989 vintage?\n\n\nCode\nfrom plotnine import *\n\n(ggplot(df, aes(x = \"summer\", y = \"win\"))\n+ geom_point(color = \"white\")\n+ geom_text(aes(label = \"year\"))\n+ theme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x129d6afd0&gt;"
+    "section": "Similar Wines",
+    "text": "Similar Wines\nWhich wines have similar summer temps and winter rainfall to the 1989 vintage?\n\n\nCode\nfrom plotnine import *\n\n(\n  ggplot(df, mapping = aes(x = \"summer\", y = \"win\")) + \n  geom_point(color = \"white\") + \n  geom_text(mapping = aes(label = \"year\")) + \n  theme_bw()\n)"
   },
   {
     "objectID": "slides/08-knn.html#predicting-1989",
     "href": "slides/08-knn.html#predicting-1989",
     "title": "K-Nearest-Neighbors",
     "section": "Predicting 1989",
-    "text": "Predicting 1989\n\ndf[df['year'] == 1990]\n\n    year  price  summer  har   sep  win  age\n36  1990    NaN    18.7   80  19.3  468    2\n\ndf[df['year'] == 1976]\n\n    year  price  summer  har   sep  win  age\n22  1976   25.0    17.6  247  16.1  418   16"
+    "text": "Predicting 1989\n1989\n\n\ndf[df['year'] == 1989]\n\n    year  price  summer  har   sep  win  age\n35  1989    NaN    18.6   82  18.4  443    3\n\n\n\n1990\n\n\ndf[df['year'] == 1990]\n\n    year  price  summer  har   sep  win  age\n36  1990    NaN    18.7   80  19.3  468    2\n\n\n\n1976\n\n\ndf[df['year'] == 1976]\n\n    year  price  summer  har   sep  win  age\n22  1976   25.0    17.6  247  16.1  418   16"
   },
   {
     "objectID": "slides/08-knn.html#training-and-test-data",
     "href": "slides/08-knn.html#training-and-test-data",
     "title": "K-Nearest-Neighbors",
     "section": "Training and test data",
-    "text": "Training and test data\n\nThe data for which we know the target is called the training data.\nThe data for which we don’t know the target (and want to predict it) is calledthe test data.\n\n\nknown_prices = df['year'] &lt; 1981\nto_predict = df['year'] == 1989\n\ndf_train = df[known_prices].copy()\ndf_test = df[to_predict].copy()"
+    "text": "Training and test data\n\n\nThe data for which we know the target is called the training data.\n\n\nknown_prices = df['year'] &lt; 1981\n\ndf_train = df[known_prices].copy()\n\n\n\n\n\n\nThe data for which we don’t know the target (and want to predict it) is called the test data.\n\n\nto_predict = df['year'] == 1989\n\ndf_test = df[to_predict].copy()"
   },
   {
     "objectID": "slides/08-knn.html#specify-steps",
     "href": "slides/08-knn.html#specify-steps",
     "title": "K-Nearest-Neighbors",
     "section": "Specify steps",
-    "text": "Specify steps\nFirst we make a column transformer…\n\nfrom sklearn.compose import make_column_transformer\nfrom sklearn.preprocessing import OneHotEncoder\nfrom sklearn.preprocessing import StandardScaler\n\npreproc = make_column_transformer(\n  (StandardScaler(), ['summer', 'har', 'sep', 'win','age']),\n  remainder = \"drop\"\n)"
+    "text": "Specify steps\nFirst we make a column transformer…\n\nfrom sklearn.compose import make_column_transformer\nfrom sklearn.preprocessing import OneHotEncoder\nfrom sklearn.preprocessing import StandardScaler\n\npreproc = make_column_transformer(\n  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),\n  remainder = \"drop\"\n)"
   },
   {
     "objectID": "slides/08-knn.html#fit-the-preprocesser",
     "href": "slides/08-knn.html#fit-the-preprocesser",
     "title": "K-Nearest-Neighbors",
-    "section": "Fit the preprocesser",
-    "text": "Fit the preprocesser\nThen we fit it on the training data\n\npreproc.fit(df_train)\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() \n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 16.47037037, 144.81481481,  17.04814815, 608.40740741,\n        25.18518519])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([4.09492455e-01, 5.14089163e+03, 1.89286694e+00, 1.60333525e+04,\n       6.54842250e+01])"
+    "section": "Fit the Preprocesser",
+    "text": "Fit the Preprocesser\nThen we fit it on the training data.\n\n\n\npreproc.fit(df_train)\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 16.47037037, 144.81481481,  17.04814815, 608.40740741,\n        25.18518519])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([4.09492455e-01, 5.14089163e+03, 1.89286694e+00, 1.60333525e+04,\n       6.54842250e+01])"
   },
   {
     "objectID": "slides/08-knn.html#prep-the-data",
@@ -1676,7 +1676,7 @@
     "href": "slides/08-knn.html#fitting-vs-transforming",
     "title": "K-Nearest-Neighbors",
     "section": "Fitting vs Transforming",
-    "text": "Fitting vs Transforming\nWhat if we had fit on the test data?\n\npreproc.fit(df_test)\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() \n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 18.6,  82. ,  18.4, 443. ,   3. ])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([0., 0., 0., 0., 0.])"
+    "text": "Fitting vs Transforming\nWhat if we had fit on the test data?\n\npreproc.transform(df_test)\n\narray([[0., 0., 0., 0., 0.]])"
   },
   {
     "objectID": "slides/08-knn.html#fitting-vs-transforming-1",
@@ -1690,21 +1690,21 @@
     "href": "slides/08-knn.html#all-together",
     "title": "K-Nearest-Neighbors",
     "section": "All together:",
-    "text": "All together:\n\npreproc = make_column_transformer(\n  (StandardScaler(), ['summer', 'har', 'sep', 'win','age']),\n  remainder = \"drop\"\n)\n\npreproc.fit(df_train)\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\ntrain_new = preproc.transform(df_train)\ntest_new = preproc.transform(df_test)"
+    "text": "All together:\n\n\npreproc = make_column_transformer(\n  (StandardScaler(), \n  ['summer', 'har', 'sep', 'win','age']),\n  remainder = \"drop\"\n)\n\n\n\npreproc.fit(df_train)\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\ntrain_new = preproc.transform(df_train)\ntest_new = preproc.transform(df_test)"
   },
   {
     "objectID": "slides/08-knn.html#find-the-closest-k",
     "href": "slides/08-knn.html#find-the-closest-k",
     "title": "K-Nearest-Neighbors",
-    "section": "Find the closest k",
-    "text": "Find the closest k\n\nfrom sklearn.metrics import pairwise_distances\n\npairwise_distances(test_new, train_new)\n\narray([[6.16457005, 5.74908409, 5.01651675, 5.8002254 , 5.48664619,\n        4.35898872, 6.56017889, 5.28491106, 5.38614546, 6.01267804,\n        3.72811494, 6.99167472, 5.26008007, 5.3100901 , 5.76468136,\n        4.97806644, 4.05228644, 3.86667994, 6.7345252 , 3.18480532,\n        4.69099623, 3.65924   , 3.62660714, 5.86910657, 5.30050409,\n        4.60719435, 4.34675994]])"
+    "section": "Find the Closest k",
+    "text": "Find the Closest k\n\nfrom sklearn.metrics import pairwise_distances\n\ndists = pairwise_distances(test_new, train_new)\ndists\n\narray([[6.16457005, 5.74908409, 5.01651675, 5.8002254 , 5.48664619,\n        4.35898872, 6.56017889, 5.28491106, 5.38614546, 6.01267804,\n        3.72811494, 6.99167472, 5.26008007, 5.3100901 , 5.76468136,\n        4.97806644, 4.05228644, 3.86667994, 6.7345252 , 3.18480532,\n        4.69099623, 3.65924   , 3.62660714, 5.86910657, 5.30050409,\n        4.60719435, 4.34675994]])"
   },
   {
     "objectID": "slides/08-knn.html#find-the-closest-k-1",
     "href": "slides/08-knn.html#find-the-closest-k-1",
     "title": "K-Nearest-Neighbors",
-    "section": "Find the closest k",
-    "text": "Find the closest k\n\ndists = pairwise_distances(test_new, train_new)\n\ndists[0].argsort()\n\narray([19, 22, 21, 10, 17, 16, 26,  5, 25, 20, 15,  2, 12,  7, 24, 13,  8,\n        4,  1, 14,  3, 23,  9,  0,  6, 18, 11])"
+    "section": "Find the Closest k",
+    "text": "Find the Closest k\n\n\nbest = (\n  dists[0]\n  .argsort()\n  [1:5]\n  )\nbest\n\narray([22, 21, 10, 17])\n\n\n\n\n\n\n\nranked_train = df_train.loc[best]\nranked_train\n\n    year  price  summer  har   sep  win  age\n22  1976   25.0    17.6  247  16.1  418   16\n21  1975   30.0    16.9  171  17.2  572   17\n10  1964   31.0    17.3   96  18.8  402   28\n17  1971   27.0    16.8  112  16.9  551   21"
   },
   {
     "objectID": "slides/08-knn.html#find-the-closest-k-2",
@@ -2981,5 +2981,33 @@
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
     ]
+  },
+  {
+    "objectID": "slides/08-knn.html#data-wine-quality-variables",
+    "href": "slides/08-knn.html#data-wine-quality-variables",
+    "title": "K-Nearest-Neighbors",
+    "section": "Data: Wine Quality Variables",
+    "text": "Data: Wine Quality Variables\n\n\nyear: What year the wine was produced\nprice: Average market price for Bordeaux vintages according to a series of auctions.\n\nThe price is relative to the price of the 1961 vintage, regarded as the best one ever recorded.\n\nwin: Winter rainfall (in mm)\nsummer: Average temperature during the summer months (June - August)\nsep: Average temperature in the month of September (in Celcius)\nhar: Rainfall during harvest month(s) (in mm)\nage: How old the wine was in 1992 (years since 1992)"
+  },
+  {
+    "objectID": "slides/08-knn.html#analysis-goal",
+    "href": "slides/08-knn.html#analysis-goal",
+    "title": "K-Nearest-Neighbors",
+    "section": "Analysis Goal",
+    "text": "Analysis Goal\n\nGoal: Predict what will be the quality (price) of wines in a future year.\n\n\nIdea: Wines with similar features probably have similar quality.\n\n\n\nInputs: Summer temperature, harvest rainfall, September temperature, winter rainfall, age of wine\n\n“Inputs” = “Features” = “Predictors” = “Independent variables”\n\nOutput: Price in 1992\n\n“Output” = “Target” = “Dependent variable”"
+  },
+  {
+    "objectID": "slides/08-knn.html#what-if-we-had-fit-on-the-test-data",
+    "href": "slides/08-knn.html#what-if-we-had-fit-on-the-test-data",
+    "title": "K-Nearest-Neighbors",
+    "section": "What if we had fit on the test data?",
+    "text": "What if we had fit on the test data?\n\n\n\npreproc.fit(df_test)\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 18.6,  82. ,  18.4, 443. ,   3. ])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([0., 0., 0., 0., 0.])"
+  },
+  {
+    "objectID": "slides/08-knn.html#what-if-we-had-fit-on-the-test-data-1",
+    "href": "slides/08-knn.html#what-if-we-had-fit-on-the-test-data-1",
+    "title": "K-Nearest-Neighbors",
+    "section": "What if we had fit on the test data?",
+    "text": "What if we had fit on the test data?\n\npreproc.transform(df_test)\n\narray([[0., 0., 0., 0., 0.]])"
   }
 ]

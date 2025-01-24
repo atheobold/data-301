@@ -70,148 +70,309 @@ df = pd.read_csv("https://dlsun.github.io/pods/data/bordeaux.csv")
 df
 ```
 
-## Data: Wine qualities
+## Data: Wine Quality Variables
 
--   Our goal is to **predict** what will be the quality (price) of wines in a **future year**.
+::: {.midi}
+- `year`: What year the wine was produced
+- `price`: Average market price for Bordeaux vintages according to a series of
+auctions. 
+    + The price is relative to the price of the 1961 vintage, regarded as the
+    best one ever recorded.
+- `win`: Winter rainfall (in mm)
+- `summer`: Average temperature during the summer months (June - August)
+- `sep`: Average temperature in the month of September (in Celcius)
+- `har`: Rainfall during harvest month(s) (in mm)
+- `age`: How old the wine was in 1992 (years since 1992)
+:::
 
--   Idea: Wines with similar **features** probably have similar **quality**.
+## Analysis Goal
 
--   **Inputs**: Summer temperature, harvest rainfall, september temperature, winter rainfall, age of wine.
+> Goal: **Predict** what will be the quality (price) of wines in a
+> **future year**.
 
--   **Output:** Price in 1992.
+. . .
 
--   "Inputs" = "Features" = "Predictors" = "Independent variables"
+Idea: Wines with similar **features** probably have similar **quality**.
 
--   "Output" = "Target" = "Dependent variable"
+::: {.midi}
+::: {.incremental}
+-   **Inputs**: Summer temperature, harvest rainfall, September temperature, 
+winter rainfall, age of wine
+    + "Inputs" = "Features" = "Predictors" = "Independent variables"
 
-## Similar wines
+-   **Output:** Price in 1992
+    + "Output" = "Target" = "Dependent variable"
+:::
+:::
+
+## Similar Wines
 
 Which wines have similar summer temps and winter rainfall to the 1989 vintage?
 
 ```{python}
 #| code-fold: true
+#| label: scatterplot-temps-rainfall-89-code
+#| eval: false
+
 from plotnine import *
 
-(ggplot(df, aes(x = "summer", y = "win"))
-+ geom_point(color = "white")
-+ geom_text(aes(label = "year"))
-+ theme_classic())
+(
+  ggplot(df, mapping = aes(x = "summer", y = "win")) + 
+  geom_point(color = "white") + 
+  geom_text(mapping = aes(label = "year")) + 
+  theme_bw()
+)
+```
+
+```{python}
+#| label: scatterplot-temps-rainfall-89-plot
+#| echo: false
+
+from plotnine import *
+
+plot = (
+  ggplot(df, aes(x = "summer", y = "win")) + 
+  geom_point(color = "white") + 
+  geom_text(aes(label = "year")) + 
+  theme_bw()
+)
+
+plot.draw(plot)
 ```
 
 ## Predicting 1989
 
+**1989**
+
+::: {.midi}
 ```{python}
+#| label: inspecting-1989
+#| code-line-numbers: false
+
+df[df['year'] == 1989]
+```
+:::
+
+**1990**
+
+::: {.midi}
+```{python}
+#| label: inspecting-1990
+#| code-line-numbers: false
+
 df[df['year'] == 1990]
+```
+:::
+
+**1976**
+
+::: {.midi}
+```{python}
+#| label: inspecting-1976
+#| code-line-numbers: false
 
 df[df['year'] == 1976]
 ```
+:::
 
 ## Training and test data
 
+::: {.midi}
 -   The data for which we **know the target** is called the **training data**.
 
--   The data for which we **don't know the target** (and want to predict it) is calledthe **test data**.
-
 ```{python}
+#| code-line-numbers: false
+#| label: train-1989
+
 known_prices = df['year'] < 1981
-to_predict = df['year'] == 1989
 
 df_train = df[known_prices].copy()
+```
+:::
+
+</br> 
+
+. . .
+
+::: {.midi}
+-   The data for which we **don't know the target** (and want to predict it) is
+called the **test data**.
+
+```{python}
+#| code-line-numbers: false
+#| label: test-1989
+
+to_predict = df['year'] == 1989
+
 df_test = df[to_predict].copy()
 ```
+:::
+
+# Testing & Training with `scikitlearn`
 
 ## Specify steps
 
 First we make a column transformer...
 
 ```{python}
+#| code-line-numbers: false
+#| label: sklearn-transform-columns
+
 from sklearn.compose import make_column_transformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler
 
 preproc = make_column_transformer(
-  (StandardScaler(), ['summer', 'har', 'sep', 'win','age']),
+  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),
   remainder = "drop"
 )
 ```
 
-## Fit the preprocesser
+## Fit the Preprocesser
 
-Then we **fit** it on the **training data**
+Then we **fit** it on the **training data**.
 
+::: {.midi}
 ```{python}
+#| code-line-numbers: false
+#| label: fit-training
+#| output-location: column
+
 preproc.fit(df_train)
+```
+:::
+
+. . .
+
+::: {.midi}
+```{python}
+#| code-line-numbers: false
+#| label: fit-training-mean-variance
 
 preproc.named_transformers_['standardscaler'].mean_
 preproc.named_transformers_['standardscaler'].var_
 ```
+:::
 
 ## Prep the data
 
 Then we **tranform** the **training data** AND the **test data**:
 
 ```{python}
+#| code-line-numbers: false
+#| label: transform-test-train
+
 train_new = preproc.transform(df_train)
 test_new = preproc.transform(df_test)
 
 test_new
 ```
 
-## Fitting vs Transforming
+## What if we had fit on the test data?
 
-What if we had fit on the test data?
-
+::: {.midi}
 ```{python}
+#| code-line-numbers: false
+#| label: fit-test
+#| output-location: column
+
 preproc.fit(df_test)
+```
+:::
+
+. . .
+
+::: {.midi}
+```{python}
+#| code-line-numbers: false
+#| label: fit-test-mean-variance
 
 preproc.named_transformers_['standardscaler'].mean_
 preproc.named_transformers_['standardscaler'].var_
 ```
+:::
 
-## Fitting vs Transforming
-
-What if we had fit on the test data?
+## What if we had fit on the test data?
 
 ```{python}
+#| code-line-numbers: false
+#| label: transform-test
+
 preproc.transform(df_test)
 ```
 
 ## All together:
 
+::: {.midi}
 ```{python}
+#| code-line-numbers: false
+#| label: all-scikitlearn-together-specify
+
 preproc = make_column_transformer(
-  (StandardScaler(), ['summer', 'har', 'sep', 'win','age']),
+  (StandardScaler(), 
+  ['summer', 'har', 'sep', 'win','age']),
   remainder = "drop"
 )
+```
+
+```{python}
+#| code-line-numbers: false
+#| label: all-scikitlearn-together-fit
+#| output-location: column
 
 preproc.fit(df_train)
+```
+
+```{python}
+#| code-line-numbers: false
+#| label: all-scikitlearn-together-transform
 
 train_new = preproc.transform(df_train)
 test_new = preproc.transform(df_test)
 ```
+:::
 
-## Find the closest *k*
+## Find the Closest *k*
 
 ```{python}
+#| code-line-numbers: false
+#| label: distances-from-test-train
+
 from sklearn.metrics import pairwise_distances
 
-pairwise_distances(test_new, train_new)
-```
-
-## Find the closest *k*
-
-```{python}
 dists = pairwise_distances(test_new, train_new)
-
-dists[0].argsort()
+dists
 ```
 
-## Find the closest *k*
+## Find the Closest *k*
 
+::: {.midi}
 ```{python}
-ranked_train = df_train.loc[dists[0].argsort()]
+#| code-line-numbers: false
+#| label: sort-distances
+
+best = (
+  dists[0]
+  .argsort()
+  [1:5]
+  )
+best
+```
+:::
+
+. . .
+
+</br> 
+
+::: {.midi}
+```{python}
+#| code-line-numbers: false
+#| label: closest-wines
+
+ranked_train = df_train.loc[best]
 ranked_train
 ```
+:::
 
 ## Predict from the closest *k*
 

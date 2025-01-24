@@ -493,83 +493,150 @@
 </div>
 </div>
 </section>
-<section id="data-wine-qualities-1" class="slide level2">
-<h2>Data: Wine qualities</h2>
+<section id="data-wine-quality-variables" class="slide level2">
+<h2>Data: Wine Quality Variables</h2>
+<div class="midi">
 <ul>
-<li><p>Our goal is to <strong>predict</strong> what will be the quality (price) of wines in a <strong>future year</strong>.</p></li>
-<li><p>Idea: Wines with similar <strong>features</strong> probably have similar <strong>quality</strong>.</p></li>
-<li><p><strong>Inputs</strong>: Summer temperature, harvest rainfall, september temperature, winter rainfall, age of wine.</p></li>
-<li><p><strong>Output:</strong> Price in 1992.</p></li>
-<li><p>“Inputs” = “Features” = “Predictors” = “Independent variables”</p></li>
-<li><p>“Output” = “Target” = “Dependent variable”</p></li>
+<li><code>year</code>: What year the wine was produced</li>
+<li><code>price</code>: Average market price for Bordeaux vintages according to a series of auctions.
+<ul>
+<li>The price is relative to the price of the 1961 vintage, regarded as the best one ever recorded.</li>
+</ul></li>
+<li><code>win</code>: Winter rainfall (in mm)</li>
+<li><code>summer</code>: Average temperature during the summer months (June - August)</li>
+<li><code>sep</code>: Average temperature in the month of September (in Celcius)</li>
+<li><code>har</code>: Rainfall during harvest month(s) (in mm)</li>
+<li><code>age</code>: How old the wine was in 1992 (years since 1992)</li>
 </ul>
+</div>
+</section>
+<section id="analysis-goal" class="slide level2">
+<h2>Analysis Goal</h2>
+<blockquote>
+<p>Goal: <strong>Predict</strong> what will be the quality (price) of wines in a <strong>future year</strong>.</p>
+</blockquote>
+<div class="fragment">
+<p>Idea: Wines with similar <strong>features</strong> probably have similar <strong>quality</strong>.</p>
+<div class="midi">
+<div>
+<ul>
+<li class="fragment"><strong>Inputs</strong>: Summer temperature, harvest rainfall, September temperature, winter rainfall, age of wine
+<ul>
+<li class="fragment">“Inputs” = “Features” = “Predictors” = “Independent variables”</li>
+</ul></li>
+<li class="fragment"><strong>Output:</strong> Price in 1992
+<ul>
+<li class="fragment">“Output” = “Target” = “Dependent variable”</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="similar-wines" class="slide level2">
-<h2>Similar wines</h2>
+<h2>Similar Wines</h2>
 <p>Which wines have similar summer temps and winter rainfall to the 1989 vintage?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a>(ggplot(df, aes(x <span class="op">=</span> <span class="st">"summer"</span>, y <span class="op">=</span> <span class="st">"win"</span>))</span>
-<span id="cb3-4"><a></a><span class="op">+</span> geom_point(color <span class="op">=</span> <span class="st">"white"</span>)</span>
-<span id="cb3-5"><a></a><span class="op">+</span> geom_text(aes(label <span class="op">=</span> <span class="st">"year"</span>))</span>
-<span id="cb3-6"><a></a><span class="op">+</span> theme_classic())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a></a>(</span>
+<span id="cb3-4"><a></a>  ggplot(df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"summer"</span>, y <span class="op">=</span> <span class="st">"win"</span>)) <span class="op">+</span> </span>
+<span id="cb3-5"><a></a>  geom_point(color <span class="op">=</span> <span class="st">"white"</span>) <span class="op">+</span> </span>
+<span id="cb3-6"><a></a>  geom_text(mapping <span class="op">=</span> aes(label <span class="op">=</span> <span class="st">"year"</span>)) <span class="op">+</span> </span>
+<span id="cb3-7"><a></a>  theme_bw()</span>
+<span id="cb3-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x129d6afd0&gt;</code></pre>
 </div>
-</div>
-</section>
+
+<img data-src="08-knn_files/figure-revealjs/scatterplot-temps-rainfall-89-plot-1.png" width="614" class="r-stretch"></section>
 <section id="predicting-1989" class="slide level2">
 <h2>Predicting 1989</h2>
+<p><strong>1989</strong></p>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>df[df[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1990</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1989</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    year  price  summer  har   sep  win  age
+35  1989    NaN    18.6   82  18.4  443    3</code></pre>
+</div>
+</div>
+</div>
+<p><strong>1990</strong></p>
+<div class="midi">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1990</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    year  price  summer  har   sep  win  age
 36  1990    NaN    18.7   80  19.3  468    2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>df[df[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1976</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p><strong>1976</strong></p>
+<div class="midi">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1976</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    year  price  summer  har   sep  win  age
 22  1976   25.0    17.6  247  16.1  418   16</code></pre>
 </div>
 </div>
+</div>
 </section>
 <section id="training-and-test-data" class="slide level2">
 <h2>Training and test data</h2>
+<div class="midi">
 <ul>
-<li><p>The data for which we <strong>know the target</strong> is called the <strong>training data</strong>.</p></li>
-<li><p>The data for which we <strong>don’t know the target</strong> (and want to predict it) is calledthe <strong>test data</strong>.</p></li>
+<li>The data for which we <strong>know the target</strong> is called the <strong>training data</strong>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>known_prices <span class="op">=</span> df[<span class="st">'year'</span>] <span class="op">&lt;</span> <span class="dv">1981</span></span>
-<span id="cb9-2"><a></a>to_predict <span class="op">=</span> df[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1989</span></span>
-<span id="cb9-3"><a></a></span>
-<span id="cb9-4"><a></a>df_train <span class="op">=</span> df[known_prices].copy()</span>
-<span id="cb9-5"><a></a>df_test <span class="op">=</span> df[to_predict].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>known_prices <span class="op">=</span> df[<span class="st">'year'</span>] <span class="op">&lt;</span> <span class="dv">1981</span></span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a>df_train <span class="op">=</span> df[known_prices].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+<p><br></p>
+<div class="fragment">
+<div class="midi">
+<ul>
+<li>The data for which we <strong>don’t know the target</strong> (and want to predict it) is called the <strong>test data</strong>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>to_predict <span class="op">=</span> df[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">1989</span></span>
+<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> df[to_predict].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="testing-training-with-scikitlearn" class="title-slide slide level1 center">
+<h1>Testing &amp; Training with <code>scikitlearn</code></h1>
+
 </section>
 <section id="specify-steps" class="slide level2">
 <h2>Specify steps</h2>
 <p>First we make a column transformer…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_transformer</span>
-<span id="cb10-2"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
-<span id="cb10-3"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb10-4"><a></a></span>
-<span id="cb10-5"><a></a>preproc <span class="op">=</span> make_column_transformer(</span>
-<span id="cb10-6"><a></a>  (StandardScaler(), [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>,<span class="st">'age'</span>]),</span>
-<span id="cb10-7"><a></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
-<span id="cb10-8"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_transformer</span>
+<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
+<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a>preproc <span class="op">=</span> make_column_transformer(</span>
+<span id="cb12-6"><a aria-hidden="true" tabindex="-1"></a>  (StandardScaler(), [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]),</span>
+<span id="cb12-7"><a aria-hidden="true" tabindex="-1"></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
+<span id="cb12-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="fit-the-preprocesser" class="slide level2">
-<h2>Fit the preprocesser</h2>
-<p>Then we <strong>fit</strong> it on the <strong>training data</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>preproc.fit(df_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h2>Fit the Preprocesser</h2>
+<p>Then we <strong>fit</strong> it on the <strong>training data</strong>.</p>
+<div class="midi">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>preproc.fit(df_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
@@ -990,15 +1057,22 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                  ['summer', 'har', 'sep', 'win', 'age'])])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox"><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>ColumnTransformer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for ColumnTransformer</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
                                  ['summer', 'har', 'sep', 'win', 'age'])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>standardscaler</div></div></label><div class="sk-toggleable__content fitted"><pre>['summer', 'har', 'sep', 'win', 'age']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div></div></div>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>preproc.named_transformers_[<span class="st">'standardscaler'</span>].mean_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</div>
+<div class="fragment">
+<div class="midi">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>preproc.named_transformers_[<span class="st">'standardscaler'</span>].mean_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([ 16.47037037, 144.81481481,  17.04814815, 608.40740741,
         25.18518519])</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>preproc.named_transformers_[<span class="st">'standardscaler'</span>].var_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>preproc.named_transformers_[<span class="st">'standardscaler'</span>].var_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([4.09492455e-01, 5.14089163e+03, 1.89286694e+00, 1.60333525e+04,
        6.54842250e+01])</code></pre>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1006,20 +1080,22 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2>Prep the data</h2>
 <p>Then we <strong>tranform</strong> the <strong>training data</strong> AND the <strong>test data</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>train_new <span class="op">=</span> preproc.transform(df_train)</span>
-<span id="cb16-2"><a></a>test_new <span class="op">=</span> preproc.transform(df_test)</span>
-<span id="cb16-3"><a></a></span>
-<span id="cb16-4"><a></a>test_new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>train_new <span class="op">=</span> preproc.transform(df_train)</span>
+<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a>test_new <span class="op">=</span> preproc.transform(df_test)</span>
+<span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a aria-hidden="true" tabindex="-1"></a>test_new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([[ 3.32798322, -0.87607817,  0.98258257, -1.30629957, -2.74154079]])</code></pre>
 </div>
 </div>
 </section>
-<section id="fitting-vs-transforming" class="slide level2">
-<h2>Fitting vs Transforming</h2>
-<p>What if we had fit on the test data?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>preproc.fit(df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="what-if-we-had-fit-on-the-test-data" class="slide level2">
+<h2>What if we had fit on the test data?</h2>
+<div class="midi">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>preproc.fit(df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <style>#sk-container-id-2 {
   /* Definition of color scheme common for light and dark mode */
@@ -1440,21 +1516,27 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                  ['summer', 'har', 'sep', 'win', 'age'])])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>ColumnTransformer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for ColumnTransformer</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
                                  ['summer', 'har', 'sep', 'win', 'age'])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>standardscaler</div></div></label><div class="sk-toggleable__content fitted"><pre>['summer', 'har', 'sep', 'win', 'age']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div></div></div>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>preproc.named_transformers_[<span class="st">'standardscaler'</span>].mean_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</div>
+<div class="fragment">
+<div class="midi">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>preproc.named_transformers_[<span class="st">'standardscaler'</span>].mean_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([ 18.6,  82. ,  18.4, 443. ,   3. ])</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>preproc.named_transformers_[<span class="st">'standardscaler'</span>].var_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>preproc.named_transformers_[<span class="st">'standardscaler'</span>].var_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([0., 0., 0., 0., 0.])</code></pre>
 </div>
 </div>
+</div>
+</div>
 </section>
-<section id="fitting-vs-transforming-1" class="slide level2">
-<h2>Fitting vs Transforming</h2>
-<p>What if we had fit on the test data?</p>
+<section id="what-if-we-had-fit-on-the-test-data-1" class="slide level2">
+<h2>What if we had fit on the test data?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>preproc.transform(df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>preproc.transform(df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([[0., 0., 0., 0., 0.]])</code></pre>
 </div>
@@ -1462,13 +1544,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="all-together" class="slide level2">
 <h2>All together:</h2>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>preproc <span class="op">=</span> make_column_transformer(</span>
-<span id="cb25-2"><a></a>  (StandardScaler(), [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>,<span class="st">'age'</span>]),</span>
-<span id="cb25-3"><a></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
-<span id="cb25-4"><a></a>)</span>
-<span id="cb25-5"><a></a></span>
-<span id="cb25-6"><a></a>preproc.fit(df_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>preproc <span class="op">=</span> make_column_transformer(</span>
+<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a>  (StandardScaler(), </span>
+<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a>  [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>,<span class="st">'age'</span>]),</span>
+<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
+<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>preproc.fit(df_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <style>#sk-container-id-3 {
   /* Definition of color scheme common for light and dark mode */
@@ -1889,17 +1976,20 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                  ['summer', 'har', 'sep', 'win', 'age'])])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>ColumnTransformer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for ColumnTransformer</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
                                  ['summer', 'har', 'sep', 'win', 'age'])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"><label for="sk-estimator-id-8" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>standardscaler</div></div></label><div class="sk-toggleable__content fitted"><pre>['summer', 'har', 'sep', 'win', 'age']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"><label for="sk-estimator-id-9" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div></div></div>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a></span>
-<span id="cb26-2"><a></a>train_new <span class="op">=</span> preproc.transform(df_train)</span>
-<span id="cb26-3"><a></a>test_new <span class="op">=</span> preproc.transform(df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>train_new <span class="op">=</span> preproc.transform(df_train)</span>
+<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a>test_new <span class="op">=</span> preproc.transform(df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section>
 <section id="find-the-closest-k" class="slide level2">
-<h2>Find the closest <em>k</em></h2>
+<h2>Find the Closest <em>k</em></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
-<span id="cb27-2"><a></a></span>
-<span id="cb27-3"><a></a>pairwise_distances(test_new, train_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
+<span id="cb30-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> pairwise_distances(test_new, train_new)</span>
+<span id="cb30-4"><a aria-hidden="true" tabindex="-1"></a>dists</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([[6.16457005, 5.74908409, 5.01651675, 5.8002254 , 5.48664619,
         4.35898872, 6.56017889, 5.28491106, 5.38614546, 6.01267804,
@@ -1911,51 +2001,34 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </section>
 <section id="find-the-closest-k-1" class="slide level2">
-<h2>Find the closest <em>k</em></h2>
+<h2>Find the Closest <em>k</em></h2>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>dists <span class="op">=</span> pairwise_distances(test_new, train_new)</span>
-<span id="cb29-2"><a></a></span>
-<span id="cb29-3"><a></a>dists[<span class="dv">0</span>].argsort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a>best <span class="op">=</span> (</span>
+<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a>  dists[<span class="dv">0</span>]</span>
+<span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a>  .argsort()</span>
+<span id="cb32-4"><a aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>:<span class="dv">5</span>]</span>
+<span id="cb32-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb32-6"><a aria-hidden="true" tabindex="-1"></a>best</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>array([19, 22, 21, 10, 17, 16, 26,  5, 25, 20, 15,  2, 12,  7, 24, 13,  8,
-        4,  1, 14,  3, 23,  9,  0,  6, 18, 11])</code></pre>
+<pre><code>array([22, 21, 10, 17])</code></pre>
 </div>
 </div>
-</section>
-<section id="find-the-closest-k-2" class="slide level2">
-<h2>Find the closest <em>k</em></h2>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>ranked_train <span class="op">=</span> df_train.loc[dists[<span class="dv">0</span>].argsort()]</span>
-<span id="cb31-2"><a></a>ranked_train</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>ranked_train <span class="op">=</span> df_train.loc[best]</span>
+<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a>ranked_train</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    year  price  summer  har   sep  win  age
-19  1973   16.0    17.1  123  17.9  376   19
 22  1976   25.0    17.6  247  16.1  418   16
 21  1975   30.0    16.9  171  17.2  572   17
 10  1964   31.0    17.3   96  18.8  402   28
-17  1971   27.0    16.8  112  16.9  551   21
-16  1970   40.0    16.7   89  18.0  622   22
-26  1980   14.0    16.0   74  18.4  578   12
-5   1959   66.0    17.5  187  18.7  485   33
-25  1979   21.0    16.2  122  17.3  717   13
-20  1974   11.0    16.3  184  16.2  574   18
-15  1969   12.0    16.5  244  16.6  575   23
-2   1955   45.0    17.1  130  16.8  502   37
-12  1966   47.0    16.5   86  18.4  819   26
-7   1961  100.0    17.3   38  20.4  830   31
-24  1978   27.0    15.8   51  17.4  763   14
-13  1967   19.0    16.2  118  16.5  714   25
-8   1962   33.0    16.3   52  17.2  697   30
-4   1958   18.0    16.4  187  19.1  582   34
-1   1953   63.0    16.7   80  17.3  690   39
-14  1968   11.0    16.2  292  16.4  610   24
-3   1957   22.0    16.1  110  16.2  420   35
-23  1977   11.0    15.6   87  16.8  821   15
-9   1963   17.0    15.7  155  16.2  608   29
-0   1952   37.0    17.1  160  14.3  600   40
-6   1960   14.0    16.4  290  15.8  763   32
-18  1972   10.0    15.0  158  14.6  536   20
-11  1965   11.0    15.4  267  14.8  602   27</code></pre>
+17  1971   27.0    16.8  112  16.9  551   21</code></pre>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1963,8 +2036,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2>Predict from the closest <em>k</em></h2>
 <p>If <span class="math inline">\(k = 1\)</span> …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>ranked_train <span class="op">=</span> df_train.loc[dists[<span class="dv">0</span>].argsort()]</span>
-<span id="cb33-2"><a></a>ranked_train.iloc[<span class="dv">0</span>][<span class="st">'price'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>ranked_train <span class="op">=</span> df_train.loc[dists[<span class="dv">0</span>].argsort()]</span>
+<span id="cb36-2"><a></a>ranked_train.iloc[<span class="dv">0</span>][<span class="st">'price'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(16.0)</code></pre>
 </div>
@@ -1974,8 +2047,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2>Predict from the closest <em>k</em></h2>
 <p>If <span class="math inline">\(k = 100\)</span> …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>ranked_train <span class="op">=</span> df_train.loc[dists[<span class="dv">0</span>].argsort()]</span>
-<span id="cb35-2"><a></a>ranked_train.iloc[<span class="dv">0</span>:<span class="dv">99</span>][<span class="st">'price'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>ranked_train <span class="op">=</span> df_train.loc[dists[<span class="dv">0</span>].argsort()]</span>
+<span id="cb38-2"><a></a>ranked_train.iloc[<span class="dv">0</span>:<span class="dv">99</span>][<span class="st">'price'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(28.814814814814813)</code></pre>
 </div>
@@ -1985,8 +2058,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2>Predict from the closest <em>k</em></h2>
 <p>If <span class="math inline">\(k = 5\)</span> …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>ranked_train <span class="op">=</span> df_train.loc[dists[<span class="dv">0</span>].argsort()]</span>
-<span id="cb37-2"><a></a>ranked_train.iloc[<span class="dv">0</span>:<span class="dv">4</span>][<span class="st">'price'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>ranked_train <span class="op">=</span> df_train.loc[dists[<span class="dv">0</span>].argsort()]</span>
+<span id="cb40-2"><a></a>ranked_train.iloc[<span class="dv">0</span>:<span class="dv">4</span>][<span class="st">'price'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(25.5)</code></pre>
 </div>
@@ -2050,15 +2123,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="knn-in-sklearn" class="slide level2">
 <h2>KNN in sklearn</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsRegressor</span>
-<span id="cb39-2"><a></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
-<span id="cb39-3"><a></a></span>
-<span id="cb39-4"><a></a>pipeline <span class="op">=</span> make_pipeline(</span>
-<span id="cb39-5"><a></a>  preproc,</span>
-<span id="cb39-6"><a></a>  KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb39-7"><a></a>  )</span>
-<span id="cb39-8"><a></a>          </span>
-<span id="cb39-9"><a></a>pipeline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsRegressor</span>
+<span id="cb42-2"><a></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
+<span id="cb42-3"><a></a></span>
+<span id="cb42-4"><a></a>pipeline <span class="op">=</span> make_pipeline(</span>
+<span id="cb42-5"><a></a>  preproc,</span>
+<span id="cb42-6"><a></a>  KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb42-7"><a></a>  )</span>
+<span id="cb42-8"><a></a>          </span>
+<span id="cb42-9"><a></a>pipeline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <style>#sk-container-id-4 {
   /* Definition of color scheme common for light and dark mode */
@@ -2493,7 +2566,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="knn-in-sklearn-1" class="slide level2">
 <h2>KNN in sklearn</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>pipeline.fit(y <span class="op">=</span> df_train[<span class="st">'price'</span>], X <span class="op">=</span> df_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>pipeline.fit(y <span class="op">=</span> df_train[<span class="st">'price'</span>], X <span class="op">=</span> df_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <style>#sk-container-id-5 {
   /* Definition of color scheme common for light and dark mode */
@@ -2923,7 +2996,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                 ('kneighborsregressor', KNeighborsRegressor())])</pre></div> </div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox"><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>columntransformer: ColumnTransformer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for columntransformer: ColumnTransformer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
                                  ['summer', 'har', 'sep', 'win', 'age'])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox"><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>standardscaler</div></div></label><div class="sk-toggleable__content fitted"><pre>['summer', 'har', 'sep', 'win', 'age']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-18" type="checkbox"><label for="sk-estimator-id-18" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-19" type="checkbox"><label for="sk-estimator-id-19" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KNeighborsRegressor</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.neighbors.KNeighborsRegressor.html">?<span>Documentation for KNeighborsRegressor</span></a></div></label><div class="sk-toggleable__content fitted"><pre>KNeighborsRegressor()</pre></div> </div></div></div></div></div></div>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>pipeline.predict(X<span class="op">=</span>df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>pipeline.predict(X<span class="op">=</span>df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([25.8])</code></pre>
 </div>
