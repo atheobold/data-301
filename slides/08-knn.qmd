@@ -80,7 +80,7 @@ auctions.
     best one ever recorded.
 - `win`: Winter rainfall (in mm)
 - `summer`: Average temperature during the summer months (June - August)
-- `sep`: Average temperature in the month of September (in Celcius)
+- `sep`: Average temperature in the month of September (in Celsius)
 - `har`: Rainfall during harvest month(s) (in mm)
 - `age`: How old the wine was in 1992 (years since 1992)
 :::
@@ -256,7 +256,7 @@ preproc.named_transformers_['standardscaler'].var_
 
 ## Prep the data
 
-Then we **tranform** the **training data** AND the **test data**:
+Then we **transform** the **training data** AND the **test data**:
 
 ```{python}
 #| code-line-numbers: false
@@ -354,9 +354,8 @@ dists
 best = (
   dists[0]
   .argsort()
-  [1:5]
   )
-best
+best[0:5]
 ```
 :::
 
@@ -369,8 +368,7 @@ best
 #| code-line-numbers: false
 #| label: closest-wines
 
-ranked_train = df_train.loc[best]
-ranked_train
+df_train.loc[best]
 ```
 :::
 
@@ -379,8 +377,48 @@ ranked_train
 If $k = 1$ ...
 
 ```{python}
-ranked_train = df_train.loc[dists[0].argsort()]
-ranked_train.iloc[0]['price']
+#| code-line-numbers: false
+#| label: k-1
+
+df_train.loc[best[0]]
+```
+
+. . .
+
+</br> 
+
+...we would predict a price of...
+
+```{python}
+#| code-line-numbers: false
+#| label: k-1-price
+
+df_train.loc[best[0], "price"]
+```
+
+
+## Predict from the closest *k*
+
+If $k = 5$ ...
+
+```{python}
+#| code-line-numbers: false
+#| label: k-5
+
+df_train.loc[best[0:5]]
+```
+
+. . .
+
+</br> 
+
+...we would predict a price of...
+
+```{python}
+#| code-line-numbers: false
+#| label: k-5-price
+
+df_train.loc[best[0:5], 'price'].mean()
 ```
 
 ## Predict from the closest *k*
@@ -388,24 +426,111 @@ ranked_train.iloc[0]['price']
 If $k = 100$ ...
 
 ```{python}
-ranked_train = df_train.loc[dists[0].argsort()]
-ranked_train.iloc[0:99]['price'].mean()
+#| code-line-numbers: false
+#| label: k-100
+#| output: false
+
+df_train.loc[best[0:100]]
 ```
 
-## Predict from the closest *k*
+. . .
 
-If $k = 5$ ...
+</br> 
+
+we would predict a price of...
 
 ```{python}
-ranked_train = df_train.loc[dists[0].argsort()]
-ranked_train.iloc[0:4]['price'].mean()
+#| code-line-numbers: false
+#| label: k-100-price
+
+df_train.loc[best[0:100], 'price'].mean()
 ```
 
-# Activity
+# Activity 5.1
 
-## Activity 1
+## Predicting Unknown Prices
 
-Find the predicted 1992 price for *all* the unknown wines, with
+Find the predicted 1992 price for *all* the unknown wines (`year`s 1981 through
+1991), with:
+
+-   $k = 1$
+
+-   $k = 5$
+
+-   $k = 10$
+
+::: {.callout-tip}
+# A good place for a function! 
+
+You are performing the same process with different inputs of $k$, so this seems
+like a reasonable place to write a function to save you time / reduce errors from
+copying and pasting. 
+:::
+
+# KNN in `sklearn`
+
+## Specifying
+
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| label: sklearn-specify
+#| output-location: column
+
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.pipeline import make_pipeline
+
+pipeline = make_pipeline(
+  preproc,
+  KNeighborsRegressor(n_neighbors = 5)
+  )
+          
+pipeline
+```
+
+::: {.callout-tip}
+# Remember the `preproc` we made earlier! 
+
+```{python}
+#| eval: false
+#| label: preproc-refresher
+#| code-line-numbers: false
+
+preproc = make_column_transformer(
+  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),
+  remainder = "drop"
+)
+```
+:::
+:::
+
+## Fitting
+
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| label: sklearn-fit
+#| output-location: column
+
+pipeline.fit(
+  y = df_train['price'], 
+  X = df_train
+  )
+```
+:::
+
+## Predicting 
+
+```{python}
+#| code-line-numbers: false
+#| label: sklearn-predict
+
+pipeline.predict(X = df_test)
+```
+
+## Activity 2
+
+Find the predicted 1992 price for the *wines with known prices*, with:
 
 -   $k = 1$
 
@@ -415,30 +540,15 @@ Find the predicted 1992 price for *all* the unknown wines, with
 
 How close was each prediction to the right answer?
 
-*(Optional hint: Write a function to help you!)*
-
-## Activity 2 (together)
-
-Find the predicted 1992 price for all the *training data*, with
-
--   $k = 1$
-
--   $k = 5$
-
--   $k = 10$
-
-How close was each prediction to the right answer?
-
-*(Optional hint: Write a function to help you!)*
-
-# K-Nearest-Neighbors
+# K-Nearest-Neighbors Summary
 
 ## KNN
 
-::: {.smaller}
+::: {.midi}
 We have existing observations
 
-$$(X_1, y_1), ... (X_n, y_n)$$ Where $X_i$ is a set of features, and $y_i$ is a target value.
+$$(X_1, y_1), ... (X_n, y_n)$$ Where $X_i$ is a set of features, and $y_i$ is a
+target value.
 
 Given a new observation $X_{new}$, how do we predict $y_{new}$?
 
@@ -446,50 +556,13 @@ Given a new observation $X_{new}$, how do we predict $y_{new}$?
 
 2.  Take the average of the corresponding $y_i$'s to our five closest $X_i$'s.
 
-3.  Predict $\hat{y}_{new}$ = average of these $y_i$'s
+3.  Predict $\widehat{y}_{new}$ = average of these $y_i$'s
 :::
 
-## KNN
-
-To perform **K-Nearest-Neighbors**, we choose the **K** closest observations to our *target*, and we average their *response* values.
-
-The Big Questions:
+## KNN Big Questions
 
 -   What is our definition of **closest**?
 
--   What number should we use for **K**?
+-   What number should we use for $k$?
 
 -   How do we evaluate the **success** of this approach?
-
-## KNN in sklearn
-
-```{python}
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.pipeline import make_pipeline
-
-pipeline = make_pipeline(
-  preproc,
-  KNeighborsRegressor(n_neighbors=5)
-  )
-          
-pipeline
-```
-
-## KNN in sklearn
-
-```{python}
-pipeline.fit(y = df_train['price'], X = df_train)
-pipeline.predict(X=df_test)
-```
-
-## Activity 2
-
-Find the predicted 1992 price for *all wines*, with
-
--   $k = 1$
-
--   $k = 5$
-
--   $k = 10$
-
-How close was each prediction to the right answer?

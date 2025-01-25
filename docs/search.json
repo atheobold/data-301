@@ -1669,7 +1669,7 @@
     "href": "slides/08-knn.html#prep-the-data",
     "title": "K-Nearest-Neighbors",
     "section": "Prep the data",
-    "text": "Prep the data\nThen we tranform the training data AND the test data:\n\ntrain_new = preproc.transform(df_train)\ntest_new = preproc.transform(df_test)\n\ntest_new\n\narray([[ 3.32798322, -0.87607817,  0.98258257, -1.30629957, -2.74154079]])"
+    "text": "Prep the data\nThen we transform the training data AND the test data:\n\ntrain_new = preproc.transform(df_train)\ntest_new = preproc.transform(df_test)\n\ntest_new\n\narray([[ 3.32798322, -0.87607817,  0.98258257, -1.30629957, -2.74154079]])"
   },
   {
     "objectID": "slides/08-knn.html#fitting-vs-transforming",
@@ -1704,7 +1704,7 @@
     "href": "slides/08-knn.html#find-the-closest-k-1",
     "title": "K-Nearest-Neighbors",
     "section": "Find the Closest k",
-    "text": "Find the Closest k\n\n\nbest = (\n  dists[0]\n  .argsort()\n  [1:5]\n  )\nbest\n\narray([22, 21, 10, 17])\n\n\n\n\n\n\n\nranked_train = df_train.loc[best]\nranked_train\n\n    year  price  summer  har   sep  win  age\n22  1976   25.0    17.6  247  16.1  418   16\n21  1975   30.0    16.9  171  17.2  572   17\n10  1964   31.0    17.3   96  18.8  402   28\n17  1971   27.0    16.8  112  16.9  551   21"
+    "text": "Find the Closest k\n\n\nbest = (\n  dists[0]\n  .argsort()\n  )\nbest[0:5]\n\narray([19, 22, 21, 10, 17])\n\n\n\n\n\n\n\ndf_train.loc[best]\n\n    year  price  summer  har   sep  win  age\n19  1973   16.0    17.1  123  17.9  376   19\n22  1976   25.0    17.6  247  16.1  418   16\n21  1975   30.0    16.9  171  17.2  572   17\n10  1964   31.0    17.3   96  18.8  402   28\n17  1971   27.0    16.8  112  16.9  551   21\n16  1970   40.0    16.7   89  18.0  622   22\n26  1980   14.0    16.0   74  18.4  578   12\n5   1959   66.0    17.5  187  18.7  485   33\n25  1979   21.0    16.2  122  17.3  717   13\n20  1974   11.0    16.3  184  16.2  574   18\n15  1969   12.0    16.5  244  16.6  575   23\n2   1955   45.0    17.1  130  16.8  502   37\n12  1966   47.0    16.5   86  18.4  819   26\n7   1961  100.0    17.3   38  20.4  830   31\n24  1978   27.0    15.8   51  17.4  763   14\n13  1967   19.0    16.2  118  16.5  714   25\n8   1962   33.0    16.3   52  17.2  697   30\n4   1958   18.0    16.4  187  19.1  582   34\n1   1953   63.0    16.7   80  17.3  690   39\n14  1968   11.0    16.2  292  16.4  610   24\n3   1957   22.0    16.1  110  16.2  420   35\n23  1977   11.0    15.6   87  16.8  821   15\n9   1963   17.0    15.7  155  16.2  608   29\n0   1952   37.0    17.1  160  14.3  600   40\n6   1960   14.0    16.4  290  15.8  763   32\n18  1972   10.0    15.0  158  14.6  536   20\n11  1965   11.0    15.4  267  14.8  602   27"
   },
   {
     "objectID": "slides/08-knn.html#find-the-closest-k-2",
@@ -1718,21 +1718,21 @@
     "href": "slides/08-knn.html#predict-from-the-closest-k",
     "title": "K-Nearest-Neighbors",
     "section": "Predict from the closest k",
-    "text": "Predict from the closest k\nIf \\(k = 1\\) …\n\nranked_train = df_train.loc[dists[0].argsort()]\nranked_train.iloc[0]['price']\n\nnp.float64(16.0)"
+    "text": "Predict from the closest k\nIf \\(k = 1\\) …\n\ndf_train.loc[best[0]]\n\nyear      1973.0\nprice       16.0\nsummer      17.1\nhar        123.0\nsep         17.9\nwin        376.0\nage         19.0\nName: 19, dtype: float64\n\n\n\n\n…we would predict a price of…\n\ndf_train.loc[best[0], \"price\"]\n\nnp.float64(16.0)"
   },
   {
     "objectID": "slides/08-knn.html#predict-from-the-closest-k-1",
     "href": "slides/08-knn.html#predict-from-the-closest-k-1",
     "title": "K-Nearest-Neighbors",
     "section": "Predict from the closest k",
-    "text": "Predict from the closest k\nIf \\(k = 100\\) …\n\nranked_train = df_train.loc[dists[0].argsort()]\nranked_train.iloc[0:99]['price'].mean()\n\nnp.float64(28.814814814814813)"
+    "text": "Predict from the closest k\nIf \\(k = 5\\) …\n\ndf_train.loc[best[0:5]]\n\n    year  price  summer  har   sep  win  age\n19  1973   16.0    17.1  123  17.9  376   19\n22  1976   25.0    17.6  247  16.1  418   16\n21  1975   30.0    16.9  171  17.2  572   17\n10  1964   31.0    17.3   96  18.8  402   28\n17  1971   27.0    16.8  112  16.9  551   21\n\n\n\n\n…we would predict a price of…\n\ndf_train.loc[best[0:5], 'price'].mean()\n\nnp.float64(25.8)"
   },
   {
     "objectID": "slides/08-knn.html#predict-from-the-closest-k-2",
     "href": "slides/08-knn.html#predict-from-the-closest-k-2",
     "title": "K-Nearest-Neighbors",
     "section": "Predict from the closest k",
-    "text": "Predict from the closest k\nIf \\(k = 5\\) …\n\nranked_train = df_train.loc[dists[0].argsort()]\nranked_train.iloc[0:4]['price'].mean()\n\nnp.float64(25.5)"
+    "text": "Predict from the closest k\nIf \\(k = 100\\) …\n\ndf_train.loc[best[0:100]]\n\n\n\nwe would predict a price of…\n\ndf_train.loc[best[0:100], 'price'].mean()\n\nnp.float64(28.814814814814813)"
   },
   {
     "objectID": "slides/08-knn.html#activity-1",
@@ -1753,7 +1753,7 @@
     "href": "slides/08-knn.html#knn",
     "title": "K-Nearest-Neighbors",
     "section": "KNN",
-    "text": "KNN\n\nWe have existing observations\n\\[(X_1, y_1), ... (X_n, y_n)\\] Where \\(X_i\\) is a set of features, and \\(y_i\\) is a target value.\nGiven a new observation \\(X_{new}\\), how do we predict \\(y_{new}\\)?\n\nFind the \\(k\\) values in \\((X_1, ..., X_n)\\) that are closest to \\(X_{new}\\)\nTake the average of the corresponding \\(y_i\\)’s to our five closest \\(X_i\\)’s.\nPredict \\(\\hat{y}_{new}\\) = average of these \\(y_i\\)’s"
+    "text": "KNN\n\nWe have existing observations\n\\[(X_1, y_1), ... (X_n, y_n)\\] Where \\(X_i\\) is a set of features, and \\(y_i\\) is a target value.\nGiven a new observation \\(X_{new}\\), how do we predict \\(y_{new}\\)?\n\nFind the \\(k\\) values in \\((X_1, ..., X_n)\\) that are closest to \\(X_{new}\\)\nTake the average of the corresponding \\(y_i\\)’s to our five closest \\(X_i\\)’s.\nPredict \\(\\widehat{y}_{new}\\) = average of these \\(y_i\\)’s"
   },
   {
     "objectID": "slides/08-knn.html#knn-1",
@@ -1781,7 +1781,7 @@
     "href": "slides/08-knn.html#activity-2",
     "title": "K-Nearest-Neighbors",
     "section": "Activity 2",
-    "text": "Activity 2\nFind the predicted 1992 price for all wines, with\n\n\\(k = 1\\)\n\\(k = 5\\)\n\\(k = 10\\)\n\nHow close was each prediction to the right answer?"
+    "text": "Activity 2\nFind the predicted 1992 price for the wines with known prices, with:\n\n\\(k = 1\\)\n\\(k = 5\\)\n\\(k = 10\\)\n\nHow close was each prediction to the right answer?"
   },
   {
     "objectID": "slides/06-preprocessing.html#distances",
@@ -2987,7 +2987,7 @@
     "href": "slides/08-knn.html#data-wine-quality-variables",
     "title": "K-Nearest-Neighbors",
     "section": "Data: Wine Quality Variables",
-    "text": "Data: Wine Quality Variables\n\n\nyear: What year the wine was produced\nprice: Average market price for Bordeaux vintages according to a series of auctions.\n\nThe price is relative to the price of the 1961 vintage, regarded as the best one ever recorded.\n\nwin: Winter rainfall (in mm)\nsummer: Average temperature during the summer months (June - August)\nsep: Average temperature in the month of September (in Celcius)\nhar: Rainfall during harvest month(s) (in mm)\nage: How old the wine was in 1992 (years since 1992)"
+    "text": "Data: Wine Quality Variables\n\n\nyear: What year the wine was produced\nprice: Average market price for Bordeaux vintages according to a series of auctions.\n\nThe price is relative to the price of the 1961 vintage, regarded as the best one ever recorded.\n\nwin: Winter rainfall (in mm)\nsummer: Average temperature during the summer months (June - August)\nsep: Average temperature in the month of September (in Celsius)\nhar: Rainfall during harvest month(s) (in mm)\nage: How old the wine was in 1992 (years since 1992)"
   },
   {
     "objectID": "slides/08-knn.html#analysis-goal",
@@ -3009,5 +3009,40 @@
     "title": "K-Nearest-Neighbors",
     "section": "What if we had fit on the test data?",
     "text": "What if we had fit on the test data?\n\npreproc.transform(df_test)\n\narray([[0., 0., 0., 0., 0.]])"
+  },
+  {
+    "objectID": "slides/08-knn.html#predicting-unknown-prices",
+    "href": "slides/08-knn.html#predicting-unknown-prices",
+    "title": "K-Nearest-Neighbors",
+    "section": "Predicting Unknown Prices",
+    "text": "Predicting Unknown Prices\nFind the predicted 1992 price for all the unknown wines (years 1981 through 1991), with:\n\n\\(k = 1\\)\n\\(k = 5\\)\n\\(k = 10\\)\n\n\n\n\n\n\n\nA good place for a function!\n\n\nYou are performing the same process with different inputs of \\(k\\), so this seems like a reasonable place to write a function to save you time / reduce errors from copying and pasting."
+  },
+  {
+    "objectID": "slides/08-knn.html#knn-big-questions",
+    "href": "slides/08-knn.html#knn-big-questions",
+    "title": "K-Nearest-Neighbors",
+    "section": "KNN Big Questions",
+    "text": "KNN Big Questions\n\nWhat is our definition of closest?\nWhat number should we use for \\(k\\)?\nHow do we evaluate the success of this approach?"
+  },
+  {
+    "objectID": "slides/08-knn.html#specifying",
+    "href": "slides/08-knn.html#specifying",
+    "title": "K-Nearest-Neighbors",
+    "section": "Specifying",
+    "text": "Specifying\n\n\n\nfrom sklearn.neighbors import KNeighborsRegressor\nfrom sklearn.pipeline import make_pipeline\n\npipeline = make_pipeline(\n  preproc,\n  KNeighborsRegressor(n_neighbors = 5)\n  )\n          \npipeline\n\n\nPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor', KNeighborsRegressor())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiNot fittedPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor', KNeighborsRegressor())]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor() \n\n\n\n\n\n\n\n\nRemember the preproc we made earlier!\n\n\n\npreproc = make_column_transformer(\n  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),\n  remainder = \"drop\"\n)"
+  },
+  {
+    "objectID": "slides/08-knn.html#fitting",
+    "href": "slides/08-knn.html#fitting",
+    "title": "K-Nearest-Neighbors",
+    "section": "Fitting",
+    "text": "Fitting\n\n\n\npipeline.fit(\n  y = df_train['price'], \n  X = df_train\n  )\n\n\nPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor', KNeighborsRegressor())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor', KNeighborsRegressor())]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor()"
+  },
+  {
+    "objectID": "slides/08-knn.html#predicting",
+    "href": "slides/08-knn.html#predicting",
+    "title": "K-Nearest-Neighbors",
+    "section": "Predicting",
+    "text": "Predicting\n\npipeline.predict(X = df_test)\n\narray([25.8])"
   }
 ]

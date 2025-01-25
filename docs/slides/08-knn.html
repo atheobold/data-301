@@ -504,7 +504,7 @@
 </ul></li>
 <li><code>win</code>: Winter rainfall (in mm)</li>
 <li><code>summer</code>: Average temperature during the summer months (June - August)</li>
-<li><code>sep</code>: Average temperature in the month of September (in Celcius)</li>
+<li><code>sep</code>: Average temperature in the month of September (in Celsius)</li>
 <li><code>har</code>: Rainfall during harvest month(s) (in mm)</li>
 <li><code>age</code>: How old the wine was in 1992 (years since 1992)</li>
 </ul>
@@ -1078,7 +1078,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="prep-the-data" class="slide level2">
 <h2>Prep the data</h2>
-<p>Then we <strong>tranform</strong> the <strong>training data</strong> AND the <strong>test data</strong>:</p>
+<p>Then we <strong>transform</strong> the <strong>training data</strong> AND the <strong>test data</strong>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>train_new <span class="op">=</span> preproc.transform(df_train)</span>
 <span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a>test_new <span class="op">=</span> preproc.transform(df_test)</span>
@@ -2007,11 +2007,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a>best <span class="op">=</span> (</span>
 <span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a>  dists[<span class="dv">0</span>]</span>
 <span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a>  .argsort()</span>
-<span id="cb32-4"><a aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>:<span class="dv">5</span>]</span>
-<span id="cb32-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb32-6"><a aria-hidden="true" tabindex="-1"></a>best</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-4"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb32-5"><a aria-hidden="true" tabindex="-1"></a>best[<span class="dv">0</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>array([22, 21, 10, 17])</code></pre>
+<pre><code>array([19, 22, 21, 10, 17])</code></pre>
 </div>
 </div>
 </div>
@@ -2019,14 +2018,36 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p><br></p>
 <div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>ranked_train <span class="op">=</span> df_train.loc[best]</span>
-<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a>ranked_train</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>df_train.loc[best]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    year  price  summer  har   sep  win  age
+19  1973   16.0    17.1  123  17.9  376   19
 22  1976   25.0    17.6  247  16.1  418   16
 21  1975   30.0    16.9  171  17.2  572   17
 10  1964   31.0    17.3   96  18.8  402   28
-17  1971   27.0    16.8  112  16.9  551   21</code></pre>
+17  1971   27.0    16.8  112  16.9  551   21
+16  1970   40.0    16.7   89  18.0  622   22
+26  1980   14.0    16.0   74  18.4  578   12
+5   1959   66.0    17.5  187  18.7  485   33
+25  1979   21.0    16.2  122  17.3  717   13
+20  1974   11.0    16.3  184  16.2  574   18
+15  1969   12.0    16.5  244  16.6  575   23
+2   1955   45.0    17.1  130  16.8  502   37
+12  1966   47.0    16.5   86  18.4  819   26
+7   1961  100.0    17.3   38  20.4  830   31
+24  1978   27.0    15.8   51  17.4  763   14
+13  1967   19.0    16.2  118  16.5  714   25
+8   1962   33.0    16.3   52  17.2  697   30
+4   1958   18.0    16.4  187  19.1  582   34
+1   1953   63.0    16.7   80  17.3  690   39
+14  1968   11.0    16.2  292  16.4  610   24
+3   1957   22.0    16.1  110  16.2  420   35
+23  1977   11.0    15.6   87  16.8  821   15
+9   1963   17.0    15.7  155  16.2  608   29
+0   1952   37.0    17.1  160  14.3  600   40
+6   1960   14.0    16.4  290  15.8  763   32
+18  1972   10.0    15.0  158  14.6  536   20
+11  1965   11.0    15.4  267  14.8  602   27</code></pre>
 </div>
 </div>
 </div>
@@ -2036,102 +2057,118 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2>Predict from the closest <em>k</em></h2>
 <p>If <span class="math inline">\(k = 1\)</span> …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>ranked_train <span class="op">=</span> df_train.loc[dists[<span class="dv">0</span>].argsort()]</span>
-<span id="cb36-2"><a></a>ranked_train.iloc[<span class="dv">0</span>][<span class="st">'price'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>df_train.loc[best[<span class="dv">0</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>year      1973.0
+price       16.0
+summer      17.1
+har        123.0
+sep         17.9
+win        376.0
+age         19.0
+Name: 19, dtype: float64</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<p>…we would predict a price of…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a>df_train.loc[best[<span class="dv">0</span>], <span class="st">"price"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(16.0)</code></pre>
+</div>
 </div>
 </div>
 </section>
 <section id="predict-from-the-closest-k-1" class="slide level2">
 <h2>Predict from the closest <em>k</em></h2>
-<p>If <span class="math inline">\(k = 100\)</span> …</p>
+<p>If <span class="math inline">\(k = 5\)</span> …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>ranked_train <span class="op">=</span> df_train.loc[dists[<span class="dv">0</span>].argsort()]</span>
-<span id="cb38-2"><a></a>ranked_train.iloc[<span class="dv">0</span>:<span class="dv">99</span>][<span class="st">'price'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a>df_train.loc[best[<span class="dv">0</span>:<span class="dv">5</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(28.814814814814813)</code></pre>
+<pre><code>    year  price  summer  har   sep  win  age
+19  1973   16.0    17.1  123  17.9  376   19
+22  1976   25.0    17.6  247  16.1  418   16
+21  1975   30.0    16.9  171  17.2  572   17
+10  1964   31.0    17.3   96  18.8  402   28
+17  1971   27.0    16.8  112  16.9  551   21</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<p>…we would predict a price of…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>df_train.loc[best[<span class="dv">0</span>:<span class="dv">5</span>], <span class="st">'price'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>np.float64(25.8)</code></pre>
+</div>
 </div>
 </div>
 </section>
 <section id="predict-from-the-closest-k-2" class="slide level2">
 <h2>Predict from the closest <em>k</em></h2>
-<p>If <span class="math inline">\(k = 5\)</span> …</p>
+<p>If <span class="math inline">\(k = 100\)</span> …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>ranked_train <span class="op">=</span> df_train.loc[dists[<span class="dv">0</span>].argsort()]</span>
-<span id="cb40-2"><a></a>ranked_train.iloc[<span class="dv">0</span>:<span class="dv">4</span>][<span class="st">'price'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>df_train.loc[best[<span class="dv">0</span>:<span class="dv">100</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><br></p>
+<p>we would predict a price of…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a>df_train.loc[best[<span class="dv">0</span>:<span class="dv">100</span>], <span class="st">'price'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(25.5)</code></pre>
+<pre><code>np.float64(28.814814814814813)</code></pre>
+</div>
 </div>
 </div>
 </section></section>
 <section>
-<section id="activity" class="title-slide slide level1 center">
-<h1>Activity</h1>
+<section id="activity-5.1" class="title-slide slide level1 center">
+<h1>Activity 5.1</h1>
 
 </section>
-<section id="activity-1" class="slide level2">
-<h2>Activity 1</h2>
-<p>Find the predicted 1992 price for <em>all</em> the unknown wines, with</p>
+<section id="predicting-unknown-prices" class="slide level2">
+<h2>Predicting Unknown Prices</h2>
+<p>Find the predicted 1992 price for <em>all</em> the unknown wines (<code>year</code>s 1981 through 1991), with:</p>
 <ul>
 <li><p><span class="math inline">\(k = 1\)</span></p></li>
 <li><p><span class="math inline">\(k = 5\)</span></p></li>
 <li><p><span class="math inline">\(k = 10\)</span></p></li>
 </ul>
-<p>How close was each prediction to the right answer?</p>
-<p><em>(Optional hint: Write a function to help you!)</em></p>
-</section>
-<section id="activity-2-together" class="slide level2">
-<h2>Activity 2 (together)</h2>
-<p>Find the predicted 1992 price for all the <em>training data</em>, with</p>
-<ul>
-<li><p><span class="math inline">\(k = 1\)</span></p></li>
-<li><p><span class="math inline">\(k = 5\)</span></p></li>
-<li><p><span class="math inline">\(k = 10\)</span></p></li>
-</ul>
-<p>How close was each prediction to the right answer?</p>
-<p><em>(Optional hint: Write a function to help you!)</em></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>A good place for a function!</strong></p>
+</div>
+<div class="callout-content">
+<p>You are performing the same process with different inputs of <span class="math inline">\(k\)</span>, so this seems like a reasonable place to write a function to save you time / reduce errors from copying and pasting.</p>
+</div>
+</div>
+</div>
 </section></section>
 <section>
-<section id="k-nearest-neighbors" class="title-slide slide level1 center">
-<h1>K-Nearest-Neighbors</h1>
+<section id="knn-in-sklearn" class="title-slide slide level1 center">
+<h1>KNN in <code>sklearn</code></h1>
 
 </section>
-<section id="knn" class="slide level2">
-<h2>KNN</h2>
-<div class="smaller">
-<p>We have existing observations</p>
-<p><span class="math display">\[(X_1, y_1), ... (X_n, y_n)\]</span> Where <span class="math inline">\(X_i\)</span> is a set of features, and <span class="math inline">\(y_i\)</span> is a target value.</p>
-<p>Given a new observation <span class="math inline">\(X_{new}\)</span>, how do we predict <span class="math inline">\(y_{new}\)</span>?</p>
-<ol type="1">
-<li><p>Find the <span class="math inline">\(k\)</span> values in <span class="math inline">\((X_1, ..., X_n)\)</span> that are closest to <span class="math inline">\(X_{new}\)</span></p></li>
-<li><p>Take the average of the corresponding <span class="math inline">\(y_i\)</span>’s to our five closest <span class="math inline">\(X_i\)</span>’s.</p></li>
-<li><p>Predict <span class="math inline">\(\hat{y}_{new}\)</span> = average of these <span class="math inline">\(y_i\)</span>’s</p></li>
-</ol>
-</div>
-</section>
-<section id="knn-1" class="slide level2">
-<h2>KNN</h2>
-<p>To perform <strong>K-Nearest-Neighbors</strong>, we choose the <strong>K</strong> closest observations to our <em>target</em>, and we average their <em>response</em> values.</p>
-<p>The Big Questions:</p>
-<ul>
-<li><p>What is our definition of <strong>closest</strong>?</p></li>
-<li><p>What number should we use for <strong>K</strong>?</p></li>
-<li><p>How do we evaluate the <strong>success</strong> of this approach?</p></li>
-</ul>
-</section>
-<section id="knn-in-sklearn" class="slide level2">
-<h2>KNN in sklearn</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsRegressor</span>
-<span id="cb42-2"><a></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
-<span id="cb42-3"><a></a></span>
-<span id="cb42-4"><a></a>pipeline <span class="op">=</span> make_pipeline(</span>
-<span id="cb42-5"><a></a>  preproc,</span>
-<span id="cb42-6"><a></a>  KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb42-7"><a></a>  )</span>
-<span id="cb42-8"><a></a>          </span>
-<span id="cb42-9"><a></a>pipeline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="specifying" class="slide level2">
+<h2>Specifying</h2>
+<div class="small">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsRegressor</span>
+<span id="cb47-2"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
+<span id="cb47-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> make_pipeline(</span>
+<span id="cb47-5"><a aria-hidden="true" tabindex="-1"></a>  preproc,</span>
+<span id="cb47-6"><a aria-hidden="true" tabindex="-1"></a>  KNeighborsRegressor(n_neighbors <span class="op">=</span> <span class="dv">5</span>)</span>
+<span id="cb47-7"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb47-8"><a aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb47-9"><a aria-hidden="true" tabindex="-1"></a>pipeline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <style>#sk-container-id-4 {
   /* Definition of color scheme common for light and dark mode */
@@ -2561,12 +2598,37 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                 ('kneighborsregressor', KNeighborsRegressor())])</pre></div> </div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-11" type="checkbox"><label for="sk-estimator-id-11" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>columntransformer: ColumnTransformer</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for columntransformer: ColumnTransformer</span></a></div></label><div class="sk-toggleable__content "><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
                                  ['summer', 'har', 'sep', 'win', 'age'])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-12" type="checkbox"><label for="sk-estimator-id-12" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>standardscaler</div></div></label><div class="sk-toggleable__content "><pre>['summer', 'har', 'sep', 'win', 'age']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-13" type="checkbox"><label for="sk-estimator-id-13" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content "><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-14" type="checkbox"><label for="sk-estimator-id-14" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>KNeighborsRegressor</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.neighbors.KNeighborsRegressor.html">?<span>Documentation for KNeighborsRegressor</span></a></div></label><div class="sk-toggleable__content "><pre>KNeighborsRegressor()</pre></div> </div></div></div></div></div></div>
 </div>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Remember the <code>preproc</code> we made earlier!</strong></p>
+</div>
+<div class="callout-content">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a aria-hidden="true" tabindex="-1"></a>preproc <span class="op">=</span> make_column_transformer(</span>
+<span id="cb48-2"><a aria-hidden="true" tabindex="-1"></a>  (StandardScaler(), [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]),</span>
+<span id="cb48-3"><a aria-hidden="true" tabindex="-1"></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
+<span id="cb48-4"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section id="knn-in-sklearn-1" class="slide level2">
-<h2>KNN in sklearn</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>pipeline.fit(y <span class="op">=</span> df_train[<span class="st">'price'</span>], X <span class="op">=</span> df_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="fitting" class="slide level2">
+<h2>Fitting</h2>
+<div class="small">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a aria-hidden="true" tabindex="-1"></a>pipeline.fit(</span>
+<span id="cb49-2"><a aria-hidden="true" tabindex="-1"></a>  y <span class="op">=</span> df_train[<span class="st">'price'</span>], </span>
+<span id="cb49-3"><a aria-hidden="true" tabindex="-1"></a>  X <span class="op">=</span> df_train</span>
+<span id="cb49-4"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <style>#sk-container-id-5 {
   /* Definition of color scheme common for light and dark mode */
@@ -2996,7 +3058,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                 ('kneighborsregressor', KNeighborsRegressor())])</pre></div> </div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox"><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>columntransformer: ColumnTransformer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for columntransformer: ColumnTransformer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
                                  ['summer', 'har', 'sep', 'win', 'age'])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox"><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>standardscaler</div></div></label><div class="sk-toggleable__content fitted"><pre>['summer', 'har', 'sep', 'win', 'age']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-18" type="checkbox"><label for="sk-estimator-id-18" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-19" type="checkbox"><label for="sk-estimator-id-19" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KNeighborsRegressor</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.neighbors.KNeighborsRegressor.html">?<span>Documentation for KNeighborsRegressor</span></a></div></label><div class="sk-toggleable__content fitted"><pre>KNeighborsRegressor()</pre></div> </div></div></div></div></div></div>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>pipeline.predict(X<span class="op">=</span>df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</div>
+</section>
+<section id="predicting" class="slide level2">
+<h2>Predicting</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a aria-hidden="true" tabindex="-1"></a>pipeline.predict(X <span class="op">=</span> df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([25.8])</code></pre>
 </div>
@@ -3004,13 +3072,39 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="activity-2" class="slide level2">
 <h2>Activity 2</h2>
-<p>Find the predicted 1992 price for <em>all wines</em>, with</p>
+<p>Find the predicted 1992 price for the <em>wines with known prices</em>, with:</p>
 <ul>
 <li><p><span class="math inline">\(k = 1\)</span></p></li>
 <li><p><span class="math inline">\(k = 5\)</span></p></li>
 <li><p><span class="math inline">\(k = 10\)</span></p></li>
 </ul>
 <p>How close was each prediction to the right answer?</p>
+</section></section>
+<section>
+<section id="k-nearest-neighbors-summary" class="title-slide slide level1 center">
+<h1>K-Nearest-Neighbors Summary</h1>
+
+</section>
+<section id="knn" class="slide level2">
+<h2>KNN</h2>
+<div class="midi">
+<p>We have existing observations</p>
+<p><span class="math display">\[(X_1, y_1), ... (X_n, y_n)\]</span> Where <span class="math inline">\(X_i\)</span> is a set of features, and <span class="math inline">\(y_i\)</span> is a target value.</p>
+<p>Given a new observation <span class="math inline">\(X_{new}\)</span>, how do we predict <span class="math inline">\(y_{new}\)</span>?</p>
+<ol type="1">
+<li><p>Find the <span class="math inline">\(k\)</span> values in <span class="math inline">\((X_1, ..., X_n)\)</span> that are closest to <span class="math inline">\(X_{new}\)</span></p></li>
+<li><p>Take the average of the corresponding <span class="math inline">\(y_i\)</span>’s to our five closest <span class="math inline">\(X_i\)</span>’s.</p></li>
+<li><p>Predict <span class="math inline">\(\widehat{y}_{new}\)</span> = average of these <span class="math inline">\(y_i\)</span>’s</p></li>
+</ol>
+</div>
+</section>
+<section id="knn-big-questions" class="slide level2">
+<h2>KNN Big Questions</h2>
+<ul>
+<li><p>What is our definition of <strong>closest</strong>?</p></li>
+<li><p>What number should we use for <span class="math inline">\(k\)</span>?</p></li>
+<li><p>How do we evaluate the <strong>success</strong> of this approach?</p></li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
