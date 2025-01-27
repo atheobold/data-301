@@ -87,5 +87,7 @@ coffee_clean <- coffee_clean |>
 
 coffee_clean |> 
   select(-min_altitude, 
-         -max_altitude) |> 
+         -max_altitude, 
+         - altitude) |>
+  rename(altitude = altitude_new) |> 
   write_csv(file = "coffee_clean.csv")  
