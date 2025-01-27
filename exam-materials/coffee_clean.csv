@@ -1,208 +1,195 @@
-country,farm,lot_number,mill,company,altitude,year,processing_method,aroma,flavor,aftertaste,acidity,body,balance,uniformity,clean_cup,sweetness,overall,category_one_defects,color,category_two_defects
-Colombia,Finca El Paraiso,CQU2022015,Finca El Paraiso,Coffee Quality Union,1700-1930,2021 / 2022,Double Anaerobic Washed,8.58,8.5,8.42,8.58,8.25,8.42,10,10,10,8.58,0,green,3
-Taiwan,Royal Bean Geisha Estate,"The 2022 Pacific Rim Coffee Summit,T037",Royal Bean Geisha Estate,Taiwan Coffee Laboratory,1200,2021 / 2022,Washed / Wet,8.5,8.5,7.92,8,7.92,8.25,10,10,10,8.5,0,blue-green,0
-Laos,OKLAO coffee farms,"The 2022 Pacific Rim Coffee Summit,LA01",oklao coffee processing plant,Taiwan Coffee Laboratory,1300,2021 / 2022,Semi Washed,8.33,8.42,8.08,8.17,7.92,8.17,10,10,10,8.33,0,yellowish,2
-Costa Rica,La Cumbre,CQU2022017,La Montana Tarrazu MIll,Coffee Quality Union,1900,2022,Washed / Wet,8.08,8.17,8.17,8.25,8.17,8.08,10,10,10,8.25,0,green,0
-Colombia,Finca Santuario,CQU2023002,Finca Santuario,Coffee Quality Union,1850-2100,2022,"Honey,Mossto",8.33,8.33,8.08,8.25,7.92,7.92,10,10,10,8.25,0,yellow-green,2
-Guatemala,La Colina,"The 2022 Pacific Rim Coffee Summit,GT02",Dinámica Café,Taiwan Coffee Laboratory,1668,2022,Washed / Wet,8.33,8.33,8.25,7.83,7.83,8.17,10,10,10,8.25,0,green,2
-Taiwan,野牡丹咖啡莊園 Melastoma Coffee Estate,"The 2022 Pacific Rim Coffee Summit,T034",野牡丹咖啡,Taiwan Coffee Laboratory,1250,2021 / 2022,Washed / Wet,8.33,8.17,8.08,8,7.83,8.25,10,10,10,8.25,0,green,0
-Taiwan,七彩琉璃咖啡莊園 Chi Tsai Liu Li Ecological Farm,"The 2022 Pacific Rim Coffee Summit,T050",七彩琉璃咖啡莊園,Taiwan Coffee Laboratory,1200,2021 / 2022,Natural / Dry,8.25,8.25,8.17,8,7.92,8.08,10,10,10,8.08,0,yellow green,1
-Taiwan,亮軒咖啡莊園 Liang Xuan Coffee Farm,"The 2022 Pacific Rim Coffee Summit,T018",亮軒咖啡莊園,Taiwan Coffee Laboratory,1250,2021 / 2022,Washed / Wet,8.08,8.08,8.25,8.08,7.92,8,10,10,10,8.25,0,greenish,0
-"Tanzania, United Republic Of",MASHIMA AMCOS,CN 4127230034/4189230113,GOURMET COFFEE MILL,DORMAN (T) LIMITED,1400-1700,2022 / 2023,Washed / Wet,8.08,8.17,8.08,8.17,8,8,10,10,10,8,0,greenish,0
-Ethiopia,TADE GG,010/0296/600,Moledo社　委託精選場,"Marubeni corp.,",1800-2200,2021 / 2022,Natural / Dry,8.08,8.25,8,8.08,7.92,7.92,10,10,10,8,0,greenish,1
-Guatemala,Karen Acajabon Coffee Farm,"The 2022 Pacific Rim Coffee Summit,GT12",Cafetoland,Taiwan Coffee Laboratory,2000,2021,Natural / Dry,8.08,8,8,7.75,8.25,8.17,10,10,10,8,0,brownish,1
-Taiwan,古峰咖啡莊園 Goodfun Coffee Farm,"The 2022 Pacific Rim Coffee Summit,T051",古峰咖啡莊園,Taiwan Coffee Laboratory,1250,2021 / 2022,Washed / Wet,8.08,8,8.08,8.08,8,8,10,10,10,8,0,green,0
-Ethiopia,Gelana Geisha,"Grade 1, Guji, Natural, Gelana Geisha",Dry Mill or Hulling Facility,Kerchanshe Trading PLC,1900-2000,2021 / 2022,Natural / Dry,7.67,8.17,8,8.33,8,8,10,10,10,8,0,yellow- green,2
-Colombia,La Gaitania,"The 2022 Pacific Rim Coffee Summit,CO03",La Gaitania,Taiwan Coffee Laboratory,1850,2021 / 2022,Washed / Wet,8.08,8,8.08,7.92,8.08,8,10,10,10,8,0,green,0
-Taiwan,青葉咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T014",青葉咖啡莊園,Taiwan Coffee Laboratory,1100,2021 / 2022,Pulped natural / honey,8.17,8.08,8,7.92,8,7.92,10,10,10,8,0,green,0
-Ethiopia,Halo Bariti Cooprative,CQU2023006,Halo Bariti Cooprative,Coffee Quality Union,1900-2100,2022,Washed / Wet,8.17,8.08,7.92,8.17,7.75,7.92,10,10,10,8.08,0,green,2
-Taiwan,東璧咖啡莊園,202203,yes,Dongbi coffee,1300,2022,Natural / Dry,8,8.17,8,7.92,7.92,7.92,10,10,10,8.17,0,yellow-green,0
-Taiwan,櫻桃果古坑咖啡莊園,202112,yes,宸嶧國際有限公司,1200,2021 / 2022,Natural / Dry,8.08,8.17,7.75,7.92,7.83,8,10,10,10,8.17,0,brownish,1
-"Tanzania, United Republic Of",BURKA,CN 4127230032/P-9140,GOURMET COFFEE MILL,DORMAN (T) LIMITED,1570-1600,2022 / 2023,Washed / Wet,8.17,8,7.92,7.92,8.17,7.75,10,10,10,7.92,0,greenish,0
-Guatemala,Finca Vista Hermosa,"The 2022 Pacific Rim Coffee Summit,GT03",El Vergel,Taiwan Coffee Laboratory,1900,2021 / 2022,Natural / Dry,8,7.92,8.08,7.92,7.75,8,10,10,10,8.08,0,yellowish,0
-Taiwan,仲大叔咖啡莊園Uncle Chung.s Coffee Farm,2022/03,仲大叔咖啡莊園Uncle Chung.s Coffee Farm,Taiwan Coffee Laboratory,850,2022,Natural / Dry,8.08,8,7.92,7.92,8,7.83,10,10,10,7.92,0,green,0
-Thailand,Hom Doi,1,Machines to peel outer skin of the cherry coffee and coffee is dried manually,Lyrose,1500-1700,2021 / 2022,Pulped natural / honey,7.67,8,7.83,8,8.08,8,10,10,10,8.08,0,browish-green,5
-Colombia,El Diamante,CQU2023005,El Diamante,Coffee Quality Union,1350,2022,NA,8.08,8,7.83,8.17,7.75,7.83,10,10,10,8,0,brownish,2
-Taiwan,永舜咖啡莊園,"The 2022 Pacific Rim Coffee Summit, T003",永舜咖啡莊園,Taiwan Coffee Laboratory,1250,2021 / 2022,Washed / Wet,7.83,8,7.92,8,8,7.92,10,10,10,7.92,0,bluish-green,0
-Brazil,Fazenda Recreio,Arara 1,Dry mill,"WIT wealth, investments & trust",1250,2022,Pulped natural / honey,7.83,8.08,7.83,7.92,8,7.83,10,10,10,8,2,green,3
-Taiwan,鄒築園ZouZhouYuan,"The 2022 Pacific Rim Coffee Summit,T024",鄒築園ZouZhouYuan,Taiwan Coffee Laboratory,1300,2021 / 2022,Natural / Dry,7.92,7.92,8,7.92,7.83,7.92,10,10,10,8,0,green,2
-Taiwan,嵩岳咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T048",嵩岳咖啡莊園,Taiwan Coffee Laboratory,1200,2021 / 2022,Natural / Dry,8.17,8.08,7.92,8,7.58,7.83,10,10,10,7.92,0,green,0
-Taiwan,他扶芽有機農園,"The 2022 Pacific Rim Coffee Summit,T045",他扶芽有機農園,Taiwan Coffee Laboratory,1060,2021 / 2022,Natural / Dry,8,8,8,7.92,7.75,7.92,10,10,10,7.92,0,blue-green,0
-United States (Hawaii),Hokukano Ranch,"The 2022 Pacific Rim Coffee Summit,US01",Kona Coffee & Tea,Taiwan Coffee Laboratory,600,2021 / 2022,Washed / Wet,8,7.92,8,7.83,7.67,8,10,10,10,8,0,green,0
-Taiwan,鄉庭有機農場Siang-Ting Organic Farm,2022/3/1(老叢),鄉庭有機農場Siang-Ting Organic Farm,Taiwan Coffee Laboratory,150-250,2022,Washed / Wet,8,8,7.83,7.83,7.75,7.92,10,10,10,8.08,0,bluish-green,0
-Taiwan,鄉庭有機農場Siang-Ting Organic Farm,2022/02,鄉庭有機農場Siang-Ting Organic Farm,Taiwan Coffee Laboratory,150-250,2022,Washed / Wet,7.92,8,7.83,7.92,7.83,7.83,10,10,10,8,0,green,0
-Taiwan,金讚咖啡農莊園(Jinzan Coffee Estate),2022臺南市精品咖啡評鑑批次,金讚咖啡農莊園(Jinzan Coffee Estate),Taiwan Coffee Laboratory,668,2022,Washed / Wet,8.08,8.17,7.67,7.83,7.67,7.92,10,10,10,8,0,green,0
-Ethiopia,Eshetu farm,Washed Limmu,Lata Agri export,Alo Coffee,1950,2021 / 2022,Washed / Wet,7.67,7.83,7.83,8,8,8,10,10,10,8,0,green,3
-Ethiopia,Uraga Bisrat washing station,0065,dry mill,TADESSE DESTA IMPORT & EXPORT,2150 - 2350,2021 / 2022,Natural / Dry,8,8.08,8,8,7.67,7.75,10,10,10,7.83,0,yellow green,4
-Ethiopia,YHAENU PLC FARM,1,GUJI COFFEE EXPORT P.L.C,yhaenu plc,1700,2021 / 2022,Washed / Wet,7.92,7.75,7.83,8.17,8,7.75,10,10,10,7.83,0,greenish,1
-Taiwan,卓武山咖啡農場,"The 2022 Pacific Rim Coffee Summit, T004",卓武山咖啡農場,Taiwan Coffee Laboratory,1200,2021 / 2022,Washed / Wet,8,7.92,7.83,7.92,7.83,7.83,10,10,10,7.92,0,bluish-green,0
-Taiwan,御香咖啡園 YU SIANG Coffee Estate,2022臺南市精品咖啡評鑑批次,御香咖啡園 YU SIANG Coffee Estate,Taiwan Coffee Laboratory,650,2022,Pulped natural / honey,8.25,8.08,7.83,7.75,7.67,7.75,10,10,10,7.92,0,green,0
-Kenya,Small Holder,5516,NKG,IBERO (K) LTD,1600-1900,2022 / 2023,Washed / Wet,8.17,7.75,7.83,7.58,7.92,8,10,10,10,8,0,greenish,1
-Taiwan,皇庭咖啡莊園,202203,yes,宸嶧國際有限公司,850,2017 / 2018,Washed / Wet,7.75,7.92,7.75,8,7.83,7.92,10,10,10,8,0,bluish-green,0
-Taiwan,花蓮縣秀林鄉特用作物（咖啡）產銷第一班Agriculture Production and Marketing Groups of Hualien Shlin township special crop (coffee) 1st class,2022/01,花蓮縣秀林鄉特用作物（咖啡）產銷第一班Agriculture Production and Marketing Groups of Hualien Shlin township special crop (coffee) 1st class,Taiwan Coffee Laboratory,300-500,2022,Natural / Dry,8,7.92,7.83,7.92,7.75,7.75,10,10,10,7.92,0,brownish,0
-Taiwan,八一高地,屏東縣三地門鄉德文段,乾燥機、脫殼機,茂泰生技股份有限公司,1000,2021 / 2022,Washed / Wet,8,8.08,7.67,7.75,7.92,7.83,10,10,10,7.83,0,greenish,0
-Taiwan,香夾蘭莊園,A26-Northern Taiwan Specialty Coffee Evaluation,香夾蘭莊園,Taiwu Coffee Cooperative,800,2021 / 2022,Washed / Wet,8,7.92,7.67,8,7.75,7.83,10,10,10,7.92,0,pale yellow,5
-Uganda,Gideon Kule,7938,Dry Mill,Kyagalanyi Coffee Limited,1905,2021 / 2022,Washed / Wet,8,7.92,7.75,7.75,7.75,7.92,10,10,10,7.92,0,green,1
-Taiwan,愛姬咖啡莊園iGfarm,2021/01,愛姬咖啡莊園iGfarm,Taiwan Coffee Laboratory,150,2021 / 2022,NA,7.92,8,7.92,8,7.58,7.75,10,10,10,7.83,0,green,0
-Taiwan,青山坪咖啡農場,"The 2022 Pacific Rim Coffee Summit,T011",青山坪咖啡農場,Taiwan Coffee Laboratory,800,2021 / 2022,Natural / Dry,8.17,8.08,7.83,7.67,7.67,7.75,10,10,10,7.83,0,yellow green,0
-Guatemala,varias fincas,11/15/118,Beneficio Pastores,"Peter Schoenfeld, S.A.",1600,2022 / 2023,Washed / Wet,7.67,8.08,7.67,8,7.92,7.83,10,10,10,7.83,0,green,1
-Guatemala,PEÑA BLANCA,11/951/279,BENEFICIO LAS AMERICAS,"OLAM AGRO GUATEMALA, S.A.",4700,2022 / 2023,Washed / Wet,7.67,8,7.75,7.92,8,7.83,10,10,10,7.83,0,green,4
-Guatemala,san francisco cotzal,11/441/50,"inmobiliaria e inversiones dos mil, s.a.","inmobiliaria e inversiones dos mil, s.a.",1600,2021 / 2022,Washed / Wet,7.83,7.92,7.75,8,7.75,7.75,10,10,10,7.92,0,green,1
-Taiwan,六曲窩,A03-Northern Taiwan Specialty Coffee Evaluation,六曲窩,Taiwu Coffee Cooperative,350-400,2021 / 2022,Washed / Wet,7.92,7.92,7.83,7.83,7.75,7.83,10,10,10,7.83,0,green,2
-Taiwan,北平山林,A23-Northern Taiwan Specialty Coffee Evaluation,北平山林,Taiwu Coffee Cooperative,230,2021 / 2022,Natural / Dry,8,8,7.75,7.75,7.67,7.75,10,10,10,7.92,0,brownish,0
-Indonesia,PT Indo CafCo North Sumatera,016/1513/262,PT Indo CafCo,InterAmerican Coffee,1200,2022,NA,7.83,7.92,7.75,7.83,7.83,7.83,10,10,10,7.83,0,bluish-green,2
-Peru,Ruya Yayu Farm,"The 2022 Pacific Rim Coffee Summit,PE02",no.,Taiwan Coffee Laboratory,1750,2022,Washed / Wet,8,8,7.83,7.83,7.58,7.83,10,10,10,7.75,0,greenish,0
-"Tanzania, United Republic Of",IYENGA,S59588/P03989,CITY COFFEE LTD,VOLCAFE/TaylorWinch Tanzania Ltd,1654,2022 / 2023,Washed / Wet,7.92,7.75,7.75,7.92,7.83,7.83,10,10,10,7.83,0,greenish,0
-Taiwan,優遊吧斯瑪翡咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T029",優遊吧斯瑪翡咖啡莊園,Taiwan Coffee Laboratory,1300,2021 / 2022,Natural / Dry,7.83,7.83,7.67,7.67,7.83,8,10,10,10,8,0,greenish,0
-Taiwan,森悅高峰咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T039",森悅高峰咖啡莊園,Taiwan Coffee Laboratory,1400,2021 / 2022,Washed / Wet,7.67,7.92,7.92,7.83,7.75,7.83,10,10,10,7.83,0,green,0
-Brazil,Fazenda Guariroba,FBT111,Wet-Hulling,Mirai Seeds Corp.,1100,2022,Double Carbonic Maceration / Natural,7.83,7.92,7.75,7.92,7.67,7.83,10,10,10,7.83,0,green,5
-Panama,La Santa,2-237-05,La Santa,Panamerican Coffee Trading,1200,2022 / 2023,Washed / Wet,7.83,7.83,7.75,7.92,7.83,7.75,10,10,10,7.83,0,bluish-green,5
-Taiwan,嵐雲綠海咖啡,屏東縣瑪家鄉,乾燥機、脫殼機,茂泰生技股份有限公司,1200,2021 / 2022,Pulped natural / honey,7.92,8.08,7.67,7.92,7.67,7.75,10,10,10,7.75,0,blue-green,0
-Guatemala,Varias Fincas,11/15/117,Varios Beneficios,"Peter Schoenfeld, S.A.",1600,2022 / 2023,Washed / Wet,7.67,8,7.67,7.83,7.92,7.67,10,10,10,7.92,0,green,1
-Guatemala,SAN RAFAEL URIAS VALDES,11/54876/03,ECO COFFEE,"VALBROS, S. A.",4895,2021 / 2022,Natural / Dry,7.83,8,7.67,7.83,7.75,7.75,10,10,10,7.83,0,yellow-green,2
-Costa Rica,Gamboa Farm,12075,Beneficio Montañas del Diamante,CECA S.A.,1850,2022 / 2023,Washed / Wet,7.58,7.83,7.5,7.67,7.83,7.67,10,10,10,8.58,0,green,2
-Taiwan,羅馬8號莊園,A11-Northern Taiwan Specialty Coffee Evaluation,羅馬8號莊園,Taiwu Coffee Cooperative,200-300,2021 / 2022,Pulped natural / honey,7.83,7.83,7.75,7.75,7.75,7.75,10,10,10,7.92,0,greenish,0
-Taiwan,大鋤花間(Dachu Coffee Estate),2022臺南市精品咖啡評鑑批次,大鋤花間(Dachu Coffee Estate),Taiwan Coffee Laboratory,700,2022,Pulped natural / honey,8.17,7.83,7.67,7.83,7.67,7.67,10,10,10,7.75,0,green,0
-Nicaragua,Finca Las Dos Marias,10 1.1,"Compare Coperativo Condega, Esteli, Nicaragua",NicaNoLA Coffee,1350,2021 / 2022,Natural / Dry,7.92,7.75,7.67,7.67,7.83,7.75,10,10,10,8,1,green,2
-Taiwan,雅慕伊咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T036",雅慕伊咖啡莊園,Taiwan Coffee Laboratory,1250,2021 / 2022,Washed / Wet,8.08,7.83,7.67,7.67,7.67,7.75,10,10,10,7.92,0,green,2
-Taiwan,名陽園,"The 2022 Pacific Rim Coffee Summit,T042",名陽園,Taiwan Coffee Laboratory,1450,2021 / 2022,Natural / Dry,7.83,8,7.67,7.75,7.67,7.75,10,10,10,7.92,0,green,0
-Vietnam,CupnCare,"The 2022 Pacific Rim Coffee Summit,VN02",CupnCare,Taiwan Coffee Laboratory,650,2021 / 2022,Natural / Dry,8,7.83,7.75,7.67,7.58,7.83,10,10,10,7.92,0,brownish,0
-Costa Rica,La Cumbre,CQU2022018,La Montana Tarrazu MIll,Coffee Quality Union,1900,2022,Washed / Wet,7.75,7.83,7.67,7.83,7.75,7.75,10,10,10,7.92,0,green,0
-Taiwan,苗55咖啡莊園,A37-Northern Taiwan Specialty Coffee Evaluation,苗55咖啡莊園,Taiwu Coffee Cooperative,520,2021 / 2022,Pulped natural / honey,7.75,7.92,7.83,7.75,7.75,7.75,10,10,10,7.75,0,bluish-green,0
-Honduras,La Cuchilla,36,Global Coffee,Mercon Honduras,1368,2022 / 2023,Washed / Wet,7.83,7.92,7.75,7.75,7.75,7.75,10,10,10,7.75,0,green,3
-Ethiopia,TRACON TRADING PLC,0712,5.2Ha,Tracon Trading PLC,1943,2021 / 2022,Washed / Wet,7.92,7.83,7.75,7.92,7.58,7.67,10,10,10,7.83,0,green,9
-Taiwan,917農場 (917 Farm),2021/11,917農場 (917 Farm),Taiwan Coffee Laboratory,400,2021 / 2022,Natural / Dry,8.08,7.92,7.75,7.83,7.5,7.58,10,10,10,7.83,0,green,0
-Taiwan,皇庭咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T031",皇庭咖啡莊園,Taiwan Coffee Laboratory,850,2021 / 2022,Washed / Wet,7.83,8,7.5,7.75,7.75,7.75,10,10,10,7.83,0,bluish-green,1
-Guatemala,Finca Alta Luz,11-63-657,NA,"Retrillas del pacifico, s.a.",1300-1400,2022 / 2023,Washed / Wet,7.67,7.83,7.75,7.75,7.83,7.75,10,10,10,7.75,0,green,5
-United States (Hawaii),Miranda's Farm,Islander’s Coffee for Pacific Rim Summit,Greenwell,Taiwan Coffee Laboratory,1300,2022,Washed / Wet,7.92,7.83,7.75,7.92,7.5,7.67,10,10,10,7.75,3,yellow-green,7
-Ethiopia,Bisrat Melaku Washing Station,0065,Washing Station,Tadesse Desta import export,2361,2021 / 2022,Natural / Dry,7.83,7.75,7.58,7.92,8,7.5,10,10,10,7.75,0,yellow green,4
-El Salvador,San Nicolas,"The 2022 Pacific Rim Coffee Summit,SV01",San Nicolas,Taiwan Coffee Laboratory,1500,2021,Pulped natural / honey,7.83,7.83,7.83,7.83,7.67,7.67,10,10,10,7.67,0,brownish,4
-Colombia,Asociacion Tayronaca,NPCO-17418,Trilladora Santa Tirsa,Sucafina NA,2100,2021 / 2022,Washed / Wet,7.75,7.75,7.75,7.75,7.83,7.67,10,10,10,7.83,0,green,1
-Indonesia,"Lintong Nihuta/Dolok Sanggul,Sumatera Utara",CQU2022018,"Lintong Nihuta/Dolok Sanggul,Sumatera Utara",Coffee Quality Union,1250-1350,2022,Wet Hulling,7.67,7.67,7.83,7.83,7.67,7.75,10,10,10,7.83,0,blue-green,1
-Guatemala,San jose del lago,11/15/96,San jose del lago,"Peter Schoenfeld, S.A.",1600,2022 / 2023,Washed / Wet,7.58,7.92,7.67,7.75,7.83,7.75,10,10,10,7.75,0,green,1
-Madagascar,Mandroso,1,On the farm (mechanical huller and polisher / sorting by hand),Vao Vao Sarl,1500,2022,Washed / Wet,7.92,7.92,7.58,7.75,7.58,7.67,10,10,10,7.83,0,blue-green,0
-Honduras,La Cuchilla,8,Global Coffee,Mercon Honduras,1368,2022 / 2023,Washed / Wet,7.75,7.75,7.58,7.83,7.75,7.75,10,10,10,7.75,0,green,2
-Guatemala,san francisco cotzal,11/441/49,"inmobiliaria e inversiones dos mil, s.a.","inmobiliaria e inversiones dos mil, s.a.",1600,2021 / 2022,Washed / Wet,7.58,7.92,7.58,7.83,7.75,7.67,10,10,10,7.75,0,green,2
-Taiwan,竹崙子莊園,A32-Northern Taiwan Specialty Coffee Evaluation,竹崙子莊園,Taiwu Coffee Cooperative,150,2021 / 2022,Pulped natural / honey,7.83,7.92,7.83,7.58,7.58,7.67,10,10,10,7.67,0,greenish,2
-Taiwan,元富咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T017",元富咖啡莊園,Taiwan Coffee Laboratory,800,2021 / 2022,Natural / Dry,7.92,7.75,7.67,7.75,7.75,8,9.33,10,10,7.92,0,yello-green,0
-Guatemala,varias fincas,11/15/51,El Trèbol/Lìnea Gourmet,"Peter Schoenfeld, S.A.",1500-1600,2022 / 2023,Washed / Wet,7.67,7.83,7.67,7.83,7.75,7.67,10,10,10,7.67,0,green,2
-Guatemala,varias fincas,11/15/59,El Trebol/Linea Gourmet,"Peter Schoenfeld, S.A.",1500-1600,2022 / 2023,Washed / Wet,7.67,7.92,7.67,7.75,7.67,7.58,10,10,10,7.75,0,green,2
-Honduras,finca de la casa,"The 2022 Pacific Rim Coffee Summit,HN04",De la casa,Taiwan Coffee Laboratory,1800,2021 / 2022,Pulped natural / honey,7.75,7.75,7.75,7.67,7.75,7.67,10,10,10,7.67,0,green,0
-"Tanzania, United Republic Of",KONGONI ESTATE,CN 4127230031/P-9139,RAFIKI MILL,C.DORMAN SEZ LTD,1600-1750,2022 / 2023,Washed / Wet,7.58,7.67,7.75,7.75,7.75,7.75,10,10,10,7.75,0,greenish,3
-Ethiopia,Ecom Agroindustrial,1077,Beneficio humedo,Descafeinadores Mexicano SA. de CV,1800,2021 / 2022,Washed / Wet,8,7.75,7.5,7.67,7.67,7.67,10,10,10,7.75,1,green,1
-"Tanzania, United Republic Of",MASHIMA AMCOS,CN 4127220159/4189220459,GOURMET COFFEE MILL,DORMAN (T) LTD,1400-1700,2022 / 2023,Washed / Wet,7.75,7.58,7.58,7.92,7.67,7.75,10,10,10,7.75,0,greenish,2
-Colombia,COO,3-002-00883,Laumayer Armenia,InterAmerican Coffee,1400-1700,2022,Washed / Wet,7.67,7.83,7.58,7.92,7.67,7.67,10,10,10,7.67,0,green,3
-Costa Rica,Gamboa Farm,12077-01,Beneficio Montañas del Diamante,CECA S.A.,1850,2022 / 2023,Washed / Wet,7.67,7.92,7.58,7.75,7.67,7.58,10,10,10,7.75,0,green,2
-Guatemala,El Morito,"The 2022 Pacific Rim Coffee Summit,GT01",Sube,Taiwan Coffee Laboratory,1900,2021,Natural / Dry,7.83,7.83,7.58,7.67,7.67,7.58,10,10,10,7.75,0,greenish,0
-Guatemala,San jose del lago,11/15/95,San jose del lago,"Peter Schoenfeld, S.A.",1600,2022 / 2023,Washed / Wet,7.58,7.83,7.58,7.75,7.67,7.75,10,10,10,7.75,0,green,2
-Thailand,Baan San Charoen,CQU2022016,Baan San Charoen,Coffee Quality Union,1300-1400,2022,Natural / Dry,7.75,7.67,7.58,7.75,7.75,7.67,10,10,10,7.75,0,yellowish,3
-Colombia,NA,3/37/1370,"Racafé & CIA S.C.A, Km 5 Vía Pereira",Marubeni Corporation,1411,2022 / 2023,Washed / Wet,7.67,7.75,7.67,7.75,7.67,7.67,10,10,10,7.67,0,green,1
-Guatemala,FINCA ALTA LUZ,11/63/908,NA,"RETRILLAS DEL PACIFICO, S. A.",1400,2021 / 2022,Natural / Dry,7.58,7.83,7.67,7.67,7.67,7.67,10,10,10,7.75,0,green,4
-Guatemala,SAN RAFAEL URIAS VALDES,AMNI-22-0905,"BENEFICIO SANTA RITA, S. A.",Asociación Nacional del Cafe,4895 A 5650,2021 / 2022,Washed / Wet,7.58,7.92,7.5,7.67,7.75,7.67,10,10,10,7.75,0,greenish,4
-Ethiopia,Gerbicho Lela Cooperative,1,Sidama Coffee Farmers Cooperative Union,Taylor Winch Coffee Ltd,2000,2021 / 2022,Washed / Wet,7.83,7.67,7.5,7.92,7.5,7.67,10,10,10,7.75,0,green,12
-Colombia,N / A,3-0068-00886,Trilladora Popayán,ECOM COLOMBIA,1700,2022 / 2023,Washed / Wet,7.92,7.75,7.42,7.58,7.92,7.67,10,10,10,7.58,2,green,5
-United States (Hawaii),various farms,"The 2022 Pacific Rim Coffee Summit,US02",Aloha Hills Kona Coffee,Taiwan Coffee Laboratory,400-600,2022,Washed / Wet,7.67,7.92,7.58,7.58,7.58,7.75,10,10,10,7.75,0,green,3
-Colombia,La Gallera,"The 2022 Pacific Rim Coffee Summit,CO02",La Gallera,Taiwan Coffee Laboratory,1800,2022,Pulped natural / honey,7.67,7.92,7.67,7.58,7.67,7.67,10,10,10,7.58,0,greenish,1
-Mexico,Finca Custepec,312,exportadora de cafe california,Exportadora Café California,1200,2022 / 2023,Washed / Wet,7.67,7.67,7.58,7.67,7.83,7.58,10,10,10,7.75,4,green,12
-Colombia,NA,NA,NA,Coffee Quality Institute,NA,2022,NA,7.83,7.75,7.5,7.58,7.67,7.67,10,10,10,7.67,1,greenish,9
-Taiwan,永舜咖啡莊園,202203,yes,Yongshun,1250,2022,Washed / Wet,7.67,7.67,7.75,7.75,7.5,7.67,10,10,10,7.67,0,bluish-green,0
-Myanmar,Aromatic,"The 2022 Pacific Rim Coffee Summit,MM01",Aromatic,Taiwan Coffee Laboratory,1400,2022,Natural / Dry,7.83,7.83,7.67,7.58,7.58,7.58,10,10,10,7.58,0,pale yellow,1
-Taiwan,恆珊農場,A05-Northern Taiwan Specialty Coffee Evaluation,恆珊農場,Taiwu Coffee Cooperative,200-400,2021 / 2022,Pulped natural / honey,7.58,7.75,7.67,7.83,7.5,7.67,10,10,10,7.67,0,greenish,0
-Honduras,Maria Bonita,"The 2022 Pacific Rim Coffee Summit,HN01","Cafe Organic Marcala, S.A. (COMSA)",Taiwan Coffee Laboratory,1470,2021,Natural / Dry,7.67,7.67,7.58,7.75,7.67,7.67,10,10,10,7.67,0,pale yellow,1
-Taiwan,正源咖啡,A30-Northern Taiwan Specialty Coffee Evaluation,正源咖啡,Taiwu Coffee Cooperative,250-400,2021 / 2022,Natural / Dry,7.58,7.67,7.5,7.75,7.75,7.67,10,10,10,7.67,0,green,0
-Taiwan,宋明光	蝙蝠洞莊園	蝙蝠洞莊園,A14-Northern Taiwan Specialty Coffee Evaluation,宋明光	蝙蝠洞莊園	蝙蝠洞莊園,Taiwu Coffee Cooperative,250-300,2021 / 2022,Pulped natural / honey,7.58,7.75,7.58,7.75,7.58,7.67,10,10,10,7.67,0,green,0
-Guatemala,SAN FRANCISCO COTZAL,P-4142,"INMOBILIARIA E INVERSIONES DOS MIL, S. A.",Asociación Nacional del Cafe,1600,2021 / 2022,Washed / Wet,7.58,7.83,7.58,7.67,7.58,7.58,10,10,10,7.75,0,green,4
-Honduras,varias,AMNI-22-6011-1,Beneficio seco,Cafe Organico Marcala S.A de C.V.,1400,2021 / 2022,Washed / Wet,7.75,7.67,7.58,7.58,7.58,7.67,10,10,10,7.67,0,green,5
-Colombia,La fortaleza,3-0104-00202 Popayán Supremo,Trilladora Pubenza,Cafe Colsuaves,1700,2022,Washed / Wet,7.75,7.75,7.5,7.58,7.83,7.5,10,10,10,7.58,0,bluish-green,2
-Thailand,Doi Tung Development Project,BOURBON 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,1200 - 1580,2022,Washed / Wet,7.42,7.83,7.58,7.67,7.67,7.75,10,10,10,7.58,0,green,0
-Ethiopia,YHAENU PLC FARM,1,GUJI COFFEE EXPORT P.L.C,yhaenu plc,1700,2021 / 2022,Washed / Wet,7.42,7.42,7.42,8,7.92,7.67,10,10,10,7.67,0,greenish,11
-Thailand,Doi Nan,CQU2022011,Doi Nan,Coffee Quality Union,1450,2022,Washed / Wet,7.67,7.67,7.5,7.67,7.58,7.67,10,10,10,7.67,0,green,0
-Uganda,Bugisu Shamba,035/170/5021210,Kawacom,Kawacom uganda LTD,1400 - 1900,2021 / 2022,Washed / Wet,7.75,7.75,7.5,7.5,7.58,7.58,10,10,10,7.75,0,green,3
-Taiwan,香香久溢咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T022",香香久溢咖啡莊園,Taiwan Coffee Laboratory,1100,2021 / 2022,Washed / Wet,7.75,7.92,7.67,7.92,7.75,7.83,8.67,10,10,7.92,0,blue-green,0
-Uganda,Masereka William,7969,Dry Mill,Kyagalanyi Coffee Limited,1905,2021 / 2022,Washed / Wet,7.75,7.67,7.58,7.5,7.67,7.5,10,10,10,7.67,0,green,5
-Taiwan,四分子道,A04-Northern Taiwan Specialty Coffee Evaluation,四分子道,Taiwu Coffee Cooperative,200-300,2021 / 2022,Pulped natural / honey,7.58,7.67,7.5,7.75,7.5,7.58,10,10,10,7.75,0,greenish,0
-Guatemala,MI CAFECITO & LA PROVIDENCIA,1,MI CAFECITO + AGUA SANTA LA PROVIDENCIA + AGUA SANTA,Mr.Brown Cafe,1280-1325,2021,Washed / Wet,7.5,7.75,7.58,7.75,7.67,7.58,10,10,10,7.5,0,green,0
-Taiwan,木華莊園,A21-Northern Taiwan Specialty Coffee Evaluation,木華莊園,Taiwu Coffee Cooperative,300,2021 / 2022,Washed / Wet,7.58,7.67,7.58,7.75,7.42,7.58,10,10,10,7.75,0,green,1
-Colombia,El Laurel,1,Hulling facility,Minka coffee company LTD,1100,2021 / 2022,Washed / Wet,7.67,7.67,7.42,7.75,7.5,7.75,10,10,10,7.58,0,greenish,0
-Costa Rica,Gamboa Farm,12074,Beneficio Montañas del Diamante,CECA S.A.,1850,2022 / 2023,Washed / Wet,7.58,7.75,7.42,7.67,7.5,7.75,10,10,10,7.67,0,green,3
-Taiwan,東泓咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T019",東泓咖啡莊園,Taiwan Coffee Laboratory,750,2021 / 2022,Washed / Wet,7.75,7.83,7.58,7.58,7.58,7.5,10,10,10,7.5,0,blue-green,1
-Thailand,Doi Tung Development Project,TYPICA 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,1300-1500,2022,Washed / Wet,7.92,7.92,7.75,7.33,7.58,7.5,10,10,10,7.33,0,yellow-green,16
-"Tanzania, United Republic Of",MASHIMA AMCOS,CN 4127220163/4189220459,GOURMET COFFEE MILL,DORMAN TANZANIA LTD,1400-1700,2022 / 2023,Washed / Wet,7.92,7.67,7.42,7.5,7.67,7.58,10,10,10,7.5,0,greenish,8
-Brazil,Fazenda Conquista e Capoeirinha,004/22,Dry mill,Ipanema Coffees,950,2022 / 2023,Natural / Dry,7.58,7.5,7.5,7.83,7.67,7.5,10,10,10,7.67,0,green,4
-Taiwan,棒棒有機農場,A41-Northern Taiwan Specialty Coffee Evaluation,棒棒有機農場,Taiwu Coffee Cooperative,1100-1200,2021 / 2022,Washed / Wet,7.75,7.75,7.58,7.67,7.42,7.5,10,10,10,7.58,0,green,1
-Colombia,Buenos Aires,CQU2023003,Buenos Aires,Coffee Quality Union,1390,2022,Anaerobico 1000h,7.67,7.67,7.58,7.67,7.58,7.58,10,10,10,7.5,0,brownish,2
-Honduras,La Bendicion,"The 2022 Pacific Rim Coffee Summit,HN03","COMSA (Cafe Organic Marcala, S.A)",Taiwan Coffee Laboratory,1600,2021,Washed / Wet,7.67,7.75,7.67,7.58,7.5,7.58,10,10,10,7.5,0,bluish-green,3
-Honduras,varias,AMNI-22-6011-2,Beneficio seco,Cafe Organico Marcala S.A de C.V.,1400,2021 / 2022,Washed / Wet,7.75,7.58,7.58,7.58,7.5,7.58,10,10,10,7.67,0,green,5
-Taiwan,蜜多莊園,A35-Northern Taiwan Specialty Coffee Evaluation,蜜多莊園,Taiwu Coffee Cooperative,200-300,2021 / 2022,Natural / Dry,7.75,7.75,7.5,7.75,7.5,7.42,10,10,10,7.5,0,greenish,2
-Taiwan,迎曦山丘,A20-Northern Taiwan Specialty Coffee Evaluation,迎曦山丘,Taiwu Coffee Cooperative,340,2021 / 2022,Washed / Wet,7.67,7.67,7.5,7.58,7.58,7.5,10,10,10,7.67,0,blue-green,0
-Laos,Nongluang Bolaven Plateau,DCN03.11.2022,Dao Heuang Group,Dao Heuang Group,1200 - 1300,2022,Natural / Dry,7.67,7.75,7.33,7.67,7.58,7.5,10,10,10,7.58,0,brownish,7
-Honduras,La Cuchilla,187,CIGRAH,CIGRAH,1368,2021 / 2022,Washed / Wet,7.67,7.67,7.5,7.58,7.58,7.5,10,10,10,7.58,0,green,7
-Honduras,Bethel,198,CADEXSA,CADEXSA,1450,2022 / 2023,Washed / Wet,7.75,7.58,7.58,7.58,7.58,7.5,10,10,10,7.5,0,green,2
-Colombia,EL PRADO,3-59-0654,NEIVA,carcafe ltda,1650,2022 / 2023,Washed / Wet,8,7.67,7.42,7.58,7.58,7.42,10,10,10,7.33,0,bluish-green,1
-Taiwan,樹橋窩莊園,A17-Northern Taiwan Specialty Coffee Evaluation,樹橋窩莊園,Taiwu Coffee Cooperative,250-300,2021 / 2022,Pulped natural / honey,7.5,7.67,7.58,7.58,7.5,7.5,10,10,10,7.58,0,blue-green,0
-Mexico,Finca Tequihua,001,"Coatepec, Veracruz",La Villa Coffee Company LLC,1350,2021 / 2022,Washed / Wet,7.75,7.5,7.42,7.67,7.58,7.5,10,10,10,7.5,2,green,1
-Colombia,La Argentina,CQU2022013,La Argentina,Coffee Quality Union,1350,2021 / 2022,Washed / Wet,7.58,7.5,7.5,7.67,7.58,7.5,10,10,10,7.58,0,greenish,3
-Taiwan,嵩岳咖啡莊園,202203,yes,宸嶧國際有限公司,1200,2022,NA,7.67,7.5,7.42,7.75,7.42,7.58,10,10,10,7.58,0,yellow-green,0
-Honduras,Varias,273,Beneficio Seco Comsa,Cafe Organico Marcala S.A de C.V.,1280,2022 / 2023,Washed / Wet,7.67,7.58,7.5,7.5,7.58,7.5,10,10,10,7.5,0,green,4
-Thailand,Doi Tung Development Project,GAYO 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,1300-1500,2022,Washed / Wet,7.17,7.92,7.58,7.5,7.58,7.67,10,10,10,7.42,0,yellow-green,5
-Vietnam,Ea tan Cooperative,VHA- S3,SIMEXCO DAKLAK LTD,SIMEXCO DAKLAK LTD,900,2021 / 2022,Pulped natural / honey,7.58,7.42,7.58,7.5,7.67,7.75,10,10,10,7.33,0,green,4
-Nicaragua,Finca San Felipe,017-053-0017,Beneficio Atlantic Sébaco,Exportadora Atlantic S.A,1200,2022 / 2023,Natural / Dry,7.33,7.58,7.25,7.33,7.75,8.17,10,10,10,7.33,5,green,1
-Costa Rica,AMA EL AROMA Micro lot - Sunrise,"The 2022 Pacific Rim Coffee Summit,CR01",Micro mill,Taiwan Coffee Laboratory,1450,2021,Pulped natural / honey,7.33,7.5,7.25,7.92,7.75,7.58,10,10,10,7.42,0,pale yellow,1
-Colombia,Federación Nacional de Cafeteros de Colombia,3/01/12857,Federación Nacional de Cafeteros de Colombia,"NIPPON COFFEE TRADING CO.,LTD.",1700,2022,Washed / Wet,7.58,7.67,7.58,7.5,7.33,7.5,10,10,10,7.5,0,green,2
-Thailand,Doi Tung Development Project,CATURRA 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,1200 - 1580,2022,Washed / Wet,7.33,7.58,7.58,7.5,7.67,7.67,10,10,10,7.33,1,greenish,0
-Thailand,Kevin Coffee,21/22,Dry mill,Square Root,1200,2021 / 2022,Natural / Dry,7.5,7.58,7.5,7.42,7.5,7.58,10,10,10,7.58,0,yellow green,0
-Honduras,Bethel,197,CADEXSA,CADEXSA,1450,2022 / 2023,Washed / Wet,7.67,7.58,7.33,7.5,7.58,7.5,10,10,10,7.5,0,green,2
-Taiwan,銅鏡莊園,A01-Northern Taiwan Specialty Coffee Evaluation,銅鏡莊園,Taiwu Coffee Cooperative,165,2021 / 2022,Natural / Dry,7.67,7.67,7.42,7.42,7.42,7.5,10,10,10,7.5,0,green,0
-Taiwan,掬香園,A22-Northern Taiwan Specialty Coffee Evaluation,掬香園,Taiwu Coffee Cooperative,465,2021 / 2022,Washed / Wet,7.67,7.58,7.42,7.42,7.5,7.5,10,10,10,7.5,0,blue-green,2
-Nicaragua,Finca Las Dos Marias,4 -3.1,"Compare Coperativo Condega, Esteli, Nicaragua",NicaNoLA Coffee,1350,2021 / 2022,Washed / Wet,7.5,7.58,7.42,7.58,7.5,7.58,10,10,10,7.42,0,green,0
-El Salvador,Agua Caliente,1-26,Agua Caliente,Consejo Salvadoreño del Café,1200,2022 / 2023,Washed / Wet,7.67,7.33,7.17,7.67,7.83,7.5,10,10,10,7.33,0,green,2
-Panama,Finca Lerida,P03769,Finca Lerida,Panamerican Coffee Trading,1200,2021 / 2022,Washed / Wet,7.75,7.67,7.17,7.67,7.42,7.42,10,10,10,7.42,0,green,0
-Brazil,Fazenda Pedra Preta,MVB-QCert-001/2022,COPAG VARGINHA,Man Volcafe Brasil Ltda.,1100,2022 / 2023,Natural / Dry,7.5,7.58,7.5,7.5,7.67,7.42,10,10,10,7.33,0,bluish-green,1
-United States (Hawaii),Kainaliu Farm,"The 2022 Pacific Rim Coffee Summit,US03",Aloha Hills Kona Coffee,Taiwan Coffee Laboratory,640,2022,Washed / Wet,7.33,7.58,7.5,7.5,7.5,7.58,10,10,10,7.5,0,blue-green,1
-Mexico,Las Trincheras,"The 2022 Pacific Rim Coffee Summit,MX01",Las Trincheras,Taiwan Coffee Laboratory,1340,2021,Washed / Wet,7.67,7.42,7.5,7.5,7.67,7.42,10,10,10,7.33,0,pale yellow,0
-Honduras,La Cuchilla,185,CIGRAH,Mercon Honduras,1368,2021 / 2022,Washed / Wet,7.58,7.58,7.33,7.5,7.58,7.42,10,10,10,7.5,0,green,8
-Taiwan,弘欣咖啡園,A02-Northern Taiwan Specialty Coffee Evaluation,弘欣咖啡園,Taiwu Coffee Cooperative,139,2021 / 2022,Washed / Wet,7.42,7.42,7.58,7.42,7.58,7.5,10,10,10,7.58,0,green,2
-Nicaragua,Finca Aurora,1,Beneficio Seco Finca Aurora,Mr.Brown Cafe,1200-1350,2021 / 2022,Washed / Wet,7.58,7.58,7.42,7.42,7.5,7.5,10,10,10,7.42,0,bluish-green,0
-Vietnam,Apollo Estate,Apollo Washed 2021,Dry Mill,"Sunvirtue Co., Ltd.",1040,2021,Washed / Wet,7.5,7.5,7.33,7.5,7.5,7.42,10,10,10,7.58,0,bluish-green,0
-El Salvador,Agua Caliente,1-26,Agua Caliente,Consejo Salvadoreño del Café,1200,2022 / 2023,Washed / Wet,7.5,7.5,7.42,7.42,7.42,7.67,10,10,10,7.42,0,green,10
-El Salvador,Agua Caliente,1-74,Agua Caliente,Consejo Salvadoreño del Café,1200,2021 / 2022,Washed / Wet,7.33,7.67,7.25,7.67,7.83,7.42,10,10,10,7.17,0,bluish-green,0
-Taiwan,寶山謐靚,A48-Northern Taiwan Specialty Coffee Evaluation,寶山謐靚,Taiwu Coffee Cooperative,140,2021 / 2022,Natural / Dry,7.67,7.58,7.42,7.5,7.33,7.42,10,10,10,7.42,0,green,1
-Peru,Fundo La Libertado,PR138,Planta Callao,Itochu Corporation,1600,2022 / 2023,Washed / Wet,7.67,7.5,7.33,7.58,7.33,7.42,10,10,10,7.42,0,greenish,3
-United States (Hawaii),Manny's Farm,Islander’s Coffee for Pacific Rim Summit,Manny's Farm,Taiwan Coffee Laboratory,1200,2022,Washed / Wet,7.75,7.42,7.33,7.5,7.33,7.5,10,10,10,7.33,1,green,5
-Kenya,Kenyan Highlands,CQU2023004,TAYLOR WINCH,Coffee Quality Union,1500-1950,2022,Washed / Wet,7.5,7.5,7.42,7.5,7.25,7.5,10,10,10,7.5,0,green,2
-Honduras,La Cuchilla,184,CIGRAH,Mercon Honduras,1368,2021 / 2022,Washed / Wet,7.67,7.5,7.25,7.5,7.5,7.33,10,10,10,7.42,0,green,8
-Taiwan,金暖農場,A43-Northern Taiwan Specialty Coffee Evaluation,金暖農場,Taiwu Coffee Cooperative,600,2021 / 2022,Washed / Wet,7.5,7.67,7.33,7.5,7.25,7.33,10,10,10,7.5,0,bluish-green,0
-Taiwan,好客農埸,A34-Northern Taiwan Specialty Coffee Evaluation,好客農埸,Taiwu Coffee Cooperative,460,2021 / 2022,Pulped natural / honey,7.33,7.42,7.42,7.5,7.42,7.5,10,10,10,7.5,0,greenish,3
-Taiwan,拉拉山祖嵐咖啡莊園,A50-Northern Taiwan Specialty Coffee Evaluation,拉拉山祖嵐咖啡莊園,Taiwu Coffee Cooperative,500,2021 / 2022,Washed / Wet,7.5,7.58,7.42,7.42,7.25,7.42,10,10,10,7.42,0,green,1
-Thailand,Doi Tung Development Project,MIXED DT 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,800-1200,2022,Washed / Wet,7.17,7.5,7.42,7.42,7.58,7.5,10,10,10,7.42,0,green,0
-Costa Rica,San Diego Mill,S019194 - P04178,Dosmil,Beneficios Volcafé Costa Rica,1500,2018 / 2019,Washed / Wet,7.42,7.42,7.42,7.33,7.58,7.33,10,10,10,7.5,1,green,8
-Guatemala,Not Specificated,SA4238,Dry Mill of Exportcafe,Marubeni Corporation,1350-1550,2021 / 2022,Washed / Wet,7.42,7.42,7.42,7.33,7.5,7.42,10,10,10,7.5,0,blue-green,2
-Indonesia,Wahana Graha Makmur,015/1686/057,PT. Wahana Graha Makmur Medan,InterAmerican Coffee,1350,2022,Pulped natural / honey,7.67,7.33,7.25,7.67,7.42,7.25,10,10,10,7.42,0,bluish-green,0
-Peru,Fundo La Libertad,301R,Planta Callao,Itochu Corporation,1600,2022 / 2023,Washed / Wet,7.5,7.5,7.33,7.5,7.33,7.33,10,10,10,7.42,0,greenish,2
-Guatemala,MULTIPLE SMALLHOLDER FARMS,GF-23392,MULTIPLE SMALLHOLDER FARMS,"HARU International Corp, 守成咖啡",1200~1600,2022,Washed / Wet,7.33,7.42,7.33,7.42,7.58,7.42,10,10,10,7.42,0,greenish,1
-Taiwan,阿拉思家,A10-Northern Taiwan Specialty Coffee Evaluation,阿拉思家,Taiwu Coffee Cooperative,300,2021 / 2022,Pulped natural / honey,7.25,7.42,7.42,7.5,7.42,7.42,10,10,10,7.42,0,green,0
-Vietnam,Gaia Farms,221221,Hulling Facility,Brew Baby Coffee Company,5400,2022 / 2023,Pulped natural / honey,7.5,7.5,7.25,7.42,7.42,7.42,10,10,10,7.33,0,green,4
-Brazil,Sitio Colinas,CQU2023007,COCARIVE,Coffee Quality Union,1000,2022,Pulped natural / honey,7.5,7.5,7.42,7.33,7.33,7.33,10,10,10,7.42,0,pale yellow,2
-Brazil,Fazenda Olhos Dagua,1,Owned by producer,Mr.Brown Cafe,900-1000,2021,Natural / Dry,7.42,7.5,7.58,7.33,7.33,7.25,10,10,10,7.33,0,yellow-green,0
-Colombia,More than one,1,Trilladora CCA Buga,Mr.Brown Cafe,1574,2021,Washed / Wet,7.33,7.5,7.33,7.42,7.42,7.42,10,10,10,7.33,0,yellow-green,0
-Mexico,Finca San José,002,"Coatepec, Veracruz",La Villa Coffee Company LLC,1200,2021 / 2022,Washed / Wet,7.58,7.42,7.25,7.25,7.5,7.33,10,10,10,7.33,2,green,2
-Costa Rica,HACIENDA SAN IGNACIO,OIC 5-019-0037/ Contenedor: DRYU3106597 / Cliente: O COFFEE,Beneficio La Giorgia,Grupo ECOM,1200,2022 / 2023,Washed / Wet,7.33,7.42,7.25,7.42,7.42,7.33,10,10,10,7.42,0,green,4
-Taiwan,橫鹿,A46-Northern Taiwan Specialty Coffee Evaluation,橫鹿,Taiwu Coffee Cooperative,300,2021 / 2022,Pulped natural / honey,7.42,7.5,7.33,7.33,7.33,7.33,10,10,10,7.33,0,yellow-green,0
-Taiwan,大屯29莊園,A38-Northern Taiwan Specialty Coffee Evaluation,大屯29莊園,Taiwu Coffee Cooperative,435,2021 / 2022,Pulped natural / honey,7.33,7.5,7.42,7.33,7.33,7.25,10,10,10,7.33,0,green,0
-Thailand,Doi Tung Development Project,JAVA 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,1300-1500,2022,Washed / Wet,7.33,7.42,7.25,7.33,7.5,7.42,10,10,10,7.17,2,green,1
-Thailand,Doi Lan,"The 2022 Pacific Rim Coffee Summit,TH07",Miramar Coffee,Taiwan Coffee Laboratory,1400,2021,Natural / Dry,7.42,7.25,7.33,7.42,7.33,7.33,10,10,10,7.25,0,yellowish,5
-Thailand,Doi Tung Development Project,MIXED 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,600-800,2022,Washed / Wet,7.25,7.25,7.42,7.25,7.42,7.42,10,10,10,7.17,0,green,0
-Colombia,Escalera,CQU2022019,Escalera,Coffee Quality Union,1300-1800,2021 / 2022,Washed / Wet,7.42,7.25,7.25,7.42,7.17,7.33,10,10,10,7.33,0,greenish,2
-Brazil,Various farm,0038,Dry Mill of Cocapil,Marubeni Corporation,1200,2022 / 2023,Natural / Dry,7.42,7.42,7.25,7.25,7.17,7.25,10,10,10,7.25,0,greenish,1
-El Salvador,"Rosario de Maria II, Area de Loma Alta",0623C01,"Optimum Coffee, San Salvador, El Salvador",Aprentium Enterprises LLC,1400,2023,Natural / Dry,7.42,7.33,7.33,7.5,7.08,7,10,10,10,7.17,0,bluish-green,7
-Nicaragua,EXPORTADORA ATLANTIC S.A,017/053/0603,Lavado,ISHIMITSU,1100,2021,Washed / Wet,7.25,7.25,7.17,7.33,7.08,7.25,10,10,10,7.17,0,greenish,3
-Nicaragua,Sajonia Estate Coffee S.A.,1,Sajonia Estate Coffee S.A.,SAJONIA ESTATE COFFEE S.A.,1000,2022 / 2023,Washed / Wet,7.42,7.17,7,7.08,7.42,7.17,10,10,10,7.17,0,green,5
-Colombia,Finca Mallorca,CQU2023001,Finca Mallorca,Coffee Quality Union,1600,2022,Washed / Wet,7.25,7.25,7.17,7.33,7,7.17,10,10,10,7.25,0,greenish,3
-Peru,Fundo La Libertad,PR137,Callao Plant,Itochu Corporation,1600,2022 / 2023,Washed / Wet,7.5,7.25,7.17,7.17,7.17,7.08,10,10,10,7,0,greenish,11
-El Salvador,"Rosario de Maria II, Area de Menjivar",0523B01,"Optimum Coffee, San Salvador, El Salvador",Aprentium Enterprises LLC,1300,2023,Natural / Dry,7.08,7.25,7.08,7.42,7.42,7.08,10,10,10,7,0,bluish-green,7
-Brazil,Various farm,002/1738/0029,Dry mill,marubeni,1200,2021 / 2022,Natural / Dry,7.25,7.17,7.17,7.08,7.17,7.17,10,10,10,7.17,0,greenish,2
-Brazil,Fazenda Conquista,019/22,Dry Mill,Ipanema Coffees,950,2022 / 2023,Natural / Dry,7.17,7.17,6.92,7.17,7.42,7.17,10,10,10,7.08,0,green,4
-Nicaragua,Finca San Felipe,017-053-0155,Beneficio Atlantic Sébaco,Exportadora Atlantic S.A,1200,2022 / 2023,Natural / Dry,7.33,7.08,6.75,7.17,7.42,7.17,10,10,10,7.08,0,green,12
-Laos,-,105/3/VL7285-005,DRY MILL,Marubeni Corporation,1300,2021 / 2022,Washed / Wet,7.25,7.17,7.08,7,7.08,7.08,10,10,10,7,0,green,11
-El Salvador,"Rosario de Maria II, Area de La Pila",0423A01,"Optimum Coffee, San Salvador, El Salvador",Aprentium Enterprises LLC,1200,2023,Natural / Dry,6.5,6.75,6.75,7.17,7.08,7,10,10,10,6.83,0,bluish-green,13
-Brazil,Walter Matter,1058 y 1059,Beneficio humedo/seco,Descafeinadores Mexicano SA. de CV,850-1100,2021 / 2022,SEMI-LAVADO,7.25,7.08,6.67,6.83,6.83,6.67,10,10,10,6.67,0,green,1
+country,farm,lot_number,mill,company,year,processing_method,aroma,flavor,aftertaste,acidity,body,balance,uniformity,clean_cup,sweetness,overall,category_one_defects,color,category_two_defects,altitude
+Taiwan,Royal Bean Geisha Estate,"The 2022 Pacific Rim Coffee Summit,T037",Royal Bean Geisha Estate,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,8.5,8.5,7.92,8,7.92,8.25,10,10,10,8.5,0,blue-green,0,1200
+Costa Rica,La Cumbre,CQU2022017,La Montana Tarrazu MIll,Coffee Quality Union,2022,Washed / Wet,8.08,8.17,8.17,8.25,8.17,8.08,10,10,10,8.25,0,green,0,1900
+Guatemala,La Colina,"The 2022 Pacific Rim Coffee Summit,GT02",Dinámica Café,Taiwan Coffee Laboratory,2022,Washed / Wet,8.33,8.33,8.25,7.83,7.83,8.17,10,10,10,8.25,0,green,2,1668
+Taiwan,野牡丹咖啡莊園 Melastoma Coffee Estate,"The 2022 Pacific Rim Coffee Summit,T034",野牡丹咖啡,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,8.33,8.17,8.08,8,7.83,8.25,10,10,10,8.25,0,green,0,1250
+Taiwan,七彩琉璃咖啡莊園 Chi Tsai Liu Li Ecological Farm,"The 2022 Pacific Rim Coffee Summit,T050",七彩琉璃咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,8.25,8.25,8.17,8,7.92,8.08,10,10,10,8.08,0,yellow green,1,1200
+Taiwan,亮軒咖啡莊園 Liang Xuan Coffee Farm,"The 2022 Pacific Rim Coffee Summit,T018",亮軒咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,8.08,8.08,8.25,8.08,7.92,8,10,10,10,8.25,0,greenish,0,1250
+"Tanzania, United Republic Of",MASHIMA AMCOS,CN 4127230034/4189230113,GOURMET COFFEE MILL,DORMAN (T) LIMITED,2022 / 2023,Washed / Wet,8.08,8.17,8.08,8.17,8,8,10,10,10,8,0,greenish,0,1400-1700
+Ethiopia,TADE GG,010/0296/600,Moledo社　委託精選場,"Marubeni corp.,",2021 / 2022,Natural / Dry,8.08,8.25,8,8.08,7.92,7.92,10,10,10,8,0,greenish,1,1800-2200
+Guatemala,Karen Acajabon Coffee Farm,"The 2022 Pacific Rim Coffee Summit,GT12",Cafetoland,Taiwan Coffee Laboratory,2021,Natural / Dry,8.08,8,8,7.75,8.25,8.17,10,10,10,8,0,brownish,1,2000
+Taiwan,古峰咖啡莊園 Goodfun Coffee Farm,"The 2022 Pacific Rim Coffee Summit,T051",古峰咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,8.08,8,8.08,8.08,8,8,10,10,10,8,0,green,0,1250
+Ethiopia,Gelana Geisha,"Grade 1, Guji, Natural, Gelana Geisha",Dry Mill or Hulling Facility,Kerchanshe Trading PLC,2021 / 2022,Natural / Dry,7.67,8.17,8,8.33,8,8,10,10,10,8,0,yellow- green,2,1900-2000
+Colombia,La Gaitania,"The 2022 Pacific Rim Coffee Summit,CO03",La Gaitania,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,8.08,8,8.08,7.92,8.08,8,10,10,10,8,0,green,0,1850
+Taiwan,青葉咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T014",青葉咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Pulped natural / honey,8.17,8.08,8,7.92,8,7.92,10,10,10,8,0,green,0,1100
+Ethiopia,Halo Bariti Cooprative,CQU2023006,Halo Bariti Cooprative,Coffee Quality Union,2022,Washed / Wet,8.17,8.08,7.92,8.17,7.75,7.92,10,10,10,8.08,0,green,2,1900-2100
+Taiwan,東璧咖啡莊園,202203,yes,Dongbi coffee,2022,Natural / Dry,8,8.17,8,7.92,7.92,7.92,10,10,10,8.17,0,yellow-green,0,1300
+Taiwan,櫻桃果古坑咖啡莊園,202112,yes,宸嶧國際有限公司,2021 / 2022,Natural / Dry,8.08,8.17,7.75,7.92,7.83,8,10,10,10,8.17,0,brownish,1,1200
+"Tanzania, United Republic Of",BURKA,CN 4127230032/P-9140,GOURMET COFFEE MILL,DORMAN (T) LIMITED,2022 / 2023,Washed / Wet,8.17,8,7.92,7.92,8.17,7.75,10,10,10,7.92,0,greenish,0,1570-1600
+Guatemala,Finca Vista Hermosa,"The 2022 Pacific Rim Coffee Summit,GT03",El Vergel,Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,8,7.92,8.08,7.92,7.75,8,10,10,10,8.08,0,yellowish,0,1900
+Taiwan,仲大叔咖啡莊園Uncle Chung.s Coffee Farm,2022/03,仲大叔咖啡莊園Uncle Chung.s Coffee Farm,Taiwan Coffee Laboratory,2022,Natural / Dry,8.08,8,7.92,7.92,8,7.83,10,10,10,7.92,0,green,0,850
+Thailand,Hom Doi,1,Machines to peel outer skin of the cherry coffee and coffee is dried manually,Lyrose,2021 / 2022,Pulped natural / honey,7.67,8,7.83,8,8.08,8,10,10,10,8.08,0,browish-green,5,1500-1700
+Taiwan,永舜咖啡莊園,"The 2022 Pacific Rim Coffee Summit, T003",永舜咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,7.83,8,7.92,8,8,7.92,10,10,10,7.92,0,bluish-green,0,1250
+Brazil,Fazenda Recreio,Arara 1,Dry mill,"WIT wealth, investments & trust",2022,Pulped natural / honey,7.83,8.08,7.83,7.92,8,7.83,10,10,10,8,2,green,3,1250
+Taiwan,鄒築園ZouZhouYuan,"The 2022 Pacific Rim Coffee Summit,T024",鄒築園ZouZhouYuan,Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,7.92,7.92,8,7.92,7.83,7.92,10,10,10,8,0,green,2,1300
+Taiwan,嵩岳咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T048",嵩岳咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,8.17,8.08,7.92,8,7.58,7.83,10,10,10,7.92,0,green,0,1200
+Taiwan,他扶芽有機農園,"The 2022 Pacific Rim Coffee Summit,T045",他扶芽有機農園,Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,8,8,8,7.92,7.75,7.92,10,10,10,7.92,0,blue-green,0,1060
+United States (Hawaii),Hokukano Ranch,"The 2022 Pacific Rim Coffee Summit,US01",Kona Coffee & Tea,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,8,7.92,8,7.83,7.67,8,10,10,10,8,0,green,0,600
+Taiwan,鄉庭有機農場Siang-Ting Organic Farm,2022/3/1(老叢),鄉庭有機農場Siang-Ting Organic Farm,Taiwan Coffee Laboratory,2022,Washed / Wet,8,8,7.83,7.83,7.75,7.92,10,10,10,8.08,0,bluish-green,0,150-250
+Taiwan,鄉庭有機農場Siang-Ting Organic Farm,2022/02,鄉庭有機農場Siang-Ting Organic Farm,Taiwan Coffee Laboratory,2022,Washed / Wet,7.92,8,7.83,7.92,7.83,7.83,10,10,10,8,0,green,0,150-250
+Taiwan,金讚咖啡農莊園(Jinzan Coffee Estate),2022臺南市精品咖啡評鑑批次,金讚咖啡農莊園(Jinzan Coffee Estate),Taiwan Coffee Laboratory,2022,Washed / Wet,8.08,8.17,7.67,7.83,7.67,7.92,10,10,10,8,0,green,0,668
+Ethiopia,Eshetu farm,Washed Limmu,Lata Agri export,Alo Coffee,2021 / 2022,Washed / Wet,7.67,7.83,7.83,8,8,8,10,10,10,8,0,green,3,1950
+Ethiopia,Uraga Bisrat washing station,0065,dry mill,TADESSE DESTA IMPORT & EXPORT,2021 / 2022,Natural / Dry,8,8.08,8,8,7.67,7.75,10,10,10,7.83,0,yellow green,4,2150-2350
+Ethiopia,YHAENU PLC FARM,1,GUJI COFFEE EXPORT P.L.C,yhaenu plc,2021 / 2022,Washed / Wet,7.92,7.75,7.83,8.17,8,7.75,10,10,10,7.83,0,greenish,1,1700
+Taiwan,卓武山咖啡農場,"The 2022 Pacific Rim Coffee Summit, T004",卓武山咖啡農場,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,8,7.92,7.83,7.92,7.83,7.83,10,10,10,7.92,0,bluish-green,0,1200
+Taiwan,御香咖啡園 YU SIANG Coffee Estate,2022臺南市精品咖啡評鑑批次,御香咖啡園 YU SIANG Coffee Estate,Taiwan Coffee Laboratory,2022,Pulped natural / honey,8.25,8.08,7.83,7.75,7.67,7.75,10,10,10,7.92,0,green,0,650
+Kenya,Small Holder,5516,NKG,IBERO (K) LTD,2022 / 2023,Washed / Wet,8.17,7.75,7.83,7.58,7.92,8,10,10,10,8,0,greenish,1,1600-1900
+Taiwan,皇庭咖啡莊園,202203,yes,宸嶧國際有限公司,2017 / 2018,Washed / Wet,7.75,7.92,7.75,8,7.83,7.92,10,10,10,8,0,bluish-green,0,850
+Taiwan,花蓮縣秀林鄉特用作物（咖啡）產銷第一班Agriculture Production and Marketing Groups of Hualien Shlin township special crop (coffee) 1st class,2022/01,花蓮縣秀林鄉特用作物（咖啡）產銷第一班Agriculture Production and Marketing Groups of Hualien Shlin township special crop (coffee) 1st class,Taiwan Coffee Laboratory,2022,Natural / Dry,8,7.92,7.83,7.92,7.75,7.75,10,10,10,7.92,0,brownish,0,300-500
+Taiwan,八一高地,屏東縣三地門鄉德文段,乾燥機、脫殼機,茂泰生技股份有限公司,2021 / 2022,Washed / Wet,8,8.08,7.67,7.75,7.92,7.83,10,10,10,7.83,0,greenish,0,1000
+Taiwan,香夾蘭莊園,A26-Northern Taiwan Specialty Coffee Evaluation,香夾蘭莊園,Taiwu Coffee Cooperative,2021 / 2022,Washed / Wet,8,7.92,7.67,8,7.75,7.83,10,10,10,7.92,0,pale yellow,5,800
+Uganda,Gideon Kule,7938,Dry Mill,Kyagalanyi Coffee Limited,2021 / 2022,Washed / Wet,8,7.92,7.75,7.75,7.75,7.92,10,10,10,7.92,0,green,1,1905
+Taiwan,青山坪咖啡農場,"The 2022 Pacific Rim Coffee Summit,T011",青山坪咖啡農場,Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,8.17,8.08,7.83,7.67,7.67,7.75,10,10,10,7.83,0,yellow green,0,800
+Guatemala,varias fincas,11/15/118,Beneficio Pastores,"Peter Schoenfeld, S.A.",2022 / 2023,Washed / Wet,7.67,8.08,7.67,8,7.92,7.83,10,10,10,7.83,0,green,1,1600
+Guatemala,PEÑA BLANCA,11/951/279,BENEFICIO LAS AMERICAS,"OLAM AGRO GUATEMALA, S.A.",2022 / 2023,Washed / Wet,7.67,8,7.75,7.92,8,7.83,10,10,10,7.83,0,green,4,4700
+Guatemala,san francisco cotzal,11/441/50,"inmobiliaria e inversiones dos mil, s.a.","inmobiliaria e inversiones dos mil, s.a.",2021 / 2022,Washed / Wet,7.83,7.92,7.75,8,7.75,7.75,10,10,10,7.92,0,green,1,1600
+Taiwan,六曲窩,A03-Northern Taiwan Specialty Coffee Evaluation,六曲窩,Taiwu Coffee Cooperative,2021 / 2022,Washed / Wet,7.92,7.92,7.83,7.83,7.75,7.83,10,10,10,7.83,0,green,2,350-400
+Taiwan,北平山林,A23-Northern Taiwan Specialty Coffee Evaluation,北平山林,Taiwu Coffee Cooperative,2021 / 2022,Natural / Dry,8,8,7.75,7.75,7.67,7.75,10,10,10,7.92,0,brownish,0,230
+Peru,Ruya Yayu Farm,"The 2022 Pacific Rim Coffee Summit,PE02",no.,Taiwan Coffee Laboratory,2022,Washed / Wet,8,8,7.83,7.83,7.58,7.83,10,10,10,7.75,0,greenish,0,1750
+"Tanzania, United Republic Of",IYENGA,S59588/P03989,CITY COFFEE LTD,VOLCAFE/TaylorWinch Tanzania Ltd,2022 / 2023,Washed / Wet,7.92,7.75,7.75,7.92,7.83,7.83,10,10,10,7.83,0,greenish,0,1654
+Taiwan,優遊吧斯瑪翡咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T029",優遊吧斯瑪翡咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,7.83,7.83,7.67,7.67,7.83,8,10,10,10,8,0,greenish,0,1300
+Taiwan,森悅高峰咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T039",森悅高峰咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,7.67,7.92,7.92,7.83,7.75,7.83,10,10,10,7.83,0,green,0,1400
+Panama,La Santa,2-237-05,La Santa,Panamerican Coffee Trading,2022 / 2023,Washed / Wet,7.83,7.83,7.75,7.92,7.83,7.75,10,10,10,7.83,0,bluish-green,5,1200
+Taiwan,嵐雲綠海咖啡,屏東縣瑪家鄉,乾燥機、脫殼機,茂泰生技股份有限公司,2021 / 2022,Pulped natural / honey,7.92,8.08,7.67,7.92,7.67,7.75,10,10,10,7.75,0,blue-green,0,1200
+Guatemala,Varias Fincas,11/15/117,Varios Beneficios,"Peter Schoenfeld, S.A.",2022 / 2023,Washed / Wet,7.67,8,7.67,7.83,7.92,7.67,10,10,10,7.92,0,green,1,1600
+Guatemala,SAN RAFAEL URIAS VALDES,11/54876/03,ECO COFFEE,"VALBROS, S. A.",2021 / 2022,Natural / Dry,7.83,8,7.67,7.83,7.75,7.75,10,10,10,7.83,0,yellow-green,2,4895
+Costa Rica,Gamboa Farm,12075,Beneficio Montañas del Diamante,CECA S.A.,2022 / 2023,Washed / Wet,7.58,7.83,7.5,7.67,7.83,7.67,10,10,10,8.58,0,green,2,1850
+Taiwan,羅馬8號莊園,A11-Northern Taiwan Specialty Coffee Evaluation,羅馬8號莊園,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.83,7.83,7.75,7.75,7.75,7.75,10,10,10,7.92,0,greenish,0,200-300
+Taiwan,大鋤花間(Dachu Coffee Estate),2022臺南市精品咖啡評鑑批次,大鋤花間(Dachu Coffee Estate),Taiwan Coffee Laboratory,2022,Pulped natural / honey,8.17,7.83,7.67,7.83,7.67,7.67,10,10,10,7.75,0,green,0,700
+Nicaragua,Finca Las Dos Marias,10 1.1,"Compare Coperativo Condega, Esteli, Nicaragua",NicaNoLA Coffee,2021 / 2022,Natural / Dry,7.92,7.75,7.67,7.67,7.83,7.75,10,10,10,8,1,green,2,1350
+Taiwan,雅慕伊咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T036",雅慕伊咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,8.08,7.83,7.67,7.67,7.67,7.75,10,10,10,7.92,0,green,2,1250
+Taiwan,名陽園,"The 2022 Pacific Rim Coffee Summit,T042",名陽園,Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,7.83,8,7.67,7.75,7.67,7.75,10,10,10,7.92,0,green,0,1450
+Vietnam,CupnCare,"The 2022 Pacific Rim Coffee Summit,VN02",CupnCare,Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,8,7.83,7.75,7.67,7.58,7.83,10,10,10,7.92,0,brownish,0,650
+Costa Rica,La Cumbre,CQU2022018,La Montana Tarrazu MIll,Coffee Quality Union,2022,Washed / Wet,7.75,7.83,7.67,7.83,7.75,7.75,10,10,10,7.92,0,green,0,1900
+Taiwan,苗55咖啡莊園,A37-Northern Taiwan Specialty Coffee Evaluation,苗55咖啡莊園,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.75,7.92,7.83,7.75,7.75,7.75,10,10,10,7.75,0,bluish-green,0,520
+Honduras,La Cuchilla,36,Global Coffee,Mercon Honduras,2022 / 2023,Washed / Wet,7.83,7.92,7.75,7.75,7.75,7.75,10,10,10,7.75,0,green,3,1368
+Ethiopia,TRACON TRADING PLC,0712,5.2Ha,Tracon Trading PLC,2021 / 2022,Washed / Wet,7.92,7.83,7.75,7.92,7.58,7.67,10,10,10,7.83,0,green,9,1943
+Taiwan,917農場 (917 Farm),2021/11,917農場 (917 Farm),Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,8.08,7.92,7.75,7.83,7.5,7.58,10,10,10,7.83,0,green,0,400
+Taiwan,皇庭咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T031",皇庭咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,7.83,8,7.5,7.75,7.75,7.75,10,10,10,7.83,0,bluish-green,1,850
+Guatemala,Finca Alta Luz,11-63-657,NA,"Retrillas del pacifico, s.a.",2022 / 2023,Washed / Wet,7.67,7.83,7.75,7.75,7.83,7.75,10,10,10,7.75,0,green,5,1300-1400
+United States (Hawaii),Miranda's Farm,Islander’s Coffee for Pacific Rim Summit,Greenwell,Taiwan Coffee Laboratory,2022,Washed / Wet,7.92,7.83,7.75,7.92,7.5,7.67,10,10,10,7.75,3,yellow-green,7,1300
+Ethiopia,Bisrat Melaku Washing Station,0065,Washing Station,Tadesse Desta import export,2021 / 2022,Natural / Dry,7.83,7.75,7.58,7.92,8,7.5,10,10,10,7.75,0,yellow green,4,2361
+El Salvador,San Nicolas,"The 2022 Pacific Rim Coffee Summit,SV01",San Nicolas,Taiwan Coffee Laboratory,2021,Pulped natural / honey,7.83,7.83,7.83,7.83,7.67,7.67,10,10,10,7.67,0,brownish,4,1500
+Colombia,Asociacion Tayronaca,NPCO-17418,Trilladora Santa Tirsa,Sucafina NA,2021 / 2022,Washed / Wet,7.75,7.75,7.75,7.75,7.83,7.67,10,10,10,7.83,0,green,1,2100
+Guatemala,San jose del lago,11/15/96,San jose del lago,"Peter Schoenfeld, S.A.",2022 / 2023,Washed / Wet,7.58,7.92,7.67,7.75,7.83,7.75,10,10,10,7.75,0,green,1,1600
+Madagascar,Mandroso,1,On the farm (mechanical huller and polisher / sorting by hand),Vao Vao Sarl,2022,Washed / Wet,7.92,7.92,7.58,7.75,7.58,7.67,10,10,10,7.83,0,blue-green,0,1500
+Honduras,La Cuchilla,8,Global Coffee,Mercon Honduras,2022 / 2023,Washed / Wet,7.75,7.75,7.58,7.83,7.75,7.75,10,10,10,7.75,0,green,2,1368
+Guatemala,san francisco cotzal,11/441/49,"inmobiliaria e inversiones dos mil, s.a.","inmobiliaria e inversiones dos mil, s.a.",2021 / 2022,Washed / Wet,7.58,7.92,7.58,7.83,7.75,7.67,10,10,10,7.75,0,green,2,1600
+Taiwan,竹崙子莊園,A32-Northern Taiwan Specialty Coffee Evaluation,竹崙子莊園,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.83,7.92,7.83,7.58,7.58,7.67,10,10,10,7.67,0,greenish,2,150
+Taiwan,元富咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T017",元富咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Natural / Dry,7.92,7.75,7.67,7.75,7.75,8,9.33,10,10,7.92,0,yello-green,0,800
+Guatemala,varias fincas,11/15/51,El Trèbol/Lìnea Gourmet,"Peter Schoenfeld, S.A.",2022 / 2023,Washed / Wet,7.67,7.83,7.67,7.83,7.75,7.67,10,10,10,7.67,0,green,2,1500-1600
+Guatemala,varias fincas,11/15/59,El Trebol/Linea Gourmet,"Peter Schoenfeld, S.A.",2022 / 2023,Washed / Wet,7.67,7.92,7.67,7.75,7.67,7.58,10,10,10,7.75,0,green,2,1500-1600
+Honduras,finca de la casa,"The 2022 Pacific Rim Coffee Summit,HN04",De la casa,Taiwan Coffee Laboratory,2021 / 2022,Pulped natural / honey,7.75,7.75,7.75,7.67,7.75,7.67,10,10,10,7.67,0,green,0,1800
+"Tanzania, United Republic Of",KONGONI ESTATE,CN 4127230031/P-9139,RAFIKI MILL,C.DORMAN SEZ LTD,2022 / 2023,Washed / Wet,7.58,7.67,7.75,7.75,7.75,7.75,10,10,10,7.75,0,greenish,3,1600-1750
+Ethiopia,Ecom Agroindustrial,1077,Beneficio humedo,Descafeinadores Mexicano SA. de CV,2021 / 2022,Washed / Wet,8,7.75,7.5,7.67,7.67,7.67,10,10,10,7.75,1,green,1,1800
+"Tanzania, United Republic Of",MASHIMA AMCOS,CN 4127220159/4189220459,GOURMET COFFEE MILL,DORMAN (T) LTD,2022 / 2023,Washed / Wet,7.75,7.58,7.58,7.92,7.67,7.75,10,10,10,7.75,0,greenish,2,1400-1700
+Colombia,COO,3-002-00883,Laumayer Armenia,InterAmerican Coffee,2022,Washed / Wet,7.67,7.83,7.58,7.92,7.67,7.67,10,10,10,7.67,0,green,3,1400-1700
+Costa Rica,Gamboa Farm,12077-01,Beneficio Montañas del Diamante,CECA S.A.,2022 / 2023,Washed / Wet,7.67,7.92,7.58,7.75,7.67,7.58,10,10,10,7.75,0,green,2,1850
+Guatemala,El Morito,"The 2022 Pacific Rim Coffee Summit,GT01",Sube,Taiwan Coffee Laboratory,2021,Natural / Dry,7.83,7.83,7.58,7.67,7.67,7.58,10,10,10,7.75,0,greenish,0,1900
+Guatemala,San jose del lago,11/15/95,San jose del lago,"Peter Schoenfeld, S.A.",2022 / 2023,Washed / Wet,7.58,7.83,7.58,7.75,7.67,7.75,10,10,10,7.75,0,green,2,1600
+Thailand,Baan San Charoen,CQU2022016,Baan San Charoen,Coffee Quality Union,2022,Natural / Dry,7.75,7.67,7.58,7.75,7.75,7.67,10,10,10,7.75,0,yellowish,3,1300-1400
+Colombia,NA,3/37/1370,"Racafé & CIA S.C.A, Km 5 Vía Pereira",Marubeni Corporation,2022 / 2023,Washed / Wet,7.67,7.75,7.67,7.75,7.67,7.67,10,10,10,7.67,0,green,1,1411
+Guatemala,FINCA ALTA LUZ,11/63/908,NA,"RETRILLAS DEL PACIFICO, S. A.",2021 / 2022,Natural / Dry,7.58,7.83,7.67,7.67,7.67,7.67,10,10,10,7.75,0,green,4,1400
+Ethiopia,Gerbicho Lela Cooperative,1,Sidama Coffee Farmers Cooperative Union,Taylor Winch Coffee Ltd,2021 / 2022,Washed / Wet,7.83,7.67,7.5,7.92,7.5,7.67,10,10,10,7.75,0,green,12,2000
+Colombia,N / A,3-0068-00886,Trilladora Popayán,ECOM COLOMBIA,2022 / 2023,Washed / Wet,7.92,7.75,7.42,7.58,7.92,7.67,10,10,10,7.58,2,green,5,1700
+United States (Hawaii),various farms,"The 2022 Pacific Rim Coffee Summit,US02",Aloha Hills Kona Coffee,Taiwan Coffee Laboratory,2022,Washed / Wet,7.67,7.92,7.58,7.58,7.58,7.75,10,10,10,7.75,0,green,3,400-600
+Colombia,La Gallera,"The 2022 Pacific Rim Coffee Summit,CO02",La Gallera,Taiwan Coffee Laboratory,2022,Pulped natural / honey,7.67,7.92,7.67,7.58,7.67,7.67,10,10,10,7.58,0,greenish,1,1800
+Mexico,Finca Custepec,312,exportadora de cafe california,Exportadora Café California,2022 / 2023,Washed / Wet,7.67,7.67,7.58,7.67,7.83,7.58,10,10,10,7.75,4,green,12,1200
+Taiwan,永舜咖啡莊園,202203,yes,Yongshun,2022,Washed / Wet,7.67,7.67,7.75,7.75,7.5,7.67,10,10,10,7.67,0,bluish-green,0,1250
+Myanmar,Aromatic,"The 2022 Pacific Rim Coffee Summit,MM01",Aromatic,Taiwan Coffee Laboratory,2022,Natural / Dry,7.83,7.83,7.67,7.58,7.58,7.58,10,10,10,7.58,0,pale yellow,1,1400
+Taiwan,恆珊農場,A05-Northern Taiwan Specialty Coffee Evaluation,恆珊農場,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.58,7.75,7.67,7.83,7.5,7.67,10,10,10,7.67,0,greenish,0,200-400
+Honduras,Maria Bonita,"The 2022 Pacific Rim Coffee Summit,HN01","Cafe Organic Marcala, S.A. (COMSA)",Taiwan Coffee Laboratory,2021,Natural / Dry,7.67,7.67,7.58,7.75,7.67,7.67,10,10,10,7.67,0,pale yellow,1,1470
+Taiwan,正源咖啡,A30-Northern Taiwan Specialty Coffee Evaluation,正源咖啡,Taiwu Coffee Cooperative,2021 / 2022,Natural / Dry,7.58,7.67,7.5,7.75,7.75,7.67,10,10,10,7.67,0,green,0,250-400
+Taiwan,宋明光	蝙蝠洞莊園	蝙蝠洞莊園,A14-Northern Taiwan Specialty Coffee Evaluation,宋明光	蝙蝠洞莊園	蝙蝠洞莊園,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.58,7.75,7.58,7.75,7.58,7.67,10,10,10,7.67,0,green,0,250-300
+Guatemala,SAN FRANCISCO COTZAL,P-4142,"INMOBILIARIA E INVERSIONES DOS MIL, S. A.",Asociación Nacional del Cafe,2021 / 2022,Washed / Wet,7.58,7.83,7.58,7.67,7.58,7.58,10,10,10,7.75,0,green,4,1600
+Honduras,varias,AMNI-22-6011-1,Beneficio seco,Cafe Organico Marcala S.A de C.V.,2021 / 2022,Washed / Wet,7.75,7.67,7.58,7.58,7.58,7.67,10,10,10,7.67,0,green,5,1400
+Colombia,La fortaleza,3-0104-00202 Popayán Supremo,Trilladora Pubenza,Cafe Colsuaves,2022,Washed / Wet,7.75,7.75,7.5,7.58,7.83,7.5,10,10,10,7.58,0,bluish-green,2,1700
+Thailand,Doi Tung Development Project,BOURBON 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,2022,Washed / Wet,7.42,7.83,7.58,7.67,7.67,7.75,10,10,10,7.58,0,green,0,1200-1580
+Ethiopia,YHAENU PLC FARM,1,GUJI COFFEE EXPORT P.L.C,yhaenu plc,2021 / 2022,Washed / Wet,7.42,7.42,7.42,8,7.92,7.67,10,10,10,7.67,0,greenish,11,1700
+Thailand,Doi Nan,CQU2022011,Doi Nan,Coffee Quality Union,2022,Washed / Wet,7.67,7.67,7.5,7.67,7.58,7.67,10,10,10,7.67,0,green,0,1450
+Uganda,Bugisu Shamba,035/170/5021210,Kawacom,Kawacom uganda LTD,2021 / 2022,Washed / Wet,7.75,7.75,7.5,7.5,7.58,7.58,10,10,10,7.75,0,green,3,1400-1900
+Taiwan,香香久溢咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T022",香香久溢咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,7.75,7.92,7.67,7.92,7.75,7.83,8.67,10,10,7.92,0,blue-green,0,1100
+Uganda,Masereka William,7969,Dry Mill,Kyagalanyi Coffee Limited,2021 / 2022,Washed / Wet,7.75,7.67,7.58,7.5,7.67,7.5,10,10,10,7.67,0,green,5,1905
+Taiwan,四分子道,A04-Northern Taiwan Specialty Coffee Evaluation,四分子道,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.58,7.67,7.5,7.75,7.5,7.58,10,10,10,7.75,0,greenish,0,200-300
+Guatemala,MI CAFECITO & LA PROVIDENCIA,1,MI CAFECITO + AGUA SANTA LA PROVIDENCIA + AGUA SANTA,Mr.Brown Cafe,2021,Washed / Wet,7.5,7.75,7.58,7.75,7.67,7.58,10,10,10,7.5,0,green,0,1280-1325
+Taiwan,木華莊園,A21-Northern Taiwan Specialty Coffee Evaluation,木華莊園,Taiwu Coffee Cooperative,2021 / 2022,Washed / Wet,7.58,7.67,7.58,7.75,7.42,7.58,10,10,10,7.75,0,green,1,300
+Colombia,El Laurel,1,Hulling facility,Minka coffee company LTD,2021 / 2022,Washed / Wet,7.67,7.67,7.42,7.75,7.5,7.75,10,10,10,7.58,0,greenish,0,1100
+Costa Rica,Gamboa Farm,12074,Beneficio Montañas del Diamante,CECA S.A.,2022 / 2023,Washed / Wet,7.58,7.75,7.42,7.67,7.5,7.75,10,10,10,7.67,0,green,3,1850
+Taiwan,東泓咖啡莊園,"The 2022 Pacific Rim Coffee Summit,T019",東泓咖啡莊園,Taiwan Coffee Laboratory,2021 / 2022,Washed / Wet,7.75,7.83,7.58,7.58,7.58,7.5,10,10,10,7.5,0,blue-green,1,750
+Thailand,Doi Tung Development Project,TYPICA 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,2022,Washed / Wet,7.92,7.92,7.75,7.33,7.58,7.5,10,10,10,7.33,0,yellow-green,16,1300-1500
+"Tanzania, United Republic Of",MASHIMA AMCOS,CN 4127220163/4189220459,GOURMET COFFEE MILL,DORMAN TANZANIA LTD,2022 / 2023,Washed / Wet,7.92,7.67,7.42,7.5,7.67,7.58,10,10,10,7.5,0,greenish,8,1400-1700
+Brazil,Fazenda Conquista e Capoeirinha,004/22,Dry mill,Ipanema Coffees,2022 / 2023,Natural / Dry,7.58,7.5,7.5,7.83,7.67,7.5,10,10,10,7.67,0,green,4,950
+Taiwan,棒棒有機農場,A41-Northern Taiwan Specialty Coffee Evaluation,棒棒有機農場,Taiwu Coffee Cooperative,2021 / 2022,Washed / Wet,7.75,7.75,7.58,7.67,7.42,7.5,10,10,10,7.58,0,green,1,1100-1200
+Honduras,La Bendicion,"The 2022 Pacific Rim Coffee Summit,HN03","COMSA (Cafe Organic Marcala, S.A)",Taiwan Coffee Laboratory,2021,Washed / Wet,7.67,7.75,7.67,7.58,7.5,7.58,10,10,10,7.5,0,bluish-green,3,1600
+Honduras,varias,AMNI-22-6011-2,Beneficio seco,Cafe Organico Marcala S.A de C.V.,2021 / 2022,Washed / Wet,7.75,7.58,7.58,7.58,7.5,7.58,10,10,10,7.67,0,green,5,1400
+Taiwan,蜜多莊園,A35-Northern Taiwan Specialty Coffee Evaluation,蜜多莊園,Taiwu Coffee Cooperative,2021 / 2022,Natural / Dry,7.75,7.75,7.5,7.75,7.5,7.42,10,10,10,7.5,0,greenish,2,200-300
+Taiwan,迎曦山丘,A20-Northern Taiwan Specialty Coffee Evaluation,迎曦山丘,Taiwu Coffee Cooperative,2021 / 2022,Washed / Wet,7.67,7.67,7.5,7.58,7.58,7.5,10,10,10,7.67,0,blue-green,0,340
+Laos,Nongluang Bolaven Plateau,DCN03.11.2022,Dao Heuang Group,Dao Heuang Group,2022,Natural / Dry,7.67,7.75,7.33,7.67,7.58,7.5,10,10,10,7.58,0,brownish,7,1200-1300
+Honduras,La Cuchilla,187,CIGRAH,CIGRAH,2021 / 2022,Washed / Wet,7.67,7.67,7.5,7.58,7.58,7.5,10,10,10,7.58,0,green,7,1368
+Honduras,Bethel,198,CADEXSA,CADEXSA,2022 / 2023,Washed / Wet,7.75,7.58,7.58,7.58,7.58,7.5,10,10,10,7.5,0,green,2,1450
+Colombia,EL PRADO,3-59-0654,NEIVA,carcafe ltda,2022 / 2023,Washed / Wet,8,7.67,7.42,7.58,7.58,7.42,10,10,10,7.33,0,bluish-green,1,1650
+Taiwan,樹橋窩莊園,A17-Northern Taiwan Specialty Coffee Evaluation,樹橋窩莊園,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.5,7.67,7.58,7.58,7.5,7.5,10,10,10,7.58,0,blue-green,0,250-300
+Mexico,Finca Tequihua,001,"Coatepec, Veracruz",La Villa Coffee Company LLC,2021 / 2022,Washed / Wet,7.75,7.5,7.42,7.67,7.58,7.5,10,10,10,7.5,2,green,1,1350
+Colombia,La Argentina,CQU2022013,La Argentina,Coffee Quality Union,2021 / 2022,Washed / Wet,7.58,7.5,7.5,7.67,7.58,7.5,10,10,10,7.58,0,greenish,3,1350
+Honduras,Varias,273,Beneficio Seco Comsa,Cafe Organico Marcala S.A de C.V.,2022 / 2023,Washed / Wet,7.67,7.58,7.5,7.5,7.58,7.5,10,10,10,7.5,0,green,4,1280
+Thailand,Doi Tung Development Project,GAYO 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,2022,Washed / Wet,7.17,7.92,7.58,7.5,7.58,7.67,10,10,10,7.42,0,yellow-green,5,1300-1500
+Vietnam,Ea tan Cooperative,VHA- S3,SIMEXCO DAKLAK LTD,SIMEXCO DAKLAK LTD,2021 / 2022,Pulped natural / honey,7.58,7.42,7.58,7.5,7.67,7.75,10,10,10,7.33,0,green,4,900
+Nicaragua,Finca San Felipe,017-053-0017,Beneficio Atlantic Sébaco,Exportadora Atlantic S.A,2022 / 2023,Natural / Dry,7.33,7.58,7.25,7.33,7.75,8.17,10,10,10,7.33,5,green,1,1200
+Costa Rica,AMA EL AROMA Micro lot - Sunrise,"The 2022 Pacific Rim Coffee Summit,CR01",Micro mill,Taiwan Coffee Laboratory,2021,Pulped natural / honey,7.33,7.5,7.25,7.92,7.75,7.58,10,10,10,7.42,0,pale yellow,1,1450
+Colombia,Federación Nacional de Cafeteros de Colombia,3/01/12857,Federación Nacional de Cafeteros de Colombia,"NIPPON COFFEE TRADING CO.,LTD.",2022,Washed / Wet,7.58,7.67,7.58,7.5,7.33,7.5,10,10,10,7.5,0,green,2,1700
+Thailand,Doi Tung Development Project,CATURRA 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,2022,Washed / Wet,7.33,7.58,7.58,7.5,7.67,7.67,10,10,10,7.33,1,greenish,0,1200-1580
+Thailand,Kevin Coffee,21/22,Dry mill,Square Root,2021 / 2022,Natural / Dry,7.5,7.58,7.5,7.42,7.5,7.58,10,10,10,7.58,0,yellow green,0,1200
+Honduras,Bethel,197,CADEXSA,CADEXSA,2022 / 2023,Washed / Wet,7.67,7.58,7.33,7.5,7.58,7.5,10,10,10,7.5,0,green,2,1450
+Taiwan,銅鏡莊園,A01-Northern Taiwan Specialty Coffee Evaluation,銅鏡莊園,Taiwu Coffee Cooperative,2021 / 2022,Natural / Dry,7.67,7.67,7.42,7.42,7.42,7.5,10,10,10,7.5,0,green,0,165
+Taiwan,掬香園,A22-Northern Taiwan Specialty Coffee Evaluation,掬香園,Taiwu Coffee Cooperative,2021 / 2022,Washed / Wet,7.67,7.58,7.42,7.42,7.5,7.5,10,10,10,7.5,0,blue-green,2,465
+Nicaragua,Finca Las Dos Marias,4 -3.1,"Compare Coperativo Condega, Esteli, Nicaragua",NicaNoLA Coffee,2021 / 2022,Washed / Wet,7.5,7.58,7.42,7.58,7.5,7.58,10,10,10,7.42,0,green,0,1350
+El Salvador,Agua Caliente,1-26,Agua Caliente,Consejo Salvadoreño del Café,2022 / 2023,Washed / Wet,7.67,7.33,7.17,7.67,7.83,7.5,10,10,10,7.33,0,green,2,1200
+Panama,Finca Lerida,P03769,Finca Lerida,Panamerican Coffee Trading,2021 / 2022,Washed / Wet,7.75,7.67,7.17,7.67,7.42,7.42,10,10,10,7.42,0,green,0,1200
+Brazil,Fazenda Pedra Preta,MVB-QCert-001/2022,COPAG VARGINHA,Man Volcafe Brasil Ltda.,2022 / 2023,Natural / Dry,7.5,7.58,7.5,7.5,7.67,7.42,10,10,10,7.33,0,bluish-green,1,1100
+United States (Hawaii),Kainaliu Farm,"The 2022 Pacific Rim Coffee Summit,US03",Aloha Hills Kona Coffee,Taiwan Coffee Laboratory,2022,Washed / Wet,7.33,7.58,7.5,7.5,7.5,7.58,10,10,10,7.5,0,blue-green,1,640
+Mexico,Las Trincheras,"The 2022 Pacific Rim Coffee Summit,MX01",Las Trincheras,Taiwan Coffee Laboratory,2021,Washed / Wet,7.67,7.42,7.5,7.5,7.67,7.42,10,10,10,7.33,0,pale yellow,0,1340
+Honduras,La Cuchilla,185,CIGRAH,Mercon Honduras,2021 / 2022,Washed / Wet,7.58,7.58,7.33,7.5,7.58,7.42,10,10,10,7.5,0,green,8,1368
+Taiwan,弘欣咖啡園,A02-Northern Taiwan Specialty Coffee Evaluation,弘欣咖啡園,Taiwu Coffee Cooperative,2021 / 2022,Washed / Wet,7.42,7.42,7.58,7.42,7.58,7.5,10,10,10,7.58,0,green,2,139
+Nicaragua,Finca Aurora,1,Beneficio Seco Finca Aurora,Mr.Brown Cafe,2021 / 2022,Washed / Wet,7.58,7.58,7.42,7.42,7.5,7.5,10,10,10,7.42,0,bluish-green,0,1200-1350
+Vietnam,Apollo Estate,Apollo Washed 2021,Dry Mill,"Sunvirtue Co., Ltd.",2021,Washed / Wet,7.5,7.5,7.33,7.5,7.5,7.42,10,10,10,7.58,0,bluish-green,0,1040
+El Salvador,Agua Caliente,1-26,Agua Caliente,Consejo Salvadoreño del Café,2022 / 2023,Washed / Wet,7.5,7.5,7.42,7.42,7.42,7.67,10,10,10,7.42,0,green,10,1200
+El Salvador,Agua Caliente,1-74,Agua Caliente,Consejo Salvadoreño del Café,2021 / 2022,Washed / Wet,7.33,7.67,7.25,7.67,7.83,7.42,10,10,10,7.17,0,bluish-green,0,1200
+Taiwan,寶山謐靚,A48-Northern Taiwan Specialty Coffee Evaluation,寶山謐靚,Taiwu Coffee Cooperative,2021 / 2022,Natural / Dry,7.67,7.58,7.42,7.5,7.33,7.42,10,10,10,7.42,0,green,1,140
+Peru,Fundo La Libertado,PR138,Planta Callao,Itochu Corporation,2022 / 2023,Washed / Wet,7.67,7.5,7.33,7.58,7.33,7.42,10,10,10,7.42,0,greenish,3,1600
+United States (Hawaii),Manny's Farm,Islander’s Coffee for Pacific Rim Summit,Manny's Farm,Taiwan Coffee Laboratory,2022,Washed / Wet,7.75,7.42,7.33,7.5,7.33,7.5,10,10,10,7.33,1,green,5,1200
+Kenya,Kenyan Highlands,CQU2023004,TAYLOR WINCH,Coffee Quality Union,2022,Washed / Wet,7.5,7.5,7.42,7.5,7.25,7.5,10,10,10,7.5,0,green,2,1500-1950
+Honduras,La Cuchilla,184,CIGRAH,Mercon Honduras,2021 / 2022,Washed / Wet,7.67,7.5,7.25,7.5,7.5,7.33,10,10,10,7.42,0,green,8,1368
+Taiwan,金暖農場,A43-Northern Taiwan Specialty Coffee Evaluation,金暖農場,Taiwu Coffee Cooperative,2021 / 2022,Washed / Wet,7.5,7.67,7.33,7.5,7.25,7.33,10,10,10,7.5,0,bluish-green,0,600
+Taiwan,好客農埸,A34-Northern Taiwan Specialty Coffee Evaluation,好客農埸,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.33,7.42,7.42,7.5,7.42,7.5,10,10,10,7.5,0,greenish,3,460
+Taiwan,拉拉山祖嵐咖啡莊園,A50-Northern Taiwan Specialty Coffee Evaluation,拉拉山祖嵐咖啡莊園,Taiwu Coffee Cooperative,2021 / 2022,Washed / Wet,7.5,7.58,7.42,7.42,7.25,7.42,10,10,10,7.42,0,green,1,500
+Thailand,Doi Tung Development Project,MIXED DT 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,2022,Washed / Wet,7.17,7.5,7.42,7.42,7.58,7.5,10,10,10,7.42,0,green,0,800-1200
+Costa Rica,San Diego Mill,S019194 - P04178,Dosmil,Beneficios Volcafé Costa Rica,2018 / 2019,Washed / Wet,7.42,7.42,7.42,7.33,7.58,7.33,10,10,10,7.5,1,green,8,1500
+Guatemala,Not Specificated,SA4238,Dry Mill of Exportcafe,Marubeni Corporation,2021 / 2022,Washed / Wet,7.42,7.42,7.42,7.33,7.5,7.42,10,10,10,7.5,0,blue-green,2,1350-1550
+Indonesia,Wahana Graha Makmur,015/1686/057,PT. Wahana Graha Makmur Medan,InterAmerican Coffee,2022,Pulped natural / honey,7.67,7.33,7.25,7.67,7.42,7.25,10,10,10,7.42,0,bluish-green,0,1350
+Peru,Fundo La Libertad,301R,Planta Callao,Itochu Corporation,2022 / 2023,Washed / Wet,7.5,7.5,7.33,7.5,7.33,7.33,10,10,10,7.42,0,greenish,2,1600
+Guatemala,MULTIPLE SMALLHOLDER FARMS,GF-23392,MULTIPLE SMALLHOLDER FARMS,"HARU International Corp, 守成咖啡",2022,Washed / Wet,7.33,7.42,7.33,7.42,7.58,7.42,10,10,10,7.42,0,greenish,1,1200-1600
+Taiwan,阿拉思家,A10-Northern Taiwan Specialty Coffee Evaluation,阿拉思家,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.25,7.42,7.42,7.5,7.42,7.42,10,10,10,7.42,0,green,0,300
+Vietnam,Gaia Farms,221221,Hulling Facility,Brew Baby Coffee Company,2022 / 2023,Pulped natural / honey,7.5,7.5,7.25,7.42,7.42,7.42,10,10,10,7.33,0,green,4,5400
+Brazil,Sitio Colinas,CQU2023007,COCARIVE,Coffee Quality Union,2022,Pulped natural / honey,7.5,7.5,7.42,7.33,7.33,7.33,10,10,10,7.42,0,pale yellow,2,1000
+Brazil,Fazenda Olhos Dagua,1,Owned by producer,Mr.Brown Cafe,2021,Natural / Dry,7.42,7.5,7.58,7.33,7.33,7.25,10,10,10,7.33,0,yellow-green,0,900-1000
+Colombia,More than one,1,Trilladora CCA Buga,Mr.Brown Cafe,2021,Washed / Wet,7.33,7.5,7.33,7.42,7.42,7.42,10,10,10,7.33,0,yellow-green,0,1574
+Mexico,Finca San José,002,"Coatepec, Veracruz",La Villa Coffee Company LLC,2021 / 2022,Washed / Wet,7.58,7.42,7.25,7.25,7.5,7.33,10,10,10,7.33,2,green,2,1200
+Costa Rica,HACIENDA SAN IGNACIO,OIC 5-019-0037/ Contenedor: DRYU3106597 / Cliente: O COFFEE,Beneficio La Giorgia,Grupo ECOM,2022 / 2023,Washed / Wet,7.33,7.42,7.25,7.42,7.42,7.33,10,10,10,7.42,0,green,4,1200
+Taiwan,橫鹿,A46-Northern Taiwan Specialty Coffee Evaluation,橫鹿,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.42,7.5,7.33,7.33,7.33,7.33,10,10,10,7.33,0,yellow-green,0,300
+Taiwan,大屯29莊園,A38-Northern Taiwan Specialty Coffee Evaluation,大屯29莊園,Taiwu Coffee Cooperative,2021 / 2022,Pulped natural / honey,7.33,7.5,7.42,7.33,7.33,7.25,10,10,10,7.33,0,green,0,435
+Thailand,Doi Tung Development Project,JAVA 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,2022,Washed / Wet,7.33,7.42,7.25,7.33,7.5,7.42,10,10,10,7.17,2,green,1,1300-1500
+Thailand,Doi Lan,"The 2022 Pacific Rim Coffee Summit,TH07",Miramar Coffee,Taiwan Coffee Laboratory,2021,Natural / Dry,7.42,7.25,7.33,7.42,7.33,7.33,10,10,10,7.25,0,yellowish,5,1400
+Thailand,Doi Tung Development Project,MIXED 21/22 (Coffea Arabica),Dry Mill,Doi Tung Development Project,2022,Washed / Wet,7.25,7.25,7.42,7.25,7.42,7.42,10,10,10,7.17,0,green,0,600-800
+Colombia,Escalera,CQU2022019,Escalera,Coffee Quality Union,2021 / 2022,Washed / Wet,7.42,7.25,7.25,7.42,7.17,7.33,10,10,10,7.33,0,greenish,2,1300-1800
+Brazil,Various farm,0038,Dry Mill of Cocapil,Marubeni Corporation,2022 / 2023,Natural / Dry,7.42,7.42,7.25,7.25,7.17,7.25,10,10,10,7.25,0,greenish,1,1200
+El Salvador,"Rosario de Maria II, Area de Loma Alta",0623C01,"Optimum Coffee, San Salvador, El Salvador",Aprentium Enterprises LLC,2023,Natural / Dry,7.42,7.33,7.33,7.5,7.08,7,10,10,10,7.17,0,bluish-green,7,1400
+Nicaragua,EXPORTADORA ATLANTIC S.A,017/053/0603,Lavado,ISHIMITSU,2021,Washed / Wet,7.25,7.25,7.17,7.33,7.08,7.25,10,10,10,7.17,0,greenish,3,1100
+Nicaragua,Sajonia Estate Coffee S.A.,1,Sajonia Estate Coffee S.A.,SAJONIA ESTATE COFFEE S.A.,2022 / 2023,Washed / Wet,7.42,7.17,7,7.08,7.42,7.17,10,10,10,7.17,0,green,5,1000
+Colombia,Finca Mallorca,CQU2023001,Finca Mallorca,Coffee Quality Union,2022,Washed / Wet,7.25,7.25,7.17,7.33,7,7.17,10,10,10,7.25,0,greenish,3,1600
+Peru,Fundo La Libertad,PR137,Callao Plant,Itochu Corporation,2022 / 2023,Washed / Wet,7.5,7.25,7.17,7.17,7.17,7.08,10,10,10,7,0,greenish,11,1600
+El Salvador,"Rosario de Maria II, Area de Menjivar",0523B01,"Optimum Coffee, San Salvador, El Salvador",Aprentium Enterprises LLC,2023,Natural / Dry,7.08,7.25,7.08,7.42,7.42,7.08,10,10,10,7,0,bluish-green,7,1300
+Brazil,Various farm,002/1738/0029,Dry mill,marubeni,2021 / 2022,Natural / Dry,7.25,7.17,7.17,7.08,7.17,7.17,10,10,10,7.17,0,greenish,2,1200
+Brazil,Fazenda Conquista,019/22,Dry Mill,Ipanema Coffees,2022 / 2023,Natural / Dry,7.17,7.17,6.92,7.17,7.42,7.17,10,10,10,7.08,0,green,4,950
+Nicaragua,Finca San Felipe,017-053-0155,Beneficio Atlantic Sébaco,Exportadora Atlantic S.A,2022 / 2023,Natural / Dry,7.33,7.08,6.75,7.17,7.42,7.17,10,10,10,7.08,0,green,12,1200
+Laos,-,105/3/VL7285-005,DRY MILL,Marubeni Corporation,2021 / 2022,Washed / Wet,7.25,7.17,7.08,7,7.08,7.08,10,10,10,7,0,green,11,1300
+El Salvador,"Rosario de Maria II, Area de La Pila",0423A01,"Optimum Coffee, San Salvador, El Salvador",Aprentium Enterprises LLC,2023,Natural / Dry,6.5,6.75,6.75,7.17,7.08,7,10,10,10,6.83,0,bluish-green,13,1200
