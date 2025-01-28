@@ -1810,7 +1810,7 @@
     "href": "slides/06-preprocessing.html#recall-ames-housing-data",
     "title": "Dummy Variables and Column Transformers",
     "section": "Recall: AMES Housing data",
-    "text": "Recall: AMES Housing data\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")\nfeatures = [\"Gr Liv Area\", \"Bedroom AbvGr\", \"Full Bath\", \"Half Bath\", \"Bldg Type\", \"Neighborhood\"]\ndf[features].head()\n\n   Gr Liv Area  Bedroom AbvGr  Full Bath  Half Bath Bldg Type Neighborhood\n0         1656              3          1          0      1Fam        NAmes\n1          896              2          1          0      1Fam        NAmes\n2         1329              3          1          1      1Fam        NAmes\n3         2110              3          2          1      1Fam        NAmes\n4         1629              3          2          1      1Fam      Gilbert",
+    "text": "Recall: AMES Housing data\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")\ndf.head()\n\n         PID  Gr Liv Area  Bedroom AbvGr  ...  Sale Type  Sale Condition  SalePrice\n0  526301100         1656              3  ...        WD           Normal     215000\n1  526350040          896              2  ...        WD           Normal     105000\n2  526351010         1329              3  ...        WD           Normal     172000\n3  526353030         2110              3  ...        WD           Normal     244000\n4  527105010         1629              3  ...        WD           Normal     189900\n\n[5 rows x 81 columns]",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1865,7 +1865,7 @@
     "href": "slides/06-preprocessing.html#calculating-distances",
     "title": "Dummy Variables and Column Transformers",
     "section": "Calculating Distances",
-    "text": "Calculating Distances\n\n\ndists = pairwise_distances(df_scaled[[1707]], df_scaled)\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr  is_single_fam\n160          2978              5              1\n909          3082              5              1\n1288         2792              5              1\n2350         2784              5              1\n253          3222              5              1\n585          2640              5              1\n2027         2526              5              1\n2330         3390              5              1\n2501         2520              5              1",
+    "text": "Calculating Distances\n\n\ndists = pairwise_distances(df_scaled[[1707]], df_scaled)\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr  is_single_fam\n160          2978              5              1\n909          3082              5              1\n1288         2792              5              1\n2350         2784              5              1\n253          3222              5              1\n585          2640              5              1\n2027         2526              5              1\n2330         3390              5              1\n436          2520              5              1",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1964,7 +1964,7 @@
     "href": "slides/06-preprocessing.html#column-transformers-specify",
     "title": "Dummy Variables and Column Transformers",
     "section": "Column Transformers – Specify",
-    "text": "Column Transformers – Specify\n\nfrom sklearn.compose import make_column_transformer\n\n\n\n\npreproc = make_column_transformer(\n  (OneHotEncoder(), [\"Bldg Type\", \"Neighborhood\"]),\n    remainder = \"passthrough\")",
+    "text": "Column Transformers – Specify\n\nfrom sklearn.compose import make_column_transformer\n\n\n\n\nfeatures = [\"Gr Liv Area\", \"Bedroom AbvGr\", \"Full Bath\", \"Half Bath\", \"Bldg Type\", \"Neighborhood\"]\n\npreproc = make_column_transformer(\n  (OneHotEncoder(), [\"Bldg Type\", \"Neighborhood\"]),\n    remainder = \"passthrough\")",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -2063,7 +2063,7 @@
     "href": "slides/06-preprocessing.html#fit-1",
     "title": "Dummy Variables and Column Transformers",
     "section": "Fit!",
-    "text": "Fit!\n\n(\n  preproc\n  .fit(df[features])\n  .set_output(transform = \"pandas\")\n)\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x112152a50&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x111fb7610&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x112152a50&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x111fb7610&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x112152a50&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x111fb7610&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough",
+    "text": "Fit!\n\n(\n  preproc\n  .fit(df[features])\n  .set_output(transform = \"pandas\")\n)\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11167c940&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11167d240&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11167c940&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11167d240&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11167c940&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11167d240&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder[] passthroughpassthrough",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -3044,5 +3044,16 @@
     "title": "K-Nearest-Neighbors",
     "section": "Predicting",
     "text": "Predicting\n\npipeline.predict(X = df_test)\n\narray([25.8])"
+  },
+  {
+    "objectID": "slides/06-preprocessing.html#fit-and-transform",
+    "href": "slides/06-preprocessing.html#fit-and-transform",
+    "title": "Dummy Variables and Column Transformers",
+    "section": "Fit AND Transform!",
+    "text": "Fit AND Transform!\n\n\npreproc.set_output(transform = \"pandas\")\n\n\n\n\n\npreproc.fit_transform(df[features])\n\narray([[ 0.30926506,  0.17609421, -1.02479289, ...,  0.        ,\n         0.        ,  0.        ],\n       [-1.19442705, -1.03223376, -1.02479289, ...,  0.        ,\n         0.        ,  0.        ],\n       [-0.33771825,  0.17609421, -1.02479289, ...,  0.        ,\n         0.        ,  0.        ],\n       ...,\n       [-1.04801492,  0.17609421, -1.02479289, ...,  0.        ,\n         0.        ,  0.        ],\n       [-0.21900572, -1.03223376, -1.02479289, ...,  0.        ,\n         0.        ,  0.        ],\n       [ 0.9898836 ,  0.17609421,  0.7840283 , ...,  0.        ,\n         0.        ,  0.        ]], shape=(2930, 37))",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 4, Part 1 - Dummy Variables & Column Transformers"
+    ]
   }
 ]

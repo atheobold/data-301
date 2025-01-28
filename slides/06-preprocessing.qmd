@@ -69,8 +69,7 @@ step, you should use the `StandardScaler()` or `MinMaxScaler()` functions.
 #| code-line-numbers: false
 #| label: ames-data
 df = pd.read_table("https://datasci112.stanford.edu/data/housing.tsv")
-features = ["Gr Liv Area", "Bedroom AbvGr", "Full Bath", "Half Bath", "Bldg Type", "Neighborhood"]
-df[features].head()
+df.head()
 ```
 :::
 
@@ -433,6 +432,8 @@ from sklearn.compose import make_column_transformer
 #| label: sklearn-column-transform-specify
 #| code-line-numbers: false
 
+features = ["Gr Liv Area", "Bedroom AbvGr", "Full Bath", "Half Bath", "Bldg Type", "Neighborhood"]
+
 preproc = make_column_transformer(
   (OneHotEncoder(), ["Bldg Type", "Neighborhood"]),
     remainder = "passthrough")
@@ -544,32 +545,31 @@ preproc = make_column_transformer(
      make_column_selector(dtype_include = object)
      ),
     remainder = "passthrough")
+
 ```
+
 :::
 
-## Fit!
-
-```{python}
-#| code-line-numbers: false
-#| label: selector-for-variables-fit
-
-(
-  preproc
-  .fit(df[features])
-  .set_output(transform = "pandas")
-)
-```
-
-## Transform! 
+## Fit **AND** Transform!
 
 ::: {.small}
 ```{python}
 #| code-line-numbers: false
-#| label: selector-for-variables-transform
+#| label: selector-for-variables-fit-output
+#| eval: false
 
-df_transformed = preproc.transform(df[features])
-df_transformed
+preproc.set_output(transform = "pandas")
+```
+:::
 
+. . .
+
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| label: selector-for-variables-fit-transform
+
+preproc.fit_transform(df[features])
 ```
 :::
 
