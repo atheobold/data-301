@@ -3055,5 +3055,27 @@
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
     ]
+  },
+  {
+    "objectID": "slides/07-text-data.html#what-to-expect",
+    "href": "slides/07-text-data.html#what-to-expect",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "What to expect",
+    "text": "What to expect\n\n\n\nContent\n\n\n\nEverything covered through the end of this week\n\nVisualizing numerical & categorical variables\nSummarizing numerical & categorical variables\nDistances between observations\nPreprocessing (scaling / one-hot-encoding) variables\n\n\n\n\n\n\n\n\nStructure\n\n\n\n80-minutes\n\nFirst part of class (8:10 - 9:30am; 12:10 - 1:30pm)\n\n\n\n\n\n\n\nGoogle Collab Notebook\n\n\n\n\n\n\nResources you can use:\n\nYour own Colab notebooks\nAny course materials\nOfficial Python documentation\n\n\n\n\n\n\n\nResources you can not use:\n\nOther humans\nGenerative AI for anything beyond text completion\nGoogle for anything except to reach Python documentation pages\n\n\n\n\n\n:::",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 4, Part 2 - Bag-of-Words and TF-IDF"
+    ]
+  },
+  {
+    "objectID": "slides/07-text-data.html#data-for-exam-1",
+    "href": "slides/07-text-data.html#data-for-exam-1",
+    "title": "Bag-of-Words and TF-IDF",
+    "section": "Data for Exam 1",
+    "text": "Data for Exam 1\n\nDataset on coffee attributes\n\nDerived from Kaggle dataset\nRaw data can be downloaded here (link to data)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 4, Part 2 - Bag-of-Words and TF-IDF"
+    ]
   }
 ]

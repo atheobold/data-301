@@ -21,6 +21,89 @@ import pandas as pd
 from plotnine import *
 ```
 
+# Exam 1
+
+## What to expect
+
+::: columns
+::: {.column width="32%"}
+:::{.midi}
+**Content** 
+:::
+
+::: {.small}
+- Everything covered through the end of this week
+  * Visualizing numerical & categorical variables
+  * Summarizing numerical & categorical variables
+  * Distances between observations
+  * Preprocessing (scaling / one-hot-encoding) variables
+
+:::
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="65%"}
+::: {.fragment}
+::: {.midi}
+**Structure**
+:::
+
+::: {.small}
+- 80-minutes 
+  - First part of class (8:10 - 9:30am; 12:10 - 1:30pm)
+:::
+:::
+
+::: {.fragment}
+::: {.small}
+- Google Collab Notebook
+:::
+:::
+
+::: {.fragment}
+::: {.small}
+- Resources you [**can**]{.underline} use:
+  * Your own Colab notebooks
+  * Any course materials
+  * Official Python documentation
+  
+:::
+:::
+
+::: {.fragment}
+::: {.small}
+- Resources you [**can not**]{.underline} use:
+  * Other humans
+  * Generative AI for anything beyond text completion 
+  * Google for anything except to reach Python documentation pages
+
+:::
+:::
+:::
+:::
+:::
+
+## Data for Exam 1
+
+- [Dataset on coffee attributes](https://github.com/atheobold/data-301/blob/main/exam-materials/coffee_clean.csv)
+  * Derived from a [Kaggle dataset (link to documentation)](https://www.kaggle.com/datasets/fatihb/coffee-quality-data-cqi?resource=download)
+  * Raw data can be downloaded [here (link to data)](https://raw.githubusercontent.com/atheobold/data-301/refs/heads/main/exam-materials/coffee_clean.csv)
+  
+::: columns
+::: {.column width="50%"}
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+![](images/07-coffee.jpg){fig-alt="A steaming cup of coffee in a small, white cup with a saucer, placed on top of a mesh bag of coffee beans."}
+:::
+:::
+
 # The story so far...
 
 ## Distances
