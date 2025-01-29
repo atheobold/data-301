@@ -492,9 +492,11 @@ Why are **column transformers** so useful? We can do **multiple preprocessing st
 from sklearn.preprocessing import StandardScaler
 
 preproc = make_column_transformer(
-        (StandardScaler(), ["Gr Liv Area"]),
-        (OneHotEncoder(sparse_output = False), ["Bldg Type", "Neighborhood"]),
-        remainder = "passthrough")
+        (StandardScaler(), 
+        ["Gr Liv Area", "Bedroom AbvGr", "Full Bath", "Half Bath"]),
+        (OneHotEncoder(sparse_output = False), 
+        ["Bldg Type", "Neighborhood"]),
+        remainder = "drop")
 ```
 :::
 
@@ -504,11 +506,14 @@ preproc = make_column_transformer(
 #| code-line-numbers: false
 #| label: multiple-column-transformations-fit
 
-(
-  preproc
-  .fit(df[features])
-  .set_output(transform = "pandas")
-)
+preproc.fit(df)
+```
+
+```{python}
+#| code-line-numbers: false
+#| label: pandas-output
+
+preproc.set_output(transform = "pandas")
 ```
 
 ## Transform!
@@ -518,15 +523,17 @@ preproc = make_column_transformer(
 #| code-line-numbers: false
 #| label: multiple-column-transformations-transform
 
-df_transformed = preproc.transform(df[features])
+df_transformed = preproc.transform(df)
 df_transformed
 ```
 :::
 
 ## Finding All Categorical Variables
 
+::: {.midi}
 What if we want to tell `sklearn`, "Please dummify **every** categorical
 variable."? Use a `selector` instead of exact column names!
+:::
 
 . . .
 
@@ -547,22 +554,20 @@ preproc = make_column_transformer(
     remainder = "passthrough")
 
 ```
-
 :::
 
-## Fit **AND** Transform!
+. . .
 
 ::: {.small}
 ```{python}
 #| code-line-numbers: false
-#| label: selector-for-variables-fit-output
-#| eval: false
+#| label: pandas-output-2
 
 preproc.set_output(transform = "pandas")
 ```
 :::
 
-. . .
+## Fit **AND** Transform!
 
 ::: {.small}
 ```{python}
