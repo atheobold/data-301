@@ -65,7 +65,7 @@ from plotnine import *
 ::: {.fragment}
 ::: {.small}
 - Resources you [**can**]{.underline} use:
-  * Your own Colab notebooks
+  * Your own Collab notebooks
   * Any course materials
   * Official Python documentation
   
@@ -199,6 +199,15 @@ for filename in seuss_files:
 #| label: keys-of-data-read-in
 
 docs.keys()
+```
+
+## Text Data
+
+```{python}
+#| code-line-numbers: false
+#| label: data-values
+
+docs.values()
 ```
 
 ## Bag-of-Words Representation
@@ -377,7 +386,7 @@ If you don't want `scikit-learn` to normalize for punctuation and capitalization
 
 ::: {.small}
 ```{python}
-#| code-line-numbers: "|1"
+#| code-line-numbers: false
 #| label: not-normalized
 
 vec = CountVectorizer(lowercase = False, token_pattern = r"[\S]+")
@@ -571,9 +580,9 @@ This is how data scientists do **authorship identification**!
 
 # Lecture Activity 4.2 - Part 1
 
-## One Fish Two Fish
+# Lecture Activity 4.2 - Part 1
 
-Using bi-grams, unigrams, and tri-grams, which Dr. Seuss document is closest to "One Fish Two Fish"?
+Using `CountVectorizer()` to create bi-grams, unigrams, and tri-grams, which Dr. Seuss document is closest to "One Fish Two Fish"?
 
 ```{python}
 #| include: false
@@ -623,6 +632,7 @@ pairwise_distances(bow_seuss)[7]
 
 ## Example with Code
 
+::: {.midi}
 ```{python}
 #| code-fold: true
 #| code-line-numbers: false
@@ -635,7 +645,9 @@ documents = [
     "happiness can be found in the darkest of times if only one remembers to turn on the light"
 ]
 ```
+:::
 
+::: {.midi}
 ```{python}
 #| code-fold: true
 #| code-line-numbers: false
@@ -648,6 +660,7 @@ vec.fit(documents)
 bow_matrix = vec.transform(documents)
 bow_matrix
 ```
+:::
 
 ## Example Output
 
@@ -666,7 +679,6 @@ bow_dataframe[["darkness", "light"]]
 
 ::: {.small}
 ```{python}
-#| code-fold: true
 #| code-line-numbers: false
 #| label: pairwise-distances-on-bow-from-docs
 
@@ -703,20 +715,32 @@ Is **euclidean distance** really the best choice?!
 
 -   The first document is longer, so it has "double" counts.
 
--   But, it has the exact same words as the first document!
+-   But, it has the exact same words as the second document!
 
--   Solution: **cosine distance** (on board)
+-   Solution: **cosine distance** 
 :::
 
-<!-- https://medium.com/@milana.shxanukova15/cosine-distance-and-cosine-similarity-a5da0e4d9ded -->
+## What is cosine distance?
 
-<!-- cosine distance = the dot product of the vectors divided by the product of their lengths -->
+::: {.midi}
+> Cosine similarity is a metric that determines how two vectors (words, sentences, features) are similar to each other. 
+:::
+
+::: {.centered}
+![](images/07-cosine.png){fig-alt="A diagram with three side-by-side coordinate planes, each illustrating different vector relationships labeled as 'Similar,' 'Unrelated,' and 'Opposite.' In the 'Similar' section, two vectors, A and B, point in roughly the same direction with a small angle between them. In the 'Unrelated' section, vectors A and B form a right angle (90 degrees) with each other. In the 'Opposite' section, vector A points in the opposite direction of vector B, forming a 180-degree angle." width=60%}
+:::
+
+. . .
+
+::: {.midi}
+Cosine similarity is the dot product of the vectors divided by the product of their lengths.
+:::
 
 ## Cosine Distance
 
+::: {.small}
 As a rule, **cosine distance** is a better choice for bag-of-words data!
 
-::: {.small}
 ```{python}
 #| code-line-numbers: false
 #| label: cosine-distance-bow-documents
@@ -775,6 +799,7 @@ bow_totals
 
 Let's use *frequencies* instead of *counts*. 
 
+::: {.small}
 ```{python}
 #| code-line-numbers: false
 #| label: document-frequencies
@@ -782,6 +807,7 @@ Let's use *frequencies* instead of *counts*.
 bow_tf = bow_dataframe.divide(bow_totals, axis = 0)
 bow_tf
 ```
+:::
 
 ## Distance of Term Frequencies (TF)
 
@@ -1081,9 +1107,9 @@ The fact that the authors aren't scaling the counts by the length of each docume
 
 # Lecture Activity 4.2 - Part 2
 
-## Activity
+# Lecture Activity 4.2 - Part 2
 
-Using bi-grams, unigrams, and tri-grams, which Dr. Seuss document is closest to "One Fish Two Fish"?
+Using `TfidfVectorizer()` to create bi-grams, unigrams, and tri-grams, which Dr. Seuss document is closest to "One Fish Two Fish"?
 
 ```{python}
 #| include: false
