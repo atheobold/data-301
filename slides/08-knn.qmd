@@ -25,6 +25,10 @@ import pandas as pd
 from plotnine import *
 ```
 
+# Exam 1 Reminder
+
+<!-- Reminders about using tools that have been taught in class -->
+
 # The story so far..
 
 ## Steps for data analysis
