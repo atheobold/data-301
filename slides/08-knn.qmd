@@ -25,9 +25,75 @@ import pandas as pd
 from plotnine import *
 ```
 
-# Exam 1 Reminder
+# Exam 1 Reminders
 
-<!-- Reminders about using tools that have been taught in class -->
+## What to expect
+
+::: columns
+::: {.column width="32%"}
+:::{.midi}
+**Content** 
+:::
+
+::: {.small}
+- Everything covered through the end of this week
+  * Visualizing numerical & categorical variables
+  * Summarizing numerical & categorical variables
+  * Distances between observations
+  * Preprocessing (scaling / one-hot-encoding) variables
+
+:::
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="65%"}
+::: {.midi}
+**Structure**
+:::
+
+::: {.small}
+- 80-minutes 
+  - First part of class (8:10 - 9:30am; 12:10 - 1:30pm)
+
+- Google Collab Notebook
+
+- Resources you [**can**]{.underline} use:
+  * Your own Collab notebooks
+  * Any course materials
+  * Official Python documentation
+  
+- Resources you [**can not**]{.underline} use:
+  * Other humans
+  * Generative AI for anything beyond text completion 
+  * Google for anything except to reach Python documentation pages
+  
+:::
+:::
+:::
+
+## A Reminder about Code Complexity
+
+> There are always multiple ways to accomplish a given task. 
+
+. . .
+
+In addition to accomplishing the given task, your grade on each problem will also depend on:
+
+- whether your solution uses tools taught in this class, and
+- the efficiency of your solution (e.g., did you use a `for` loop when it was not necessary?)
+
+## Data for Exam 1
+
+::: {.midi}
+> Your analysis will focus on the qualitites of different types of coffee and how they are related to where / when / how the coffee was grown and processed. 
+
+:::
+
+. . .
+
+![Link to the [raw data)](https://raw.githubusercontent.com/atheobold/data-301/refs/heads/main/exam-materials/coffee_clean.csv)](images/08-exam-data-clue.png){fig-alt="A screenshot of the `coffee.csv` data file you will be analyzing for your Midterm Exam. The preview shows 17 different columns, with two columns highlighted in red---year and altitude. These columns are highlighted because they contain values with some inconsistent formats and may be needed to be cleaned before analysis."}
 
 # The story so far..
 

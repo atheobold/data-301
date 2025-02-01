@@ -3099,5 +3099,26 @@
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
     ]
+  },
+  {
+    "objectID": "slides/08-knn.html#what-to-expect",
+    "href": "slides/08-knn.html#what-to-expect",
+    "title": "K-Nearest-Neighbors",
+    "section": "What to expect",
+    "text": "What to expect\n\n\n\nContent\n\n\n\nEverything covered through the end of this week\n\nVisualizing numerical & categorical variables\nSummarizing numerical & categorical variables\nDistances between observations\nPreprocessing (scaling / one-hot-encoding) variables\n\n\n\n\n\n\n\nStructure\n\n\n\n80-minutes\n\nFirst part of class (8:10 - 9:30am; 12:10 - 1:30pm)\n\nGoogle Collab Notebook\nResources you can use:\n\nYour own Collab notebooks\nAny course materials\nOfficial Python documentation\n\nResources you can not use:\n\nOther humans\nGenerative AI for anything beyond text completion\nGoogle for anything except to reach Python documentation pages"
+  },
+  {
+    "objectID": "slides/08-knn.html#a-reminder-about-code-complexity",
+    "href": "slides/08-knn.html#a-reminder-about-code-complexity",
+    "title": "K-Nearest-Neighbors",
+    "section": "A Reminder about Code Complexity",
+    "text": "A Reminder about Code Complexity\n\nThere are always multiple ways to accomplish a given task.\n\n\nIn addition to accomplishing the given task, your grade on each problem will also depend on:\n\nwhether your solution uses tools taught in this class, and\nthe efficiency of your solution (e.g., did you use a for loop when it was not necessary?)"
+  },
+  {
+    "objectID": "slides/08-knn.html#data-for-exam-1",
+    "href": "slides/08-knn.html#data-for-exam-1",
+    "title": "K-Nearest-Neighbors",
+    "section": "Data for Exam 1",
+    "text": "Data for Exam 1\n\n\nYour analysis will focus on the qualitites of different types of coffee and how they are related to where / when / how the coffee was grown and processed.\n\n\n\n\n\n\nLink to the raw data)"
   }
 ]
