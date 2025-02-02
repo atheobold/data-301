@@ -1,18 +1,12 @@
 ---
 title: "Modeling"
-format:
+format:  
   revealjs: 
-    theme: [default, spring.scss]
-    incremental: true 
-    output-file: slides-09-modeling.html
-    shift-heading-level-by: -1
+    theme: [default, style.scss]
+editor: source
 execute:
   echo: true
 ---
-
-```{python}
-
-```
 
 ```{r}
 #| include: false
@@ -31,33 +25,32 @@ from plotnine import *
 
 ### Steps for data analysis
 
-* **Read** and then **clean** the data
-  + Are there missing values?  Will we drop those rows, or replace the missing values with something?
-  + Are there *quantitative* variables that python thinks are *categorical*?
-  + Are there *categorical* variables that python thinks are *quantitative*?
-  + Are there any *anomalies* in the data that concern you?
-  
+-   **Read** and then **clean** the data
+    -   Are there missing values? Will we drop those rows, or replace the missing values with something?
+    -   Are there *quantitative* variables that python thinks are *categorical*?
+    -   Are there *categorical* variables that python thinks are *quantitative*?
+    -   Are there any *anomalies* in the data that concern you?
+
 ### Steps for data analysis (cont'd)
 
-* **Explore** the data by **visualizing** and **summarizing**.
-  + Different approaches for different combos of *quantitative* and *categorical* variables
-  + Think about *conditional* calculations (split-apply-combine)
-  
+-   **Explore** the data by **visualizing** and **summarizing**.
+    -   Different approaches for different combos of *quantitative* and *categorical* variables
+    -   Think about *conditional* calculations (split-apply-combine)
+
 ### Steps for data analysis (cont'd)
 
-* Identify a **research question** of interest.
+-   Identify a **research question** of interest.
 
-* Perform **preprocessing** steps
-  + Should we *scale* the quantitative variables?
-  + Should we *one-hot-encode* the categorical variables?
-  + Should we *log-transform* any variables?
+-   Perform **preprocessing** steps
 
+    -   Should we *scale* the quantitative variables?
+    -   Should we *one-hot-encode* the categorical variables?
+    -   Should we *log-transform* any variables?
 
-* Measure similarity between **observations** by calculating **distances**.
-  + Which *features* should be included?
-  + Which *distance metric* should we use?
+-   Measure similarity between **observations** by calculating **distances**.
 
-
+    -   Which *features* should be included?
+    -   Which *distance metric* should we use?
 
 ## Machine Learning and Statistical Modeling
 
@@ -93,7 +86,7 @@ $$y_i = 0.5*x_{1i} + 0.5*x_{2i} + \epsilon_i$$
 
 "A person's height is equal to the average of their biological mother's height and biological father's height, plus some randomness"
 
-* Do you think there is "more randomness" in the first function or this one?
+-   Do you think there is "more randomness" in the first function or this one?
 
 ### Generative process
 
@@ -109,11 +102,11 @@ $$y_i = \text{(average of heights of 5 people with most similar weights)} + \eps
 
 ### Modeling
 
-* Our goal is to **reconstruct** or **estimate** or **approximate** the function/process $f$ based on **training data**.
+-   Our goal is to **reconstruct** or **estimate** or **approximate** the function/process $f$ based on **training data**.
 
-* For example: Instead of the 5 most similar weights *in the whole world*, we can estimate with the 5 most similar weights *in our training set*.
+-   For example: Instead of the 5 most similar weights *in the whole world*, we can estimate with the 5 most similar weights *in our training set*.
 
-* Instead of committing to one $f$ to estimate, we might propose **many** options and see which one "leaves behind" the least randomness.
+-   Instead of committing to one $f$ to estimate, we might propose **many** options and see which one "leaves behind" the least randomness.
 
 ## Data: Wine price prediction
 
@@ -196,15 +189,16 @@ for k in [1, 3, 5, 10, 25]:
 
 ### Training error vs test error
 
-* Oh no! Why did we get an error of 0 for $k = 1$?
+-   Oh no! Why did we get an error of 0 for $k = 1$?
 
-* Because the closest wine in the training set is... itself.
+-   Because the closest wine in the training set is... itself.
 
-* So, our problem is:
-    + If we predict on the **new data**, we don't know the **true prices** and we can't **evaluate** our models
-    + If we predict on the **training data**, we are "cheating", because we are using the data to both **train** and **test**.
-    
-* Solution: Let's make a pretend **test data** set!
+-   So, our problem is:
+
+    -   If we predict on the **new data**, we don't know the **true prices** and we can't **evaluate** our models
+    -   If we predict on the **training data**, we are "cheating", because we are using the data to both **train** and **test**.
+
+-   Solution: Let's make a pretend **test data** set!
 
 ### Test/Training split
 
@@ -213,11 +207,11 @@ df_train = df.loc[:1970].copy()
 df_test = df.loc[1971:1980].copy()
 ```
 
-* We will **train** on the years up to 1970
+-   We will **train** on the years up to 1970
 
-* We will **test** on the years 1971 to 1980
+-   We will **test** on the years 1971 to 1980
 
-* We will **evaluate** based on model performance on the **test data**.
+-   We will **evaluate** based on model performance on the **test data**.
 
 ### Try again: Best K
 
@@ -235,11 +229,11 @@ for k in range(1,15):
 
 ### Tuning
 
-* Here we tried the same **type** of model (KNN) each time.
+-   Here we tried the same **type** of model (KNN) each time.
 
-* But we tried different **models** because we used different values of $k$
+-   But we tried different **models** because we used different values of $k$
 
-* This is called **tuning**
+-   This is called **tuning**
 
 ### Activity
 
@@ -247,11 +241,11 @@ Perform tuning for a KNN model, but with **all possible values of k**.
 
 Do this for three *recipes* or *column transformers*:
 
-1. Using all predictors.
+1.  Using all predictors.
 
-2. Using just winter rainfall and summer temperature.
+2.  Using just winter rainfall and summer temperature.
 
-3. Using only age.
+3.  Using only age.
 
 Which of the many model options performed best?
 
@@ -293,58 +287,56 @@ for k in range(1,17):
   print(str(k) + ":" + str(((df_test['price'] - pred_y_test)**2).mean()))
 ```
 
-### Things to think about{.smaller}
+### Things to think about {.smaller}
 
-* What other **types of models** could we have tried?
+-   What other **types of models** could we have tried?
 
-* *Linear regression*, *decision tree*, *neural network*, ...
+-   *Linear regression*, *decision tree*, *neural network*, ...
 
-* What other **column transformers** could we have tried?
+-   What other **column transformers** could we have tried?
 
-* *Different combinations of variables, different standardizing, log transforming...*
+-   *Different combinations of variables, different standardizing, log transforming...*
 
-* What if we measure **error** differently?
+-   What if we measure **error** differently?
 
-* *Mean absolute error*, *log-error*, *percent error*, ...
+-   *Mean absolute error*, *log-error*, *percent error*, ...
 
-* What if we had used a **different test set**?
+-   What if we had used a **different test set**?
 
-* *Coming soon: Cross-validation*
+-   *Coming soon: Cross-validation*
 
-* What if our target variable was **categorical**?
-
+-   What if our target variable was **categorical**?
 
 ## Modeling: General Procedure
 
-### Modeling{.smaller}
+### Modeling {.smaller}
 
 We apply the process:
 
 <u>For each model proposed: </u>
 
-* Establish a **pipeline** with **transformers** and a **model**.
+-   Establish a **pipeline** with **transformers** and a **model**.
 
-* **Fit** the pipeline on the **training data** (with known outcome)
+-   **Fit** the pipeline on the **training data** (with known outcome)
 
-* **Predict** with the fitted pipeline on **test data** (with known outcome)
+-   **Predict** with the fitted pipeline on **test data** (with known outcome)
 
-* **Evaluate** our success; i.e., measure noise "left over"
+-   **Evaluate** our success; i.e., measure noise "left over"
 
 <u>Then: </u>
 
-* **Select** the best model
+-   **Select** the best model
 
-* **Fit** on *all* the data
+-   **Fit** on *all* the data
 
-* **Predict** on any future data (with unknown outcome)
+-   **Predict** on any future data (with unknown outcome)
 
 ### Big decisions
 
-* Which models to try
+-   Which models to try
 
-* Which column transformers to try
+-   Which column transformers to try
 
-* How much to tune
+-   How much to tune
 
-* How to measure "success" of a model
-
+-   How to measure "success" of a model
