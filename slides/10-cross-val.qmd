@@ -1,0 +1,422 @@
+---
+title: "Cross-Validation and Grid Search"
+format:
+  revealjs: 
+    theme: [default, spring.scss]
+    incremental: true 
+    output-file: slides-10-cross_val.html
+    shift-heading-level-by: -1
+execute:
+  echo: true
+---
+
+```{python}
+
+```
+
+```{r}
+#| include: false
+library(reticulate)
+use_python("/usr/local/bin/python3")
+```
+
+```{python}
+#| include: false
+import numpy as np
+import pandas as pd
+from plotnine import *
+```
+
+## The story so far
+
+### Modeling
+
+We assume some process $f$ is *generating* our target variable:
+
+::: {style="font-size: 150%;"}
+(**target**) = f(**predictors**) + (noise)
+:::
+
+Our goal is to come up with an approximation of $f$.
+
+
+### Test error vs training error{.smaller}
+
+* We don't need to know how well our model does on *training data*.
+
+* We want to know how well it will do on *test data*.
+
+* In general, test error $>$ training error.
+
+> Analogy: A professor posts a practice exam before an exam.
+
+> -   If the actual exam is the same as the practice exam, how many points will students miss? That's training error.
+
+> -   If the actual exam is different from the practice exam, how many points will students miss? That's test error.
+
+> It's always easier to answer questions that you've seen before than
+questions you haven't seen.
+
+
+### Modeling Procedure {.smaller}
+
+We apply the process:
+
+<u>For each model proposed: </u>
+
+* Establish a **pipeline** with **transformers** and a **model**.
+
+* **Fit** the pipeline on the **training data** (with known outcome)
+
+* **Predict** with the fitted pipeline on **test data** (with known outcome)
+
+* **Evaluate** our success; i.e., measure noise "left over"
+
+<u>Then: </u>
+
+* **Select** the best model
+
+* **Fit** on *all* the data
+
+* **Predict** on any future data (with unknown outcome)
+
+
+## Linear Regression
+
+### Simple Linear Model
+
+We assume that the target ($Y$) is generated from **an equation** of the predictor ($X$), plus random noise ($\epsilon$)
+
+$$Y = \beta_0 + \beta_1 X + \epsilon$$
+
+
+Goal:  Use observations $(x_1, y_1), ..., (x_n, y_n)$ to estimate $\beta_0$ and $\beta_1$.
+
+### Measures of success
+
+What is the "best" choice of $\hat{\beta}_0$ and $\hat{\beta}_1$?
+
+* The ones that are **statistically most justified**, under certain assumptions about $Y$ and $X$?
+
+* The ones that are "closest to" the observed points?
+
+    + $|\hat{y}_i - y_i|$?
+    + $(\hat{y}_i - y_i)^2$?
+    + $(\hat{y}_i - y_i)^4$?
+    
+### Example: Wine data
+
+```{python}
+#| code-fold: true
+
+df = pd.read_csv("https://dlsun.github.io/pods/data/bordeaux.csv",
+                 index_col="year")
+                 
+df_known = df.loc[:1980].copy()
+df_unknown = df.loc[1981:].copy()
+
+(ggplot(df_known, aes(x = "age", y = "price")) 
++ geom_point())
+
+```
+
+### "Candidate" lines
+
+Condsider five possible regression equations:
+
+$$\text{price} = 25 + 0*\text{age}$$
+$$\text{price} = 0 + 10*\text{age}$$
+$$\text{price} = 20 + 1*\text{age}$$
+$$\text{price} = -40 + 3*\text{age}$$
+
+Which one do you think will be "closest" to the points on the scatterplot?
+
+### "Candidate" lines
+
+```{python}
+(ggplot(df_known, aes(x = "age", y = "price")) 
++ geom_point()
++ geom_abline(intercept = 25, slope = 0)
++ geom_abline(intercept = 0, slope = 1)
++ geom_abline(intercept = 20, slope = 1)
++ geom_abline(intercept = -40, slope = 3))
+```
+
+### The "best" slope and intercept
+
+* It's clear that some of these lines are better than others.
+
+* How to choose the best?  **Math**
+
+* We'll let the computer do it for us.
+
+* **Important:** The slope and intercept are calculated from the **training data** at the `.fit()` step.
+
+### Linear Regression in `sklearn`
+
+```{python}
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+
+
+pipeline = make_pipeline(
+    LinearRegression())
+    
+pipeline.fit(X=df_known[['age']], y=df_known['price'])
+
+pipeline.named_steps['linearregression'].intercept_
+pipeline.named_steps['linearregression'].coef_
+```
+
+
+### Fitting and predicting
+
+To **predict** from a linear regression, we just plug in the values to the equation...
+
+```{python}
+-0.3 + 1.16*df_unknown["age"] 
+```
+
+### Fitting and predicting
+
+To **predict** from a linear regression, we just plug in the values to the equation...
+
+```{python}
+pipeline.predict(df_unknown[['age']])
+```
+### Questions to ask yourself{.smaller}
+
+* **Q:** Is there only one "best" regression line?
+
+* **A:** No, you can justify many choices of slope and intercept!  But there is a generally accepted approach called **Least Squares Regression** that we will always use.
+
+* **Q:** How do you know which *variables* to include in the equation? 
+* **A:** Try them all, and see what predicts best.
+
+* **Q:** How do you know whether to use *linear regression* or *KNN* to predict?
+
+* **A:** Try them both, and see what predicts best
+
+
+## Cross-Validation
+
+### Resampling methods
+
+* We saw that a "fair" way to evaluate models was to **randomly split** into **training** and **test** sets.
+
+* But what if this **randomness** was misleading?  *(e.g., a major outlier in one of the sets)*
+
+* What do we usually do in statistics to address randomness?  Take **many samples** and compute an **average**!
+
+* A **resampling method** is when we take *many* random test/training splits and *average* the resulting metrics.
+
+### Resampling method example
+
+Import all our functions:
+
+```{python}
+from sklearn.compose import make_column_transformer
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+
+```
+
+### Resampling method example
+
+```{python}
+X_train, X_test, y_train, y_test = train_test_split(df_known, df_known['price'], test_size = 0.1)
+
+ct = make_column_transformer(
+  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),
+  remainder = "drop"
+)
+
+pipeline = make_pipeline(
+    ct,
+    LinearRegression())
+    
+pipeline = pipeline.fit(X=X_train, y=y_train)
+
+pred_y_test = pipeline.predict(X=X_test)
+
+mean_squared_error(y_test, pred_y_test)
+```
+
+
+### Resampling method example
+
+```{python}
+
+X_train, X_test, y_train, y_test = train_test_split(df_known, df_known['price'], test_size = 0.1)
+
+ct = make_column_transformer(
+  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),
+  remainder = "drop"
+)
+
+pipeline = make_pipeline(
+    ct,
+    LinearRegression())
+pipeline = pipeline.fit(X=X_train, y=y_train)
+pred_y_test = pipeline.predict(X=X_test)
+mean_squared_error(y_test, pred_y_test)
+```
+
+### Cross-Validation
+
+* It makes sense to do test/training many times...
+
+* But!  Remember the original reason for test/training: we don't want to use the **same data** in *fitting* and *evaluation*. 
+
+* Idea: Let's make sure that each observation only gets to be in the test set **once**
+
+* **Cross-validation:** Divide the data into 10 random "folds".  Each fold gets a "turn" as the test set.
+
+### Cross-Validation
+
+![](./images/k_fold_pic.png)
+
+### Cross-Validation in `sklearn`
+
+```{python}
+from sklearn.model_selection import cross_val_score
+
+cross_val_score(pipeline, X = df_known, y = df_known['price'], cv = 10)
+```
+
+* `sklearn` chooses a **default metric** for you based on the model.
+
+* In this case: *r-squared* for Linear Regression; *negative root mean square error* for KNN.
+
+* (Why negative?  So that we want to *maximize* this score)
+
+### Cross-Validation in `sklearn`
+
+* What if you want **MSE**?
+
+```{python}
+cv_scores = cross_val_score(pipeline, X = df_known, y = df_known['price'], cv = 10, scoring = "neg_mean_squared_error")
+cv_scores
+```
+
+### Cross-Validation: FAQ{.smaller}
+
+* **Q:** How many cross validations should we do?
+
+* **A:** It doesn't matter much!  Typical choices are 5 or 10.  
+
+* **A:** Think about the trade-offs:  larger *training sets* = *more accurate models* but smaller *test sets* = *more uncertainty in evaluation*
+
+* **Q:** What metric should we use?
+
+* **A:** This is your choice! What captures your idea of "successful prediction"?  (But MSE/RMSE is a good default.)
+
+* **Q:** I took statistics before, and I remember some things like "adjusted R-Squared" or "AIC" for model selection.  What about those?
+
+* **A:** Those are Old School, from a time when computers were not powerful enough to do cross-val.  Modern data science uses resampling.
+
+
+
+## Activity
+
+### Your turn
+
+1. Use **cross-validation** to choose between Linear Regression and KNN with k = 7, for:
+
+    + Using all predictors.
+    + Using just winter rainfall and summer temperature.
+    + Using only age.
+    
+2. Re-run #1, but instead use **mean absolute error**. (You will need to look in the documentation of `cross_val_score` for this!)
+
+## Tuning with `GridSearchCV`
+
+### Tuning
+
+* In previous classes, we tried many different values of $k$ for KNN.
+
+* We also mentioned using **absolute distance** instead of **euclidean distance**.
+
+* Now, we would like to use **cross-validation** to decide between these options.
+
+* `sklearn` provides a nice shortcut for this!
+
+### `GridSearchCV`
+
+```{python}
+ct = make_column_transformer(
+  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),
+  remainder = "drop"
+)
+
+pipeline = make_pipeline(
+    ct,
+    KNeighborsRegressor())
+    
+from sklearn.model_selection import GridSearchCV
+
+grid_cv = GridSearchCV(
+    pipeline,
+    param_grid={
+        "kneighborsregressor__n_neighbors": range(1, 7),
+        "kneighborsregressor__metric": ["euclidean", "manhattan"],
+    },
+    scoring="neg_mean_squared_error", cv=5)
+
+grid_cv.fit(df_known, df_known['price'])
+```
+
+* **How many times did a model get `.fit()` to some data?**
+
+
+### `GridSearchCV`
+
+```{python}
+pd.DataFrame(grid_cv.cv_results_)
+```
+
+### `GridSearchCV`
+
+```{python}
+pd.DataFrame(grid_cv.cv_results_)[['param_kneighborsregressor__metric', 'param_kneighborsregressor__n_neighbors', 'mean_test_score']]
+```
+
+### `GridSearchCV`
+
+```{python}
+grid_cv.best_params_
+```
+
+
+
+### Model evaluation
+
+You have now encountered **three types of decisions** for finding your best model:
+
+1. Which *predictors* should we include, and how should we preprocess them?  (**feature selection**)
+
+2. Should we use *Linear Regression* or *KNN* or something else?  (**Model selection**)
+
+3. Which value of $k$ should we use?  (**hyperparameter tuning**)
+
+
+### Model evaluation
+
+Think of this like a college sports bracket:
+
+* Gather all your **candidate pipelines** (combinations of *column transformers* and *model specifications*)
+
+* **Tune** each pipeline with cross-validation (regional championships!)
+
+* Determine the **best model type** for each **feature set** (state championships!)
+
+* Determine the **best pipeline** (national championships!)
+
+
+### Challenge!{.larger}
+
+Of all these options, what is the **number one best model** for wine price prediction, in your opinion?
+
