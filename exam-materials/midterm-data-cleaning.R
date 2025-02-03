@@ -85,9 +85,18 @@ methods_to_keep <- tibble(processing_method =
 coffee_clean <- coffee_clean |> 
   semi_join(methods_to_keep, by = "processing_method")
 
-coffee_clean |> 
+coffee_midterm <- coffee_clean |> 
   select(-min_altitude, 
          -max_altitude, 
          - altitude) |>
-  rename(altitude = altitude_new) |> 
-  write_csv(file = "coffee_clean.csv")  
+  rename(altitude = altitude_new) 
+
+# write_csv(coffee_midterm, file = "coffee_clean.csv") 
+
+## Data with cleaned altitude variable
+coffee_final <- coffee_clean |> 
+  select(-altitude_new) 
+
+write_csv(coffee_final, file = "coffee_altitude_clean.csv")
+  
+
