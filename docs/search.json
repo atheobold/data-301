@@ -1787,8 +1787,8 @@
     "objectID": "slides/06-preprocessing.html#distances",
     "href": "slides/06-preprocessing.html#distances",
     "title": "Dummy Variables and Column Transformers",
-    "section": "",
-    "text": "We measure similarity between observations by calculating distances.\n\n. . .\n\nEuclidean distance: sum of squared differences, then square root\nManhattan distance: sum of absolute differences\n\n. . .\n\n\n\n\n\n\nscikit-learn\n\n\n\nUse the pairwise_distances() function to get back a 2D numpy array of distances.",
+    "section": "Distances",
+    "text": "Distances\n\nWe measure similarity between observations by calculating distances.\n\n\n\nEuclidean distance: sum of squared differences, then square root\nManhattan distance: sum of absolute differences\n\n\n\n\n\n\n\n\n\nscikit-learn\n\n\nUse the pairwise_distances() function to get back a 2D numpy array of distances.",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1798,8 +1798,8 @@
     "objectID": "slides/06-preprocessing.html#scaling",
     "href": "slides/06-preprocessing.html#scaling",
     "title": "Dummy Variables and Column Transformers",
-    "section": "",
-    "text": "It is important that all our features be on the same scale for distances to be meaningful.\n\n. . .\n\nStandardize: Subtract the mean (of the column) and divide by the standard deviation (of the column).\nMinMax: Subtract the minimum value, divide by the range.\n\n. . .\n\n\n\n\n\n\nscikit-learn\n\n\n\nFollow the specify - fit - transform code structure. In the specify step, you should use the StandardScaler() or MinMaxScaler() functions.",
+    "section": "Scaling",
+    "text": "Scaling\n\nIt is important that all our features be on the same scale for distances to be meaningful.\n\n\n\nStandardize: Subtract the mean (of the column) and divide by the standard deviation (of the column).\nMinMax: Subtract the minimum value, divide by the range.\n\n\n\n\n\n\n\n\n\nscikit-learn\n\n\nFollow the specify - fit - transform code structure. In the specify step, you should use the StandardScaler() or MinMaxScaler() functions.",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1809,8 +1809,8 @@
     "objectID": "slides/06-preprocessing.html#recall-ames-housing-data",
     "href": "slides/06-preprocessing.html#recall-ames-housing-data",
     "title": "Dummy Variables and Column Transformers",
-    "section": "",
-    "text": "df = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")\ndf.head()\n\n         PID  Gr Liv Area  Bedroom AbvGr  ...  Sale Type  Sale Condition  SalePrice\n0  526301100         1656              3  ...        WD           Normal     215000\n1  526350040          896              2  ...        WD           Normal     105000\n2  526351010         1329              3  ...        WD           Normal     172000\n3  526353030         2110              3  ...        WD           Normal     244000\n4  527105010         1629              3  ...        WD           Normal     189900\n\n[5 rows x 81 columns]",
+    "section": "Recall: AMES Housing data",
+    "text": "Recall: AMES Housing data\n\n\ndf = pd.read_table(\"https://datasci112.stanford.edu/data/housing.tsv\")\ndf.head()\n\n         PID  Gr Liv Area  Bedroom AbvGr  ...  Sale Type  Sale Condition  SalePrice\n0  526301100         1656              3  ...        WD           Normal     215000\n1  526350040          896              2  ...        WD           Normal     105000\n2  526351010         1329              3  ...        WD           Normal     172000\n3  526353030         2110              3  ...        WD           Normal     244000\n4  527105010         1629              3  ...        WD           Normal     189900\n\n[5 rows x 81 columns]",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1821,7 +1821,7 @@
     "href": "slides/06-preprocessing.html#what-about-categorical-variables",
     "title": "Dummy Variables and Column Transformers",
     "section": "What about categorical variables?",
-    "text": "What about categorical variables?\nSuppose we want to include the variable Bldg Type in our distance calculation…\n\ndf[\"Bldg Type\"].value_counts()\n\nBldg Type\n1Fam      2425\nTwnhsE     233\nDuplex     109\nTwnhs      101\n2fmCon      62\nName: count, dtype: int64\n\n\n. . .\n\nThen we need a way to calculate \\((\\texttt{1Fam} - \\texttt{Twnhs} )^ 2\\).",
+    "text": "What about categorical variables?\nSuppose we want to include the variable Bldg Type in our distance calculation…\n\ndf[\"Bldg Type\"].value_counts()\n\nBldg Type\n1Fam      2425\nTwnhsE     233\nDuplex     109\nTwnhs      101\n2fmCon      62\nName: count, dtype: int64\n\n\n\n\nThen we need a way to calculate \\((\\texttt{1Fam} - \\texttt{Twnhs} )^ 2\\).",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1832,7 +1832,7 @@
     "href": "slides/06-preprocessing.html#converting-to-binary",
     "title": "Dummy Variables and Column Transformers",
     "section": "Converting to Binary",
-    "text": "Converting to Binary\nLet’s instead think about a variable that summarizes whether an observation is a single family home or not.\n\ndf[\"is_single_fam\"] = df[\"Bldg Type\"] == \"1Fam\"\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\nTrue     2425\nFalse     505\nName: count, dtype: int64\n\n\n. . .\n\n\n\n\n\n\nWhat does a value of True represent? False?",
+    "text": "Converting to Binary\nLet’s instead think about a variable that summarizes whether an observation is a single family home or not.\n\ndf[\"is_single_fam\"] = df[\"Bldg Type\"] == \"1Fam\"\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\nTrue     2425\nFalse     505\nName: count, dtype: int64\n\n\n\n\n\n\n\n\n\nWhat does a value of True represent? False?",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1843,7 +1843,7 @@
     "href": "slides/06-preprocessing.html#dummy-variables",
     "title": "Dummy Variables and Column Transformers",
     "section": "Dummy Variables",
-    "text": "Dummy Variables\n\nWhen we transform a variable into binary (True / False), we call this variable a dummy variable or we say the variable has been one-hot-encoded.\n\n. . .\nRemember that that computers interpret logical values (True / False) the same as 1 / 0:\n\ndf[\"is_single_fam\"] = df[\"is_single_fam\"].astype(\"int\")\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\n1    2425\n0     505\nName: count, dtype: int64",
+    "text": "Dummy Variables\n\nWhen we transform a variable into binary (True / False), we call this variable a dummy variable or we say the variable has been one-hot-encoded.\n\n\nRemember that that computers interpret logical values (True / False) the same as 1 / 0:\n\ndf[\"is_single_fam\"] = df[\"is_single_fam\"].astype(\"int\")\ndf[\"is_single_fam\"].value_counts()\n\nis_single_fam\n1    2425\n0     505\nName: count, dtype: int64",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1854,7 +1854,7 @@
     "href": "slides/06-preprocessing.html#now-we-can-do-math",
     "title": "Dummy Variables and Column Transformers",
     "section": "Now we can do math!",
-    "text": "Now we can do math!\nSpecify\n\n\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import pairwise_distances\n\nscaler = StandardScaler()\n\n\n. . .\nFit\n\n\ndf_orig = df[['Gr Liv Area', 'Bedroom AbvGr', 'is_single_fam']]\nscaler.fit(df_orig)\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFittedStandardScaler() \n\n\n\n. . .\nTransform\n\n\ndf_scaled = scaler.transform(df_orig)",
+    "text": "Now we can do math!\nSpecify\n\n\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import pairwise_distances\n\nscaler = StandardScaler()\n\n\n\nFit\n\n\n\ndf_orig = df[['Gr Liv Area', 'Bedroom AbvGr', 'is_single_fam']]\nscaler.fit(df_orig)\n\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFittedStandardScaler() \n\n\n\n\n\nTransform\n\n\ndf_scaled = scaler.transform(df_orig)",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1865,7 +1865,7 @@
     "href": "slides/06-preprocessing.html#calculating-distances",
     "title": "Dummy Variables and Column Transformers",
     "section": "Calculating Distances",
-    "text": "Calculating Distances\n\n\ndists = pairwise_distances(df_scaled[[1707]], df_scaled)\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr  is_single_fam\n160          2978              5              1\n909          3082              5              1\n1288         2792              5              1\n2350         2784              5              1\n253          3222              5              1\n585          2640              5              1\n2027         2526              5              1\n2330         3390              5              1\n2501         2520              5              1",
+    "text": "Calculating Distances\n\n\ndists = pairwise_distances(df_scaled[[1707]], df_scaled)\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr  is_single_fam\n160          2978              5              1\n909          3082              5              1\n1288         2792              5              1\n2350         2784              5              1\n253          3222              5              1\n585          2640              5              1\n2027         2526              5              1\n2330         3390              5              1\n436          2520              5              1",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1909,7 +1909,7 @@
     "href": "slides/06-preprocessing.html#dummifying-in-sklearn",
     "title": "Dummy Variables and Column Transformers",
     "section": "Dummifying in sklearn",
-    "text": "Dummifying in sklearn\nSpecify\n\n\nfrom sklearn.preprocessing import OneHotEncoder\n\nencoder = OneHotEncoder()\n\n\n. . .\nFit\n\n\nencoder.fit(df[[\"Bldg Type\"]])\n\nOneHotEncoder()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.OneHotEncoder?Documentation for OneHotEncoderiFittedOneHotEncoder() \n\n\n\n. . .\nTransform\n\n\ndf_bldg = encoder.transform(df[[\"Bldg Type\"]])\ndf_bldg\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 2930 stored elements and shape (2930, 5)&gt;",
+    "text": "Dummifying in sklearn\nSpecify\n\n\nfrom sklearn.preprocessing import OneHotEncoder\n\nencoder = OneHotEncoder()\n\n\n\nFit\n\n\n\nencoder.fit(df[[\"Bldg Type\"]])\n\n\nOneHotEncoder()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.OneHotEncoder?Documentation for OneHotEncoderiFittedOneHotEncoder() \n\n\n\n\n\nTransform\n\n\ndf_bldg = encoder.transform(df[[\"Bldg Type\"]])\ndf_bldg\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'float64'\n    with 2930 stored elements and shape (2930, 5)&gt;",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1920,7 +1920,7 @@
     "href": "slides/06-preprocessing.html#dummifying-in-sklearn-1",
     "title": "Dummy Variables and Column Transformers",
     "section": "Dummifying in sklearn",
-    "text": "Dummifying in sklearn\n\n\n\n\ndf_bldg.todense()\n\n\n\n\n\n\n\n\nmatrix([[1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        ...,\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.]], shape=(2930, 5))\n\n\n\n\n\n. . .\nThings to notice:\n\n\n\nWhat object type was the result?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat pros and cons do you see for the pandas approach vs the sklearn approach?",
+    "text": "Dummifying in sklearn\n\n\n\n\ndf_bldg.todense()\n\n\n\n\n\n\n\n\nmatrix([[1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        ...,\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.],\n        [1., 0., 0., 0., 0.]], shape=(2930, 5))\n\n\n\n\n\nThings to notice:\n\n\n\nWhat object type was the result?\nDoes this change the original dataframe df? If not, what would you need to do to add this information back in?\nWhat pros and cons do you see for the pandas approach vs the sklearn approach?",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1931,7 +1931,7 @@
     "href": "slides/06-preprocessing.html#preprocessing",
     "title": "Dummy Variables and Column Transformers",
     "section": "Preprocessing",
-    "text": "Preprocessing\n\nSo far, we have now seen two preprocessing steps that might need to happen to do an analysis of distances:\n\nScaling the quantitative variables\nDummifying the categorical variables\n\n\n. . .\n\nPreprocessing steps are things you do only to make the following analysis/visualization better.\n\nThis is not the same as data cleaning, where you make changes to fix the data (e.g., changing data types).\nThis is not the same as data wrangling, where you change the structure of the data (e.g., adding or deleting rows or columns).",
+    "text": "Preprocessing\n\nSo far, we have now seen two preprocessing steps that might need to happen to do an analysis of distances:\n\nScaling the quantitative variables\nDummifying the categorical variables\n\n\n\n\nPreprocessing steps are things you do only to make the following analysis/visualization better.\n\nThis is not the same as data cleaning, where you make changes to fix the data (e.g., changing data types).\nThis is not the same as data wrangling, where you change the structure of the data (e.g., adding or deleting rows or columns).",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1953,7 +1953,7 @@
     "href": "slides/06-preprocessing.html#preprocessing-in-sklearn",
     "title": "Dummy Variables and Column Transformers",
     "section": "Preprocessing in sklearn",
-    "text": "Preprocessing in sklearn\n\n\nUnlike cleaning and wrangling, the preprocessing steps are “temporary” changes to the dataframe.\n\n\n. . .\n\n\nIt would be nice if we could trigger these changes as part of our analysis, instead of doing them “by hand”.\n\nThis is why the specify - fit - transform process is useful!\nWe will first specify all our preprocessing steps.\nThen we will fit the whole preprocess\nThen we will save the transform step for only when we need it.",
+    "text": "Preprocessing in sklearn\n\n\nUnlike cleaning and wrangling, the preprocessing steps are “temporary” changes to the dataframe.\n\n\n\n\n\nIt would be nice if we could trigger these changes as part of our analysis, instead of doing them “by hand”.\n\nThis is why the specify - fit - transform process is useful!\nWe will first specify all our preprocessing steps.\nThen we will fit the whole preprocess\nThen we will save the transform step for only when we need it.",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -1964,7 +1964,7 @@
     "href": "slides/06-preprocessing.html#column-transformers-specify",
     "title": "Dummy Variables and Column Transformers",
     "section": "Column Transformers – Specify",
-    "text": "Column Transformers – Specify\n\nfrom sklearn.compose import make_column_transformer\n\n. . .\n\n\nfeatures = [\"Gr Liv Area\", \"Bedroom AbvGr\", \"Full Bath\", \"Half Bath\", \"Bldg Type\", \"Neighborhood\"]\n\npreproc = make_column_transformer(\n  (OneHotEncoder(), [\"Bldg Type\", \"Neighborhood\"]),\n    remainder = \"passthrough\")",
+    "text": "Column Transformers – Specify\n\nfrom sklearn.compose import make_column_transformer\n\n\n\n\nfeatures = [\"Gr Liv Area\", \"Bedroom AbvGr\", \"Full Bath\", \"Half Bath\", \"Bldg Type\", \"Neighborhood\"]\n\npreproc = make_column_transformer(\n  (OneHotEncoder(), [\"Bldg Type\", \"Neighborhood\"]),\n    remainder = \"passthrough\")",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -2052,7 +2052,7 @@
     "href": "slides/06-preprocessing.html#finding-all-categorical-variables",
     "title": "Dummy Variables and Column Transformers",
     "section": "Finding All Categorical Variables",
-    "text": "Finding All Categorical Variables\n\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n. . .\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")\n\n\n. . .\n\n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x152a96ba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1528fb750&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriNot fittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x152a96ba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1528fb750&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x152a96ba0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1528fb750&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder passthroughpassthrough",
+    "text": "Finding All Categorical Variables\n\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")\n\n\n\n\n\n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11155f8e0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x111b07550&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriNot fittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11155f8e0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x111b07550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11155f8e0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x111b07550&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder passthroughpassthrough",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -2514,7 +2514,7 @@
     "href": "slides/07-text-data.html#we-have-to-read-them-in-one-by-one",
     "title": "Bag-of-Words and TF-IDF",
     "section": "…we have to read them in one by one",
-    "text": "…we have to read them in one by one\n\nimport requests\n\ndocs = {}\nfor filename in seuss_files:\n    response = requests.get(seuss_dir + filename)\n    docs[filename] = response.text\n\n. . .\n\n\ndocs.keys()\n\ndict_keys(['green_eggs_and_ham.txt', 'cat_in_the_hat.txt', 'fox_in_socks.txt', 'how_the_grinch_stole_christmas.txt', 'hop_on_pop.txt', 'horton_hears_a_who.txt', 'oh_the_places_youll_go.txt', 'one_fish_two_fish.txt'])",
+    "text": "…we have to read them in one by one\n\nimport requests\n\ndocs = {}\nfor filename in seuss_files:\n    response = requests.get(seuss_dir + filename)\n    docs[filename] = response.text\n\n\n\n\ndocs.keys()\n\ndict_keys(['green_eggs_and_ham.txt', 'cat_in_the_hat.txt', 'fox_in_socks.txt', 'how_the_grinch_stole_christmas.txt', 'hop_on_pop.txt', 'horton_hears_a_who.txt', 'oh_the_places_youll_go.txt', 'one_fish_two_fish.txt'])",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2525,7 +2525,7 @@
     "href": "slides/07-text-data.html#bag-of-words-representation",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Bag-of-Words Representation",
-    "text": "Bag-of-Words Representation\nIn the bag-of-words representation in this data, each column represents a word, and the values in the column are the word counts for that document.\n. . .\nFirst, we need to split each document into individual words.\n\n\ndocs[\"hop_on_pop.txt\"].split()\n\n['UP', 'PUP', 'Pup', 'is', 'up.', 'CUP', 'PUP', 'Pup', 'in', 'cup.', 'PUP', 'CUP', 'Cup', 'on', 'pup.', 'MOUSE', 'HOUSE', 'Mouse', 'on', 'house.', 'HOUSE', 'MOUSE', 'House', 'on', 'mouse.', 'ALL', 'TALL', 'We', 'all', 'are', 'tall.', 'ALL', 'SMALL', 'We', 'all', 'are', 'small.', 'ALL', 'BALL', 'We', 'all', 'play', 'ball.', 'BALL', 'WALL', 'Up', 'on', 'a', 'wall.', 'ALL', 'FALL', 'Fall', 'off', 'the', 'wall.', 'DAY', 'PLAY', 'We', 'play', 'all', 'day.', 'NIGHT', 'FIGHT', 'We', 'fight', 'all', 'night.HE', 'ME', 'He', 'is', 'after', 'me.', 'HIM', 'JIM', 'Jim', 'is', 'after', 'him.', 'SEE', 'BEE', 'We', 'see', 'a', 'bee.', 'SEE', 'BEE', 'THREE', 'Now', 'we', 'see', 'three.', 'THREE', 'TREE', 'Three', 'fish', 'in', 'a', 'tree.', 'Fish', 'in', 'a', 'tree?', 'How', 'can', 'that', 'be?', 'RED', 'RED', 'They', 'call', 'me', 'Red.', 'RED', 'BED', 'I', 'am', 'in', 'bed.', 'RED', 'NED', 'TED', 'and', 'ED', 'in', 'BED', 'PAT', 'PAT', 'they', 'call', 'him', 'Pat.', 'PAT', 'SAT', 'Pat', 'sat', 'on', 'hat.', 'PAT', 'CAT', 'Pat', 'sat', 'on', 'cat.', 'PAT', 'BAT', 'Pat', 'sat', 'on', 'bat.', 'NO', 'PAT', 'NO', 'Don’t', 'sit', 'on', 'that.', 'SAD', 'DAD', 'BAD', 'HAD', 'Dad', 'is', 'sad.', 'Very,', 'very', 'sad.', 'He', 'had', 'a', 'bad', 'day.', 'What', 'a', 'day', 'Dad', 'had!', 'THING', 'THING', 'What', 'is', 'that', 'thing?', 'THING', 'SING', 'That', 'thing', 'can', 'sing!', 'SONG', 'LONG', 'A', 'long,', 'long', 'song.', 'Good-by,', 'Thing.', 'You', 'sing', 'too', 'long.', 'WALK', 'WALK', 'We', 'like', 'to', 'walk.', 'WALK', 'TALK', 'We', 'like', 'to', 'talk.', 'HOP', 'POP', 'We', 'like', 'to', 'hop.', 'We', 'like', 'to', 'hop', 'on', 'top', 'of', 'Pop.', 'STOP', 'You', 'must', 'not', 'hop', 'on', 'Pop.', 'Mr.', 'BROWN', 'Mrs.', 'BROWN', 'Mr.', 'Brown', 'upside', 'down.', 'Pup', 'up.', 'Brown', 'down.', 'Pup', 'is', 'down.', 'Where', 'is', 'Brown?', 'WHERE', 'IS', 'BROWN?', 'THERE', 'IS', 'BROWN!', 'Mr.', 'Brown', 'is', 'out', 'of', 'town.', 'BACK', 'BLACK', 'Brown', 'came', 'back.', 'Brown', 'came', 'back', 'with', 'Mr.', 'Black.', 'SNACK', 'SNACK', 'Eat', 'a', 'snack.', 'Eat', 'a', 'snack', 'with', 'Brown', 'and', 'Black.', 'JUMP', 'BUMP', 'He', 'jumped.', 'He', 'bumped.', 'FAST', 'PAST', 'He', 'went', 'past', 'fast.', 'WENT', 'TENT', 'SENT', 'He', 'went', 'into', 'the', 'tent.', 'I', 'sent', 'him', 'out', 'of', 'the', 'tent.', 'WET', 'GET', 'Two', 'dogs', 'get', 'wet.', 'HELP', 'YELP', 'They', 'yelp', 'for', 'help.', 'HILL', 'WILL', 'Will', 'went', 'up', 'hill.', 'WILL', 'HILL', 'STILL', 'Will', 'is', 'up', 'hill', 'still.', 'FATHER', 'MOTHER', 'SISTER', 'BROTHER', 'That', 'one', 'is', 'my', 'other', 'brother.', 'My', 'brothers', 'read', 'a', 'little', 'bit.', 'Little', 'words', 'like', 'If', 'and', 'it.', 'My', 'father', 'can', 'read', 'big', 'words,', 'too.', 'Like', 'CONSTANTINOPLE', 'and', 'TIMBUKTU', 'SAY', 'SAY', 'What', 'does', 'this', 'say?', 'seehemewe', 'patpuppop', 'hethreetreebee', 'tophopstop', 'Ask', 'me', 'tomorrow', 'but', 'not', 'today.']",
+    "text": "Bag-of-Words Representation\nIn the bag-of-words representation in this data, each column represents a word, and the values in the column are the word counts for that document.\n\nFirst, we need to split each document into individual words.\n\n\ndocs[\"hop_on_pop.txt\"].split()\n\n['UP', 'PUP', 'Pup', 'is', 'up.', 'CUP', 'PUP', 'Pup', 'in', 'cup.', 'PUP', 'CUP', 'Cup', 'on', 'pup.', 'MOUSE', 'HOUSE', 'Mouse', 'on', 'house.', 'HOUSE', 'MOUSE', 'House', 'on', 'mouse.', 'ALL', 'TALL', 'We', 'all', 'are', 'tall.', 'ALL', 'SMALL', 'We', 'all', 'are', 'small.', 'ALL', 'BALL', 'We', 'all', 'play', 'ball.', 'BALL', 'WALL', 'Up', 'on', 'a', 'wall.', 'ALL', 'FALL', 'Fall', 'off', 'the', 'wall.', 'DAY', 'PLAY', 'We', 'play', 'all', 'day.', 'NIGHT', 'FIGHT', 'We', 'fight', 'all', 'night.HE', 'ME', 'He', 'is', 'after', 'me.', 'HIM', 'JIM', 'Jim', 'is', 'after', 'him.', 'SEE', 'BEE', 'We', 'see', 'a', 'bee.', 'SEE', 'BEE', 'THREE', 'Now', 'we', 'see', 'three.', 'THREE', 'TREE', 'Three', 'fish', 'in', 'a', 'tree.', 'Fish', 'in', 'a', 'tree?', 'How', 'can', 'that', 'be?', 'RED', 'RED', 'They', 'call', 'me', 'Red.', 'RED', 'BED', 'I', 'am', 'in', 'bed.', 'RED', 'NED', 'TED', 'and', 'ED', 'in', 'BED', 'PAT', 'PAT', 'they', 'call', 'him', 'Pat.', 'PAT', 'SAT', 'Pat', 'sat', 'on', 'hat.', 'PAT', 'CAT', 'Pat', 'sat', 'on', 'cat.', 'PAT', 'BAT', 'Pat', 'sat', 'on', 'bat.', 'NO', 'PAT', 'NO', 'Don’t', 'sit', 'on', 'that.', 'SAD', 'DAD', 'BAD', 'HAD', 'Dad', 'is', 'sad.', 'Very,', 'very', 'sad.', 'He', 'had', 'a', 'bad', 'day.', 'What', 'a', 'day', 'Dad', 'had!', 'THING', 'THING', 'What', 'is', 'that', 'thing?', 'THING', 'SING', 'That', 'thing', 'can', 'sing!', 'SONG', 'LONG', 'A', 'long,', 'long', 'song.', 'Good-by,', 'Thing.', 'You', 'sing', 'too', 'long.', 'WALK', 'WALK', 'We', 'like', 'to', 'walk.', 'WALK', 'TALK', 'We', 'like', 'to', 'talk.', 'HOP', 'POP', 'We', 'like', 'to', 'hop.', 'We', 'like', 'to', 'hop', 'on', 'top', 'of', 'Pop.', 'STOP', 'You', 'must', 'not', 'hop', 'on', 'Pop.', 'Mr.', 'BROWN', 'Mrs.', 'BROWN', 'Mr.', 'Brown', 'upside', 'down.', 'Pup', 'up.', 'Brown', 'down.', 'Pup', 'is', 'down.', 'Where', 'is', 'Brown?', 'WHERE', 'IS', 'BROWN?', 'THERE', 'IS', 'BROWN!', 'Mr.', 'Brown', 'is', 'out', 'of', 'town.', 'BACK', 'BLACK', 'Brown', 'came', 'back.', 'Brown', 'came', 'back', 'with', 'Mr.', 'Black.', 'SNACK', 'SNACK', 'Eat', 'a', 'snack.', 'Eat', 'a', 'snack', 'with', 'Brown', 'and', 'Black.', 'JUMP', 'BUMP', 'He', 'jumped.', 'He', 'bumped.', 'FAST', 'PAST', 'He', 'went', 'past', 'fast.', 'WENT', 'TENT', 'SENT', 'He', 'went', 'into', 'the', 'tent.', 'I', 'sent', 'him', 'out', 'of', 'the', 'tent.', 'WET', 'GET', 'Two', 'dogs', 'get', 'wet.', 'HELP', 'YELP', 'They', 'yelp', 'for', 'help.', 'HILL', 'WILL', 'Will', 'went', 'up', 'hill.', 'WILL', 'HILL', 'STILL', 'Will', 'is', 'up', 'hill', 'still.', 'FATHER', 'MOTHER', 'SISTER', 'BROTHER', 'That', 'one', 'is', 'my', 'other', 'brother.', 'My', 'brothers', 'read', 'a', 'little', 'bit.', 'Little', 'words', 'like', 'If', 'and', 'it.', 'My', 'father', 'can', 'read', 'big', 'words,', 'too.', 'Like', 'CONSTANTINOPLE', 'and', 'TIMBUKTU', 'SAY', 'SAY', 'What', 'does', 'this', 'say?', 'seehemewe', 'patpuppop', 'hethreetreebee', 'tophopstop', 'Ask', 'me', 'tomorrow', 'but', 'not', 'today.']",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2569,7 +2569,7 @@
     "href": "slides/07-text-data.html#bag-of-words-in-scikit-learn",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Bag-of-Words in Scikit-Learn",
-    "text": "Bag-of-Words in Scikit-Learn\n\nAlternatively, we can use CountVectorizer() in scikit-learn to produce a bag-of-words matrix.\n\nfrom sklearn.feature_extraction.text import CountVectorizer\n\n\n. . .\nSpecify\n\n\nvec = CountVectorizer()\n\n\n. . .\nFit\n\n\nvec.fit(docs.values())\n\nCountVectorizer()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.CountVectorizer?Documentation for CountVectorizeriFittedCountVectorizer() \n\n\n\n. . .\nTransform\n\n\nvec.transform(docs.values())\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'int64'\n    with 2308 stored elements and shape (8, 1344)&gt;",
+    "text": "Bag-of-Words in Scikit-Learn\n\nAlternatively, we can use CountVectorizer() in scikit-learn to produce a bag-of-words matrix.\n\nfrom sklearn.feature_extraction.text import CountVectorizer\n\n\n\nSpecify\n\n\nvec = CountVectorizer()\n\n\n\n\nFit\n\n\n\nvec.fit(docs.values())\n\n\nCountVectorizer()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.CountVectorizer?Documentation for CountVectorizeriFittedCountVectorizer() \n\n\n\n\n\nTransform\n\n\nvec.transform(docs.values())\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'int64'\n    with 2308 stored elements and shape (8, 1344)&gt;",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2602,7 +2602,7 @@
     "href": "slides/07-text-data.html#text-normalizing",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Text Normalizing",
-    "text": "Text Normalizing\nWhat’s wrong with the way we counted words originally?\nCounter({'UP': 1, 'PUP': 3, 'Pup': 4, 'is': 10, 'up.': 2, ...})\n. . .\n\nIt’s usually good to normalize for punctuation and capitalization.\nNormalization options are specified when you initialize the CountVectorizer().\nBy default, scikit-learn strips punctuation and converts all characters to lowercase.",
+    "text": "Text Normalizing\nWhat’s wrong with the way we counted words originally?\nCounter({'UP': 1, 'PUP': 3, 'Pup': 4, 'is': 10, 'up.': 2, ...})\n\n\nIt’s usually good to normalize for punctuation and capitalization.\nNormalization options are specified when you initialize the CountVectorizer().\nBy default, scikit-learn strips punctuation and converts all characters to lowercase.",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2613,7 +2613,7 @@
     "href": "slides/07-text-data.html#text-normalizing-in-sklearn",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Text Normalizing in sklearn",
-    "text": "Text Normalizing in sklearn\n\nIf you don’t want scikit-learn to normalize for punctuation and capitalization, you can do the following:\n\n\n\nvec = CountVectorizer(lowercase = False, token_pattern = r\"[\\S]+\")\nvec.fit(docs.values())\n\nCountVectorizer(lowercase=False, token_pattern='[\\\\S]+')In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.CountVectorizer?Documentation for CountVectorizeriFittedCountVectorizer(lowercase=False, token_pattern='[\\\\S]+') \n\nvec.transform(docs.values())\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'int64'\n    with 3679 stored elements and shape (8, 2562)&gt;\n\n\n\n\n\n\n\n\n\n\nCountVectorizer()\n\n\n\nSetting lowercase = False doesn’t automatically convert every word to lowercase. token_pattern = r\"[\\S]+\" declares a regular expression that treats every sequence of characters that is not whitespace ([\\S]) as a single token.",
+    "text": "Text Normalizing in sklearn\n\nIf you don’t want scikit-learn to normalize for punctuation and capitalization, you can do the following:\n\n\n\nvec = CountVectorizer(lowercase = False, token_pattern = r\"[\\S]+\")\nvec.fit(docs.values())\n\nCountVectorizer(lowercase=False, token_pattern='[\\\\S]+')In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.CountVectorizer?Documentation for CountVectorizeriFittedCountVectorizer(lowercase=False, token_pattern='[\\\\S]+') \n\nvec.transform(docs.values())\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'int64'\n    with 3679 stored elements and shape (8, 2562)&gt;\n\n\n\n\n\n\n\n\n\n\nCountVectorizer()\n\n\nSetting lowercase = False doesn’t automatically convert every word to lowercase. token_pattern = r\"[\\S]+\" declares a regular expression that treats every sequence of characters that is not whitespace ([\\S]) as a single token.",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2646,7 +2646,7 @@
     "href": "slides/07-text-data.html#n-grams-in-scikit-learn",
     "title": "Bag-of-Words and TF-IDF",
     "section": "N-grams in scikit-learn",
-    "text": "N-grams in scikit-learn\n\nWe can easily modify our previous approach by specifying ngram_range = in CountVectorizer(). To get bigrams, we set the range to (2, 2).\n\n. . .\nSpecify\n\n\nvec = CountVectorizer(ngram_range = (2, 2))\n\n\n. . .\nFit\n\n\nvec.fit(docs.values())\n\nCountVectorizer(ngram_range=(2, 2))In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.CountVectorizer?Documentation for CountVectorizeriFittedCountVectorizer(ngram_range=(2, 2)) \n\n\n\n. . .\nTransform\n\n\nvec.transform(docs.values())\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'int64'\n    with 6459 stored elements and shape (8, 5846)&gt;",
+    "text": "N-grams in scikit-learn\n\nWe can easily modify our previous approach by specifying ngram_range = in CountVectorizer(). To get bigrams, we set the range to (2, 2).\n\n\nSpecify\n\n\nvec = CountVectorizer(ngram_range = (2, 2))\n\n\n\n\nFit\n\n\n\nvec.fit(docs.values())\n\n\nCountVectorizer(ngram_range=(2, 2))In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.CountVectorizer?Documentation for CountVectorizeriFittedCountVectorizer(ngram_range=(2, 2)) \n\n\n\n\n\nTransform\n\n\nvec.transform(docs.values())\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'int64'\n    with 6459 stored elements and shape (8, 5846)&gt;",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2657,7 +2657,7 @@
     "href": "slides/07-text-data.html#n-grams-in-scikit-learn-1",
     "title": "Bag-of-Words and TF-IDF",
     "section": "N-grams in scikit-learn",
-    "text": "N-grams in scikit-learn\n\n… or we can also get individual words (unigrams) alongside the bigrams:\n\nSpecify\n\n\nvec = CountVectorizer(ngram_range = (1, 2))\n\n\nFit\n\n\nvec.fit(docs.values())\n\nCountVectorizer(ngram_range=(1, 2))In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.CountVectorizer?Documentation for CountVectorizeriFittedCountVectorizer(ngram_range=(1, 2)) \n\n\n\nTransform\n\n\nvec.transform(docs.values())\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'int64'\n    with 8767 stored elements and shape (8, 7190)&gt;",
+    "text": "N-grams in scikit-learn\n\n… or we can also get individual words (unigrams) alongside the bigrams:\n\nSpecify\n\n\nvec = CountVectorizer(ngram_range = (1, 2))\n\n\nFit\n\n\n\nvec.fit(docs.values())\n\n\nCountVectorizer(ngram_range=(1, 2))In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.CountVectorizer?Documentation for CountVectorizeriFittedCountVectorizer(ngram_range=(1, 2)) \n\n\n\nTransform\n\n\nvec.transform(docs.values())\n\n&lt;Compressed Sparse Row sparse matrix of dtype 'int64'\n    with 8767 stored elements and shape (8, 7190)&gt;",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2679,7 +2679,7 @@
     "href": "slides/07-text-data.html#similar-documents-1",
     "title": "Bag-of-Words and TF-IDF",
     "section": "Similar Documents",
-    "text": "Similar Documents\n\n\n\ndists[0].argsort()\n\narray([0, 4, 2, 7, 6, 1, 3, 5])\n\n\n\n\n\n\ndocs.keys()\n\ndict_keys(['green_eggs_and_ham.txt', 'cat_in_the_hat.txt', 'fox_in_socks.txt', 'how_the_grinch_stole_christmas.txt', 'hop_on_pop.txt', 'horton_hears_a_who.txt', 'oh_the_places_youll_go.txt', 'one_fish_two_fish.txt'])\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nThis is how data scientists do authorship identification!",
+    "text": "Similar Documents\n\n\n\ndists[0].argsort()\n\narray([0, 4, 2, 7, 6, 1, 3, 5])\n\n\n\n\n\n\ndocs.keys()\n\ndict_keys(['green_eggs_and_ham.txt', 'cat_in_the_hat.txt', 'fox_in_socks.txt', 'how_the_grinch_stole_christmas.txt', 'hop_on_pop.txt', 'horton_hears_a_who.txt', 'oh_the_places_youll_go.txt', 'one_fish_two_fish.txt'])\n\n\n\n\n\n\n\n\n\nTip\n\n\nThis is how data scientists do authorship identification!",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2855,7 +2855,7 @@
     "href": "slides/07-text-data.html#idf---step-2",
     "title": "Bag-of-Words and TF-IDF",
     "section": "IDF - Step 2",
-    "text": "IDF - Step 2\nThen, let’s calculate how often the word occurred across the four documents.\n\n\n\nbow_df = (\n  has_word\n  .sum(axis = 0) / 4\n  )\nbow_df\n\na             0.25\nadding        0.25\nalready       0.25\nand           0.25\nbe            0.25\nbrother       0.25\ncan           0.50\ncannot        0.25\ndarkest       0.25\ndarkness      0.75\ndeeper        0.25\ndevoid        0.25\ndo            0.25\ndrive         0.25\nfor           0.50\nfound         0.25\nfriend        0.25\nhappiness     0.25\nhas           0.25\nhate          0.50\nhello         0.25\nhis           0.25\nif            0.25\nin            0.50\nis            0.25\nlight         0.50\nmultiplies    0.25\nmy            0.25\nnight         0.25\nof            0.50\nold           0.25\non            0.25\none           0.25\nonly          0.50\nout           0.25\nremembers     0.25\nreturning     0.25\nstars         0.25\nthat          0.25\nthe           0.50\ntimes         0.25\nto            0.50\nturn          0.25\nwalks         0.25\nwhoever       0.25\ndtype: float64\n\n\n\n\n\n\n\n\n\n\n\naxis = 0\n\n\n\nWhat values are we summing?",
+    "text": "IDF - Step 2\nThen, let’s calculate how often the word occurred across the four documents.\n\n\n\nbow_df = (\n  has_word\n  .sum(axis = 0) / 4\n  )\nbow_df\n\na             0.25\nadding        0.25\nalready       0.25\nand           0.25\nbe            0.25\nbrother       0.25\ncan           0.50\ncannot        0.25\ndarkest       0.25\ndarkness      0.75\ndeeper        0.25\ndevoid        0.25\ndo            0.25\ndrive         0.25\nfor           0.50\nfound         0.25\nfriend        0.25\nhappiness     0.25\nhas           0.25\nhate          0.50\nhello         0.25\nhis           0.25\nif            0.25\nin            0.50\nis            0.25\nlight         0.50\nmultiplies    0.25\nmy            0.25\nnight         0.25\nof            0.50\nold           0.25\non            0.25\none           0.25\nonly          0.50\nout           0.25\nremembers     0.25\nreturning     0.25\nstars         0.25\nthat          0.25\nthe           0.50\ntimes         0.25\nto            0.50\nturn          0.25\nwalks         0.25\nwhoever       0.25\ndtype: float64\n\n\n\n\n\n\n\n\n\n\n\naxis = 0\n\n\nWhat values are we summing?",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2866,7 +2866,7 @@
     "href": "slides/07-text-data.html#idf---step-3",
     "title": "Bag-of-Words and TF-IDF",
     "section": "IDF - Step 3",
-    "text": "IDF - Step 3\nFind the inverse document frequencies:\n\n\n\nbow_log_idf = np.log(1 / bow_df)\nbow_log_idf\n\na             1.386294\nadding        1.386294\nalready       1.386294\nand           1.386294\nbe            1.386294\nbrother       1.386294\ncan           0.693147\ncannot        1.386294\ndarkest       1.386294\ndarkness      0.287682\ndeeper        1.386294\ndevoid        1.386294\ndo            1.386294\ndrive         1.386294\nfor           0.693147\nfound         1.386294\nfriend        1.386294\nhappiness     1.386294\nhas           1.386294\nhate          0.693147\nhello         1.386294\nhis           1.386294\nif            1.386294\nin            0.693147\nis            1.386294\nlight         0.693147\nmultiplies    1.386294\nmy            1.386294\nnight         1.386294\nof            0.693147\nold           1.386294\non            1.386294\none           1.386294\nonly          0.693147\nout           1.386294\nremembers     1.386294\nreturning     1.386294\nstars         1.386294\nthat          1.386294\nthe           0.693147\ntimes         1.386294\nto            0.693147\nturn          1.386294\nwalks         1.386294\nwhoever       1.386294\ndtype: float64\n\n\n\n\n\n\n\n\n\n\n\nMore than just the inverse!\n\n\n\nNotice we are using \\(log(\\frac{1}{p_i})\\) to get the IDFs.",
+    "text": "IDF - Step 3\nFind the inverse document frequencies:\n\n\n\nbow_log_idf = np.log(1 / bow_df)\nbow_log_idf\n\na             1.386294\nadding        1.386294\nalready       1.386294\nand           1.386294\nbe            1.386294\nbrother       1.386294\ncan           0.693147\ncannot        1.386294\ndarkest       1.386294\ndarkness      0.287682\ndeeper        1.386294\ndevoid        1.386294\ndo            1.386294\ndrive         1.386294\nfor           0.693147\nfound         1.386294\nfriend        1.386294\nhappiness     1.386294\nhas           1.386294\nhate          0.693147\nhello         1.386294\nhis           1.386294\nif            1.386294\nin            0.693147\nis            1.386294\nlight         0.693147\nmultiplies    1.386294\nmy            1.386294\nnight         1.386294\nof            0.693147\nold           1.386294\non            1.386294\none           1.386294\nonly          0.693147\nout           1.386294\nremembers     1.386294\nreturning     1.386294\nstars         1.386294\nthat          1.386294\nthe           0.693147\ntimes         1.386294\nto            0.693147\nturn          1.386294\nwalks         1.386294\nwhoever       1.386294\ndtype: float64\n\n\n\n\n\n\n\n\n\n\n\nMore than just the inverse!\n\n\nNotice we are using \\(log(\\frac{1}{p_i})\\) to get the IDFs.",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2877,7 +2877,7 @@
     "href": "slides/07-text-data.html#idf---step-4",
     "title": "Bag-of-Words and TF-IDF",
     "section": "IDF - Step 4",
-    "text": "IDF - Step 4\nAdjust for the inverse document frequencies:\n\n\n\n\nbow_tf[[\"darkness\", \"light\", \"hate\"]]\n\n   darkness     light      hate\n0  0.133333  0.000000  0.066667\n1  0.200000  0.000000  0.000000\n2  0.115385  0.038462  0.115385\n3  0.000000  0.055556  0.000000\n\n\n\n\n\n\n\n\nbow_log_idf[[\"darkness\", \"light\", \"hate\"]]\n\ndarkness    0.287682\nlight       0.693147\nhate        0.693147\ndtype: float64\n\n\n\n\n\n\n\nbow_tf_idf = bow_tf.multiply(bow_log_idf, axis = 1)\n\n\n\n\n\nbow_tf_idf[[\"darkness\", \"light\", \"hate\"]]\n\n   darkness     light      hate\n0  0.038358  0.000000  0.046210\n1  0.057536  0.000000  0.000000\n2  0.033194  0.026660  0.079979\n3  0.000000  0.038508  0.000000",
+    "text": "IDF - Step 4\nAdjust for the inverse document frequencies:\n\n\n\n\nbow_tf[[\"darkness\", \"light\", \"hate\"]]\n\n   darkness     light      hate\n0  0.133333  0.000000  0.066667\n1  0.200000  0.000000  0.000000\n2  0.115385  0.038462  0.115385\n3  0.000000  0.055556  0.000000\n\n\n\n\n\n\n\n\nbow_log_idf[[\"darkness\", \"light\", \"hate\"]]\n\ndarkness    0.287682\nlight       0.693147\nhate        0.693147\ndtype: float64\n\n\n\n\n\n\nbow_tf_idf = bow_tf.multiply(bow_log_idf, axis = 1)\n\n\n\n\n\nbow_tf_idf[[\"darkness\", \"light\", \"hate\"]]\n\n   darkness     light      hate\n0  0.038358  0.000000  0.046210\n1  0.057536  0.000000  0.000000\n2  0.033194  0.026660  0.079979\n3  0.000000  0.038508  0.000000",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2899,7 +2899,7 @@
     "href": "slides/07-text-data.html#tf-idf-in-sklearn",
     "title": "Bag-of-Words and TF-IDF",
     "section": "TF-IDF in sklearn",
-    "text": "TF-IDF in sklearn\nSpecify\n\n\nfrom sklearn.feature_extraction.text import TfidfVectorizer\n\n# These options ensure that the numbers match our example above\nvec = TfidfVectorizer(smooth_idf = False)\n\n\nFit\n\n\nvec.fit(documents)\n\nTfidfVectorizer(smooth_idf=False)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.TfidfVectorizer?Documentation for TfidfVectorizeriFittedTfidfVectorizer(smooth_idf=False) \n\n\n\nTransform\n\n\ntfidf_matrix = vec.transform(documents)",
+    "text": "TF-IDF in sklearn\nSpecify\n\n\nfrom sklearn.feature_extraction.text import TfidfVectorizer\n\n# These options ensure that the numbers match our example above\nvec = TfidfVectorizer(smooth_idf = False)\n\n\nFit\n\n\n\nvec.fit(documents)\n\n\nTfidfVectorizer(smooth_idf=False)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.TfidfVectorizer?Documentation for TfidfVectorizeriFittedTfidfVectorizer(smooth_idf=False) \n\n\n\nTransform\n\n\ntfidf_matrix = vec.transform(documents)",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2910,7 +2910,7 @@
     "href": "slides/07-text-data.html#tf-idf-in-sklearn-1",
     "title": "Bag-of-Words and TF-IDF",
     "section": "TF-IDF in sklearn",
-    "text": "TF-IDF in sklearn\n\n\ndists = cosine_distances(tfidf_matrix).round(decimals = 2)\ndists[0].argsort()\n\narray([0, 2, 3, 1])\n\n\n\n \n. . .\n\n\n\n😕",
+    "text": "TF-IDF in sklearn\n\n\ndists = cosine_distances(tfidf_matrix).round(decimals = 2)\ndists[0].argsort()\n\narray([0, 2, 3, 1])\n\n\n\n \n\n\n\n\n😕",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2932,7 +2932,7 @@
     "href": "slides/07-text-data.html#sklearn-idf",
     "title": "Bag-of-Words and TF-IDF",
     "section": "sklearn IDF",
-    "text": "sklearn IDF\n\nthe idf is computed as: idf(t) = log [ n / df(t) ] + 1\n\nWe used \\(\\text{log} \\Bigg ( \\frac{1}{\\frac{\\text{df(t)}}{n}} \\Bigg )\\) which is the same as \\(\\text{log} \\Big ( \\frac{n}{df(t)} \\Big )\\)\n. . .\n\nBut, we never added 1 before taking the log…\n\nThe effect of adding “1” to the idf in the equation above is that terms with zero idf, i.e., terms that occur in all documents in a training set, will not be entirely ignored.",
+    "text": "sklearn IDF\n\nthe idf is computed as: idf(t) = log [ n / df(t) ] + 1\n\nWe used \\(\\text{log} \\Bigg ( \\frac{1}{\\frac{\\text{df(t)}}{n}} \\Bigg )\\) which is the same as \\(\\text{log} \\Big ( \\frac{n}{df(t)} \\Big )\\)\n\n\nBut, we never added 1 before taking the log…\n\nThe effect of adding “1” to the idf in the equation above is that terms with zero idf, i.e., terms that occur in all documents in a training set, will not be entirely ignored.",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2943,7 +2943,7 @@
     "href": "slides/07-text-data.html#sklearn-tf",
     "title": "Bag-of-Words and TF-IDF",
     "section": "sklearn TF",
-    "text": "sklearn TF\nIn the documentation of TfidfVectorizer() it states that the function uses CountVectorizer() to obtain the TF matrix.\n\nCountVectorizer(): Transforms text into a sparse matrix of n-gram counts.\n\n. . .\n\nThis means that sklearn is not dividing the counts of each term by the length of each document.",
+    "text": "sklearn TF\nIn the documentation of TfidfVectorizer() it states that the function uses CountVectorizer() to obtain the TF matrix.\n\nCountVectorizer(): Transforms text into a sparse matrix of n-gram counts.\n\n\n\nThis means that sklearn is not dividing the counts of each term by the length of each document.",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -2954,7 +2954,7 @@
     "href": "slides/07-text-data.html#what-should-you-do",
     "title": "Bag-of-Words and TF-IDF",
     "section": "What should you do?",
-    "text": "What should you do?\n\nHere’s what I know:\n\nsklearn is used by the majority of data scientists\nsklearn is focusing on “training” data not being overly specific with the documents in the training set\n\nBoth of these are points in favor of sklearn.\n\n. . .\n\nThe fact that the authors aren’t scaling the counts by the length of each document is a major bummer, but maybe not enough to outweigh the benefits?",
+    "text": "What should you do?\n\nHere’s what I know:\n\nsklearn is used by the majority of data scientists\nsklearn is focusing on “training” data not being overly specific with the documents in the training set\n\nBoth of these are points in favor of sklearn.\n\n\n\nThe fact that the authors aren’t scaling the counts by the length of each document is a major bummer, but maybe not enough to outweigh the benefits?",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -3060,8 +3060,8 @@
     "objectID": "slides/07-text-data.html#what-to-expect",
     "href": "slides/07-text-data.html#what-to-expect",
     "title": "Bag-of-Words and TF-IDF",
-    "section": "",
-    "text": "Content\n\n\n\nEverything covered through the end of this week\n\nVisualizing numerical & categorical variables\nSummarizing numerical & categorical variables\nDistances between observations\nPreprocessing (scaling / one-hot-encoding) variables\n\n\n\n\n\n\n\n\nStructure\n\n\n\n80-minutes\n\nFirst part of class (8:10 - 9:30am; 12:10 - 1:30pm)\n\n\n\n\n\n\n\nGoogle Collab Notebook\n\n\n\n\n\n\nResources you can use:\n\nYour own Collab notebooks\nAny course materials\nOfficial Python documentation\n\n\n\n\n\n\n\nResources you can not use:\n\nOther humans\nGenerative AI for anything beyond text completion\nGoogle for anything except to reach Python documentation pages\n\n\n\n\n\n\n:::",
+    "section": "What to expect",
+    "text": "What to expect\n\n\n\nContent\n\n\n\nEverything covered through the end of this week\n\nVisualizing numerical & categorical variables\nSummarizing numerical & categorical variables\nDistances between observations\nPreprocessing (scaling / one-hot-encoding) variables\n\n\n\n\n\n\n\n\nStructure\n\n\n\n80-minutes\n\nFirst part of class (8:10 - 9:30am; 12:10 - 1:30pm)\n\n\n\n\n\n\n\nGoogle Collab Notebook\n\n\n\n\n\n\nResources you can use:\n\nYour own Collab notebooks\nAny course materials\nOfficial Python documentation\n\n\n\n\n\n\n\nResources you can not use:\n\nOther humans\nGenerative AI for anything beyond text completion\nGoogle for anything except to reach Python documentation pages\n\n\n\n\n\n:::",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -3071,8 +3071,8 @@
     "objectID": "slides/07-text-data.html#data-for-exam-1",
     "href": "slides/07-text-data.html#data-for-exam-1",
     "title": "Bag-of-Words and TF-IDF",
-    "section": "",
-    "text": "Dataset on coffee attributes\n\nDerived from a Kaggle dataset (link to documentation)\nRaw data can be downloaded here (link to data)",
+    "section": "Data for Exam 1",
+    "text": "Data for Exam 1\n\nDataset on coffee attributes\n\nDerived from a Kaggle dataset (link to documentation)\nRaw data can be downloaded here (link to data)",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
@@ -3094,7 +3094,7 @@
     "href": "slides/07-text-data.html#what-is-cosine-distance",
     "title": "Bag-of-Words and TF-IDF",
     "section": "What is cosine distance?",
-    "text": "What is cosine distance?\n\n\nCosine similarity is a metric that determines how two vectors (words, sentences, features) are similar to each other.\n\n\n\n\n\n. . .\n\nCosine similarity is the dot product of the vectors divided by the product of their lengths.",
+    "text": "What is cosine distance?\n\n\nCosine similarity is a metric that determines how two vectors (words, sentences, features) are similar to each other.\n\n\n\n\n\n\n\nCosine similarity is the dot product of the vectors divided by the product of their lengths.",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
