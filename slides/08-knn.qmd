@@ -84,6 +84,56 @@ In addition to accomplishing the given task, your grade on each problem will als
 - whether your solution uses tools taught in this class, and
 - the efficiency of your solution (e.g., did you use a `for` loop when it was not necessary?)
 
+## Efficiency in Preprocessing
+
+::: columns
+::: {.column width="65%"}
+::: {.small}
+```{python}
+#| eval: false
+#| label: specific-processor
+#| code-line-numbers: false
+
+all_transformer = make_column_transformer(
+    (StandardScaler(),
+     ["abv", "srm", "originalGravity", "ibu"]
+     ),
+    (OneHotEncoder(sparse_output = False),
+     ["isOrganic", "glass", "available"]
+     ),
+    remainder = "drop")
+```
+
+</br>
+
+```{python}
+#| eval: false
+#| label: general-processor
+#| code-line-numbers: false
+
+all_transformer = make_column_transformer(
+    (StandardScaler(),
+     make_column_selector(dtype_include = np.number)
+     ),
+    (OneHotEncoder(sparse_output = False),
+     make_column_selector(dtype_include = object)
+     ),
+    remainder = "drop")
+```
+:::
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="30%"}
+</br>
+
+What are the ***efficiency*** benefits of making a general preprocessor?
+:::
+:::
+
+
 ## Data for Exam 1
 
 ::: {.midi}
