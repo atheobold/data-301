@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/index.html</loc>
-    <lastmod>2025-02-03T01:48:43.128Z</lastmod>
+    <lastmod>2025-02-03T17:35:45.665Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/00-welcome.html</loc>
@@ -30,11 +30,11 @@
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/08-knn.html</loc>
-    <lastmod>2025-02-01T23:32:33.008Z</lastmod>
+    <lastmod>2025-02-02T20:36:45.647Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/06-preprocessing.html</loc>
-    <lastmod>2025-01-29T14:11:13.804Z</lastmod>
+    <lastmod>2025-01-31T19:16:49.249Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/05-distances.html</loc>
@@ -42,14 +42,18 @@
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/07-text-data.html</loc>
-    <lastmod>2025-01-30T05:07:22.902Z</lastmod>
+    <lastmod>2025-01-31T19:16:49.249Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/better-data-visualization.html</loc>
-    <lastmod>2025-02-02T01:44:44.411Z</lastmod>
+    <lastmod>2025-02-02T20:36:45.648Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/09-modeling.html</loc>
-    <lastmod>2025-02-03T01:43:53.693Z</lastmod>
+    <lastmod>2025-02-03T16:46:36.579Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/atheobold/data-301/slides/10-cross-val.html</loc>
+    <lastmod>2025-02-03T16:47:10.228Z</lastmod>
   </url>
 </urlset>
