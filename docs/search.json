@@ -3440,7 +3440,7 @@
     "href": "slides/09-modeling.html#knn-revisited",
     "title": "Modeling",
     "section": "KNN Revisited",
-    "text": "KNN Revisited\n\nColumn Transformer\n\nfrom sklearn.pipeline import make_pipeline\nfrom sklearn.neighbors import KNeighborsRegressor\n\nct = make_column_transformer(\n  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),\n  remainder = \"drop\"\n)\n\nPipeline\n\npipeline = make_pipeline(\n  ct,\n  KNeighborsRegressor(n_neighbors = 5)\n  )",
+    "text": "KNN Revisited\n\nColumn Transformer\n\nfrom sklearn.pipeline import make_pipeline\nfrom sklearn.neighbors import KNeighborsRegressor\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\n\nct = make_column_transformer(\n  (StandardScaler(), features),\n  remainder = \"drop\"\n)\n\nPipeline\n\npipeline = make_pipeline(\n  ct,\n  KNeighborsRegressor(n_neighbors = 5)\n  )",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -3531,7 +3531,7 @@
     "href": "slides/09-modeling.html#things-to-think-about",
     "title": "Modeling",
     "section": "Things to think about",
-    "text": "Things to think about\n\n\n\nWhat other types of models could we have tried?\n\nLinear regression, decision tree, neural network, …\n\nWhat other column transformers could we have tried?\n\nDifferent combinations of variables, different standardizing, log transforming…\n\nWhat other measures of error could we have tried?\n\nMean absolute error, log-error, percent error, …\n\nWhat if we had used a different test set?\n\nComing soon: Cross-validation\n\nWhat if our target variable was categorical?\n\n*Logistic regression, multinomial regression, decision trees,…",
+    "text": "Things to think about\n\n\n\nWhat other types of models could we have tried?\n\nLinear regression, decision tree, neural network, …\n\nWhat other column transformers could we have tried?\n\nDifferent combinations of variables, different standardizing, log transforming…\n\nWhat other measures of error could we have tried?\n\nMean absolute error, log-error, percent error, …\n\nWhat if we had used a different test set?\n\nComing soon: Cross-validation\n\nWhat if our target variable was categorical?\n\nLogistic regression, multinomial regression, decision trees,…",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -3542,7 +3542,7 @@
     "href": "slides/09-modeling.html#modeling-2",
     "title": "Modeling",
     "section": "Modeling",
-    "text": "Modeling\nFor each model proposed:\n\nEstablish a pipeline with transformers and a model.\nFit the pipeline on the training data (with known outcome)\nPredict with the fitted pipeline on test data (with known outcome)\nEvaluate our success; i.e., measure noise “left over”\n\n\nThen:\n\nSelect the best model\nFit on all the data\nPredict on any future data (with unknown outcome)",
+    "text": "Modeling\nFor each model proposed:\n\n\nEstablish a pipeline with transformers and a model.\nFit the pipeline on the training data (with known outcome)\nPredict with the fitted pipeline on test data (with known outcome)\nEvaluate our success; i.e., measure noise “left over”\n\n\n\nThen:\n\n\nSelect the best model\nFit on all the data\nPredict on any future data (with unknown outcome)",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"

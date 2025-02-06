@@ -191,8 +191,10 @@ df_unknown = (
 from sklearn.pipeline import make_pipeline
 from sklearn.neighbors import KNeighborsRegressor
 
+features = ['summer', 'har', 'sep', 'win', 'age']
+
 ct = make_column_transformer(
-  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),
+  (StandardScaler(), features),
   remainder = "drop"
 )
 ```
@@ -432,7 +434,7 @@ for k in range(1,17):
 
 -   What if our target variable was **categorical**?
 
-    + *Logistic regression, multinomial regression, decision trees,...
+    + *Logistic regression, multinomial regression, decision trees,...*
 :::
 :::
 
@@ -442,23 +444,27 @@ for k in range(1,17):
 
 [For each model proposed:]{.underline}
 
--   Establish a **pipeline** with **transformers** and a **model**.
+::: {.midi}
+1.   Establish a **pipeline** with **transformers** and a **model**.
 
--   **Fit** the pipeline on the **training data** (with known outcome)
+2.  **Fit** the pipeline on the **training data** (with known outcome)
 
--   **Predict** with the fitted pipeline on **test data** (with known outcome)
+3.   **Predict** with the fitted pipeline on **test data** (with known outcome)
 
--   **Evaluate** our success; i.e., measure noise "left over"
+4.   **Evaluate** our success; i.e., measure noise "left over"
+:::
 
 . . .
 
 [Then:]{.underline}
 
--   **Select** the best model
+::: {.midi}
+5.   **Select** the best model
 
--   **Fit** on *all* the data
+6.  **Fit** on *all* the data
 
--   **Predict** on any future data (with unknown outcome)
+7.  **Predict** on any future data (with unknown outcome)
+:::
 
 ## Big decisions
 

@@ -560,10 +560,12 @@
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
 <span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsRegressor</span>
 <span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a>ct <span class="op">=</span> make_column_transformer(</span>
-<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>  (StandardScaler(), [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]),</span>
-<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
-<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]</span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a>ct <span class="op">=</span> make_column_transformer(</span>
+<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a>  (StandardScaler(), features),</span>
+<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
+<span id="cb4-9"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Pipeline</strong></p>
 <div class="cell">
@@ -1210,7 +1212,7 @@ np.float64(378.9575703703703)</code></pre>
 </ul></li>
 <li class="fragment"><p>What if our target variable was <strong>categorical</strong>?</p>
 <ul>
-<li class="fragment">*Logistic regression, multinomial regression, decision trees,…</li>
+<li class="fragment"><em>Logistic regression, multinomial regression, decision trees,…</em></li>
 </ul></li>
 </ul>
 </div>
@@ -1224,19 +1226,23 @@ np.float64(378.9575703703703)</code></pre>
 <section id="modeling-2" class="slide level2">
 <h2>Modeling</h2>
 <p><u>For each model proposed:</u></p>
-<ul>
+<div class="midi">
+<ol type="1">
 <li><p>Establish a <strong>pipeline</strong> with <strong>transformers</strong> and a <strong>model</strong>.</p></li>
 <li><p><strong>Fit</strong> the pipeline on the <strong>training data</strong> (with known outcome)</p></li>
 <li><p><strong>Predict</strong> with the fitted pipeline on <strong>test data</strong> (with known outcome)</p></li>
 <li><p><strong>Evaluate</strong> our success; i.e., measure noise “left over”</p></li>
-</ul>
+</ol>
+</div>
 <div class="fragment">
 <p><u>Then:</u></p>
-<ul>
+<div class="midi">
+<ol start="5" type="1">
 <li><p><strong>Select</strong> the best model</p></li>
 <li><p><strong>Fit</strong> on <em>all</em> the data</p></li>
 <li><p><strong>Predict</strong> on any future data (with unknown outcome)</p></li>
-</ul>
+</ol>
+</div>
 </div>
 </section>
 <section id="big-decisions" class="slide level2">
