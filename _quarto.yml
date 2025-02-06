@@ -59,12 +59,12 @@ website:
             text: "Week 4, Part 1 - Dummy Variables & Column Transformers"
           - href: slides/07-text-data.qmd
             text: "Week 4, Part 2 - Bag-of-Words and TF-IDF"
-          #- href: weeks/week-5-strings-dates.qmd
-          #   text: "Week 5 - Strings & Dates"
-          # - href: portfolio/midterm-portfolio-targets.qmd
-          #   text: "Week 6 - Midterm Portfolio Week"
-          # - href: weeks/week-7-vector-functions.qmd
-          #   text: "Week 7, Part 1 -- Vector Functions"
+          - href: slides/08-knn.qmd
+            text: "Week 5 Part 1 - KNN"
+          # - href: slides/better-data-visualizations
+          #   text: "Week 5 Part 2 - Spicing Up Your Visualizations"
+          - href: slides/09-modeling.qmd
+            text: "Week 6, Part 1 - Introduction to Modeling"
           # - href: weeks/week-7-data-frame-functions.qmd
           #   text: "Week 7, Part 1 -- Data Frame Functions"
           # - href: weeks/week-8-iteration.qmd
@@ -101,12 +101,6 @@ website:
       #   contents:
       #     - href: labs/exemplars/student-work.qmd
       #       text: "Exemplary Student Work"
-      # - section: "Portfolio"
-      #   contents:
-      #     - href: portfolio/portfolio-instructions.qmd
-      #       text: Portfolio Instructions
-      #     - href: portfolio/midterm-portfolio-targets.qmd
-      #       text: Midterm Portfolio Learning Targets   
 
 format:
   html:
