@@ -1127,108 +1127,138 @@ Name: age, dtype: float64</code></pre>
 </section>
 <section id="resampling-methods" class="slide level2">
 <h2>Resampling methods</h2>
+<div>
 <ul>
-<li><p>We saw that a “fair” way to evaluate models was to <strong>randomly split</strong> into <strong>training</strong> and <strong>test</strong> sets.</p></li>
-<li><p>But what if this <strong>randomness</strong> was misleading? <em>(e.g., a major outlier in one of the sets)</em></p></li>
-<li><p>What do we usually do in statistics to address randomness? Take <strong>many samples</strong> and compute an <strong>average</strong>!</p></li>
-<li><p>A <strong>resampling method</strong> is when we take <em>many</em> random test/training splits and <em>average</em> the resulting metrics.</p></li>
+<li class="fragment"><p>We saw that a “fair” way to evaluate models was to <strong>randomly split</strong> into <strong>training</strong> and <strong>test</strong> sets.</p></li>
+<li class="fragment"><p>But what if this <strong>randomness</strong> was misleading? <em>(e.g., a major outlier in one of the sets)</em></p></li>
+<li class="fragment"><p>What do we usually do in Statistics to address randomness? Take <strong>many samples</strong> and compute an <strong>average</strong>!</p></li>
+<li class="fragment"><p>A <strong>resampling method</strong> is when we take <em>many</em> random test / training splits and <em>average</em> the resulting metrics.</p></li>
 </ul>
+</div>
 </section>
 <section id="resampling-method-example" class="slide level2">
-<h2>Resampling method example</h2>
+<h2>Resampling Method Example</h2>
 <p>Import all our functions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_transformer</span>
+<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="|4-5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_transformer</span>
 <span id="cb15-2"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder, StandardScaler</span>
 <span id="cb15-3"><a></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsRegressor</span>
 <span id="cb15-4"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb15-5"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="resampling-method-example-1" class="slide level2">
-<h2>Resampling method example</h2>
+<section id="creating-testing-training-splits" class="slide level2">
+<h2>Creating Testing &amp; Training Splits</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(df_known, df_known[<span class="st">'price'</span>], test_size <span class="op">=</span> <span class="fl">0.1</span>)</span>
-<span id="cb16-2"><a></a></span>
-<span id="cb16-3"><a></a>ct <span class="op">=</span> make_column_transformer(</span>
-<span id="cb16-4"><a></a>  (StandardScaler(), [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]),</span>
-<span id="cb16-5"><a></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
-<span id="cb16-6"><a></a>)</span>
-<span id="cb16-7"><a></a></span>
-<span id="cb16-8"><a></a>pipeline <span class="op">=</span> make_pipeline(</span>
-<span id="cb16-9"><a></a>    ct,</span>
-<span id="cb16-10"><a></a>    LinearRegression())</span>
-<span id="cb16-11"><a></a>    </span>
-<span id="cb16-12"><a></a>pipeline <span class="op">=</span> pipeline.fit(X<span class="op">=</span>X_train, y<span class="op">=</span>y_train)</span>
-<span id="cb16-13"><a></a></span>
-<span id="cb16-14"><a></a>pred_y_test <span class="op">=</span> pipeline.predict(X<span class="op">=</span>X_test)</span>
-<span id="cb16-15"><a></a></span>
-<span id="cb16-16"><a></a>mean_squared_error(y_test, pred_y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>339.02353687612964</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(df_known, </span>
+<span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>                                                    df_known[<span class="st">'price'</span>], </span>
+<span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a>                                                    test_size <span class="op">=</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="resampling-method-example-2" class="slide level2">
-<h2>Resampling method example</h2>
+<section id="pipeline-for-predicting-on-test-data" class="slide level2">
+<h2>Pipeline for Predicting on Test Data</h2>
+<div class="midi">
+<p><strong>Specify</strong></p>
+</div>
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(df_known, df_known[<span class="st">'price'</span>], test_size <span class="op">=</span> <span class="fl">0.1</span>)</span>
-<span id="cb18-2"><a></a></span>
-<span id="cb18-3"><a></a>ct <span class="op">=</span> make_column_transformer(</span>
-<span id="cb18-4"><a></a>  (StandardScaler(), [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]),</span>
-<span id="cb18-5"><a></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
-<span id="cb18-6"><a></a>)</span>
-<span id="cb18-7"><a></a></span>
-<span id="cb18-8"><a></a>pipeline <span class="op">=</span> make_pipeline(</span>
-<span id="cb18-9"><a></a>    ct,</span>
-<span id="cb18-10"><a></a>    LinearRegression())</span>
-<span id="cb18-11"><a></a>pipeline <span class="op">=</span> pipeline.fit(X<span class="op">=</span>X_train, y<span class="op">=</span>y_train)</span>
-<span id="cb18-12"><a></a>pred_y_test <span class="op">=</span> pipeline.predict(X<span class="op">=</span>X_test)</span>
-<span id="cb18-13"><a></a>mean_squared_error(y_test, pred_y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]</span>
+<span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a>ct <span class="op">=</span> make_column_transformer(</span>
+<span id="cb17-3"><a aria-hidden="true" tabindex="-1"></a>  (StandardScaler(), features),</span>
+<span id="cb17-4"><a aria-hidden="true" tabindex="-1"></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
+<span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> make_pipeline(</span>
+<span id="cb17-8"><a aria-hidden="true" tabindex="-1"></a>    ct,</span>
+<span id="cb17-9"><a aria-hidden="true" tabindex="-1"></a>    LinearRegression())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="midi">
+<p><strong>Fit for Training Data</strong></p>
+</div>
+<div class="small">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> pipeline.fit(X <span class="op">=</span> X_train, y <span class="op">=</span> y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="midi">
+<p><strong>Predict for Test Data</strong></p>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>pred_y_test <span class="op">=</span> pipeline.predict(X <span class="op">=</span> X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>:::</p>
+</section>
+<section id="estimating-error-for-test-data" class="slide level2">
+<h2>Estimating Error for Test Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>mean_squared_error(y_test, pred_y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>67.44096234614882</code></pre>
+<pre><code>122.21586231778129</code></pre>
 </div>
 </div>
 </section>
 <section id="cross-validation-1" class="slide level2">
 <h2>Cross-Validation</h2>
 <ul>
-<li><p>It makes sense to do test/training many times…</p></li>
-<li><p>But! Remember the original reason for test/training: we don’t want to use the <strong>same data</strong> in <em>fitting</em> and <em>evaluation</em>.</p></li>
-<li><p>Idea: Let’s make sure that each observation only gets to be in the test set <strong>once</strong></p></li>
-<li><p><strong>Cross-validation:</strong> Divide the data into 10 random “folds”. Each fold gets a “turn” as the test set.</p></li>
+<li><p>It makes sense to do test / training many times…</p></li>
+<li><p>But! Remember the original reason for test / training: we don’t want to use the <strong>same data</strong> in <em>fitting</em> and <em>evaluation</em>.</p></li>
 </ul>
+<div class="fragment">
+<p><strong>Idea:</strong> Let’s make sure that each observation only gets to be in the test set <strong>once</strong></p>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Cross-validation:</strong> Divide the data into 10 random “folds”. Each fold gets a “turn” as the test set.</li>
+</ul>
+</div>
 </section>
 <section id="cross-validation-2" class="slide level2">
 <h2>Cross-Validation</h2>
 
-<img data-src="./images/k-fold-pic.png" class="r-stretch"></section>
+<img data-src="./images/5-k-fold-pic.png" class="r-stretch"></section>
 <section id="cross-validation-in-sklearn" class="slide level2">
 <h2>Cross-Validation in <code>sklearn</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
-<span id="cb20-2"><a></a></span>
-<span id="cb20-3"><a></a>cross_val_score(pipeline, X <span class="op">=</span> df_known, y <span class="op">=</span> df_known[<span class="st">'price'</span>], cv <span class="op">=</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a aria-hidden="true" tabindex="-1"></a>cross_val_score(pipeline, </span>
+<span id="cb22-4"><a aria-hidden="true" tabindex="-1"></a>                X <span class="op">=</span> df_known, </span>
+<span id="cb22-5"><a aria-hidden="true" tabindex="-1"></a>                y <span class="op">=</span> df_known[<span class="st">'price'</span>], </span>
+<span id="cb22-6"><a aria-hidden="true" tabindex="-1"></a>                cv <span class="op">=</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([  0.53885509,   0.36267134,   0.6164344 ,  -2.52293886,
          0.75103464,   0.89242533, -49.63018969, -21.17272593,
         -0.16083366,   0.21125165])</code></pre>
 </div>
 </div>
-<ul>
-<li><p><code>sklearn</code> chooses a <strong>default metric</strong> for you based on the model.</p></li>
-<li><p>In this case: <em>r-squared</em> for Linear Regression; <em>negative root mean square error</em> for KNN.</p></li>
-<li><p>(Why negative? So that we want to <em>maximize</em> this score)</p></li>
-</ul>
 </section>
 <section id="cross-validation-in-sklearn-1" class="slide level2">
 <h2>Cross-Validation in <code>sklearn</code></h2>
+<p><strong>What are these numbers?</strong></p>
+<div>
 <ul>
-<li>What if you want <strong>MSE</strong>?</li>
+<li class="fragment"><p><code>sklearn</code> chooses a <strong>default metric</strong> for you based on the model.</p></li>
+<li class="fragment"><p>In this case: <em>r-squared</em> for Linear Regression; <em>negative root mean square error</em> for KNN.</p></li>
 </ul>
+</div>
+<p><strong>Why use negative root mean squared error for KNN?</strong></p>
+<ul>
+<li><p>To be consistent! We will <strong>always</strong> want to <em>maximize</em> this score.</p></li>
+<li><p>Larger <em>r-squared</em> values explain more of the variance in the response (y).</p></li>
+<li><p>Larger <em>negative</em> RMSE (smaller RMSE) means the “leftover” variance in y is minimized.</p></li>
+</ul>
+</section>
+<section id="cross-validation-in-sklearn-2" class="slide level2">
+<h2>Cross-Validation in <code>sklearn</code></h2>
+<p>What if you want <strong>MSE</strong>?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>cv_scores <span class="op">=</span> cross_val_score(pipeline, X <span class="op">=</span> df_known, y <span class="op">=</span> df_known[<span class="st">'price'</span>], cv <span class="op">=</span> <span class="dv">10</span>, scoring <span class="op">=</span> <span class="st">"neg_mean_squared_error"</span>)</span>
-<span id="cb22-2"><a></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>cv_scores <span class="op">=</span> cross_val_score(pipeline, </span>
+<span id="cb24-2"><a></a>                            X <span class="op">=</span> df_known, </span>
+<span id="cb24-3"><a></a>                            y <span class="op">=</span> df_known[<span class="st">'price'</span>], </span>
+<span id="cb24-4"><a></a>                            cv <span class="op">=</span> <span class="dv">10</span>, </span>
+<span id="cb24-5"><a></a>                            scoring <span class="op">=</span> <span class="st">"neg_mean_squared_error"</span>)</span>
+<span id="cb24-6"><a></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([ -54.51757584, -301.38564331, -521.90492178, -247.38859562,
         -59.30908038,  -14.0803285 , -348.78575122, -138.57953707,
@@ -1236,17 +1266,25 @@ Name: age, dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="cross-validation-faq" class="slide level2 smaller">
+<section id="cross-validation-faq" class="slide level2">
 <h2>Cross-Validation: FAQ</h2>
+<div class="small">
+<div>
 <ul>
-<li><p><strong>Q:</strong> How many cross validations should we do?</p></li>
-<li><p><strong>A:</strong> It doesn’t matter much! Typical choices are 5 or 10.</p></li>
-<li><p><strong>A:</strong> Think about the trade-offs: larger <em>training sets</em> = <em>more accurate models</em> but smaller <em>test sets</em> = <em>more uncertainty in evaluation</em></p></li>
-<li><p><strong>Q:</strong> What metric should we use?</p></li>
-<li><p><strong>A:</strong> This is your choice! What captures your idea of “successful prediction”? (But MSE/RMSE is a good default.)</p></li>
-<li><p><strong>Q:</strong> I took statistics before, and I remember some things like “adjusted R-Squared” or “AIC” for model selection. What about those?</p></li>
-<li><p><strong>A:</strong> Those are Old School, from a time when computers were not powerful enough to do cross-val. Modern data science uses resampling.</p></li>
+<li class="fragment"><p><strong>Q:</strong> How many cross validations should we do?</p></li>
+<li class="fragment"><p><strong>A:</strong> It doesn’t matter much! Typical choices are 5 or 10.</p></li>
+<li class="fragment"><p><strong>A:</strong> Think about the trade-offs:</p>
+<ul>
+<li class="fragment">larger <em>training sets</em> = <em>more accurate models</em></li>
+<li class="fragment">smaller <em>test sets</em> = <em>more uncertainty in evaluation</em></li>
+</ul></li>
+<li class="fragment"><p><strong>Q:</strong> What metric should we use?</p></li>
+<li class="fragment"><p><strong>A:</strong> This is also your choice! What captures your idea of a “successful prediction”? MSE / RMSE is a good default, but you might find other options that are better!</p></li>
+<li class="fragment"><p><strong>Q:</strong> I took a statistics class before, and I remember some things like “adjusted R-Squared” or “AIC” for model selection. What about those?</p></li>
+<li class="fragment"><p><strong>A:</strong> Those are Old School, from a time when computers were not powerful enough to do cross-validation. Modern data science uses resampling!</p></li>
 </ul>
+</div>
+</div>
 </section></section>
 <section>
 <section id="activity" class="title-slide slide level1 center">
@@ -1262,7 +1300,7 @@ Name: age, dtype: float64</code></pre>
 <li>Using just winter rainfall and summer temperature.</li>
 <li>Using only age.</li>
 </ul></li>
-<li><p>Re-run #1, but instead use <strong>mean absolute error</strong>. (You will need to look in the documentation of <code>cross_val_score</code> for this!)</p></li>
+<li><p>Re-run #1, but instead use <strong>mean absolute error</strong>. (You will need to look in the documentation of <code>cross_val_score()</code> for this!)</p></li>
 </ol>
 </section></section>
 <section>
@@ -1274,34 +1312,64 @@ Name: age, dtype: float64</code></pre>
 <h2>Tuning</h2>
 <ul>
 <li><p>In previous classes, we tried many different values of <span class="math inline">\(k\)</span> for KNN.</p></li>
-<li><p>We also mentioned using <strong>absolute distance</strong> instead of <strong>euclidean distance</strong>.</p></li>
+<li><p>We also mentioned using <strong>absolute distance</strong> (Manhattan) instead of <strong>euclidean distance</strong>.</p></li>
 <li><p>Now, we would like to use <strong>cross-validation</strong> to decide between these options.</p></li>
-<li><p><code>sklearn</code> provides a nice shortcut for this!</p></li>
 </ul>
+<p><br></p>
+<p><code>sklearn</code> provides a nice shortcut for this!</p>
 </section>
-<section id="gridsearchcv" class="slide level2">
-<h2><code>GridSearchCV()</code></h2>
+<section id="initializing-gridsearchcv" class="slide level2">
+<h2>Initializing <code>GridSearchCV()</code></h2>
+<div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>ct <span class="op">=</span> make_column_transformer(</span>
-<span id="cb24-2"><a></a>  (StandardScaler(), [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]),</span>
-<span id="cb24-3"><a></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
-<span id="cb24-4"><a></a>)</span>
-<span id="cb24-5"><a></a></span>
-<span id="cb24-6"><a></a>pipeline <span class="op">=</span> make_pipeline(</span>
-<span id="cb24-7"><a></a>    ct,</span>
-<span id="cb24-8"><a></a>    KNeighborsRegressor())</span>
-<span id="cb24-9"><a></a>    </span>
-<span id="cb24-10"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
-<span id="cb24-11"><a></a></span>
-<span id="cb24-12"><a></a>grid_cv <span class="op">=</span> GridSearchCV(</span>
-<span id="cb24-13"><a></a>    pipeline,</span>
-<span id="cb24-14"><a></a>    param_grid<span class="op">=</span>{</span>
-<span id="cb24-15"><a></a>        <span class="st">"kneighborsregressor__n_neighbors"</span>: <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>),</span>
-<span id="cb24-16"><a></a>        <span class="st">"kneighborsregressor__metric"</span>: [<span class="st">"euclidean"</span>, <span class="st">"manhattan"</span>],</span>
-<span id="cb24-17"><a></a>    },</span>
-<span id="cb24-18"><a></a>    scoring<span class="op">=</span><span class="st">"neg_mean_squared_error"</span>, cv<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb24-19"><a></a></span>
-<span id="cb24-20"><a></a>grid_cv.fit(df_known, df_known[<span class="st">'price'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
+<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a aria-hidden="true" tabindex="-1"></a>grid_cv <span class="op">=</span> GridSearchCV(</span>
+<span id="cb26-4"><a aria-hidden="true" tabindex="-1"></a>    pipeline,</span>
+<span id="cb26-5"><a aria-hidden="true" tabindex="-1"></a>    param_grid <span class="op">=</span> {</span>
+<span id="cb26-6"><a aria-hidden="true" tabindex="-1"></a>        <span class="st">"kneighborsregressor__n_neighbors"</span>: <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>),</span>
+<span id="cb26-7"><a aria-hidden="true" tabindex="-1"></a>        <span class="st">"kneighborsregressor__metric"</span>: [<span class="st">"euclidean"</span>, <span class="st">"manhattan"</span>],</span>
+<span id="cb26-8"><a aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb26-9"><a aria-hidden="true" tabindex="-1"></a>    scoring <span class="op">=</span> <span class="st">"neg_mean_squared_error"</span>, </span>
+<span id="cb26-10"><a aria-hidden="true" tabindex="-1"></a>    cv <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="small">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Same column transformer and pipeline!</strong></p>
+</div>
+<div class="callout-content">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]</span>
+<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a>ct <span class="op">=</span> make_column_transformer(</span>
+<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>  (StandardScaler(), features),</span>
+<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
+<span id="cb27-6"><a aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb27-7"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> make_pipeline(</span>
+<span id="cb27-9"><a aria-hidden="true" tabindex="-1"></a>    ct,</span>
+<span id="cb27-10"><a aria-hidden="true" tabindex="-1"></a>    KNeighborsRegressor()</span>
+<span id="cb27-11"><a aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="fitting-gridsearchcv" class="slide level2">
+<h2>Fitting <code>GridSearchCV()</code></h2>
+<div class="small">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>grid_cv.fit(df_known, </span>
+<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>            df_known[<span class="st">'price'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <style>#sk-container-id-2 {
   /* Definition of color scheme common for light and dark mode */
@@ -1755,38 +1823,54 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                  KNeighborsRegressor(metric='manhattan', n_neighbors=4))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>columntransformer: ColumnTransformer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for columntransformer: ColumnTransformer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
                                  ['summer', 'har', 'sep', 'win', 'age'])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>standardscaler</div></div></label><div class="sk-toggleable__content fitted"><pre>['summer', 'har', 'sep', 'win', 'age']</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"><label for="sk-estimator-id-8" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>KNeighborsRegressor</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.neighbors.KNeighborsRegressor.html">?<span>Documentation for KNeighborsRegressor</span></a></div></label><div class="sk-toggleable__content fitted"><pre>KNeighborsRegressor(metric='manhattan', n_neighbors=4)</pre></div> </div></div></div></div></div></div></div></div></div></div></div>
 </div>
+</div></div>
 </div>
+<div class="fragment">
 <ul>
-<li><strong>How many times did a model get <code>.fit()</code> to some data?</strong></li>
+<li><strong>How many different models were fit with this grid?</strong></li>
 </ul>
+</div>
 </section>
-<section id="gridsearchcv-1" class="slide level2">
-<h2><code>GridSearchCV()</code></h2>
+<section id="getting-the-cross-validation-results" class="slide level2">
+<h2>Getting the Cross Validation Results</h2>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>pd.DataFrame(grid_cv.cv_results_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame(grid_cv.cv_results_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="small">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score
-0        0.004256      0.000860  ...      219.338831               12
-1        0.004258      0.000613  ...      209.511631                9
-2        0.004083      0.000542  ...      178.819362                6
-3        0.004442      0.000570  ...      217.989122               11
-4        0.004452      0.000648  ...      212.797774                7
-5        0.004439      0.000959  ...      205.240907                3
-6        0.003993      0.000594  ...      227.978005               10
-7        0.004780      0.000645  ...      175.175403                2
-8        0.003951      0.000572  ...      174.981203                5
-9        0.004089      0.000681  ...      175.186322                1
-10       0.003830      0.000414  ...      200.091917                4
-11       0.004203      0.000548  ...      232.710455                8
+0        0.004724      0.000231  ...      219.338831               12
+1        0.004687      0.000082  ...      209.511631                9
+2        0.004369      0.000183  ...      178.819362                6
+3        0.003655      0.000113  ...      217.989122               11
+4        0.004016      0.000340  ...      212.797774                7
+5        0.004791      0.000469  ...      205.240907                3
+6        0.004672      0.000250  ...      227.978005               10
+7        0.004930      0.000246  ...      175.175403                2
+8        0.004474      0.000167  ...      174.981203                5
+9        0.004800      0.000212  ...      175.186322                1
+10       0.003847      0.000281  ...      200.091917                4
+11       0.003729      0.000164  ...      232.710455                8
 
 [12 rows x 15 columns]</code></pre>
 </div>
 </div>
+</div>
 </section>
-<section id="gridsearchcv-2" class="slide level2">
-<h2><code>GridSearchCV()</code></h2>
+<section id="what-about-k-and-the-distances" class="slide level2">
+<h2>What about k and the distances?</h2>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>pd.DataFrame(grid_cv.cv_results_)[[<span class="st">'param_kneighborsregressor__metric'</span>, <span class="st">'param_kneighborsregressor__n_neighbors'</span>, <span class="st">'mean_test_score'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame(grid_cv.cv_results_)[[<span class="st">'param_kneighborsregressor__metric'</span>,</span>
+<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a>                                   <span class="st">'param_kneighborsregressor__n_neighbors'</span>,</span>
+<span id="cb31-3"><a aria-hidden="true" tabindex="-1"></a>                                   <span class="st">'mean_test_score'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="small">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>   param_kneighborsregressor__metric  ...  mean_test_score
 0                          euclidean  ...      -321.833333
@@ -1805,11 +1889,12 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 [12 rows x 3 columns]</code></pre>
 </div>
 </div>
+</div>
 </section>
-<section id="gridsearchcv-3" class="slide level2">
-<h2><code>GridSearchCV()</code></h2>
+<section id="what-were-the-best-parameters" class="slide level2">
+<h2>What were the best parameters?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>grid_cv.best_params_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>grid_cv.best_params_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'kneighborsregressor__metric': 'manhattan', 'kneighborsregressor__n_neighbors': 4}</code></pre>
 </div>
@@ -1818,11 +1903,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="model-evaluation" class="slide level2">
 <h2>Model Evaluation</h2>
 <p>You have now encountered <strong>three types of decisions</strong> for finding your best model:</p>
+<div>
 <ol type="1">
-<li><p>Which <em>predictors</em> should we include, and how should we preprocess them? (<strong>feature selection</strong>)</p></li>
-<li><p>Should we use <em>Linear Regression</em> or <em>KNN</em> or something else? (<strong>Model selection</strong>)</p></li>
-<li><p>Which value of <span class="math inline">\(k\)</span> should we use? (<strong>hyperparameter tuning</strong>)</p></li>
+<li class="fragment"><p>Which <em>predictors</em> should we include, and how should we preprocess them? (<strong>Feature selection</strong>)</p></li>
+<li class="fragment"><p>Should we use <em>Linear Regression</em> or <em>KNN</em> or something else? (<strong>Model selection</strong>)</p></li>
+<li class="fragment"><p>Which value of <span class="math inline">\(k\)</span> should we use? (<strong>Hyperparameter tuning</strong>)</p></li>
 </ol>
+</div>
 </section>
 <section id="model-evaluation-1" class="slide level2">
 <h2>Model Evaluation</h2>

@@ -388,19 +388,24 @@ pipeline.predict(df_unknown[['age']])
 
 ## Resampling methods
 
+::: {.incremental}
 -   We saw that a "fair" way to evaluate models was to **randomly split** into **training** and **test** sets.
 
 -   But what if this **randomness** was misleading? *(e.g., a major outlier in one of the sets)*
 
--   What do we usually do in statistics to address randomness? Take **many samples** and compute an **average**!
+-   What do we usually do in Statistics to address randomness? Take **many samples** and compute an **average**!
 
--   A **resampling method** is when we take *many* random test/training splits and *average* the resulting metrics.
+-   A **resampling method** is when we take *many* random test / training splits and *average* the resulting metrics.
+:::
 
-## Resampling method example
+## Resampling Method Example
 
 Import all our functions:
 
 ```{python}
+#| code-line-numbers: "|4-5"
+#| label: import-sklearn-functions
+
 from sklearn.compose import make_column_transformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.neighbors import KNeighborsRegressor
@@ -408,110 +413,181 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 ```
 
-## Resampling method example
+## Creating Testing & Training Splits
 
 ```{python}
-X_train, X_test, y_train, y_test = train_test_split(df_known, df_known['price'], test_size = 0.1)
+#| code-line-numbers: false
+#| label: test-train-wine
 
+X_train, X_test, y_train, y_test = train_test_split(df_known, 
+                                                    df_known['price'], 
+                                                    test_size = 0.1)
+```
+
+## Pipeline for Predicting on Test Data
+
+::: {.midi}
+**Specify**
+:::
+
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| label: test-train-specify
+
+features = ['summer', 'har', 'sep', 'win', 'age']
 ct = make_column_transformer(
-  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),
+  (StandardScaler(), features),
   remainder = "drop"
 )
 
 pipeline = make_pipeline(
     ct,
     LinearRegression())
-    
-pipeline = pipeline.fit(X=X_train, y=y_train)
-
-pred_y_test = pipeline.predict(X=X_test)
-
-mean_squared_error(y_test, pred_y_test)
 ```
+:::
 
-## Resampling method example
+::: {.midi}
+**Fit for Training Data**
+:::
+
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| label: test-train-fit
+
+pipeline = pipeline.fit(X = X_train, y = y_train)
+```
+:::
+
+::: {.midi}
+**Predict for Test Data**
+:::
 
 ```{python}
+#| code-line-numbers: false
+#| label: test-train-predict
 
-X_train, X_test, y_train, y_test = train_test_split(df_known, df_known['price'], test_size = 0.1)
+pred_y_test = pipeline.predict(X = X_test)
+```
+:::
 
-ct = make_column_transformer(
-  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),
-  remainder = "drop"
-)
+## Estimating Error for Test Data
 
-pipeline = make_pipeline(
-    ct,
-    LinearRegression())
-pipeline = pipeline.fit(X=X_train, y=y_train)
-pred_y_test = pipeline.predict(X=X_test)
+```{python}
+#| code-line-numbers: false
+#| label: test-train-error
+
 mean_squared_error(y_test, pred_y_test)
 ```
 
-## Cross-Validation
-
--   It makes sense to do test/training many times...
-
--   But! Remember the original reason for test/training: we don't want to use the **same data** in *fitting* and *evaluation*.
-
--   Idea: Let's make sure that each observation only gets to be in the test set **once**
-
--   **Cross-validation:** Divide the data into 10 random "folds". Each fold gets a "turn" as the test set.
 
 ## Cross-Validation
 
-![](./images/k-fold-pic.png)
+-   It makes sense to do test / training many times...
+
+-   But! Remember the original reason for test / training: we don't want to use
+the **same data** in *fitting* and *evaluation*.
+
+. . .
+
+**Idea:** Let's make sure that each observation only gets to be in the test set
+**once**
+
+. . .
+
+-   **Cross-validation:** Divide the data into 10 random "folds". Each fold gets
+a "turn" as the test set.
+
+## Cross-Validation
+
+![](./images/5-k-fold-pic.png)
 
 ## Cross-Validation in `sklearn`
 
 ```{python}
+#| code-line-numbers: false
+#| label: cv-wine
+
 from sklearn.model_selection import cross_val_score
 
-cross_val_score(pipeline, X = df_known, y = df_known['price'], cv = 10)
+cross_val_score(pipeline, 
+                X = df_known, 
+                y = df_known['price'], 
+                cv = 10)
 ```
 
+## Cross-Validation in `sklearn`
+
+**What are these numbers?**
+
+::: {.incremental}
 -   `sklearn` chooses a **default metric** for you based on the model.
 
 -   In this case: *r-squared* for Linear Regression; *negative root mean square error* for KNN.
+:::
 
--   (Why negative? So that we want to *maximize* this score)
+**Why use negative root mean squared error for KNN?**
+
+-   To be consistent! We will **always** want to *maximize* this score. 
+  
+  + Larger *r-squared* values explain more of the variance in the response (y). 
+  + Larger *negative* RMSE (smaller RMSE) means the "leftover" variance in y 
+  is minimized.
 
 ## Cross-Validation in `sklearn`
 
--   What if you want **MSE**?
+What if you want **MSE**?
 
 ```{python}
-cv_scores = cross_val_score(pipeline, X = df_known, y = df_known['price'], cv = 10, scoring = "neg_mean_squared_error")
+#| code-line-numbers: "5"
+#| label: MSE-instead
+
+cv_scores = cross_val_score(pipeline, 
+                            X = df_known, 
+                            y = df_known['price'], 
+                            cv = 10, 
+                            scoring = "neg_mean_squared_error")
 cv_scores
 ```
 
-## Cross-Validation: FAQ {.smaller}
+## Cross-Validation: FAQ 
 
+::: {.small}
+::: {.incremental}
 -   **Q:** How many cross validations should we do?
 
--   **A:** It doesn't matter much! Typical choices are 5 or 10.
+-   **A:** It doesn't matter much! Typical choices are 5 or 10. 
 
--   **A:** Think about the trade-offs: larger *training sets* = *more accurate models* but smaller *test sets* = *more uncertainty in evaluation*
+-   **A:** Think about the trade-offs: 
+    + larger *training sets* = *more accurate models* 
+    + smaller *test sets* = *more uncertainty in evaluation*
 
 -   **Q:** What metric should we use?
 
--   **A:** This is your choice! What captures your idea of "successful prediction"? (But MSE/RMSE is a good default.)
+-   **A:** This is also your choice! What captures your idea of a "successful prediction"? MSE / RMSE is a good default, but you might find other options that
+are better!
 
--   **Q:** I took statistics before, and I remember some things like "adjusted R-Squared" or "AIC" for model selection. What about those?
+-   **Q:** I took a statistics class before, and I remember some things like "adjusted R-Squared" or "AIC" for model selection. What about those?
 
--   **A:** Those are Old School, from a time when computers were not powerful enough to do cross-val. Modern data science uses resampling.
+-   **A:** Those are Old School, from a time when computers were not powerful
+enough to do cross-validation. Modern data science uses resampling!
+:::
+:::
 
 # Activity
 
 ## Your turn
 
-1.  Use **cross-validation** to choose between Linear Regression and KNN with k = 7, for:
+1.  Use **cross-validation** to choose between Linear Regression and KNN with
+k = 7, for:
 
     -   Using all predictors.
     -   Using just winter rainfall and summer temperature.
     -   Using only age.
 
-2.  Re-run #1, but instead use **mean absolute error**. (You will need to look in the documentation of `cross_val_score` for this!)
+2.  Re-run #1, but instead use **mean absolute error**. (You will need to look
+in the documentation of `cross_val_score()` for this!)
 
 # Tuning with `GridSearchCV()`
 
@@ -519,66 +595,153 @@ cv_scores
 
 -   In previous classes, we tried many different values of $k$ for KNN.
 
--   We also mentioned using **absolute distance** instead of **euclidean distance**.
+-   We also mentioned using **absolute distance** (Manhattan) instead of
+**euclidean distance**.
 
--   Now, we would like to use **cross-validation** to decide between these options.
+-   Now, we would like to use **cross-validation** to decide between these
+options.
 
--   `sklearn` provides a nice shortcut for this!
+</br> 
 
-## `GridSearchCV()`
+`sklearn` provides a nice shortcut for this!
+
+## Initializing `GridSearchCV()`
 
 ```{python}
+#| echo: false
+
+features = ['summer', 'har', 'sep', 'win', 'age']
+
 ct = make_column_transformer(
-  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),
+  (StandardScaler(), features),
   remainder = "drop"
 )
 
 pipeline = make_pipeline(
     ct,
-    KNeighborsRegressor())
-    
+    KNeighborsRegressor()
+    )
+```
+
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| label: grid-cv-wine
+
 from sklearn.model_selection import GridSearchCV
 
 grid_cv = GridSearchCV(
     pipeline,
-    param_grid={
+    param_grid = {
         "kneighborsregressor__n_neighbors": range(1, 7),
         "kneighborsregressor__metric": ["euclidean", "manhattan"],
     },
-    scoring="neg_mean_squared_error", cv=5)
-
-grid_cv.fit(df_known, df_known['price'])
+    scoring = "neg_mean_squared_error", 
+    cv = 5)
 ```
+:::
 
--   **How many times did a model get `.fit()` to some data?**
-
-## `GridSearchCV()`
-
+::: {.small}
+::: {.callout-tip}
+# Same column transformer and pipeline!
 ```{python}
+#| eval: false
+#| code-line-numbers: false
+
+features = ['summer', 'har', 'sep', 'win', 'age']
+
+ct = make_column_transformer(
+  (StandardScaler(), features),
+  remainder = "drop"
+)
+
+pipeline = make_pipeline(
+    ct,
+    KNeighborsRegressor()
+    )
+```
+:::
+:::
+
+## Fitting `GridSearchCV()`
+
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| output-location: column
+
+grid_cv.fit(df_known, 
+            df_known['price'])
+```
+:::
+
+. . .
+
+-   **How many different models were fit with this grid?**
+
+## Getting the Cross Validation Results
+
+::: {.midi}
+```{python}
+#| code-line-numbers: false
+#| eval: false
+
 pd.DataFrame(grid_cv.cv_results_)
 ```
+:::
 
-## `GridSearchCV()`
-
+::: {.small}
 ```{python}
-pd.DataFrame(grid_cv.cv_results_)[['param_kneighborsregressor__metric', 'param_kneighborsregressor__n_neighbors', 'mean_test_score']]
+#| code-line-numbers: false
+#| echo: false
+
+pd.DataFrame(grid_cv.cv_results_)
 ```
+:::
 
-## `GridSearchCV()`
+## What about k and the distances?
+
+::: {.midi}
+```{python}
+#| eval: false
+#| code-line-numbers: false
+
+pd.DataFrame(grid_cv.cv_results_)[['param_kneighborsregressor__metric',
+                                   'param_kneighborsregressor__n_neighbors',
+                                   'mean_test_score']]
+```
+:::
+
+::: {.small}
+```{python}
+#| echo: false
+pd.DataFrame(grid_cv.cv_results_)[['param_kneighborsregressor__metric',
+                                   'param_kneighborsregressor__n_neighbors',
+                                   'mean_test_score']]
+```
+:::
+
+## What were the best parameters?
 
 ```{python}
+#| code-line-numbers: false
+#| label: best-parameters
+
 grid_cv.best_params_
 ```
 
 ## Model Evaluation
 
-You have now encountered **three types of decisions** for finding your best model:
+You have now encountered **three types of decisions** for finding your best
+model:
 
-1.  Which *predictors* should we include, and how should we preprocess them? (**feature selection**)
+::: {.incremental}
+1.  Which *predictors* should we include, and how should we preprocess them? (**Feature selection**)
 
 2.  Should we use *Linear Regression* or *KNN* or something else? (**Model selection**)
 
-3.  Which value of $k$ should we use? (**hyperparameter tuning**)
+3.  Which value of $k$ should we use? (**Hyperparameter tuning**)
+:::
 
 ## Model Evaluation
 

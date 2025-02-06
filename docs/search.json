@@ -3788,35 +3788,35 @@
     "href": "slides/10-cross-val.html#resampling-methods",
     "title": "Cross-Validation and Grid Search",
     "section": "Resampling methods",
-    "text": "Resampling methods\n\nWe saw that a “fair” way to evaluate models was to randomly split into training and test sets.\nBut what if this randomness was misleading? (e.g., a major outlier in one of the sets)\nWhat do we usually do in statistics to address randomness? Take many samples and compute an average!\nA resampling method is when we take many random test/training splits and average the resulting metrics."
+    "text": "Resampling methods\n\n\nWe saw that a “fair” way to evaluate models was to randomly split into training and test sets.\nBut what if this randomness was misleading? (e.g., a major outlier in one of the sets)\nWhat do we usually do in Statistics to address randomness? Take many samples and compute an average!\nA resampling method is when we take many random test / training splits and average the resulting metrics."
   },
   {
     "objectID": "slides/10-cross-val.html#resampling-method-example",
     "href": "slides/10-cross-val.html#resampling-method-example",
     "title": "Cross-Validation and Grid Search",
-    "section": "Resampling method example",
-    "text": "Resampling method example\nImport all our functions:\n\nfrom sklearn.compose import make_column_transformer\nfrom sklearn.preprocessing import OneHotEncoder, StandardScaler\nfrom sklearn.neighbors import KNeighborsRegressor\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import mean_squared_error"
+    "section": "Resampling Method Example",
+    "text": "Resampling Method Example\nImport all our functions:\n\nfrom sklearn.compose import make_column_transformer\nfrom sklearn.preprocessing import OneHotEncoder, StandardScaler\nfrom sklearn.neighbors import KNeighborsRegressor\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import mean_squared_error"
   },
   {
     "objectID": "slides/10-cross-val.html#resampling-method-example-1",
     "href": "slides/10-cross-val.html#resampling-method-example-1",
     "title": "Cross-Validation and Grid Search",
     "section": "Resampling method example",
-    "text": "Resampling method example\n\nX_train, X_test, y_train, y_test = train_test_split(df_known, df_known['price'], test_size = 0.1)\n\nct = make_column_transformer(\n  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),\n  remainder = \"drop\"\n)\n\npipeline = make_pipeline(\n    ct,\n    LinearRegression())\n    \npipeline = pipeline.fit(X=X_train, y=y_train)\n\npred_y_test = pipeline.predict(X=X_test)\n\nmean_squared_error(y_test, pred_y_test)\n\n339.02353687612964"
+    "text": "Resampling method example\n\nX_train, X_test, y_train, y_test = train_test_split(df_known, df_known['price'], test_size = 0.1)\n\nct = make_column_transformer(\n  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),\n  remainder = \"drop\"\n)\n\npipeline = make_pipeline(\n    ct,\n    LinearRegression())\n    \npipeline = pipeline.fit(X=X_train, y=y_train)\n\npred_y_test = pipeline.predict(X=X_test)\n\nmean_squared_error(y_test, pred_y_test)\n\n99.17757500341861"
   },
   {
     "objectID": "slides/10-cross-val.html#resampling-method-example-2",
     "href": "slides/10-cross-val.html#resampling-method-example-2",
     "title": "Cross-Validation and Grid Search",
     "section": "Resampling method example",
-    "text": "Resampling method example\n\nX_train, X_test, y_train, y_test = train_test_split(df_known, df_known['price'], test_size = 0.1)\n\nct = make_column_transformer(\n  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),\n  remainder = \"drop\"\n)\n\npipeline = make_pipeline(\n    ct,\n    LinearRegression())\npipeline = pipeline.fit(X=X_train, y=y_train)\npred_y_test = pipeline.predict(X=X_test)\nmean_squared_error(y_test, pred_y_test)\n\n67.44096234614882"
+    "text": "Resampling method example\n\nX_train, X_test, y_train, y_test = train_test_split(df_known, df_known['price'], test_size = 0.1)\n\nct = make_column_transformer(\n  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),\n  remainder = \"drop\"\n)\n\npipeline = make_pipeline(\n    ct,\n    LinearRegression())\npipeline = pipeline.fit(X=X_train, y=y_train)\npred_y_test = pipeline.predict(X=X_test)\nmean_squared_error(y_test, pred_y_test)\n\n200.618585897647"
   },
   {
     "objectID": "slides/10-cross-val.html#cross-validation-1",
     "href": "slides/10-cross-val.html#cross-validation-1",
     "title": "Cross-Validation and Grid Search",
     "section": "Cross-Validation",
-    "text": "Cross-Validation\n\nIt makes sense to do test/training many times…\nBut! Remember the original reason for test/training: we don’t want to use the same data in fitting and evaluation.\nIdea: Let’s make sure that each observation only gets to be in the test set once\nCross-validation: Divide the data into 10 random “folds”. Each fold gets a “turn” as the test set."
+    "text": "Cross-Validation\n\nIt makes sense to do test / training many times…\nBut! Remember the original reason for test / training: we don’t want to use the same data in fitting and evaluation.\n\n\nIdea: Let’s make sure that each observation only gets to be in the test set once\n\n\n\nCross-validation: Divide the data into 10 random “folds”. Each fold gets a “turn” as the test set."
   },
   {
     "objectID": "slides/10-cross-val.html#cross-validation-2",
@@ -3830,56 +3830,56 @@
     "href": "slides/10-cross-val.html#cross-validation-in-sklearn",
     "title": "Cross-Validation and Grid Search",
     "section": "Cross-Validation in sklearn",
-    "text": "Cross-Validation in sklearn\n\nfrom sklearn.model_selection import cross_val_score\n\ncross_val_score(pipeline, X = df_known, y = df_known['price'], cv = 10)\n\narray([  0.53885509,   0.36267134,   0.6164344 ,  -2.52293886,\n         0.75103464,   0.89242533, -49.63018969, -21.17272593,\n        -0.16083366,   0.21125165])\n\n\n\nsklearn chooses a default metric for you based on the model.\nIn this case: r-squared for Linear Regression; negative root mean square error for KNN.\n(Why negative? So that we want to maximize this score)"
+    "text": "Cross-Validation in sklearn\n\nfrom sklearn.model_selection import cross_val_score\n\ncross_val_score(pipeline, \n                X = df_known, \n                y = df_known['price'], \n                cv = 10)\n\narray([  0.53885509,   0.36267134,   0.6164344 ,  -2.52293886,\n         0.75103464,   0.89242533, -49.63018969, -21.17272593,\n        -0.16083366,   0.21125165])"
   },
   {
     "objectID": "slides/10-cross-val.html#cross-validation-in-sklearn-1",
     "href": "slides/10-cross-val.html#cross-validation-in-sklearn-1",
     "title": "Cross-Validation and Grid Search",
     "section": "Cross-Validation in sklearn",
-    "text": "Cross-Validation in sklearn\n\nWhat if you want MSE?\n\n\ncv_scores = cross_val_score(pipeline, X = df_known, y = df_known['price'], cv = 10, scoring = \"neg_mean_squared_error\")\ncv_scores\n\narray([ -54.51757584, -301.38564331, -521.90492178, -247.38859562,\n        -59.30908038,  -14.0803285 , -348.78575122, -138.57953707,\n        -74.29335417,   -9.66216728])"
+    "text": "Cross-Validation in sklearn\nWhat are these numbers?\n\n\nsklearn chooses a default metric for you based on the model.\nIn this case: r-squared for Linear Regression; negative root mean square error for KNN.\n\n\nWhy use negative root mean squared error for KNN?\n\nTo be consistent! We will always want to maximize this score.\nLarger r-squared values explain more of the variance in the response (y).\nLarger negative RMSE (smaller RMSE) means the “leftover” variance in y is minimized."
   },
   {
     "objectID": "slides/10-cross-val.html#cross-validation-faq",
     "href": "slides/10-cross-val.html#cross-validation-faq",
     "title": "Cross-Validation and Grid Search",
     "section": "Cross-Validation: FAQ",
-    "text": "Cross-Validation: FAQ\n\nQ: How many cross validations should we do?\nA: It doesn’t matter much! Typical choices are 5 or 10.\nA: Think about the trade-offs: larger training sets = more accurate models but smaller test sets = more uncertainty in evaluation\nQ: What metric should we use?\nA: This is your choice! What captures your idea of “successful prediction”? (But MSE/RMSE is a good default.)\nQ: I took statistics before, and I remember some things like “adjusted R-Squared” or “AIC” for model selection. What about those?\nA: Those are Old School, from a time when computers were not powerful enough to do cross-val. Modern data science uses resampling."
+    "text": "Cross-Validation: FAQ\n\n\n\nQ: How many cross validations should we do?\nA: It doesn’t matter much! Typical choices are 5 or 10.\nA: Think about the trade-offs:\n\nlarger training sets = more accurate models\nsmaller test sets = more uncertainty in evaluation\n\nQ: What metric should we use?\nA: This is also your choice! What captures your idea of a “successful prediction”? MSE / RMSE is a good default, but you might find other options that are better!\nQ: I took a statistics class before, and I remember some things like “adjusted R-Squared” or “AIC” for model selection. What about those?\nA: Those are Old School, from a time when computers were not powerful enough to do cross-validation. Modern data science uses resampling!"
   },
   {
     "objectID": "slides/10-cross-val.html#your-turn",
     "href": "slides/10-cross-val.html#your-turn",
     "title": "Cross-Validation and Grid Search",
     "section": "Your turn",
-    "text": "Your turn\n\nUse cross-validation to choose between Linear Regression and KNN with k = 7, for:\n\nUsing all predictors.\nUsing just winter rainfall and summer temperature.\nUsing only age.\n\nRe-run #1, but instead use mean absolute error. (You will need to look in the documentation of cross_val_score for this!)"
+    "text": "Your turn\n\nUse cross-validation to choose between Linear Regression and KNN with k = 7, for:\n\nUsing all predictors.\nUsing just winter rainfall and summer temperature.\nUsing only age.\n\nRe-run #1, but instead use mean absolute error. (You will need to look in the documentation of cross_val_score() for this!)"
   },
   {
     "objectID": "slides/10-cross-val.html#tuning",
     "href": "slides/10-cross-val.html#tuning",
     "title": "Cross-Validation and Grid Search",
     "section": "Tuning",
-    "text": "Tuning\n\nIn previous classes, we tried many different values of \\(k\\) for KNN.\nWe also mentioned using absolute distance instead of euclidean distance.\nNow, we would like to use cross-validation to decide between these options.\nsklearn provides a nice shortcut for this!"
+    "text": "Tuning\n\nIn previous classes, we tried many different values of \\(k\\) for KNN.\nWe also mentioned using absolute distance (Manhattan) instead of euclidean distance.\nNow, we would like to use cross-validation to decide between these options.\n\n\nsklearn provides a nice shortcut for this!"
   },
   {
     "objectID": "slides/10-cross-val.html#gridsearchcv",
     "href": "slides/10-cross-val.html#gridsearchcv",
     "title": "Cross-Validation and Grid Search",
     "section": "GridSearchCV()",
-    "text": "GridSearchCV()\n\nct = make_column_transformer(\n  (StandardScaler(), ['summer', 'har', 'sep', 'win', 'age']),\n  remainder = \"drop\"\n)\n\npipeline = make_pipeline(\n    ct,\n    KNeighborsRegressor())\n    \nfrom sklearn.model_selection import GridSearchCV\n\ngrid_cv = GridSearchCV(\n    pipeline,\n    param_grid={\n        \"kneighborsregressor__n_neighbors\": range(1, 7),\n        \"kneighborsregressor__metric\": [\"euclidean\", \"manhattan\"],\n    },\n    scoring=\"neg_mean_squared_error\", cv=5)\n\ngrid_cv.fit(df_known, df_known['price'])\n\nGridSearchCV(cv=5,\n             estimator=Pipeline(steps=[('columntransformer',\n                                        ColumnTransformer(transformers=[('standardscaler',\n                                                                         StandardScaler(),\n                                                                         ['summer',\n                                                                          'har',\n                                                                          'sep',\n                                                                          'win',\n                                                                          'age'])])),\n                                       ('kneighborsregressor',\n                                        KNeighborsRegressor())]),\n             param_grid={'kneighborsregressor__metric': ['euclidean',\n                                                         'manhattan'],\n                         'kneighborsregressor__n_neighbors': range(1, 7)},\n             scoring='neg_mean_squared_error')In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.GridSearchCV?Documentation for GridSearchCViFittedGridSearchCV(cv=5,\n             estimator=Pipeline(steps=[('columntransformer',\n                                        ColumnTransformer(transformers=[('standardscaler',\n                                                                         StandardScaler(),\n                                                                         ['summer',\n                                                                          'har',\n                                                                          'sep',\n                                                                          'win',\n                                                                          'age'])])),\n                                       ('kneighborsregressor',\n                                        KNeighborsRegressor())]),\n             param_grid={'kneighborsregressor__metric': ['euclidean',\n                                                         'manhattan'],\n                         'kneighborsregressor__n_neighbors': range(1, 7)},\n             scoring='neg_mean_squared_error') best_estimator_: PipelinePipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor',\n                 KNeighborsRegressor(metric='manhattan', n_neighbors=4))]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor(metric='manhattan', n_neighbors=4) \n\n\n\nHow many times did a model get .fit() to some data?"
+    "text": "GridSearchCV()\n\npd.DataFrame(grid_cv.cv_results_)[['param_kneighborsregressor__metric', 'param_kneighborsregressor__n_neighbors', 'mean_test_score']]\n\n   param_kneighborsregressor__metric  ...  mean_test_score\n0                          euclidean  ...      -321.833333\n1                          euclidean  ...      -292.281667\n2                          euclidean  ...      -278.301481\n3                          euclidean  ...      -308.950417\n4                          euclidean  ...      -279.847733\n5                          euclidean  ...      -259.804074\n6                          manhattan  ...      -305.793333\n7                          manhattan  ...      -254.886667\n8                          manhattan  ...      -274.401481\n9                          manhattan  ...      -232.973333\n10                         manhattan  ...      -267.988800\n11                         manhattan  ...      -282.869444\n\n[12 rows x 3 columns]"
   },
   {
     "objectID": "slides/10-cross-val.html#gridsearchcv-1",
     "href": "slides/10-cross-val.html#gridsearchcv-1",
     "title": "Cross-Validation and Grid Search",
     "section": "GridSearchCV()",
-    "text": "GridSearchCV()\n\npd.DataFrame(grid_cv.cv_results_)\n\n    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score\n0        0.004256      0.000860  ...      219.338831               12\n1        0.004258      0.000613  ...      209.511631                9\n2        0.004083      0.000542  ...      178.819362                6\n3        0.004442      0.000570  ...      217.989122               11\n4        0.004452      0.000648  ...      212.797774                7\n5        0.004439      0.000959  ...      205.240907                3\n6        0.003993      0.000594  ...      227.978005               10\n7        0.004780      0.000645  ...      175.175403                2\n8        0.003951      0.000572  ...      174.981203                5\n9        0.004089      0.000681  ...      175.186322                1\n10       0.003830      0.000414  ...      200.091917                4\n11       0.004203      0.000548  ...      232.710455                8\n\n[12 rows x 15 columns]"
+    "text": "GridSearchCV()\n\ngrid_cv.best_params_\n\n{'kneighborsregressor__metric': 'manhattan', 'kneighborsregressor__n_neighbors': 4}"
   },
   {
     "objectID": "slides/10-cross-val.html#gridsearchcv-2",
     "href": "slides/10-cross-val.html#gridsearchcv-2",
     "title": "Cross-Validation and Grid Search",
     "section": "GridSearchCV()",
-    "text": "GridSearchCV()\n\npd.DataFrame(grid_cv.cv_results_)[['param_kneighborsregressor__metric', 'param_kneighborsregressor__n_neighbors', 'mean_test_score']]\n\n   param_kneighborsregressor__metric  ...  mean_test_score\n0                          euclidean  ...      -321.833333\n1                          euclidean  ...      -292.281667\n2                          euclidean  ...      -278.301481\n3                          euclidean  ...      -308.950417\n4                          euclidean  ...      -279.847733\n5                          euclidean  ...      -259.804074\n6                          manhattan  ...      -305.793333\n7                          manhattan  ...      -254.886667\n8                          manhattan  ...      -274.401481\n9                          manhattan  ...      -232.973333\n10                         manhattan  ...      -267.988800\n11                         manhattan  ...      -282.869444\n\n[12 rows x 3 columns]"
+    "text": "GridSearchCV()\n\ngrid_cv.best_params_\n\n{'kneighborsregressor__metric': 'manhattan', 'kneighborsregressor__n_neighbors': 4}"
   },
   {
     "objectID": "slides/10-cross-val.html#gridsearchcv-3",
@@ -3893,7 +3893,7 @@
     "href": "slides/10-cross-val.html#model-evaluation",
     "title": "Cross-Validation and Grid Search",
     "section": "Model Evaluation",
-    "text": "Model Evaluation\nYou have now encountered three types of decisions for finding your best model:\n\nWhich predictors should we include, and how should we preprocess them? (feature selection)\nShould we use Linear Regression or KNN or something else? (Model selection)\nWhich value of \\(k\\) should we use? (hyperparameter tuning)"
+    "text": "Model Evaluation\nYou have now encountered three types of decisions for finding your best model:\n\n\nWhich predictors should we include, and how should we preprocess them? (Feature selection)\nShould we use Linear Regression or KNN or something else? (Model selection)\nWhich value of \\(k\\) should we use? (Hyperparameter tuning)"
   },
   {
     "objectID": "slides/10-cross-val.html#model-evaluation-1",
@@ -3943,5 +3943,75 @@
     "title": "Cross-Validation and Grid Search",
     "section": "Fitting and Predicting with .predict()",
     "text": "Fitting and Predicting with .predict()\nTo predict from a linear regression, we just plug in the values to the equation…\n\npipeline.predict(df_unknown[['age']])\n\narray([12.41648163, 11.26046336, 10.1044451 ,  8.94842683,  7.79240856,\n        6.6363903 ,  5.48037203,  4.32435376,  3.1683355 ,  2.01231723,\n        0.85629897])"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#creating-testing-training-splits",
+    "href": "slides/10-cross-val.html#creating-testing-training-splits",
+    "title": "Cross-Validation and Grid Search",
+    "section": "Creating Testing & Training Splits",
+    "text": "Creating Testing & Training Splits\n\nX_train, X_test, y_train, y_test = train_test_split(df_known, \n                                                    df_known['price'], \n                                                    test_size = 0.1)"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#pipeline-for-predicting-on-test-data",
+    "href": "slides/10-cross-val.html#pipeline-for-predicting-on-test-data",
+    "title": "Cross-Validation and Grid Search",
+    "section": "Pipeline for Predicting on Test Data",
+    "text": "Pipeline for Predicting on Test Data\n\nSpecify\n\n\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\nct = make_column_transformer(\n  (StandardScaler(), features),\n  remainder = \"drop\"\n)\n\npipeline = make_pipeline(\n    ct,\n    LinearRegression())\n\n\n\nFit for Training Data\n\n\n\npipeline = pipeline.fit(X = X_train, y = y_train)\n\n\n\nPredict for Test Data\n\n\npred_y_test = pipeline.predict(X = X_test)\n\n:::"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#estimating-error-for-test-data",
+    "href": "slides/10-cross-val.html#estimating-error-for-test-data",
+    "title": "Cross-Validation and Grid Search",
+    "section": "Estimating Error for Test Data",
+    "text": "Estimating Error for Test Data\n\nmean_squared_error(y_test, pred_y_test)\n\n122.21586231778129"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#cross-validation-in-sklearn-2",
+    "href": "slides/10-cross-val.html#cross-validation-in-sklearn-2",
+    "title": "Cross-Validation and Grid Search",
+    "section": "Cross-Validation in sklearn",
+    "text": "Cross-Validation in sklearn\nWhat if you want MSE?\n\ncv_scores = cross_val_score(pipeline, \n                            X = df_known, \n                            y = df_known['price'], \n                            cv = 10, \n                            scoring = \"neg_mean_squared_error\")\ncv_scores\n\narray([ -54.51757584, -301.38564331, -521.90492178, -247.38859562,\n        -59.30908038,  -14.0803285 , -348.78575122, -138.57953707,\n        -74.29335417,   -9.66216728])"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#section",
+    "href": "slides/10-cross-val.html#section",
+    "title": "Cross-Validation and Grid Search",
+    "section": "",
+    "text": "grid_cv.fit(df_known, df_known['price'])\n\nGridSearchCV(cv=5,\n             estimator=Pipeline(steps=[('columntransformer',\n                                        ColumnTransformer(transformers=[('standardscaler',\n                                                                         StandardScaler(),\n                                                                         ['summer',\n                                                                          'har',\n                                                                          'sep',\n                                                                          'win',\n                                                                          'age'])])),\n                                       ('kneighborsregressor',\n                                        KNeighborsRegressor())]),\n             param_grid={'kneighborsregressor__metric': ['euclidean',\n                                                         'manhattan'],\n                         'kneighborsregressor__n_neighbors': range(1, 7)},\n             scoring='neg_mean_squared_error')In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.GridSearchCV?Documentation for GridSearchCViFittedGridSearchCV(cv=5,\n             estimator=Pipeline(steps=[('columntransformer',\n                                        ColumnTransformer(transformers=[('standardscaler',\n                                                                         StandardScaler(),\n                                                                         ['summer',\n                                                                          'har',\n                                                                          'sep',\n                                                                          'win',\n                                                                          'age'])])),\n                                       ('kneighborsregressor',\n                                        KNeighborsRegressor())]),\n             param_grid={'kneighborsregressor__metric': ['euclidean',\n                                                         'manhattan'],\n                         'kneighborsregressor__n_neighbors': range(1, 7)},\n             scoring='neg_mean_squared_error') best_estimator_: PipelinePipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor',\n                 KNeighborsRegressor(metric='manhattan', n_neighbors=4))]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor(metric='manhattan', n_neighbors=4) \n\n\n\nHow many times did a model get .fit() to some data?"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#initializing-gridsearchcv",
+    "href": "slides/10-cross-val.html#initializing-gridsearchcv",
+    "title": "Cross-Validation and Grid Search",
+    "section": "Initializing GridSearchCV()",
+    "text": "Initializing GridSearchCV()\n\n\nfrom sklearn.model_selection import GridSearchCV\n\ngrid_cv = GridSearchCV(\n    pipeline,\n    param_grid = {\n        \"kneighborsregressor__n_neighbors\": range(1, 7),\n        \"kneighborsregressor__metric\": [\"euclidean\", \"manhattan\"],\n    },\n    scoring = \"neg_mean_squared_error\", \n    cv = 5)\n\n\n\n\n\n\n\n\n\nSame column transformer and pipeline!\n\n\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\n\nct = make_column_transformer(\n  (StandardScaler(), features),\n  remainder = \"drop\"\n)\n\npipeline = make_pipeline(\n    ct,\n    KNeighborsRegressor()\n    )"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#fitting-gridsearchcv",
+    "href": "slides/10-cross-val.html#fitting-gridsearchcv",
+    "title": "Cross-Validation and Grid Search",
+    "section": "Fitting GridSearchCV()",
+    "text": "Fitting GridSearchCV()\n\n\n\ngrid_cv.fit(df_known, \n            df_known['price'])\n\n\nGridSearchCV(cv=5,\n             estimator=Pipeline(steps=[('columntransformer',\n                                        ColumnTransformer(transformers=[('standardscaler',\n                                                                         StandardScaler(),\n                                                                         ['summer',\n                                                                          'har',\n                                                                          'sep',\n                                                                          'win',\n                                                                          'age'])])),\n                                       ('kneighborsregressor',\n                                        KNeighborsRegressor())]),\n             param_grid={'kneighborsregressor__metric': ['euclidean',\n                                                         'manhattan'],\n                         'kneighborsregressor__n_neighbors': range(1, 7)},\n             scoring='neg_mean_squared_error')In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.GridSearchCV?Documentation for GridSearchCViFittedGridSearchCV(cv=5,\n             estimator=Pipeline(steps=[('columntransformer',\n                                        ColumnTransformer(transformers=[('standardscaler',\n                                                                         StandardScaler(),\n                                                                         ['summer',\n                                                                          'har',\n                                                                          'sep',\n                                                                          'win',\n                                                                          'age'])])),\n                                       ('kneighborsregressor',\n                                        KNeighborsRegressor())]),\n             param_grid={'kneighborsregressor__metric': ['euclidean',\n                                                         'manhattan'],\n                         'kneighborsregressor__n_neighbors': range(1, 7)},\n             scoring='neg_mean_squared_error') best_estimator_: PipelinePipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor',\n                 KNeighborsRegressor(metric='manhattan', n_neighbors=4))]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor(metric='manhattan', n_neighbors=4) \n\n\n\n\n\nHow many different models were fit with this grid?"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#getting-the-cross-validation-results",
+    "href": "slides/10-cross-val.html#getting-the-cross-validation-results",
+    "title": "Cross-Validation and Grid Search",
+    "section": "Getting the Cross Validation Results",
+    "text": "Getting the Cross Validation Results\n\n\npd.DataFrame(grid_cv.cv_results_)\n\n\n\n\n\n    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score\n0        0.004724      0.000231  ...      219.338831               12\n1        0.004687      0.000082  ...      209.511631                9\n2        0.004369      0.000183  ...      178.819362                6\n3        0.003655      0.000113  ...      217.989122               11\n4        0.004016      0.000340  ...      212.797774                7\n5        0.004791      0.000469  ...      205.240907                3\n6        0.004672      0.000250  ...      227.978005               10\n7        0.004930      0.000246  ...      175.175403                2\n8        0.004474      0.000167  ...      174.981203                5\n9        0.004800      0.000212  ...      175.186322                1\n10       0.003847      0.000281  ...      200.091917                4\n11       0.003729      0.000164  ...      232.710455                8\n\n[12 rows x 15 columns]"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#what-about-k-and-the-distances",
+    "href": "slides/10-cross-val.html#what-about-k-and-the-distances",
+    "title": "Cross-Validation and Grid Search",
+    "section": "What about k and the distances?",
+    "text": "What about k and the distances?\n\n\npd.DataFrame(grid_cv.cv_results_)[['param_kneighborsregressor__metric',\n                                   'param_kneighborsregressor__n_neighbors',\n                                   'mean_test_score']]\n\n\n\n\n\n   param_kneighborsregressor__metric  ...  mean_test_score\n0                          euclidean  ...      -321.833333\n1                          euclidean  ...      -292.281667\n2                          euclidean  ...      -278.301481\n3                          euclidean  ...      -308.950417\n4                          euclidean  ...      -279.847733\n5                          euclidean  ...      -259.804074\n6                          manhattan  ...      -305.793333\n7                          manhattan  ...      -254.886667\n8                          manhattan  ...      -274.401481\n9                          manhattan  ...      -232.973333\n10                         manhattan  ...      -267.988800\n11                         manhattan  ...      -282.869444\n\n[12 rows x 3 columns]"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#what-were-the-best-parameters",
+    "href": "slides/10-cross-val.html#what-were-the-best-parameters",
+    "title": "Cross-Validation and Grid Search",
+    "section": "What were the best parameters?",
+    "text": "What were the best parameters?\n\ngrid_cv.best_params_\n\n{'kneighborsregressor__metric': 'manhattan', 'kneighborsregressor__n_neighbors': 4}"
   }
 ]
