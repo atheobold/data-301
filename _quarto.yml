@@ -61,8 +61,8 @@ website:
             text: "Week 4, Part 2 - Bag-of-Words and TF-IDF"
           - href: slides/08-knn.qmd
             text: "Week 5 Part 1 - KNN"
-          # - href: slides/better-data-visualizations
-          #   text: "Week 5 Part 2 - Spicing Up Your Visualizations"
+          - href: https://docs.google.com/presentation/d/1ZIBJzHWQFJtsQzkak0W-Z5RxT-0wSrvGPckXxhs8M-c/edit?usp=sharing
+            text: "Week 5 Part 2 - Spicing Up Your Visualizations"
           - href: slides/09-modeling.qmd
             text: "Week 6, Part 1 - Introduction to Modeling"
           # - href: weeks/week-7-data-frame-functions.qmd
