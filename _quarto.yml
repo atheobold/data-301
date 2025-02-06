@@ -65,8 +65,8 @@ website:
             text: "Week 5 Part 2 - Spicing Up Your Visualizations"
           - href: slides/09-modeling.qmd
             text: "Week 6, Part 1 - Introduction to Modeling"
-          # - href: weeks/week-7-data-frame-functions.qmd
-          #   text: "Week 7, Part 1 -- Data Frame Functions"
+          - href: slides/10-cross-val.qmd
+            text: "Week 6, Part 2 - Cross Validation & Grid Search"
           # - href: weeks/week-8-iteration.qmd
           #   text: "Week 8 - Iteration"
           # - href: weeks/week-9-simulation.qmd
