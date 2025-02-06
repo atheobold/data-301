@@ -3209,22 +3209,22 @@
     "objectID": "slides/09-modeling.html#steps-for-data-analysis",
     "href": "slides/09-modeling.html#steps-for-data-analysis",
     "title": "Modeling",
-    "section": "",
-    "text": "Read and then clean the data\n\nAre there missing values? Will we drop those rows, or replace the missing values with something?\nAre there quantitative variables that Python thinks are categorical?\nAre there categorical variables that Python thinks are quantitative?\nAre there any anomalies in the data that concern you?"
+    "section": "Steps for Data Analysis",
+    "text": "Steps for Data Analysis\n\nRead and then clean the data\n\nAre there missing values? Will we drop those rows, or replace the missing values with something?\nAre there quantitative variables that Python thinks are categorical?\nAre there categorical variables that Python thinks are quantitative?\nAre there any anomalies in the data that concern you?"
   },
   {
     "objectID": "slides/09-modeling.html#steps-for-data-analysis-contd",
     "href": "slides/09-modeling.html#steps-for-data-analysis-contd",
     "title": "Modeling",
-    "section": "",
-    "text": "Explore the data by visualizing and summarizing.\n\nDifferent approaches for different combos of quantitative and categorical variables\nThink about conditional calculations (split-apply-combine)"
+    "section": "Steps for Data Analysis (cont’d)",
+    "text": "Steps for Data Analysis (cont’d)\n\nExplore the data by visualizing and summarizing.\n\nDifferent approaches for different combos of quantitative and categorical variables\nThink about conditional calculations (split-apply-combine)"
   },
   {
     "objectID": "slides/09-modeling.html#steps-for-data-analysis-contd-1",
     "href": "slides/09-modeling.html#steps-for-data-analysis-contd-1",
     "title": "Modeling",
-    "section": "",
-    "text": "Identify a research question of interest.\nPerform preprocessing steps\n\nShould we scale the quantitative variables?\nShould we one-hot-encode the categorical variables?\nShould we log-transform any variables?\n\nMeasure similarity between observations by calculating distances.\n\nWhich features should be included?\nWhich distance metric should we use?"
+    "section": "Steps for Data Analysis (cont’d)",
+    "text": "Steps for Data Analysis (cont’d)\n\nIdentify a research question of interest.\nPerform preprocessing steps\n\nShould we scale the quantitative variables?\nShould we one-hot-encode the categorical variables?\nShould we log-transform any variables?\n\nMeasure similarity between observations by calculating distances.\n\nWhich features should be included?\nWhich distance metric should we use?"
   },
   {
     "objectID": "slides/09-modeling.html#modeling",
@@ -3238,14 +3238,14 @@
     "href": "slides/09-modeling.html#generative-process",
     "title": "Modeling",
     "section": "Generative Process",
-    "text": "Generative Process\nIn either case: we are trying to reconstruct information in data, and we are hindered by random noise.\nThe function \\(f\\) might be very simple…\n. . .\n\\[y_i = \\mu + \\epsilon_i\\]\n“A person’s height is the true average height of people in the world, plus some randomness.”"
+    "text": "Generative Process\nIn either case: we are trying to reconstruct information in data, and we are hindered by random noise.\nThe function \\(f\\) might be very simple…\n\n\\[y_i = \\mu + \\epsilon_i\\]\n“A person’s height is the true average height of people in the world, plus some randomness.”"
   },
   {
     "objectID": "slides/09-modeling.html#generative-process-1",
     "href": "slides/09-modeling.html#generative-process-1",
     "title": "Modeling",
     "section": "Generative Process",
-    "text": "Generative Process\n… or more complex…\n\\[y_i = 0.5*x_{1i} + 0.5*x_{2i} + \\epsilon_i\\]\n“A person’s height is equal to the average of their biological mother’s height and biological father’s height, plus some randomness”\n\n\n\n\n\n\nTip\n\n\n\nDo you think there is “more randomness” in the first function or this one?"
+    "text": "Generative Process\n… or more complex…\n\\[y_i = 0.5*x_{1i} + 0.5*x_{2i} + \\epsilon_i\\]\n“A person’s height is equal to the average of their biological mother’s height and biological father’s height, plus some randomness”\n\n\n\n\n\n\nTip\n\n\nDo you think there is “more randomness” in the first function or this one?"
   },
   {
     "objectID": "slides/09-modeling.html#generative-process-2",
@@ -3287,7 +3287,7 @@
     "href": "slides/09-modeling.html#measuring-error",
     "title": "Modeling",
     "section": "Measuring Error",
-    "text": "Measuring Error\n\nThe most common way to measure “leftover noise” is the sum of squared error or equivalently, the mean squared error\n\n. . .\n\n\npred_y_train = pipeline.predict(X = df_train)\n\nresults = pd.DataFrame({\n  \"real_prices\": df_train['price'],\n  \"predicted_prices\": pred_y_train,\n})\nresults[\"squared error\"] = (results[\"predicted_prices\"] - results[\"real_prices\"])**2\nresults\n\n      real_prices  predicted_prices  squared error\nyear                                              \n1952         37.0              36.2           0.64\n1953         63.0              41.4         466.56\n1955         45.0              46.6           2.56\n1957         22.0              28.8          46.24\n1958         18.0              46.4         806.56\n1959         66.0              35.2         948.64\n1960         14.0              13.0           1.00\n1961        100.0              56.6        1883.56\n1962         33.0              40.4          54.76\n1963         17.0              16.0           1.00\n1964         31.0              37.0          36.00\n1965         11.0              12.2           1.44\n1966         47.0              32.0         225.00\n1967         19.0              26.0          49.00\n1968         11.0              11.8           0.64\n1969         12.0              18.2          38.44\n1970         40.0              29.8         104.04\n1971         27.0              24.8           4.84\n1972         10.0              13.6          12.96\n1973         16.0              28.8         163.84\n1974         11.0              19.8          77.44\n1975         30.0              24.0          36.00\n1976         25.0              18.8          38.44\n1977         11.0              25.0         196.00\n1978         27.0              18.4          73.96\n1979         21.0              18.4           6.76\n1980         14.0              25.8         139.24"
+    "text": "Measuring Error\n\nThe most common way to measure “leftover noise” is the sum of squared error or equivalently, the mean squared error\n\n\n\n\npred_y_train = pipeline.predict(X = df_train)\n\nresults = pd.DataFrame({\n  \"real_prices\": df_train['price'],\n  \"predicted_prices\": pred_y_train,\n})\nresults[\"squared error\"] = (results[\"predicted_prices\"] - results[\"real_prices\"])**2\nresults\n\n\n\n      real_prices  predicted_prices  squared error\nyear                                              \n1952         37.0              36.2           0.64\n1953         63.0              41.4         466.56\n1955         45.0              46.6           2.56\n1957         22.0              28.8          46.24\n1958         18.0              46.4         806.56\n1959         66.0              35.2         948.64\n1960         14.0              13.0           1.00\n1961        100.0              56.6        1883.56\n1962         33.0              40.4          54.76\n1963         17.0              16.0           1.00\n1964         31.0              37.0          36.00\n1965         11.0              12.2           1.44\n1966         47.0              32.0         225.00\n1967         19.0              26.0          49.00\n1968         11.0              11.8           0.64\n1969         12.0              18.2          38.44\n1970         40.0              29.8         104.04\n1971         27.0              24.8           4.84\n1972         10.0              13.6          12.96\n1973         16.0              28.8         163.84\n1974         11.0              19.8          77.44\n1975         30.0              24.0          36.00\n1976         25.0              18.8          38.44\n1977         11.0              25.0         196.00\n1978         27.0              18.4          73.96\n1979         21.0              18.4           6.76\n1980         14.0              25.8         139.24"
   },
   {
     "objectID": "slides/09-modeling.html#measuring-error-1",
@@ -3350,7 +3350,7 @@
     "href": "slides/09-modeling.html#modeling-2",
     "title": "Modeling",
     "section": "Modeling",
-    "text": "Modeling\nFor each model proposed:\n\nEstablish a pipeline with transformers and a model.\nFit the pipeline on the training data (with known outcome)\nPredict with the fitted pipeline on test data (with known outcome)\nEvaluate our success; i.e., measure noise “left over”\n\n. . .\nThen:\n\nSelect the best model\nFit on all the data\nPredict on any future data (with unknown outcome)"
+    "text": "Modeling\nFor each model proposed:\n\nEstablish a pipeline with transformers and a model.\nFit the pipeline on the training data (with known outcome)\nPredict with the fitted pipeline on test data (with known outcome)\nEvaluate our success; i.e., measure noise “left over”\n\n\nThen:\n\nSelect the best model\nFit on all the data\nPredict on any future data (with unknown outcome)"
   },
   {
     "objectID": "slides/09-modeling.html#big-decisions",
@@ -3364,7 +3364,7 @@
     "href": "slides/09-modeling.html#knn-revisited-1",
     "title": "Modeling",
     "section": "KNN Revisited",
-    "text": "KNN Revisited\n\nFit\n\npipeline.fit(X = df_train,\n             y = df_train['price'])\n\nPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor', KNeighborsRegressor())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor', KNeighborsRegressor())]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor()"
+    "text": "KNN Revisited\n\nFit\n\n\npipeline.fit(X = df_train,\n             y = df_train['price'])\n\n\nPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor', KNeighborsRegressor())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  ['summer', 'har', 'sep',\n                                                   'win', 'age'])])),\n                ('kneighborsregressor', KNeighborsRegressor())]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 ['summer', 'har', 'sep', 'win', 'age'])]) standardscaler['summer', 'har', 'sep', 'win', 'age'] StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor()"
   },
   {
     "objectID": "slides/09-modeling.html#knn-revisited-2",
