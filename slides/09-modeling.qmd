@@ -69,7 +69,7 @@ Every analysis we will do assumes a structure like:
 ... or, if you prefer...
 
 ::: {style="font-size: 125%;"}
-(**target**) = f(**predictors**) + (noise)
+**target** = f(**predictors**) + noise
 :::
 
 ## Generative Process
