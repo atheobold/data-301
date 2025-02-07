@@ -443,7 +443,8 @@ ct = make_column_transformer(
 
 pipeline = make_pipeline(
     ct,
-    LinearRegression())
+    LinearRegression()
+    )
 ```
 :::
 
@@ -754,7 +755,3 @@ Think of this like a college sports bracket:
 -   Determine the **best model type** for each **feature set** (state championships!)
 
 -   Determine the **best pipeline** (national championships!)
-
-## Challenge! 
-
-Of all these options, what is the **number one best model** for wine price prediction, in your opinion?

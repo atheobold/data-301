@@ -1170,7 +1170,8 @@ Name: age, dtype: float64</code></pre>
 <span id="cb17-6"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-7"><a aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> make_pipeline(</span>
 <span id="cb17-8"><a aria-hidden="true" tabindex="-1"></a>    ct,</span>
-<span id="cb17-9"><a aria-hidden="true" tabindex="-1"></a>    LinearRegression())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-9"><a aria-hidden="true" tabindex="-1"></a>    LinearRegression()</span>
+<span id="cb17-10"><a aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="midi">
@@ -1194,7 +1195,7 @@ Name: age, dtype: float64</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>mean_squared_error(y_test, pred_y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>122.21586231778129</code></pre>
+<pre><code>68.52448818458518</code></pre>
 </div>
 </div>
 </section>
@@ -1842,18 +1843,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score
-0        0.004724      0.000231  ...      219.338831               12
-1        0.004687      0.000082  ...      209.511631                9
-2        0.004369      0.000183  ...      178.819362                6
-3        0.003655      0.000113  ...      217.989122               11
-4        0.004016      0.000340  ...      212.797774                7
-5        0.004791      0.000469  ...      205.240907                3
-6        0.004672      0.000250  ...      227.978005               10
-7        0.004930      0.000246  ...      175.175403                2
-8        0.004474      0.000167  ...      174.981203                5
-9        0.004800      0.000212  ...      175.186322                1
-10       0.003847      0.000281  ...      200.091917                4
-11       0.003729      0.000164  ...      232.710455                8
+0        0.003669      0.000201  ...      219.338831               12
+1        0.003447      0.000476  ...      209.511631                9
+2        0.003315      0.000153  ...      178.819362                6
+3        0.003398      0.000258  ...      217.989122               11
+4        0.003423      0.000285  ...      212.797774                7
+5        0.003262      0.000237  ...      205.240907                3
+6        0.004108      0.000772  ...      227.978005               10
+7        0.003468      0.000113  ...      175.175403                2
+8        0.003139      0.000158  ...      174.981203                5
+9        0.003401      0.000189  ...      175.186322                1
+10       0.003197      0.000236  ...      200.091917                4
+11       0.003167      0.000094  ...      232.710455                8
 
 [12 rows x 15 columns]</code></pre>
 </div>
@@ -1920,10 +1921,6 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li><p>Determine the <strong>best model type</strong> for each <strong>feature set</strong> (state championships!)</p></li>
 <li><p>Determine the <strong>best pipeline</strong> (national championships!)</p></li>
 </ul>
-</section>
-<section id="challenge" class="slide level2">
-<h2>Challenge!</h2>
-<p>Of all these options, what is the <strong>number one best model</strong> for wine price prediction, in your opinion?</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
