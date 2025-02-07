@@ -67,8 +67,8 @@ website:
             text: "Week 6, Part 1 - Introduction to Modeling"
           - href: slides/10-cross-val.qmd
             text: "Week 6, Part 2 - Cross Validation & Grid Search"
-          # - href: weeks/week-8-iteration.qmd
-          #   text: "Week 8 - Iteration"
+          - href: slides/11-classification.qmd
+            text: "Week 7, Part 1 - Classification"
           # - href: weeks/week-9-simulation.qmd
           #   text: "Week 9 - Simulating Data"
           # - href: weeks/week-10.qmd

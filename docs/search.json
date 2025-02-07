@@ -1478,7 +1478,7 @@
     "href": "index.html",
     "title": "Introduction to Data Science (in Python)",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nFriday, January 10\n\n\n\nLab 1 Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nLecture 2.1 Activity\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nLecture 2.2 Activity\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nFriday, January 17\n\n\n\nLab 2 Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nFriday, January 24\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-Words and TF-IDF\nActivity 4.2\nLab 4A\nLab 4B\n\n\n\n\nFriday, January 31\n\n\n\nLab 4 Due by Midnight\n\n\n\n5\nK-Nearest Neighbors & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nLecture 5.1 Activity\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nSpicing up Your Visualizations\nActivity 5.2\n\nMidterm Exam (in-class)\n\n\n\nFriday, February 7\n\n\n\nNo lab this week!\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nIntroduction to Modeling\nLecture 6.1 Activity\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nCross-Validation and Grid Search\nLecture 6.2 Activity\nActivity 6.2\nLab 6A\nLab 6B\n\n\n\n\nFriday, February 14\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nClassification\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nLogistic Regression\nActivity 7.2\n\n\n\n\n\nFriday, February 21\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\nUnsupervised Learning with K-Means\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nCombining Datasets\nActivity 8.2\n\n\n\n\n\nFriday, February 28\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nWebscraping\nTuesday, March 4\n\nHierarchical Data\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\nWebscraping\nActivity 9.2\n\n\n\n\n\nFriday, March 7\n\n\n\nLab 9 Due by Midnight\n\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\n\n\n\nPosters Due to be Printed\n\n\n\nThursday, March 13\n\n\n\n\nFinal Exam (in-class)\n\n\nFinals Week\nSaturday, March 15 (time TBD)\n\n\n\n\nPoster Presentations",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nFriday, January 10\n\n\n\nLab 1 Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nLecture 2.1 Activity\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nLecture 2.2 Activity\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nFriday, January 17\n\n\n\nLab 2 Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nFriday, January 24\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-Words and TF-IDF\nActivity 4.2\nLab 4A\nLab 4B\n\n\n\n\nFriday, January 31\n\n\n\nLab 4 Due by Midnight\n\n\n\n5\nK-Nearest Neighbors & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nLecture 5.1 Activity\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nSpicing up Your Visualizations\nActivity 5.2\n\nMidterm Exam (in-class)\n\n\n\nFriday, February 7\n\n\n\nNo lab this week!\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nIntroduction to Modeling\nLecture 6.1 Activity\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nCross-Validation and Grid Search\nLecture 6.2 Activity\nActivity 6.2\nLab 6A\nLab 6B\n\n\n\n\nFriday, February 14\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nClassification\nLecture 7.1 Activity\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nLogistic Regression\nLecture 7.2 Activity\nActivity 7.2\n\n\n\n\n\nFriday, February 21\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\nUnsupervised Learning with K-Means\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nCombining Datasets\nActivity 8.2\n\n\n\n\n\nFriday, February 28\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nWebscraping\nTuesday, March 4\n\nHierarchical Data\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\nWebscraping\nActivity 9.2\n\n\n\n\n\nFriday, March 7\n\n\n\nLab 9 Due by Midnight\n\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\n\n\n\nPosters Due to be Printed\n\n\n\nThursday, March 13\n\n\n\n\nFinal Exam (in-class)\n\n\nFinals Week\nSaturday, March 15 (time TBD)\n\n\n\n\nPoster Presentations",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -4153,5 +4153,236 @@
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
     ]
+  },
+  {
+    "objectID": "slides/11-classification.html#choosing-a-best-model",
+    "href": "slides/11-classification.html#choosing-a-best-model",
+    "title": "Classification",
+    "section": "Choosing a Best Model",
+    "text": "Choosing a Best Model\n\nWe select a best model - aka best prediction procedure - by cross-validation.\nFeature selection: Which predictors should we include, and how should we preprocess them?\nModel selection: Should we use Linear Regression or KNN or Decision Trees or something else?\nHyperparameter tuning: Choosing model-specific settings, like \\(k\\) for KNN.\nEach candidate is a pipeline; use GridSearchCV() or cross_val_score() to score the options"
+  },
+  {
+    "objectID": "slides/11-classification.html#breast-tissue-classification",
+    "href": "slides/11-classification.html#breast-tissue-classification",
+    "title": "Classification",
+    "section": "Breast Tissue Classification",
+    "text": "Breast Tissue Classification\nElectrical signals can be used to detect whether tissue is cancerous."
+  },
+  {
+    "objectID": "slides/11-classification.html#reading-in-the-data",
+    "href": "slides/11-classification.html#reading-in-the-data",
+    "title": "Classification",
+    "section": "Reading in the Data",
+    "text": "Reading in the Data\n\nimport pandas as pd\nbreast_df = pd.read_csv(\"https://datasci112.stanford.edu/data/BreastTissue.csv\")\n\n\n\n\n     Case # Class           I0  ...      Max IP          DR            P\n0         1   car   524.794072  ...   60.204880  220.737212   556.828334\n1         2   car   330.000000  ...   69.717361   99.084964   400.225776\n2         3   car   551.879287  ...   77.793297  253.785300   656.769449\n3         4   car   380.000000  ...   88.758446  105.198568   493.701814\n4         5   car   362.831266  ...   69.389389  103.866552   424.796503\n..      ...   ...          ...  ...         ...         ...          ...\n101     102   adi  2000.000000  ...  204.090347  478.517223  2088.648870\n102     103   adi  2600.000000  ...  418.687286  977.552367  2664.583623\n103     104   adi  1600.000000  ...  103.732704  432.129749  1475.371534\n104     105   adi  2300.000000  ...  178.691742   49.593290  2480.592151\n105     106   adi  2600.000000  ...  154.122604  729.368395  2545.419744\n\n[106 rows x 11 columns]"
+  },
+  {
+    "objectID": "slides/11-classification.html#visualizing-the-data",
+    "href": "slides/11-classification.html#visualizing-the-data",
+    "title": "Classification",
+    "section": "Visualizing the Data",
+    "text": "Visualizing the Data\n\n\nCode\nfrom plotnine import *\n\n(\n  ggplot(data = breast_df, \n         mapping = aes(x = \"I0\", y = \"PA500\", fill = \"Class\")) +\n  geom_point(size = 2) +\n  theme_bw() +\n  theme(legend_position = \"top\")\n    )"
+  },
+  {
+    "objectID": "slides/11-classification.html#k-nearest-neighbors",
+    "href": "slides/11-classification.html#k-nearest-neighbors",
+    "title": "Classification",
+    "section": "K-Nearest Neighbors",
+    "text": "K-Nearest Neighbors\nWhat would we predict for someone with an \\(I_0\\) of 400 and a \\(PA_{500}\\) of 0.18?\n\nX_train = breast_df[[\"I0\", \"PA500\"]]\ny_train = breast_df[\"Class\"]\n\nX_unknown = pd.DataFrame({\"I0\": [400], \"PA500\": [.18]})\nX_unknown\n\n    I0  PA500\n0  400   0.18"
+  },
+  {
+    "objectID": "slides/11-classification.html#k-nearest-neighbors-1",
+    "href": "slides/11-classification.html#k-nearest-neighbors-1",
+    "title": "Classification",
+    "section": "K-Nearest Neighbors",
+    "text": "K-Nearest Neighbors\n\n\n\nCode\nfrom plotnine import *\n\n(\n  ggplot() + \n  geom_point(data = breast_df, \n             mapping = aes(x = \"I0\", y = \"PA500\", color = \"Class\")) +\n  geom_point(data = X_unknown, \n             mapping = aes(x = \"I0\", y = \"PA500\"), size = 3) +\n  theme_bw() +\n  theme(legend_position = \"top\")\n)"
+  },
+  {
+    "objectID": "slides/11-classification.html#k-nearest-neighbors-2",
+    "href": "slides/11-classification.html#k-nearest-neighbors-2",
+    "title": "Classification",
+    "section": "K-Nearest Neighbors",
+    "text": "K-Nearest Neighbors\nThis process is almost identical to KNN Regression:\nSpecify\n\n\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.pipeline import make_pipeline\n\npipeline = make_pipeline(\n    StandardScaler(),\n    KNeighborsClassifier(n_neighbors = 5, \n                         metric = \"euclidean\")\n    )\n\n\nFit\n\n\npipeline = pipeline.fit(X_train, y_train)\n\n\nPredict\n\n\n\npipeline.predict(X_unknown)\n\n\narray(['car'], dtype=object)"
+  },
+  {
+    "objectID": "slides/11-classification.html#probabilities",
+    "href": "slides/11-classification.html#probabilities",
+    "title": "Classification",
+    "section": "Probabilities",
+    "text": "Probabilities\nWhich of these two unknown points would we be more sure about in our guess?\n\n\n\nCode\nX_unknown = pd.DataFrame({\"I0\": [400, 2200], \"PA500\": [.18, 0.05]})\n\n(\n  ggplot() + \n  geom_point(data = breast_df, \n             mapping = aes(x = \"I0\", y = \"PA500\", color = \"Class\"), \n             size = 2) +\n  geom_point(data = X_unknown, \n             mapping = aes(x = \"I0\", y = \"PA500\"), size = 3) +\n  theme_bw() +\n  theme(legend_position = \"top\")\n)"
+  },
+  {
+    "objectID": "slides/11-classification.html#probabilities-1",
+    "href": "slides/11-classification.html#probabilities-1",
+    "title": "Classification",
+    "section": "Probabilities",
+    "text": "Probabilities\nInstead of returning a single predicted class, we can ask sklearn to return the predicted probabilities for each class.\n\npipeline.predict_proba(X_unknown)\n\narray([[0. , 0.6, 0. , 0.2, 0. , 0.2],\n       [1. , 0. , 0. , 0. , 0. , 0. ]])\n\n\n\npipeline.classes_\n\narray(['adi', 'car', 'con', 'fad', 'gla', 'mas'], dtype=object)\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nHow did Scikit-Learn calculate these predicted probabilities?"
+  },
+  {
+    "objectID": "slides/11-classification.html#cross-validation-for-classification",
+    "href": "slides/11-classification.html#cross-validation-for-classification",
+    "title": "Classification",
+    "section": "Cross-Validation for Classification",
+    "text": "Cross-Validation for Classification\nWe need a different scoring method for classification.\nA simple scoring method is accuracy:\n\\[\\text{accuracy} = \\frac{\\text{# correct predictions}}{\\text{# predictions}}\\]"
+  },
+  {
+    "objectID": "slides/11-classification.html#cross-validation-for-classification-1",
+    "href": "slides/11-classification.html#cross-validation-for-classification-1",
+    "title": "Classification",
+    "section": "Cross-Validation for Classification",
+    "text": "Cross-Validation for Classification\n\nfrom sklearn.model_selection import cross_val_score\n\nscores = cross_val_score(\n    pipeline, X_train, y_train,\n    scoring = \"accuracy\",\n    cv = 10)\n    \nscores\n\narray([0.63636364, 0.81818182, 0.45454545, 0.54545455, 0.63636364,\n       0.54545455, 0.5       , 0.6       , 0.4       , 0.7       ])"
+  },
+  {
+    "objectID": "slides/11-classification.html#cross-validation-for-classification-2",
+    "href": "slides/11-classification.html#cross-validation-for-classification-2",
+    "title": "Classification",
+    "section": "Cross-Validation for Classification",
+    "text": "Cross-Validation for Classification\nAs before, we can get an overall estimate of test accuracy by averaging the cross-validation accuracies:\n\nscores.mean()\n\nnp.float64(0.5836363636363637)\n\n\n\n\nBut! Accuracy is not always the best measure of a classification model!"
+  },
+  {
+    "objectID": "slides/11-classification.html#confusion-matrix",
+    "href": "slides/11-classification.html#confusion-matrix",
+    "title": "Classification",
+    "section": "Confusion Matrix",
+    "text": "Confusion Matrix\n\nfrom sklearn.metrics import confusion_matrix\n\ny_train_predicted = pipeline.predict(X_train)\n\nconfusion_matrix(y_train, y_train_predicted)\n\narray([[20,  0,  2,  0,  0,  0],\n       [ 0, 20,  0,  0,  0,  1],\n       [ 2,  0, 11,  1,  0,  0],\n       [ 0,  0,  0, 13,  1,  1],\n       [ 0,  0,  0,  3, 12,  1],\n       [ 0,  2,  0,  8,  3,  5]])\n\n\n\n\n\n\n\n\n\nRemember we made the pipeline previously!\n\n\n\npipeline = pipeline.fit(X_train, y_train)"
+  },
+  {
+    "objectID": "slides/11-classification.html#confusion-matrix-1",
+    "href": "slides/11-classification.html#confusion-matrix-1",
+    "title": "Classification",
+    "section": "Confusion Matrix",
+    "text": "Confusion Matrix\n\npd.DataFrame(confusion_matrix(y_train, y_train_predicted), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n\n     adi  car  con  fad  gla  mas\nadi   20    0    2    0    0    0\ncar    0   20    0    0    0    1\ncon    2    0   11    1    0    0\nfad    0    0    0   13    1    1\ngla    0    0    0    3   12    1\nmas    0    2    0    8    3    5"
+  },
+  {
+    "objectID": "slides/11-classification.html#activity-1",
+    "href": "slides/11-classification.html#activity-1",
+    "title": "Classification",
+    "section": "Activity",
+    "text": "Activity\nUse a grid search and the accuracy score to find the best k-value for this modeling problem."
+  },
+  {
+    "objectID": "slides/11-classification.html#case-study-credit-card-fraud",
+    "href": "slides/11-classification.html#case-study-credit-card-fraud",
+    "title": "Classification",
+    "section": "Case Study: Credit Card Fraud",
+    "text": "Case Study: Credit Card Fraud\n\nWe have a data set of credit card transactions from Vesta.\n\ndf_fraud = pd.read_csv(\"https://datasci112.stanford.edu/data/fraud.csv\")\n\n\n\n\n\n\n            card4   card6 P_emaildomain  ...    C13    C14  isFraud\n0            visa   debit     gmail.com  ...  637.0  114.0        0\n1            visa   debit                ...    3.0    1.0        0\n2            visa   debit     yahoo.com  ...    4.0    1.0        1\n3            visa   debit   hotmail.com  ...    0.0    0.0        0\n4            visa   debit     gmail.com  ...   20.0    1.0        0\n...           ...     ...           ...  ...    ...    ...      ...\n59049  mastercard   debit     gmail.com  ...    1.0    1.0        0\n59050  mastercard  credit     yahoo.com  ...    1.0    1.0        0\n59051  mastercard   debit    icloud.com  ...   15.0    2.0        0\n59052        visa   debit     gmail.com  ...    1.0    1.0        1\n59053  mastercard   debit                ...   84.0   17.0        0\n\n[59054 rows x 19 columns]\n\n\n\n\n\n\nGoal: Predict isFraud, where 1 indicates a fraudulent transaction."
+  },
+  {
+    "objectID": "slides/11-classification.html#classification-model",
+    "href": "slides/11-classification.html#classification-model",
+    "title": "Classification",
+    "section": "Classification Model",
+    "text": "Classification Model\nWe can use \\(k\\)-nearest neighbors for classification:\n\nfrom sklearn.preprocessing import OneHotEncoder\nfrom sklearn.compose import make_column_transformer\n\npipeline = make_pipeline(\n  make_column_transformer(\n        (OneHotEncoder(handle_unknown = \"ignore\", sparse_output = False), \n        [\"card4\", \"card6\", \"P_emaildomain\"]),\n        remainder = \"passthrough\"),\n    StandardScaler(),\n    KNeighborsClassifier(n_neighbors = 5))\n\n\n\n\n\n\n\nWhat is this transformer doing?"
+  },
+  {
+    "objectID": "slides/11-classification.html#training-a-classifier",
+    "href": "slides/11-classification.html#training-a-classifier",
+    "title": "Classification",
+    "section": "Training a Classifier",
+    "text": "Training a Classifier\nIsolating X and y for training data\n\nX_train = df_fraud.drop(\"isFraud\", axis = \"columns\")\ny_train = df_fraud[\"isFraud\"]\n\n\n\n\ncross_val_score(\n    pipeline,\n    X = X_train, \n    y = y_train,\n    scoring = \"accuracy\",\n    cv = 10\n    ).mean()\n\nnp.float64(0.9681816479631644)\n\n\n\n\n\nHow is the accuracy so high????"
+  },
+  {
+    "objectID": "slides/11-classification.html#a-closer-look",
+    "href": "slides/11-classification.html#a-closer-look",
+    "title": "Classification",
+    "section": "A Closer Look",
+    "text": "A Closer Look\nLet’s take a closer look at the labels.\n\ny_train.value_counts()\n\nisFraud\n0    56935\n1     2119\nName: count, dtype: int64\n\n\n\nThe vast majority of transactions aren’t fraudulent!"
+  },
+  {
+    "objectID": "slides/11-classification.html#imbalanced-data",
+    "href": "slides/11-classification.html#imbalanced-data",
+    "title": "Classification",
+    "section": "Imbalanced Data",
+    "text": "Imbalanced Data\nIf we just predicted that every transaction is normal, the accuracy would be \\(1 - \\frac{2119}{59054} = .964\\).\nEven though such predictions would be accurate overall, it is inaccurate for fraudulent transactions.\n\nA good model is “accurate for every class.”"
+  },
+  {
+    "objectID": "slides/11-classification.html#precision-and-recall-by-hand",
+    "href": "slides/11-classification.html#precision-and-recall-by-hand",
+    "title": "Classification",
+    "section": "Precision and Recall by Hand",
+    "text": "Precision and Recall by Hand\n\nTo check our understanding of these definitions, let’s calculate a few precisions and recalls by hand.\nBut first we need to get the confusion matrix!\n\n\n\n\n\nCode\npipeline.fit(X_train, y_train);\ny_train_ = pipeline.predict(X_train)\nconfusion_matrix(y_train, y_train_)"
+  },
+  {
+    "objectID": "slides/11-classification.html#trade-off-between-precision-and-recall",
+    "href": "slides/11-classification.html#trade-off-between-precision-and-recall",
+    "title": "Classification",
+    "section": "Trade Off Between Precision and Recall",
+    "text": "Trade Off Between Precision and Recall\nCan you imagine a classifier that always has 100% recall for class \\(c\\), no matter the data?\n\nIn general, if the model classifies more observations as \\(c\\),\n\nrecall (for class \\(c\\)) \\(\\uparrow\\)\nprecision (for class \\(c\\)) \\(\\downarrow\\)\n\n\n\nHow do we compare two classifiers, if one has higher precision and the other has higher recall?"
+  },
+  {
+    "objectID": "slides/11-classification.html#f1-score",
+    "href": "slides/11-classification.html#f1-score",
+    "title": "Classification",
+    "section": "F1 Score",
+    "text": "F1 Score\nThe F1 score combines precision and recall into a single score:\n\\[\\text{F1 score} = \\text{harmonic mean of precision and recall}\\] \\[= \\frac{2} {\\left( \\frac{1}{\\text{precision}} + \\frac{1}{\\text{recall}}\\right)}\\]\n\nTo achieve a high F1 score, both precision and recall have to be high.\nIf either is low, then the harmonic mean will be low."
+  },
+  {
+    "objectID": "slides/11-classification.html#estimating-test-precision-recall-and-f1",
+    "href": "slides/11-classification.html#estimating-test-precision-recall-and-f1",
+    "title": "Classification",
+    "section": "Estimating Test Precision, Recall, and F1",
+    "text": "Estimating Test Precision, Recall, and F1\n\nRemember that each class has its own precision, recall, and F1.\nBut Scikit-Learn requires that the scoring parameter be a single metric.\nFor this, we can average the score over the metrics:\n\n\"precision_macro\"\n\"recall_macro\"\n\"f1_macro\""
+  },
+  {
+    "objectID": "slides/11-classification.html#f1-score-1",
+    "href": "slides/11-classification.html#f1-score-1",
+    "title": "Classification",
+    "section": "F1 Score",
+    "text": "F1 Score\n\ncross_val_score(\n    pipeline,\n    X = X_train,\n    y = y_train,\n    scoring = \"f1_macro\",\n    cv = 10\n    ).mean()\n\nnp.float64(0.647384563849488)"
+  },
+  {
+    "objectID": "slides/11-classification.html#precision-recall-curve",
+    "href": "slides/11-classification.html#precision-recall-curve",
+    "title": "Classification",
+    "section": "Precision-Recall Curve",
+    "text": "Precision-Recall Curve\nAnother way to illustrate the trade off between precision and recall is to graph the precision-recall curve.\nFirst, we need the predicted probabilities.\n\ny_train_probs_ = pipeline.predict_proba(X_train)\ny_train_probs_\n\narray([[1. , 0. ],\n       [1. , 0. ],\n       [0.4, 0.6],\n       ...,\n       [1. , 0. ],\n       [0.8, 0.2],\n       [1. , 0. ]], shape=(59054, 2))"
+  },
+  {
+    "objectID": "slides/11-classification.html#precision-recall-curve-1",
+    "href": "slides/11-classification.html#precision-recall-curve-1",
+    "title": "Classification",
+    "section": "Precision-Recall Curve",
+    "text": "Precision-Recall Curve\n\nBy default, Scikit-Learn classifies a transaction as fraud if this probability is \\(&gt; 0.5\\).\nWhat if we instead used a threshold t other than \\(0.5\\)?\nDepending on which t we pick, we’ll get a different precision and recall.\n\nWe can graph this trade off!"
+  },
+  {
+    "objectID": "slides/11-classification.html#precision-recall-curve-2",
+    "href": "slides/11-classification.html#precision-recall-curve-2",
+    "title": "Classification",
+    "section": "Precision-Recall Curve",
+    "text": "Precision-Recall Curve\nLet’s graph the precision-recall curve together in a Colab.\nhttps://colab.research.google.com/drive/1T-0iQOQZFldHNmOXdZf4GU0b8j3kWMc_?usp=sharing"
+  },
+  {
+    "objectID": "slides/11-classification.html#takeaways-1",
+    "href": "slides/11-classification.html#takeaways-1",
+    "title": "Classification",
+    "section": "Takeaways",
+    "text": "Takeaways\n\n\nWe can do KNN for Classification by letting the nearest neighbors “vote”\nThe number of votes is a “probability”\nA classification model must be evaluated differently than a regression model.\nOne possible metric is accuracy, but this is a bad choice in situations with imbalanced data.\nPrecision measures “if we say it’s in Class A, is it really?”\nRecall measures “if it’s really in Class A, did we find it?”\nF1 Score is a balance of precision and recall\nMacro F1 Score averages the F1 scores of all classes"
+  },
+  {
+    "objectID": "slides/11-classification.html#analysis-goal",
+    "href": "slides/11-classification.html#analysis-goal",
+    "title": "Classification",
+    "section": "Analysis Goal",
+    "text": "Analysis Goal\nThe goal is to determine whether a sample of breast tissue is:\n\n\nNot Cancerous\n\nconnective tissue\nadipose tissue\nglandular tissue\n\n\n\n\nCancerous\n\ncarcinoma\nfibro-adenoma\nmastopathy"
+  },
+  {
+    "objectID": "slides/11-classification.html#variables-of-interest",
+    "href": "slides/11-classification.html#variables-of-interest",
+    "title": "Classification",
+    "section": "Variables of Interest",
+    "text": "Variables of Interest\nWe will focus on two features:\n\n\\(I_0\\): impedivity at 0 kHz,\n\\(PA_{500}\\): phase angle at 500 kHz."
+  },
+  {
+    "objectID": "slides/11-classification.html#confusion-matrix-with-classes",
+    "href": "slides/11-classification.html#confusion-matrix-with-classes",
+    "title": "Classification",
+    "section": "Confusion Matrix with Classes",
+    "text": "Confusion Matrix with Classes\n\npd.DataFrame(confusion_matrix(y_train, y_train_predicted), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n\n     adi  car  con  fad  gla  mas\nadi   20    0    2    0    0    0\ncar    0   20    0    0    0    1\ncon    2    0   11    1    0    0\nfad    0    0    0   13    1    1\ngla    0    0    0    3   12    1\nmas    0    2    0    8    3    5\n\n\n\n\n\n\n\n\nWhat group(s) were the hardest to predict?"
+  },
+  {
+    "objectID": "slides/11-classification.html#now-lets-calculate",
+    "href": "slides/11-classification.html#now-lets-calculate",
+    "title": "Classification",
+    "section": "Now Let’s Calculate!",
+    "text": "Now Let’s Calculate!\n\n\nCode\npd.DataFrame(confusion_matrix(y_train, y_train_), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n\n\n       0    1\n0  56814  121\n1   1519  600\n\n\n\n\nWhat is the (training) accuracy?\nWhat’s the precision for normal transactions?\nWhat’s the recall for normal transactions?\nWhat’s the precision for fraudulent transactions?\nWhat’s the recall for fraudulent transactions?"
   }
 ]
