@@ -3498,7 +3498,7 @@
     "href": "slides/09-modeling.html#try-again-best-k",
     "title": "Modeling",
     "section": "Try Again: Best K",
-    "text": "Try Again: Best K\n\n\nfor k in range(1,15):\n  pipeline = make_pipeline(\n    ct,\n    KNeighborsRegressor(n_neighbors = k))\n \n  pipeline = pipeline.fit(X = df_train_new, \n                          y = df_train_new['price'])\n  \n  pred_y_test = pipeline.predict(X = df_test_new)\n  \n  print(str(k) + \":\" + str(((df_test_new['price'] - pred_y_test)**2).mean()))\n\n1:0.0\n2:158.375\n3:228.39583333333331\n4:268.32421875\n5:251.9875\n6:283.83854166666663\n7:267.3584183673469\n8:305.376953125\n9:332.8541666666667\n10:343.52374999999995\n11:344.33419421487605\n12:397.2560763888889\n13:428.9929733727811\n14:430.9279336734694",
+    "text": "Try Again: Best K\n\n\nfor k in range(1,15):\n  pipeline = make_pipeline(\n    ct,\n    KNeighborsRegressor(n_neighbors = k))\n \n  pipeline = pipeline.fit(X = df_train_new, \n                          y = df_train_new['price'])\n  \n  pred_y_test = pipeline.predict(X = df_test_new)\n  \n  print(str(k) + \":\" + str(((df_test_new['price'] - pred_y_test)**2).mean()))\n\n1:183.0\n2:139.85\n3:123.78888888888892\n4:159.34375\n5:121.81199999999998\n6:83.28333333333333\n7:86.08163265306123\n8:86.465625\n9:73.12839506172841\n10:72.263\n11:89.03801652892564\n12:133.99791666666667\n13:162.23136094674555\n14:169.534693877551",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -3597,7 +3597,7 @@
     "href": "slides/09-modeling.html#another-test-training-split",
     "title": "Modeling",
     "section": "Another Test / Training Split",
-    "text": "Another Test / Training Split\n\ntest = (df[\"year\"] &lt; 1970) & (df[\"year\"] &lt; 1981)\ntrain = df[\"year\"] &lt; 1971\n\ndf_train_new = df[train].copy()\ndf_test_new = df[test].copy()\n\n\n\nWe will train on the years up to 1970\nWe will test on the years 1971 to 1980\nWe will evaluate based on model performance on the test data.",
+    "text": "Another Test / Training Split\n\ntest = (df[\"year\"] &gt; 1970) & (df[\"year\"] &lt; 1981)\ntrain = df[\"year\"] &lt; 1971\n\ndf_train_new = df[train].copy()\ndf_test_new = df[test].copy()\n\n\n\nWe will train on the years up to 1970\nWe will test on the years 1971 to 1980\nWe will evaluate based on model performance on the test data.",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"

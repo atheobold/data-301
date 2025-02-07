@@ -313,7 +313,7 @@ for k in [1, 3, 5, 10, 25]:
 #| code-line-numbers: false
 #| label: new-test-train
 
-test = (df["year"] < 1970) & (df["year"] < 1981)
+test = (df["year"] > 1970) & (df["year"] < 1981)
 train = df["year"] < 1971
 
 df_train_new = df[train].copy()
