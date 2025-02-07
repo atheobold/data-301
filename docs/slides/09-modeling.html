@@ -525,30 +525,23 @@
 <span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
 <span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://dlsun.github.io/pods/data/bordeaux.csv"</span>,</span>
-<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a>                 index_col <span class="op">=</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://dlsun.github.io/pods/data/bordeaux.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:45%;">
 <p><strong>Training Data</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>df_train <span class="op">=</span> (</span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>  df</span>
-<span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>  .loc[:<span class="dv">1980</span>]</span>
-<span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a>  .copy()</span>
-<span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>known <span class="op">=</span> df[<span class="st">"year"</span>] <span class="op">&lt;</span> <span class="dv">1981</span></span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>df_train <span class="op">=</span> df[known]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:10%;">
 
 </div><div class="column" style="width:45%;">
 <p><strong>Testing Data</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>df_unknown <span class="op">=</span> (</span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>  df</span>
-<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a>  .loc[<span class="dv">1981</span>:]</span>
-<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a>  .copy()</span>
-<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>unknown <span class="op">=</span> df[<span class="st">"year"</span>] <span class="op">&gt;</span> <span class="dv">1980</span></span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> df[unknown]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>
 </section>
@@ -1022,7 +1015,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="midi">
 <p><strong>Predict</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>pred_y_train <span class="op">=</span> pipeline.predict(X <span class="op">=</span> df_unknown)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>pred_y_train <span class="op">=</span> pipeline.predict(X <span class="op">=</span> df_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1045,35 +1038,34 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>      real_prices  predicted_prices  squared error
-year                                              
-1952         37.0              36.2           0.64
-1953         63.0              41.4         466.56
-1955         45.0              46.6           2.56
-1957         22.0              28.8          46.24
-1958         18.0              46.4         806.56
-1959         66.0              35.2         948.64
-1960         14.0              13.0           1.00
-1961        100.0              56.6        1883.56
-1962         33.0              40.4          54.76
-1963         17.0              16.0           1.00
-1964         31.0              37.0          36.00
-1965         11.0              12.2           1.44
-1966         47.0              32.0         225.00
-1967         19.0              26.0          49.00
-1968         11.0              11.8           0.64
-1969         12.0              18.2          38.44
-1970         40.0              29.8         104.04
-1971         27.0              24.8           4.84
-1972         10.0              13.6          12.96
-1973         16.0              28.8         163.84
-1974         11.0              19.8          77.44
-1975         30.0              24.0          36.00
-1976         25.0              18.8          38.44
-1977         11.0              25.0         196.00
-1978         27.0              18.4          73.96
-1979         21.0              18.4           6.76
-1980         14.0              25.8         139.24</code></pre>
+<pre><code>    real_prices  predicted_prices  squared error
+0          37.0              36.2           0.64
+1          63.0              41.4         466.56
+2          45.0              46.6           2.56
+3          22.0              28.8          46.24
+4          18.0              46.4         806.56
+5          66.0              35.2         948.64
+6          14.0              13.0           1.00
+7         100.0              56.6        1883.56
+8          33.0              40.4          54.76
+9          17.0              16.0           1.00
+10         31.0              37.0          36.00
+11         11.0              12.2           1.44
+12         47.0              32.0         225.00
+13         19.0              26.0          49.00
+14         11.0              11.8           0.64
+15         12.0              18.2          38.44
+16         40.0              29.8         104.04
+17         27.0              24.8           4.84
+18         10.0              13.6          12.96
+19         16.0              28.8         163.84
+20         11.0              19.8          77.44
+21         30.0              24.0          36.00
+22         25.0              18.8          38.44
+23         11.0              25.0         196.00
+24         27.0              18.4          73.96
+25         21.0              18.4           6.76
+26         14.0              25.8         139.24</code></pre>
 </div>
 </div>
 </div>
@@ -1128,11 +1120,11 @@ np.float64(378.9575703703703)</code></pre>
 <section id="another-test-training-split" class="slide level2">
 <h2>Another Test / Training Split</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>df_train <span class="op">=</span> df.loc[:<span class="dv">1970</span>].copy()</span>
-<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> df.loc[<span class="dv">1971</span>:<span class="dv">1980</span>].copy()</span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> (df[<span class="st">"year"</span>] <span class="op">&lt;</span> <span class="dv">1970</span>) <span class="op">&amp;</span> (df[<span class="st">"year"</span>] <span class="op">&lt;</span> <span class="dv">1981</span>)</span>
+<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> df[<span class="st">"year"</span>] <span class="op">&lt;</span> <span class="dv">1971</span></span>
 <span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>df_train_new <span class="op">=</span> df.loc[:<span class="dv">1970</span>].copy()</span>
-<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a>df_test_new <span class="op">=</span> df.loc[<span class="dv">1971</span>:<span class="dv">1980</span>].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>df_train_new <span class="op">=</span> df[train].copy()</span>
+<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a>df_test_new <span class="op">=</span> df[test].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <ul>
@@ -1143,30 +1135,35 @@ np.float64(378.9575703703703)</code></pre>
 </section>
 <section id="try-again-best-k" class="slide level2">
 <h2>Try Again: Best K</h2>
+<div class="midi">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">15</span>):</span>
 <span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> make_pipeline(</span>
 <span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a>    ct,</span>
 <span id="cb15-4"><a aria-hidden="true" tabindex="-1"></a>    KNeighborsRegressor(n_neighbors <span class="op">=</span> k))</span>
-<span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> pipeline.fit(X <span class="op">=</span> df_train_new, y <span class="op">=</span> df_train_new[<span class="st">'price'</span>])</span>
-<span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-7"><a aria-hidden="true" tabindex="-1"></a>  pred_y_test <span class="op">=</span> pipeline.predict(X <span class="op">=</span> df_test_new)</span>
-<span id="cb15-8"><a aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="bu">str</span>(k) <span class="op">+</span> <span class="st">":"</span> <span class="op">+</span> <span class="bu">str</span>(((df_test_new[<span class="st">'price'</span>] <span class="op">-</span> pred_y_test)<span class="op">**</span><span class="dv">2</span>).mean()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> pipeline.fit(X <span class="op">=</span> df_train_new, </span>
+<span id="cb15-7"><a aria-hidden="true" tabindex="-1"></a>                          y <span class="op">=</span> df_train_new[<span class="st">'price'</span>])</span>
+<span id="cb15-8"><a aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-9"><a aria-hidden="true" tabindex="-1"></a>  pred_y_test <span class="op">=</span> pipeline.predict(X <span class="op">=</span> df_test_new)</span>
+<span id="cb15-10"><a aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-11"><a aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="bu">str</span>(k) <span class="op">+</span> <span class="st">":"</span> <span class="op">+</span> <span class="bu">str</span>(((df_test_new[<span class="st">'price'</span>] <span class="op">-</span> pred_y_test)<span class="op">**</span><span class="dv">2</span>).mean()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1:183.0
-2:139.85
-3:123.78888888888892
-4:159.34375
-5:121.81199999999998
-6:83.28333333333333
-7:86.08163265306123
-8:86.465625
-9:73.12839506172841
-10:72.263
-11:89.03801652892564
-12:133.99791666666667
-13:162.23136094674555
-14:169.534693877551</code></pre>
+<pre><code>1:0.0
+2:158.375
+3:228.39583333333331
+4:268.32421875
+5:251.9875
+6:283.83854166666663
+7:267.3584183673469
+8:305.376953125
+9:332.8541666666667
+10:343.52374999999995
+11:344.33419421487605
+12:397.2560763888889
+13:428.9929733727811
+14:430.9279336734694</code></pre>
+</div>
 </div>
 </div>
 </section>
