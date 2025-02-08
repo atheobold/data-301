@@ -43,7 +43,7 @@ we preprocess them?
 Electrical signals can be used to detect whether tissue is cancerous.
 
 ::: {.centered}
-![](images/11-breast-diagram.jpeg){width=".4\\textwidth" fig-alt=""}
+![](images/11-breast-diagram.jpeg){width=".4\\textwidth" fig-alt="A medical illustration showing a breast cancer detection procedure using electrical impedance scanning. A patient is lying down while a scan probe is placed on the breast. An inset diagram highlights how the probe detects differences in impedance between normal breast adipose tissue (high impedance) and malignant lesions (low impedance). The probe is connected to a computer displaying a grid with white dots, likely representing detected areas of concern."}
 :::
 
 ## Analysis Goal 
