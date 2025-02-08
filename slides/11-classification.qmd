@@ -527,11 +527,39 @@ There are at least two reasonable definitions:
 
 Among the observations that were predicted to be in class $c$, what proportion actually were?
 
+<!-- It is the accuracy of positive predictions. -->
+
 . . .
 
 >  ***Recall***: $P(\text{correct } | \text{ actual class } c)$.
 
 Among the observations that were actually in class $c$, what proportion were predicted to be?
+
+<!-- It is the ratio of positive instance that are correctly detected.  -->
+
+## Precision and Recall by Hand
+
+::: columns
+::: {.column width="60%"}
+![](images/11-confusion-matrix-explained.png){fig-alt="A confusion matrix diagram with a 2x2 grid representing the performance of a classification model. The x-axis is labeled 'Actual Values' with categories 'Positive (1)' and 'Negative (0)'. The y-axis is labeled 'Predicted Values' with categories 'Positive (1)' and 'Negative (0)'. The four quadrants are labeled: 'TN' (True Negatives) in the top-left, 'FP' (False Positives) in the top-right, 'FN' (False Negatives) in the bottom-left, and 'TP' (True Positives) in the bottom-right." fig-width=4}
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="35%"}
+::: {.fragment}
+</br>
+
+Precision is calculated as $\frac{\text{TP}}{\text{TP} + \text{FP}}$. 
+
+</br>
+</br>
+
+Recall is calculated as $\frac{\text{TP}}{\text{TP} + \text{FN}}$. 
+:::
+:::
+:::
 
 ## Precision and Recall by Hand
 

@@ -872,14 +872,32 @@ Name: count, dtype: int64</code></pre>
 <p><strong><em>Precision</em></strong>: <span class="math inline">\(P(\text{correct } | \text{ predicted class } c)\)</span></p>
 </blockquote>
 <p>Among the observations that were predicted to be in class <span class="math inline">\(c\)</span>, what proportion actually were?</p>
+<!-- It is the accuracy of positive predictions. -->
 <div class="fragment">
 <blockquote>
 <p><strong><em>Recall</em></strong>: <span class="math inline">\(P(\text{correct } | \text{ actual class } c)\)</span>.</p>
 </blockquote>
 <p>Among the observations that were actually in class <span class="math inline">\(c\)</span>, what proportion were predicted to be?</p>
+<!-- It is the ratio of positive instance that are correctly detected.  -->
 </div>
 </section>
 <section id="precision-and-recall-by-hand" class="slide level2">
+<h2>Precision and Recall by Hand</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="images/11-confusion-matrix-explained.png" data-fig-width="4" alt="A confusion matrix diagram with a 2x2 grid representing the performance of a classification model. The x-axis is labeled 'Actual Values' with categories 'Positive (1)' and 'Negative (0)'. The y-axis is labeled 'Predicted Values' with categories 'Positive (1)' and 'Negative (0)'. The four quadrants are labeled: 'TN' (True Negatives) in the top-left, 'FP' (False Positives) in the top-right, 'FN' (False Negatives) in the bottom-left, and 'TP' (True Positives) in the bottom-right."></p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:35%;">
+<div class="fragment">
+<p><br></p>
+<p>Precision is calculated as <span class="math inline">\(\frac{\text{TP}}{\text{TP} + \text{FP}}\)</span>.</p>
+<p><br> <br></p>
+<p>Recall is calculated as <span class="math inline">\(\frac{\text{TP}}{\text{TP} + \text{FN}}\)</span>.</p>
+</div>
+</div></div>
+</section>
+<section id="precision-and-recall-by-hand-1" class="slide level2">
 <h2>Precision and Recall by Hand</h2>
 <div class="midi">
 <p>To check our understanding of these definitions, let’s calculate a few precisions and recalls by hand.</p>
