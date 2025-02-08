@@ -69,8 +69,8 @@ website:
             text: "Week 6, Part 2 - Cross Validation & Grid Search"
           - href: slides/11-classification.qmd
             text: "Week 7, Part 1 - Classification"
-          # - href: weeks/week-9-simulation.qmd
-          #   text: "Week 9 - Simulating Data"
+          - href: slides/12-logistic.qmd
+            text: "Week 7, Part 2 - Logistic Regression"
           # - href: weeks/week-10.qmd
           #   text: "Week 10"
       # - section: "Lab Assignments"
