@@ -4518,224 +4518,352 @@
     "href": "slides/12-logistic.html#classification",
     "title": "Logistic Regression",
     "section": "Classification",
-    "text": "Classification\n\n\n\nWe can do KNN for Classification by letting the nearest neighbors “vote”.\nThe number of votes is a “probability”.\nA classification model must be evaluated differently than a regression model.\nOne possible metric is accuracy, but this is a bad choice in situations with imbalanced data.\nPrecision measures “if we say it’s in Class A, is it really?”\nRecall measures “if it’s really in Class A, did we find it?”\nF1 Score is a balance of precision and recall.\nMacro F1 Score averages the F1 scores of all classes."
+    "text": "Classification\n\n\n\nWe can do KNN for Classification by letting the nearest neighbors “vote”.\nThe number of votes is a “probability”.\nA classification model must be evaluated differently than a regression model.\nOne possible metric is accuracy, but this is a bad choice in situations with imbalanced data.\nPrecision measures “if we say it’s in Class A, is it really?”\nRecall measures “if it’s really in Class A, did we find it?”\nF1 Score is a balance of precision and recall.\nMacro F1 Score averages the F1 scores of all classes.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#breast-tissue-classification",
     "href": "slides/12-logistic.html#breast-tissue-classification",
     "title": "Logistic Regression",
     "section": "Breast Tissue Classification",
-    "text": "Breast Tissue Classification\nElectrical signals can be used to detect whether tissue is cancerous."
+    "text": "Breast Tissue Classification\nElectrical signals can be used to detect whether tissue is cancerous.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#binary-response-cancer-or-not",
     "href": "slides/12-logistic.html#binary-response-cancer-or-not",
     "title": "Logistic Regression",
     "section": "Binary response: Cancer or Not",
-    "text": "Binary response: Cancer or Not\nLet’s read the data, and also make a new variable called “Cancerous”.\n\n\nimport pandas as pd\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/BreastTissue.csv\")\n\ncancer_levels = [\"car\", \"fad\", \"mas\"]\ndf['Cancerous'] = df['Class'].isin(cancer_levels)\n\n\n\n   Case # Class          I0  ...          DR           P  Cancerous\n0       1   car  524.794072  ...  220.737212  556.828334       True\n1       2   car  330.000000  ...   99.084964  400.225776       True\n2       3   car  551.879287  ...  253.785300  656.769449       True\n3       4   car  380.000000  ...  105.198568  493.701814       True\n4       5   car  362.831266  ...  103.866552  424.796503       True\n\n[5 rows x 12 columns]"
+    "text": "Binary response: Cancer or Not\nLet’s read the data, and also make a new variable called “Cancerous”.\n\n\nimport pandas as pd\n\ndf = pd.read_csv(\"https://datasci112.stanford.edu/data/BreastTissue.csv\")\n\ncancer_levels = [\"car\", \"fad\", \"mas\"]\ndf['Cancerous'] = df['Class'].isin(cancer_levels)\n\n\n\n   Case # Class          I0  ...          DR           P  Cancerous\n0       1   car  524.794072  ...  220.737212  556.828334       True\n1       2   car  330.000000  ...   99.084964  400.225776       True\n2       3   car  551.879287  ...  253.785300  656.769449       True\n3       4   car  380.000000  ...  105.198568  493.701814       True\n4       5   car  362.831266  ...  103.866552  424.796503       True\n\n[5 rows x 12 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#counter-example-linear-regression",
     "href": "slides/12-logistic.html#counter-example-linear-regression",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\nWe know that in computers, True = 1 and False = 0. So, why not convert our response variable, Cancerous, to numbers and fit a regression?\n\n\ndf['Cancerous'] = df['Cancerous'].astype('int')\n\n\ndf.head()\n\n   Case # Class          I0  ...          DR           P  Cancerous\n0       1   car  524.794072  ...  220.737212  556.828334          1\n1       2   car  330.000000  ...   99.084964  400.225776          1\n2       3   car  551.879287  ...  253.785300  656.769449          1\n3       4   car  380.000000  ...  105.198568  493.701814          1\n4       5   car  362.831266  ...  103.866552  424.796503          1\n\n[5 rows x 12 columns]"
+    "text": "Counter-Example: Linear Regression\nWe know that in computers, True = 1 and False = 0. So, why not convert our response variable, Cancerous, to numbers and fit a regression?\n\n\ndf['Cancerous'] = df['Cancerous'].astype('int')\n\n\ndf.head()\n\n   Case # Class          I0  ...          DR           P  Cancerous\n0       1   car  524.794072  ...  220.737212  556.828334          1\n1       2   car  330.000000  ...   99.084964  400.225776          1\n2       3   car  551.879287  ...  253.785300  656.769449          1\n3       4   car  380.000000  ...  105.198568  493.701814          1\n4       5   car  362.831266  ...  103.866552  424.796503          1\n\n[5 rows x 12 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#counter-example-linear-regression-1",
     "href": "slides/12-logistic.html#counter-example-linear-regression-1",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\n\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.pipeline import make_pipeline\n\npipeline = make_pipeline(\n  LinearRegression()\n  )\n\npipeline = pipeline.fit(X = df[[\"I0\", \"PA500\"]],\n                        y = df['Cancerous'])"
+    "text": "Counter-Example: Linear Regression\n\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.pipeline import make_pipeline\n\npipeline = make_pipeline(\n  LinearRegression()\n  )\n\npipeline = pipeline.fit(X = df[[\"I0\", \"PA500\"]],\n                        y = df['Cancerous'])",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#counter-example-linear-regression-2",
     "href": "slides/12-logistic.html#counter-example-linear-regression-2",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\nProblem 1: Did we get “reasonable” predictions?\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\n\n\n\n\n\npred_cancer.min()\n\nnp.float64(-0.2666656752041747)\n\n\n\n\n\n\npred_cancer.max()\n\nnp.float64(1.144397886160058)"
+    "text": "Counter-Example: Linear Regression\nProblem 1: Did we get “reasonable” predictions?\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\n\n\n\n\n\npred_cancer.min()\n\nnp.float64(-0.2666656752041747)\n\n\n\n\n\n\npred_cancer.max()\n\nnp.float64(1.144397886160058)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#counter-example-linear-regression-3",
     "href": "slides/12-logistic.html#counter-example-linear-regression-3",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\nProblem 2: How do we translate these predictions into categories???\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\npred_cancer\n\narray([ 0.74019045,  0.89022436,  0.82501565,  0.90210945,  0.82407215,\n        0.70880368,  0.73084215,  0.75641256,  0.81285854,  0.84265773,\n        1.05274916,  0.83203994,  0.82221736,  0.98879611,  0.84321428,\n        1.14439789,  0.87065951,  0.82357191,  0.88721004,  0.86017708,\n        0.75973787,  0.56958917,  0.50364921,  0.84044159,  0.66291026,\n        0.5291845 ,  0.58770322,  0.58565156,  0.53944124,  0.54086431,\n        0.626959  ,  0.60392716,  0.84459104,  0.65514535,  0.83767168,\n        0.73230038,  0.82568408,  0.75333313,  0.54012943,  0.54183212,\n        0.50716066,  0.70881584,  0.52734464,  0.66456375,  0.73629418,\n        0.85237593,  0.84451578,  0.62061155,  0.60509501,  0.47440789,\n        0.78797208,  0.74240828,  0.91841366,  0.71160435,  0.63338505,\n        0.7122256 ,  0.82410488,  0.55742465,  0.62545421,  0.73912902,\n        0.73912902,  0.70136245,  0.78113432,  0.77907358,  0.51597274,\n        0.49247652,  0.65694204,  0.72574607,  0.76292245,  0.82501906,\n        0.04266066,  0.24283615,  0.30785716,  0.52977377,  0.12835422,\n        0.35012437,  0.39042852,  0.34447888,  0.10874534,  0.22844426,\n        0.35125209,  0.25457208,  0.12820727,  0.18275452, -0.06826015,\n       -0.02235371,  0.05662524, -0.02161184,  0.03275109, -0.03722978,\n        0.05434445, -0.11400134,  0.0985149 , -0.01465065,  0.05067869,\n        0.04211471,  0.05774736, -0.26666568, -0.13914905, -0.12585178,\n       -0.02264956,  0.06060737,  0.04839979,  0.12583274, -0.17299233,\n       -0.22474136])"
+    "text": "Counter-Example: Linear Regression\nProblem 2: How do we translate these predictions into categories???\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\npred_cancer\n\narray([ 0.74019045,  0.89022436,  0.82501565,  0.90210945,  0.82407215,\n        0.70880368,  0.73084215,  0.75641256,  0.81285854,  0.84265773,\n        1.05274916,  0.83203994,  0.82221736,  0.98879611,  0.84321428,\n        1.14439789,  0.87065951,  0.82357191,  0.88721004,  0.86017708,\n        0.75973787,  0.56958917,  0.50364921,  0.84044159,  0.66291026,\n        0.5291845 ,  0.58770322,  0.58565156,  0.53944124,  0.54086431,\n        0.626959  ,  0.60392716,  0.84459104,  0.65514535,  0.83767168,\n        0.73230038,  0.82568408,  0.75333313,  0.54012943,  0.54183212,\n        0.50716066,  0.70881584,  0.52734464,  0.66456375,  0.73629418,\n        0.85237593,  0.84451578,  0.62061155,  0.60509501,  0.47440789,\n        0.78797208,  0.74240828,  0.91841366,  0.71160435,  0.63338505,\n        0.7122256 ,  0.82410488,  0.55742465,  0.62545421,  0.73912902,\n        0.73912902,  0.70136245,  0.78113432,  0.77907358,  0.51597274,\n        0.49247652,  0.65694204,  0.72574607,  0.76292245,  0.82501906,\n        0.04266066,  0.24283615,  0.30785716,  0.52977377,  0.12835422,\n        0.35012437,  0.39042852,  0.34447888,  0.10874534,  0.22844426,\n        0.35125209,  0.25457208,  0.12820727,  0.18275452, -0.06826015,\n       -0.02235371,  0.05662524, -0.02161184,  0.03275109, -0.03722978,\n        0.05434445, -0.11400134,  0.0985149 , -0.01465065,  0.05067869,\n        0.04211471,  0.05774736, -0.26666568, -0.13914905, -0.12585178,\n       -0.02264956,  0.06060737,  0.04839979,  0.12583274, -0.17299233,\n       -0.22474136])",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#counter-example-linear-regression-4",
     "href": "slides/12-logistic.html#counter-example-linear-regression-4",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\nProblem 3: Was the relationship really linear???\n\n\n\nCode\nfrom plotnine import *\n\n(\n  ggplot(data = df, \n         mapping = aes(x = \"I0\", y = \"Cancerous\")) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = False) + \n  theme_bw()\n)"
+    "text": "Counter-Example: Linear Regression\nProblem 3: Was the relationship really linear???\n\n\n\nCode\nfrom plotnine import *\n\n(\n  ggplot(data = df, \n         mapping = aes(x = \"I0\", y = \"Cancerous\")) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = False) + \n  theme_bw()\n)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#logistic-regression-1",
     "href": "slides/12-logistic.html#logistic-regression-1",
     "title": "Logistic Regression",
     "section": "Logistic Regression",
-    "text": "Logistic Regression\nIdea: Instead of predicting 0 or 1, try to predict the probability of cancer.\n\n\nProblem: We don’t observe probabilities before diagnosis; we only know if that person ended up with cancer or not.\nSolution: (Fancy statistics and math.)\nWhy is it called Logistic Regression?\nBecause the “fancy math” uses a logistic function in it."
+    "text": "Logistic Regression\nIdea: Instead of predicting 0 or 1, try to predict the probability of cancer.\n\n\nProblem: We don’t observe probabilities before diagnosis; we only know if that person ended up with cancer or not.\nSolution: (Fancy statistics and math.)\nWhy is it called Logistic Regression?\nBecause the “fancy math” uses a logistic function in it.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#logistic-regression-2",
     "href": "slides/12-logistic.html#logistic-regression-2",
     "title": "Logistic Regression",
     "section": "Logistic Regression",
-    "text": "Logistic Regression\n\nWhat you need to know:\n\nIt’s used for binary classification problems.\nThe predicted values are the “log-odds” of having cancer, i.e.\n\n\\[\\text{log-odds} = \\log \\left(\\frac{p}{1-p}\\right)\\]\n\n\n\n\nWe are more interested in the predicted probabilities.\nAs with KNN, we predict categories by choosing a threshold.\nBy default if \\(p &gt; 0.5\\) -&gt; we predict cancer"
+    "text": "Logistic Regression\n\nWhat you need to know:\n\nIt’s used for binary classification problems.\nThe predicted values are the “log-odds” of having cancer, i.e.\n\n\\[\\text{log-odds} = \\log \\left(\\frac{p}{1-p}\\right)\\]\n\n\n\n\nWe are more interested in the predicted probabilities.\nAs with KNN, we predict categories by choosing a threshold.\nBy default if \\(p &gt; 0.5\\) -&gt; we predict cancer",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#logistic-regression-in-sklearn",
     "href": "slides/12-logistic.html#logistic-regression-in-sklearn",
     "title": "Logistic Regression",
     "section": "Logistic Regression in sklearn",
-    "text": "Logistic Regression in sklearn\n\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = make_pipeline(\n  LogisticRegression(penalty = None)\n  )\n\npipeline.fit(X = df[[\"I0\", \"PA500\"]], \n             y = df['Cancerous']\n             );"
+    "text": "Logistic Regression in sklearn\n\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = make_pipeline(\n  LogisticRegression(penalty = None)\n  )\n\npipeline.fit(X = df[[\"I0\", \"PA500\"]], \n             y = df['Cancerous']\n             );",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#logistic-regression-in-sklearn-1",
     "href": "slides/12-logistic.html#logistic-regression-in-sklearn-1",
     "title": "Logistic Regression",
     "section": "Logistic Regression in sklearn",
-    "text": "Logistic Regression in sklearn\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\npred_cancer\n\narray([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1,\n       1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,\n       1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])"
+    "text": "Logistic Regression in sklearn\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\npred_cancer\n\narray([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1,\n       1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,\n       1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#confusion-matrix",
     "href": "slides/12-logistic.html#confusion-matrix",
     "title": "Logistic Regression",
     "section": "Confusion Matrix",
-    "text": "Confusion Matrix\n\n\n\nCode\nfrom sklearn.metrics import confusion_matrix\n\npd.DataFrame(\n  confusion_matrix(df['Cancerous'], pred_cancer), \n  columns = pipeline.classes_, \n  index = pipeline.classes_)\n\n\n    0   1\n0  38  14\n1   3  51\n\n\n\nCalculate the precision for predicting cancer.\nCalculate the recall for predicting cancer.\nCalculate the precision for predicting non-cancer.\nCalculate the recall for predicting non-cancer."
+    "text": "Confusion Matrix\n\n\n\nCode\nfrom sklearn.metrics import confusion_matrix\n\npd.DataFrame(\n  confusion_matrix(df['Cancerous'], pred_cancer), \n  columns = pipeline.classes_, \n  index = pipeline.classes_)\n\n\n    0   1\n0  38  14\n1   3  51\n\n\n\nCalculate the precision for predicting cancer.\nCalculate the recall for predicting cancer.\nCalculate the precision for predicting non-cancer.\nCalculate the recall for predicting non-cancer.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#threshold",
     "href": "slides/12-logistic.html#threshold",
     "title": "Logistic Regression",
     "section": "Threshold",
-    "text": "Threshold\nWhat if we had used different cutoffs besides \\(p &gt; 0.5\\)?\n\nprob_cancer = pipeline.predict_proba(df[[\"I0\", \"PA500\"]])\nprob_cancer.round(2)[1:10]\n\narray([[0.11, 0.89],\n       [0.19, 0.81],\n       [0.11, 0.89],\n       [0.16, 0.84],\n       [0.27, 0.73],\n       [0.22, 0.78],\n       [0.2 , 0.8 ],\n       [0.18, 0.82],\n       [0.15, 0.85]])"
+    "text": "Threshold\nWhat if we had used different cutoffs besides \\(p &gt; 0.5\\)?\n\nprob_cancer = pipeline.predict_proba(df[[\"I0\", \"PA500\"]])\nprob_cancer.round(2)[1:10]\n\narray([[0.11, 0.89],\n       [0.19, 0.81],\n       [0.11, 0.89],\n       [0.16, 0.84],\n       [0.27, 0.73],\n       [0.22, 0.78],\n       [0.2 , 0.8 ],\n       [0.18, 0.82],\n       [0.15, 0.85]])",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#higher-threshold",
     "href": "slides/12-logistic.html#higher-threshold",
     "title": "Logistic Regression",
     "section": "Higher Threshold",
-    "text": "Higher Threshold\nWhat we used \\(p &gt; 0.7\\)?\n\nprob_cancer = pipeline.predict_proba(df[[\"I0\", \"PA500\"]])\n\npred_cancer_70 = prob_cancer[:, 1] &gt; .7\npred_cancer_70[1:10]\n\narray([ True,  True,  True,  True,  True,  True,  True,  True,  True])"
+    "text": "Higher Threshold\nWhat we used \\(p &gt; 0.7\\)?\n\nprob_cancer = pipeline.predict_proba(df[[\"I0\", \"PA500\"]])\n\npred_cancer_70 = prob_cancer[:, 1] &gt; .7\npred_cancer_70[1:10]\n\narray([ True,  True,  True,  True,  True,  True,  True,  True,  True])",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#higher-threshold-1",
     "href": "slides/12-logistic.html#higher-threshold-1",
     "title": "Logistic Regression",
     "section": "Higher Threshold",
-    "text": "Higher Threshold\nWhat we used \\(p &gt; 0.7\\)?\n\n\nCode\nconf_mat = confusion_matrix(df['Cancerous'], pred_cancer_70)\npd.DataFrame(conf_mat, \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n\n\n    0   1\n0  41  11\n1  18  36\n\n\n\n\nprecision_1 = conf_mat[1,1] / conf_mat[:,1].sum()\nprecision_1\n\nnp.float64(0.7659574468085106)\n\nrecall_1 = conf_mat[1,1] / conf_mat[1, :].sum()\nrecall_1\n\nnp.float64(0.6666666666666666)"
+    "text": "Higher Threshold\nWhat we used \\(p &gt; 0.7\\)?\n\n\nCode\nconf_mat = confusion_matrix(df['Cancerous'], pred_cancer_70)\npd.DataFrame(conf_mat, \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n\n\n    0   1\n0  41  11\n1  18  36\n\n\n\n\nprecision_1 = conf_mat[1,1] / conf_mat[:,1].sum()\nprecision_1\n\nnp.float64(0.7659574468085106)\n\nrecall_1 = conf_mat[1,1] / conf_mat[1, :].sum()\nrecall_1\n\nnp.float64(0.6666666666666666)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#lower-threshold",
     "href": "slides/12-logistic.html#lower-threshold",
     "title": "Logistic Regression",
     "section": "Lower Threshold",
-    "text": "Lower Threshold\nWhat we used \\(p &gt; 0.2\\)?\n\nprob_cancer = pipeline.predict_proba(df[[\"I0\", \"PA500\"]])\npred_cancer_20 = prob_cancer[:,1] &gt; .2\npred_cancer_20[1:10]\n\narray([ True,  True,  True,  True,  True,  True,  True,  True,  True])"
+    "text": "Lower Threshold\nWhat we used \\(p &gt; 0.2\\)?\n\nprob_cancer = pipeline.predict_proba(df[[\"I0\", \"PA500\"]])\npred_cancer_20 = prob_cancer[:,1] &gt; .2\npred_cancer_20[1:10]\n\narray([ True,  True,  True,  True,  True,  True,  True,  True,  True])",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#lower-threshold-1",
     "href": "slides/12-logistic.html#lower-threshold-1",
     "title": "Logistic Regression",
     "section": "Lower Threshold",
-    "text": "Lower Threshold\n\n\nCode\nconf_mat = confusion_matrix(df['Cancerous'], pred_cancer_20)\npd.DataFrame(conf_mat, \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n\n\n    0   1\n0  33  19\n1   0  54\n\n\n\n\nprecision_1 = conf_mat[1,1]/conf_mat[:,1].sum()\nprecision_1\n\nnp.float64(0.7397260273972602)\n\nrecall_1 = conf_mat[1,1]/conf_mat[1, :].sum()\nrecall_1\n\nnp.float64(1.0)"
+    "text": "Lower Threshold\n\n\nCode\nconf_mat = confusion_matrix(df['Cancerous'], pred_cancer_20)\npd.DataFrame(conf_mat, \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n\n\n    0   1\n0  33  19\n1   0  54\n\n\n\n\nprecision_1 = conf_mat[1,1] / conf_mat[:,1].sum()\nprecision_1\n\nnp.float64(0.7397260273972602)\n\nrecall_1 = conf_mat[1,1] / conf_mat[1, :].sum()\nrecall_1\n\nnp.float64(1.0)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#precision-recall-curve",
     "href": "slides/12-logistic.html#precision-recall-curve",
     "title": "Logistic Regression",
     "section": "Precision-Recall Curve",
-    "text": "Precision-Recall Curve\n\nfrom sklearn.metrics import precision_recall_curve\n\nprecision, recall, thresholds = precision_recall_curve(\n    df['Cancerous'], prob_cancer[:, 1])\n\ndf_pr = pd.DataFrame({\n  \"precision\": precision,\n  \"recall\": recall\n})"
+    "text": "Precision-Recall Curve\n\nfrom sklearn.metrics import precision_recall_curve\n\nprecision, recall, thresholds = precision_recall_curve(\n    df['Cancerous'], prob_cancer[:, 1])\n\ndf_pr = pd.DataFrame({\n  \"precision\": precision,\n  \"recall\": recall\n})",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#precision-recall-curve-1",
     "href": "slides/12-logistic.html#precision-recall-curve-1",
     "title": "Logistic Regression",
     "section": "Precision-Recall Curve",
-    "text": "Precision-Recall Curve\n\n\nCode\n(\n  ggplot(data = df_pr, \n         mapping = aes(x = \"recall\", y = \"precision\")) +\n  geom_line() + \n  theme_bw() + \n  labs(x = \"Recall\", \n       y = \"Precision\")\n)"
+    "text": "Precision-Recall Curve\n\n\nCode\n(\n  ggplot(data = df_pr, \n         mapping = aes(x = \"recall\", y = \"precision\")) +\n  geom_line() + \n  theme_bw() + \n  labs(x = \"Recall\", \n       y = \"Precision\")\n)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#activity",
     "href": "slides/12-logistic.html#activity",
     "title": "Logistic Regression",
     "section": "Activity",
-    "text": "Activity\n\nSuppose you want to predict Cancer vs. No Cancer from breast tissue using a Logistic Regression. Should you use…\n\nJust I0 and PA500?\nJust DA and DP?\nI0, PA500, DA, and DP?\nor all predictors?\n\nUse cross-validation with F1 Score to decide!\nThen, fit your final model and report the confusion matrix."
+    "text": "Activity\n\nSuppose you want to predict Cancer vs. No Cancer from breast tissue using a Logistic Regression. Should you use…\n\nJust I0 and PA500?\nJust DA and DP?\nI0, PA500, DA, and DP?\nor all predictors?\n\nUse cross-validation with F1 Score to decide!\nThen, fit your final model and report the confusion matrix.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#looking-at-coefficients",
     "href": "slides/12-logistic.html#looking-at-coefficients",
     "title": "Logistic Regression",
     "section": "Looking at Coefficients",
-    "text": "Looking at Coefficients\n\npd.DataFrame({\n  \"Coefficients\":pipeline['logisticregression'].coef_[0],\n  \"Column\": [\"I0\", \"PA500\"]\n  })\n\n   Coefficients Column\n0     -0.003078     I0\n1     11.737963  PA500\n\n\n\n“For every unit of I0 higher, we predict 0.003 lower log-odds of cancer”\n“For every unit of PA500 higher, we predict 11.73 higher log-odds of cancer.”"
+    "text": "Looking at Coefficients\n\n\npd.DataFrame({\n  \"Coefficients\": pipeline['logisticregression'].coef_[0],\n  \"Column\": [\"I0\", \"PA500\"]\n  })\n\n   Coefficients Column\n0     -0.003078     I0\n1     11.737963  PA500\n\n\n\n\n\n“For every unit of I0 higher, we predict 0.003 lower log-odds of cancer.”\n“For every unit of PA500 higher, we predict 11.73 higher log-odds of cancer.”",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#feature-importance",
     "href": "slides/12-logistic.html#feature-importance",
     "title": "Logistic Regression",
     "section": "Feature Importance",
-    "text": "Feature Importance\n\nDoes this mean that PA500 is more important than I0?\n\n\n\n\n\nCode\n(ggplot(df, aes(x = \"PA500\", group = \"Cancerous\", fill = \"Cancerous\"))\n+ geom_density(alpha = 0.5, show_legend=False))\n\n\n&lt;plotnine.ggplot.ggplot object at 0x11f31a320&gt;\n\n\n\n\n\nCode\n(ggplot(df, aes(x = \"I0\", group = \"Cancerous\", fill = \"Cancerous\"))\n+ geom_density(alpha = 0.5, show_legend=False))\n\n\n&lt;plotnine.ggplot.ggplot object at 0x11f325660&gt;"
+    "text": "Feature Importance\n\nDoes this mean that PA500 is more important than I0?\n\n\n\n\n\n\nCode\n(\n  ggplot(data = df, \n         mapping = aes(x = \"PA500\", \n                       group = \"Cancerous\", \n                       fill = \"Cancerous\")) + \n  geom_density(alpha = 0.5, show_legend = False) +\n  theme_bw()\n) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n(\n  ggplot(data = df, \n         mapping = aes(x = \"I0\", \n                       group = \"Cancerous\", \n                       fill = \"Cancerous\")) + \n  geom_density(alpha = 0.5, show_legend = False) + \n  theme_bw()\n)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#standardization",
     "href": "slides/12-logistic.html#standardization",
     "title": "Logistic Regression",
     "section": "Standardization",
-    "text": "Standardization\n\nDoes this mean that PA500 is more important than I0?\nNot necessarily. They have different units and so the coefficients mean different things.\n“For every 1000 units of I0 higher, we predict 3.0 lower log-odds of cancer”\n“For every 0.1 unit of PA500 higher, we predict 1.1 higher log-odds of cancer.”\nWhat if we had standardized I0 and PA500?"
+    "text": "Standardization\n\n\nDoes this mean that PA500 is more important than I0?\nNot necessarily. They have different units and so the coefficients mean different things.\n“For every 1000 units of I0 higher, we predict 3.0 lower log-odds of cancer”\n“For every 0.1 unit of PA500 higher, we predict 1.1 higher log-odds of cancer.”\nWhat if we had standardized I0 and PA500?",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#standardization-1",
     "href": "slides/12-logistic.html#standardization-1",
     "title": "Logistic Regression",
     "section": "Standardization",
-    "text": "Standardization\n\nfrom sklearn.preprocessing import StandardScaler\n\npipeline2 = make_pipeline(\n  StandardScaler(),\n  LogisticRegression(penalty=None)\n  )\n\npipeline2 = pipeline2.fit(df[[\"I0\", \"PA500\"]], df['Cancerous'])\n\npd.DataFrame({\n  \"Coefficients\":pipeline2['logisticregression'].coef_[0],\n  \"Column\": [\"I0\", \"PA500\"]\n  })\n\n   Coefficients Column\n0     -2.309090     I0\n1      0.801477  PA500\n\n\n\n“For every standard deviation above the mean someone’s I0 is, we predict 2.3 lower log-odds of cancer”\n“For every standard deviation above the mean someone’s PA500 is, we predict 0.80 higher log-odds of cancer.”\nTherefore, I0 is more important!"
+    "text": "Standardization\n\n\nfrom sklearn.preprocessing import StandardScaler\n\npipeline2 = make_pipeline(\n  StandardScaler(),\n  LogisticRegression(penalty = None)\n  )\n\npipeline2 = pipeline2.fit(df[[\"I0\", \"PA500\"]], df['Cancerous'])\n\npd.DataFrame({\n  \"Coefficients\": pipeline2['logisticregression'].coef_[0],\n  \"Column\": [\"I0\", \"PA500\"]\n  })\n\n   Coefficients Column\n0     -2.309090     I0\n1      0.801477  PA500\n\n\n\n\n“For every standard deviation above the mean someone’s I0 is, we predict 2.3 lower log-odds of cancer”\n“For every standard deviation above the mean someone’s PA500 is, we predict 0.80 higher log-odds of cancer.”",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#standardization-do-you-need-it",
     "href": "slides/12-logistic.html#standardization-do-you-need-it",
     "title": "Logistic Regression",
     "section": "Standardization: Do you need it?",
-    "text": "Standardization: Do you need it?\nBut - did this approach change our predictions at all?\n\nold_probs = pipeline.predict_proba(df[[\"I0\", \"PA500\"]])\nnew_probs = pipeline2.predict_proba(df[[\"I0\", \"PA500\"]])\n\npd.DataFrame({\n  \"without_stdize\": old_probs[:,1], \n  \"with_stdize\": new_probs[:,1]\n  }).head()\n\n   without_stdize  with_stdize\n0        0.736188     0.736226\n1        0.889803     0.889822\n2        0.813277     0.813319\n3        0.890781     0.890804\n4        0.842957     0.842978"
+    "text": "Standardization: Do you need it?\nBut - does this approach change our predictions?\n\nold_probs = pipeline.predict_proba(df[[\"I0\", \"PA500\"]])\nnew_probs = pipeline2.predict_proba(df[[\"I0\", \"PA500\"]])\n\npd.DataFrame({\n  \"without_stdize\": old_probs[:,1], \n  \"with_stdize\": new_probs[:,1]\n  }).head(10)\n\n   without_stdize  with_stdize\n0        0.736188     0.736226\n1        0.889803     0.889822\n2        0.813277     0.813319\n3        0.890781     0.890804\n4        0.842957     0.842978\n5        0.731660     0.731678\n6        0.775454     0.775463\n7        0.802116     0.802126\n8        0.816982     0.817014\n9        0.847675     0.847702",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#standardization-do-you-need-it-1",
     "href": "slides/12-logistic.html#standardization-do-you-need-it-1",
     "title": "Logistic Regression",
     "section": "Standardization: Do you need it?",
-    "text": "Standardization: Do you need it?\n\nStandardizing will not change the predictions for Linear or Logistic Regression!\nThis is because the coefficients are chosen relative to the units of the predictors. (Unlike in KNN!)\nAdvantage of not standardizing: More interpretable coefficients\n“For each unit of…” instead of “For each sd above the mean…”\nAdvantage of standardizing: Compare relative importance of predictors\nIt’s up to you!\n(Don’t use cross-validation to decide - you’ll get the same metrics for both!)"
+    "text": "Standardization: Do you need it?\n\n\n\nStandardizing will not change the predictions for Linear or Logistic Regression!\n\nThis is because the coefficients are chosen relative to the units of the predictors. (Unlike in KNN!)\n\nAdvantage of not standardizing: More interpretable coefficients\n\n“For each unit of…” instead of “For each sd above the mean…”\n\nAdvantage of standardizing: Compare relative importance of predictors\nIt’s up to you!\n\nDon’t use cross-validation to decide - you’ll get the same metrics for both!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#activity-1",
     "href": "slides/12-logistic.html#activity-1",
     "title": "Logistic Regression",
     "section": "Activity",
-    "text": "Activity\nFor your Logistic Regression using all predictors, which two were most important?\nHow would you interpret the coefficients?"
+    "text": "Activity\nFor your Logistic Regression using all predictors, which two were most important?\nHow would you interpret the coefficients?",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#takeaways-1",
     "href": "slides/12-logistic.html#takeaways-1",
     "title": "Logistic Regression",
     "section": "Takeaways",
-    "text": "Takeaways\n\nTo fit a regression model (i.e., coefficients times predictors) to a categorical response, we use Logistic Regression.\nCoefficients are interpreted as “One unit increase in predictor is associated with a [something] increase in the log-odds of Category 1”\nWe still use cross-validated metrics to decide between KNN and Logistic regression, and between different feature sets.\nWe still report confusion matrices and sometimes precision-recall curves of our final model."
+    "text": "Takeaways\n\nTo fit a regression model (i.e., coefficients times predictors) to a categorical response, we use Logistic Regression.\nCoefficients are interpreted as “One unit increase in predictor is associated with a [something] increase in the log-odds of Category 1.”\nWe still use cross-validated metrics to decide between KNN and Logistic regression, and between different feature sets.\nWe still report confusion matrices and sometimes precision-recall curves of our final model.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#analysis-goal",
     "href": "slides/12-logistic.html#analysis-goal",
     "title": "Logistic Regression",
     "section": "Analysis Goal",
-    "text": "Analysis Goal\nThe goal is to determine whether a sample of breast tissue is:\n\n\nNot Cancerous\n\nconnective tissue\nadipose tissue\nglandular tissue\n\n\n\n\nCancerous\n\ncarcinoma\nfibro-adenoma\nmastopathy"
+    "text": "Analysis Goal\nThe goal is to determine whether a sample of breast tissue is:\n\n\nNot Cancerous\n\nconnective tissue\nadipose tissue\nglandular tissue\n\n\n\n\nCancerous\n\ncarcinoma\nfibro-adenoma\nmastopathy",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#counter-example-linear-regression-5",
     "href": "slides/12-logistic.html#counter-example-linear-regression-5",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\nProblem 4: Are the errors really random???\n\n\n\nCode\nresiduals = df['Cancerous'] - pred_cancer\n\n(\n  ggplot(data = df, \n         mapping = aes(x = \"I0\", y = residuals)) + \n  geom_point()\n  )"
+    "text": "Counter-Example: Linear Regression\nProblem 4: Are the errors really random???\n\n\n\nCode\nresiduals = df['Cancerous'] - pred_cancer\n\n(\n  ggplot(data = df, \n         mapping = aes(x = \"I0\", y = residuals)) + \n  geom_point()\n  )",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/12-logistic.html#counter-example-linear-regression-6",
     "href": "slides/12-logistic.html#counter-example-linear-regression-6",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\nProblem 5: Are the errors normally distributed???\n\n\n\nCode\n(\n  ggplot(data = df, \n         mapping = aes(x = residuals)) + \n  geom_density() +\n  theme_bw() +\n  labs(x = \"Residual from Linear Regression Model\")\n  )"
+    "text": "Counter-Example: Linear Regression\nProblem 5: Are the errors normally distributed???\n\n\n\nCode\n(\n  ggplot(data = df, \n         mapping = aes(x = residuals)) + \n  geom_density() +\n  theme_bw() +\n  labs(x = \"Residual from Linear Regression Model\")\n  )",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
   },
   {
     "objectID": "slides/11-classification.html#precision-and-recall-by-hand-1",

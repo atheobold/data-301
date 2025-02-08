@@ -10,12 +10,14 @@ execute:
 
 ```{r}
 #| include: false
+#| label: load-python
 library(reticulate)
 use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
 #| include: false
+#| label: load-packages
 import numpy as np
 import pandas as pd
 from plotnine import *
@@ -90,8 +92,10 @@ Let's read the data, and also make a new variable called "Cancerous".
 ::: {.midi}
 ```{python}
 #| code-line-numbers: false
+#| label: load-cancer
 
 import pandas as pd
+
 df = pd.read_csv("https://datasci112.stanford.edu/data/BreastTissue.csv")
 
 cancer_levels = ["car", "fad", "mas"]
@@ -100,6 +104,7 @@ df['Cancerous'] = df['Class'].isin(cancer_levels)
 
 ```{python}
 #| echo: false
+#| label: head-of-cancer-data
 
 df.head()
 ```
@@ -118,11 +123,14 @@ We know that in computers, `True` = `1` and `False` = `0`. So, why not convert o
 ::: {.midi}
 ```{python}
 #| code-line-numbers: false
+#| label: convert-cancer-to-integer
 
 df['Cancerous'] = df['Cancerous'].astype('int')
 ```
 
 ```{python}
+#| label: head-of-mutated-cancer-data
+
 df.head()
 ```
 :::
@@ -131,6 +139,7 @@ df.head()
 
 ```{python}
 #| code-line-numbers: false
+#| label: linear-regression-sklearn
 
 from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import make_pipeline
@@ -149,6 +158,7 @@ pipeline = pipeline.fit(X = df[["I0", "PA500"]],
 
 ```{python}
 #| code-line-numbers: false
+#| label: linear-regression-predictions
 
 pred_cancer = pipeline.predict(df[["I0", "PA500"]])
 ```
@@ -159,6 +169,7 @@ pred_cancer = pipeline.predict(df[["I0", "PA500"]])
 ::: {.column width="45%"}
 ```{python}
 #| code-line-numbers: false
+#| label: min-prediction
 
 pred_cancer.min()
 ```
@@ -170,7 +181,8 @@ pred_cancer.min()
 ::: {.column width="45%"}
 ```{python}
 #| code-line-numbers: false
-#| 
+#| label: max-prediction
+
 pred_cancer.max()
 ```
 :::
@@ -182,6 +194,7 @@ pred_cancer.max()
 
 ```{python}
 #| code-line-numbers: false
+#| label: display-all-linear-regression-predictions
 
 pred_cancer = pipeline.predict(df[["I0", "PA500"]])
 pred_cancer
@@ -361,6 +374,7 @@ pipeline.fit(X = df[["I0", "PA500"]],
 
 ```{python}
 #| code-line-numbers: false
+#| label: logisitic-regression-predictions
 
 pred_cancer = pipeline.predict(df[["I0", "PA500"]])
 pred_cancer
@@ -374,6 +388,7 @@ pred_cancer
 ```{python}
 #| code-line-numbers: false
 #| code-fold: true
+#| label: cancer-confusion-matrix-default-threshold
 
 from sklearn.metrics import confusion_matrix
 
@@ -398,6 +413,7 @@ What if we had used different cutoffs besides $p > 0.5$?
 
 ```{python}
 #| code-line-numbers: false
+#| label: cancer-probabilities
 
 prob_cancer = pipeline.predict_proba(df[["I0", "PA500"]])
 prob_cancer.round(2)[1:10]
@@ -409,6 +425,7 @@ What we used $p > 0.7$?
 
 ```{python}
 #| code-line-numbers: false
+#| label: tring-70-percent-threshold
 
 prob_cancer = pipeline.predict_proba(df[["I0", "PA500"]])
 
@@ -474,11 +491,12 @@ pd.DataFrame(conf_mat,
 
 ```{python}
 #| code-line-numbers: false
+#| label: code-for-precision-recall
 
-precision_1 = conf_mat[1,1]/conf_mat[:,1].sum()
+precision_1 = conf_mat[1,1] / conf_mat[:,1].sum()
 precision_1
 
-recall_1 = conf_mat[1,1]/conf_mat[1, :].sum()
+recall_1 = conf_mat[1,1] / conf_mat[1, :].sum()
 recall_1
 ```
 
@@ -558,18 +576,23 @@ Then, fit your **final model** and report the **confusion matrix**.
 
 ## Looking at Coefficients
 
+::: {.midi}
 ```{python}
 #| code-line-numbers: false
+#| label: logistic-regression-coefficients
 
 pd.DataFrame({
-  "Coefficients":pipeline['logisticregression'].coef_[0],
+  "Coefficients": pipeline['logisticregression'].coef_[0],
   "Column": ["I0", "PA500"]
   })
 ```
+:::
 
--   "For every unit of I0 higher, we predict 0.003 **lower** log-odds of cancer"
+::: {.incremental}
+-   "For every unit of I0 higher, we predict 0.003 **lower** log-odds of cancer."
 
 -   "For every unit of PA500 higher, we predict 11.73 **higher** log-odds of cancer."
+:::
 
 ## Feature Importance
 
@@ -577,28 +600,81 @@ pd.DataFrame({
 
 ::::: columns
 ::: {.column width="50%"}
+::: {.small}
 ```{python}
 #| code-fold: true
 #| code-line-numbers: false
+#| label: pa500-cancer-density-code
+#| eval: false
 
-(ggplot(df, aes(x = "PA500", group = "Cancerous", fill = "Cancerous"))
-+ geom_density(alpha = 0.5, show_legend=False))
+(
+  ggplot(data = df, 
+         mapping = aes(x = "PA500", 
+                       group = "Cancerous", 
+                       fill = "Cancerous")) + 
+  geom_density(alpha = 0.5, show_legend = False) +
+  theme_bw()
+) 
+```
+:::
+
+```{python}
+#| label: pa500-cancer-density-viz
+#| echo: false
+
+plot = (
+  ggplot(data = df, 
+         mapping = aes(x = "PA500", 
+                       group = "Cancerous", 
+                       fill = "Cancerous")) + 
+  geom_density(alpha = 0.5, show_legend = False) +
+  theme_bw()
+) 
+
+plot.draw(plot)
 ```
 :::
 
 ::: {.column width="50%"}
+::: {.small}
 ```{python}
 #| code-fold: true
 #| code-line-numbers: false
+#| label: I0-cancer-density-code
+#| eval: false
 
-(ggplot(df, aes(x = "I0", group = "Cancerous", fill = "Cancerous"))
-+ geom_density(alpha = 0.5, show_legend=False))
+(
+  ggplot(data = df, 
+         mapping = aes(x = "I0", 
+                       group = "Cancerous", 
+                       fill = "Cancerous")) + 
+  geom_density(alpha = 0.5, show_legend = False) + 
+  theme_bw()
+)
+```
+:::
+
+```{python}
+#| label: I0-cancer-density-viz
+#| echo: false
+
+plot = (
+  ggplot(data = df, 
+         mapping = aes(x = "I0", 
+                       group = "Cancerous", 
+                       fill = "Cancerous")) + 
+  geom_density(alpha = 0.5, show_legend = False) + 
+  theme_bw()
+)
+
+plot.draw(plot)
 ```
 :::
 :::::
 
 ## Standardization
 
+::: {.incremental}
 -   Does this mean that `PA500` is *more important* than `I0`?
 
 -   **Not necessarily.** They have different *units* and so the coefficients mean different things.
@@ -608,40 +684,45 @@ pd.DataFrame({
 -   "For every **0.1** unit of PA500 higher, we predict **1.1 higher** log-odds of cancer."
 
 -   What if we had *standardized* `I0` and `PA500`?
+:::
 
-## Standardization {.smaller}
+## Standardization
 
+::: {.midi}
 ```{python}
 #| code-line-numbers: false
+#| label: standardize-features-logistic-regression
 
 from sklearn.preprocessing import StandardScaler
 
 pipeline2 = make_pipeline(
   StandardScaler(),
-  LogisticRegression(penalty=None)
+  LogisticRegression(penalty = None)
   )
 
 pipeline2 = pipeline2.fit(df[["I0", "PA500"]], df['Cancerous'])
 
 pd.DataFrame({
-  "Coefficients":pipeline2['logisticregression'].coef_[0],
+  "Coefficients": pipeline2['logisticregression'].coef_[0],
   "Column": ["I0", "PA500"]
   })
 
 ```
 
+::: {.incremental}
 -   "For every **standard deviation above the mean** someone's `I0` is, we predict **2.3 lower** log-odds of cancer"
 
 -   "For every **standard deviation above the mean** someone's `PA500` is, we predict **0.80 higher** log-odds of cancer."
-
--   Therefore, `I0` is more important!
+:::
+:::
 
 ## Standardization: Do you need it?
 
-But - did this approach change our predictions at all?
+But - does this approach change our predictions?
 
 ```{python}
 #| code-line-numbers: false
+#| label: compare-probability-predictions-standardize-not
 
 old_probs = pipeline.predict_proba(df[["I0", "PA500"]])
 new_probs = pipeline2.predict_proba(df[["I0", "PA500"]])
@@ -649,24 +730,29 @@ new_probs = pipeline2.predict_proba(df[["I0", "PA500"]])
 pd.DataFrame({
   "without_stdize": old_probs[:,1], 
   "with_stdize": new_probs[:,1]
-  }).head()
+  }).head(10)
 ```
 
-## Standardization: Do you need it? {.smaller}
+## Standardization: Do you need it?
 
+::: {.midi}
+::: {.incremental}
 -   Standardizing will **not change the predictions** for Linear or Logistic Regression!
 
--   This is because the **coefficients** are chosen relative to the **units** of the predictors. (Unlike in KNN!)
+    + This is because the **coefficients** are chosen relative to the **units** of the predictors. (Unlike in KNN!)
 
 -   Advantage of *not* standardizing: More interpretable coefficients
 
--   "For each unit of... " instead of "For each sd above the mean..."
+    + "For each unit of... " instead of "For each sd above the mean..."
 
 -   Advantage of *standardizing*: Compare relative importance of predictors
 
 -   **It's up to you!**
 
--   *(Don't use cross-validation to decide - you'll get the same metrics for both!)*
+    + *Don't use cross-validation to decide - you'll get the same 
+    metrics for both!*
+:::
+:::
 
 # Your turn
 
@@ -676,27 +762,27 @@ For your Logistic Regression using **all** predictors, which two were most impor
 
 How would you interpret the coefficients?
 
+::: {.midi}
 ```{python}
 #| include: false
 #| eval: false
-
-from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import make_pipeline
+#| label: activity-solution
 
 pipeline3 = make_pipeline(
   StandardScaler(),
-  LogisticRegression(penalty=None)
+  LogisticRegression(penalty = None)
   )
 
-pipeline3 = pipeline3.fit(df[["I0", "PA500", 'HFS', 'DA', 'Area', 'A/DA', 'Max IP',
-       'DR', 'P']], df['Cancerous'])
+features = ["I0", "PA500", 'HFS', 'DA', 'Area', 'A/DA', 'Max IP', 'DR', 'P']
+
+pipeline3 = pipeline3.fit(X = df[features], y = df['Cancerous'])
 
 pd.DataFrame({
-  "Coefficients":pipeline3['logisticregression'].coef_[0],
-  "Column": ["I0", "PA500", 'HFS', 'DA', 'Area', 'A/DA', 'Max IP',
-       'DR', 'P']
+  "Coefficients": pipeline3['logisticregression'].coef_[0],
+  "Column": features
   })
 ```
+:::
 
 # Takeaways
 
@@ -704,7 +790,7 @@ pd.DataFrame({
 
 -   To fit a **regression model** (i.e., coefficients times predictors) to a **categorical response**, we use **Logistic Regression**.
 
--   Coefficients are interpreted as "One unit increase in predictor is associated with a \[something\] increase in the log-odds of Category 1"
+-   Coefficients are interpreted as "One unit increase in predictor is associated with a \[something\] increase in the log-odds of Category 1."
 
 -   We still use **cross-validated metrics** to decide between KNN and Logistic regression, and between different feature sets.
 

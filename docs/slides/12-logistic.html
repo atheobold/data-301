@@ -458,10 +458,11 @@
 <div class="midi">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://datasci112.stanford.edu/data/BreastTissue.csv"</span>)</span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>cancer_levels <span class="op">=</span> [<span class="st">"car"</span>, <span class="st">"fad"</span>, <span class="st">"mas"</span>]</span>
-<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Cancerous'</span>] <span class="op">=</span> df[<span class="st">'Class'</span>].isin(cancer_levels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://datasci112.stanford.edu/data/BreastTissue.csv"</span>)</span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>cancer_levels <span class="op">=</span> [<span class="st">"car"</span>, <span class="st">"fad"</span>, <span class="st">"mas"</span>]</span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Cancerous'</span>] <span class="op">=</span> df[<span class="st">'Class'</span>].isin(cancer_levels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -828,12 +829,12 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>precision_1 <span class="op">=</span> conf_mat[<span class="dv">1</span>,<span class="dv">1</span>]<span class="op">/</span>conf_mat[:,<span class="dv">1</span>].<span class="bu">sum</span>()</span>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>precision_1 <span class="op">=</span> conf_mat[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">/</span> conf_mat[:,<span class="dv">1</span>].<span class="bu">sum</span>()</span>
 <span id="cb36-2"><a aria-hidden="true" tabindex="-1"></a>precision_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.7397260273972602)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a>recall_1 <span class="op">=</span> conf_mat[<span class="dv">1</span>,<span class="dv">1</span>]<span class="op">/</span>conf_mat[<span class="dv">1</span>, :].<span class="bu">sum</span>()</span>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a>recall_1 <span class="op">=</span> conf_mat[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">/</span> conf_mat[<span class="dv">1</span>, :].<span class="bu">sum</span>()</span>
 <span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a>recall_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(1.0)</code></pre>
@@ -898,9 +899,10 @@
 </section>
 <section id="looking-at-coefficients" class="slide level2">
 <h2>Looking at Coefficients</h2>
+<div class="midi">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame({</span>
-<span id="cb42-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coefficients"</span>:pipeline[<span class="st">'logisticregression'</span>].coef_[<span class="dv">0</span>],</span>
+<span id="cb42-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coefficients"</span>: pipeline[<span class="st">'logisticregression'</span>].coef_[<span class="dv">0</span>],</span>
 <span id="cb42-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"Column"</span>: [<span class="st">"I0"</span>, <span class="st">"PA500"</span>]</span>
 <span id="cb42-4"><a aria-hidden="true" tabindex="-1"></a>  })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -909,10 +911,13 @@
 1     11.737963  PA500</code></pre>
 </div>
 </div>
+</div>
+<div>
 <ul>
-<li><p>“For every unit of I0 higher, we predict 0.003 <strong>lower</strong> log-odds of cancer”</p></li>
-<li><p>“For every unit of PA500 higher, we predict 11.73 <strong>higher</strong> log-odds of cancer.”</p></li>
+<li class="fragment"><p>“For every unit of I0 higher, we predict 0.003 <strong>lower</strong> log-odds of cancer.”</p></li>
+<li class="fragment"><p>“For every unit of PA500 higher, we predict 11.73 <strong>higher</strong> log-odds of cancer.”</p></li>
 </ul>
+</div>
 </section>
 <section id="feature-importance" class="slide level2">
 <h2>Feature Importance</h2>
@@ -921,99 +926,147 @@
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div class="small">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>(ggplot(df, aes(x <span class="op">=</span> <span class="st">"PA500"</span>, group <span class="op">=</span> <span class="st">"Cancerous"</span>, fill <span class="op">=</span> <span class="st">"Cancerous"</span>))</span>
-<span id="cb44-2"><a aria-hidden="true" tabindex="-1"></a><span class="op">+</span> geom_density(alpha <span class="op">=</span> <span class="fl">0.5</span>, show_legend<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb44-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, </span>
+<span id="cb44-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"PA500"</span>, </span>
+<span id="cb44-4"><a aria-hidden="true" tabindex="-1"></a>                       group <span class="op">=</span> <span class="st">"Cancerous"</span>, </span>
+<span id="cb44-5"><a aria-hidden="true" tabindex="-1"></a>                       fill <span class="op">=</span> <span class="st">"Cancerous"</span>)) <span class="op">+</span> </span>
+<span id="cb44-6"><a aria-hidden="true" tabindex="-1"></a>  geom_density(alpha <span class="op">=</span> <span class="fl">0.5</span>, show_legend <span class="op">=</span> <span class="va">False</span>) <span class="op">+</span></span>
+<span id="cb44-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb44-8"><a aria-hidden="true" tabindex="-1"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x11f31a320&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="12-logistic_files/figure-revealjs/pa500-cancer-density-viz-9.png" width="614"></p>
+</figure>
+</div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
+<div class="small">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a aria-hidden="true" tabindex="-1"></a>(ggplot(df, aes(x <span class="op">=</span> <span class="st">"I0"</span>, group <span class="op">=</span> <span class="st">"Cancerous"</span>, fill <span class="op">=</span> <span class="st">"Cancerous"</span>))</span>
-<span id="cb46-2"><a aria-hidden="true" tabindex="-1"></a><span class="op">+</span> geom_density(alpha <span class="op">=</span> <span class="fl">0.5</span>, show_legend<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb45-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, </span>
+<span id="cb45-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"I0"</span>, </span>
+<span id="cb45-4"><a aria-hidden="true" tabindex="-1"></a>                       group <span class="op">=</span> <span class="st">"Cancerous"</span>, </span>
+<span id="cb45-5"><a aria-hidden="true" tabindex="-1"></a>                       fill <span class="op">=</span> <span class="st">"Cancerous"</span>)) <span class="op">+</span> </span>
+<span id="cb45-6"><a aria-hidden="true" tabindex="-1"></a>  geom_density(alpha <span class="op">=</span> <span class="fl">0.5</span>, show_legend <span class="op">=</span> <span class="va">False</span>) <span class="op">+</span> </span>
+<span id="cb45-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb45-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x11f325660&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="12-logistic_files/figure-revealjs/I0-cancer-density-viz-11.png" width="614"></p>
+</figure>
+</div>
 </div>
 </div>
 </div></div>
 </section>
 <section id="standardization" class="slide level2">
 <h2>Standardization</h2>
+<div>
 <ul>
-<li><p>Does this mean that <code>PA500</code> is <em>more important</em> than <code>I0</code>?</p></li>
-<li><p><strong>Not necessarily.</strong> They have different <em>units</em> and so the coefficients mean different things.</p></li>
-<li><p>“For every <strong>1000</strong> units of I0 higher, we predict <strong>3.0 lower</strong> log-odds of cancer”</p></li>
-<li><p>“For every <strong>0.1</strong> unit of PA500 higher, we predict <strong>1.1 higher</strong> log-odds of cancer.”</p></li>
-<li><p>What if we had <em>standardized</em> <code>I0</code> and <code>PA500</code>?</p></li>
+<li class="fragment"><p>Does this mean that <code>PA500</code> is <em>more important</em> than <code>I0</code>?</p></li>
+<li class="fragment"><p><strong>Not necessarily.</strong> They have different <em>units</em> and so the coefficients mean different things.</p></li>
+<li class="fragment"><p>“For every <strong>1000</strong> units of I0 higher, we predict <strong>3.0 lower</strong> log-odds of cancer”</p></li>
+<li class="fragment"><p>“For every <strong>0.1</strong> unit of PA500 higher, we predict <strong>1.1 higher</strong> log-odds of cancer.”</p></li>
+<li class="fragment"><p>What if we had <em>standardized</em> <code>I0</code> and <code>PA500</code>?</p></li>
 </ul>
+</div>
 </section>
-<section id="standardization-1" class="slide level2 smaller">
+<section id="standardization-1" class="slide level2">
 <h2>Standardization</h2>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb48-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a aria-hidden="true" tabindex="-1"></a>pipeline2 <span class="op">=</span> make_pipeline(</span>
-<span id="cb48-4"><a aria-hidden="true" tabindex="-1"></a>  StandardScaler(),</span>
-<span id="cb48-5"><a aria-hidden="true" tabindex="-1"></a>  LogisticRegression(penalty<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb48-6"><a aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb48-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-8"><a aria-hidden="true" tabindex="-1"></a>pipeline2 <span class="op">=</span> pipeline2.fit(df[[<span class="st">"I0"</span>, <span class="st">"PA500"</span>]], df[<span class="st">'Cancerous'</span>])</span>
-<span id="cb48-9"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-10"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame({</span>
-<span id="cb48-11"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coefficients"</span>:pipeline2[<span class="st">'logisticregression'</span>].coef_[<span class="dv">0</span>],</span>
-<span id="cb48-12"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"Column"</span>: [<span class="st">"I0"</span>, <span class="st">"PA500"</span>]</span>
-<span id="cb48-13"><a aria-hidden="true" tabindex="-1"></a>  })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb46-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a aria-hidden="true" tabindex="-1"></a>pipeline2 <span class="op">=</span> make_pipeline(</span>
+<span id="cb46-4"><a aria-hidden="true" tabindex="-1"></a>  StandardScaler(),</span>
+<span id="cb46-5"><a aria-hidden="true" tabindex="-1"></a>  LogisticRegression(penalty <span class="op">=</span> <span class="va">None</span>)</span>
+<span id="cb46-6"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb46-7"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-8"><a aria-hidden="true" tabindex="-1"></a>pipeline2 <span class="op">=</span> pipeline2.fit(df[[<span class="st">"I0"</span>, <span class="st">"PA500"</span>]], df[<span class="st">'Cancerous'</span>])</span>
+<span id="cb46-9"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame({</span>
+<span id="cb46-11"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"Coefficients"</span>: pipeline2[<span class="st">'logisticregression'</span>].coef_[<span class="dv">0</span>],</span>
+<span id="cb46-12"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"Column"</span>: [<span class="st">"I0"</span>, <span class="st">"PA500"</span>]</span>
+<span id="cb46-13"><a aria-hidden="true" tabindex="-1"></a>  })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Coefficients Column
 0     -2.309090     I0
 1      0.801477  PA500</code></pre>
 </div>
 </div>
+<div>
 <ul>
-<li><p>“For every <strong>standard deviation above the mean</strong> someone’s <code>I0</code> is, we predict <strong>2.3 lower</strong> log-odds of cancer”</p></li>
-<li><p>“For every <strong>standard deviation above the mean</strong> someone’s <code>PA500</code> is, we predict <strong>0.80 higher</strong> log-odds of cancer.”</p></li>
-<li><p>Therefore, <code>I0</code> is more important!</p></li>
+<li class="fragment"><p>“For every <strong>standard deviation above the mean</strong> someone’s <code>I0</code> is, we predict <strong>2.3 lower</strong> log-odds of cancer”</p></li>
+<li class="fragment"><p>“For every <strong>standard deviation above the mean</strong> someone’s <code>PA500</code> is, we predict <strong>0.80 higher</strong> log-odds of cancer.”</p></li>
 </ul>
+</div>
+</div>
 </section>
 <section id="standardization-do-you-need-it" class="slide level2">
 <h2>Standardization: Do you need it?</h2>
-<p>But - did this approach change our predictions at all?</p>
+<p>But - does this approach change our predictions?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a aria-hidden="true" tabindex="-1"></a>old_probs <span class="op">=</span> pipeline.predict_proba(df[[<span class="st">"I0"</span>, <span class="st">"PA500"</span>]])</span>
-<span id="cb50-2"><a aria-hidden="true" tabindex="-1"></a>new_probs <span class="op">=</span> pipeline2.predict_proba(df[[<span class="st">"I0"</span>, <span class="st">"PA500"</span>]])</span>
-<span id="cb50-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-4"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame({</span>
-<span id="cb50-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"without_stdize"</span>: old_probs[:,<span class="dv">1</span>], </span>
-<span id="cb50-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"with_stdize"</span>: new_probs[:,<span class="dv">1</span>]</span>
-<span id="cb50-7"><a aria-hidden="true" tabindex="-1"></a>  }).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a aria-hidden="true" tabindex="-1"></a>old_probs <span class="op">=</span> pipeline.predict_proba(df[[<span class="st">"I0"</span>, <span class="st">"PA500"</span>]])</span>
+<span id="cb48-2"><a aria-hidden="true" tabindex="-1"></a>new_probs <span class="op">=</span> pipeline2.predict_proba(df[[<span class="st">"I0"</span>, <span class="st">"PA500"</span>]])</span>
+<span id="cb48-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame({</span>
+<span id="cb48-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"without_stdize"</span>: old_probs[:,<span class="dv">1</span>], </span>
+<span id="cb48-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"with_stdize"</span>: new_probs[:,<span class="dv">1</span>]</span>
+<span id="cb48-7"><a aria-hidden="true" tabindex="-1"></a>  }).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   without_stdize  with_stdize
 0        0.736188     0.736226
 1        0.889803     0.889822
 2        0.813277     0.813319
 3        0.890781     0.890804
-4        0.842957     0.842978</code></pre>
+4        0.842957     0.842978
+5        0.731660     0.731678
+6        0.775454     0.775463
+7        0.802116     0.802126
+8        0.816982     0.817014
+9        0.847675     0.847702</code></pre>
 </div>
 </div>
 </section>
-<section id="standardization-do-you-need-it-1" class="slide level2 smaller">
+<section id="standardization-do-you-need-it-1" class="slide level2">
 <h2>Standardization: Do you need it?</h2>
+<div class="midi">
+<div>
 <ul>
-<li><p>Standardizing will <strong>not change the predictions</strong> for Linear or Logistic Regression!</p></li>
-<li><p>This is because the <strong>coefficients</strong> are chosen relative to the <strong>units</strong> of the predictors. (Unlike in KNN!)</p></li>
-<li><p>Advantage of <em>not</em> standardizing: More interpretable coefficients</p></li>
-<li><p>“For each unit of…” instead of “For each sd above the mean…”</p></li>
-<li><p>Advantage of <em>standardizing</em>: Compare relative importance of predictors</p></li>
-<li><p><strong>It’s up to you!</strong></p></li>
-<li><p><em>(Don’t use cross-validation to decide - you’ll get the same metrics for both!)</em></p></li>
+<li class="fragment"><p>Standardizing will <strong>not change the predictions</strong> for Linear or Logistic Regression!</p>
+<ul>
+<li class="fragment">This is because the <strong>coefficients</strong> are chosen relative to the <strong>units</strong> of the predictors. (Unlike in KNN!)</li>
+</ul></li>
+<li class="fragment"><p>Advantage of <em>not</em> standardizing: More interpretable coefficients</p>
+<ul>
+<li class="fragment">“For each unit of…” instead of “For each sd above the mean…”</li>
+</ul></li>
+<li class="fragment"><p>Advantage of <em>standardizing</em>: Compare relative importance of predictors</p></li>
+<li class="fragment"><p><strong>It’s up to you!</strong></p>
+<ul>
+<li class="fragment"><em>Don’t use cross-validation to decide - you’ll get the same metrics for both!</em></li>
+</ul></li>
 </ul>
+</div>
+</div>
 </section></section>
 <section>
 <section id="your-turn-1" class="title-slide slide level1 center">
@@ -1024,6 +1077,9 @@
 <h2>Activity</h2>
 <p>For your Logistic Regression using <strong>all</strong> predictors, which two were most important?</p>
 <p>How would you interpret the coefficients?</p>
+<div class="midi">
+
+</div>
 </section></section>
 <section>
 <section id="takeaways" class="title-slide slide level1 center">
@@ -1034,7 +1090,7 @@
 <h2>Takeaways</h2>
 <ul>
 <li><p>To fit a <strong>regression model</strong> (i.e., coefficients times predictors) to a <strong>categorical response</strong>, we use <strong>Logistic Regression</strong>.</p></li>
-<li><p>Coefficients are interpreted as “One unit increase in predictor is associated with a [something] increase in the log-odds of Category 1”</p></li>
+<li><p>Coefficients are interpreted as “One unit increase in predictor is associated with a [something] increase in the log-odds of Category 1.”</p></li>
 <li><p>We still use <strong>cross-validated metrics</strong> to decide between KNN and Logistic regression, and between different feature sets.</p></li>
 <li><p>We still report <strong>confusion matrices</strong> and sometimes <strong>precision-recall curves</strong> of our final model.</p></li>
 </ul>
