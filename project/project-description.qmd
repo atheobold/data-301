@@ -1,0 +1,104 @@
+---
+title: "Final Project Guidelines"
+subtitle: "DATA 301"
+---
+
+# Overview
+
+Your final project is your chance to demonstrate your knowledge from DATA 301 in a real-world setting. You will choose a dataset, or possibly multiple
+related datasets, and perform an analysis to address your group's research
+question(s).
+
+You will summarize your findings into a poster, and present it during the
+common hour final poster session (with both sections of DATA 301) on
+**Saturday, March 15th**. Dr. Theobold will post the time of the final once
+Cal Poly has let them know, but it will either be from 1:10pm to 3pm or from
+4:10 to 6pm. 
+
+Projects may be done in groups of **up to 3 students**. The guidelines are
+the same regardless; that is, if you choose to work alone, I will expect the
+same level of quality as if you choose to work in a group of 3.
+
+::: {.callout-caution}
+No extensions will be granted for projects, except in highly unusual,
+extenuating circumstances. Please start early!
+:::
+
+# Checkpoint 1: Project Proposal
+
+To make sure you are on track, you have a two-page project proposal due on
+Friday, February 21.
+
+This proposal must be two pages only, and it must contain:
+
+1. Your group member names.
+
+2. Information about the dataset(s) you intend to analyze:
+
+    + Where are the data located?
+    + Who collected the data and why?
+    + What information (variables) are in the dataset?
+
+3. Research Questions: You should have one primary research question and a few secondary questions
+
+4. Preliminary exploration of your dataset(s): A few simple plots or summary
+statistics that relate to the variables you plan to study.
+
+# Finding Data
+
+Some good places to find datasets are:
+
+- [Kaggle](https://www.kaggle.com/)
+
+- [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday)
+
+- [Google Data Set Search](https://datasetsearch.research.google.com/)
+
+- [Reddit Datasets](https://www.reddit.com/r/datasets/?rdt=50958)
+
+- [List of JSON APIs](https://github.com/toddmotto/public-apis)
+
+- [Project Gutenberg (good source of textual data)](https://www.gutenberg.org/)
+
+- State or federal government websites, such as the [U.S. Government’s Open Data](https://data.gov/)
+
+# Printing Your Final Poster
+
+[This website](https://slidesgo.com/research-poster?format=4%3A3) has some
+poster templates that you can (but are not required to) use. Your poster will
+need to be printed on 24" x 36" paper. You may select all the most basic
+printing options (e.g., matte paper, no lamination, not mounted). I would 
+recommend printing you poster at Staples since they have a quick turnaround and
+basic posters cost about $30. 
+
+If you need assistance with the cost of printing a poster, please let Dr. 
+Theobold know. 
+
+# Final Poster Grading
+
+Your posters will be graded on:
+
+- Presentation:
+    
+    + Was the poster clear and visually appealing?
+    + Do the visualizations tell a story?
+    + Were the presenters able to describe the project and answer questions?
+
+- Correctness:
+    
+    + Were the correct summaries and analyses chosen for the data?
+    + Were the results correctly interpreted and described?
+    + Was the choice of analysis reasonable for the research question?
+
+- Complexity:
+
+    + Did the project address multiple rich aspects of the dataset(s)?
+    + Did the project use skills from across the quarter to answer questions?
+    + Did the project incorporate something from Week 9 or 10? (Webscraping, 
+    APIs, data joining) or from beyond the course?
+
+- Data insight:
+    
+    + Were the research questions interesting and insightful?
+    + Did the project make clear and relevant data conclusions?
+    + Does the project tell a story with real-world impact?
