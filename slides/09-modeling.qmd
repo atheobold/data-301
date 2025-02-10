@@ -1,5 +1,5 @@
 ---
-title: "Modeling"
+title: "Introduction to Modeling"
 format:  
   revealjs: 
     theme: [default, style.scss]
@@ -20,6 +20,39 @@ import numpy as np
 import pandas as pd
 from plotnine import *
 ```
+
+# Starting Your Final Projects 
+
+## Upcoming Tasks / Deadlines
+
+1. Form a group of ***up to*** 3 students
+2. Find a dataset
+3. Form some research questions
+4. Do some preliminary explorations of the data
+5. Write up your project proposal
+
+::: {.callout-tip}
+The [Final Project instructions page](../project/project-description.qmd) has
+suggestions for where to find datasets. 
+:::
+
+## Project Proposal - Due Sunday, February 23
+
+::: {.midi}
+1.  Your group member names.
+
+2.  Information about the dataset(s) you intend to analyze:
+
+    -   Where are the data located?
+    -   Who collected the data and why?
+    -   What information (variables) are in the dataset?
+
+3.  Research Questions: You should have one primary research question and a few
+secondary questions
+
+4.  Preliminary exploration of your dataset(s): A few simple plots or summary
+statistics that relate to the variables you plan to study.
+:::
 
 # The story so far...
 
