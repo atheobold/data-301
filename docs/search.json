@@ -2575,7 +2575,7 @@
     "href": "slides/09-modeling.html#measuring-error",
     "title": "Introduction to Modeling",
     "section": "Measuring Error",
-    "text": "Measuring Error\n\nThe most common way to measure “leftover noise” is the sum of squared error or equivalently, the mean squared error\n\n\n\n\npred_y_train = pipeline.predict(X = df_train)\n\nresults = pd.DataFrame({\n  \"real_prices\": df_train['price'],\n  \"predicted_prices\": pred_y_train,\n})\nresults[\"squared error\"] = (results[\"predicted_prices\"] - results[\"real_prices\"])**2\nresults\n\n\n\n    real_prices  predicted_prices  squared error\n0          37.0              36.2           0.64\n1          63.0              41.4         466.56\n2          45.0              46.6           2.56\n3          22.0              28.8          46.24\n4          18.0              46.4         806.56\n5          66.0              35.2         948.64\n6          14.0              13.0           1.00\n7         100.0              56.6        1883.56\n8          33.0              40.4          54.76\n9          17.0              16.0           1.00\n10         31.0              37.0          36.00\n11         11.0              12.2           1.44\n12         47.0              32.0         225.00\n13         19.0              26.0          49.00\n14         11.0              11.8           0.64\n15         12.0              18.2          38.44\n16         40.0              29.8         104.04\n17         27.0              24.8           4.84\n18         10.0              13.6          12.96\n19         16.0              28.8         163.84\n20         11.0              19.8          77.44\n21         30.0              24.0          36.00\n22         25.0              18.8          38.44\n23         11.0              25.0         196.00\n24         27.0              18.4          73.96\n25         21.0              18.4           6.76\n26         14.0              25.8         139.24",
+    "text": "Measuring Error\n\nThe most common way to measure “leftover noise” is the sum of squared error or equivalently, the mean squared error.\n\n\n\n\npred_y_train = pipeline.predict(X = df_train)\n\nresults = pd.DataFrame({\n  \"real_prices\": df_train['price'],\n  \"predicted_prices\": pred_y_train,\n})\nresults[\"squared error\"] = (results[\"predicted_prices\"] - results[\"real_prices\"])**2\nresults\n\n\n\n    real_prices  predicted_prices  squared error\n0          37.0              36.2           0.64\n1          63.0              41.4         466.56\n2          45.0              46.6           2.56\n3          22.0              28.8          46.24\n4          18.0              46.4         806.56\n5          66.0              35.2         948.64\n6          14.0              13.0           1.00\n7         100.0              56.6        1883.56\n8          33.0              40.4          54.76\n9          17.0              16.0           1.00\n10         31.0              37.0          36.00\n11         11.0              12.2           1.44\n12         47.0              32.0         225.00\n13         19.0              26.0          49.00\n14         11.0              11.8           0.64\n15         12.0              18.2          38.44\n16         40.0              29.8         104.04\n17         27.0              24.8           4.84\n18         10.0              13.6          12.96\n19         16.0              28.8         163.84\n20         11.0              19.8          77.44\n21         30.0              24.0          36.00\n22         25.0              18.8          38.44\n23         11.0              25.0         196.00\n24         27.0              18.4          73.96\n25         21.0              18.4           6.76\n26         14.0              25.8         139.24",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -2586,7 +2586,7 @@
     "href": "slides/09-modeling.html#measuring-error-1",
     "title": "Introduction to Modeling",
     "section": "Measuring Error",
-    "text": "Measuring Error\nThe most common way to measure “leftover noise” is the sum of squared error or equivalently, the mean squared error\n\nresults[\"squared error\"].mean()\n\nnp.float64(200.57629629629628)",
+    "text": "Measuring Error\nThe most common way to measure “leftover noise” is the sum of squared error or equivalently, the mean squared error.\n\nresults[\"squared error\"].mean()\n\nnp.float64(200.57629629629628)",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -2608,7 +2608,7 @@
     "href": "slides/09-modeling.html#training-error-versus-test-error",
     "title": "Introduction to Modeling",
     "section": "Training Error Versus Test Error",
-    "text": "Training Error Versus Test Error\n\n\nOh no! Why did we get an error of 0 for \\(k = 1\\)?\nBecause the closest wine in the training set is… itself.\nSo, our problem is:\n\nIf we predict on the new data, we don’t know the true prices and we can’t evaluate our models.\nIf we predict on the training data, we are “cheating”, because we are using the data to both train and test.\n\nSolution: Let’s make a pretend test data set!",
+    "text": "Training Error Versus Test Error\n\n\nOh no! Why did we get an error of 0 for \\(k = 1\\)?\nBecause the closest wine in the training set is… itself.\nSo, our problem is:\n\nIf we predict on the new data, we don’t know the true prices and we can’t evaluate our models.\nIf we predict on the training data, we are “cheating,” because we are using the data to both train and test.\n\nSolution: Let’s make a pretend test data set!",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -2674,7 +2674,7 @@
     "href": "slides/09-modeling.html#modeling-2",
     "title": "Introduction to Modeling",
     "section": "Modeling",
-    "text": "Modeling\nFor each model proposed:\n\n\nEstablish a pipeline with transformers and a model.\nFit the pipeline on the training data (with known outcome)\nPredict with the fitted pipeline on test data (with known outcome)\nEvaluate our success; i.e., measure noise “left over”\n\n\n\nThen:\n\n\nSelect the best model\nFit on all the data\nPredict on any future data (with unknown outcome)",
+    "text": "Modeling\nFor each model proposed:\n\n\nEstablish a pipeline with transformers and a model.\nFit the pipeline on the training data (with known outcome).\nPredict with the fitted pipeline on test data (with known outcome).\nEvaluate our success (i.e., measure noise “left over”).\n\n\n\nThen:\n\n\nSelect the best model.\nFit on all the data.\nPredict on any future data (with unknown outcome).",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -2685,7 +2685,7 @@
     "href": "slides/09-modeling.html#big-decisions",
     "title": "Introduction to Modeling",
     "section": "Big decisions",
-    "text": "Big decisions\n\nWhich models to try\nWhich column transformers to try\nHow much to tune\nHow to measure “success” of a model",
+    "text": "Big decisions\n\nWhich models to try\nWhich column transformers to try\nHow much to tune\nHow to measure the “success” of a model",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
