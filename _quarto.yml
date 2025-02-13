@@ -71,6 +71,10 @@ website:
             text: "Week 7, Part 1 - Classification"
           - href: slides/12-logistic.qmd
             text: "Week 7, Part 2 - Logistic Regression"
+          - href: slides/13-kmeans.qmd
+            text: "Week 8, Part 1 - Unsupervised Learning"
+          - href: slides/14-merge.qmd
+            text: "Week 8, Part 2 - Combining Datasets"
           # - href: weeks/week-10.qmd
           #   text: "Week 10"
       # - section: "Lab Assignments"
