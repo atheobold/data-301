@@ -27,7 +27,7 @@ from plotnine import *
 
 # Final Project Presentations
 
-> Will take place on Saturday, March 15 from 1:10pm to 2:30pm, room TBD. 
+> Will take place on Saturday, March 15 from 1:10pm to 2:30pm, in our classroom! 
 
 ## If you are having trouble finding a group to work with
 
