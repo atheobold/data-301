@@ -4705,5 +4705,229 @@
     "title": "Unsupervised Learning with K-Means",
     "section": "Takeaways",
     "text": "Takeaways\n\nTakeaways\n\nunsupervised learning is a way to find structure in data\nk-means is the most common clustering method\nWe have to choose K ahead of time\n(This is a big problem! Why can’t we tune?)"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#predictive-modeling",
+    "href": "slides/13-kmeans.html#predictive-modeling",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Predictive Modeling",
+    "text": "Predictive Modeling\n\n\n\nIn predictive modeling, a.k.a. supervised machine learning, we have a target variable we want to predict.\nWe expect to have observations where we know the predictors but not the target.\nOur goal is to choose a modeling procedure to guess the value of the target variable based on the predictors.\nWe use cross-validation to estimate the test error of various procedure options.\nWe might compare different:\n\nfeature sets\npreprocessing choices\nmodel specifications/algorithms\ntuning parameters"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#unsupervised-learning-1",
+    "href": "slides/13-kmeans.html#unsupervised-learning-1",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Unsupervised Learning",
+    "text": "Unsupervised Learning\n\n\nIn unsupervised situations, we do not have a target variable \\(y\\).\nWe do still have features that we observe.\nOur goal: Find an interesting structure in the features we have.\n\n\n\n\n\n\n\n\n\nSupervised vs Unsupervised\n\n\nThink of children playing with Legos. They might be supervised by parents who help them follow instructions, or they might be left alone to build whatever they want!"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#clustering",
+    "href": "slides/13-kmeans.html#clustering",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Clustering",
+    "text": "Clustering\n\n\n\nNearly all unsupervised learning algorithms can be called clustering.\nThe goal is to use the observed features (columns) to sort the observations (rows) into similar clusters (groups).\nFor example: Suppose I take all of your grades in the gradebook as features and then use these to find clusters of students. These clusters might represent…\n\npeople who studied together\npeople who are in the same section\npeople who have the same major or background\n… or none of the above!"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#uses-of-clustering",
+    "href": "slides/13-kmeans.html#uses-of-clustering",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Uses of clustering",
+    "text": "Uses of clustering\n\nEcology: An ecologist wants to group organisms into types to define different species. (rows = organisms; features = habitat, size, etc.)\nBiology: A geneticist wants to know which groups of genes tend to be activated at the same time. (rows = genes; features = activation at certain times)\nMarket Segmentation: A business wants to group their customers into types. (rows = customers, features = age, location, etc.)\nLanguage: A linguist might want to identify different uses of ambiguous words like “set” or “run”. (rows = words; features = other words they are used with)\nDocuments: A historian might want to find groups of articles that are on similar topics. (rows = articles; features = tf-idf transformed n-grams)"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#the-k-means-algorithm",
+    "href": "slides/13-kmeans.html#the-k-means-algorithm",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "The K-Means Algorithm",
+    "text": "The K-Means Algorithm\n\nIdea: Two observations are similar if they are close in distance.\n\n\nDoes this sound familiar?!\n\n\n\nQ: How do we find “groups” of observations?\nA: We should look for groups of observations that are close to the same centroid."
+  },
+  {
+    "objectID": "slides/13-kmeans.html#the-k-means-algorithm-1",
+    "href": "slides/13-kmeans.html#the-k-means-algorithm-1",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "The K-Means Algorithm",
+    "text": "The K-Means Algorithm\nProcedure (3-means):\n\nChoose 3 random observations to be the initial centroids.\nFor each observation, determine which is the closest centroid.\nCreate 3 clusters based on the closest centroid.\nFind the new centroid of each cluster.\nRepeat until the clusters don’t change.\n\n\nhttps://www.naftaliharris.com/blog/visualizing-k-means-clustering/"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#example-penguins-data",
+    "href": "slides/13-kmeans.html#example-penguins-data",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Example: Penguins Data",
+    "text": "Example: Penguins Data\n\n\n\nCode\ndf_penguins = pd.read_csv(\"https://dlsun.github.io/stats112/data/penguins.csv\")\ndf_penguins\n\n\n       species     island  bill_length_mm  ...  body_mass_g     sex  year\n0       Adelie  Torgersen            39.1  ...       3750.0    male  2007\n1       Adelie  Torgersen            39.5  ...       3800.0  female  2007\n2       Adelie  Torgersen            40.3  ...       3250.0  female  2007\n3       Adelie  Torgersen             NaN  ...          NaN     NaN  2007\n4       Adelie  Torgersen            36.7  ...       3450.0  female  2007\n..         ...        ...             ...  ...          ...     ...   ...\n339  Chinstrap      Dream            55.8  ...       4000.0    male  2009\n340  Chinstrap      Dream            43.5  ...       3400.0  female  2009\n341  Chinstrap      Dream            49.6  ...       3775.0    male  2009\n342  Chinstrap      Dream            50.8  ...       4100.0    male  2009\n343  Chinstrap      Dream            50.2  ...       3775.0  female  2009\n\n[344 rows x 8 columns]"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#example-penguins-data-1",
+    "href": "slides/13-kmeans.html#example-penguins-data-1",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Example: Penguins Data",
+    "text": "Example: Penguins Data\n\nIt looks like there are missing values in these data…\n\ndf_penguins.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 344 entries, 0 to 343\nData columns (total 8 columns):\n #   Column             Non-Null Count  Dtype  \n---  ------             --------------  -----  \n 0   species            344 non-null    object \n 1   island             344 non-null    object \n 2   bill_length_mm     342 non-null    float64\n 3   bill_depth_mm      342 non-null    float64\n 4   flipper_length_mm  342 non-null    float64\n 5   body_mass_g        342 non-null    float64\n 6   sex                333 non-null    object \n 7   year               344 non-null    int64  \ndtypes: float64(4), int64(1), object(3)\nmemory usage: 21.6+ KB\n\n\n\n\n\nFor this analysis, we are interested in a penguin’s bill length and flipper length, so I will remove the missing values from those columns.\n\ndf_penguins = (\n  df_penguins\n  .dropna(subset = [\"bill_length_mm\", \"flipper_length_mm\"])\n  )"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-0-standardize-the-data",
+    "href": "slides/13-kmeans.html#step-0-standardize-the-data",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 0: Standardize the data",
+    "text": "Step 0: Standardize the data\n\n \n\n\nWhy is this important?"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-1-choose-3-random-points-to-be-centroids",
+    "href": "slides/13-kmeans.html#step-1-choose-3-random-points-to-be-centroids",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 1: Choose 3 random points to be centroids",
+    "text": "Step 1: Choose 3 random points to be centroids\n\n\ncentroids = df_scaled.sample(n = 3, random_state = 1234)\ncentroids.index = [\"orange\", \"purple\", \"green\"]\n\ncentroids\n\n        bill_length_mm  flipper_length_mm\norange       -0.425917          -0.634935\npurple        0.674678          -0.421277\ngreen        -0.077396           0.860670"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-1-choose-3-random-points-to-be-centroids-1",
+    "href": "slides/13-kmeans.html#step-1-choose-3-random-points-to-be-centroids-1",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 1: Choose 3 random points to be centroids",
+    "text": "Step 1: Choose 3 random points to be centroids\n\n\n\nCode\n(\n  ggplot(data = df_scaled, \n         mapping = aes(x = \"bill_length_mm\", y = \"flipper_length_mm\")) + \n         geom_point() + \n         geom_point(data = centroids, color = centroids.index, size = 4) +\n         theme_bw() +\n         labs(x = \"Bill Length (mm)\", \n              y = \"Flipper Length (mm)\"\n              )\n  )"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-2-assign-each-point-to-nearest-centroid",
+    "href": "slides/13-kmeans.html#step-2-assign-each-point-to-nearest-centroid",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 2: Assign each point to nearest centroid",
+    "text": "Step 2: Assign each point to nearest centroid\n\n\nfrom sklearn.metrics import pairwise_distances\n\ndists = pairwise_distances(df_scaled, centroids)\ndists[1:5]\n\narray([[0.57531222, 1.61816529, 2.0581506 ],\n       [0.32017798, 1.3390574 , 1.40994282],\n       [0.90163652, 2.00448173, 1.89333953],\n       [0.44529088, 1.5635793 , 1.8101736 ]])"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-2-assign-each-point-to-nearest-centroid-1",
+    "href": "slides/13-kmeans.html#step-2-assign-each-point-to-nearest-centroid-1",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 2: Assign each point to nearest centroid",
+    "text": "Step 2: Assign each point to nearest centroid\n\n\nclosest_centroid = dists.argmin(axis = 1)\nclosest_centroid\n\narray([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,\n       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0,\n       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2,\n       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,\n       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2,\n       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,\n       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,\n       2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,\n       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n       1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1,\n       1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 0, 1,\n       1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1])\n\n\n\n\n\n\n\n\n\naxis = 1 operates on each row"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-2-assign-each-point-to-nearest-centroid-2",
+    "href": "slides/13-kmeans.html#step-2-assign-each-point-to-nearest-centroid-2",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 2: Assign each point to nearest centroid",
+    "text": "Step 2: Assign each point to nearest centroid\n\ndf_scaled.index = centroids.index[closest_centroid]\ndf_scaled.head(n = 10)\n\n        bill_length_mm  flipper_length_mm\norange       -0.884499          -1.418347\norange       -0.811126          -1.062250\norange       -0.664380          -0.421277\norange       -1.324737          -0.563715\norange       -0.847812          -0.777373\norange       -0.921185          -1.418347\norange       -0.866155          -0.421277\norange       -1.801661          -0.563715\norange       -0.352544          -0.777373\norange       -1.122961          -1.062250"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-2-assign-each-point-to-nearest-centroid-3",
+    "href": "slides/13-kmeans.html#step-2-assign-each-point-to-nearest-centroid-3",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 2: Assign each point to nearest centroid",
+    "text": "Step 2: Assign each point to nearest centroid\n\n\n\nCode\n(\n  ggplot(data = df_scaled, \n         mapping = aes(x = \"bill_length_mm\", y = \"flipper_length_mm\")) + \n         geom_point(color = df_scaled.index) + \n         geom_point(data = centroids, color = centroids.index, size = 3) +\n         theme_bw() +\n         labs(x = \"Bill Length (mm)\", \n              y = \"Flipper Length (mm)\"\n              )\n  )"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-3-find-new-centroids",
+    "href": "slides/13-kmeans.html#step-3-find-new-centroids",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 3: Find new centroids",
+    "text": "Step 3: Find new centroids\n\ncentroids = df_scaled.groupby(df_scaled.index).mean()\ncentroids\n\n        bill_length_mm  flipper_length_mm\ngreen         0.628892           1.140501\norange       -0.957138          -0.821529\npurple        0.980022          -0.332526\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nAre these centroids observations in df_scaled?"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-3-find-new-centroids-1",
+    "href": "slides/13-kmeans.html#step-3-find-new-centroids-1",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 3: Find new centroids",
+    "text": "Step 3: Find new centroids\n\n\n\nCode\n(\n  ggplot(data = df_scaled, \n         mapping = aes(x = \"bill_length_mm\", y = \"flipper_length_mm\")) + \n         geom_point(color = df_scaled.index) + \n         geom_point(data = centroids, color = centroids.index, size = 3) +\n         theme_bw() +\n         labs(x = \"Bill Length (mm)\", \n              y = \"Flipper Length (mm)\"\n              )\n  )"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-4-repeat-over-and-over",
+    "href": "slides/13-kmeans.html#step-4-repeat-over-and-over",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 4: Repeat over and over!",
+    "text": "Step 4: Repeat over and over!\n\n\nfor i in range(1, 6):\n  dists = pairwise_distances(df_scaled, centroids)\n  df_scaled.index = centroids.index[closest_centroid]\n  centroids = df_scaled.groupby(df_scaled.index).mean()\n  print(centroids)\n\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n\n\n\n\n\n\n\n\n\n\nAt what point do we stop finding new centroids / reassigning points?"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#k-means-in-sklearn",
+    "href": "slides/13-kmeans.html#k-means-in-sklearn",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "K-means in sklearn",
+    "text": "K-means in sklearn\nSpecify\n\n\nfrom sklearn.cluster import KMeans\nfrom sklearn.pipeline import make_pipeline\n\nmodel = KMeans(n_clusters = 3, random_state = 1234)\n\npipeline = make_pipeline(\n    StandardScaler(),\n    model\n)\n\n\nFit\n\n\npipeline.fit(df_penguins[[\"bill_length_mm\", \"flipper_length_mm\"]]);"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#k-means-in-sklearn-1",
+    "href": "slides/13-kmeans.html#k-means-in-sklearn-1",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "K-means in sklearn",
+    "text": "K-means in sklearn\n\nclusters = model.labels_\nclusters\n\narray([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0,\n       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0,\n       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,\n       2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,\n       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,\n       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n       1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,\n       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,\n       2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 2, 2, 2, 2, 2, 2, 2, 0, 2, 0, 2,\n       2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 0, 2,\n       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2], dtype=int32)"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#interpreting-k-means",
+    "href": "slides/13-kmeans.html#interpreting-k-means",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Interpreting K-Means",
+    "text": "Interpreting K-Means\nThe key takeaway here is the cluster centers:\n\ncentroids = model.cluster_centers_\ncentroids\n\narray([[-0.95823619, -0.80850204],\n       [ 0.66658932,  1.14779076],\n       [ 0.93807532, -0.37008779]])\n\n\n\n\n\nCluster 1 has a short bill, shortish flipper\nCluster 2 has medium bill, long flipper\nCluster 3 has long bill, and fairly average flipper"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#interpreting-k-means-2",
+    "href": "slides/13-kmeans.html#interpreting-k-means-2",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Interpreting K-Means",
+    "text": "Interpreting K-Means\nWe also might check if these clusters match any labels that we already know:\n\nresults.value_counts([\"cluster\", \"species\"]).unstack()\n\nspecies  Adelie  Chinstrap  Gentoo\ncluster                           \n0         146.0        5.0     NaN\n1           1.0        4.0   122.0\n2           4.0       59.0     1.0"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#activity",
+    "href": "slides/13-kmeans.html#activity",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Activity",
+    "text": "Activity\n\nFit a 3-means model using all the numeric predictors in the penguins data.\n\n\nDescribe what each cluster represents.\nDo these clusters match up to the species?\n\n\nNext, fit a 6-means model.\n\n\nDo those clusters match up to species and island?"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#takeaways-1",
+    "href": "slides/13-kmeans.html#takeaways-1",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nUnsupervised learning is a way to find structure in data.\nK-means is the most common clustering method.\nWe have to choose K ahead of time.\n\n\n\n\n\n\n\nThis is a big problem!\n\n\nWhy can’t we tune????"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#applications-for-clustering",
+    "href": "slides/13-kmeans.html#applications-for-clustering",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Applications for Clustering",
+    "text": "Applications for Clustering\n\n\n\nEcology: An ecologist wants to group organisms into types to define different species. (rows = organisms; features = habitat, size, etc.)\nBiology: A geneticist wants to know which groups of genes tend to be activated at the same time. (rows = genes; features = activation at certain times)\nMarket Segmentation: A business wants to group their customers into types. (rows = customers, features = age, location, etc.)\nLanguage: A linguist might want to identify different uses of ambiguous words like “set” or “run”. (rows = words; features = other words they are used with)\nDocuments: A historian might want to find groups of articles that are on similar topics. (rows = articles; features = tf-idf transformed n-grams)"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#example-penguins-data-2",
+    "href": "slides/13-kmeans.html#example-penguins-data-2",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Example: Penguins Data",
+    "text": "Example: Penguins Data\n\n\nCode\n(\n  ggplot(data = df_penguins, \n         mapping = aes(x = \"bill_length_mm\", y = \"flipper_length_mm\")) + \n         geom_point() + \n         theme_bw() +\n         labs(x = \"Bill Length (mm)\", \n              y = \"Flipper Length (mm)\"\n              )\n  )"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#example-penguin-data",
+    "href": "slides/13-kmeans.html#example-penguin-data",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Example: Penguin Data",
+    "text": "Example: Penguin Data\n\n\n\nCode\ndf_penguins = pd.read_csv(\"https://dlsun.github.io/stats112/data/penguins.csv\")\ndf_penguins\n\n\n       species     island  bill_length_mm  ...  body_mass_g     sex  year\n0       Adelie  Torgersen            39.1  ...       3750.0    male  2007\n1       Adelie  Torgersen            39.5  ...       3800.0  female  2007\n2       Adelie  Torgersen            40.3  ...       3250.0  female  2007\n3       Adelie  Torgersen             NaN  ...          NaN     NaN  2007\n4       Adelie  Torgersen            36.7  ...       3450.0  female  2007\n..         ...        ...             ...  ...          ...     ...   ...\n339  Chinstrap      Dream            55.8  ...       4000.0    male  2009\n340  Chinstrap      Dream            43.5  ...       3400.0  female  2009\n341  Chinstrap      Dream            49.6  ...       3775.0    male  2009\n342  Chinstrap      Dream            50.8  ...       4100.0    male  2009\n343  Chinstrap      Dream            50.2  ...       3775.0  female  2009\n\n[344 rows x 8 columns]"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#penguin-data-investigating-missing-values",
+    "href": "slides/13-kmeans.html#penguin-data-investigating-missing-values",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Penguin Data: Investigating Missing Values",
+    "text": "Penguin Data: Investigating Missing Values\nIt looks like there are missing values in these data…\n\n\ndf_penguins.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 344 entries, 0 to 343\nData columns (total 8 columns):\n #   Column             Non-Null Count  Dtype  \n---  ------             --------------  -----  \n 0   species            344 non-null    object \n 1   island             344 non-null    object \n 2   bill_length_mm     342 non-null    float64\n 3   bill_depth_mm      342 non-null    float64\n 4   flipper_length_mm  342 non-null    float64\n 5   body_mass_g        342 non-null    float64\n 6   sex                333 non-null    object \n 7   year               344 non-null    int64  \ndtypes: float64(4), int64(1), object(3)\nmemory usage: 21.6+ KB"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#penguin-data-removing-missing-values",
+    "href": "slides/13-kmeans.html#penguin-data-removing-missing-values",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Penguin Data: Removing Missing Values",
+    "text": "Penguin Data: Removing Missing Values\nFor this analysis, we are interested in a penguin’s bill length and flipper length, so I will remove the missing values from those columns.\n\n\ndf_penguins = (\n  df_penguins\n  .dropna(subset = [\"bill_length_mm\", \"flipper_length_mm\"])\n  )"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#penguin-data-plot",
+    "href": "slides/13-kmeans.html#penguin-data-plot",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Penguin Data: Plot",
+    "text": "Penguin Data: Plot\n\n\nCode\n(\n  ggplot(data = df_penguins, \n         mapping = aes(x = \"bill_length_mm\", y = \"flipper_length_mm\")) + \n         geom_point() + \n         theme_bw() +\n         labs(x = \"Bill Length (mm)\", \n              y = \"Flipper Length (mm)\"\n              )\n  )"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#step-0-standardize-the-data-1",
+    "href": "slides/13-kmeans.html#step-0-standardize-the-data-1",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Step 0: Standardize the data",
+    "text": "Step 0: Standardize the data\nSpecify\n\n\nfrom sklearn.preprocessing import StandardScaler\n\nscaler = StandardScaler().set_output(transform = \"pandas\")\n\n\nFit & Transform\n\n\ndf_scaled = (\n  scaler\n  .fit_transform(df_penguins[[\"bill_length_mm\", \"flipper_length_mm\"]])\n  )\n\ndf_scaled.head()\n\n   bill_length_mm  flipper_length_mm\n0       -0.884499          -1.418347\n1       -0.811126          -1.062250\n2       -0.664380          -0.421277\n4       -1.324737          -0.563715\n5       -0.847812          -0.777373"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#interpreting-k-means-1",
+    "href": "slides/13-kmeans.html#interpreting-k-means-1",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Interpreting K-Means",
+    "text": "Interpreting K-Means\nWe also might check if these clusters match any labels that we already know:\n\n\nCode\nresults = pd.DataFrame({\n  \"cluster\": clusters,\n  \"species\": df_penguins['species']\n})\n\n(\n  results\n  .groupby(\"species\")[\"cluster\"]\n  .value_counts()\n  .unstack()\n  .fillna(0)\n  )\n\n\ncluster        0      1     2\nspecies                      \nAdelie     146.0    1.0   4.0\nChinstrap    5.0    4.0  59.0\nGentoo       0.0  122.0   1.0"
   }
 ]
