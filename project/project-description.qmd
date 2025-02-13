@@ -8,7 +8,7 @@ editor: source
 
 Your final project is your chance to demonstrate your knowledge from DATA 301 in a real-world setting. You will choose a dataset, or possibly multiple related datasets, and perform an analysis to address your group's research question(s).
 
-You will summarize your findings into a poster, and present it during the common hour final poster session (with both sections of DATA 301) on **Saturday, March 15th**. Dr. Theobold will post the time of the final once Cal Poly has let them know, but it will either be from 1:10pm to 3pm or from 4:10 to 6pm.
+You will summarize your findings into a poster, and present it during the common hour final poster session (with both sections of DATA 301) on **Saturday, March 15th from 1:10pm to 2:30pm**. The poster session will be in our regularly scheduled classroom!
 
 Projects may be done in groups of **up to 3 students**. The guidelines are the same regardless; that is, if you choose to work alone, I will expect the same level of quality as if you choose to work in a group of 3.
 
@@ -18,7 +18,7 @@ No extensions will be granted for projects, except in highly unusual, extenuatin
 
 # Checkpoint 1: Project Proposal
 
-To make sure you are on track, you have a two-page project proposal due on Friday, February 21.
+To make sure you are on track, you have a two-page project proposal due on Sunday, February 23.
 
 This proposal must be two pages only, and it must contain:
 
