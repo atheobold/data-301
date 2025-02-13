@@ -1698,7 +1698,7 @@
     "href": "slides/10-cross-val.html#estimated-intercept-and-slope",
     "title": "Cross-Validation and Grid Search",
     "section": "Estimated Intercept and Slope",
-    "text": "Estimated Intercept and Slope\n\n\nEstimated Intercept\n\n(\n  pipeline\n  .named_steps['linearregression']\n  .intercept_\n  )\n\nnp.float64(-0.2997193011856538)\n\n\n\n\n\nEstimated Slope\n\n(\n  pipeline\n  .named_steps['linearregression']\n  .coef_\n  )\n\narray([1.15601827])",
+    "text": "Estimated Intercept and Slope\n\n\nEstimated Intercept\n\n(\n  pipeline\n  .named_steps['linearregression']\n  .intercept_\n  )\n\nnp.float64(-0.29971930118565737)\n\n\n\n\n\nEstimated Slope\n\n(\n  pipeline\n  .named_steps['linearregression']\n  .coef_\n  )\n\narray([1.15601827])",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1764,7 +1764,7 @@
     "href": "slides/10-cross-val.html#creating-testing-training-splits",
     "title": "Cross-Validation and Grid Search",
     "section": "Creating Testing & Training Splits",
-    "text": "Creating Testing & Training Splits\n\nX_train, X_test, y_train, y_test = train_test_split(df_known, \n                                                    df_known['price'], \n                                                    test_size = 0.1)",
+    "text": "Creating Testing & Training Splits\n\nX_train, X_test, y_train, y_test = train_test_split(df_known, \n                                                    df_known['price'], \n                                                    test_size = 0.1)\n\n\n\nThis creates four new objects, X_train, X_test, y_train, and y_test.\n\nNote that the objects are created in this order!\n\n\n\n\n\nThe “testing” data are 10% (0.1) of the total size of the training data (df_known).",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1775,7 +1775,7 @@
     "href": "slides/10-cross-val.html#pipeline-for-predicting-on-test-data",
     "title": "Cross-Validation and Grid Search",
     "section": "Pipeline for Predicting on Test Data",
-    "text": "Pipeline for Predicting on Test Data\n\nSpecify\n\n\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\nct = make_column_transformer(\n  (StandardScaler(), features),\n  remainder = \"drop\"\n)\n\npipeline = make_pipeline(\n    ct,\n    LinearRegression()\n    )\n\n\n\nFit for Training Data\n\n\n\npipeline = pipeline.fit(X = X_train, y = y_train)\n\n\n\nPredict for Test Data\n\n\npred_y_test = pipeline.predict(X = X_test)\n\n:::",
+    "text": "Pipeline for Predicting on Test Data\n\nSpecify\n\n\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\nct = make_column_transformer(\n  (StandardScaler(), features),\n  remainder = \"drop\"\n)\n\npipeline = make_pipeline(\n    ct,\n    LinearRegression()\n    )\n\n\n\nFit for Training Data\n\n\n\npipeline = pipeline.fit(X = X_train, y = y_train)\n\n\n\nPredict for Test Data\n\n\n\npred_y_test = pipeline.predict(X = X_test)",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1786,7 +1786,7 @@
     "href": "slides/10-cross-val.html#estimating-error-for-test-data",
     "title": "Cross-Validation and Grid Search",
     "section": "Estimating Error for Test Data",
-    "text": "Estimating Error for Test Data\n\nmean_squared_error(y_test, pred_y_test)\n\n103.96015507133323",
+    "text": "Estimating Error for Test Data\n\nmean_squared_error(y_test, pred_y_test)\n\n56.733389162451914",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1830,7 +1830,7 @@
     "href": "slides/10-cross-val.html#cross-validation-in-sklearn-1",
     "title": "Cross-Validation and Grid Search",
     "section": "Cross-Validation in sklearn",
-    "text": "Cross-Validation in sklearn\nWhat are these numbers?\n\n\nsklearn chooses a default metric for you based on the model.\nIn this case: r-squared for Linear Regression; negative root mean square error for KNN.\n\n\nWhy use negative root mean squared error for KNN?\n\nTo be consistent! We will always want to maximize this score.\nLarger r-squared values explain more of the variance in the response (y).\nLarger negative RMSE (smaller RMSE) means the “leftover” variance in y is minimized.",
+    "text": "Cross-Validation in sklearn\n\nWhat are these numbers?\n\n\nsklearn chooses a default metric for you based on the model.\nIn the case of regression, the default metric is R-Squared.\n\n\n\n\n\nWhy use negative root mean squared error?\n\n\nTo be consistent! We will always want to maximize this score.\nLarger R-Squared values explain more of the variance in the response (y).\nLarger negative RMSE (smaller RMSE) means the “leftover” variance in y is minimized.",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1863,7 +1863,7 @@
     "href": "slides/10-cross-val.html#your-turn",
     "title": "Cross-Validation and Grid Search",
     "section": "Your turn",
-    "text": "Your turn\n\nUse cross-validation to choose between Linear Regression and KNN with k = 7, for:\n\nUsing all predictors.\nUsing just winter rainfall and summer temperature.\nUsing only age.\n\nRe-run #1, but instead use mean absolute error. (You will need to look in the documentation of cross_val_score() for this!)",
+    "text": "Your turn\n\nUse cross-validation to choose between Linear Regression and KNN with k = 7 based on \"neg_mean_squared_error\", for:\n\nUsing all predictors.\nUsing just winter rainfall and summer temperature.\nUsing only age.\n\nRe-run #1, but instead use mean absolute error. (You will need to look in the documentation of cross_val_score() for this!)",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1907,7 +1907,7 @@
     "href": "slides/10-cross-val.html#getting-the-cross-validation-results",
     "title": "Cross-Validation and Grid Search",
     "section": "Getting the Cross Validation Results",
-    "text": "Getting the Cross Validation Results\n\n\npd.DataFrame(grid_cv.cv_results_)\n\n\n\n\n\n    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score\n0        0.001627      0.000646  ...      219.338831               12\n1        0.001379      0.000209  ...      209.511631                9\n2        0.001416      0.000133  ...      178.819362                6\n3        0.001257      0.000008  ...      217.989122               11\n4        0.001251      0.000034  ...      212.797774                7\n5        0.001220      0.000007  ...      205.240907                3\n6        0.001229      0.000013  ...      227.978005               10\n7        0.001222      0.000014  ...      175.175403                2\n8        0.001217      0.000010  ...      174.981203                5\n9        0.001241      0.000046  ...      175.186322                1\n10       0.001218      0.000009  ...      200.091917                4\n11       0.001237      0.000025  ...      232.710455                8\n\n[12 rows x 15 columns]",
+    "text": "Getting the Cross Validation Results\n\n\npd.DataFrame(grid_cv.cv_results_)\n\n\n\n\n\n    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score\n0        0.005355      0.000494  ...      219.338831               12\n1        0.004516      0.000855  ...      209.511631                9\n2        0.004011      0.000411  ...      178.819362                6\n3        0.003650      0.000167  ...      217.989122               11\n4        0.003858      0.000143  ...      212.797774                7\n5        0.003695      0.000128  ...      205.240907                3\n6        0.003784      0.000189  ...      227.978005               10\n7        0.004473      0.001052  ...      175.175403                2\n8        0.004650      0.000941  ...      174.981203                5\n9        0.004820      0.000632  ...      175.186322                1\n10       0.005453      0.000763  ...      200.091917                4\n11       0.004184      0.000456  ...      232.710455                8\n\n[12 rows x 15 columns]",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -4705,5 +4705,38 @@
     "title": "Unsupervised Learning with K-Means",
     "section": "Takeaways",
     "text": "Takeaways\n\nTakeaways\n\nunsupervised learning is a way to find structure in data\nk-means is the most common clustering method\nWe have to choose K ahead of time\n(This is a big problem! Why can’t we tune?)"
+  },
+  {
+    "objectID": "slides/10-cross-val.html#cross-validation-5-fold",
+    "href": "slides/10-cross-val.html#cross-validation-5-fold",
+    "title": "Cross-Validation and Grid Search",
+    "section": "Cross-Validation (5-Fold)",
+    "text": "Cross-Validation (5-Fold)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 6, Part 2 - Cross Validation & Grid Search"
+    ]
+  },
+  {
+    "objectID": "slides/10-cross-val.html#what-do-we-do-with-these-numbers",
+    "href": "slides/10-cross-val.html#what-do-we-do-with-these-numbers",
+    "title": "Cross-Validation and Grid Search",
+    "section": "What do we do with these numbers?",
+    "text": "What do we do with these numbers?\n\nfrom sklearn.model_selection import cross_val_score\n\ncvs = cross_val_score(pipeline, \n                      X = df_known, \n                      y = df_known['price'], \n                      cv = 10)\n\nSince we have 10 different values, what would you expect us to do?\n\nWell, this is a statistics class after all. So, you probably guessed we would take the mean.\n\ncvs.mean()\n\nnp.float64(-7.01140156833539)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 6, Part 2 - Cross Validation & Grid Search"
+    ]
+  },
+  {
+    "objectID": "slides/10-cross-val.html#if-you-are-having-trouble-finding-a-group-to-work-with",
+    "href": "slides/10-cross-val.html#if-you-are-having-trouble-finding-a-group-to-work-with",
+    "title": "Cross-Validation and Grid Search",
+    "section": "If you are having trouble finding a group to work with",
+    "text": "If you are having trouble finding a group to work with\nfill out this Google Form and Dr. T will help you!\n\n\nLoading…",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 6, Part 2 - Cross Validation & Grid Search"
+    ]
   }
 ]
