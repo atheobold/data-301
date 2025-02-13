@@ -396,6 +396,27 @@
 </div>
 
 </section>
+<section id="more-information-about-final-projects" class="title-slide slide level1 center">
+<h1>More Information About Final Projects!</h1>
+
+</section>
+
+<section>
+<section id="final-project-presentations" class="title-slide slide level1 center">
+<h1>Final Project Presentations</h1>
+<blockquote>
+<p>Will take place on Saturday, March 15 from 1:10pm to 2:30pm, in our classroom!</p>
+</blockquote>
+</section>
+<section id="if-you-are-having-trouble-finding-a-group-to-work-with" class="slide level2">
+<h2>If you are having trouble finding a group to work with</h2>
+<p>fill out this Google Form and Dr.&nbsp;T will help you!</p>
+<div class="centered">
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFTbTxIwqVEQa3r_nUMtJUa85gLsNpA4qvUo3FOns4GLTGlw/viewform?embedded=true" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">
+Loading…
+</iframe>
+</div>
+</section></section>
 <section>
 <section id="the-story-so-far" class="title-slide slide level1 center">
 <h1>The story so far…</h1>
@@ -1053,7 +1074,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a>  .intercept_</span>
 <span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(-0.2997193011856538)</code></pre>
+<pre><code>np.float64(-0.29971930118565737)</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:10%;">
@@ -1154,6 +1175,19 @@ Name: age, dtype: float64</code></pre>
 <span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>                                                    df_known[<span class="st">'price'</span>], </span>
 <span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a>                                                    test_size <span class="op">=</span> <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="fragment">
+<ul>
+<li>This creates <strong><em>four</em></strong> new objects, <code>X_train</code>, <code>X_test</code>, <code>y_train</code>, and <code>y_test</code>.
+<ul>
+<li>Note that the objects are created <u>in this order</u>!</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>The “testing” data are 10% (0.1) of the total size of the training data (<code>df_known</code>).</li>
+</ul>
+</div>
 </section>
 <section id="pipeline-for-predicting-on-test-data" class="slide level2">
 <h2>Pipeline for Predicting on Test Data</h2>
@@ -1185,17 +1219,18 @@ Name: age, dtype: float64</code></pre>
 <div class="midi">
 <p><strong>Predict for Test Data</strong></p>
 </div>
+<div class="small">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>pred_y_test <span class="op">=</span> pipeline.predict(X <span class="op">=</span> X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>:::</p>
+</div>
 </section>
 <section id="estimating-error-for-test-data" class="slide level2">
 <h2>Estimating Error for Test Data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>mean_squared_error(y_test, pred_y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>103.96015507133323</code></pre>
+<pre><code>43.70298781034375</code></pre>
 </div>
 </div>
 </section>
@@ -1214,8 +1249,8 @@ Name: age, dtype: float64</code></pre>
 </ul>
 </div>
 </section>
-<section id="cross-validation-2" class="slide level2">
-<h2>Cross-Validation</h2>
+<section id="cross-validation-5-fold" class="slide level2">
+<h2>Cross-Validation (5-Fold)</h2>
 
 <img data-src="./images/5-k-fold-pic.png" class="r-stretch"></section>
 <section id="cross-validation-in-sklearn" class="slide level2">
@@ -1236,30 +1271,59 @@ Name: age, dtype: float64</code></pre>
 </section>
 <section id="cross-validation-in-sklearn-1" class="slide level2">
 <h2>Cross-Validation in <code>sklearn</code></h2>
+<div class="midi">
 <p><strong>What are these numbers?</strong></p>
 <div>
 <ul>
 <li class="fragment"><p><code>sklearn</code> chooses a <strong>default metric</strong> for you based on the model.</p></li>
-<li class="fragment"><p>In this case: <em>r-squared</em> for Linear Regression; <em>negative root mean square error</em> for KNN.</p></li>
+<li class="fragment"><p>In the case of regression, the default metric is <em>R-Squared</em>.</p></li>
 </ul>
 </div>
-<p><strong>Why use negative root mean squared error for KNN?</strong></p>
+</div>
+<div class="fragment">
+<div class="midi">
+<p><strong>Why use negative root mean squared error?</strong></p>
+<div>
 <ul>
-<li><p>To be consistent! We will <strong>always</strong> want to <em>maximize</em> this score.</p></li>
-<li><p>Larger <em>r-squared</em> values explain more of the variance in the response (y).</p></li>
-<li><p>Larger <em>negative</em> RMSE (smaller RMSE) means the “leftover” variance in y is minimized.</p></li>
+<li class="fragment"><p>To be consistent! We will <strong>always</strong> want to <em>maximize</em> this score.</p></li>
+<li class="fragment"><p>Larger <em>R-Squared</em> values explain more of the variance in the response (y).</p></li>
+<li class="fragment"><p>Larger <em>negative</em> RMSE (smaller RMSE) means the “leftover” variance in y is minimized.</p></li>
 </ul>
+</div>
+</div>
+</div>
+</section>
+<section id="what-do-we-do-with-these-numbers" class="slide level2">
+<h2>What do we do with these numbers?</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb24-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a aria-hidden="true" tabindex="-1"></a>cvs <span class="op">=</span> cross_val_score(pipeline, </span>
+<span id="cb24-4"><a aria-hidden="true" tabindex="-1"></a>                      X <span class="op">=</span> df_known, </span>
+<span id="cb24-5"><a aria-hidden="true" tabindex="-1"></a>                      y <span class="op">=</span> df_known[<span class="st">'price'</span>], </span>
+<span id="cb24-6"><a aria-hidden="true" tabindex="-1"></a>                      cv <span class="op">=</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Since we have 10 different values, what would you expect us to do?</p>
+<div class="fragment">
+<p>Well, this is a statistics class after all. So, you probably guessed we would take the mean.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>cvs.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>np.float64(-7.01140156833539)</code></pre>
+</div>
+</div>
+</div>
 </section>
 <section id="cross-validation-in-sklearn-2" class="slide level2">
 <h2>Cross-Validation in <code>sklearn</code></h2>
 <p>What if you want <strong>MSE</strong>?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>cv_scores <span class="op">=</span> cross_val_score(pipeline, </span>
-<span id="cb24-2"><a></a>                            X <span class="op">=</span> df_known, </span>
-<span id="cb24-3"><a></a>                            y <span class="op">=</span> df_known[<span class="st">'price'</span>], </span>
-<span id="cb24-4"><a></a>                            cv <span class="op">=</span> <span class="dv">10</span>, </span>
-<span id="cb24-5"><a></a>                            scoring <span class="op">=</span> <span class="st">"neg_mean_squared_error"</span>)</span>
-<span id="cb24-6"><a></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>cv_scores <span class="op">=</span> cross_val_score(pipeline, </span>
+<span id="cb27-2"><a></a>                            X <span class="op">=</span> df_known, </span>
+<span id="cb27-3"><a></a>                            y <span class="op">=</span> df_known[<span class="st">'price'</span>], </span>
+<span id="cb27-4"><a></a>                            cv <span class="op">=</span> <span class="dv">10</span>, </span>
+<span id="cb27-5"><a></a>                            scoring <span class="op">=</span> <span class="st">"neg_mean_squared_error"</span>)</span>
+<span id="cb27-6"><a></a>cv_scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([ -54.51757584, -301.38564331, -521.90492178, -247.38859562,
         -59.30908038,  -14.0803285 , -348.78575122, -138.57953707,
@@ -1295,7 +1359,7 @@ Name: age, dtype: float64</code></pre>
 <section id="your-turn" class="slide level2">
 <h2>Your turn</h2>
 <ol type="1">
-<li><p>Use <strong>cross-validation</strong> to choose between Linear Regression and KNN with k = 7, for:</p>
+<li><p>Use <strong>cross-validation</strong> to choose between Linear Regression and KNN with k = 7 based on <code>"neg_mean_squared_error"</code>, for:</p>
 <ul>
 <li>Using all predictors.</li>
 <li>Using just winter rainfall and summer temperature.</li>
@@ -1323,16 +1387,16 @@ Name: age, dtype: float64</code></pre>
 <h2>Initializing <code>GridSearchCV()</code></h2>
 <div class="small">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
-<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a aria-hidden="true" tabindex="-1"></a>grid_cv <span class="op">=</span> GridSearchCV(</span>
-<span id="cb26-4"><a aria-hidden="true" tabindex="-1"></a>    pipeline,</span>
-<span id="cb26-5"><a aria-hidden="true" tabindex="-1"></a>    param_grid <span class="op">=</span> {</span>
-<span id="cb26-6"><a aria-hidden="true" tabindex="-1"></a>        <span class="st">"kneighborsregressor__n_neighbors"</span>: <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>),</span>
-<span id="cb26-7"><a aria-hidden="true" tabindex="-1"></a>        <span class="st">"kneighborsregressor__metric"</span>: [<span class="st">"euclidean"</span>, <span class="st">"manhattan"</span>],</span>
-<span id="cb26-8"><a aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb26-9"><a aria-hidden="true" tabindex="-1"></a>    scoring <span class="op">=</span> <span class="st">"neg_mean_squared_error"</span>, </span>
-<span id="cb26-10"><a aria-hidden="true" tabindex="-1"></a>    cv <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
+<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a>grid_cv <span class="op">=</span> GridSearchCV(</span>
+<span id="cb29-4"><a aria-hidden="true" tabindex="-1"></a>    pipeline,</span>
+<span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a>    param_grid <span class="op">=</span> {</span>
+<span id="cb29-6"><a aria-hidden="true" tabindex="-1"></a>        <span class="st">"kneighborsregressor__n_neighbors"</span>: <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>),</span>
+<span id="cb29-7"><a aria-hidden="true" tabindex="-1"></a>        <span class="st">"kneighborsregressor__metric"</span>: [<span class="st">"euclidean"</span>, <span class="st">"manhattan"</span>],</span>
+<span id="cb29-8"><a aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb29-9"><a aria-hidden="true" tabindex="-1"></a>    scoring <span class="op">=</span> <span class="st">"neg_mean_squared_error"</span>, </span>
+<span id="cb29-10"><a aria-hidden="true" tabindex="-1"></a>    cv <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="small">
@@ -1346,17 +1410,17 @@ Name: age, dtype: float64</code></pre>
 </div>
 <div class="callout-content">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]</span>
-<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a>ct <span class="op">=</span> make_column_transformer(</span>
-<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>  (StandardScaler(), features),</span>
-<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
-<span id="cb27-6"><a aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-7"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> make_pipeline(</span>
-<span id="cb27-9"><a aria-hidden="true" tabindex="-1"></a>    ct,</span>
-<span id="cb27-10"><a aria-hidden="true" tabindex="-1"></a>    KNeighborsRegressor()</span>
-<span id="cb27-11"><a aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">'summer'</span>, <span class="st">'har'</span>, <span class="st">'sep'</span>, <span class="st">'win'</span>, <span class="st">'age'</span>]</span>
+<span id="cb30-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a aria-hidden="true" tabindex="-1"></a>ct <span class="op">=</span> make_column_transformer(</span>
+<span id="cb30-4"><a aria-hidden="true" tabindex="-1"></a>  (StandardScaler(), features),</span>
+<span id="cb30-5"><a aria-hidden="true" tabindex="-1"></a>  remainder <span class="op">=</span> <span class="st">"drop"</span></span>
+<span id="cb30-6"><a aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-7"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> make_pipeline(</span>
+<span id="cb30-9"><a aria-hidden="true" tabindex="-1"></a>    ct,</span>
+<span id="cb30-10"><a aria-hidden="true" tabindex="-1"></a>    KNeighborsRegressor()</span>
+<span id="cb30-11"><a aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1368,8 +1432,8 @@ Name: age, dtype: float64</code></pre>
 <div class="small">
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>grid_cv.fit(df_known, </span>
-<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>            df_known[<span class="st">'price'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>grid_cv.fit(df_known, </span>
+<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a>            df_known[<span class="st">'price'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <style>#sk-container-id-2 {
@@ -1836,25 +1900,25 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2>Getting the Cross Validation Results</h2>
 <div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame(grid_cv.cv_results_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame(grid_cv.cv_results_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="small">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score
-0        0.001627      0.000646  ...      219.338831               12
-1        0.001379      0.000209  ...      209.511631                9
-2        0.001416      0.000133  ...      178.819362                6
-3        0.001257      0.000008  ...      217.989122               11
-4        0.001251      0.000034  ...      212.797774                7
-5        0.001220      0.000007  ...      205.240907                3
-6        0.001229      0.000013  ...      227.978005               10
-7        0.001222      0.000014  ...      175.175403                2
-8        0.001217      0.000010  ...      174.981203                5
-9        0.001241      0.000046  ...      175.186322                1
-10       0.001218      0.000009  ...      200.091917                4
-11       0.001237      0.000025  ...      232.710455                8
+0        0.004076      0.000425  ...      219.338831               12
+1        0.004730      0.000282  ...      209.511631                9
+2        0.004781      0.000168  ...      178.819362                6
+3        0.004587      0.000401  ...      217.989122               11
+4        0.004169      0.000402  ...      212.797774                7
+5        0.004136      0.000368  ...      205.240907                3
+6        0.003584      0.000254  ...      227.978005               10
+7        0.003572      0.000121  ...      175.175403                2
+8        0.003618      0.000222  ...      174.981203                5
+9        0.003531      0.000236  ...      175.186322                1
+10       0.003287      0.000212  ...      200.091917                4
+11       0.003595      0.000394  ...      232.710455                8
 
 [12 rows x 15 columns]</code></pre>
 </div>
@@ -1865,9 +1929,9 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <h2>What about k and the distances?</h2>
 <div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame(grid_cv.cv_results_)[[<span class="st">'param_kneighborsregressor__metric'</span>,</span>
-<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a>                                   <span class="st">'param_kneighborsregressor__n_neighbors'</span>,</span>
-<span id="cb31-3"><a aria-hidden="true" tabindex="-1"></a>                                   <span class="st">'mean_test_score'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame(grid_cv.cv_results_)[[<span class="st">'param_kneighborsregressor__metric'</span>,</span>
+<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a>                                   <span class="st">'param_kneighborsregressor__n_neighbors'</span>,</span>
+<span id="cb34-3"><a aria-hidden="true" tabindex="-1"></a>                                   <span class="st">'mean_test_score'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="small">
@@ -1895,7 +1959,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="what-were-the-best-parameters" class="slide level2">
 <h2>What were the best parameters?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>grid_cv.best_params_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>grid_cv.best_params_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'kneighborsregressor__metric': 'manhattan', 'kneighborsregressor__n_neighbors': 4}</code></pre>
 </div>

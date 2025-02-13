@@ -1066,7 +1066,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="measuring-error" class="slide level2">
 <h2>Measuring Error</h2>
 <div class="midi">
-<p>The most common way to measure “leftover noise” is the <strong>sum of squared error</strong> or equivalently, the <strong>mean squared error</strong></p>
+<p>The most common way to measure “leftover noise” is the <strong>sum of squared error</strong> or equivalently, the <strong>mean squared error</strong>.</p>
 </div>
 <div class="fragment">
 <div class="midi">
@@ -1117,7 +1117,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="measuring-error-1" class="slide level2">
 <h2>Measuring Error</h2>
-<p>The most common way to measure “leftover noise” is the <strong>sum of squared error</strong> or equivalently, the <strong>mean squared error</strong></p>
+<p>The most common way to measure “leftover noise” is the <strong>sum of squared error</strong> or equivalently, the <strong>mean squared error</strong>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>results[<span class="st">"squared error"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1155,7 +1155,7 @@ np.float64(378.9575703703703)</code></pre>
 <li class="fragment"><p>So, our problem is:</p>
 <ul>
 <li class="fragment">If we predict on the <strong>new data</strong>, we don’t know the <strong>true prices</strong> and we can’t <strong>evaluate</strong> our models.</li>
-<li class="fragment">If we predict on the <strong>training data</strong>, we are “cheating”, because we are using the data to both <strong>train</strong> and <strong>test</strong>.</li>
+<li class="fragment">If we predict on the <strong>training data</strong>, we are “cheating,” because we are using the data to both <strong>train</strong> and <strong>test</strong>.</li>
 </ul></li>
 <li class="fragment"><p>Solution: Let’s make a pretend <strong>test data</strong> set!</p></li>
 </ul>
@@ -1179,7 +1179,7 @@ np.float64(378.9575703703703)</code></pre>
 </section>
 <section id="try-again-best-k" class="slide level2">
 <h2>Try Again: Best K</h2>
-<div class="midi">
+<div class="small">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">15</span>):</span>
 <span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> make_pipeline(</span>
@@ -1270,18 +1270,18 @@ np.float64(378.9575703703703)</code></pre>
 <div class="midi">
 <ol type="1">
 <li><p>Establish a <strong>pipeline</strong> with <strong>transformers</strong> and a <strong>model</strong>.</p></li>
-<li><p><strong>Fit</strong> the pipeline on the <strong>training data</strong> (with known outcome)</p></li>
-<li><p><strong>Predict</strong> with the fitted pipeline on <strong>test data</strong> (with known outcome)</p></li>
-<li><p><strong>Evaluate</strong> our success; i.e., measure noise “left over”</p></li>
+<li><p><strong>Fit</strong> the pipeline on the <strong>training data</strong> (with known outcome).</p></li>
+<li><p><strong>Predict</strong> with the fitted pipeline on <strong>test data</strong> (with known outcome).</p></li>
+<li><p><strong>Evaluate</strong> our success (i.e., measure noise “left over”).</p></li>
 </ol>
 </div>
 <div class="fragment">
 <p><u>Then:</u></p>
 <div class="midi">
 <ol start="5" type="1">
-<li><p><strong>Select</strong> the best model</p></li>
-<li><p><strong>Fit</strong> on <em>all</em> the data</p></li>
-<li><p><strong>Predict</strong> on any future data (with unknown outcome)</p></li>
+<li><p><strong>Select</strong> the best model.</p></li>
+<li><p><strong>Fit</strong> on <em>all</em> the data.</p></li>
+<li><p><strong>Predict</strong> on any future data (with unknown outcome).</p></li>
 </ol>
 </div>
 </div>
@@ -1292,7 +1292,7 @@ np.float64(378.9575703703703)</code></pre>
 <li><p>Which models to try</p></li>
 <li><p>Which column transformers to try</p></li>
 <li><p>How much to tune</p></li>
-<li><p>How to measure “success” of a model</p></li>
+<li><p>How to measure the “success” of a model</p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">

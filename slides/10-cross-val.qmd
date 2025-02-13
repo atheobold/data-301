@@ -23,6 +23,20 @@ import pandas as pd
 from plotnine import *
 ```
 
+# More Information About Final Projects!
+
+# Final Project Presentations
+
+> Will take place on Saturday, March 15 from 1:10pm to 2:30pm, in our classroom! 
+
+## If you are having trouble finding a group to work with
+
+fill out this Google Form and Dr. T will help you! 
+
+::: {.centered}
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFTbTxIwqVEQa3r_nUMtJUa85gLsNpA4qvUo3FOns4GLTGlw/viewform?embedded=true" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+:::
+
 # The story so far...
 
 ## Modeling
@@ -424,6 +438,17 @@ X_train, X_test, y_train, y_test = train_test_split(df_known,
                                                     test_size = 0.1)
 ```
 
+. . .
+
+- This creates ***four*** new objects, `X_train`, `X_test`, `y_train`, and 
+`y_test`. 
+  * Note that the objects are created [in this order]{.underline}!
+
+. . .
+
+- The "testing" data are 10% (0.1) of the total size of the training data 
+(`df_known`). 
+
 ## Pipeline for Predicting on Test Data
 
 ::: {.midi}
@@ -465,6 +490,7 @@ pipeline = pipeline.fit(X = X_train, y = y_train)
 **Predict for Test Data**
 :::
 
+::: {.small}
 ```{python}
 #| code-line-numbers: false
 #| label: test-train-predict
@@ -500,7 +526,7 @@ the **same data** in *fitting* and *evaluation*.
 -   **Cross-validation:** Divide the data into 10 random "folds". Each fold gets
 a "turn" as the test set.
 
-## Cross-Validation
+## Cross-Validation (5-Fold)
 
 ![](./images/5-k-fold-pic.png)
 
@@ -520,21 +546,57 @@ cross_val_score(pipeline,
 
 ## Cross-Validation in `sklearn`
 
+::: {.midi}
 **What are these numbers?**
 
 ::: {.incremental}
 -   `sklearn` chooses a **default metric** for you based on the model.
 
--   In this case: *r-squared* for Linear Regression; *negative root mean square error* for KNN.
+-   In the case of regression, the default metric is *R-Squared*.
+:::
 :::
 
-**Why use negative root mean squared error for KNN?**
+. . .
 
+::: {.midi}
+**Why use negative root mean squared error?**
+
+::: {.incremental}
 -   To be consistent! We will **always** want to *maximize* this score. 
   
-  + Larger *r-squared* values explain more of the variance in the response (y). 
+  + Larger *R-Squared* values explain more of the variance in the response (y). 
   + Larger *negative* RMSE (smaller RMSE) means the "leftover" variance in y 
   is minimized.
+:::
+:::
+
+## What do we do with these numbers?
+
+```{python}
+#| code-line-numbers: false
+#| label: cv-wine-2
+
+from sklearn.model_selection import cross_val_score
+
+cvs = cross_val_score(pipeline, 
+                      X = df_known, 
+                      y = df_known['price'], 
+                      cv = 10)
+```
+
+Since we have 10 different values, what would you expect us to do?
+
+. . .
+
+Well, this is a statistics class after all. So, you probably guessed we would 
+take the mean. 
+
+```{python}
+#| code-line-numbers: false
+#| label: mean-of-cv-metrics
+
+cvs.mean()
+```
 
 ## Cross-Validation in `sklearn`
 
@@ -581,7 +643,7 @@ enough to do cross-validation. Modern data science uses resampling!
 ## Your turn
 
 1.  Use **cross-validation** to choose between Linear Regression and KNN with
-k = 7, for:
+k = 7 based on `"neg_mean_squared_error"`, for:
 
     -   Using all predictors.
     -   Using just winter rainfall and summer temperature.
