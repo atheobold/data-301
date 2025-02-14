@@ -110,7 +110,7 @@ from plotnine import *
 
 (
   ggplot(data = breast_df, 
-         mapping = aes(x = "I0", y = "PA500", fill = "Class")) +
+         mapping = aes(x = "I0", y = "PA500", color = "Class")) +
   geom_point(size = 2) +
   theme_bw() +
   theme(legend_position = "top")
@@ -444,13 +444,16 @@ We can use $k$-nearest neighbors for classification:
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import make_column_transformer
 
-pipeline = make_pipeline(
-  make_column_transformer(
+ct = make_column_transformer(
         (OneHotEncoder(handle_unknown = "ignore", sparse_output = False), 
         ["card4", "card6", "P_emaildomain"]),
-        remainder = "passthrough"),
-    StandardScaler(),
-    KNeighborsClassifier(n_neighbors = 5))
+        remainder = "passthrough")
+        
+pipeline = make_pipeline(
+  ct,
+  StandardScaler(),
+  KNeighborsClassifier(n_neighbors = 5)
+  )
 ```
 
 ::: {.callout-caution}
@@ -471,8 +474,6 @@ y_train = df_fraud["isFraud"]
 
 . . .
 
-</br> 
-
 ```{python}
 #| code-line-numbers: false
 #| label: cross-val-credit-card
@@ -487,8 +488,6 @@ cross_val_score(
 ```
 
 . . .
-
-</br>
 
 How is the accuracy so high????
 
@@ -578,7 +577,6 @@ But first we need to get the **confusion matrix**!
 #| code-fold: true
 #| code-line-numbers: false
 #| label: credit-card-fit
-#| output: false
 
 pipeline.fit(X_train, y_train);
 y_train_ = pipeline.predict(X_train)
@@ -592,12 +590,17 @@ confusion_matrix(y_train, y_train_)
 #| code-fold: true
 #| label: nicer-confusion-matrix-credit-card
 
-pd.DataFrame(confusion_matrix(y_train, y_train_), 
+conf_mat = pd.DataFrame(confusion_matrix(y_train, y_train_), 
              columns = pipeline.classes_, 
              index = pipeline.classes_)
+             
+conf_mat["Total"] = conf_mat.sum(axis=1)
+conf_mat.loc["Total"] = conf_mat.sum()
+
+conf_mat
 ```
 
-::: {.midi}
+::: {.small}
 -   What is the (training) accuracy?
 
 -   What's the precision for normal transactions?

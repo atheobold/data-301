@@ -489,7 +489,7 @@
 <span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> breast_df, </span>
-<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"I0"</span>, y <span class="op">=</span> <span class="st">"PA500"</span>, fill <span class="op">=</span> <span class="st">"Class"</span>)) <span class="op">+</span></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"I0"</span>, y <span class="op">=</span> <span class="st">"PA500"</span>, color <span class="op">=</span> <span class="st">"Class"</span>)) <span class="op">+</span></span>
 <span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point(size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span></span>
 <span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
 <span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a>  theme(legend_position <span class="op">=</span> <span class="st">"top"</span>)</span>
@@ -791,13 +791,16 @@ mas    0    2    0    8    3    5</code></pre>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
 <span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_transformer</span>
 <span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> make_pipeline(</span>
-<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>  make_column_transformer(</span>
-<span id="cb27-6"><a aria-hidden="true" tabindex="-1"></a>        (OneHotEncoder(handle_unknown <span class="op">=</span> <span class="st">"ignore"</span>, sparse_output <span class="op">=</span> <span class="va">False</span>), </span>
-<span id="cb27-7"><a aria-hidden="true" tabindex="-1"></a>        [<span class="st">"card4"</span>, <span class="st">"card6"</span>, <span class="st">"P_emaildomain"</span>]),</span>
-<span id="cb27-8"><a aria-hidden="true" tabindex="-1"></a>        remainder <span class="op">=</span> <span class="st">"passthrough"</span>),</span>
-<span id="cb27-9"><a aria-hidden="true" tabindex="-1"></a>    StandardScaler(),</span>
-<span id="cb27-10"><a aria-hidden="true" tabindex="-1"></a>    KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>ct <span class="op">=</span> make_column_transformer(</span>
+<span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>        (OneHotEncoder(handle_unknown <span class="op">=</span> <span class="st">"ignore"</span>, sparse_output <span class="op">=</span> <span class="va">False</span>), </span>
+<span id="cb27-6"><a aria-hidden="true" tabindex="-1"></a>        [<span class="st">"card4"</span>, <span class="st">"card6"</span>, <span class="st">"P_emaildomain"</span>]),</span>
+<span id="cb27-7"><a aria-hidden="true" tabindex="-1"></a>        remainder <span class="op">=</span> <span class="st">"passthrough"</span>)</span>
+<span id="cb27-8"><a aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb27-9"><a aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> make_pipeline(</span>
+<span id="cb27-10"><a aria-hidden="true" tabindex="-1"></a>  ct,</span>
+<span id="cb27-11"><a aria-hidden="true" tabindex="-1"></a>  StandardScaler(),</span>
+<span id="cb27-12"><a aria-hidden="true" tabindex="-1"></a>  KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">5</span>)</span>
+<span id="cb27-13"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
@@ -821,7 +824,6 @@ mas    0    2    0    8    3    5</code></pre>
 <span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> df_fraud[<span class="st">"isFraud"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>cross_val_score(</span>
 <span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a>    pipeline,</span>
@@ -836,7 +838,6 @@ mas    0    2    0    8    3    5</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p><br></p>
 <p>How is the accuracy so high????</p>
 </div>
 </section>
@@ -912,6 +913,10 @@ Name: count, dtype: int64</code></pre>
 <span id="cb33-2"><a aria-hidden="true" tabindex="-1"></a>y_train_ <span class="op">=</span> pipeline.predict(X_train)</span>
 <span id="cb33-3"><a aria-hidden="true" tabindex="-1"></a>confusion_matrix(y_train, y_train_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>array([[56815,   120],
+       [ 1522,   597]])</code></pre>
+</div>
 </div>
 </div>
 </section>
@@ -920,14 +925,20 @@ Name: count, dtype: int64</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame(confusion_matrix(y_train, y_train_), </span>
-<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a>             columns <span class="op">=</span> pipeline.classes_, </span>
-<span id="cb34-3"><a aria-hidden="true" tabindex="-1"></a>             index <span class="op">=</span> pipeline.classes_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>conf_mat <span class="op">=</span> pd.DataFrame(confusion_matrix(y_train, y_train_), </span>
+<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a>             columns <span class="op">=</span> pipeline.classes_, </span>
+<span id="cb35-3"><a aria-hidden="true" tabindex="-1"></a>             index <span class="op">=</span> pipeline.classes_)</span>
+<span id="cb35-4"><a aria-hidden="true" tabindex="-1"></a>             </span>
+<span id="cb35-5"><a aria-hidden="true" tabindex="-1"></a>conf_mat[<span class="st">"Total"</span>] <span class="op">=</span> conf_mat.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb35-6"><a aria-hidden="true" tabindex="-1"></a>conf_mat.loc[<span class="st">"Total"</span>] <span class="op">=</span> conf_mat.<span class="bu">sum</span>()</span>
+<span id="cb35-7"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-8"><a aria-hidden="true" tabindex="-1"></a>conf_mat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>       0    1
-0  56815  120
-1   1522  597</code></pre>
+<pre><code>           0    1  Total
+0      56815  120  56935
+1       1522  597   2119
+Total  58337  717  59054</code></pre>
 </div>
 </div>
 <div class="midi">
@@ -979,13 +990,13 @@ Name: count, dtype: int64</code></pre>
 <section id="f1-score-1" class="slide level2">
 <h2>F1 Score</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>cross_val_score(</span>
-<span id="cb36-2"><a aria-hidden="true" tabindex="-1"></a>    pipeline,</span>
-<span id="cb36-3"><a aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> X_train,</span>
-<span id="cb36-4"><a aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> y_train,</span>
-<span id="cb36-5"><a aria-hidden="true" tabindex="-1"></a>    scoring <span class="op">=</span> <span class="st">"f1_macro"</span>,</span>
-<span id="cb36-6"><a aria-hidden="true" tabindex="-1"></a>    cv <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb36-7"><a aria-hidden="true" tabindex="-1"></a>    ).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a>cross_val_score(</span>
+<span id="cb37-2"><a aria-hidden="true" tabindex="-1"></a>    pipeline,</span>
+<span id="cb37-3"><a aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> X_train,</span>
+<span id="cb37-4"><a aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> y_train,</span>
+<span id="cb37-5"><a aria-hidden="true" tabindex="-1"></a>    scoring <span class="op">=</span> <span class="st">"f1_macro"</span>,</span>
+<span id="cb37-6"><a aria-hidden="true" tabindex="-1"></a>    cv <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb37-7"><a aria-hidden="true" tabindex="-1"></a>    ).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.647618677299677)</code></pre>
 </div>
@@ -996,8 +1007,8 @@ Name: count, dtype: int64</code></pre>
 <p>Another way to illustrate the trade off between precision and recall is to graph the <strong>precision-recall curve</strong>.</p>
 <p>First, we need the predicted probabilities.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a>y_train_probs_ <span class="op">=</span> pipeline.predict_proba(X_train)</span>
-<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a>y_train_probs_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a>y_train_probs_ <span class="op">=</span> pipeline.predict_proba(X_train)</span>
+<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a>y_train_probs_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([[1. , 0. ],
        [1. , 0. ],

@@ -1632,7 +1632,7 @@
     "href": "slides/11-classification.html#visualizing-the-data",
     "title": "Classification",
     "section": "Visualizing the Data",
-    "text": "Visualizing the Data\n\n\nCode\nfrom plotnine import *\n\n(\n  ggplot(data = breast_df, \n         mapping = aes(x = \"I0\", y = \"PA500\", fill = \"Class\")) +\n  geom_point(size = 2) +\n  theme_bw() +\n  theme(legend_position = \"top\")\n    )",
+    "text": "Visualizing the Data\n\n\nCode\nfrom plotnine import *\n\n(\n  ggplot(data = breast_df, \n         mapping = aes(x = \"I0\", y = \"PA500\", color = \"Class\")) +\n  geom_point(size = 2) +\n  theme_bw() +\n  theme(legend_position = \"top\")\n    )",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1775,7 +1775,7 @@
     "href": "slides/11-classification.html#classification-model",
     "title": "Classification",
     "section": "Classification Model",
-    "text": "Classification Model\nWe can use \\(k\\)-nearest neighbors for classification:\n\nfrom sklearn.preprocessing import OneHotEncoder\nfrom sklearn.compose import make_column_transformer\n\npipeline = make_pipeline(\n  make_column_transformer(\n        (OneHotEncoder(handle_unknown = \"ignore\", sparse_output = False), \n        [\"card4\", \"card6\", \"P_emaildomain\"]),\n        remainder = \"passthrough\"),\n    StandardScaler(),\n    KNeighborsClassifier(n_neighbors = 5))\n\n\n\n\n\n\n\nWhat is this transformer doing?",
+    "text": "Classification Model\nWe can use \\(k\\)-nearest neighbors for classification:\n\nfrom sklearn.preprocessing import OneHotEncoder\nfrom sklearn.compose import make_column_transformer\n\nct = make_column_transformer(\n        (OneHotEncoder(handle_unknown = \"ignore\", sparse_output = False), \n        [\"card4\", \"card6\", \"P_emaildomain\"]),\n        remainder = \"passthrough\")\n        \npipeline = make_pipeline(\n  ct,\n  StandardScaler(),\n  KNeighborsClassifier(n_neighbors = 5)\n  )\n\n\n\n\n\n\n\nWhat is this transformer doing?",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1786,7 +1786,7 @@
     "href": "slides/11-classification.html#training-a-classifier",
     "title": "Classification",
     "section": "Training a Classifier",
-    "text": "Training a Classifier\nIsolating X and y for training data\n\nX_train = df_fraud.drop(\"isFraud\", axis = \"columns\")\ny_train = df_fraud[\"isFraud\"]\n\n\n\n\ncross_val_score(\n    pipeline,\n    X = X_train, \n    y = y_train,\n    scoring = \"accuracy\",\n    cv = 10\n    ).mean()\n\nnp.float64(0.9681816479631644)\n\n\n\n\n\nHow is the accuracy so high????",
+    "text": "Training a Classifier\nIsolating X and y for training data\n\nX_train = df_fraud.drop(\"isFraud\", axis = \"columns\")\ny_train = df_fraud[\"isFraud\"]\n\n\n\ncross_val_score(\n    pipeline,\n    X = X_train, \n    y = y_train,\n    scoring = \"accuracy\",\n    cv = 10\n    ).mean()\n\nnp.float64(0.9681816479631644)\n\n\n\n\nHow is the accuracy so high????",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1830,7 +1830,7 @@
     "href": "slides/11-classification.html#precision-and-recall-by-hand-1",
     "title": "Classification",
     "section": "Precision and Recall by Hand",
-    "text": "Precision and Recall by Hand\n\nTo check our understanding of these definitions, let’s calculate a few precisions and recalls by hand.\nBut first we need to get the confusion matrix!\n\n\n\n\n\nCode\npipeline.fit(X_train, y_train);\ny_train_ = pipeline.predict(X_train)\nconfusion_matrix(y_train, y_train_)",
+    "text": "Precision and Recall by Hand\n\nTo check our understanding of these definitions, let’s calculate a few precisions and recalls by hand.\nBut first we need to get the confusion matrix!\n\n\n\n\n\nCode\npipeline.fit(X_train, y_train);\ny_train_ = pipeline.predict(X_train)\nconfusion_matrix(y_train, y_train_)\n\n\narray([[56815,   120],\n       [ 1522,   597]])",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1841,7 +1841,7 @@
     "href": "slides/11-classification.html#now-lets-calculate",
     "title": "Classification",
     "section": "Now Let’s Calculate!",
-    "text": "Now Let’s Calculate!\n\n\nCode\npd.DataFrame(confusion_matrix(y_train, y_train_), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n\n\n       0    1\n0  56815  120\n1   1522  597\n\n\n\n\nWhat is the (training) accuracy?\nWhat’s the precision for normal transactions?\nWhat’s the recall for normal transactions?\nWhat’s the precision for fraudulent transactions?\nWhat’s the recall for fraudulent transactions?",
+    "text": "Now Let’s Calculate!\n\n\nCode\nconf_mat = pd.DataFrame(confusion_matrix(y_train, y_train_), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n             \nconf_mat[\"Total\"] = conf_mat.sum(axis=1)\nconf_mat.loc[\"Total\"] = conf_mat.sum()\n\nconf_mat\n\n\n           0    1  Total\n0      56815  120  56935\n1       1522  597   2119\nTotal  58337  717  59054\n\n\n\n\nWhat is the (training) accuracy?\nWhat’s the precision for normal transactions?\nWhat’s the recall for normal transactions?\nWhat’s the precision for fraudulent transactions?\nWhat’s the recall for fraudulent transactions?",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
