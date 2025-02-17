@@ -21,6 +21,12 @@ import pandas as pd
 from plotnine import *
 ```
 
+# Final Projects
+
+## Who are you working with?
+
+https://forms.gle/QMsNkkY1P7KQbzJq9
+
 # The story so far...
 
 ## Choosing a Best Model
