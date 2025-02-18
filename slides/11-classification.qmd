@@ -25,22 +25,28 @@ from plotnine import *
 
 ## Who are you working with?
 
-https://forms.gle/QMsNkkY1P7KQbzJq9
+Please take 3-minutes and fill out this form: 
+
+<https://forms.gle/QMsNkkY1P7KQbzJq9>
 
 # The story so far...
 
 ## Choosing a Best Model
 
--   We select a **best model** - aka best *prediction procedure* - by **cross-validation**.
+-   We select a **best model** - aka best *prediction procedure* - by
+**cross-validation**.
 
 -   **Feature selection:** Which *predictors* should we include, and how should
 we preprocess them?
 
--   **Model selection:** Should we use *Linear Regression* or *KNN* or *Decision Trees* or something else?
+-   **Model selection:** Should we use *Linear Regression* or *KNN* or
+*Decision Trees* or something else?
 
--   **Hyperparameter tuning:** Choosing model-specific settings, like $k$ for KNN.
+-   **Hyperparameter tuning:** Choosing model-specific settings, like $k$ for
+KNN.
 
--   Each candidate is a **pipeline**; use `GridSearchCV()` or `cross_val_score()` to score the options
+-   Each candidate is a **pipeline**; use `GridSearchCV()` or `cross_val_score()`
+to score the options
 
 # Case Study: Breast Tissue Classification
 
@@ -313,8 +319,6 @@ pipeline.classes_
 
 . . .
 
-</br>
-
 ::: {.callout-tip}
 How did Scikit-Learn calculate these predicted probabilities?
 :::
@@ -373,8 +377,6 @@ y_train_predicted = pipeline.predict(X_train)
 confusion_matrix(y_train, y_train_predicted)
 ```
 
-</br>
-
 ::: {.callout-tip}
 # Remember we made the `pipeline` previously!
 
@@ -422,8 +424,6 @@ df_fraud = pd.read_csv("https://datasci112.stanford.edu/data/fraud.csv")
 ```
 :::
 
-</br>
-
 ::: {.small}
 ```{python}
 #| echo: false
@@ -441,6 +441,7 @@ df_fraud
 
 ## Classification Model
 
+::: {.midi}
 We can use $k$-nearest neighbors for classification:
 
 ```{python}
@@ -463,7 +464,8 @@ pipeline = make_pipeline(
 ```
 
 ::: {.callout-caution}
-# What is this transformer doing?
+# What is this transformer doing? What about the pipeline?
+:::
 :::
 
 ## Training a Classifier
@@ -495,7 +497,9 @@ cross_val_score(
 
 . . .
 
+::: {.centered}
 How is the accuracy so high????
+:::
 
 ## A Closer Look
 
@@ -515,7 +519,11 @@ The vast majority of transactions aren't fraudulent!
 ## Imbalanced Data
 
 If we just predicted that every transaction is normal, the accuracy would be 
-$1 - \frac{2119}{59054} = .964$.
+$1 - \frac{2119}{59054} = 0.964$ or 96.4%.
+
+. . .
+
+</br>
 
 Even though such predictions would be accurate *overall*, it is inaccurate for
 fraudulent transactions. 
@@ -591,6 +599,7 @@ confusion_matrix(y_train, y_train_)
 
 ## Now Let's Calculate! 
 
+::: {.midi}
 ```{python}
 #| code-line-numbers: false
 #| code-fold: true
@@ -605,6 +614,7 @@ conf_mat.loc["Total"] = conf_mat.sum()
 
 conf_mat
 ```
+:::
 
 ::: {.small}
 -   What is the (training) accuracy?

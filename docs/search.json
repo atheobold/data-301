@@ -1687,7 +1687,7 @@
     "href": "slides/11-classification.html#probabilities-1",
     "title": "Classification",
     "section": "Probabilities",
-    "text": "Probabilities\nInstead of returning a single predicted class, we can ask sklearn to return the predicted probabilities for each class.\n\npipeline.predict_proba(X_unknown)\n\narray([[0. , 0.6, 0. , 0.2, 0. , 0.2],\n       [1. , 0. , 0. , 0. , 0. , 0. ]])\n\n\n\npipeline.classes_\n\narray(['adi', 'car', 'con', 'fad', 'gla', 'mas'], dtype=object)\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nHow did Scikit-Learn calculate these predicted probabilities?",
+    "text": "Probabilities\nInstead of returning a single predicted class, we can ask sklearn to return the predicted probabilities for each class.\n\npipeline.predict_proba(X_unknown)\n\narray([[0. , 0.6, 0. , 0.2, 0. , 0.2],\n       [1. , 0. , 0. , 0. , 0. , 0. ]])\n\n\n\npipeline.classes_\n\narray(['adi', 'car', 'con', 'fad', 'gla', 'mas'], dtype=object)\n\n\n\n\n\n\n\n\n\nTip\n\n\nHow did Scikit-Learn calculate these predicted probabilities?",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1731,7 +1731,7 @@
     "href": "slides/11-classification.html#confusion-matrix",
     "title": "Classification",
     "section": "Confusion Matrix",
-    "text": "Confusion Matrix\n\nfrom sklearn.metrics import confusion_matrix\n\ny_train_predicted = pipeline.predict(X_train)\n\nconfusion_matrix(y_train, y_train_predicted)\n\narray([[20,  0,  2,  0,  0,  0],\n       [ 0, 20,  0,  0,  0,  1],\n       [ 2,  0, 11,  1,  0,  0],\n       [ 0,  0,  0, 13,  1,  1],\n       [ 0,  0,  0,  3, 12,  1],\n       [ 0,  2,  0,  8,  3,  5]])\n\n\n\n\n\n\n\n\n\nRemember we made the pipeline previously!\n\n\n\npipeline = pipeline.fit(X_train, y_train)",
+    "text": "Confusion Matrix\n\nfrom sklearn.metrics import confusion_matrix\n\ny_train_predicted = pipeline.predict(X_train)\n\nconfusion_matrix(y_train, y_train_predicted)\n\narray([[20,  0,  2,  0,  0,  0],\n       [ 0, 20,  0,  0,  0,  1],\n       [ 2,  0, 11,  1,  0,  0],\n       [ 0,  0,  0, 13,  1,  1],\n       [ 0,  0,  0,  3, 12,  1],\n       [ 0,  2,  0,  8,  3,  5]])\n\n\n\n\n\n\n\n\nRemember we made the pipeline previously!\n\n\n\npipeline = pipeline.fit(X_train, y_train)",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1764,7 +1764,7 @@
     "href": "slides/11-classification.html#case-study-credit-card-fraud",
     "title": "Classification",
     "section": "Case Study: Credit Card Fraud",
-    "text": "Case Study: Credit Card Fraud\n\nWe have a data set of credit card transactions from Vesta.\n\ndf_fraud = pd.read_csv(\"https://datasci112.stanford.edu/data/fraud.csv\")\n\n\n\n\n\n\n            card4   card6 P_emaildomain  ...    C13    C14  isFraud\n0            visa   debit     gmail.com  ...  637.0  114.0        0\n1            visa   debit                ...    3.0    1.0        0\n2            visa   debit     yahoo.com  ...    4.0    1.0        1\n3            visa   debit   hotmail.com  ...    0.0    0.0        0\n4            visa   debit     gmail.com  ...   20.0    1.0        0\n...           ...     ...           ...  ...    ...    ...      ...\n59049  mastercard   debit     gmail.com  ...    1.0    1.0        0\n59050  mastercard  credit     yahoo.com  ...    1.0    1.0        0\n59051  mastercard   debit    icloud.com  ...   15.0    2.0        0\n59052        visa   debit     gmail.com  ...    1.0    1.0        1\n59053  mastercard   debit                ...   84.0   17.0        0\n\n[59054 rows x 19 columns]\n\n\n\n\n\n\nGoal: Predict isFraud, where 1 indicates a fraudulent transaction.",
+    "text": "Case Study: Credit Card Fraud\n\nWe have a data set of credit card transactions from Vesta.\n\ndf_fraud = pd.read_csv(\"https://datasci112.stanford.edu/data/fraud.csv\")\n\n\n\n\n\n            card4   card6 P_emaildomain  ...    C13    C14  isFraud\n0            visa   debit     gmail.com  ...  637.0  114.0        0\n1            visa   debit                ...    3.0    1.0        0\n2            visa   debit     yahoo.com  ...    4.0    1.0        1\n3            visa   debit   hotmail.com  ...    0.0    0.0        0\n4            visa   debit     gmail.com  ...   20.0    1.0        0\n...           ...     ...           ...  ...    ...    ...      ...\n59049  mastercard   debit     gmail.com  ...    1.0    1.0        0\n59050  mastercard  credit     yahoo.com  ...    1.0    1.0        0\n59051  mastercard   debit    icloud.com  ...   15.0    2.0        0\n59052        visa   debit     gmail.com  ...    1.0    1.0        1\n59053  mastercard   debit                ...   84.0   17.0        0\n\n[59054 rows x 19 columns]\n\n\n\n\n\n\nGoal: Predict isFraud, where 1 indicates a fraudulent transaction.",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1775,7 +1775,7 @@
     "href": "slides/11-classification.html#classification-model",
     "title": "Classification",
     "section": "Classification Model",
-    "text": "Classification Model\nWe can use \\(k\\)-nearest neighbors for classification:\n\nfrom sklearn.preprocessing import OneHotEncoder\nfrom sklearn.compose import make_column_transformer\n\nct = make_column_transformer(\n        (OneHotEncoder(handle_unknown = \"ignore\", sparse_output = False), \n        [\"card4\", \"card6\", \"P_emaildomain\"]),\n        remainder = \"passthrough\")\n        \npipeline = make_pipeline(\n  ct,\n  StandardScaler(),\n  KNeighborsClassifier(n_neighbors = 5)\n  )\n\n\n\n\n\n\n\nWhat is this transformer doing?",
+    "text": "Classification Model\n\nWe can use \\(k\\)-nearest neighbors for classification:\n\nfrom sklearn.preprocessing import OneHotEncoder\nfrom sklearn.compose import make_column_transformer\n\nct = make_column_transformer(\n        (OneHotEncoder(handle_unknown = \"ignore\", sparse_output = False), \n        [\"card4\", \"card6\", \"P_emaildomain\"]),\n        remainder = \"passthrough\")\n        \npipeline = make_pipeline(\n  ct,\n  StandardScaler(),\n  KNeighborsClassifier(n_neighbors = 5)\n  )\n\n\n\n\n\n\n\nWhat is this transformer doing? What about the pipeline?",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1786,7 +1786,7 @@
     "href": "slides/11-classification.html#training-a-classifier",
     "title": "Classification",
     "section": "Training a Classifier",
-    "text": "Training a Classifier\nIsolating X and y for training data\n\nX_train = df_fraud.drop(\"isFraud\", axis = \"columns\")\ny_train = df_fraud[\"isFraud\"]\n\n\n\ncross_val_score(\n    pipeline,\n    X = X_train, \n    y = y_train,\n    scoring = \"accuracy\",\n    cv = 10\n    ).mean()\n\nnp.float64(0.9681816479631644)\n\n\n\n\nHow is the accuracy so high????",
+    "text": "Training a Classifier\nIsolating X and y for training data\n\nX_train = df_fraud.drop(\"isFraud\", axis = \"columns\")\ny_train = df_fraud[\"isFraud\"]\n\n\n\ncross_val_score(\n    pipeline,\n    X = X_train, \n    y = y_train,\n    scoring = \"accuracy\",\n    cv = 10\n    ).mean()\n\nnp.float64(0.9681816479631644)\n\n\n\n\n\nHow is the accuracy so high????",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1808,7 +1808,7 @@
     "href": "slides/11-classification.html#imbalanced-data",
     "title": "Classification",
     "section": "Imbalanced Data",
-    "text": "Imbalanced Data\nIf we just predicted that every transaction is normal, the accuracy would be \\(1 - \\frac{2119}{59054} = .964\\).\nEven though such predictions would be accurate overall, it is inaccurate for fraudulent transactions.\n\nA good model is “accurate for every class.”",
+    "text": "Imbalanced Data\nIf we just predicted that every transaction is normal, the accuracy would be \\(1 - \\frac{2119}{59054} = 0.964\\) or 96.4%.\n\n\nEven though such predictions would be accurate overall, it is inaccurate for fraudulent transactions.\n\nA good model is “accurate for every class.”",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1841,7 +1841,7 @@
     "href": "slides/11-classification.html#now-lets-calculate",
     "title": "Classification",
     "section": "Now Let’s Calculate!",
-    "text": "Now Let’s Calculate!\n\n\nCode\nconf_mat = pd.DataFrame(confusion_matrix(y_train, y_train_), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n             \nconf_mat[\"Total\"] = conf_mat.sum(axis=1)\nconf_mat.loc[\"Total\"] = conf_mat.sum()\n\nconf_mat\n\n\n           0    1  Total\n0      56815  120  56935\n1       1522  597   2119\nTotal  58337  717  59054\n\n\n\n\nWhat is the (training) accuracy?\nWhat’s the precision for normal transactions?\nWhat’s the recall for normal transactions?\nWhat’s the precision for fraudulent transactions?\nWhat’s the recall for fraudulent transactions?",
+    "text": "Now Let’s Calculate!\n\n\n\nCode\nconf_mat = pd.DataFrame(confusion_matrix(y_train, y_train_), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n             \nconf_mat[\"Total\"] = conf_mat.sum(axis=1)\nconf_mat.loc[\"Total\"] = conf_mat.sum()\n\nconf_mat\n\n\n           0    1  Total\n0      56815  120  56935\n1       1522  597   2119\nTotal  58337  717  59054\n\n\n\n\n\nWhat is the (training) accuracy?\nWhat’s the precision for normal transactions?\nWhat’s the recall for normal transactions?\nWhat’s the precision for fraudulent transactions?\nWhat’s the recall for fraudulent transactions?",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -5010,6 +5010,17 @@
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
+    ]
+  },
+  {
+    "objectID": "slides/11-classification.html#who-are-you-working-with",
+    "href": "slides/11-classification.html#who-are-you-working-with",
+    "title": "Classification",
+    "section": "Who are you working with?",
+    "text": "Who are you working with?\nPlease take 3-minutes and fill out this form:\nhttps://forms.gle/QMsNkkY1P7KQbzJq9",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 1 - Classification"
     ]
   }
 ]

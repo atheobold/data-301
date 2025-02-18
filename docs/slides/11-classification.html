@@ -397,6 +397,16 @@
 
 </section>
 <section>
+<section id="final-projects" class="title-slide slide level1 center">
+<h1>Final Projects</h1>
+
+</section>
+<section id="who-are-you-working-with" class="slide level2">
+<h2>Who are you working with?</h2>
+<p>Please take 3-minutes and fill out this form:</p>
+<p><a href="https://forms.gle/QMsNkkY1P7KQbzJq9" class="uri">https://forms.gle/QMsNkkY1P7KQbzJq9</a></p>
+</section></section>
+<section>
 <section id="the-story-so-far" class="title-slide slide level1 center">
 <h1>The story so far…</h1>
 
@@ -616,7 +626,6 @@
 </div>
 </div>
 <div class="fragment">
-<p><br></p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -686,7 +695,6 @@
        [ 0,  2,  0,  8,  3,  5]])</code></pre>
 </div>
 </div>
-<p><br></p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -755,7 +763,6 @@ mas    0    2    0    8    3    5</code></pre>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>df_fraud <span class="op">=</span> pd.read_csv(<span class="st">"https://datasci112.stanford.edu/data/fraud.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p><br></p>
 <div class="small">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -786,6 +793,7 @@ mas    0    2    0    8    3    5</code></pre>
 </section>
 <section id="classification-model" class="slide level2">
 <h2>Classification Model</h2>
+<div class="midi">
 <p>We can use <span class="math inline">\(k\)</span>-nearest neighbors for classification:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
@@ -808,10 +816,11 @@ mas    0    2    0    8    3    5</code></pre>
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>What is this transformer doing?</strong></p>
+<p><strong>What is this transformer doing? What about the pipeline?</strong></p>
 </div>
 <div class="callout-content">
 
+</div>
 </div>
 </div>
 </div>
@@ -838,7 +847,9 @@ mas    0    2    0    8    3    5</code></pre>
 </div>
 </div>
 <div class="fragment">
+<div class="centered">
 <p>How is the accuracy so high????</p>
+</div>
 </div>
 </section>
 <section id="a-closer-look" class="slide level2">
@@ -858,11 +869,14 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="imbalanced-data" class="slide level2">
 <h2>Imbalanced Data</h2>
-<p>If we just predicted that every transaction is normal, the accuracy would be <span class="math inline">\(1 - \frac{2119}{59054} = .964\)</span>.</p>
+<p>If we just predicted that every transaction is normal, the accuracy would be <span class="math inline">\(1 - \frac{2119}{59054} = 0.964\)</span> or 96.4%.</p>
+<div class="fragment">
+<p><br></p>
 <p>Even though such predictions would be accurate <em>overall</em>, it is inaccurate for fraudulent transactions.</p>
 <blockquote>
 <p>A good model is “accurate for every class.”</p>
 </blockquote>
+</div>
 </section></section>
 <section>
 <section id="precision-and-recall" class="title-slide slide level1 center">
@@ -922,6 +936,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="now-lets-calculate" class="slide level2">
 <h2>Now Let’s Calculate!</h2>
+<div class="midi">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -941,7 +956,8 @@ Name: count, dtype: int64</code></pre>
 Total  58337  717  59054</code></pre>
 </div>
 </div>
-<div class="midi">
+</div>
+<div class="small">
 <ul>
 <li><p>What is the (training) accuracy?</p></li>
 <li><p>What’s the precision for normal transactions?</p></li>
