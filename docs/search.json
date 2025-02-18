@@ -1830,7 +1830,7 @@
     "href": "slides/11-classification.html#precision-and-recall-by-hand-1",
     "title": "Classification",
     "section": "Precision and Recall by Hand",
-    "text": "Precision and Recall by Hand\n\nTo check our understanding of these definitions, let’s calculate a few precisions and recalls by hand.\nBut first we need to get the confusion matrix!\n\n\n\n\n\nCode\npipeline.fit(X_train, y_train);\ny_train_ = pipeline.predict(X_train)\nconfusion_matrix(y_train, y_train_)\n\n\narray([[56815,   120],\n       [ 1522,   597]])",
+    "text": "Precision and Recall by Hand\n\nTo check our understanding of these definitions, let’s calculate a few precisions and recalls by hand.\nBut first we need to get the confusion matrix!\n\n\n\n\n\nCode\npipeline.fit(X_train, y_train);\ny_train_ = pipeline.predict(X_train)\nconfusion_matrix(y_train, y_train_)\n\n\narray([[56814,   121],\n       [ 1519,   600]])",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1841,7 +1841,7 @@
     "href": "slides/11-classification.html#now-lets-calculate",
     "title": "Classification",
     "section": "Now Let’s Calculate!",
-    "text": "Now Let’s Calculate!\n\n\n\nCode\nconf_mat = pd.DataFrame(confusion_matrix(y_train, y_train_), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n             \nconf_mat[\"Total\"] = conf_mat.sum(axis=1)\nconf_mat.loc[\"Total\"] = conf_mat.sum()\n\nconf_mat\n\n\n           0    1  Total\n0      56815  120  56935\n1       1522  597   2119\nTotal  58337  717  59054\n\n\n\n\n\nWhat is the (training) accuracy?\nWhat’s the precision for normal transactions?\nWhat’s the recall for normal transactions?\nWhat’s the precision for fraudulent transactions?\nWhat’s the recall for fraudulent transactions?",
+    "text": "Now Let’s Calculate!\n\n\n\nCode\nconf_mat = pd.DataFrame(confusion_matrix(y_train, y_train_), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n             \nconf_mat[\"Total\"] = conf_mat.sum(axis=1)\nconf_mat.loc[\"Total\"] = conf_mat.sum()\n\nconf_mat\n\n\n           0    1  Total\n0      56814  121  56935\n1       1519  600   2119\nTotal  58333  721  59054\n\n\n\n\n\nWhat is the (training) accuracy?\nWhat’s the precision for fraudulent transactions?\nWhat’s the recall for fraudulent transactions?",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1885,7 +1885,7 @@
     "href": "slides/11-classification.html#f1-score-1",
     "title": "Classification",
     "section": "F1 Score",
-    "text": "F1 Score\n\ncross_val_score(\n    pipeline,\n    X = X_train,\n    y = y_train,\n    scoring = \"f1_macro\",\n    cv = 10\n    ).mean()\n\nnp.float64(0.647618677299677)",
+    "text": "F1 Score\n\ncross_val_score(\n    pipeline,\n    X = X_train,\n    y = y_train,\n    scoring = \"f1_macro\",\n    cv = 10\n    ).mean()\n\nnp.float64(0.647384563849488)",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -1896,7 +1896,7 @@
     "href": "slides/11-classification.html#precision-recall-curve",
     "title": "Classification",
     "section": "Precision-Recall Curve",
-    "text": "Precision-Recall Curve\nAnother way to illustrate the trade off between precision and recall is to graph the precision-recall curve.\nFirst, we need the predicted probabilities.\n\ny_train_probs_ = pipeline.predict_proba(X_train)\ny_train_probs_\n\narray([[1. , 0. ],\n       [1. , 0. ],\n       [0.6, 0.4],\n       ...,\n       [1. , 0. ],\n       [0.8, 0.2],\n       [1. , 0. ]], shape=(59054, 2))",
+    "text": "Precision-Recall Curve\nAnother way to illustrate the trade off between precision and recall is to graph the precision-recall curve.\nFirst, we need the predicted probabilities.\n\ny_train_probs_ = pipeline.predict_proba(X_train)\ny_train_probs_\n\narray([[1. , 0. ],\n       [1. , 0. ],\n       [0.4, 0.6],\n       ...,\n       [1. , 0. ],\n       [0.8, 0.2],\n       [1. , 0. ]], shape=(59054, 2))",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -5461,6 +5461,17 @@
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/11-classification.html#project-proposal---due-sunday-february-23",
+    "href": "slides/11-classification.html#project-proposal---due-sunday-february-23",
+    "title": "Classification",
+    "section": "Project Proposal - Due Sunday, February 23",
+    "text": "Project Proposal - Due Sunday, February 23\n\n\nYour group member names.\nInformation about the dataset(s) you intend to analyze:\n\nWhere are the data located?\nWho collected the data and why?\nWhat information (variables) are in the dataset?\n\nResearch Questions: You should have one primary research question and a few secondary questions\nPreliminary exploration of your dataset(s): A few simple plots or summary statistics that relate to the variables you plan to study.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 1 - Classification"
     ]
   }
 ]

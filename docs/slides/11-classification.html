@@ -401,6 +401,22 @@
 <h1>Final Projects</h1>
 
 </section>
+<section id="project-proposal---due-sunday-february-23" class="slide level2">
+<h2>Project Proposal - Due Sunday, February 23</h2>
+<div class="midi">
+<ol type="1">
+<li><p>Your group member names.</p></li>
+<li><p>Information about the dataset(s) you intend to analyze:</p>
+<ul>
+<li>Where are the data located?</li>
+<li>Who collected the data and why?</li>
+<li>What information (variables) are in the dataset?</li>
+</ul></li>
+<li><p>Research Questions: You should have one primary research question and a few secondary questions</p></li>
+<li><p>Preliminary exploration of your dataset(s): A few simple plots or summary statistics that relate to the variables you plan to study.</p></li>
+</ol>
+</div>
+</section>
 <section id="who-are-you-working-with" class="slide level2">
 <h2>Who are you working with?</h2>
 <p>Please take 3-minutes and fill out this form:</p>
@@ -928,8 +944,8 @@ Name: count, dtype: int64</code></pre>
 <span id="cb33-3"><a aria-hidden="true" tabindex="-1"></a>confusion_matrix(y_train, y_train_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>array([[56815,   120],
-       [ 1522,   597]])</code></pre>
+<pre><code>array([[56814,   121],
+       [ 1519,   600]])</code></pre>
 </div>
 </div>
 </div>
@@ -951,17 +967,15 @@ Name: count, dtype: int64</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>           0    1  Total
-0      56815  120  56935
-1       1522  597   2119
-Total  58337  717  59054</code></pre>
+0      56814  121  56935
+1       1519  600   2119
+Total  58333  721  59054</code></pre>
 </div>
 </div>
 </div>
 <div class="small">
 <ul>
 <li><p>What is the (training) accuracy?</p></li>
-<li><p>What’s the precision for normal transactions?</p></li>
-<li><p>What’s the recall for normal transactions?</p></li>
 <li><p>What’s the precision for fraudulent transactions?</p></li>
 <li><p>What’s the recall for fraudulent transactions?</p></li>
 </ul>
@@ -1014,7 +1028,7 @@ Total  58337  717  59054</code></pre>
 <span id="cb37-6"><a aria-hidden="true" tabindex="-1"></a>    cv <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb37-7"><a aria-hidden="true" tabindex="-1"></a>    ).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(0.647618677299677)</code></pre>
+<pre><code>np.float64(0.647384563849488)</code></pre>
 </div>
 </div>
 </section>
@@ -1028,7 +1042,7 @@ Total  58337  717  59054</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([[1. , 0. ],
        [1. , 0. ],
-       [0.6, 0.4],
+       [0.4, 0.6],
        ...,
        [1. , 0. ],
        [0.8, 0.2],
