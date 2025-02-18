@@ -396,9 +396,14 @@
 </div>
 
 </section>
-<section id="the-story-so-far" class="slide level2">
-<h2>The story so far</h2>
-<h3 id="data-analysis-the-whole-game">Data analysis: the whole game</h3>
+<section>
+<section id="the-story-so-far" class="title-slide slide level1 center">
+<h1>The story so far…</h1>
+
+</section>
+<section id="data-analysis-the-whole-game" class="slide level2">
+<h2>Data analysis: The whole game</h2>
+<div class="midi">
 <ul>
 <li><p><strong>Acquire</strong> data and <strong>clean</strong> it by fixing variable types, dropping or replacing missing data, and looking for other issues.</p></li>
 <li><p><strong>Explore</strong> the dataset by making summaries and plots of <em>one variable</em>.</p></li>
@@ -407,104 +412,221 @@
 <li><p>Fit <strong>predictive models</strong> to address more complex questions, and/or to prepare for prediction on future data.</p></li>
 <li><p>Fit <strong>unsupervised models</strong> to answer open-ended questions.</p></li>
 </ul>
+</div>
+</section></section>
+<section>
+<section id="joining-datasets" class="title-slide slide level1 center">
+<h1>Joining Datasets</h1>
+
 </section>
-<section id="joining-on-a-key" class="slide level2">
-<h2>Joining on a Key</h2>
-<h3 id="example-planes-and-flights">Example: Planes and flights</h3>
-<ul>
-<li><p>Sometimes, information is spread across multiple data sets.</p></li>
-<li><p>For example, suppose we want to know which manufacturer’s planes made the most flights in November 2013.</p></li>
-<li><p>One data set contains information about flights in Nov.&nbsp;2013…</p></li>
-</ul>
+<section id="example-planes-and-flights" class="slide level2">
+<h2>Example: Planes and Flights</h2>
+<p>Sometimes, information is spread across multiple data sets.</p>
+<p>For example, suppose we want to know which manufacturer’s planes made the most flights in November 2013.</p>
+</section>
+<section id="example-information-on-flights" class="slide level2">
+<h2>Example: Information on Flights</h2>
+<p>One data set contains information about flights in Nov.&nbsp;2013…</p>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a></a>data_dir <span class="op">=</span> <span class="st">"https://datasci112.stanford.edu/data/nycflights13/"</span></span>
-<span id="cb1-3"><a></a>df_flights <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>data_dir<span class="sc">}</span><span class="ss">/flights11.csv"</span>)</span>
-<span id="cb1-4"><a></a>df_flights.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>data_dir <span class="op">=</span> <span class="st">"https://datasci112.stanford.edu/data/nycflights13/"</span></span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>df_flights <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>data_dir<span class="sc">}</span><span class="ss">/flights11.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>   year  month  day  dep_time  ...  distance  hour  minute  tailnum
-0  2013     11    1    2108.0  ...      1167    20      56   N10156
-1  2013     11    1    1154.0  ...       541    12       0   N102UW
-2  2013     11    1     854.0  ...       946     8      29   N10575
-3  2013     11    1    1643.0  ...       594    15       5   N10575
-4  2013     11    1     603.0  ...       282     6       0   N11109
+<pre><code>       year  month  day  dep_time  ...  distance  hour  minute  tailnum
+0      2013     11    1    2108.0  ...      1167    20      56   N10156
+1      2013     11    1    1154.0  ...       541    12       0   N102UW
+2      2013     11    1     854.0  ...       946     8      29   N10575
+3      2013     11    1    1643.0  ...       594    15       5   N10575
+4      2013     11    1     603.0  ...       282     6       0   N11109
+...     ...    ...  ...       ...  ...       ...   ...     ...      ...
+23295  2013     11   30    1337.0  ...      1076    13      40   N994DL
+23296  2013     11   30     802.0  ...      1069     8       7   N995DL
+23297  2013     11   30    1544.0  ...      1069    15      50   N995DL
+23298  2013     11   30     850.0  ...       762     9       0   N996DL
+23299  2013     11   30    1959.0  ...       762    20       0   N999DN
 
-[5 rows x 18 columns]</code></pre>
+[23300 rows x 18 columns]</code></pre>
 </div>
 </div>
-<h3 id="example-planes-and-flights-1">Example: Planes and Flights</h3>
+</div>
+</section>
+<section id="example-information-on-planes" class="slide level2">
+<h2>Example: Information on Planes</h2>
 <p>…while another contains information about planes.</p>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>df_planes <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>data_dir<span class="sc">}</span><span class="ss">/planes.csv"</span>)</span>
-<span id="cb3-2"><a></a>df_planes.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>df_planes <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>data_dir<span class="sc">}</span><span class="ss">/planes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>  tailnum    year                     type  ... seats speed     engine
-0  N10156  2004.0  Fixed wing multi engine  ...    55   NaN  Turbo-fan
-1  N102UW  1998.0  Fixed wing multi engine  ...   182   NaN  Turbo-fan
-2  N103US  1999.0  Fixed wing multi engine  ...   182   NaN  Turbo-fan
-3  N104UW  1999.0  Fixed wing multi engine  ...   182   NaN  Turbo-fan
-4  N10575  2002.0  Fixed wing multi engine  ...    55   NaN  Turbo-fan
+<pre><code>     tailnum    year                     type  ... seats speed     engine
+0     N10156  2004.0  Fixed wing multi engine  ...    55   NaN  Turbo-fan
+1     N102UW  1998.0  Fixed wing multi engine  ...   182   NaN  Turbo-fan
+2     N103US  1999.0  Fixed wing multi engine  ...   182   NaN  Turbo-fan
+3     N104UW  1999.0  Fixed wing multi engine  ...   182   NaN  Turbo-fan
+4     N10575  2002.0  Fixed wing multi engine  ...    55   NaN  Turbo-fan
+...      ...     ...                      ...  ...   ...   ...        ...
+3317  N997AT  2002.0  Fixed wing multi engine  ...   100   NaN  Turbo-fan
+3318  N997DL  1992.0  Fixed wing multi engine  ...   142   NaN  Turbo-fan
+3319  N998AT  2002.0  Fixed wing multi engine  ...   100   NaN  Turbo-fan
+3320  N998DL  1992.0  Fixed wing multi engine  ...   142   NaN  Turbo-jet
+3321  N999DN  1992.0  Fixed wing multi engine  ...   142   NaN  Turbo-jet
 
-[5 rows x 9 columns]</code></pre>
+[3322 rows x 9 columns]</code></pre>
 </div>
 </div>
-<p>In order to answer the question of which manufacturer made the most flights, we have to join these two data sets together.</p>
-<h3 id="keys">Keys</h3>
+</div>
+</section>
+<section id="example-planes-and-flights-1" class="slide level2">
+<h2>Example: Planes and Flights</h2>
+<blockquote>
+<p>Which manufacturer’s planes made the most flights in November 2013?</p>
+</blockquote>
+<p>In order to answer this question we need to join these two datasets together!</p>
+</section></section>
+<section>
+<section id="joining-on-a-key" class="title-slide slide level1 center">
+<h1>Joining on a Key</h1>
+
+</section>
+<section id="keys" class="slide level2">
+<h2>Keys</h2>
+<div>
 <ul>
-<li><p>A <strong>primary key</strong> is a column (or a set of columns) that uniquely identifies observations in a data frame.</p></li>
-<li><p>The <strong>primary key</strong> is the column(s) you would think of as the <strong>index</strong>.</p></li>
-<li><p>A <strong>foreign key</strong> is a column (or a set of columns) that points to the primary key of another data frame.</p></li>
-<li><p>Planes are uniquely identified by their <em>tail number</em> (<code>tailnum</code>).</p></li>
+<li class="fragment"><p>A <strong>primary key</strong> is a column (or a set of columns) that uniquely identifies observations in a data frame.</p></li>
+<li class="fragment"><p>The <strong>primary key</strong> is the column(s) you would think of as the <strong>index</strong>.</p></li>
+<li class="fragment"><p>A <strong>foreign key</strong> is a column (or a set of columns) that points to the primary key of another data frame.</p></li>
+<li class="fragment"><p>Planes are uniquely identified by their <em>tail number</em> (<code>tailnum</code>).</p></li>
 </ul>
-<h3 id="joining-on-a-key-1">Joining on a Key</h3>
+</div>
+</section>
+<section id="joining-on-a-key-1" class="slide level2">
+<h2>Joining on a Key</h2>
 <p>Each value of the <strong>primary key</strong> should only appear once, but it could appear many times in a <strong>foreign key</strong>.</p>
+<div class="columns">
+<div class="column" style="width:48%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>df_flights[<span class="st">'tailnum'</span>].value_counts().head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>  df_planes[<span class="st">'tailnum'</span>]</span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts()</span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tailnum
+N999DN    1
+N10156    1
+N102UW    1
+N103US    1
+N104UW    1
+         ..
+N11192    1
+N11193    1
+N11194    1
+N11199    1
+N111US    1
+Name: count, Length: 3322, dtype: int64</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:3%;">
+
+</div><div class="column" style="width:48%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a>  df_flights[<span class="st">'tailnum'</span>]</span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts()</span>
+<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tailnum
 N353JB    48
 N955UW    47
 N184JB    47
-N375JB    42
 N281JB    42
-Name: count, dtype: int64</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>df_planes[<span class="st">'tailnum'</span>].value_counts().head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>tailnum
-N10156    1
-N709EV    1
-N706JB    1
-N706SW    1
-N706TW    1
-Name: count, dtype: int64</code></pre>
+N375JB    42
+          ..
+N8319F     1
+N8683B     1
+N919WN     1
+N119US     1
+N395HA     1
+Name: count, Length: 2600, dtype: int64</code></pre>
 </div>
 </div>
-<h3 id="joining-on-a-key-2">Joining on a Key</h3>
+</div></div>
+</section>
+<section id="joining-on-a-key-2" class="slide level2">
+<h2>Joining on a Key</h2>
 <p>The Pandas function <code>.merge()</code> can be used to join two <code>DataFrame</code>s on a key.</p>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>df_joined <span class="op">=</span> df_flights.merge(df_planes, on<span class="op">=</span><span class="st">"tailnum"</span>)</span>
-<span id="cb9-2"><a></a>df_joined.head()   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>df_joined <span class="op">=</span> df_flights.merge(df_planes, on <span class="op">=</span> <span class="st">"tailnum"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>   year_x  month  day  dep_time  ...  engines  seats  speed     engine
-0    2013     11    1    2108.0  ...        2     55    NaN  Turbo-fan
-1    2013     11    1    1154.0  ...        2    182    NaN  Turbo-fan
-2    2013     11    1     854.0  ...        2     55    NaN  Turbo-fan
-3    2013     11    1    1643.0  ...        2     55    NaN  Turbo-fan
-4    2013     11    1     603.0  ...        2     55    NaN  Turbo-fan
+<pre><code>       year_x  month  day  dep_time  ...  engines  seats  speed     engine
+0        2013     11    1    2108.0  ...        2     55    NaN  Turbo-fan
+1        2013     11    1    1154.0  ...        2    182    NaN  Turbo-fan
+2        2013     11    1     854.0  ...        2     55    NaN  Turbo-fan
+3        2013     11    1    1643.0  ...        2     55    NaN  Turbo-fan
+4        2013     11    1     603.0  ...        2     55    NaN  Turbo-fan
+...       ...    ...  ...       ...  ...      ...    ...    ...        ...
+23295    2013     11   30    1337.0  ...        2    142    NaN  Turbo-jet
+23296    2013     11   30     802.0  ...        2    142    NaN  Turbo-fan
+23297    2013     11   30    1544.0  ...        2    142    NaN  Turbo-fan
+23298    2013     11   30     850.0  ...        2    142    NaN  Turbo-fan
+23299    2013     11   30    1959.0  ...        2    142    NaN  Turbo-jet
 
-[5 rows x 26 columns]</code></pre>
+[23300 rows x 26 columns]</code></pre>
 </div>
 </div>
-<h3 id="overlapping-column-names">Overlapping Column Names</h3>
+</div>
+</section>
+<section id="overlapping-column-names" class="slide level2">
+<h2>Overlapping Column Names</h2>
+<div class="midi">
+<div>
 <ul>
-<li><p>Joining two data frames results in a <em>wider</em> data frame, with more columns.</p></li>
-<li><p>By default, Pandas adds the suffixes <code>_x</code> and <code>_y</code> to overlapping column names, but this can be customized.</p></li>
+<li class="fragment"><p>Joining two data frames results in a <em>wider</em> data frame, with more columns.</p></li>
+<li class="fragment"><p>By default, Pandas adds the suffixes <code>_x</code> and <code>_y</code> to overlapping column names. , but this can be customized.</p></li>
 </ul>
+</div>
+</div>
+<div class="fragment">
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>df_joined <span class="op">=</span> df_flights.merge(df_planes, on<span class="op">=</span><span class="st">"tailnum"</span>,</span>
-<span id="cb11-2"><a></a>                             suffixes<span class="op">=</span>(<span class="st">"_flight"</span>, <span class="st">"_plane"</span>))</span>
-<span id="cb11-3"><a></a>df_joined.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>df_joined.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['year_x', 'month', 'day', 'dep_time', 'sched_dep_time', 'dep_delay',
+       'arr_time', 'sched_arr_time', 'arr_delay', 'carrier', 'flight',
+       'origin', 'dest', 'air_time', 'distance', 'hour', 'minute', 'tailnum',
+       'year_y', 'type', 'manufacturer', 'model', 'engines', 'seats', 'speed',
+       'engine'],
+      dtype='object')</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="overlapping-column-names-1" class="slide level2">
+<h2>Overlapping Column Names</h2>
+<p>But this can be customized!</p>
+<div class="midi">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>df_joined <span class="op">=</span> df_flights.merge(df_planes, on <span class="op">=</span> <span class="st">"tailnum"</span>,</span>
+<span id="cb13-2"><a></a>                             suffixes <span class="op">=</span> (<span class="st">"_flight"</span>, <span class="st">"_plane"</span>)</span>
+<span id="cb13-3"><a></a>                             )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="midi">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Index(['year_flight', 'month', 'day', 'dep_time', 'sched_dep_time',
        'dep_delay', 'arr_time', 'sched_arr_time', 'arr_delay', 'carrier',
@@ -514,10 +636,16 @@ Name: count, dtype: int64</code></pre>
       dtype='object')</code></pre>
 </div>
 </div>
-<h3 id="analyzing-the-joined-data">Analyzing the Joined Data</h3>
-<p>Now that we have joined the two data sets, we can answer the question: which manufacturer’s planes made the most flights?</p>
+</div>
+</div>
+</section>
+<section id="analyzing-the-joined-data" class="slide level2">
+<h2>Analyzing the Joined Data</h2>
+<blockquote>
+<p>Which manufacturer’s planes made the most flights in November 2013?</p>
+</blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>df_joined[<span class="st">"manufacturer"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a>df_joined[<span class="st">"manufacturer"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>manufacturer
 BOEING                           6557
@@ -538,197 +666,399 @@ FRIEDEMANN JON                      8
 SIKORSKY                            6
 BELL                                5
 DEHAVILLAND                         4
-AGUSTA SPA                          3
 AMERICAN AIRCRAFT INC               3
-DOUGLAS                             2
-LAMBERT RICHARD                     2
-KILDALL GARY                        2
+AGUSTA SPA                          3
 LEARJET INC                         2
-MARZ BARRY                          1
+LAMBERT RICHARD                     2
+DOUGLAS                             2
+KILDALL GARY                        2
 AVIAT AIRCRAFT INC                  1
+MARZ BARRY                          1
 PAIR MIKE E                         1
 LEBLANC GLENN T                     1
 STEWART MACO                        1
 Name: count, dtype: int64</code></pre>
 </div>
 </div>
-</section>
-<section id="joining-on-multiple-keys" class="slide level2">
-<h2>Joining on Multiple Keys</h2>
-<h3 id="example-weather-and-flights">Example: Weather and Flights</h3>
-<ul>
-<li><p>Research question: What weather factors cause flight delays?</p></li>
-<li><p>Here is a data set containing hourly weather data at each airport in 2013.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>df_weather <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>data_dir<span class="sc">}</span><span class="ss">/weather.csv"</span>)</span>
-<span id="cb15-2"><a></a>df_weather.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  airport  year  month  day  ...  wind_gust  precip  pressure  visib
-0     EWR  2013      1    1  ...        NaN     0.0    1012.0   10.0
-1     EWR  2013      1    1  ...        NaN     0.0    1012.3   10.0
-2     EWR  2013      1    1  ...        NaN     0.0    1012.5   10.0
-3     EWR  2013      1    1  ...        NaN     0.0    1012.2   10.0
-4     EWR  2013      1    1  ...        NaN     0.0    1011.9   10.0
+</section></section>
+<section>
+<section id="joining-on-multiple-keys" class="title-slide slide level1 center">
+<h1>Joining on Multiple Keys</h1>
 
-[5 rows x 14 columns]</code></pre>
+</section>
+<section id="example-weather-and-flights" class="slide level2">
+<h2>Example: Weather and Flights</h2>
+<blockquote>
+<p>What weather factors are related to flight delays?</p>
+</blockquote>
+<div class="fragment">
+<p>Here is a data set containing hourly weather data at each airport in 2013:</p>
+<div class="midi">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a>df_weather <span class="op">=</span> pd.read_csv(<span class="ss">f"</span><span class="sc">{</span>data_dir<span class="sc">}</span><span class="ss">/weather.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      airport  year  month  day  ...  wind_gust  precip  pressure  visib
+0         EWR  2013      1    1  ...        NaN     0.0    1012.0   10.0
+1         EWR  2013      1    1  ...        NaN     0.0    1012.3   10.0
+2         EWR  2013      1    1  ...        NaN     0.0    1012.5   10.0
+3         EWR  2013      1    1  ...        NaN     0.0    1012.2   10.0
+4         EWR  2013      1    1  ...        NaN     0.0    1011.9   10.0
+...       ...   ...    ...  ...  ...        ...     ...       ...    ...
+26110     LGA  2013     12   30  ...   21.86482     0.0    1017.1   10.0
+26111     LGA  2013     12   30  ...   21.86482     0.0    1018.8   10.0
+26112     LGA  2013     12   30  ...   23.01560     0.0    1019.5   10.0
+26113     LGA  2013     12   30  ...        NaN     0.0    1019.9   10.0
+26114     LGA  2013     12   30  ...        NaN     0.0    1020.9   10.0
+
+[26115 rows x 14 columns]</code></pre>
 </div>
 </div>
-<p><strong>What is the primary key of this data set?</strong></p>
-<h3 id="a-key-with-multiple-columns">A Key with Multiple Columns</h3>
+</div>
+</div>
+</section>
+<section id="identifying-the-primary-key" class="slide level2">
+<h2>Identifying the Primary Key</h2>
+<p><strong>What is / are the primary key(s) of this dataset?</strong></p>
+<div class="midi">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      airport  year  month  day  hour  wind_gust  precip  pressure  visib
+0         EWR  2013      1    1     1        NaN     0.0    1012.0   10.0
+1         EWR  2013      1    1     2        NaN     0.0    1012.3   10.0
+2         EWR  2013      1    1     3        NaN     0.0    1012.5   10.0
+3         EWR  2013      1    1     4        NaN     0.0    1012.2   10.0
+4         EWR  2013      1    1     5        NaN     0.0    1011.9   10.0
+...       ...   ...    ...  ...   ...        ...     ...       ...    ...
+26110     LGA  2013     12   30    14   21.86482     0.0    1017.1   10.0
+26111     LGA  2013     12   30    15   21.86482     0.0    1018.8   10.0
+26112     LGA  2013     12   30    16   23.01560     0.0    1019.5   10.0
+26113     LGA  2013     12   30    17        NaN     0.0    1019.9   10.0
+26114     LGA  2013     12   30    18        NaN     0.0    1020.9   10.0
+
+[26115 rows x 9 columns]</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="verifying-primary-key" class="slide level2">
+<h2>Verifying Primary Key</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>  df_weather</span>
+<span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a>  .groupby([<span class="st">"airport"</span>, <span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"hour"</span>])</span>
+<span id="cb20-4"><a aria-hidden="true" tabindex="-1"></a>  .size()</span>
+<span id="cb20-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>airport  year  month  day  hour
+EWR      2013  1      1    1       1
+                           2       1
+                           3       1
+                           4       1
+                           5       1
+                                  ..
+LGA      2013  12     30   14      1
+                           15      1
+                           16      1
+                           17      1
+                           18      1
+Length: 26112, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="a-key-with-multiple-columns" class="slide level2">
+<h2>A Key with Multiple Columns</h2>
 <p>Let’s start by looking at flights out of JFK only, for simplicity.</p>
-<p>We need to join to the weather data on year, month, day, and hour.</p>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>df_flights_jfk <span class="op">=</span> df_flights[df_flights[<span class="st">"origin"</span>] <span class="op">==</span> <span class="st">"JFK"</span>]</span>
-<span id="cb17-2"><a></a>df_weather_jfk <span class="op">=</span> df_weather[df_weather[<span class="st">"airport"</span>] <span class="op">==</span> <span class="st">"JFK"</span>]</span>
-<span id="cb17-3"><a></a></span>
-<span id="cb17-4"><a></a>df_jfk <span class="op">=</span> df_flights_jfk.merge(df_weather_jfk, on<span class="op">=</span>(<span class="st">"year"</span>,<span class="st">"month"</span>,<span class="st">"day"</span>,<span class="st">"hour"</span>))</span>
-<span id="cb17-5"><a></a></span>
-<span id="cb17-6"><a></a>df_jfk.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   year  month  day  dep_time  ...  wind_gust  precip  pressure  visib
-0  2013     11    1    1154.0  ...        NaN    0.00    1002.8   10.0
-1  2013     11    1    2055.0  ...        NaN    0.00    1005.0   10.0
-2  2013     11    1    1814.0  ...        NaN    0.00    1003.9   10.0
-3  2013     11    1    1014.0  ...        NaN    0.07       NaN   10.0
-4  2013     11    1    1852.0  ...        NaN    0.00    1003.9   10.0
-
-[5 rows x 28 columns]</code></pre>
-</div>
-</div>
-<h3 id="lets-see-how-rain-affects-departure-delays.">Let’s see how rain affects departure delays.</h3>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb19-2"><a></a></span>
-<span id="cb19-3"><a></a>(ggplot(df_jfk, aes(x<span class="op">=</span><span class="st">"precip"</span>, y<span class="op">=</span><span class="st">"dep_delay"</span>)) <span class="op">+</span></span>
-<span id="cb19-4"><a></a>geom_point(alpha<span class="op">=</span><span class="fl">0.2</span>) <span class="op">+</span></span>
-<span id="cb19-5"><a></a>theme_classic())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x10c813d90&gt;</code></pre>
-</div>
-</div>
-<h3 id="joining-on-keys-with-different-names">Joining on Keys with Different Names</h3>
-<ul>
-<li><p>Sometimes, the join keys have different names in the two data sets.</p></li>
-<li><p>This frequently happens if the data sets come from different sources.</p></li>
-<li><p>For example, if we want to join the (entire) flights data to the weather data, we would need to include the <em>airport</em> in the key.</p></li>
-<li><p>But the airport is called <code>origin</code> in <code>df_flights</code> and <code>airport</code> in <code>df_weather</code>.</p></li>
-<li><p>The <code>.merge()</code> function provides <code>left_on=</code> and <code>right_on=</code> arguments for specifying different column names in the <strong>left</strong> (first) and <strong>right</strong> (second) data frames.</p></li>
-</ul>
-<h3 id="joining-on-keys-with-different-names-1">Joining on Keys with Different Names</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>df_flights_weather <span class="op">=</span> df_flights.merge(</span>
-<span id="cb21-2"><a></a>    df_weather,</span>
-<span id="cb21-3"><a></a>    left_on<span class="op">=</span>(<span class="st">"origin"</span>, <span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"hour"</span>),</span>
-<span id="cb21-4"><a></a>    right_on<span class="op">=</span>(<span class="st">"airport"</span>, <span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"hour"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<h3 id="rain-and-delays-by-airport">Rain and delays by airport</h3>
-<p>Now we can visualize how rain impacts delays at each airport:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>df_rain <span class="op">=</span> df_flights_weather.groupby([<span class="st">"airport"</span>, <span class="st">"precip"</span>])[<span class="st">"dep_delay"</span>].mean().to_frame().reset_index()</span>
-<span id="cb22-2"><a></a></span>
-<span id="cb22-3"><a></a>(ggplot(df_rain, aes(x<span class="op">=</span><span class="st">'precip'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>, color <span class="op">=</span> <span class="st">'airport'</span>)) <span class="op">+</span></span>
-<span id="cb22-4"><a></a>geom_point() <span class="op">+</span></span>
-<span id="cb22-5"><a></a>geom_line() <span class="op">+</span></span>
-<span id="cb22-6"><a></a>theme_classic())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;plotnine.ggplot.ggplot object at 0x10c834c00&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>df_flights_jfk <span class="op">=</span> df_flights[df_flights[<span class="st">"origin"</span>] <span class="op">==</span> <span class="st">"JFK"</span>]</span>
+<span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a>df_weather_jfk <span class="op">=</span> df_weather[df_weather[<span class="st">"airport"</span>] <span class="op">==</span> <span class="st">"JFK"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
-<section id="joins-with-missing-keys" class="slide level2">
-<h2>Joins with missing keys</h2>
-<h3 id="example-baby-names">Example: Baby names</h3>
-<p>The data below contains counts of names for babies born in 1920 and 2020:</p>
+<section id="a-key-with-multiple-columns-1" class="slide level2">
+<h2>A Key with Multiple Columns</h2>
+<p>We need to join to the weather data on year, month, day, and hour.</p>
+<div class="midi">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb24-2"><a></a>data_dir <span class="op">=</span> <span class="st">"http://dlsun.github.io/pods/data/names/"</span></span>
-<span id="cb24-3"><a></a></span>
-<span id="cb24-4"><a></a>df_1920 <span class="op">=</span> pd.read_csv(data_dir <span class="op">+</span> <span class="st">"yob1920.txt"</span>, header<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb24-5"><a></a>                      names<span class="op">=</span>[<span class="st">"Name"</span>, <span class="st">"Sex"</span>, <span class="st">"Count"</span>])</span>
-<span id="cb24-6"><a></a>df_2020 <span class="op">=</span> pd.read_csv(data_dir <span class="op">+</span> <span class="st">"yob2020.txt"</span>, header<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb24-7"><a></a>                      names<span class="op">=</span>[<span class="st">"Name"</span>, <span class="st">"Sex"</span>, <span class="st">"Count"</span>])</span>
-<span id="cb24-8"><a></a>                      </span>
-<span id="cb24-9"><a></a>df_1920.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>df_jfk <span class="op">=</span> df_flights_jfk.merge(df_weather_jfk, </span>
+<span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a>                              on <span class="op">=</span> (<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"hour"</span>)</span>
+<span id="cb23-3"><a aria-hidden="true" tabindex="-1"></a>                              )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>       Name Sex  Count
-0      Mary   F  70975
-1   Dorothy   F  36645
-2     Helen   F  35098
-3  Margaret   F  27997
-4      Ruth   F  26100</code></pre>
+<pre><code>      year  month  day  dep_time  ...  wind_gust  precip  pressure  visib
+0     2013     11    1    1154.0  ...        NaN    0.00    1002.8   10.0
+1     2013     11    1    2055.0  ...        NaN    0.00    1005.0   10.0
+2     2013     11    1    1814.0  ...        NaN    0.00    1003.9   10.0
+3     2013     11    1    1014.0  ...        NaN    0.07       NaN   10.0
+4     2013     11    1    1852.0  ...        NaN    0.00    1003.9   10.0
+...    ...    ...  ...       ...  ...        ...     ...       ...    ...
+7396  2013     11   30    2009.0  ...        NaN    0.00       NaN   10.0
+7397  2013     11   30    2047.0  ...        NaN    0.00    1031.9   10.0
+7398  2013     11   30    1841.0  ...        NaN    0.00    1033.6   10.0
+7399  2013     11   30     802.0  ...        NaN    0.00    1042.1   10.0
+7400  2013     11   30    1544.0  ...        NaN    0.00    1036.1   10.0
+
+[7401 rows x 28 columns]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>df_2020.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="how-does-rain-affects-departure-delays" class="slide level2">
+<h2>How does rain affects departure delays?</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb25-4"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_jfk, </span>
+<span id="cb25-5"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"precip"</span>, y <span class="op">=</span> <span class="st">"dep_delay"</span>)) <span class="op">+</span></span>
+<span id="cb25-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point(alpha <span class="op">=</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
+<span id="cb25-7"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Precipitation (feet)"</span>, </span>
+<span id="cb25-8"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Departure Delay (minutes)"</span>) <span class="op">+</span></span>
+<span id="cb25-9"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb25-10"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+<img data-src="14-merge_files/figure-revealjs/precip-delay-scatterplot-point-1.png" class="quarto-figure quarto-figure-center r-stretch" width="614"><p>Hmmmm….where did all the data go?</p>
+</section>
+<section id="how-does-rain-affects-departure-delays-1" class="slide level2">
+<h2>How does rain affects departure delays?</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_jfk, </span>
+<span id="cb26-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"precip"</span>, y <span class="op">=</span> <span class="st">"dep_delay"</span>)) <span class="op">+</span></span>
+<span id="cb26-4"><a aria-hidden="true" tabindex="-1"></a>  geom_jitter(alpha <span class="op">=</span> <span class="fl">0.2</span>, width <span class="op">=</span> <span class="fl">0.1</span>) <span class="op">+</span></span>
+<span id="cb26-5"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Precipitation (feet)"</span>, </span>
+<span id="cb26-6"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Departure Delay (minutes)"</span>, </span>
+<span id="cb26-7"><a aria-hidden="true" tabindex="-1"></a>       color <span class="op">=</span> <span class="st">"New York City Airport"</span>) <span class="op">+</span></span>
+<span id="cb26-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb26-9"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+<img data-src="14-merge_files/figure-revealjs/precip-delay-scatterplot-jitter-3.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<section id="joining-on-keys-with-different-names" class="slide level2">
+<h2>Joining on Keys with Different Names</h2>
+<div>
+<div class="midi">
+<ul>
+<li class="fragment"><p>Sometimes, the join keys have different names in the two data sets.</p></li>
+<li class="fragment"><p>This frequently happens if the data sets come from different sources.</p></li>
+<li class="fragment"><p>For example, if we want to join the (entire) flights data to the weather data, we would need to include the <em>airport</em> in the key.</p></li>
+<li class="fragment"><p>But the airport is called <code>origin</code> in <code>df_flights</code> and <code>airport</code> in <code>df_weather</code>.</p></li>
+<li class="fragment"><p>The <code>.merge()</code> function provides <code>left_on =</code> and <code>right_on =</code> arguments for specifying different column names in the <strong>left</strong> (first) and <strong>right</strong> (second) datasets.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="joining-on-keys-with-different-names-1" class="slide level2">
+<h2>Joining on Keys with Different Names</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="3-4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>df_flights_weather <span class="op">=</span> df_flights.merge(</span>
+<span id="cb27-2"><a></a>    df_weather,</span>
+<span id="cb27-3"><a></a>    left_on <span class="op">=</span> (<span class="st">"origin"</span>, <span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"hour"</span>),</span>
+<span id="cb27-4"><a></a>    right_on <span class="op">=</span> (<span class="st">"airport"</span>, <span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"hour"</span>)</span>
+<span id="cb27-5"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="rain-and-delays-by-airport" class="slide level2">
+<h2>Rain and delays by airport</h2>
+<p>Now we can visualize how rain impacts delays at each airport!</p>
+<p><br></p>
+<p>But first, let’s find the mean amount of rain for each departure delay to clean up our plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>df_rain <span class="op">=</span> (</span>
+<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>  df_flights_weather</span>
+<span id="cb28-3"><a aria-hidden="true" tabindex="-1"></a>  .groupby([<span class="st">"airport"</span>, <span class="st">"precip"</span>])[<span class="st">"dep_delay"</span>]</span>
+<span id="cb28-4"><a aria-hidden="true" tabindex="-1"></a>  .mean()</span>
+<span id="cb28-5"><a aria-hidden="true" tabindex="-1"></a>  .reset_index()</span>
+<span id="cb28-6"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="rain-and-delays-by-airport-1" class="slide level2">
+<h2>Rain and delays by airport</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_rain, </span>
+<span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"precip"</span>, y <span class="op">=</span> <span class="st">"dep_delay"</span>, color <span class="op">=</span> <span class="st">"airport"</span>)) <span class="op">+</span></span>
+<span id="cb29-4"><a aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span></span>
+<span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a>  geom_line() <span class="op">+</span></span>
+<span id="cb29-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Precipitation (feet)"</span>, </span>
+<span id="cb29-7"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Departure Delay (minutes)"</span>) <span class="op">+</span></span>
+<span id="cb29-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb29-9"><a aria-hidden="true" tabindex="-1"></a>  theme(legend_position <span class="op">=</span> <span class="st">"top"</span>)</span>
+<span id="cb29-10"><a aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+<img data-src="14-merge_files/figure-revealjs/precip-delay-mean-5.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section></section>
+<section>
+<section id="joins-with-missing-keys" class="title-slide slide level1 center">
+<h1>Joins with Missing Keys</h1>
+
+</section>
+<section id="example-baby-names" class="slide level2">
+<h2>Example: Baby names</h2>
+<div class="midi">
+<p>The data below contains counts of names for babies born in 1920 and 2020:</p>
+</div>
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>data_dir <span class="op">=</span> <span class="st">"http://dlsun.github.io/pods/data/names/"</span></span>
+<span id="cb30-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a aria-hidden="true" tabindex="-1"></a>df_1920 <span class="op">=</span> pd.read_csv(data_dir <span class="op">+</span> <span class="st">"yob1920.txt"</span>, header <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb30-4"><a aria-hidden="true" tabindex="-1"></a>                      names <span class="op">=</span> [<span class="st">"Name"</span>, <span class="st">"Sex"</span>, <span class="st">"Count"</span>]</span>
+<span id="cb30-5"><a aria-hidden="true" tabindex="-1"></a>                      )</span>
+<span id="cb30-6"><a aria-hidden="true" tabindex="-1"></a>df_2020 <span class="op">=</span> pd.read_csv(data_dir <span class="op">+</span> <span class="st">"yob2020.txt"</span>, header <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb30-7"><a aria-hidden="true" tabindex="-1"></a>                      names <span class="op">=</span> [<span class="st">"Name"</span>, <span class="st">"Sex"</span>, <span class="st">"Count"</span>]</span>
+<span id="cb30-8"><a aria-hidden="true" tabindex="-1"></a>                      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div class="midi">
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><strong>1920</strong></p>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>        Name Sex  Count
-0     Olivia   F  17641
-1       Emma   F  15656
-2        Ava   F  13160
-3  Charlotte   F  13065
-4     Sophia   F  13036</code></pre>
+<pre><code>           Name Sex  Count
+0          Mary   F  70975
+1       Dorothy   F  36645
+2         Helen   F  35098
+3      Margaret   F  27997
+4          Ruth   F  26100
+...         ...  ..    ...
+10751     Zearl   M      5
+10752  Zeferino   M      5
+10753      Zeke   M      5
+10754      Zera   M      5
+10755   Zygmont   M      5
+
+[10756 rows x 3 columns]</code></pre>
 </div>
 </div>
-<h3 id="joins">Joins</h3>
+</div><div class="column" style="width:3%;">
+
+</div><div class="column" style="width:48%;">
+<p><strong>2020</strong></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>            Name Sex  Count
+0         Olivia   F  17641
+1           Emma   F  15656
+2            Ava   F  13160
+3      Charlotte   F  13065
+4         Sophia   F  13036
+...          ...  ..    ...
+31448     Zykell   M      5
+31449      Zylus   M      5
+31450     Zymari   M      5
+31451        Zyn   M      5
+31452      Zyran   M      5
+
+[31453 rows x 3 columns]</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="joins" class="slide level2">
+<h2>Joins</h2>
 <p>We can merge these two datasets on a primary key…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>df_joined <span class="op">=</span> df_1920.merge(df_2020, on<span class="op">=</span>[<span class="st">"Name"</span>, <span class="st">"Sex"</span>], suffixes<span class="op">=</span>(<span class="st">"_1920"</span>, <span class="st">"_2020"</span>))</span>
-<span id="cb28-2"><a></a>df_joined.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>df_joined <span class="op">=</span> (</span>
+<span id="cb33-2"><a aria-hidden="true" tabindex="-1"></a>  df_1920</span>
+<span id="cb33-3"><a aria-hidden="true" tabindex="-1"></a>  .merge(df_2020, </span>
+<span id="cb33-4"><a aria-hidden="true" tabindex="-1"></a>         on <span class="op">=</span> [<span class="st">"Name"</span>, <span class="st">"Sex"</span>], </span>
+<span id="cb33-5"><a aria-hidden="true" tabindex="-1"></a>         suffixes <span class="op">=</span> (<span class="st">"_1920"</span>, <span class="st">"_2020"</span>)</span>
+<span id="cb33-6"><a aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb33-7"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>       Name Sex  Count_1920  Count_2020
-0      Mary   F       70975        2210
-1   Dorothy   F       36645         562
-2     Helen   F       35098         721
-3  Margaret   F       27997        2190
-4      Ruth   F       26100        1323</code></pre>
+<pre><code>          Name Sex  Count_1920  Count_2020
+0         Mary   F       70975        2210
+1      Dorothy   F       36645         562
+2        Helen   F       35098         721
+3     Margaret   F       27997        2190
+4         Ruth   F       26100        1323
+...        ...  ..         ...         ...
+4473     Whitt   M           5          23
+4474     Wyley   M           5           6
+4475    Xavier   M           5        3876
+4476      York   M           5          14
+4477      Zeke   M           5         382
+
+[4478 rows x 4 columns]</code></pre>
 </div>
 </div>
-<h3 id="missing-keys">Missing Keys?</h3>
+</section>
+<section id="missing-keys" class="slide level2">
+<h2>Missing Keys?</h2>
 <p>… but what happened to some of the names?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>df_joined[df_joined[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>df_joined[df_joined[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Empty DataFrame
 Columns: [Name, Sex, Count_1920, Count_2020]
 Index: []</code></pre>
 </div>
 </div>
-<h3 id="missing-keys-1">Missing keys</h3>
-<ul>
-<li>Why isn’t Maya in the joined data?</li>
-</ul>
-<p>It is there in the 2020 data…</p>
+</section>
+<section id="missing-keys-1" class="slide level2">
+<h2>Missing Keys?</h2>
+<div class="midi">
+<p>Why isn’t Maya in the joined data? It’s in the 2020 data…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>df_2020[df_2020[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a>df_2020[df_2020[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Name Sex  Count
 60     Maya   F   3724
 28914  Maya   M      6</code></pre>
 </div>
 </div>
-<p>…but not in the 1920 data.</p>
+</div>
+<div class="fragment">
+<div class="midi">
+<p>…but it’s not in the 1920 data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>df_1920[df_1920[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a>df_1920[df_1920[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Empty DataFrame
 Columns: [Name, Sex, Count]
 Index: []</code></pre>
 </div>
 </div>
-<h3 id="missing-keys-2">Missing keys</h3>
-<ul>
-<li><p>How does the <code>merge()</code> function determine which keys get kept?</p></li>
-<li><p>By default, in order to appear in the joined data, a key must be present in <em>both</em> tables.</p></li>
-</ul>
+</div>
+</div>
 </section>
-<section id="other-types-of-joins" class="slide level2">
-<h2>Other Types of Joins</h2>
-<h3 id="types-of-joins">Types of Joins</h3>
+<section id="missing-keys-2" class="slide level2">
+<h2>Missing keys</h2>
+<p><br></p>
+<p>How does the <code>merge()</code> function determine which keys get kept?</p>
+<p>By default, in order to appear in the joined data, a key must be present in <em>both</em> tables.</p>
+</section></section>
+<section>
+<section id="other-types-of-joins" class="title-slide slide level1 center">
+<h1>Other Types of Joins</h1>
+
+</section>
+<section id="types-of-joins" class="slide level2">
+<h2>Types of Joins</h2>
 <ul>
 <li><p>How can we customize the behavior of joins for missing keys?</p></li>
 <li><p>By default, Pandas does an <strong>inner join</strong>, which only keeps keys that are present in <em>both</em> tables.</p></li>
@@ -736,53 +1066,66 @@ Index: []</code></pre>
 <li><p>A <strong>left join</strong> keeps all keys in the left table, even if they are not in the right table. But any keys that are only in the right table are dropped.</p></li>
 <li><p>A <strong>right join</strong> keeps all keys in the right table, even if they are not in the left table. But any keys that are only in the left table are dropped.</p></li>
 </ul>
-<h3 id="types-of-joins-1">Types of joins</h3>
+</section>
+<section id="types-of-joins-1" class="slide level2">
+<h2>Types of joins</h2>
 <p>We can customize the type of join using the <code>how=</code> parameter of <code>.merge()</code>. By default, <code>how="inner"</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>df_joined_outer <span class="op">=</span> df_1920.merge(df_2020, on<span class="op">=</span>[<span class="st">"Name"</span>, <span class="st">"Sex"</span>],</span>
-<span id="cb36-2"><a></a>                                how<span class="op">=</span><span class="st">"outer"</span>)</span>
-<span id="cb36-3"><a></a>df_joined_outer[df_joined_outer[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>df_joined_outer <span class="op">=</span> df_1920.merge(df_2020, on<span class="op">=</span>[<span class="st">"Name"</span>, <span class="st">"Sex"</span>],</span>
+<span id="cb41-2"><a></a>                                how<span class="op">=</span><span class="st">"outer"</span>)</span>
+<span id="cb41-3"><a></a>df_joined_outer[df_joined_outer[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Name Sex  Count_x  Count_y
 24999  Maya   F      NaN   3724.0
 25000  Maya   M      NaN      6.0</code></pre>
 </div>
 </div>
-<h3 id="types-of-joins-2">Types of Joins</h3>
+</section>
+<section id="types-of-joins-2" class="slide level2">
+<h2>Types of Joins</h2>
 <ul>
 <li><p>Note the missing values for other columns, like Count, for 1920!</p></li>
 <li><p>What other type of join would have produced this output in the Maya row?</p></li>
 </ul>
-<h3 id="types-of-joins-3">Types of Joins</h3>
+</section>
+<section id="types-of-joins-3" class="slide level2">
+<h2>Types of Joins</h2>
 <ul>
 <li><p>Note the missing values for other columns, like Count, for 1920!</p></li>
 <li><p>What other type of join would have produced this output in the Maya row?</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>df_joined_right <span class="op">=</span> df_1920.merge(df_2020, on<span class="op">=</span>[<span class="st">"Name"</span>, <span class="st">"Sex"</span>],</span>
-<span id="cb38-2"><a></a>                                how<span class="op">=</span><span class="st">"right"</span>)</span>
-<span id="cb38-3"><a></a>df_joined_right[df_joined_right[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>df_joined_right <span class="op">=</span> df_1920.merge(df_2020, on<span class="op">=</span>[<span class="st">"Name"</span>, <span class="st">"Sex"</span>],</span>
+<span id="cb43-2"><a></a>                                how<span class="op">=</span><span class="st">"right"</span>)</span>
+<span id="cb43-3"><a></a>df_joined_right[df_joined_right[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Name Sex  Count_x  Count_y
 60     Maya   F      NaN     3724
 28914  Maya   M      NaN        6</code></pre>
 </div>
 </div>
-</section>
-<section id="types-of-joins-4" class="slide level2">
-<h2>Types of Joins</h2>
+</section></section>
+<section>
+<section id="types-of-joins-4" class="title-slide slide level1 center">
+<h1>Types of Joins</h1>
 
-<img data-src="./images/joins.png" class="r-stretch"><h3 id="quick-quiz">Quick Quiz</h3>
+<img data-src="./images/joins.png" class="r-stretch"></section>
+<section id="quick-quiz" class="slide level2">
+<h2>Quick Quiz</h2>
 <p>Which type of join would be best suited for each case?</p>
 <ol type="1">
 <li><p>We want to determine the names that have increased in popularity the most between 1920 and 2020.</p></li>
 <li><p>We want to graph the popularity of names over time.</p></li>
 <li><p>We want to determine the names that have decreased in popularity the most between 1920 and 2020.</p></li>
 </ol>
+</section></section>
+<section>
+<section id="many-to-many-joins" class="title-slide slide level1 center">
+<h1>Many-to-Many Joins</h1>
+
 </section>
-<section id="many-to-many-joins" class="slide level2">
-<h2>Many-to-Many Joins</h2>
-<h3 class="smaller" id="many-to-many-relationships">Many-to-Many Relationships</h3>
+<section id="many-to-many-relationships" class="slide level2 smaller">
+<h2>Many-to-Many Relationships</h2>
 <ul>
 <li><p>So far, the keys we’ve joined on have been the primary key of (at least) one table.</p></li>
 <li><p>If we join to the primary key of another table, then the relationship is <strong>one-to-one</strong> (since primary keys uniquely identify rows).</p></li>
@@ -791,10 +1134,12 @@ Index: []</code></pre>
 <li><p>That is, what if the key does not uniquely identify rows in either table so that each value of the key might appear multiple times?</p></li>
 <li><p>This relaionship is called <strong>many-to-many</strong>.</p></li>
 </ul>
-<h3 id="many-to-many-example">Many-to-Many Example</h3>
+</section>
+<section id="many-to-many-example" class="slide level2">
+<h2>Many-to-Many Example</h2>
 <p>What if we only joined on the name?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>df_1920.merge(df_2020, on<span class="op">=</span><span class="st">"Name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>df_1920.merge(df_2020, on<span class="op">=</span><span class="st">"Name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Name Sex_x  Count_x Sex_y  Count_y
 0         Mary     F    70975     F     2210
@@ -812,22 +1157,28 @@ Index: []</code></pre>
 [6163 rows x 5 columns]</code></pre>
 </div>
 </div>
-<h3 id="preventing-bugs">Preventing Bugs</h3>
+</section>
+<section id="preventing-bugs" class="slide level2">
+<h2>Preventing Bugs</h2>
 <ul>
 <li><p>Most of the time, many-to-many joins are a bug, caused by a misunderstanding about the primary key.</p></li>
 <li><p>Pandas allows us to specify the relationship we are expecting. It will fail with an error if the relationship is a different kind.</p></li>
 <li><p>For example, suppose we thought that “name” was the primary key of the baby name tables.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>df_1920.merge(df_2020, on<span class="op">=</span><span class="st">"Name"</span>,</span>
-<span id="cb42-2"><a></a>              validate<span class="op">=</span><span class="st">"one_to_one"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>df_1920.merge(df_2020, on<span class="op">=</span><span class="st">"Name"</span>,</span>
+<span id="cb47-2"><a></a>              validate<span class="op">=</span><span class="st">"one_to_one"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre><code>MergeError: Merge keys are not unique in either left or right dataset; not a one-to-one merge</code></pre>
 <p>Errors are (sometimes) your friend. They can prevent you from making even bigger mistakes!</p>
+</section></section>
+<section>
+<section id="filtering-joins" class="title-slide slide level1 center">
+<h1>Filtering Joins</h1>
+
 </section>
-<section id="filtering-joins" class="slide level2">
+<section id="filtering-joins-1" class="slide level2 smaller">
 <h2>Filtering Joins</h2>
-<h3 class="smaller" id="filtering-joins-1">Filtering Joins</h3>
 <ul>
 <li><p>Inner, outer, left, and right are known as <strong>mutating joins</strong>, because they create new combined datasets.</p></li>
 <li><p>There are two other types of joins that we use for <strong>filtering</strong> to get rid of some rows:</p></li>
@@ -835,11 +1186,13 @@ Index: []</code></pre>
 <li><p>An <strong>anti-join</strong> tells us which keys in the left <strong>are not</strong> present in the right.</p></li>
 <li><p>In Pandas, we can’t do these using <code>.merge()</code></p></li>
 </ul>
-<h3 id="filtering-joins-2">Filtering joins</h3>
+</section>
+<section id="filtering-joins-2" class="slide level2">
+<h2>Filtering joins</h2>
 <p>Which names existed in 1920 but don’t in 2020?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>in_both <span class="op">=</span> df_1920[<span class="st">'Name'</span>].isin(df_2020[<span class="st">'Name'</span>])</span>
-<span id="cb44-2"><a></a>df_1920.loc[<span class="op">~</span>in_both, <span class="st">'Name'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>in_both <span class="op">=</span> df_1920[<span class="st">'Name'</span>].isin(df_2020[<span class="st">'Name'</span>])</span>
+<span id="cb49-2"><a></a>df_1920.loc[<span class="op">~</span>in_both, <span class="st">'Name'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>67          Myrtle
 245            Sue
@@ -855,15 +1208,21 @@ Index: []</code></pre>
 Name: Name, Length: 5638, dtype: object</code></pre>
 </div>
 </div>
-<h3 id="your-turn">Your turn</h3>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your turn</h2>
 <ul>
 <li><p>Did your name exist in 2020 but not 1920?</p></li>
 <li><p>If so, how has the popularity changed?</p></li>
 </ul>
+</section></section>
+<section>
+<section id="takeaways" class="title-slide slide level1 center">
+<h1>Takeaways</h1>
+
 </section>
-<section id="takeaways" class="slide level2">
+<section id="takeaways-1" class="slide level2">
 <h2>Takeaways</h2>
-<h3 id="takeaways-1">Takeaways</h3>
 <ul>
 <li><p>A <strong>primary key</strong> is one or more columns that uniquely indentify the rows.</p></li>
 <li><p>We can <strong>join</strong> (a.k.a. <strong>merge</strong>) datasets if they share a primary key, or if one has a <strong>foreign key</strong>.</p></li>
@@ -878,7 +1237,7 @@ Name: Name, Length: 5638, dtype: object</code></pre>
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

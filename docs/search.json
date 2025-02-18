@@ -5022,5 +5022,445 @@
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
     ]
+  },
+  {
+    "objectID": "slides/14-merge.html#data-analysis-the-whole-game",
+    "href": "slides/14-merge.html#data-analysis-the-whole-game",
+    "title": "Combining Datasets",
+    "section": "Data analysis: The whole game",
+    "text": "Data analysis: The whole game\n\n\nAcquire data and clean it by fixing variable types, dropping or replacing missing data, and looking for other issues.\nExplore the dataset by making summaries and plots of one variable.\nEstablish research questions to answer with this data.\nCreate visualizations of two or more variables that address simple questions.\nFit predictive models to address more complex questions, and/or to prepare for prediction on future data.\nFit unsupervised models to answer open-ended questions.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#example-planes-and-flights",
+    "href": "slides/14-merge.html#example-planes-and-flights",
+    "title": "Combining Datasets",
+    "section": "Example: Planes and Flights",
+    "text": "Example: Planes and Flights\nSometimes, information is spread across multiple data sets.\nFor example, suppose we want to know which manufacturer’s planes made the most flights in November 2013.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#example-planes-and-flights-1",
+    "href": "slides/14-merge.html#example-planes-and-flights-1",
+    "title": "Combining Datasets",
+    "section": "Example: Planes and Flights",
+    "text": "Example: Planes and Flights\n\nWhich manufacturer’s planes made the most flights in November 2013?\n\nIn order to answer this question we need to join these two datasets together!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#keys",
+    "href": "slides/14-merge.html#keys",
+    "title": "Combining Datasets",
+    "section": "Keys",
+    "text": "Keys\n\n\nA primary key is a column (or a set of columns) that uniquely identifies observations in a data frame.\nThe primary key is the column(s) you would think of as the index.\nA foreign key is a column (or a set of columns) that points to the primary key of another data frame.\nPlanes are uniquely identified by their tail number (tailnum).",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#joining-on-a-key-1",
+    "href": "slides/14-merge.html#joining-on-a-key-1",
+    "title": "Combining Datasets",
+    "section": "Joining on a Key",
+    "text": "Joining on a Key\nEach value of the primary key should only appear once, but it could appear many times in a foreign key.\n\n\n\n(\n  df_planes['tailnum']\n  .value_counts()\n)\n\ntailnum\nN999DN    1\nN10156    1\nN102UW    1\nN103US    1\nN104UW    1\n         ..\nN11192    1\nN11193    1\nN11194    1\nN11199    1\nN111US    1\nName: count, Length: 3322, dtype: int64\n\n\n\n\n\n\n(\n  df_flights['tailnum']\n  .value_counts()\n)\n\ntailnum\nN353JB    48\nN955UW    47\nN184JB    47\nN281JB    42\nN375JB    42\n          ..\nN8319F     1\nN8683B     1\nN919WN     1\nN119US     1\nN395HA     1\nName: count, Length: 2600, dtype: int64",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#joining-on-a-key-2",
+    "href": "slides/14-merge.html#joining-on-a-key-2",
+    "title": "Combining Datasets",
+    "section": "Joining on a Key",
+    "text": "Joining on a Key\nThe Pandas function .merge() can be used to join two DataFrames on a key.\n\n\ndf_joined = df_flights.merge(df_planes, on = \"tailnum\")\n\n\n\n       year_x  month  day  dep_time  ...  engines  seats  speed     engine\n0        2013     11    1    2108.0  ...        2     55    NaN  Turbo-fan\n1        2013     11    1    1154.0  ...        2    182    NaN  Turbo-fan\n2        2013     11    1     854.0  ...        2     55    NaN  Turbo-fan\n3        2013     11    1    1643.0  ...        2     55    NaN  Turbo-fan\n4        2013     11    1     603.0  ...        2     55    NaN  Turbo-fan\n...       ...    ...  ...       ...  ...      ...    ...    ...        ...\n23295    2013     11   30    1337.0  ...        2    142    NaN  Turbo-jet\n23296    2013     11   30     802.0  ...        2    142    NaN  Turbo-fan\n23297    2013     11   30    1544.0  ...        2    142    NaN  Turbo-fan\n23298    2013     11   30     850.0  ...        2    142    NaN  Turbo-fan\n23299    2013     11   30    1959.0  ...        2    142    NaN  Turbo-jet\n\n[23300 rows x 26 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#overlapping-column-names",
+    "href": "slides/14-merge.html#overlapping-column-names",
+    "title": "Combining Datasets",
+    "section": "Overlapping Column Names",
+    "text": "Overlapping Column Names\n\n\n\nJoining two data frames results in a wider data frame, with more columns.\nBy default, Pandas adds the suffixes _x and _y to overlapping column names. , but this can be customized.\n\n\n\n\n\n\ndf_joined.columns\n\nIndex(['year_x', 'month', 'day', 'dep_time', 'sched_dep_time', 'dep_delay',\n       'arr_time', 'sched_arr_time', 'arr_delay', 'carrier', 'flight',\n       'origin', 'dest', 'air_time', 'distance', 'hour', 'minute', 'tailnum',\n       'year_y', 'type', 'manufacturer', 'model', 'engines', 'seats', 'speed',\n       'engine'],\n      dtype='object')",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#analyzing-the-joined-data",
+    "href": "slides/14-merge.html#analyzing-the-joined-data",
+    "title": "Combining Datasets",
+    "section": "Analyzing the Joined Data",
+    "text": "Analyzing the Joined Data\n\nWhich manufacturer’s planes made the most flights in November 2013?\n\n\ndf_joined[\"manufacturer\"].value_counts()\n\nmanufacturer\nBOEING                           6557\nEMBRAER                          5175\nAIRBUS                           3954\nAIRBUS INDUSTRIE                 3456\nBOMBARDIER INC                   2632\nMCDONNELL DOUGLAS AIRCRAFT CO     811\nMCDONNELL DOUGLAS                 330\nCANADAIR                          122\nMCDONNELL DOUGLAS CORPORATION     121\nCESSNA                             36\nCIRRUS DESIGN CORP                 21\nROBINSON HELICOPTER CO             19\nBARKER JACK L                      15\nPIPER                               9\nFRIEDEMANN JON                      8\nSIKORSKY                            6\nBELL                                5\nDEHAVILLAND                         4\nAMERICAN AIRCRAFT INC               3\nAGUSTA SPA                          3\nLEARJET INC                         2\nLAMBERT RICHARD                     2\nDOUGLAS                             2\nKILDALL GARY                        2\nAVIAT AIRCRAFT INC                  1\nMARZ BARRY                          1\nPAIR MIKE E                         1\nLEBLANC GLENN T                     1\nSTEWART MACO                        1\nName: count, dtype: int64",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#example-weather-and-flights",
+    "href": "slides/14-merge.html#example-weather-and-flights",
+    "title": "Combining Datasets",
+    "section": "Example: Weather and Flights",
+    "text": "Example: Weather and Flights\n\nWhat weather factors are related to flight delays?\n\n\nHere is a data set containing hourly weather data at each airport in 2013:\n\n\n\nCode\ndf_weather = pd.read_csv(f\"{data_dir}/weather.csv\")\n\n\n\n\n      airport  year  month  day  ...  wind_gust  precip  pressure  visib\n0         EWR  2013      1    1  ...        NaN     0.0    1012.0   10.0\n1         EWR  2013      1    1  ...        NaN     0.0    1012.3   10.0\n2         EWR  2013      1    1  ...        NaN     0.0    1012.5   10.0\n3         EWR  2013      1    1  ...        NaN     0.0    1012.2   10.0\n4         EWR  2013      1    1  ...        NaN     0.0    1011.9   10.0\n...       ...   ...    ...  ...  ...        ...     ...       ...    ...\n26110     LGA  2013     12   30  ...   21.86482     0.0    1017.1   10.0\n26111     LGA  2013     12   30  ...   21.86482     0.0    1018.8   10.0\n26112     LGA  2013     12   30  ...   23.01560     0.0    1019.5   10.0\n26113     LGA  2013     12   30  ...        NaN     0.0    1019.9   10.0\n26114     LGA  2013     12   30  ...        NaN     0.0    1020.9   10.0\n\n[26115 rows x 14 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#a-key-with-multiple-columns",
+    "href": "slides/14-merge.html#a-key-with-multiple-columns",
+    "title": "Combining Datasets",
+    "section": "A Key with Multiple Columns",
+    "text": "A Key with Multiple Columns\nLet’s start by looking at flights out of JFK only, for simplicity.\n\n\ndf_flights_jfk = df_flights[df_flights[\"origin\"] == \"JFK\"]\ndf_weather_jfk = df_weather[df_weather[\"airport\"] == \"JFK\"]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#lets-see-how-rain-affects-departure-delays.",
+    "href": "slides/14-merge.html#lets-see-how-rain-affects-departure-delays.",
+    "title": "Combining Datasets",
+    "section": "Let’s see how rain affects departure delays.",
+    "text": "Let’s see how rain affects departure delays.\n\n\nCode\nfrom plotnine import *\n\n(ggplot(df_jfk, aes(x=\"precip\", y=\"dep_delay\")) +\ngeom_point(alpha=0.2) +\ntheme_classic())\n\n\n&lt;plotnine.ggplot.ggplot object at 0x10ccbfd90&gt;",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#joining-on-keys-with-different-names",
+    "href": "slides/14-merge.html#joining-on-keys-with-different-names",
+    "title": "Combining Datasets",
+    "section": "Joining on Keys with Different Names",
+    "text": "Joining on Keys with Different Names\n\n\n\nSometimes, the join keys have different names in the two data sets.\nThis frequently happens if the data sets come from different sources.\nFor example, if we want to join the (entire) flights data to the weather data, we would need to include the airport in the key.\nBut the airport is called origin in df_flights and airport in df_weather.\nThe .merge() function provides left_on = and right_on = arguments for specifying different column names in the left (first) and right (second) datasets.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#joining-on-keys-with-different-names-1",
+    "href": "slides/14-merge.html#joining-on-keys-with-different-names-1",
+    "title": "Combining Datasets",
+    "section": "Joining on Keys with Different Names",
+    "text": "Joining on Keys with Different Names\n\ndf_flights_weather = df_flights.merge(\n    df_weather,\n    left_on = (\"origin\", \"year\", \"month\", \"day\", \"hour\"),\n    right_on = (\"airport\", \"year\", \"month\", \"day\", \"hour\")\n    )",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#rain-and-delays-by-airport",
+    "href": "slides/14-merge.html#rain-and-delays-by-airport",
+    "title": "Combining Datasets",
+    "section": "Rain and delays by airport",
+    "text": "Rain and delays by airport\nNow we can visualize how rain impacts delays at each airport!\n\nBut first, let’s find the mean amount of rain for each departure delay to clean up our plot.\n\ndf_rain = (\n  df_flights_weather\n  .groupby([\"airport\", \"precip\"])[\"dep_delay\"]\n  .mean()\n  .reset_index()\n  )",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#joins",
+    "href": "slides/14-merge.html#joins",
+    "title": "Combining Datasets",
+    "section": "Joins",
+    "text": "Joins\nWe can merge these two datasets on a primary key…\n\ndf_joined = (\n  df_1920\n  .merge(df_2020, \n         on = [\"Name\", \"Sex\"], \n         suffixes = (\"_1920\", \"_2020\")\n         )\n  )\n\n\n\n          Name Sex  Count_1920  Count_2020\n0         Mary   F       70975        2210\n1      Dorothy   F       36645         562\n2        Helen   F       35098         721\n3     Margaret   F       27997        2190\n4         Ruth   F       26100        1323\n...        ...  ..         ...         ...\n4473     Whitt   M           5          23\n4474     Wyley   M           5           6\n4475    Xavier   M           5        3876\n4476      York   M           5          14\n4477      Zeke   M           5         382\n\n[4478 rows x 4 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#missing-keys",
+    "href": "slides/14-merge.html#missing-keys",
+    "title": "Combining Datasets",
+    "section": "Missing Keys?",
+    "text": "Missing Keys?\n… but what happened to some of the names?\n\ndf_joined[df_joined[\"Name\"] == \"Maya\"]\n\nEmpty DataFrame\nColumns: [Name, Sex, Count_1920, Count_2020]\nIndex: []",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#missing-keys-1",
+    "href": "slides/14-merge.html#missing-keys-1",
+    "title": "Combining Datasets",
+    "section": "Missing Keys?",
+    "text": "Missing Keys?\n\nWhy isn’t Maya in the joined data? It’s in the 2020 data…\n\ndf_2020[df_2020[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count\n60     Maya   F   3724\n28914  Maya   M      6\n\n\n\n\n\n…but it’s not in the 1920 data.\n\ndf_1920[df_1920[\"Name\"] == \"Maya\"]\n\nEmpty DataFrame\nColumns: [Name, Sex, Count]\nIndex: []",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#missing-keys-2",
+    "href": "slides/14-merge.html#missing-keys-2",
+    "title": "Combining Datasets",
+    "section": "Missing keys",
+    "text": "Missing keys\n\nHow does the merge() function determine which keys get kept?\nBy default, in order to appear in the joined data, a key must be present in both tables.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#types-of-joins",
+    "href": "slides/14-merge.html#types-of-joins",
+    "title": "Combining Datasets",
+    "section": "Types of Joins",
+    "text": "Types of Joins\n\nHow can we customize the behavior of joins for missing keys?\nBy default, Pandas does an inner join, which only keeps keys that are present in both tables.\nAn outer join keeps any key that is present in either table.\nA left join keeps all keys in the left table, even if they are not in the right table. But any keys that are only in the right table are dropped.\nA right join keeps all keys in the right table, even if they are not in the left table. But any keys that are only in the left table are dropped.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#types-of-joins-1",
+    "href": "slides/14-merge.html#types-of-joins-1",
+    "title": "Combining Datasets",
+    "section": "Types of joins",
+    "text": "Types of joins\nWe can customize the type of join using the how= parameter of .merge(). By default, how=\"inner\".\n\ndf_joined_outer = df_1920.merge(df_2020, on=[\"Name\", \"Sex\"],\n                                how=\"outer\")\ndf_joined_outer[df_joined_outer[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count_x  Count_y\n24999  Maya   F      NaN   3724.0\n25000  Maya   M      NaN      6.0",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#types-of-joins-2",
+    "href": "slides/14-merge.html#types-of-joins-2",
+    "title": "Combining Datasets",
+    "section": "Types of Joins",
+    "text": "Types of Joins\n\nNote the missing values for other columns, like Count, for 1920!\nWhat other type of join would have produced this output in the Maya row?",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#types-of-joins-3",
+    "href": "slides/14-merge.html#types-of-joins-3",
+    "title": "Combining Datasets",
+    "section": "Types of Joins",
+    "text": "Types of Joins\n\nNote the missing values for other columns, like Count, for 1920!\nWhat other type of join would have produced this output in the Maya row?\n\n\ndf_joined_right = df_1920.merge(df_2020, on=[\"Name\", \"Sex\"],\n                                how=\"right\")\ndf_joined_right[df_joined_right[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count_x  Count_y\n60     Maya   F      NaN     3724\n28914  Maya   M      NaN        6",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#quick-quiz",
+    "href": "slides/14-merge.html#quick-quiz",
+    "title": "Combining Datasets",
+    "section": "Quick Quiz",
+    "text": "Quick Quiz\nWhich type of join would be best suited for each case?\n\nWe want to determine the names that have increased in popularity the most between 1920 and 2020.\nWe want to graph the popularity of names over time.\nWe want to determine the names that have decreased in popularity the most between 1920 and 2020.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#many-to-many-relationships",
+    "href": "slides/14-merge.html#many-to-many-relationships",
+    "title": "Combining Datasets",
+    "section": "Many-to-Many Relationships",
+    "text": "Many-to-Many Relationships\n\nSo far, the keys we’ve joined on have been the primary key of (at least) one table.\nIf we join to the primary key of another table, then the relationship is one-to-one (since primary keys uniquely identify rows).\nIf we join to the foreign key of another table, then the relationship is one-to-many.\nWhat if we join on a key that is not a primary key?\nThat is, what if the key does not uniquely identify rows in either table so that each value of the key might appear multiple times?\nThis relaionship is called many-to-many.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#many-to-many-example",
+    "href": "slides/14-merge.html#many-to-many-example",
+    "title": "Combining Datasets",
+    "section": "Many-to-Many Example",
+    "text": "Many-to-Many Example\nWhat if we only joined on the name?\n\ndf_1920.merge(df_2020, on=\"Name\")\n\n          Name Sex_x  Count_x Sex_y  Count_y\n0         Mary     F    70975     F     2210\n1         Mary     F    70975     M        5\n2      Dorothy     F    36645     F      562\n3        Helen     F    35098     F      721\n4     Margaret     F    27997     F     2190\n...        ...   ...      ...   ...      ...\n6158    Xavier     M        5     M     3876\n6159      York     M        5     F        6\n6160      York     M        5     M       14\n6161      Zeke     M        5     M      382\n6162      Zera     M        5     F       11\n\n[6163 rows x 5 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#preventing-bugs",
+    "href": "slides/14-merge.html#preventing-bugs",
+    "title": "Combining Datasets",
+    "section": "Preventing Bugs",
+    "text": "Preventing Bugs\n\nMost of the time, many-to-many joins are a bug, caused by a misunderstanding about the primary key.\nPandas allows us to specify the relationship we are expecting. It will fail with an error if the relationship is a different kind.\nFor example, suppose we thought that “name” was the primary key of the baby name tables.\n\n\ndf_1920.merge(df_2020, on=\"Name\",\n              validate=\"one_to_one\")\n\nMergeError: Merge keys are not unique in either left or right dataset; not a one-to-one merge\nErrors are (sometimes) your friend. They can prevent you from making even bigger mistakes!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#filtering-joins-1",
+    "href": "slides/14-merge.html#filtering-joins-1",
+    "title": "Combining Datasets",
+    "section": "Filtering Joins",
+    "text": "Filtering Joins\n\nInner, outer, left, and right are known as mutating joins, because they create new combined datasets.\nThere are two other types of joins that we use for filtering to get rid of some rows:\nA semi-join tells us which keys in the left are present in the right.\nAn anti-join tells us which keys in the left are not present in the right.\nIn Pandas, we can’t do these using .merge()",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#filtering-joins-2",
+    "href": "slides/14-merge.html#filtering-joins-2",
+    "title": "Combining Datasets",
+    "section": "Filtering joins",
+    "text": "Filtering joins\nWhich names existed in 1920 but don’t in 2020?\n\nin_both = df_1920['Name'].isin(df_2020['Name'])\ndf_1920.loc[~in_both, 'Name']\n\n67          Myrtle\n245            Sue\n257         Nannie\n284         Virgie\n300      Bernadine\n           ...    \n10748         Ynes\n10750     Zaragoza\n10751        Zearl\n10752     Zeferino\n10755      Zygmont\nName: Name, Length: 5638, dtype: object",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#your-turn",
+    "href": "slides/14-merge.html#your-turn",
+    "title": "Combining Datasets",
+    "section": "Your turn",
+    "text": "Your turn\n\nDid your name exist in 2020 but not 1920?\nIf so, how has the popularity changed?",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#takeaways-1",
+    "href": "slides/14-merge.html#takeaways-1",
+    "title": "Combining Datasets",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nA primary key is one or more columns that uniquely indentify the rows.\nWe can join (a.k.a. merge) datasets if they share a primary key, or if one has a foreign key.\nThe default of .merge() is an inner join: only keys in both datasets are kept.\nWe can instead specify a left join, right join, or outer join; think about which rows we want to keep.\nFilterting joins like anti-join and semi-join can help you answer questions about the data.\nUse .isin() to see which keys in one dataset exist in the other.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#example-information-on-flights",
+    "href": "slides/14-merge.html#example-information-on-flights",
+    "title": "Combining Datasets",
+    "section": "Example: Information on Flights",
+    "text": "Example: Information on Flights\nOne data set contains information about flights in Nov. 2013…\n\n\n\nCode\nimport pandas as pd\ndata_dir = \"https://datasci112.stanford.edu/data/nycflights13/\"\ndf_flights = pd.read_csv(f\"{data_dir}/flights11.csv\")\n\n\n\n\n       year  month  day  dep_time  ...  distance  hour  minute  tailnum\n0      2013     11    1    2108.0  ...      1167    20      56   N10156\n1      2013     11    1    1154.0  ...       541    12       0   N102UW\n2      2013     11    1     854.0  ...       946     8      29   N10575\n3      2013     11    1    1643.0  ...       594    15       5   N10575\n4      2013     11    1     603.0  ...       282     6       0   N11109\n...     ...    ...  ...       ...  ...       ...   ...     ...      ...\n23295  2013     11   30    1337.0  ...      1076    13      40   N994DL\n23296  2013     11   30     802.0  ...      1069     8       7   N995DL\n23297  2013     11   30    1544.0  ...      1069    15      50   N995DL\n23298  2013     11   30     850.0  ...       762     9       0   N996DL\n23299  2013     11   30    1959.0  ...       762    20       0   N999DN\n\n[23300 rows x 18 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#example-information-on-planes",
+    "href": "slides/14-merge.html#example-information-on-planes",
+    "title": "Combining Datasets",
+    "section": "Example: Information on Planes",
+    "text": "Example: Information on Planes\n…while another contains information about planes.\n\n\n\nCode\ndf_planes = pd.read_csv(f\"{data_dir}/planes.csv\")\n\n\n\n\n     tailnum    year                     type  ... seats speed     engine\n0     N10156  2004.0  Fixed wing multi engine  ...    55   NaN  Turbo-fan\n1     N102UW  1998.0  Fixed wing multi engine  ...   182   NaN  Turbo-fan\n2     N103US  1999.0  Fixed wing multi engine  ...   182   NaN  Turbo-fan\n3     N104UW  1999.0  Fixed wing multi engine  ...   182   NaN  Turbo-fan\n4     N10575  2002.0  Fixed wing multi engine  ...    55   NaN  Turbo-fan\n...      ...     ...                      ...  ...   ...   ...        ...\n3317  N997AT  2002.0  Fixed wing multi engine  ...   100   NaN  Turbo-fan\n3318  N997DL  1992.0  Fixed wing multi engine  ...   142   NaN  Turbo-fan\n3319  N998AT  2002.0  Fixed wing multi engine  ...   100   NaN  Turbo-fan\n3320  N998DL  1992.0  Fixed wing multi engine  ...   142   NaN  Turbo-jet\n3321  N999DN  1992.0  Fixed wing multi engine  ...   142   NaN  Turbo-jet\n\n[3322 rows x 9 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#overlapping-column-names-1",
+    "href": "slides/14-merge.html#overlapping-column-names-1",
+    "title": "Combining Datasets",
+    "section": "Overlapping Column Names",
+    "text": "Overlapping Column Names\nBut this can be customized!\n\n\ndf_joined = df_flights.merge(df_planes, on = \"tailnum\",\n                             suffixes = (\"_flight\", \"_plane\")\n                             )\n\n\n\n\n\n\nIndex(['year_flight', 'month', 'day', 'dep_time', 'sched_dep_time',\n       'dep_delay', 'arr_time', 'sched_arr_time', 'arr_delay', 'carrier',\n       'flight', 'origin', 'dest', 'air_time', 'distance', 'hour', 'minute',\n       'tailnum', 'year_plane', 'type', 'manufacturer', 'model', 'engines',\n       'seats', 'speed', 'engine'],\n      dtype='object')",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#identifying-the-primary-key",
+    "href": "slides/14-merge.html#identifying-the-primary-key",
+    "title": "Combining Datasets",
+    "section": "Identifying the Primary Key",
+    "text": "Identifying the Primary Key\nWhat is / are the primary key(s) of this dataset?\n\n\n\n      airport  year  month  day  hour  wind_gust  precip  pressure  visib\n0         EWR  2013      1    1     1        NaN     0.0    1012.0   10.0\n1         EWR  2013      1    1     2        NaN     0.0    1012.3   10.0\n2         EWR  2013      1    1     3        NaN     0.0    1012.5   10.0\n3         EWR  2013      1    1     4        NaN     0.0    1012.2   10.0\n4         EWR  2013      1    1     5        NaN     0.0    1011.9   10.0\n...       ...   ...    ...  ...   ...        ...     ...       ...    ...\n26110     LGA  2013     12   30    14   21.86482     0.0    1017.1   10.0\n26111     LGA  2013     12   30    15   21.86482     0.0    1018.8   10.0\n26112     LGA  2013     12   30    16   23.01560     0.0    1019.5   10.0\n26113     LGA  2013     12   30    17        NaN     0.0    1019.9   10.0\n26114     LGA  2013     12   30    18        NaN     0.0    1020.9   10.0\n\n[26115 rows x 9 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#verifying-primary-key",
+    "href": "slides/14-merge.html#verifying-primary-key",
+    "title": "Combining Datasets",
+    "section": "Verifying Primary Key",
+    "text": "Verifying Primary Key\n\n(\n  df_weather\n  .groupby([\"airport\", \"year\", \"month\", \"day\", \"hour\"])\n  .size()\n)\n\nairport  year  month  day  hour\nEWR      2013  1      1    1       1\n                           2       1\n                           3       1\n                           4       1\n                           5       1\n                                  ..\nLGA      2013  12     30   14      1\n                           15      1\n                           16      1\n                           17      1\n                           18      1\nLength: 26112, dtype: int64",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#a-key-with-multiple-columns-1",
+    "href": "slides/14-merge.html#a-key-with-multiple-columns-1",
+    "title": "Combining Datasets",
+    "section": "A Key with Multiple Columns",
+    "text": "A Key with Multiple Columns\nWe need to join to the weather data on year, month, day, and hour.\n\n\ndf_jfk = df_flights_jfk.merge(df_weather_jfk, \n                              on = (\"year\", \"month\", \"day\", \"hour\")\n                              )\n\n\n\n      year  month  day  dep_time  ...  wind_gust  precip  pressure  visib\n0     2013     11    1    1154.0  ...        NaN    0.00    1002.8   10.0\n1     2013     11    1    2055.0  ...        NaN    0.00    1005.0   10.0\n2     2013     11    1    1814.0  ...        NaN    0.00    1003.9   10.0\n3     2013     11    1    1014.0  ...        NaN    0.07       NaN   10.0\n4     2013     11    1    1852.0  ...        NaN    0.00    1003.9   10.0\n...    ...    ...  ...       ...  ...        ...     ...       ...    ...\n7396  2013     11   30    2009.0  ...        NaN    0.00       NaN   10.0\n7397  2013     11   30    2047.0  ...        NaN    0.00    1031.9   10.0\n7398  2013     11   30    1841.0  ...        NaN    0.00    1033.6   10.0\n7399  2013     11   30     802.0  ...        NaN    0.00    1042.1   10.0\n7400  2013     11   30    1544.0  ...        NaN    0.00    1036.1   10.0\n\n[7401 rows x 28 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#how-does-rain-affects-departure-delays",
+    "href": "slides/14-merge.html#how-does-rain-affects-departure-delays",
+    "title": "Combining Datasets",
+    "section": "How does rain affects departure delays?",
+    "text": "How does rain affects departure delays?\n\n\nCode\nfrom plotnine import *\n\n(\n  ggplot(data = df_jfk, \n         mapping = aes(x = \"precip\", y = \"dep_delay\")) +\n  geom_point(alpha = 0.2) +\n  labs(x = \"Precipitation (feet)\", \n       y = \"Departure Delay (minutes)\") +\n  theme_bw()\n)\n\n\n\nHmmmm….where did all the data go?",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#how-does-rain-affects-departure-delays-1",
+    "href": "slides/14-merge.html#how-does-rain-affects-departure-delays-1",
+    "title": "Combining Datasets",
+    "section": "How does rain affects departure delays?",
+    "text": "How does rain affects departure delays?\n\n\nCode\n(\n  ggplot(data = df_jfk, \n         mapping = aes(x = \"precip\", y = \"dep_delay\")) +\n  geom_jitter(alpha = 0.2, width = 0.1) +\n  labs(x = \"Precipitation (feet)\", \n       y = \"Departure Delay (minutes)\", \n       color = \"New York City Airport\") +\n  theme_bw()\n)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#rain-and-delays-by-airport-1",
+    "href": "slides/14-merge.html#rain-and-delays-by-airport-1",
+    "title": "Combining Datasets",
+    "section": "Rain and delays by airport",
+    "text": "Rain and delays by airport\n\n\nCode\n(\n  ggplot(data = df_rain, \n         mapping = aes(x = \"precip\", y = \"dep_delay\", color = \"airport\")) +\n  geom_point() +\n  geom_line() +\n  labs(x = \"Precipitation (feet)\", \n       y = \"Departure Delay (minutes)\") +\n  theme_bw() +\n  theme(legend_position = \"top\")\n)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#example-baby-names",
+    "href": "slides/14-merge.html#example-baby-names",
+    "title": "Combining Datasets",
+    "section": "Example: Baby names",
+    "text": "Example: Baby names\n\nThe data below contains counts of names for babies born in 1920 and 2020:\n\n\n\n\nCode\ndata_dir = \"http://dlsun.github.io/pods/data/names/\"\n\ndf_1920 = pd.read_csv(data_dir + \"yob1920.txt\", header = None,\n                      names = [\"Name\", \"Sex\", \"Count\"]\n                      )\ndf_2020 = pd.read_csv(data_dir + \"yob2020.txt\", header = None,\n                      names = [\"Name\", \"Sex\", \"Count\"]\n                      )\n\n\n\n\n\n\n1920\n\n\n           Name Sex  Count\n0          Mary   F  70975\n1       Dorothy   F  36645\n2         Helen   F  35098\n3      Margaret   F  27997\n4          Ruth   F  26100\n...         ...  ..    ...\n10751     Zearl   M      5\n10752  Zeferino   M      5\n10753      Zeke   M      5\n10754      Zera   M      5\n10755   Zygmont   M      5\n\n[10756 rows x 3 columns]\n\n\n\n\n\n2020\n\n\n            Name Sex  Count\n0         Olivia   F  17641\n1           Emma   F  15656\n2            Ava   F  13160\n3      Charlotte   F  13065\n4         Sophia   F  13036\n...          ...  ..    ...\n31448     Zykell   M      5\n31449      Zylus   M      5\n31450     Zymari   M      5\n31451        Zyn   M      5\n31452      Zyran   M      5\n\n[31453 rows x 3 columns]",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
   }
 ]

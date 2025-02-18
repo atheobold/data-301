@@ -23,8 +23,9 @@ from plotnine import *
 
 # The story so far...
 
-## Data analysis: the whole game
+## Data analysis: The whole game
 
+::: {.midi}
 -   **Acquire** data and **clean** it by fixing variable types, dropping or
 replacing missing data, and looking for other issues.
 
@@ -34,83 +35,198 @@ replacing missing data, and looking for other issues.
 
 -   Create **visualizations** of *two or more variables* that address simple questions.
 
--   Fit **predictive models** to address more complex questions, and/or to prepare for prediction on future data.
+-   Fit **predictive models** to address more complex questions, and/or to 
+prepare for prediction on future data.
 
 -   Fit **unsupervised models** to answer open-ended questions.
+:::
 
-# Joining on a Key
-
-## Example: Planes and flights
-
--   Sometimes, information is spread across multiple data sets.
-
--   For example, suppose we want to know which manufacturer's planes made the most flights in November 2013.
-
--   One data set contains information about flights in Nov. 2013...
-
-```{python}
-import pandas as pd
-data_dir = "https://datasci112.stanford.edu/data/nycflights13/"
-df_flights = pd.read_csv(f"{data_dir}/flights11.csv")
-df_flights.head()
-```
+# Joining Datasets
 
 ## Example: Planes and Flights
 
-...while another contains information about planes.
+Sometimes, information is spread across multiple data sets.
 
+For example, suppose we want to know which manufacturer's planes made the most
+flights in November 2013.
+
+## Example: Information on Flights
+
+One data set contains information about flights in Nov. 2013...
+
+::: {.midi}
 ```{python}
-df_planes = pd.read_csv(f"{data_dir}/planes.csv")
-df_planes.head()
+#| code-line-numbers: false
+#| label: read-in-flights-data
+#| code-fold: true
+
+import pandas as pd
+data_dir = "https://datasci112.stanford.edu/data/nycflights13/"
+df_flights = pd.read_csv(f"{data_dir}/flights11.csv")
 ```
 
-In order to answer the question of which manufacturer made the most flights, we have to join these two data sets together.
+```{python}
+#| echo: false
+#| label: flights-head
+
+df_flights
+```
+:::
+
+## Example: Information on Planes
+
+...while another contains information about planes.
+
+::: {.midi}
+```{python}
+#| code-fold: true
+#| code-line-numbers: false
+#| label: read-in-plane-data
+
+df_planes = pd.read_csv(f"{data_dir}/planes.csv")
+```
+
+```{python}
+#| echo: false
+#| label: planes-head
+
+df_planes
+```
+:::
+
+## Example: Planes and Flights
+
+> Which manufacturer's planes made the most flights in November 2013?
+
+In order to answer this question we need to join these two datasets together!
+
+# Joining on a Key
 
 ## Keys
 
+::: {.incremental}
 -   A **primary key** is a column (or a set of columns) that uniquely identifies observations in a data frame.
 
 -   The **primary key** is the column(s) you would think of as the **index**.
 
--   A **foreign key** is a column (or a set of columns) that points to the primary key of another data frame.
+-   A **foreign key** is a column (or a set of columns) that points to the
+primary key of another data frame.
 
 -   Planes are uniquely identified by their *tail number* (`tailnum`).
+:::
 
 ## Joining on a Key
 
-Each value of the **primary key** should only appear once, but it could appear many times in a **foreign key**.
+Each value of the **primary key** should only appear once, but it could appear
+many times in a **foreign key**.
 
+::: columns
+::: {.column width="48%"}
 ```{python}
-df_flights['tailnum'].value_counts().head()
-df_planes['tailnum'].value_counts().head()
+#| code-line-numbers: false
+#| label: flights-tail-num
+
+(
+  df_planes['tailnum']
+  .value_counts()
+)
 ```
+
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="48%"}
+```{python}
+#| code-line-numbers: false
+#| label: planes-tail-num
+
+(
+  df_flights['tailnum']
+  .value_counts()
+)
+```
+
+:::
+:::
 
 ## Joining on a Key
 
 The Pandas function `.merge()` can be used to join two `DataFrame`s on a key.
 
+::: {.midi}
 ```{python}
-df_joined = df_flights.merge(df_planes, on="tailnum")
-df_joined.head()   
+#| code-line-numbers: false
+#| label: merge-planes-flights
+
+df_joined = df_flights.merge(df_planes, on = "tailnum")
 ```
+
+```{python}
+#| echo: false
+#| label: merged-flights-head
+
+df_joined   
+```
+:::
 
 ## Overlapping Column Names
 
+::: {.midi}
+::: {.incremental}
 -   Joining two data frames results in a *wider* data frame, with more columns.
 
--   By default, Pandas adds the suffixes `_x` and `_y` to overlapping column names, but this can be customized.
+-   By default, Pandas adds the suffixes `_x` and `_y` to overlapping column
+names. , but this can be customized.
+:::
+:::
 
+. . .
+
+::: {.midi}
 ```{python}
-df_joined = df_flights.merge(df_planes, on="tailnum",
-                             suffixes=("_flight", "_plane"))
+#| code-line-numbers: false
+#| label: joined-data-column-names
+
 df_joined.columns
 ```
+:::
+
+## Overlapping Column Names
+
+But this can be customized!
+
+::: {.midi}
+```{python}
+#| code-line-numbers: "2"
+#| label: customize-duplicate-columns
+
+df_joined = df_flights.merge(df_planes, on = "tailnum",
+                             suffixes = ("_flight", "_plane")
+                             )
+```
+:::
+
+. . .
+
+::: {.midi}
+```{python}
+#| echo: false
+#| label: joined-data-column-names-customized
+
+df_joined.columns
+```
+:::
 
 ## Analyzing the Joined Data
 
-Now that we have joined the two data sets, we can answer the question: which manufacturer's planes made the most flights?
+> Which manufacturer's planes made the most flights in November 2013?
 
 ```{python}
+#| code-line-numbers: false
+#| label: manufacturer-counts-nov
+
 df_joined["manufacturer"].value_counts()
 ```
 
@@ -118,104 +234,346 @@ df_joined["manufacturer"].value_counts()
 
 ## Example: Weather and Flights
 
--   Research question: What weather factors cause flight delays?
+> What weather factors are related to flight delays?
 
--   Here is a data set containing hourly weather data at each airport in 2013.
+. . .
 
+Here is a data set containing hourly weather data at each airport in 2013:
+
+::: {.midi}
 ```{python}
+#| code-line-numbers: false
+#| code-fold: true
+#| label: read-in-weather-data
+
 df_weather = pd.read_csv(f"{data_dir}/weather.csv")
-df_weather.head()
 ```
 
-**What is the primary key of this data set?**
+```{python}
+#| echo: false
+#| label: weather-head
+df_weather
+```
+:::
+
+## Identifying the Primary Key
+
+**What is / are the primary key(s) of this dataset?**
+
+::: {.midi}
+```{python}
+#| echo: false
+#| label: weather-head-2
+
+(
+  df_weather
+  [["airport", "year", "month", "day",
+  "hour", "wind_gust", "precip", "pressure",
+  "visib"
+  ]]
+)
+```
+:::
+
+## Verifying Primary Key
+
+```{python}
+#| code-line-numbers: false
+#| label: verifying-unique-observations-weather
+
+(
+  df_weather
+  .groupby(["airport", "year", "month", "day", "hour"])
+  .size()
+)
+```
 
 ## A Key with Multiple Columns
 
 Let's start by looking at flights out of JFK only, for simplicity.
 
-We need to join to the weather data on year, month, day, and hour.
-
+::: {.midi}
 ```{python}
+#| code-line-numbers: false
+#| label: jfk-subset
+
 df_flights_jfk = df_flights[df_flights["origin"] == "JFK"]
 df_weather_jfk = df_weather[df_weather["airport"] == "JFK"]
+```
+:::
 
-df_jfk = df_flights_jfk.merge(df_weather_jfk, on=("year","month","day","hour"))
+## A Key with Multiple Columns
 
-df_jfk.head()
+We need to join to the weather data on year, month, day, and hour.
+
+::: {.midi}
+```{python}
+#| code-line-numbers: false
+#| label: join-flights-weather
+
+df_jfk = df_flights_jfk.merge(df_weather_jfk, 
+                              on = ("year", "month", "day", "hour")
+                              )
 ```
 
-## Let's see how rain affects departure delays.
+```{python}
+#| echo: false
+#| label: joined-jfk-weather-head
+
+df_jfk
+```
+:::
+
+## How does rain affects departure delays?
 
 ```{python}
 #| code-fold: true
+#| label: precip-delay-scatterplot-point-code
+#| eval: false
+#| code-line-numbers: false
+
 from plotnine import *
 
-(ggplot(df_jfk, aes(x="precip", y="dep_delay")) +
-geom_point(alpha=0.2) +
-theme_classic())
+(
+  ggplot(data = df_jfk, 
+         mapping = aes(x = "precip", y = "dep_delay")) +
+  geom_point(alpha = 0.2) +
+  labs(x = "Precipitation (feet)", 
+       y = "Departure Delay (minutes)") +
+  theme_bw()
+)
+```
+
+```{python}
+#| label: precip-delay-scatterplot-point
+#| echo: false
+#| fig-align: center
+
+from plotnine import *
+
+plot = (
+  ggplot(data = df_jfk, 
+         mapping = aes(x = "precip", y = "dep_delay")) +
+  geom_point(alpha = 0.2) +
+  labs(x = "Precipitation (feet)", 
+       y = "Departure Delay (minutes)") +
+  theme_bw()
+)
+
+plot.draw(plot)
+```
+
+Hmmmm....where did all the data go?
+
+## How does rain affects departure delays?
+
+```{python}
+#| code-fold: true
+#| label: precip-delay-scatterplot-jitter-code
+#| eval: false
+#| code-line-numbers: false
+
+(
+  ggplot(data = df_jfk, 
+         mapping = aes(x = "precip", y = "dep_delay")) +
+  geom_jitter(alpha = 0.2, width = 0.1) +
+  labs(x = "Precipitation (feet)", 
+       y = "Departure Delay (minutes)", 
+       color = "New York City Airport") +
+  theme_bw()
+)
+```
+
+```{python}
+#| label: precip-delay-scatterplot-jitter
+#| echo: false
+#| fig-align: center
+
+plot = (
+  ggplot(data = df_jfk, 
+         mapping = aes(x = "precip", y = "dep_delay")) +
+  geom_jitter(alpha = 0.2, width = 0.1) +
+  labs(x = "Precipitation (feet)", 
+       y = "Departure Delay (minutes)", 
+       color = "New York City Airport") +
+  theme_bw()
+)
+
+plot.draw(plot)
 ```
 
 ## Joining on Keys with Different Names
 
+::: {.incremental}
+::: {.midi}
 -   Sometimes, the join keys have different names in the two data sets.
 
 -   This frequently happens if the data sets come from different sources.
 
--   For example, if we want to join the (entire) flights data to the weather data, we would need to include the *airport* in the key.
+-   For example, if we want to join the (entire) flights data to the weather
+data, we would need to include the *airport* in the key.
 
 -   But the airport is called `origin` in `df_flights` and `airport` in `df_weather`.
 
--   The `.merge()` function provides `left_on=` and `right_on=` arguments for specifying different column names in the **left** (first) and **right** (second) data frames.
+-   The `.merge()` function provides `left_on =` and `right_on =` arguments for
+specifying different column names in the **left** (first) and **right** 
+(second) datasets.
+:::
+:::
 
 ## Joining on Keys with Different Names
 
 ```{python}
+#| code-line-numbers: "3-4"
+#| label: joining-multiple-keys
+
 df_flights_weather = df_flights.merge(
     df_weather,
-    left_on=("origin", "year", "month", "day", "hour"),
-    right_on=("airport", "year", "month", "day", "hour"))
+    left_on = ("origin", "year", "month", "day", "hour"),
+    right_on = ("airport", "year", "month", "day", "hour")
+    )
 ```
 
 ## Rain and delays by airport
 
-Now we can visualize how rain impacts delays at each airport:
+Now we can visualize how rain impacts delays at each airport! 
+
+</br>
+
+But first, let's find the mean amount of rain for each departure delay to clean
+up our plot. 
+
+```{python}
+#| code-line-numbers: false
+#| label: mean-rain
+
+df_rain = (
+  df_flights_weather
+  .groupby(["airport", "precip"])["dep_delay"]
+  .mean()
+  .reset_index()
+  )
+```
+
+## Rain and delays by airport
 
 ```{python}
 #| code-fold: true
-df_rain = df_flights_weather.groupby(["airport", "precip"])["dep_delay"].mean().to_frame().reset_index()
+#| label: precip-delay-mean-code
+#| eval: false
+#| code-line-numbers: false
 
-(ggplot(df_rain, aes(x='precip', y='dep_delay', color = 'airport')) +
-geom_point() +
-geom_line() +
-theme_classic())
+(
+  ggplot(data = df_rain, 
+         mapping = aes(x = "precip", y = "dep_delay", color = "airport")) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Precipitation (feet)", 
+       y = "Departure Delay (minutes)") +
+  theme_bw() +
+  theme(legend_position = "top")
+)
 ```
-
-# Joins with missing keys
-
-###Example: Baby names
-
-The data below contains counts of names for babies born in 1920 and 2020:
 
 ```{python}
-import pandas as pd
+#| label: precip-delay-mean
+#| echo: false
+#| fig-align: center
+
+plot = (
+  ggplot(data = df_rain, 
+         mapping = aes(x = "precip", y = "dep_delay", color = "airport")) +
+  geom_point() +
+  geom_line() + 
+  labs(x = "Precipitation (feet)", 
+       y = "Departure Delay (minutes)") +
+  theme_bw() +
+  theme(legend_position = "top")
+)
+
+plot.draw(plot)
+```
+
+# Joins with Missing Keys
+
+## Example: Baby names
+
+::: {.midi}
+The data below contains counts of names for babies born in 1920 and 2020:
+:::
+
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| code-fold: true
+#| label: read-in-baby-names
+
 data_dir = "http://dlsun.github.io/pods/data/names/"
 
-df_1920 = pd.read_csv(data_dir + "yob1920.txt", header=None,
-                      names=["Name", "Sex", "Count"])
-df_2020 = pd.read_csv(data_dir + "yob2020.txt", header=None,
-                      names=["Name", "Sex", "Count"])
-                      
-df_1920.head()
-df_2020.head()
+df_1920 = pd.read_csv(data_dir + "yob1920.txt", header = None,
+                      names = ["Name", "Sex", "Count"]
+                      )
+df_2020 = pd.read_csv(data_dir + "yob2020.txt", header = None,
+                      names = ["Name", "Sex", "Count"]
+                      )
 ```
+:::
+
+::: {.midi}
+::: columns
+::: {.column width="48%"}
+
+**1920** 
+
+```{python}
+#| echo: false
+#| label: 1920-names
+
+df_1920
+```
+
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="48%"}
+
+**2020**
+
+```{python}
+#| echo: false
+#| label: 2020-names
+
+df_2020
+```
+
+:::
+:::
+:::
 
 ## Joins
 
 We can merge these two datasets on a primary key...
 
 ```{python}
-df_joined = df_1920.merge(df_2020, on=["Name", "Sex"], suffixes=("_1920", "_2020"))
-df_joined.head()
+#| code-line-numbers: false
+#| label: join-1920-2020-data
+
+df_joined = (
+  df_1920
+  .merge(df_2020, 
+         on = ["Name", "Sex"], 
+         suffixes = ("_1920", "_2020")
+         )
+  )
+```
+
+```{python}
+#| echo: false
+#| label: join-1920-2020-data-head
+
+df_joined
 ```
 
 ## Missing Keys?
@@ -223,30 +581,45 @@ df_joined.head()
 ... but what happened to some of the names?
 
 ```{python}
+#| code-line-numbers: false
+#| label: maya-missing
+
 df_joined[df_joined["Name"] == "Maya"]
 ```
 
-## Missing keys
+## Missing Keys?
 
--   Why isn't Maya in the joined data?
-
-It is there in the 2020 data...
+::: {.midi}
+Why isn't Maya in the joined data? It's in the 2020 data...
 
 ```{python}
+#| code-line-numbers: false
+#| label: maya-2020
+
 df_2020[df_2020["Name"] == "Maya"]
 ```
+:::
+. . .
 
-...but not in the 1920 data.
+::: {.midi}
+...but it's not in the 1920 data.
 
 ```{python}
+#| code-line-numbers: false
+#| label: maya-1920
+
 df_1920[df_1920["Name"] == "Maya"]
 ```
+:::
 
 ## Missing keys
 
--   How does the `merge()` function determine which keys get kept?
+</br>
 
--   By default, in order to appear in the joined data, a key must be present in *both* tables.
+How does the `merge()` function determine which keys get kept?
+
+By default, in order to appear in the joined data, a key must be present in
+*both* tables.
 
 # Other Types of Joins
 
