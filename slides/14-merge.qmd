@@ -98,7 +98,7 @@ df_planes
 
 > Which manufacturer's planes made the most flights in November 2013?
 
-In order to answer this question we need to join these two datasets together!
+In order to answer this question we need to join these two data sets together!
 
 # Joining on a Key
 
@@ -417,7 +417,7 @@ data, we would need to include the *airport* in the key.
 
 -   The `.merge()` function provides `left_on =` and `right_on =` arguments for
 specifying different column names in the **left** (first) and **right** 
-(second) datasets.
+(second) data sets.
 :::
 :::
 
@@ -554,7 +554,7 @@ df_2020
 
 ## Joins
 
-We can merge these two datasets on a primary key...
+We can merge these two data sets on a primary key...
 
 ```{python}
 #| code-line-numbers: false
@@ -618,54 +618,108 @@ df_1920[df_1920["Name"] == "Maya"]
 
 How does the `merge()` function determine which keys get kept?
 
+. . .
+
 By default, in order to appear in the joined data, a key must be present in
 *both* tables.
+
+. . .
+
+This is actually what is called an ***inner join**, but there are other types
+of joins! 
 
 # Other Types of Joins
 
 ## Types of Joins
 
--   How can we customize the behavior of joins for missing keys?
+::: {.midi}
+::: {.incremental}
+-   By default, Pandas does an ***inner join***, which only keeps keys that are
+present in *both* tables.
 
--   By default, Pandas does an **inner join**, which only keeps keys that are present in *both* tables.
+-   An ***outer join*** keeps any key that is present in either table.
 
--   An **outer join** keeps any key that is present in either table.
+-   A ***left join*** keeps all keys in the left table, even if they are not in
+the right table. But any keys that are only in the right table are dropped.
 
--   A **left join** keeps all keys in the left table, even if they are not in the right table. But any keys that are only in the right table are dropped.
+-   A ***right join*** keeps all keys in the right table, even if they are not
+in the left table. But any keys that are only in the left table are dropped.
+:::
+:::
 
--   A **right join** keeps all keys in the right table, even if they are not in the left table. But any keys that are only in the left table are dropped.
+## Types of Joins
 
-## Types of joins
+![](images/14-joins.png){fig-alt="A Venn diagram illustrating four types of joins using two overlapping circles in each diagram. The highlighted (green) areas represent the included data for each join type. Inner Join: Only the overlapping region of both circles is highlighted, representing the common data between the two tables. Left Join: The entire left circle, including its overlap with the right circle, is highlighted, representing all data from the left table and any matching data from the right table. Right Join: The entire right circle, including its overlap with the left circle, is highlighted, representing all data from the right table and any matching data from the left table. Outer Join: Both entire circles are highlighted, representing all data from both tables, including matches and non-matches."}
 
-We can customize the type of join using the `how=` parameter of `.merge()`. By default, `how="inner"`.
+## Types of Joins
+
+::: {.midi}
+We can customize the type of join using the `how =` parameter of `.merge()`. 
+By default, `how = "inner"`.
 
 ```{python}
-df_joined_outer = df_1920.merge(df_2020, on=["Name", "Sex"],
-                                how="outer")
+#| code-line-numbers: false
+#| label: join-outer
+df_joined_outer = (
+  df_1920
+  .merge(df_2020, 
+         on = ["Name", "Sex"],
+         suffixes = ("_1920", "_2020"), 
+         how = "outer")
+    )
+```
+:::
+
+. . .
+
+</br>
+
+::: {.midi}
+```{python}
+#| code-line-numbers: false
+#| label: maya-outer-join
+
 df_joined_outer[df_joined_outer["Name"] == "Maya"]
 ```
+:::
 
 ## Types of Joins
 
--   Note the missing values for other columns, like Count, for 1920!
+::: {.midi}
+-   Note the missing values for other columns, like `Count_1920`!
 
 -   What other type of join would have produced this output in the Maya row?
+:::
 
 ## Types of Joins
 
--   Note the missing values for other columns, like Count, for 1920!
+::: {.midi}
+-   Note the missing values for other columns, like `Count_1920`!
 
 -   What other type of join would have produced this output in the Maya row?
 
 ```{python}
-df_joined_right = df_1920.merge(df_2020, on=["Name", "Sex"],
-                                how="right")
-df_joined_right[df_joined_right["Name"] == "Maya"]
+#| code-line-numbers: false
+#| label: right-join-instead-of-outer
+
+df_joined_right = (
+  df_1920
+  .merge(df_2020, 
+         on = ["Name", "Sex"],
+         suffixes = ("_1920", "_2020"), 
+         how = "right")
+    )
 ```
 
-# Types of Joins
+</br>
 
-![](./images/joins.png)
+```{python}
+#| code-line-numbers: false
+#| label: right-join-preview
+
+df_joined_right[df_joined_right["Name"] == "Maya"]
+```
+:::
 
 ## Quick Quiz
 
@@ -673,73 +727,112 @@ Which type of join would be best suited for each case?
 
 1.  We want to determine the names that have increased in popularity the most between 1920 and 2020.
 
+<!-- Right join -- we want to keep all the names in 2020 but only add names from 
+1920 that also exist in 2020. -->
+
 2.  We want to graph the popularity of names over time.
+
+<!-- Inner join -- we can only plot names in both data sets! -->
 
 3.  We want to determine the names that have decreased in popularity the most between 1920 and 2020.
 
-# Many-to-Many Joins
+<!-- Left join -- we want to keep all the names in 1920 but don't care about
+names in 2020 that weren't in 1920. -->
 
-## Many-to-Many Relationships {.smaller}
+<!-- # Many-to-Many Joins -->
 
--   So far, the keys we've joined on have been the primary key of (at least) one table.
+<!-- ## Many-to-Many Relationships {.smaller} -->
 
--   If we join to the primary key of another table, then the relationship is **one-to-one** (since primary keys uniquely identify rows).
+<!-- -   So far, the keys we've joined on have been the primary key of (at least) one table. -->
 
--   If we join to the foreign key of another table, then the relationship is **one-to-many**.
+<!-- -   If we join to the primary key of another table, then the relationship is **one-to-one** (since primary keys uniquely identify rows). -->
 
--   What if we join on a key that is not a primary key?
+<!-- -   If we join to the foreign key of another table, then the relationship is **one-to-many**. -->
 
--   That is, what if the key does not uniquely identify rows in either table so that each value of the key might appear multiple times?
+<!-- -   What if we join on a key that is not a primary key? -->
 
--   This relaionship is called **many-to-many**.
+<!-- -   That is, what if the key does not uniquely identify rows in either table so that each value of the key might appear multiple times? -->
 
-## Many-to-Many Example
+<!-- -   This relaionship is called **many-to-many**. -->
 
-What if we only joined on the name?
+<!-- ## Many-to-Many Example -->
 
-```{python}
-df_1920.merge(df_2020, on="Name")
-```
+<!-- What if we only joined on the name? -->
 
-## Preventing Bugs
+<!-- ```{python} -->
+<!-- df_1920.merge(df_2020, on="Name") -->
+<!-- ``` -->
 
--   Most of the time, many-to-many joins are a bug, caused by a misunderstanding about the primary key.
+<!-- ## Preventing Bugs -->
 
--   Pandas allows us to specify the relationship we are expecting. It will fail with an error if the relationship is a different kind.
+<!-- -   Most of the time, many-to-many joins are a bug, caused by a misunderstanding about the primary key. -->
 
--   For example, suppose we thought that "name" was the primary key of the baby name tables.
+<!-- -   Pandas allows us to specify the relationship we are expecting. It will fail with an error if the relationship is a different kind. -->
 
-```{python}
-#| eval: false
-df_1920.merge(df_2020, on="Name",
-              validate="one_to_one")
-```
+<!-- -   For example, suppose we thought that "name" was the primary key of the baby name tables. -->
 
-```         
-MergeError: Merge keys are not unique in either left or right dataset; not a one-to-one merge
-```
+<!-- ```{python} -->
+<!-- #| eval: false -->
+<!-- df_1920.merge(df_2020, on="Name", -->
+<!--               validate="one_to_one") -->
+<!-- ``` -->
 
-Errors are (sometimes) your friend. They can prevent you from making even bigger mistakes!
+<!-- ```          -->
+<!-- MergeError: Merge keys are not unique in either left or right dataset; not a one-to-one merge -->
+<!-- ``` -->
+
+<!-- Errors are (sometimes) your friend. They can prevent you from making even bigger mistakes! -->
 
 # Filtering Joins
 
-## Filtering Joins {.smaller}
+## Filtering Joins
 
--   Inner, outer, left, and right are known as **mutating joins**, because they create new combined datasets.
+::: {.midi}
 
--   There are two other types of joins that we use for **filtering** to get rid of some rows:
+Inner, outer, left, and right are known as **mutating joins**, because they create new combined data sets.
 
--   A **semi-join** tells us which keys in the *left* **are** present in the *right*.
+::: {.incremental}
+-   There are two other types of joins that we use for **filtering** to get rid
+of some rows:
 
--   An **anti-join** tells us which keys in the left **are not** present in the right.
+-   A **semi-join** tells us which keys in the *left* **are** present in the
+*right*.
 
--   In Pandas, we can't do these using `.merge()`
+-   An **anti-join** tells us which keys in the left **are not** present in the
+right.
+:::
+:::
 
-## Filtering joins
+## Filtering Joins
 
-Which names existed in 1920 but don't in 2020?
+::: columns
+::: {.column width="47%"}
+![](images/14-semi-join.png){fig-alt="A diagram illustrating the concept of a semi-join. On the left, two tables are shown: The first table (x) has two columns, with labeled values (x1, x2, x3) in the first column and numerical values (1, 2, 3) in the second column. The second table (y) has two columns, where the second column contains numerical values (4, 2, 1), and the first column has values (y3, y2, y1). Lines connect matching values between the two tables: 1 from x is found in y, as is 2, but 3 is not present in y. The result of the semi-join is shown in a table on the right, containing only the rows from x where a match was found in y. The output table has two columns: key and val_x, and it retains only the rows with keys 1 and 2 from x (x1 and x2), omitting x3 since 3 is not present in y."}
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="48%"}
+::: {.fragment}
+![](images/14-anti-join.png){fig-alt="A diagram illustrating the concept of an anti-join (anti_join(x, y)). On the left, two tables are shown: The first table (x) has two columns, with labeled values (x1, x2, x3) in the first column and numerical values (1, 2, 3) in the second column. The second table (y) has two columns, where the second column contains numerical values (4, 2, 1), and the first column has values (y3, y2, y1). Lines connect matching values between the two tables: 1 from x is found in y, as is 2, but 3 is not present in y. Red lines indicate rows that have matches, which are excluded in the anti-join. The result of the anti-join is shown in a table on the right, containing only the row from x where no match was found in y. The output table has two columns: key and val_x, and it retains only the row with key 3 from x (x3), omitting x1 and x2 since they had matches in y."}
+:::
+:::
+:::
+
+## Filtering Joins
+
+> Which names existed in 1920 but don't in 2020?
+
+. . .
+
+In Pandas, we can't do these using `.merge()`, but we can use the `isin()` 
+function! 
 
 ```{python}
+#| code-line-numbers: false
+#| label: semi-join-names
+
 in_both = df_1920['Name'].isin(df_2020['Name'])
 df_1920.loc[~in_both, 'Name']
 ```
@@ -754,14 +847,16 @@ df_1920.loc[~in_both, 'Name']
 
 ## Takeaways
 
--   A **primary key** is one or more columns that uniquely indentify the rows.
+::: {.midi}
+-   A **primary key** is one or more columns that uniquely identify the rows.
 
--   We can **join** (a.k.a. **merge**) datasets if they share a primary key, or if one has a **foreign key**.
+-   We can **join** (a.k.a. **merge**) data sets if they share a primary key, or if one has a **foreign key**.
 
--   The default of `.merge()` is an *inner join*: only keys in both datasets are kept.
+-   The default of `.merge()` is an *inner join*: only keys in both data sets are kept.
 
 -   We can instead specify a *left join*, *right join*, or *outer join*; think about which rows we want to keep.
 
--   **Filterting joins** like *anti-join* and *semi-join* can help you answer questions about the data.
+-   **Filtering joins** like *anti-join* and *semi-join* can help you answer questions about the data.
 
 -   Use `.isin()` to see which keys in one dataset exist in the other.
+:::

@@ -2883,7 +2883,7 @@
     "href": "slides/14-merge.html#types-of-joins-4",
     "title": "Combining Datasets",
     "section": "Types of Joins",
-    "text": "Types of Joins\n\nQuick Quiz\nWhich type of join would be best suited for each case?\n\nWe want to determine the names that have increased in popularity the most between 1920 and 2020.\nWe want to graph the popularity of names over time.\nWe want to determine the names that have decreased in popularity the most between 1920 and 2020.",
+    "text": "Types of Joins\n\n\nNote the missing values for other columns, like Count_1920!\nWhat other type of join would have produced this output in the Maya row?\n\n\ndf_joined_right = (\n  df_1920\n  .merge(df_2020, \n         on = [\"Name\", \"Sex\"],\n         suffixes = (\"_1920\", \"_2020\"), \n         how = \"right\")\n    )\n\n\n\ndf_joined_right[df_joined_right[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count_1920  Count_2020\n60     Maya   F         NaN        3724\n28914  Maya   M         NaN           6",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5050,7 +5050,7 @@
     "href": "slides/14-merge.html#example-planes-and-flights-1",
     "title": "Combining Datasets",
     "section": "Example: Planes and Flights",
-    "text": "Example: Planes and Flights\n\nWhich manufacturer’s planes made the most flights in November 2013?\n\nIn order to answer this question we need to join these two datasets together!",
+    "text": "Example: Planes and Flights\n\nWhich manufacturer’s planes made the most flights in November 2013?\n\nIn order to answer this question we need to join these two data sets together!",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5149,7 +5149,7 @@
     "href": "slides/14-merge.html#joining-on-keys-with-different-names",
     "title": "Combining Datasets",
     "section": "Joining on Keys with Different Names",
-    "text": "Joining on Keys with Different Names\n\n\n\nSometimes, the join keys have different names in the two data sets.\nThis frequently happens if the data sets come from different sources.\nFor example, if we want to join the (entire) flights data to the weather data, we would need to include the airport in the key.\nBut the airport is called origin in df_flights and airport in df_weather.\nThe .merge() function provides left_on = and right_on = arguments for specifying different column names in the left (first) and right (second) datasets.",
+    "text": "Joining on Keys with Different Names\n\n\n\nSometimes, the join keys have different names in the two data sets.\nThis frequently happens if the data sets come from different sources.\nFor example, if we want to join the (entire) flights data to the weather data, we would need to include the airport in the key.\nBut the airport is called origin in df_flights and airport in df_weather.\nThe .merge() function provides left_on = and right_on = arguments for specifying different column names in the left (first) and right (second) data sets.",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5182,7 +5182,7 @@
     "href": "slides/14-merge.html#joins",
     "title": "Combining Datasets",
     "section": "Joins",
-    "text": "Joins\nWe can merge these two datasets on a primary key…\n\ndf_joined = (\n  df_1920\n  .merge(df_2020, \n         on = [\"Name\", \"Sex\"], \n         suffixes = (\"_1920\", \"_2020\")\n         )\n  )\n\n\n\n          Name Sex  Count_1920  Count_2020\n0         Mary   F       70975        2210\n1      Dorothy   F       36645         562\n2        Helen   F       35098         721\n3     Margaret   F       27997        2190\n4         Ruth   F       26100        1323\n...        ...  ..         ...         ...\n4473     Whitt   M           5          23\n4474     Wyley   M           5           6\n4475    Xavier   M           5        3876\n4476      York   M           5          14\n4477      Zeke   M           5         382\n\n[4478 rows x 4 columns]",
+    "text": "Joins\nWe can merge these two data sets on a primary key…\n\ndf_joined = (\n  df_1920\n  .merge(df_2020, \n         on = [\"Name\", \"Sex\"], \n         suffixes = (\"_1920\", \"_2020\")\n         )\n  )\n\n\n\n          Name Sex  Count_1920  Count_2020\n0         Mary   F       70975        2210\n1      Dorothy   F       36645         562\n2        Helen   F       35098         721\n3     Margaret   F       27997        2190\n4         Ruth   F       26100        1323\n...        ...  ..         ...         ...\n4473     Whitt   M           5          23\n4474     Wyley   M           5           6\n4475    Xavier   M           5        3876\n4476      York   M           5          14\n4477      Zeke   M           5         382\n\n[4478 rows x 4 columns]",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5215,7 +5215,7 @@
     "href": "slides/14-merge.html#missing-keys-2",
     "title": "Combining Datasets",
     "section": "Missing keys",
-    "text": "Missing keys\n\nHow does the merge() function determine which keys get kept?\nBy default, in order to appear in the joined data, a key must be present in both tables.",
+    "text": "Missing keys\n\nHow does the merge() function determine which keys get kept?\n\nBy default, in order to appear in the joined data, a key must be present in both tables.\n\n\nThis is actually what is called an *inner join, but there are other types of joins!",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5226,7 +5226,7 @@
     "href": "slides/14-merge.html#types-of-joins",
     "title": "Combining Datasets",
     "section": "Types of Joins",
-    "text": "Types of Joins\n\nHow can we customize the behavior of joins for missing keys?\nBy default, Pandas does an inner join, which only keeps keys that are present in both tables.\nAn outer join keeps any key that is present in either table.\nA left join keeps all keys in the left table, even if they are not in the right table. But any keys that are only in the right table are dropped.\nA right join keeps all keys in the right table, even if they are not in the left table. But any keys that are only in the left table are dropped.",
+    "text": "Types of Joins\n\n\n\nBy default, Pandas does an inner join, which only keeps keys that are present in both tables.\nAn outer join keeps any key that is present in either table.\nA left join keeps all keys in the left table, even if they are not in the right table. But any keys that are only in the right table are dropped.\nA right join keeps all keys in the right table, even if they are not in the left table. But any keys that are only in the left table are dropped.",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5236,8 +5236,8 @@
     "objectID": "slides/14-merge.html#types-of-joins-1",
     "href": "slides/14-merge.html#types-of-joins-1",
     "title": "Combining Datasets",
-    "section": "Types of joins",
-    "text": "Types of joins\nWe can customize the type of join using the how= parameter of .merge(). By default, how=\"inner\".\n\ndf_joined_outer = df_1920.merge(df_2020, on=[\"Name\", \"Sex\"],\n                                how=\"outer\")\ndf_joined_outer[df_joined_outer[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count_x  Count_y\n24999  Maya   F      NaN   3724.0\n25000  Maya   M      NaN      6.0",
+    "section": "Types of Joins",
+    "text": "Types of Joins",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5248,7 +5248,7 @@
     "href": "slides/14-merge.html#types-of-joins-2",
     "title": "Combining Datasets",
     "section": "Types of Joins",
-    "text": "Types of Joins\n\nNote the missing values for other columns, like Count, for 1920!\nWhat other type of join would have produced this output in the Maya row?",
+    "text": "Types of Joins\n\nWe can customize the type of join using the how = parameter of .merge(). By default, how = \"inner\".\n\ndf_joined_outer = (\n  df_1920\n  .merge(df_2020, \n         on = [\"Name\", \"Sex\"],\n         suffixes = (\"_1920\", \"_2020\"), \n         how = \"outer\")\n    )\n\n\n\n\n\n\ndf_joined_outer[df_joined_outer[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count_1920  Count_2020\n24999  Maya   F         NaN      3724.0\n25000  Maya   M         NaN         6.0",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5259,7 +5259,7 @@
     "href": "slides/14-merge.html#types-of-joins-3",
     "title": "Combining Datasets",
     "section": "Types of Joins",
-    "text": "Types of Joins\n\nNote the missing values for other columns, like Count, for 1920!\nWhat other type of join would have produced this output in the Maya row?\n\n\ndf_joined_right = df_1920.merge(df_2020, on=[\"Name\", \"Sex\"],\n                                how=\"right\")\ndf_joined_right[df_joined_right[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count_x  Count_y\n60     Maya   F      NaN     3724\n28914  Maya   M      NaN        6",
+    "text": "Types of Joins\n\n\nNote the missing values for other columns, like Count_1920!\nWhat other type of join would have produced this output in the Maya row?",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5270,7 +5270,7 @@
     "href": "slides/14-merge.html#quick-quiz",
     "title": "Combining Datasets",
     "section": "Quick Quiz",
-    "text": "Quick Quiz\nWhich type of join would be best suited for each case?\n\nWe want to determine the names that have increased in popularity the most between 1920 and 2020.\nWe want to graph the popularity of names over time.\nWe want to determine the names that have decreased in popularity the most between 1920 and 2020.",
+    "text": "Quick Quiz\nWhich type of join would be best suited for each case?\n\nWe want to determine the names that have increased in popularity the most between 1920 and 2020.\n\n\n\nWe want to graph the popularity of names over time.\n\n\n\nWe want to determine the names that have decreased in popularity the most between 1920 and 2020.",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5314,7 +5314,7 @@
     "href": "slides/14-merge.html#filtering-joins-1",
     "title": "Combining Datasets",
     "section": "Filtering Joins",
-    "text": "Filtering Joins\n\nInner, outer, left, and right are known as mutating joins, because they create new combined datasets.\nThere are two other types of joins that we use for filtering to get rid of some rows:\nA semi-join tells us which keys in the left are present in the right.\nAn anti-join tells us which keys in the left are not present in the right.\nIn Pandas, we can’t do these using .merge()",
+    "text": "Filtering Joins\n\nInner, outer, left, and right are known as mutating joins, because they create new combined data sets.\n\n\nThere are two other types of joins that we use for filtering to get rid of some rows:\nA semi-join tells us which keys in the left are present in the right.\nAn anti-join tells us which keys in the left are not present in the right.",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5324,8 +5324,8 @@
     "objectID": "slides/14-merge.html#filtering-joins-2",
     "href": "slides/14-merge.html#filtering-joins-2",
     "title": "Combining Datasets",
-    "section": "Filtering joins",
-    "text": "Filtering joins\nWhich names existed in 1920 but don’t in 2020?\n\nin_both = df_1920['Name'].isin(df_2020['Name'])\ndf_1920.loc[~in_both, 'Name']\n\n67          Myrtle\n245            Sue\n257         Nannie\n284         Virgie\n300      Bernadine\n           ...    \n10748         Ynes\n10750     Zaragoza\n10751        Zearl\n10752     Zeferino\n10755      Zygmont\nName: Name, Length: 5638, dtype: object",
+    "section": "Filtering Joins",
+    "text": "Filtering Joins",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5347,7 +5347,7 @@
     "href": "slides/14-merge.html#takeaways-1",
     "title": "Combining Datasets",
     "section": "Takeaways",
-    "text": "Takeaways\n\nA primary key is one or more columns that uniquely indentify the rows.\nWe can join (a.k.a. merge) datasets if they share a primary key, or if one has a foreign key.\nThe default of .merge() is an inner join: only keys in both datasets are kept.\nWe can instead specify a left join, right join, or outer join; think about which rows we want to keep.\nFilterting joins like anti-join and semi-join can help you answer questions about the data.\nUse .isin() to see which keys in one dataset exist in the other.",
+    "text": "Takeaways\n\n\nA primary key is one or more columns that uniquely identify the rows.\nWe can join (a.k.a. merge) data sets if they share a primary key, or if one has a foreign key.\nThe default of .merge() is an inner join: only keys in both data sets are kept.\nWe can instead specify a left join, right join, or outer join; think about which rows we want to keep.\nFiltering joins like anti-join and semi-join can help you answer questions about the data.\nUse .isin() to see which keys in one dataset exist in the other.",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5472,6 +5472,17 @@
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#filtering-joins-3",
+    "href": "slides/14-merge.html#filtering-joins-3",
+    "title": "Combining Datasets",
+    "section": "Filtering Joins",
+    "text": "Filtering Joins\n\nWhich names existed in 1920 but don’t in 2020?\n\n\nIn Pandas, we can’t do these using .merge(), but we can use the isin() function!\n\nin_both = df_1920['Name'].isin(df_2020['Name'])\ndf_1920.loc[~in_both, 'Name']\n\n67          Myrtle\n245            Sue\n257         Nannie\n284         Virgie\n300      Bernadine\n           ...    \n10748         Ynes\n10750     Zaragoza\n10751        Zearl\n10752     Zeferino\n10755      Zygmont\nName: Name, Length: 5638, dtype: object",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
     ]
   }
 ]

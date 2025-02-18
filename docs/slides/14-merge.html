@@ -491,7 +491,7 @@
 <blockquote>
 <p>Which manufacturer’s planes made the most flights in November 2013?</p>
 </blockquote>
-<p>In order to answer this question we need to join these two datasets together!</p>
+<p>In order to answer this question we need to join these two data sets together!</p>
 </section></section>
 <section>
 <section id="joining-on-a-key" class="title-slide slide level1 center">
@@ -856,7 +856,7 @@ Length: 26112, dtype: int64</code></pre>
 <li class="fragment"><p>This frequently happens if the data sets come from different sources.</p></li>
 <li class="fragment"><p>For example, if we want to join the (entire) flights data to the weather data, we would need to include the <em>airport</em> in the key.</p></li>
 <li class="fragment"><p>But the airport is called <code>origin</code> in <code>df_flights</code> and <code>airport</code> in <code>df_weather</code>.</p></li>
-<li class="fragment"><p>The <code>.merge()</code> function provides <code>left_on =</code> and <code>right_on =</code> arguments for specifying different column names in the <strong>left</strong> (first) and <strong>right</strong> (second) datasets.</p></li>
+<li class="fragment"><p>The <code>.merge()</code> function provides <code>left_on =</code> and <code>right_on =</code> arguments for specifying different column names in the <strong>left</strong> (first) and <strong>right</strong> (second) data sets.</p></li>
 </ul>
 </div>
 </div>
@@ -978,7 +978,7 @@ Length: 26112, dtype: int64</code></pre>
 </section>
 <section id="joins" class="slide level2">
 <h2>Joins</h2>
-<p>We can merge these two datasets on a primary key…</p>
+<p>We can merge these two data sets on a primary key…</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>df_joined <span class="op">=</span> (</span>
 <span id="cb33-2"><a aria-hidden="true" tabindex="-1"></a>  df_1920</span>
@@ -1050,7 +1050,12 @@ Index: []</code></pre>
 <h2>Missing keys</h2>
 <p><br></p>
 <p>How does the <code>merge()</code> function determine which keys get kept?</p>
+<div class="fragment">
 <p>By default, in order to appear in the joined data, a key must be present in <em>both</em> tables.</p>
+</div>
+<div class="fragment">
+<p>This is actually what is called an *<strong>inner join</strong>, but there are other types of joins!</p>
+</div>
 </section></section>
 <section>
 <section id="other-types-of-joins" class="title-slide slide level1 center">
@@ -1059,140 +1064,170 @@ Index: []</code></pre>
 </section>
 <section id="types-of-joins" class="slide level2">
 <h2>Types of Joins</h2>
+<div class="midi">
+<div>
 <ul>
-<li><p>How can we customize the behavior of joins for missing keys?</p></li>
-<li><p>By default, Pandas does an <strong>inner join</strong>, which only keeps keys that are present in <em>both</em> tables.</p></li>
-<li><p>An <strong>outer join</strong> keeps any key that is present in either table.</p></li>
-<li><p>A <strong>left join</strong> keeps all keys in the left table, even if they are not in the right table. But any keys that are only in the right table are dropped.</p></li>
-<li><p>A <strong>right join</strong> keeps all keys in the right table, even if they are not in the left table. But any keys that are only in the left table are dropped.</p></li>
+<li class="fragment"><p>By default, Pandas does an <strong><em>inner join</em></strong>, which only keeps keys that are present in <em>both</em> tables.</p></li>
+<li class="fragment"><p>An <strong><em>outer join</em></strong> keeps any key that is present in either table.</p></li>
+<li class="fragment"><p>A <strong><em>left join</em></strong> keeps all keys in the left table, even if they are not in the right table. But any keys that are only in the right table are dropped.</p></li>
+<li class="fragment"><p>A <strong><em>right join</em></strong> keeps all keys in the right table, even if they are not in the left table. But any keys that are only in the left table are dropped.</p></li>
 </ul>
+</div>
+</div>
 </section>
 <section id="types-of-joins-1" class="slide level2">
-<h2>Types of joins</h2>
-<p>We can customize the type of join using the <code>how=</code> parameter of <code>.merge()</code>. By default, <code>how="inner"</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>df_joined_outer <span class="op">=</span> df_1920.merge(df_2020, on<span class="op">=</span>[<span class="st">"Name"</span>, <span class="st">"Sex"</span>],</span>
-<span id="cb41-2"><a></a>                                how<span class="op">=</span><span class="st">"outer"</span>)</span>
-<span id="cb41-3"><a></a>df_joined_outer[df_joined_outer[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       Name Sex  Count_x  Count_y
-24999  Maya   F      NaN   3724.0
-25000  Maya   M      NaN      6.0</code></pre>
-</div>
-</div>
-</section>
+<h2>Types of Joins</h2>
+
+<img data-src="images/14-joins.png" alt="A Venn diagram illustrating four types of joins using two overlapping circles in each diagram. The highlighted (green) areas represent the included data for each join type. Inner Join: Only the overlapping region of both circles is highlighted, representing the common data between the two tables. Left Join: The entire left circle, including its overlap with the right circle, is highlighted, representing all data from the left table and any matching data from the right table. Right Join: The entire right circle, including its overlap with the left circle, is highlighted, representing all data from the right table and any matching data from the left table. Outer Join: Both entire circles are highlighted, representing all data from both tables, including matches and non-matches." class="r-stretch"></section>
 <section id="types-of-joins-2" class="slide level2">
 <h2>Types of Joins</h2>
-<ul>
-<li><p>Note the missing values for other columns, like Count, for 1920!</p></li>
-<li><p>What other type of join would have produced this output in the Maya row?</p></li>
-</ul>
+<div class="midi">
+<p>We can customize the type of join using the <code>how =</code> parameter of <code>.merge()</code>. By default, <code>how = "inner"</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a>df_joined_outer <span class="op">=</span> (</span>
+<span id="cb41-2"><a aria-hidden="true" tabindex="-1"></a>  df_1920</span>
+<span id="cb41-3"><a aria-hidden="true" tabindex="-1"></a>  .merge(df_2020, </span>
+<span id="cb41-4"><a aria-hidden="true" tabindex="-1"></a>         on <span class="op">=</span> [<span class="st">"Name"</span>, <span class="st">"Sex"</span>],</span>
+<span id="cb41-5"><a aria-hidden="true" tabindex="-1"></a>         suffixes <span class="op">=</span> (<span class="st">"_1920"</span>, <span class="st">"_2020"</span>), </span>
+<span id="cb41-6"><a aria-hidden="true" tabindex="-1"></a>         how <span class="op">=</span> <span class="st">"outer"</span>)</span>
+<span id="cb41-7"><a aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="midi">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>df_joined_outer[df_joined_outer[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Name Sex  Count_1920  Count_2020
+24999  Maya   F         NaN      3724.0
+25000  Maya   M         NaN         6.0</code></pre>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="types-of-joins-3" class="slide level2">
 <h2>Types of Joins</h2>
+<div class="midi">
 <ul>
-<li><p>Note the missing values for other columns, like Count, for 1920!</p></li>
+<li><p>Note the missing values for other columns, like <code>Count_1920</code>!</p></li>
+<li><p>What other type of join would have produced this output in the Maya row?</p></li>
+</ul>
+</div>
+</section>
+<section id="types-of-joins-4" class="slide level2">
+<h2>Types of Joins</h2>
+<div class="midi">
+<ul>
+<li><p>Note the missing values for other columns, like <code>Count_1920</code>!</p></li>
 <li><p>What other type of join would have produced this output in the Maya row?</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>df_joined_right <span class="op">=</span> df_1920.merge(df_2020, on<span class="op">=</span>[<span class="st">"Name"</span>, <span class="st">"Sex"</span>],</span>
-<span id="cb43-2"><a></a>                                how<span class="op">=</span><span class="st">"right"</span>)</span>
-<span id="cb43-3"><a></a>df_joined_right[df_joined_right[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>df_joined_right <span class="op">=</span> (</span>
+<span id="cb44-2"><a aria-hidden="true" tabindex="-1"></a>  df_1920</span>
+<span id="cb44-3"><a aria-hidden="true" tabindex="-1"></a>  .merge(df_2020, </span>
+<span id="cb44-4"><a aria-hidden="true" tabindex="-1"></a>         on <span class="op">=</span> [<span class="st">"Name"</span>, <span class="st">"Sex"</span>],</span>
+<span id="cb44-5"><a aria-hidden="true" tabindex="-1"></a>         suffixes <span class="op">=</span> (<span class="st">"_1920"</span>, <span class="st">"_2020"</span>), </span>
+<span id="cb44-6"><a aria-hidden="true" tabindex="-1"></a>         how <span class="op">=</span> <span class="st">"right"</span>)</span>
+<span id="cb44-7"><a aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a>df_joined_right[df_joined_right[<span class="st">"Name"</span>] <span class="op">==</span> <span class="st">"Maya"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       Name Sex  Count_x  Count_y
-60     Maya   F      NaN     3724
-28914  Maya   M      NaN        6</code></pre>
+<pre><code>       Name Sex  Count_1920  Count_2020
+60     Maya   F         NaN        3724
+28914  Maya   M         NaN           6</code></pre>
 </div>
 </div>
-</section></section>
-<section>
-<section id="types-of-joins-4" class="title-slide slide level1 center">
-<h1>Types of Joins</h1>
-
-<img data-src="./images/joins.png" class="r-stretch"></section>
+</div>
+</section>
 <section id="quick-quiz" class="slide level2">
 <h2>Quick Quiz</h2>
 <p>Which type of join would be best suited for each case?</p>
 <ol type="1">
-<li><p>We want to determine the names that have increased in popularity the most between 1920 and 2020.</p></li>
-<li><p>We want to graph the popularity of names over time.</p></li>
-<li><p>We want to determine the names that have decreased in popularity the most between 1920 and 2020.</p></li>
+<li>We want to determine the names that have increased in popularity the most between 1920 and 2020.</li>
 </ol>
-</section></section>
-<section>
-<section id="many-to-many-joins" class="title-slide slide level1 center">
-<h1>Many-to-Many Joins</h1>
-
-</section>
-<section id="many-to-many-relationships" class="slide level2 smaller">
-<h2>Many-to-Many Relationships</h2>
-<ul>
-<li><p>So far, the keys we’ve joined on have been the primary key of (at least) one table.</p></li>
-<li><p>If we join to the primary key of another table, then the relationship is <strong>one-to-one</strong> (since primary keys uniquely identify rows).</p></li>
-<li><p>If we join to the foreign key of another table, then the relationship is <strong>one-to-many</strong>.</p></li>
-<li><p>What if we join on a key that is not a primary key?</p></li>
-<li><p>That is, what if the key does not uniquely identify rows in either table so that each value of the key might appear multiple times?</p></li>
-<li><p>This relaionship is called <strong>many-to-many</strong>.</p></li>
-</ul>
-</section>
-<section id="many-to-many-example" class="slide level2">
-<h2>Many-to-Many Example</h2>
-<p>What if we only joined on the name?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>df_1920.merge(df_2020, on<span class="op">=</span><span class="st">"Name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          Name Sex_x  Count_x Sex_y  Count_y
-0         Mary     F    70975     F     2210
-1         Mary     F    70975     M        5
-2      Dorothy     F    36645     F      562
-3        Helen     F    35098     F      721
-4     Margaret     F    27997     F     2190
-...        ...   ...      ...   ...      ...
-6158    Xavier     M        5     M     3876
-6159      York     M        5     F        6
-6160      York     M        5     M       14
-6161      Zeke     M        5     M      382
-6162      Zera     M        5     F       11
-
-[6163 rows x 5 columns]</code></pre>
-</div>
-</div>
-</section>
-<section id="preventing-bugs" class="slide level2">
-<h2>Preventing Bugs</h2>
-<ul>
-<li><p>Most of the time, many-to-many joins are a bug, caused by a misunderstanding about the primary key.</p></li>
-<li><p>Pandas allows us to specify the relationship we are expecting. It will fail with an error if the relationship is a different kind.</p></li>
-<li><p>For example, suppose we thought that “name” was the primary key of the baby name tables.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>df_1920.merge(df_2020, on<span class="op">=</span><span class="st">"Name"</span>,</span>
-<span id="cb47-2"><a></a>              validate<span class="op">=</span><span class="st">"one_to_one"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<pre><code>MergeError: Merge keys are not unique in either left or right dataset; not a one-to-one merge</code></pre>
-<p>Errors are (sometimes) your friend. They can prevent you from making even bigger mistakes!</p>
+<!-- Right join -- we want to keep all the names in 2020 but only add names from 
+1920 that also exist in 2020. -->
+<ol start="2" type="1">
+<li>We want to graph the popularity of names over time.</li>
+</ol>
+<!-- Inner join -- we can only plot names in both data sets! -->
+<ol start="3" type="1">
+<li>We want to determine the names that have decreased in popularity the most between 1920 and 2020.</li>
+</ol>
+<!-- Left join -- we want to keep all the names in 1920 but don't care about
+names in 2020 that weren't in 1920. -->
+<!-- # Many-to-Many Joins -->
+<!-- ## Many-to-Many Relationships {.smaller} -->
+<!-- -   So far, the keys we've joined on have been the primary key of (at least) one table. -->
+<!-- -   If we join to the primary key of another table, then the relationship is **one-to-one** (since primary keys uniquely identify rows). -->
+<!-- -   If we join to the foreign key of another table, then the relationship is **one-to-many**. -->
+<!-- -   What if we join on a key that is not a primary key? -->
+<!-- -   That is, what if the key does not uniquely identify rows in either table so that each value of the key might appear multiple times? -->
+<!-- -   This relaionship is called **many-to-many**. -->
+<!-- ## Many-to-Many Example -->
+<!-- What if we only joined on the name? -->
+<!-- ```{python} -->
+<!-- df_1920.merge(df_2020, on="Name") -->
+<!-- ``` -->
+<!-- ## Preventing Bugs -->
+<!-- -   Most of the time, many-to-many joins are a bug, caused by a misunderstanding about the primary key. -->
+<!-- -   Pandas allows us to specify the relationship we are expecting. It will fail with an error if the relationship is a different kind. -->
+<!-- -   For example, suppose we thought that "name" was the primary key of the baby name tables. -->
+<!-- ```{python} -->
+<!-- #| eval: false -->
+<!-- df_1920.merge(df_2020, on="Name", -->
+<!--               validate="one_to_one") -->
+<!-- ``` -->
+<!-- ```          -->
+<!-- MergeError: Merge keys are not unique in either left or right dataset; not a one-to-one merge -->
+<!-- ``` -->
+<!-- Errors are (sometimes) your friend. They can prevent you from making even bigger mistakes! -->
 </section></section>
 <section>
 <section id="filtering-joins" class="title-slide slide level1 center">
 <h1>Filtering Joins</h1>
 
 </section>
-<section id="filtering-joins-1" class="slide level2 smaller">
+<section id="filtering-joins-1" class="slide level2">
 <h2>Filtering Joins</h2>
+<div class="midi">
+<p>Inner, outer, left, and right are known as <strong>mutating joins</strong>, because they create new combined data sets.</p>
+<div>
 <ul>
-<li><p>Inner, outer, left, and right are known as <strong>mutating joins</strong>, because they create new combined datasets.</p></li>
-<li><p>There are two other types of joins that we use for <strong>filtering</strong> to get rid of some rows:</p></li>
-<li><p>A <strong>semi-join</strong> tells us which keys in the <em>left</em> <strong>are</strong> present in the <em>right</em>.</p></li>
-<li><p>An <strong>anti-join</strong> tells us which keys in the left <strong>are not</strong> present in the right.</p></li>
-<li><p>In Pandas, we can’t do these using <code>.merge()</code></p></li>
+<li class="fragment"><p>There are two other types of joins that we use for <strong>filtering</strong> to get rid of some rows:</p></li>
+<li class="fragment"><p>A <strong>semi-join</strong> tells us which keys in the <em>left</em> <strong>are</strong> present in the <em>right</em>.</p></li>
+<li class="fragment"><p>An <strong>anti-join</strong> tells us which keys in the left <strong>are not</strong> present in the right.</p></li>
 </ul>
+</div>
+</div>
 </section>
 <section id="filtering-joins-2" class="slide level2">
-<h2>Filtering joins</h2>
+<h2>Filtering Joins</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><img data-src="images/14-semi-join.png" alt="A diagram illustrating the concept of a semi-join. On the left, two tables are shown: The first table (x) has two columns, with labeled values (x1, x2, x3) in the first column and numerical values (1, 2, 3) in the second column. The second table (y) has two columns, where the second column contains numerical values (4, 2, 1), and the first column has values (y3, y2, y1). Lines connect matching values between the two tables: 1 from x is found in y, as is 2, but 3 is not present in y. The result of the semi-join is shown in a table on the right, containing only the rows from x where a match was found in y. The output table has two columns: key and val_x, and it retains only the rows with keys 1 and 2 from x (x1 and x2), omitting x3 since 3 is not present in y."></p>
+</div><div class="column" style="width:3%;">
+
+</div><div class="column" style="width:48%;">
+<div class="fragment">
+<p><img data-src="images/14-anti-join.png" alt="A diagram illustrating the concept of an anti-join (anti_join(x, y)). On the left, two tables are shown: The first table (x) has two columns, with labeled values (x1, x2, x3) in the first column and numerical values (1, 2, 3) in the second column. The second table (y) has two columns, where the second column contains numerical values (4, 2, 1), and the first column has values (y3, y2, y1). Lines connect matching values between the two tables: 1 from x is found in y, as is 2, but 3 is not present in y. Red lines indicate rows that have matches, which are excluded in the anti-join. The result of the anti-join is shown in a table on the right, containing only the row from x where no match was found in y. The output table has two columns: key and val_x, and it retains only the row with key 3 from x (x3), omitting x1 and x2 since they had matches in y."></p>
+</div>
+</div></div>
+</section>
+<section id="filtering-joins-3" class="slide level2">
+<h2>Filtering Joins</h2>
+<blockquote>
 <p>Which names existed in 1920 but don’t in 2020?</p>
+</blockquote>
+<div class="fragment">
+<p>In Pandas, we can’t do these using <code>.merge()</code>, but we can use the <code>isin()</code> function!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>in_both <span class="op">=</span> df_1920[<span class="st">'Name'</span>].isin(df_2020[<span class="st">'Name'</span>])</span>
-<span id="cb49-2"><a></a>df_1920.loc[<span class="op">~</span>in_both, <span class="st">'Name'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a>in_both <span class="op">=</span> df_1920[<span class="st">'Name'</span>].isin(df_2020[<span class="st">'Name'</span>])</span>
+<span id="cb47-2"><a aria-hidden="true" tabindex="-1"></a>df_1920.loc[<span class="op">~</span>in_both, <span class="st">'Name'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>67          Myrtle
 245            Sue
@@ -1206,6 +1241,7 @@ Index: []</code></pre>
 10752     Zeferino
 10755      Zygmont
 Name: Name, Length: 5638, dtype: object</code></pre>
+</div>
 </div>
 </div>
 </section>
@@ -1223,14 +1259,16 @@ Name: Name, Length: 5638, dtype: object</code></pre>
 </section>
 <section id="takeaways-1" class="slide level2">
 <h2>Takeaways</h2>
+<div class="midi">
 <ul>
-<li><p>A <strong>primary key</strong> is one or more columns that uniquely indentify the rows.</p></li>
-<li><p>We can <strong>join</strong> (a.k.a. <strong>merge</strong>) datasets if they share a primary key, or if one has a <strong>foreign key</strong>.</p></li>
-<li><p>The default of <code>.merge()</code> is an <em>inner join</em>: only keys in both datasets are kept.</p></li>
+<li><p>A <strong>primary key</strong> is one or more columns that uniquely identify the rows.</p></li>
+<li><p>We can <strong>join</strong> (a.k.a. <strong>merge</strong>) data sets if they share a primary key, or if one has a <strong>foreign key</strong>.</p></li>
+<li><p>The default of <code>.merge()</code> is an <em>inner join</em>: only keys in both data sets are kept.</p></li>
 <li><p>We can instead specify a <em>left join</em>, <em>right join</em>, or <em>outer join</em>; think about which rows we want to keep.</p></li>
-<li><p><strong>Filterting joins</strong> like <em>anti-join</em> and <em>semi-join</em> can help you answer questions about the data.</p></li>
+<li><p><strong>Filtering joins</strong> like <em>anti-join</em> and <em>semi-join</em> can help you answer questions about the data.</p></li>
 <li><p>Use <code>.isin()</code> to see which keys in one dataset exist in the other.</p></li>
 </ul>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
