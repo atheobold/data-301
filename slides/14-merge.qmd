@@ -21,11 +21,12 @@ import pandas as pd
 from plotnine import *
 ```
 
-## The story so far
+# The story so far...
 
-### Data analysis: the whole game
+## Data analysis: the whole game
 
--   **Acquire** data and **clean** it by fixing variable types, dropping or replacing missing data, and looking for other issues.
+-   **Acquire** data and **clean** it by fixing variable types, dropping or
+replacing missing data, and looking for other issues.
 
 -   **Explore** the dataset by making summaries and plots of *one variable*.
 
@@ -37,9 +38,9 @@ from plotnine import *
 
 -   Fit **unsupervised models** to answer open-ended questions.
 
-## Joining on a Key
+# Joining on a Key
 
-### Example: Planes and flights
+## Example: Planes and flights
 
 -   Sometimes, information is spread across multiple data sets.
 
@@ -54,7 +55,7 @@ df_flights = pd.read_csv(f"{data_dir}/flights11.csv")
 df_flights.head()
 ```
 
-### Example: Planes and Flights
+## Example: Planes and Flights
 
 ...while another contains information about planes.
 
@@ -65,7 +66,7 @@ df_planes.head()
 
 In order to answer the question of which manufacturer made the most flights, we have to join these two data sets together.
 
-### Keys
+## Keys
 
 -   A **primary key** is a column (or a set of columns) that uniquely identifies observations in a data frame.
 
@@ -75,7 +76,7 @@ In order to answer the question of which manufacturer made the most flights, we 
 
 -   Planes are uniquely identified by their *tail number* (`tailnum`).
 
-### Joining on a Key
+## Joining on a Key
 
 Each value of the **primary key** should only appear once, but it could appear many times in a **foreign key**.
 
@@ -84,7 +85,7 @@ df_flights['tailnum'].value_counts().head()
 df_planes['tailnum'].value_counts().head()
 ```
 
-### Joining on a Key
+## Joining on a Key
 
 The Pandas function `.merge()` can be used to join two `DataFrame`s on a key.
 
@@ -93,7 +94,7 @@ df_joined = df_flights.merge(df_planes, on="tailnum")
 df_joined.head()   
 ```
 
-### Overlapping Column Names
+## Overlapping Column Names
 
 -   Joining two data frames results in a *wider* data frame, with more columns.
 
@@ -105,7 +106,7 @@ df_joined = df_flights.merge(df_planes, on="tailnum",
 df_joined.columns
 ```
 
-### Analyzing the Joined Data
+## Analyzing the Joined Data
 
 Now that we have joined the two data sets, we can answer the question: which manufacturer's planes made the most flights?
 
@@ -113,9 +114,9 @@ Now that we have joined the two data sets, we can answer the question: which man
 df_joined["manufacturer"].value_counts()
 ```
 
-## Joining on Multiple Keys
+# Joining on Multiple Keys
 
-### Example: Weather and Flights
+## Example: Weather and Flights
 
 -   Research question: What weather factors cause flight delays?
 
@@ -128,7 +129,7 @@ df_weather.head()
 
 **What is the primary key of this data set?**
 
-### A Key with Multiple Columns
+## A Key with Multiple Columns
 
 Let's start by looking at flights out of JFK only, for simplicity.
 
@@ -143,7 +144,7 @@ df_jfk = df_flights_jfk.merge(df_weather_jfk, on=("year","month","day","hour"))
 df_jfk.head()
 ```
 
-### Let's see how rain affects departure delays.
+## Let's see how rain affects departure delays.
 
 ```{python}
 #| code-fold: true
@@ -154,7 +155,7 @@ geom_point(alpha=0.2) +
 theme_classic())
 ```
 
-### Joining on Keys with Different Names
+## Joining on Keys with Different Names
 
 -   Sometimes, the join keys have different names in the two data sets.
 
@@ -166,7 +167,7 @@ theme_classic())
 
 -   The `.merge()` function provides `left_on=` and `right_on=` arguments for specifying different column names in the **left** (first) and **right** (second) data frames.
 
-### Joining on Keys with Different Names
+## Joining on Keys with Different Names
 
 ```{python}
 df_flights_weather = df_flights.merge(
@@ -175,7 +176,7 @@ df_flights_weather = df_flights.merge(
     right_on=("airport", "year", "month", "day", "hour"))
 ```
 
-### Rain and delays by airport
+## Rain and delays by airport
 
 Now we can visualize how rain impacts delays at each airport:
 
@@ -189,9 +190,9 @@ geom_line() +
 theme_classic())
 ```
 
-## Joins with missing keys
+# Joins with missing keys
 
-### Example: Baby names
+###Example: Baby names
 
 The data below contains counts of names for babies born in 1920 and 2020:
 
@@ -208,7 +209,7 @@ df_1920.head()
 df_2020.head()
 ```
 
-### Joins
+## Joins
 
 We can merge these two datasets on a primary key...
 
@@ -217,7 +218,7 @@ df_joined = df_1920.merge(df_2020, on=["Name", "Sex"], suffixes=("_1920", "_2020
 df_joined.head()
 ```
 
-### Missing Keys?
+## Missing Keys?
 
 ... but what happened to some of the names?
 
@@ -225,7 +226,7 @@ df_joined.head()
 df_joined[df_joined["Name"] == "Maya"]
 ```
 
-### Missing keys
+## Missing keys
 
 -   Why isn't Maya in the joined data?
 
@@ -241,15 +242,15 @@ df_2020[df_2020["Name"] == "Maya"]
 df_1920[df_1920["Name"] == "Maya"]
 ```
 
-### Missing keys
+## Missing keys
 
 -   How does the `merge()` function determine which keys get kept?
 
 -   By default, in order to appear in the joined data, a key must be present in *both* tables.
 
-## Other Types of Joins
+# Other Types of Joins
 
-### Types of Joins
+## Types of Joins
 
 -   How can we customize the behavior of joins for missing keys?
 
@@ -261,7 +262,7 @@ df_1920[df_1920["Name"] == "Maya"]
 
 -   A **right join** keeps all keys in the right table, even if they are not in the left table. But any keys that are only in the left table are dropped.
 
-### Types of joins
+## Types of joins
 
 We can customize the type of join using the `how=` parameter of `.merge()`. By default, `how="inner"`.
 
@@ -271,13 +272,13 @@ df_joined_outer = df_1920.merge(df_2020, on=["Name", "Sex"],
 df_joined_outer[df_joined_outer["Name"] == "Maya"]
 ```
 
-### Types of Joins
+## Types of Joins
 
 -   Note the missing values for other columns, like Count, for 1920!
 
 -   What other type of join would have produced this output in the Maya row?
 
-### Types of Joins
+## Types of Joins
 
 -   Note the missing values for other columns, like Count, for 1920!
 
@@ -289,11 +290,11 @@ df_joined_right = df_1920.merge(df_2020, on=["Name", "Sex"],
 df_joined_right[df_joined_right["Name"] == "Maya"]
 ```
 
-## Types of Joins
+# Types of Joins
 
 ![](./images/joins.png)
 
-### Quick Quiz
+## Quick Quiz
 
 Which type of join would be best suited for each case?
 
@@ -303,9 +304,9 @@ Which type of join would be best suited for each case?
 
 3.  We want to determine the names that have decreased in popularity the most between 1920 and 2020.
 
-## Many-to-Many Joins
+# Many-to-Many Joins
 
-### Many-to-Many Relationships {.smaller}
+## Many-to-Many Relationships {.smaller}
 
 -   So far, the keys we've joined on have been the primary key of (at least) one table.
 
@@ -319,7 +320,7 @@ Which type of join would be best suited for each case?
 
 -   This relaionship is called **many-to-many**.
 
-### Many-to-Many Example
+## Many-to-Many Example
 
 What if we only joined on the name?
 
@@ -327,7 +328,7 @@ What if we only joined on the name?
 df_1920.merge(df_2020, on="Name")
 ```
 
-### Preventing Bugs
+## Preventing Bugs
 
 -   Most of the time, many-to-many joins are a bug, caused by a misunderstanding about the primary key.
 
@@ -347,9 +348,9 @@ MergeError: Merge keys are not unique in either left or right dataset; not a one
 
 Errors are (sometimes) your friend. They can prevent you from making even bigger mistakes!
 
-## Filtering Joins
+# Filtering Joins
 
-### Filtering Joins {.smaller}
+## Filtering Joins {.smaller}
 
 -   Inner, outer, left, and right are known as **mutating joins**, because they create new combined datasets.
 
@@ -361,7 +362,7 @@ Errors are (sometimes) your friend. They can prevent you from making even bigger
 
 -   In Pandas, we can't do these using `.merge()`
 
-### Filtering joins
+## Filtering joins
 
 Which names existed in 1920 but don't in 2020?
 
@@ -370,15 +371,15 @@ in_both = df_1920['Name'].isin(df_2020['Name'])
 df_1920.loc[~in_both, 'Name']
 ```
 
-### Your turn
+## Your turn
 
 -   Did your name exist in 2020 but not 1920?
 
 -   If so, how has the popularity changed?
 
-## Takeaways
+# Takeaways
 
-### Takeaways
+## Takeaways
 
 -   A **primary key** is one or more columns that uniquely indentify the rows.
 
