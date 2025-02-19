@@ -1939,8 +1939,8 @@
     "objectID": "slides/13-kmeans.html#predictive-modeling",
     "href": "slides/13-kmeans.html#predictive-modeling",
     "title": "Unsupervised Learning with K-Means",
-    "section": "Predictive Modeling",
-    "text": "Predictive Modeling\n\n\n\nIn predictive modeling, a.k.a. supervised machine learning, we have a target variable we want to predict.\nWe expect to have observations where we know the predictors but not the target.\nOur goal is to choose a modeling procedure to guess the value of the target variable based on the predictors.\nWe use cross-validation to estimate the test error of various procedure options.\nWe might compare different:\n\nfeature sets\npreprocessing choices\nmodel specifications/algorithms\ntuning parameters",
+    "section": "",
+    "text": "In predictive modeling, a.k.a. supervised machine learning, we have a target variable we want to predict.\nWe expect to have observations where we know the predictors but not the target.\nOur goal is to choose a modeling procedure to guess the value of the target variable based on the predictors.\nWe use cross-validation to estimate the test error of various procedure options.\nWe might compare different:\n\nfeature sets\npreprocessing choices\nmodel specifications/algorithms\ntuning parameters",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -1951,7 +1951,7 @@
     "href": "slides/13-kmeans.html#unsupervised-learning-1",
     "title": "Unsupervised Learning with K-Means",
     "section": "Unsupervised Learning",
-    "text": "Unsupervised Learning\n\n\nIn unsupervised situations, we do not have a target variable \\(y\\).\nWe do still have features that we observe.\nOur goal: Find an interesting structure in the features we have.\n\n\n\n\n\n\n\n\n\nSupervised vs Unsupervised\n\n\nThink of children playing with Legos. They might be supervised by parents who help them follow instructions, or they might be left alone to build whatever they want!",
+    "text": "Unsupervised Learning\n\n\nIn unsupervised situations, we do not have a target variable \\(y\\).\nWe do still have features that we observe.\nOur goal: Find an interesting structure in the features we have.\n\n\n. . .\n\n\n\n\n\n\nSupervised vs Unsupervised\n\n\n\nThink of children playing with Legos. They might be supervised by parents who help them follow instructions, or they might be left alone to build whatever they want!",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -1984,7 +1984,7 @@
     "href": "slides/13-kmeans.html#the-k-means-algorithm",
     "title": "Unsupervised Learning with K-Means",
     "section": "The K-Means Algorithm",
-    "text": "The K-Means Algorithm\n\nIdea: Two observations are similar if they are close in distance.\n\n\nDoes this sound familiar?!\n\n\n\nQ: How do we find “groups” of observations?\nA: We should look for groups of observations that are close to the same centroid.",
+    "text": "The K-Means Algorithm\n\nIdea: Two observations are similar if they are close in distance.\n\n\nDoes this sound familiar?!\n\n. . .\n\nQ: How do we find “groups” of observations?\nA: We should look for groups of observations that are close to the same centroid.",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -1995,7 +1995,7 @@
     "href": "slides/13-kmeans.html#the-k-means-algorithm-1",
     "title": "Unsupervised Learning with K-Means",
     "section": "The K-Means Algorithm",
-    "text": "The K-Means Algorithm\nProcedure (3-means):\n\nChoose 3 random observations to be the initial centroids.\nFor each observation, determine which is the closest centroid.\nCreate 3 clusters based on the closest centroid.\nFind the new centroid of each cluster.\nRepeat until the clusters don’t change.\n\n\nhttps://www.naftaliharris.com/blog/visualizing-k-means-clustering/",
+    "text": "The K-Means Algorithm\nProcedure (3-means):\n\nChoose 3 random observations to be the initial centroids.\nFor each observation, determine which is the closest centroid.\nCreate 3 clusters based on the closest centroid.\nFind the new centroid of each cluster.\nRepeat until the clusters don’t change.\n\n. . .\nhttps://www.naftaliharris.com/blog/visualizing-k-means-clustering/",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -2050,7 +2050,7 @@
     "href": "slides/13-kmeans.html#step-0-standardize-the-data",
     "title": "Unsupervised Learning with K-Means",
     "section": "Step 0: Standardize the data",
-    "text": "Step 0: Standardize the data\n\n \n\n\nWhy is this important?",
+    "text": "Step 0: Standardize the data\n. . .\n \n\n\nWhy is this important?",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -2138,7 +2138,7 @@
     "href": "slides/13-kmeans.html#step-3-find-new-centroids",
     "title": "Unsupervised Learning with K-Means",
     "section": "Step 3: Find new centroids",
-    "text": "Step 3: Find new centroids\n\ncentroids = df_scaled.groupby(df_scaled.index).mean()\ncentroids\n\n        bill_length_mm  flipper_length_mm\ngreen         0.628892           1.140501\norange       -0.957138          -0.821529\npurple        0.980022          -0.332526\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nAre these centroids observations in df_scaled?",
+    "text": "Step 3: Find new centroids\n\ncentroids = df_scaled.groupby(df_scaled.index).mean()\ncentroids\n\n        bill_length_mm  flipper_length_mm\ngreen         0.628892           1.140501\norange       -0.957138          -0.821529\npurple        0.980022          -0.332526\n\n\n. . .\n\n\n\n\n\n\n\nWarning\n\n\n\nAre these centroids observations in df_scaled?",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -2160,7 +2160,7 @@
     "href": "slides/13-kmeans.html#step-4-repeat-over-and-over",
     "title": "Unsupervised Learning with K-Means",
     "section": "Step 4: Repeat over and over!",
-    "text": "Step 4: Repeat over and over!\n\n\nfor i in range(1, 6):\n  dists = pairwise_distances(df_scaled, centroids)\n  df_scaled.index = centroids.index[closest_centroid]\n  centroids = df_scaled.groupby(df_scaled.index).mean()\n  print(centroids)\n\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n\n\n\n\n\n\n\n\n\n\nAt what point do we stop finding new centroids / reassigning points?",
+    "text": "Step 4: Repeat over and over!\n\n\nfor i in range(1, 6):\n  dists = pairwise_distances(df_scaled, centroids)\n  df_scaled.index = centroids.index[closest_centroid]\n  centroids = df_scaled.groupby(df_scaled.index).mean()\n  print(centroids)\n\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n        bill_length_mm  flipper_length_mm\ngreen        -0.957138          -0.821529\norange        0.980022          -0.332526\npurple        0.628892           1.140501\n\n\n\n. . .\n\n\n\n\n\n\nAt what point do we stop finding new centroids / reassigning points?",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -2226,7 +2226,7 @@
     "href": "slides/13-kmeans.html#takeaways-1",
     "title": "Unsupervised Learning with K-Means",
     "section": "Takeaways",
-    "text": "Takeaways\n\nUnsupervised learning is a way to find structure in data.\nK-means is the most common clustering method.\nWe have to choose K ahead of time.\n\n\n\n\n\n\n\nThis is a big problem!\n\n\nWhy can’t we tune????",
+    "text": "Takeaways\n\nUnsupervised learning is a way to find structure in data.\nK-means is the most common clustering method.\nWe have to choose K ahead of time.\n\n\n\n\n\n\n\nThis is a big problem!\n\n\n\nWhy can’t we tune????",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -5483,6 +5483,17 @@
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/13-kmeans.html",
+    "href": "slides/13-kmeans.html",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "",
+    "text": "In predictive modeling, a.k.a. supervised machine learning, we have a target variable we want to predict.\nWe expect to have observations where we know the predictors but not the target.\nOur goal is to choose a modeling procedure to guess the value of the target variable based on the predictors.\nWe use cross-validation to estimate the test error of various procedure options.\nWe might compare different:\n\nfeature sets\npreprocessing choices\nmodel specifications/algorithms\ntuning parameters",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 1 - Unsupervised Learning"
     ]
   }
 ]
