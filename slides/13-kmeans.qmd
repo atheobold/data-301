@@ -478,6 +478,7 @@ plot.draw(plot)
 
 for i in range(1, 6):
   dists = pairwise_distances(df_scaled, centroids)
+  closest_centroid = dists.argmin(axis = 1)
   df_scaled.index = centroids.index[closest_centroid]
   centroids = df_scaled.groupby(df_scaled.index).mean()
   print(centroids)
@@ -486,8 +487,10 @@ for i in range(1, 6):
 
 . . .
 
+::: {.small}
 ::: {.callout-tip}
 # At what point do we stop finding new centroids / reassigning points?
+:::
 :::
 
 ## K-means in sklearn
@@ -501,6 +504,8 @@ for i in range(1, 6):
 
 from sklearn.cluster import KMeans
 from sklearn.pipeline import make_pipeline
+
+features = ["bill_length_mm", "flipper_length_mm"]
 
 model = KMeans(n_clusters = 3, random_state = 1234)
 
@@ -518,7 +523,7 @@ pipeline = make_pipeline(
 #| code-line-numbers: false
 #| label: sklearn-kmeans-fit
 
-pipeline.fit(df_penguins[["bill_length_mm", "flipper_length_mm"]]);
+pipeline.fit(df_penguins[features]);
 ```
 :::
 
