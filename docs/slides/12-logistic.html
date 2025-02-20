@@ -397,8 +397,8 @@
 
 </section>
 <section>
-<section id="the-story-so-far.." class="title-slide slide level1 center">
-<h1>The story so far..</h1>
+<section id="the-story-this-week" class="title-slide slide level1 center">
+<h1>The story this week…</h1>
 
 </section>
 <section id="classification" class="slide level2">
@@ -533,7 +533,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>pred_cancer.<span class="bu">min</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(-0.2666656752041746)</code></pre>
+<pre><code>np.float64(-0.2666656752041747)</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:10%;">
@@ -542,7 +542,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>pred_cancer.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(1.1443978861600579)</code></pre>
+<pre><code>np.float64(1.144397886160058)</code></pre>
 </div>
 </div>
 </div></div>
@@ -612,8 +612,10 @@
 <span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb15-4"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, </span>
 <span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"I0"</span>, y <span class="op">=</span> residuals)) <span class="op">+</span> </span>
-<span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point()</span>
-<span id="cb15-7"><a aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span></span>
+<span id="cb15-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb15-8"><a aria-hidden="true" tabindex="-1"></a>  labs(y <span class="op">=</span> <span class="st">"Linear Regression Residuals"</span>)</span>
+<span id="cb15-9"><a aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -730,9 +732,15 @@
 <ul>
 <li><p>Calculate the <em>precision</em> for predicting cancer.</p></li>
 <li><p>Calculate the <em>recall</em> for predicting cancer.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="midi">
+<ul>
 <li><p>Calculate the <em>precision</em> for predicting non-cancer.</p></li>
 <li><p>Calculate the <em>recall</em> for predicting non-cancer.</p></li>
 </ul>
+</div>
 </div>
 </section>
 <section id="threshold" class="slide level2">
@@ -1012,25 +1020,38 @@
 1      0.801477  PA500</code></pre>
 </div>
 </div>
-<div>
-<ul>
-<li class="fragment"><p>“For every <strong>standard deviation above the mean</strong> someone’s <code>I0</code> is, we predict <strong>2.3 lower</strong> log-odds of cancer”</p></li>
-<li class="fragment"><p>“For every <strong>standard deviation above the mean</strong> someone’s <code>PA500</code> is, we predict <strong>0.80 higher</strong> log-odds of cancer.”</p></li>
-</ul>
 </div>
+</section>
+<section id="standardization-2" class="slide level2">
+<h2>Standardization</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   Coefficients Column
+0     -2.309090     I0
+1      0.801477  PA500</code></pre>
+</div>
+</div>
+<ul>
+<li>“For every <strong>standard deviation above the mean</strong> someone’s <code>I0</code> is, we predict <strong>2.3 lower</strong> log-odds of cancer”</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>“For every <strong>standard deviation above the mean</strong> someone’s <code>PA500</code> is, we predict <strong>0.80 higher</strong> log-odds of cancer.”</li>
+</ul>
 </div>
 </section>
 <section id="standardization-do-you-need-it" class="slide level2">
 <h2>Standardization: Do you need it?</h2>
+<div class="midi">
 <p>But - does this approach change our predictions?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a aria-hidden="true" tabindex="-1"></a>old_probs <span class="op">=</span> pipeline.predict_proba(df[[<span class="st">"I0"</span>, <span class="st">"PA500"</span>]])</span>
-<span id="cb48-2"><a aria-hidden="true" tabindex="-1"></a>new_probs <span class="op">=</span> pipeline2.predict_proba(df[[<span class="st">"I0"</span>, <span class="st">"PA500"</span>]])</span>
-<span id="cb48-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame({</span>
-<span id="cb48-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"without_stdize"</span>: old_probs[:,<span class="dv">1</span>], </span>
-<span id="cb48-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"with_stdize"</span>: new_probs[:,<span class="dv">1</span>]</span>
-<span id="cb48-7"><a aria-hidden="true" tabindex="-1"></a>  }).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a aria-hidden="true" tabindex="-1"></a>old_probs <span class="op">=</span> pipeline.predict_proba(df[[<span class="st">"I0"</span>, <span class="st">"PA500"</span>]])</span>
+<span id="cb49-2"><a aria-hidden="true" tabindex="-1"></a>new_probs <span class="op">=</span> pipeline2.predict_proba(df[[<span class="st">"I0"</span>, <span class="st">"PA500"</span>]])</span>
+<span id="cb49-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame({</span>
+<span id="cb49-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"without_stdize"</span>: old_probs[:,<span class="dv">1</span>], </span>
+<span id="cb49-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"with_stdize"</span>: new_probs[:,<span class="dv">1</span>]</span>
+<span id="cb49-7"><a aria-hidden="true" tabindex="-1"></a>  }).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   without_stdize  with_stdize
 0        0.736188     0.736226
@@ -1043,6 +1064,7 @@
 7        0.802116     0.802126
 8        0.816982     0.817014
 9        0.847675     0.847702</code></pre>
+</div>
 </div>
 </div>
 </section>
@@ -1075,8 +1097,8 @@
 </section>
 <section id="activity-1" class="slide level2">
 <h2>Activity</h2>
-<p>For your Logistic Regression using <strong>all</strong> predictors, which two were most important?</p>
-<p>How would you interpret the coefficients?</p>
+<p>For your Logistic Regression using <strong>all</strong> predictors, which variable was the most important?</p>
+<p>How would you interpret the coefficient?</p>
 <div class="midi">
 
 </div>

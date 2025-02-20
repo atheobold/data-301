@@ -939,7 +939,7 @@
     "href": "slides/12-logistic.html#counter-example-linear-regression-2",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\nProblem 1: Did we get “reasonable” predictions?\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\n\n\n\n\n\npred_cancer.min()\n\nnp.float64(-0.2666656752041746)\n\n\n\n\n\n\npred_cancer.max()\n\nnp.float64(1.1443978861600579)",
+    "text": "Counter-Example: Linear Regression\nProblem 1: Did we get “reasonable” predictions?\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\n\n\n\n\n\npred_cancer.min()\n\nnp.float64(-0.2666656752041747)\n\n\n\n\n\n\npred_cancer.max()\n\nnp.float64(1.144397886160058)",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
@@ -972,7 +972,7 @@
     "href": "slides/12-logistic.html#counter-example-linear-regression-5",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\nProblem 4: Are the errors really random???\n\n\n\nCode\nresiduals = df['Cancerous'] - pred_cancer\n\n(\n  ggplot(data = df, \n         mapping = aes(x = \"I0\", y = residuals)) + \n  geom_point()\n  )",
+    "text": "Counter-Example: Linear Regression\nProblem 4: Are the errors really random???\n\n\n\nCode\nresiduals = df['Cancerous'] - pred_cancer\n\n(\n  ggplot(data = df, \n         mapping = aes(x = \"I0\", y = residuals)) + \n  geom_point() +\n  theme_bw() +\n  labs(y = \"Linear Regression Residuals\")\n  )",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
@@ -1038,7 +1038,7 @@
     "href": "slides/12-logistic.html#confusion-matrix",
     "title": "Logistic Regression",
     "section": "Confusion Matrix",
-    "text": "Confusion Matrix\n\n\n\nCode\nfrom sklearn.metrics import confusion_matrix\n\npd.DataFrame(\n  confusion_matrix(df['Cancerous'], pred_cancer), \n  columns = pipeline.classes_, \n  index = pipeline.classes_)\n\n\n    0   1\n0  38  14\n1   3  51\n\n\n\nCalculate the precision for predicting cancer.\nCalculate the recall for predicting cancer.\nCalculate the precision for predicting non-cancer.\nCalculate the recall for predicting non-cancer.",
+    "text": "Confusion Matrix\n\n\n\nCode\nfrom sklearn.metrics import confusion_matrix\n\npd.DataFrame(\n  confusion_matrix(df['Cancerous'], pred_cancer), \n  columns = pipeline.classes_, \n  index = pipeline.classes_)\n\n\n    0   1\n0  38  14\n1   3  51\n\n\n\nCalculate the precision for predicting cancer.\nCalculate the recall for predicting cancer.\n\n\n\n\n\nCalculate the precision for predicting non-cancer.\nCalculate the recall for predicting non-cancer.",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
@@ -1170,7 +1170,7 @@
     "href": "slides/12-logistic.html#standardization-1",
     "title": "Logistic Regression",
     "section": "Standardization",
-    "text": "Standardization\n\n\nfrom sklearn.preprocessing import StandardScaler\n\npipeline2 = make_pipeline(\n  StandardScaler(),\n  LogisticRegression(penalty = None)\n  )\n\npipeline2 = pipeline2.fit(df[[\"I0\", \"PA500\"]], df['Cancerous'])\n\npd.DataFrame({\n  \"Coefficients\": pipeline2['logisticregression'].coef_[0],\n  \"Column\": [\"I0\", \"PA500\"]\n  })\n\n   Coefficients Column\n0     -2.309090     I0\n1      0.801477  PA500\n\n\n\n\n“For every standard deviation above the mean someone’s I0 is, we predict 2.3 lower log-odds of cancer”\n“For every standard deviation above the mean someone’s PA500 is, we predict 0.80 higher log-odds of cancer.”",
+    "text": "Standardization\n\n\nfrom sklearn.preprocessing import StandardScaler\n\npipeline2 = make_pipeline(\n  StandardScaler(),\n  LogisticRegression(penalty = None)\n  )\n\npipeline2 = pipeline2.fit(df[[\"I0\", \"PA500\"]], df['Cancerous'])\n\npd.DataFrame({\n  \"Coefficients\": pipeline2['logisticregression'].coef_[0],\n  \"Column\": [\"I0\", \"PA500\"]\n  })\n\n   Coefficients Column\n0     -2.309090     I0\n1      0.801477  PA500",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
@@ -1181,7 +1181,7 @@
     "href": "slides/12-logistic.html#standardization-do-you-need-it",
     "title": "Logistic Regression",
     "section": "Standardization: Do you need it?",
-    "text": "Standardization: Do you need it?\nBut - does this approach change our predictions?\n\nold_probs = pipeline.predict_proba(df[[\"I0\", \"PA500\"]])\nnew_probs = pipeline2.predict_proba(df[[\"I0\", \"PA500\"]])\n\npd.DataFrame({\n  \"without_stdize\": old_probs[:,1], \n  \"with_stdize\": new_probs[:,1]\n  }).head(10)\n\n   without_stdize  with_stdize\n0        0.736188     0.736226\n1        0.889803     0.889822\n2        0.813277     0.813319\n3        0.890781     0.890804\n4        0.842957     0.842978\n5        0.731660     0.731678\n6        0.775454     0.775463\n7        0.802116     0.802126\n8        0.816982     0.817014\n9        0.847675     0.847702",
+    "text": "Standardization: Do you need it?\n\nBut - does this approach change our predictions?\n\nold_probs = pipeline.predict_proba(df[[\"I0\", \"PA500\"]])\nnew_probs = pipeline2.predict_proba(df[[\"I0\", \"PA500\"]])\n\npd.DataFrame({\n  \"without_stdize\": old_probs[:,1], \n  \"with_stdize\": new_probs[:,1]\n  }).head(10)\n\n   without_stdize  with_stdize\n0        0.736188     0.736226\n1        0.889803     0.889822\n2        0.813277     0.813319\n3        0.890781     0.890804\n4        0.842957     0.842978\n5        0.731660     0.731678\n6        0.775454     0.775463\n7        0.802116     0.802126\n8        0.816982     0.817014\n9        0.847675     0.847702",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
@@ -1203,7 +1203,7 @@
     "href": "slides/12-logistic.html#activity-1",
     "title": "Logistic Regression",
     "section": "Activity",
-    "text": "Activity\nFor your Logistic Regression using all predictors, which two were most important?\nHow would you interpret the coefficients?",
+    "text": "Activity\nFor your Logistic Regression using all predictors, which variable was the most important?\nHow would you interpret the coefficient?",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
@@ -5351,6 +5351,17 @@
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
+    ]
+  },
+  {
+    "objectID": "slides/12-logistic.html#standardization-2",
+    "href": "slides/12-logistic.html#standardization-2",
+    "title": "Logistic Regression",
+    "section": "Standardization",
+    "text": "Standardization\n\n\n   Coefficients Column\n0     -2.309090     I0\n1      0.801477  PA500\n\n\n\n“For every standard deviation above the mean someone’s I0 is, we predict 2.3 lower log-odds of cancer”\n\n\n\n“For every standard deviation above the mean someone’s PA500 is, we predict 0.80 higher log-odds of cancer.”",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
     ]
   }
 ]

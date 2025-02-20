@@ -23,7 +23,7 @@ import pandas as pd
 from plotnine import *
 ```
 
-# The story so far..
+# The story this week...
 
 ## Classification
 
@@ -257,8 +257,10 @@ residuals = df['Cancerous'] - pred_cancer
 (
   ggplot(data = df, 
          mapping = aes(x = "I0", y = residuals)) + 
-  geom_point()
-  )
+  geom_point() +
+  theme_bw() +
+  labs(y = "Linear Regression Residuals")
+  ) 
 ```
 :::
 
@@ -272,7 +274,9 @@ residuals = df['Cancerous'] - pred_cancer
 plot = (
   ggplot(data = df, 
          mapping = aes(x = "I0", y = residuals)) + 
-  geom_point()
+  geom_point() + 
+  theme_bw() +
+  labs(y = "Linear Regression Residuals")
   )
   
 plot.draw(plot)
@@ -401,7 +405,11 @@ pd.DataFrame(
 -   Calculate the *precision* for predicting cancer.
 
 -   Calculate the *recall* for predicting cancer.
+:::
 
+. . .
+
+::: {.midi}
 -   Calculate the *precision* for predicting non-cancer.
 
 -   Calculate the *recall* for predicting non-cancer.
@@ -708,16 +716,29 @@ pd.DataFrame({
   })
 
 ```
+:::
 
-::: {.incremental}
+## Standardization
+
+```{python}
+#| echo: false
+#| label: standardize-features-logistic-regression-preview
+
+pd.DataFrame({
+  "Coefficients": pipeline2['logisticregression'].coef_[0],
+  "Column": ["I0", "PA500"]
+  })
+```
+
 -   "For every **standard deviation above the mean** someone's `I0` is, we predict **2.3 lower** log-odds of cancer"
 
+. . .
+
 -   "For every **standard deviation above the mean** someone's `PA500` is, we predict **0.80 higher** log-odds of cancer."
-:::
-:::
 
 ## Standardization: Do you need it?
 
+::: {.midi}
 But - does this approach change our predictions?
 
 ```{python}
@@ -732,6 +753,7 @@ pd.DataFrame({
   "with_stdize": new_probs[:,1]
   }).head(10)
 ```
+:::
 
 ## Standardization: Do you need it?
 
@@ -758,9 +780,9 @@ pd.DataFrame({
 
 ## Activity
 
-For your Logistic Regression using **all** predictors, which two were most important?
+For your Logistic Regression using **all** predictors, which variable was the most important?
 
-How would you interpret the coefficients?
+How would you interpret the coefficient?
 
 ::: {.midi}
 ```{python}
