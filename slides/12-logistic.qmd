@@ -575,7 +575,7 @@ Suppose you want to predict Cancer vs. No Cancer from breast tissue using a Logi
 
 -   or all predictors?
 
-Use **cross-validation** with **F1 Score** to decide!
+Use **cross-validation** (`cross_val_score()`) with 10 folds using the **F1 Score** (`scoring = "f1_macro"`) to decide!
 
 Then, fit your **final model** and report the **confusion matrix**.
 :::
