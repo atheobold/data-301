@@ -569,9 +569,9 @@ Suppose you want to predict Cancer vs. No Cancer from breast tissue using a Logi
 
 -   Just `I0` and `PA500`?
 
--   Just `DA` and `DP`?
+-   Just `DA` and `P`?
 
--   `I0`, `PA500`, `DA`, and `DP`?
+-   `I0`, `PA500`, `DA`, and `P`?
 
 -   or all predictors?
 

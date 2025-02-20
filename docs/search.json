@@ -1126,7 +1126,7 @@
     "href": "slides/12-logistic.html#activity",
     "title": "Logistic Regression",
     "section": "Activity",
-    "text": "Activity\n\nSuppose you want to predict Cancer vs. No Cancer from breast tissue using a Logistic Regression. Should you use…\n\nJust I0 and PA500?\nJust DA and DP?\nI0, PA500, DA, and DP?\nor all predictors?\n\nUse cross-validation with F1 Score to decide!\nThen, fit your final model and report the confusion matrix.",
+    "text": "Activity\n\nSuppose you want to predict Cancer vs. No Cancer from breast tissue using a Logistic Regression. Should you use…\n\nJust I0 and PA500?\nJust DA and P?\nI0, PA500, DA, and P?\nor all predictors?\n\nUse cross-validation with F1 Score to decide!\nThen, fit your final model and report the confusion matrix.",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
