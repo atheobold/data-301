@@ -1,0 +1,257 @@
+---
+title: "Hierarchical data"
+format:
+  revealjs: 
+    theme: [default, spring.scss]
+    incremental: true 
+    output-file: slides-15-hierarchical.html
+    shift-heading-level-by: -1
+execute:
+  echo: true
+---
+
+```{python}
+
+```
+
+```{r}
+#| include: false
+library(reticulate)
+use_python("/usr/local/bin/python3")
+```
+
+```{python}
+#| include: false
+import numpy as np
+import pandas as pd
+from plotnine import *
+```
+
+## The story so far
+
+### Tabular data and indices/keys
+
+* Thus far, we have only dealt with **tabular data** that can be represented with **rows** and **columns**.
+
+* It is important to determine what **each row represents** because...
+
+    + You want to make sure you understand your data
+    + You might want to set an **index**
+    + You might want to find a **key** to merge on
+    
+* So far, we have read data in from `.csv` files or `.txt` files.
+
+## JSON data
+
+### JSON data
+
+* The most common non-tabular data file type is called **JSON** (*JavaScript Object Notation*)
+
+* Information is stored in *nested dictionaries*.
+
+* This type of data is called **hierarchical**, because it has multiple levels
+
+* It can be helpful to picture the data like a **tree**
+
+
+* You can think of this a bit like folders on your computer
+
+### Example
+
+```
+{"teaching":
+  {"colleges": [
+      {
+        "name": "Stanford",
+        "location": "Palo Alto",
+        "classes": [
+        {
+          "name": "Principles of Data Science",
+          "number": "DataSci 112",
+          "enrollment": 90,
+          "quarter": "Spring 2024",
+          "students": [
+            {
+              "name": "Regina George",
+              "id": 12345
+            },
+            {
+              "name": "Cady Heron",
+              "id": 38292
+            },
+            (... more students in 112)
+          ]
+        }, (end of 112 entry)
+        {
+          "name": "Introduction to Statistical Learning",
+          "number": "Stat 216V",
+          "enrollment": 40,
+          "quarter": "Summer 2024",
+          "students": [
+            {
+              "name": "Tommy Oliver",
+              "id": 99999
+            },
+            {
+              "name": "Trini Kwan",
+              "id": 88888
+            },
+            (... more students in 216V)
+          ]
+        } end of 112 entry
+        (... more classes)
+        ]
+      }, (end of Stanford info)
+      {
+        ... (Cal Poly info)
+      }
+    ], (end of "colleges" list)
+    "high schools": [
+      (... high school info)
+    ]
+  } (end of "teaching")
+} (end of file)
+```
+
+### Quick quiz
+
+* What would be the **primary key** at the *colleges* level?
+
+* What would be the **primary key** at the *classes* level?
+
+* What would be the **primary key** at the *students* level?
+
+### JSON: Things to notice
+
+* This looks exactly like a *dictionary* in python, so it is easy to read in as data.
+
+* When we have *nested* structure, we have a *list* of *dictionaries*, e.g. `{"students": [{"name": "Regina George", ...}, {"name":"Cady Heron", ...}, ...]}`
+
+* There can be *keys* with the same name at different *levels*
+
+### Check out some real data
+
+[Colab link](https://colab.research.google.com/drive/12LyAEhX4uoZWlumtLsmI3n354cR-2Boi?usp=sharing)
+
+## XML
+
+### XML
+
+* Another type of hierarchical data is **XML** (*eXtensible markup language*)
+
+* It is the same concept as **JSON**, but a bit less commonly used.
+
+* Instead of *dictionaries*, data is recorded with *tags*.
+
+### XML Example
+
+
+```
+<teaching>
+  <colleges>
+    <college>
+      <name>Stanford</name>
+      <location>Palo Alto</location>
+      <classes>
+        <class>
+          <name>Principles of Data Science</name>
+          <number>DataSci 112</number>
+          <enrollment>90</enrollment>
+           <quarter>Spring 2024</quarter>
+           <students>
+            <student>
+               <name>Regina George</name>
+               <id>12345</id>
+            </student>
+             <student>
+               <name>Cady Heron</name>
+              <id>38292</name>
+            </student>
+             (... more students in 112)
+          </students>
+        </class>
+        (... more classes)
+       </classes>
+     </college>
+     <college>
+       ... (Cal Poly info)
+     </college>
+   </colleges>
+   <highschools>
+     (... high school info)
+   </highschools>
+</teaching>
+```
+
+### XML: things to notice
+
+* It is easy to see where each *level* starts and ends
+
+* When we have a *nested* data structure, we have plural/singular, e.g. `<students> <student> ... </student> <student> ... </student> </students>`
+
+* This *tagging* structure looks kind of like **HTML**, which is how websites are constructed
+
+### Check out some real data
+
+[Colab link](https://colab.research.google.com/drive/12LyAEhX4uoZWlumtLsmI3n354cR-2Boi?usp=sharing)
+
+### XML vs. JSON
+
+* XML matches *website* code; JSON matches *python* (and other languages) code.
+
+* XML makes it easy to see start and finish; JSON is more compact.
+
+* There is no objective reason one is better than the other.
+
+* Both are **just text files** made with specific structure!
+
+## Relational Data
+
+### Relational Data
+
+* You will sometimes see *hierarchical data* stored as many **tabular datasets** in a **relational database**.
+
+* (This is the main use of things like **SQL**)
+
+* The important thing is **key matching**
+
+* Example:
+  + Dataset 1: List of colleges
+  + Dataset 2: List of courses, and "college" column as *foreign key*
+  + Dataset 3: List of students, and "course" column as *foreign key*
+  
+## APIS
+
+### APIs{.smaller}
+
+* The main reason we need to know how to handle *relational data* is because this is how data is commonly shared online.
+
+* Some organizations/websites provide an **API** (*Application Programming Interface*) where you can "easily" access data.
+
+* Typically, this data is shared as JSON or XML.
+
+* APIs have multiple **endpoints**: subsections of the site where you can access particular *levels* or *categories* of data.
+
+* [Example: Magic the Gathering](https://docs.magicthegathering.io/)
+
+* The hard part of APIs is figuring out which URL to go to for a particular dataset.  Then you're just snagging a JSON or XML as text!
+
+* (You'll practice this in Section.)
+
+## Takeaways
+
+### Takeaways{.smaller}
+
+* Data might be stored in **hierarchical** form rather than **tabular** form.
+
+* The structure of text files for this data is typically either **JSON** or **XML**.
+
+* It is important to think about **levels** of the data (i.e. layers of the tree) and what their **keys** are
+
+* We can use the `.json` and `json_normalize` functions to turn JSON levels in to tabular data
+
+* We can use `.find` or `.findall` or `.parent` or `.child` to search/navigate the tree in XML data.  (Then we have to build our tabular datasets from scratch.)
+
+* The collection of tabular datasets from each level might be stored in a **relational database**
+
+* The place where you will usually see hierarchical data is when querying **APIs**.
