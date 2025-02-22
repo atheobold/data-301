@@ -939,7 +939,7 @@
     "href": "slides/12-logistic.html#counter-example-linear-regression-2",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\nProblem 1: Did we get “reasonable” predictions?\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\n\n\n\n\n\npred_cancer.min()\n\nnp.float64(-0.2666656752041747)\n\n\n\n\n\n\npred_cancer.max()\n\nnp.float64(1.144397886160058)",
+    "text": "Counter-Example: Linear Regression\nProblem 1: Did we get “reasonable” predictions?\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\n\n\n\n\n\npred_cancer.min()\n\nnp.float64(-0.2666656752041746)\n\n\n\n\n\n\npred_cancer.max()\n\nnp.float64(1.1443978861600579)",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
@@ -1171,6 +1171,17 @@
     "title": "Logistic Regression",
     "section": "Standardization",
     "text": "Standardization\n\n\nfrom sklearn.preprocessing import StandardScaler\n\npipeline2 = make_pipeline(\n  StandardScaler(),\n  LogisticRegression(penalty = None)\n  )\n\npipeline2 = pipeline2.fit(df[[\"I0\", \"PA500\"]], df['Cancerous'])\n\npd.DataFrame({\n  \"Coefficients\": pipeline2['logisticregression'].coef_[0],\n  \"Column\": [\"I0\", \"PA500\"]\n  })\n\n   Coefficients Column\n0     -2.309090     I0\n1      0.801477  PA500",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 7, Part 2 - Logistic Regression"
+    ]
+  },
+  {
+    "objectID": "slides/12-logistic.html#standardization-2",
+    "href": "slides/12-logistic.html#standardization-2",
+    "title": "Logistic Regression",
+    "section": "Standardization",
+    "text": "Standardization\n\n\n   Coefficients Column\n0     -2.309090     I0\n1      0.801477  PA500\n\n\n\n“For every standard deviation above the mean someone’s I0 is, we predict 2.3 lower log-odds of cancer”\n\n\n\n“For every standard deviation above the mean someone’s PA500 is, we predict 0.80 higher log-odds of cancer.”",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
@@ -1764,7 +1775,7 @@
     "href": "slides/10-cross-val.html#estimating-error-for-test-data",
     "title": "Cross-Validation and Grid Search",
     "section": "Estimating Error for Test Data",
-    "text": "Estimating Error for Test Data\n\nmean_squared_error(y_test, pred_y_test)\n\n150.95542386757697",
+    "text": "Estimating Error for Test Data\n\nmean_squared_error(y_test, pred_y_test)\n\n57.922771037840334",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1896,7 +1907,7 @@
     "href": "slides/10-cross-val.html#getting-the-cross-validation-results",
     "title": "Cross-Validation and Grid Search",
     "section": "Getting the Cross Validation Results",
-    "text": "Getting the Cross Validation Results\n\n\npd.DataFrame(grid_cv.cv_results_)\n\n\n\n\n\n    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score\n0        0.001538      0.000309  ...      219.338831               12\n1        0.001270      0.000008  ...      209.511631                9\n2        0.001268      0.000006  ...      178.819362                6\n3        0.001262      0.000007  ...      217.989122               11\n4        0.001248      0.000022  ...      212.797774                7\n5        0.001246      0.000004  ...      205.240907                3\n6        0.001250      0.000012  ...      227.978005               10\n7        0.001248      0.000005  ...      175.175403                2\n8        0.001263      0.000015  ...      174.981203                5\n9        0.001400      0.000123  ...      175.186322                1\n10       0.001405      0.000171  ...      200.091917                4\n11       0.001449      0.000166  ...      232.710455                8\n\n[12 rows x 15 columns]",
+    "text": "Getting the Cross Validation Results\n\n\npd.DataFrame(grid_cv.cv_results_)\n\n\n\n\n\n    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score\n0        0.001557      0.000302  ...      219.338831               12\n1        0.001271      0.000011  ...      209.511631                9\n2        0.001326      0.000063  ...      178.819362                6\n3        0.001267      0.000013  ...      217.989122               11\n4        0.001257      0.000013  ...      212.797774                7\n5        0.001261      0.000010  ...      205.240907                3\n6        0.001463      0.000300  ...      227.978005               10\n7        0.001256      0.000012  ...      175.175403                2\n8        0.001283      0.000029  ...      174.981203                5\n9        0.001255      0.000007  ...      175.186322                1\n10       0.001247      0.000008  ...      200.091917                4\n11       0.001243      0.000017  ...      232.710455                8\n\n[12 rows x 15 columns]",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -2215,7 +2226,7 @@
     "href": "slides/06-preprocessing.html#finding-all-categorical-variables",
     "title": "Dummy Variables and Column Transformers",
     "section": "Finding All Categorical Variables",
-    "text": "Finding All Categorical Variables\n\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")\n\n\n\n\n\n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12fcd2ba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12fa27890&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriNot fittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12fcd2ba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x12fa27890&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x12fcd2ba0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x12fa27890&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder passthroughpassthrough",
+    "text": "Finding All Categorical Variables\n\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")\n\n\n\n\n\n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13bb3eba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13b99f750&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriNot fittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13bb3eba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13b99f750&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13bb3eba0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13b99f750&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder passthroughpassthrough",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -2418,311 +2429,6 @@
       "Lecture Slides",
       "Week 1, Part 1 - Tabular Data and Variable Summaries"
     ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#course-objectives",
-    "href": "course-materials/syllabus.html#course-objectives",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Course Objectives",
-    "text": "Course Objectives\nAfter taking this course, you will be able to:\n\nAcquire and process tabular, textual, hierarchical, and geospatial data.\nUncover patterns by summarizing and visualizing data.\nApply machine learning to answer real-world prediction problems.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#prerequisites",
-    "href": "course-materials/syllabus.html#prerequisites",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Prerequisites",
-    "text": "Prerequisites\nI expect you to enter this class with:\n\nBasic knowledge of Python and computer programming concepts.\nFamiliarity with computers and technology (e.g., Internet browsing, word processing, opening/saving files, converting files to PDF format, sending and receiving e-mail, etc.).\nA positive attitude, a curious mind, and a respect for ethical use of data science tools.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#lecture-check-ins-5",
-    "href": "course-materials/syllabus.html#lecture-check-ins-5",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Lecture Check-Ins (5%)",
-    "text": "Lecture Check-Ins (5%)\nEvery lecture will be accompanied by a simple “Check-In Quiz” on Canvas. This will ask you to input a few answers covered in lecture, and one short mid-lecture practice exercise. Infinite submissions are allowed without penalty, so there is no reason anyone should not get 100% in this category.\nIf you miss lecture, you can still complete the Check-Ins on your own time, by midnight the next day.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#lab-attendance-and-activities-10",
-    "href": "course-materials/syllabus.html#lab-attendance-and-activities-10",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Lab Attendance and Activities (10%)",
-    "text": "Lab Attendance and Activities (10%)\nAttendance and participation in the lab portion of class is required. Do not take this class if you cannot commit to attending every lecture and every lab.\n\nSwapping Lab Sections\nIf you cannot make it to your assigned lab, but you can attend another section’s lab on the same day, please e-mail Dr. Theobold to inform them that you wish to swap lab sections. You may do this two times throughout the quarter.\n\n\nMissing Lab\nIf you cannot make it to any lab sections that day, you may complete the Colab assignment from lab on your own, and e-mail a PDF to Dr. Theobold by midnight that night (the day you missed class). Dr. Theobold will grade your Colab, and this score will replace your attendance for that day. You may do this two times throughout the quarter.\nTo allow for emergencies, we will also forgive one absence at the end of the quarter.\n\n\n\n\n\n\nNote\n\n\n\nWe are effectively allowing you to miss / reschedule up to three labs out of 10. If you need to miss more than three, then you will need to retake this course next quarter.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#lab-assignments-25",
-    "href": "course-materials/syllabus.html#lab-assignments-25",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Lab Assignments (25%)",
-    "text": "Lab Assignments (25%)\nEach week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are due every Saturday at 11:59pm. See the Late Work section below for information on extensions or deductions for late submissions.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#exams-15-each",
-    "href": "course-materials/syllabus.html#exams-15-each",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Exams (15% each)",
-    "text": "Exams (15% each)\nYou will have two in-class exams, in Week 5 and Week 10. These will each cover half of the class material. Except in very extreme unforeseeable circumstances, no alternate exams will be given; please plan to be in class these days.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#project-30",
-    "href": "course-materials/syllabus.html#project-30",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Project (30%)",
-    "text": "Project (30%)\nAt the end of the quarter, you will formally present a poster of your findings on a real-world data question. To ensure that you start thinking about your project early, you are required to submit a 1-page abstract proposal in Week 7.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#communication",
-    "href": "course-materials/syllabus.html#communication",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Communication",
-    "text": "Communication\nFor questions of general interest, such as deadline clarifications or conceptual questions, please use the Class Discord Server. You should check the relevant thread of the server, as well as the syllabus, before reaching out to Dr. Theobold.\nOf course, if your question is truly private, such as a grade inquiry or a personal concern, you may email me directly.\n\n\n\n\n\n\nNote\n\n\n\nIf you email me to ask a question that should be public, I will likely ask you to post your question on Discord instead. Please don’t take this personally! It just means that you asked a good question, and I think the rest of the class could benefit from seeing the answer.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#late-work",
-    "href": "course-materials/syllabus.html#late-work",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Late Work",
-    "text": "Late Work\nLate assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!\n\n\n\n\n\n\nNote\n\n\n\nNote that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.\n\n\n\nDeadline Extensions\nIn case of emergency, you have two deadline “extensions” to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.\nThe rules for these are as follows:\n\nYou must request the extension through the Google form linked on Canvas. Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.\nThe extension must be requested before the deadline has passed (i.e., before Friday at 11:59pm). I do not grant after-deadline extensions for any reason.\n\nProperly requested extensions are automatically granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.\n\n\n\n\n\n\nNote\n\n\n\nThese deadline extensions are automatic! You don’t have to tell why you need the extension - maybe you have a busy week with other work, maybe you are traveling with a sports team, maybe you partied too hard for your friend’s birthday. It doesn’t matter to me!\nThe flip side of this, though, is that if you use your deadline extensions early on in the course, and then run into a bigger issues later on, you’re out of luck.\n\n\n\n\nSpecial cases\nSometimes, issues arise require more time than the auto-extension gives. In general, if something comes up in your life, I always want to find a way to help. Please let me know what your situation is, and we’ll work together to find a good solution.\nThe most important thing is that you tell me early. As a rule, I do not grant extensions after the deadline.\n\n\n\n\n\n\nNote\n\n\n\nOf course, in the case of a major crisis, that is truly exceptional and unforeseen, all these rules go out the window. I want you to feel comfortable reaching out to me when you are facing something extra difficult. We’ll figure it out.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#academic-integrity",
-    "href": "course-materials/syllabus.html#academic-integrity",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Academic Integrity",
-    "text": "Academic Integrity\nYou are expected to abide by the Cal Poly Code of Conduct at all times.\n\nPlagiarism\nYou are encouraged to work with other classmates on all but the exam portions of this class. You are also encouraged (realistically, required!) to make use of online resources to accomplish tasks.\nWhen dealing with code, follow these guidelines:\n\nNever copy-paste more than small snippets of code. That is, you might borrow a little three-line function from StackOverflow, but you should not copy over a full analysis you find on Kaggle.\nAttribute all code that is not completely your own. If you do borrow that StackOverflow snippet, provide a link to the source. If you reference a similar analysis for ideas, mention that in your description.\n\n\n\n\n\n\n\nWarning\n\n\n\nA good “rule of thumb” is: If I sat you down by yourself in a room with no internet, could you explain to me roughly what each line of code is doing? If not, you are probably borrowing more than you should from your online source.\n(In fact, this is exactly what I will do if I need to investigate possible cheating.)\n\n\n\nAI tools\nNew AI models like Chat GPT offer a whole new world of online coding resources. This is exciting! You should absolutely feel free to get help from these tools, they are excellent at answering questions.\nHowever, from an academic integrity perspective, treat these AI generative chat resources like, say, a tutor. Asking a tutor to help explain a homework concept to you or help debug your code? Totally fine! Giving the tutor a homework question and having them answer the whole thing? Nope. Talking to a tutor at all, about anything, during the course of the exam? Unacceptable.\n\n\n\nIntegrity Violations\nIf you accidentally forget a small citation, or go a little overboard in how much you “borrow” from StackOverflow, you’ll get a warning and a grade deduction on that assignment.\nAny instance of willful and deliberate cheating will result in a failing grade on the assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.\n\n\n\n\n\n\nWarning\n\n\n\nBe careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have both received a failing grade on the assignment and a report filed to OSRR.\n\n\n\n\nIntellectual property\nThe materials for this course are legally the professor’s intellectual property.\nMost class materials are publicly shared, and you are welcome to direct others to this resource at any time. You are also welcome to publicly share any or all of your work on the class project.\nNon-public class materials—most importantly, assignment solutions and any exam materials—may never be shared.\n\n\n\n\n\n\nWarning\n\n\n\nThis is not just an issue of academic honestly, it is quite literally a legal copyright scenario. Please do not distribute solutions or exam questions from this class anywhere, for any reason. Doing so is a violation of the Code of Conduct, and it may constitute a violation of U.S. copyright law.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-materials/syllabus.html#class-conduct",
-    "href": "course-materials/syllabus.html#class-conduct",
-    "title": "DATA 301: Introduction to Data Science",
-    "section": "Class Conduct",
-    "text": "Class Conduct\nIn this classroom, I expect you to be polite, respectful, inclusive, and open-minded.\nSome examples of how to be a good classmate include:\n\nDoing your best to avoid language that is ableist, racist, sexist, transphobic, or classist; or that perpetuates harmful stereotypes.\nAddressing your classmates (and your professor!) by their preferred name and pronouns.\nDoing your best to be aware of your own biases, privileges, and areas of ignorance.\nListening to others’ opinions, and making an effort to understand their perspective.\nTaking the time to help your classmates grasp concepts or solve problems, even when you are ready to move on.\n\n\nAttendance\nIt is my general expectation that you will attend lecture, and remain present until you have finished the day’s in-class work. However, I do not take formal attendance in class; as long as you engage with the material and complete the small check-ins, you can decide which lectures are useful to you.\nPlease do not email me letting me know when you are missing class - I don’t need to know if you are attending, it is your responsibility to catch up on the materials and check-ins you miss.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#about-me",
-    "href": "slides/00-welcome.html#about-me",
-    "title": "Welcome, Intro, and Setup",
-    "section": "About Me",
-    "text": "About Me\n\n\n\n\n\n\nGrew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, going to concerts and musicals",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#grade-brakedown",
-    "href": "slides/00-welcome.html#grade-brakedown",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Grade Brakedown",
-    "text": "Grade Brakedown\n\n5%: Check-Ins – Questions interspersed throughout lecture\n10%: Lab Activities – Lab attendance is required\n25%: Weekly Assignments – due Saturdays at midnight\n15% each: Exams in Week 5 and Week 10.\n30%: Final project",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#important-dates",
-    "href": "slides/00-welcome.html#important-dates",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Important Dates",
-    "text": "Important Dates\n\nThurs, February 6: Exam 1 (in-class)\nFri, February 21: 1-page Project Proposal Due\nThurs, March 13: Exam 2 (in-class)\nSaturday, March 16 (before Finals Week: Final Project Poster Presentations",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#homework-late-policy",
-    "href": "slides/00-welcome.html#homework-late-policy",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Homework Late Policy",
-    "text": "Homework Late Policy\n\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.\nIf you’ve used your deadline extensions, late work has a 10% deduction per day for up to 5 days.\n\nThis policy also applies to deadline extension requests that are not submitted before the assignment’s deadline.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#missing-lab",
-    "href": "slides/00-welcome.html#missing-lab",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Missing Lab",
-    "text": "Missing Lab\n\nBest option: Go to another section.\nSecond-best option: Turn in your work by email to me.\nWorst option: Miss it entirely, get a 0.\nYou may miss lab up to two times during the quarter. If you need to miss / reschedule more than two of the labs this quarter, you will need to retake the class.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#discord-and-email",
-    "href": "slides/00-welcome.html#discord-and-email",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Discord and Email",
-    "text": "Discord and Email\n\nClass questions go on DISCORD\nUse my email only for personal concerns that you want to talk about privately to me.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#colab-notebooks",
-    "href": "slides/00-welcome.html#colab-notebooks",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Colab Notebooks",
-    "text": "Colab Notebooks\n\nIn Data Science, everyone uses Notebooks, not scripts, for coding.\nWe will be using Jupyter Notebooks (invented at Cal Poly!), hosted for free by Google Colab.\nIf you want to work offline, you can install Anaconda on your laptop.\nI recommend an IDE like PyCharm (or Positron) as well.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#academic-integrity",
-    "href": "slides/00-welcome.html#academic-integrity",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Academic Integrity",
-    "text": "Academic Integrity\n\nIf you copy text from a website into your essay, it’s cheating.\nIf you ask your friend to write your essay, it’s cheating.\nIf you pay someone else to write your essay, it’s cheating.\nIf you ask GenAI to do your work and then copy the answers, it’s cheating.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#conversation-not-copying",
-    "href": "slides/00-welcome.html#conversation-not-copying",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Conversation, not copying",
-    "text": "Conversation, not copying\nIt is okay (in fact, encouraged) to …\n\nAsk GenAI for tips on how to get started on a coding problem\nAsk GenAI to help find bugs in your code\nAsk GenAI to help explain concepts or functions\nPretend ChatGPT is your human tutor or TA!",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
-    "href": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
-    "title": "Welcome, Intro, and Setup",
-    "section": "Activity: Good and bad use of AI",
-    "text": "Activity: Good and bad use of AI\n\nFind your group member\n\nIn the “People” tab on Canvas, find your “Day 1 Group”\n\nOnce you have found your group member, open the Activity 1.1 notebook (linked on Canvas).\n\n\n15-minutes:\n\nFirst, Person A follows the instructions in Part 1 of the notebook.\nThen, Person B follows the instructions in Part 2 of the notebook.\nFinally, discuss and answer the questions at the bottom.\n\n\n\n\n\n\n\n\n\nIf it is not your turn to type, you watch!\n\n\nDo not give input unless your partner asks for help.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 0 - Welcome & Course Set-up"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Data Science (in Python)",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nSunday, January 12\n\n\n\nLab 1A, 1B Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nLecture 2.1 Activity\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nLecture 2.2 Activity\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nSunday, January 19\n\n\n\nLab 2A, 2B Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nSunday, January 26\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-Words and TF-IDF\nActivity 4.2\nLab 4A\nLab 4B\n\n\n\n\nSunday, February 2\n\n\n\nLab 4A, 4B Due by Midnight\n\n\n\n5\nK-Nearest Neighbors & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nLecture 5.1 Activity\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nSpicing up Your Visualizations\nActivity 5.2\n\nExam 1 (in-class)\n\n\n\nFriday, February 7\n\n\n\nNo lab this week!\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nIntroduction to Modeling\nLecture 6.1 Activity\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nCross-Validation and Grid Search\nLecture 6.2 Activity\nActivity 6.2\nLab 6\n\n\n\n\nSunday, February 16\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nClassification\nLecture 7.1 Activity\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nLogistic Regression\nLecture 7.2 Activity\nActivity 7.2\nLab 7\n\n\n\n\nSunday, February 23\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nJoining Data & Hierarchical Data\nTuesday, February 25\n\nUnsupervised Learning with K-Means\nLecture 8.1 Activity\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nCombining Datasets\nLecture 8.2 Activity\nActivity 8.2\nLab 8\n\n\n\n\nSunday, March 2\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nHierarchical Data & Data Ethics\nTuesday, March 4\n\nHierarchical Data\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\nData Ethics\nActivity 9.2\n\n\n\n\n\nSunday, March 9\n\n\n\nLab 9 Due by Midnight\n\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\n\n\n\n\n\n\n\nThursday, March 13\n\n\n\n\nExam 2 (in-class)\n\n\nFinals Week\nSaturday, March 15 (time TBD)\n\n\n\n\nPoster Presentations",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "project/project-description.html",
-    "href": "project/project-description.html",
-    "title": "Final Project Guidelines",
-    "section": "",
-    "text": "Overview\nYour final project is your chance to demonstrate your knowledge from DATA 301 in a real-world setting. You will choose a dataset, or possibly multiple related datasets, and perform an analysis to address your group’s research question(s).\nYou will summarize your findings into a poster, and present it during the common hour final poster session (with both sections of DATA 301) on Saturday, March 15th from 1:10pm to 2:30pm. The poster session will be in our regularly scheduled classroom!\nProjects may be done in groups of up to 3 students. The guidelines are the same regardless; that is, if you choose to work alone, I will expect the same level of quality as if you choose to work in a group of 3.\n\n\n\n\n\n\nCaution\n\n\n\nNo extensions will be granted for projects, except in highly unusual, extenuating circumstances. Please start early!\n\n\n\n\nCheckpoint 1: Project Proposal\nTo make sure you are on track, you have a two-page project proposal due on Sunday, February 23.\nThis proposal must be two pages only, and it must contain:\n\nYour group member names.\nInformation about the dataset(s) you intend to analyze:\n\nWhere are the data located?\nWho collected the data and why?\nWhat information (variables) are in the dataset?\n\nResearch Questions: You should have one primary research question and a few secondary questions\nPreliminary exploration of your dataset(s): A few simple plots or summary statistics that relate to the variables you plan to study.\n\n\n\nFinding Data\nSome good places to find datasets are:\n\nKaggle\nTidy Tuesday\nGoogle Data Set Search\nReddit Datasets\nList of JSON APIs\nProject Gutenberg (good source of textual data)\nState or federal government websites, such as the U.S. Government’s Open Data\n\n\n\nPrinting Your Final Poster\nThis website has some poster templates that you can (but are not required to) use. Your poster will need to be printed on 24” x 36” paper. You may select all the most basic printing options (e.g., matte paper, no lamination, not mounted). I would recommend printing you poster at Cal Poly since basic posters cost about $18. You might need to check on their turnaround time, since they may be busy during Week 10.\nIf you need assistance with the cost of printing a poster, please let Dr. Theobold know.\n\n\nFinal Poster Grading\nYour posters will be graded on:\n\nPresentation:\n\nWas the poster clear and visually appealing?\nDo the visualizations tell a story?\nWere the presenters able to describe the project and answer questions?\n\nCorrectness:\n\nWere the correct summaries and analyses chosen for the data?\nWere the results correctly interpreted and described?\nWas the choice of analysis reasonable for the research question?\n\nComplexity:\n\nDid the project address multiple rich aspects of the dataset(s)?\nDid the project use skills from across the quarter to answer questions?\nDid the project incorporate something from Week 9 or 10? (Webscraping, APIs, data joining) or from beyond the course?\n\nData insight:\n\nWere the research questions interesting and insightful?\nDid the project make clear and relevant data conclusions?\nDoes the project tell a story with real-world impact?"
-  },
-  {
-    "objectID": "slides/better-data-visualization.html",
-    "href": "slides/better-data-visualization.html",
-    "title": "Making your Data Visualizations More Effective",
-    "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nchildcare_costs &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')\n\nRows: 34567 Columns: 61\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (61): county_fips_code, study_year, unr_16, funr_16, munr_16, unr_20to64...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ncounties &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')\n\nRows: 3144 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (3): county_name, state_name, state_abbreviation\ndbl (1): county_fips_code\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\n\nca_childcare &lt;- full_join(counties,\n                 childcare_costs,\n                 ) |&gt; \n  filter(state_abbreviation == \"CA\",\n         county_name %in% c(\"San Luis Obispo County\", \n                            \"Orange County\", \n                            \"San Francisco County\")\n         ) |&gt; \n  pivot_longer(cols = starts_with(\"mfcc_\"),\n               names_to = \"development_stage\",\n               values_to = \"median_weekly_childcare_cost\") |&gt;\n  filter(development_stage %in% c(\"mfcc_infant\", \"mfcc_toddler\")) |&gt; \n  mutate(across(.cols = c(county_name, state_abbreviation, development_stage), \n                .fns = ~ as.factor(.x)\n                ),\n         development_stage = as.factor(str_remove(development_stage, pattern = \"mfcc_\"))\n         ) |&gt; \n  select(county_name, study_year, development_stage, median_weekly_childcare_cost)\n\nJoining with `by = join_by(county_fips_code)`\n\n#write_csv(ca_childcare, file = \"ca_childcare_clean.csv\")\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             fill = county_name)\n         ) +\n  geom_bar(stat = \"identity\",\n           position = \"dodge\") +\n  facet_wrap(~ development_stage) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_fill_brewer(palette = \"Accent\") +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       fill = \"County\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"top\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"by Development Stage\",\n       shape = \"by Development Stage\")\n\n\n\n\n\n\n\n\n\n\n\n\nlegend_text &lt;- ca_childcare %&gt;% \n  filter(county_name == \"San Francisco County\", \n         study_year %in% c(2012, 2014)\n         ) %&gt;% \n  group_by(development_stage) %&gt;% \n  mutate(plot_year = if_else(development_stage == \"infant\",\n                             2012, \n                             2014), \n         plot_median = if_else(development_stage == \"infant\", \n                               median_weekly_childcare_cost + 50, \n                               median_weekly_childcare_cost - 15)\n         ) %&gt;% \n  distinct(plot_year, development_stage, .keep_all = TRUE)\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"none\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       subtitle = \"by Development Stage\",\n       shape = \"\", \n       color = \"\") +\n  geom_text(data = legend_text, \n            mapping = aes(x = plot_year, \n                          y = plot_median, \n                          color = development_stage, \n                          label = development_stage)\n            )\n\n\n\n\n\n\n\n# Makes the same annotation for each facet!\n  # annotate(geom = \"text\", \n  #          x = 2012, \n  #          y = 250, \n  #          color = \"steelblue\", \n  #          label = \"infant\"\n  #          )"
-  },
-  {
-    "objectID": "slides/better-data-visualization.html#join-clean-data",
-    "href": "slides/better-data-visualization.html#join-clean-data",
-    "title": "Making your Data Visualizations More Effective",
-    "section": "",
-    "text": "ca_childcare &lt;- full_join(counties,\n                 childcare_costs,\n                 ) |&gt; \n  filter(state_abbreviation == \"CA\",\n         county_name %in% c(\"San Luis Obispo County\", \n                            \"Orange County\", \n                            \"San Francisco County\")\n         ) |&gt; \n  pivot_longer(cols = starts_with(\"mfcc_\"),\n               names_to = \"development_stage\",\n               values_to = \"median_weekly_childcare_cost\") |&gt;\n  filter(development_stage %in% c(\"mfcc_infant\", \"mfcc_toddler\")) |&gt; \n  mutate(across(.cols = c(county_name, state_abbreviation, development_stage), \n                .fns = ~ as.factor(.x)\n                ),\n         development_stage = as.factor(str_remove(development_stage, pattern = \"mfcc_\"))\n         ) |&gt; \n  select(county_name, study_year, development_stage, median_weekly_childcare_cost)\n\nJoining with `by = join_by(county_fips_code)`\n\n#write_csv(ca_childcare, file = \"ca_childcare_clean.csv\")"
-  },
-  {
-    "objectID": "slides/better-data-visualization.html#childcare-costs-over-time-bar-plot",
-    "href": "slides/better-data-visualization.html#childcare-costs-over-time-bar-plot",
-    "title": "Making your Data Visualizations More Effective",
-    "section": "",
-    "text": "ca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             fill = county_name)\n         ) +\n  geom_bar(stat = \"identity\",\n           position = \"dodge\") +\n  facet_wrap(~ development_stage) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_fill_brewer(palette = \"Accent\") +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       fill = \"County\")"
-  },
-  {
-    "objectID": "slides/better-data-visualization.html#childcare-costs-over-time-line-graph",
-    "href": "slides/better-data-visualization.html#childcare-costs-over-time-line-graph",
-    "title": "Making your Data Visualizations More Effective",
-    "section": "",
-    "text": "ca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")"
-  },
-  {
-    "objectID": "slides/better-data-visualization.html#childcare-costs-over-time-line-graph-one-column",
-    "href": "slides/better-data-visualization.html#childcare-costs-over-time-line-graph-one-column",
-    "title": "Making your Data Visualizations More Effective",
-    "section": "",
-    "text": "ca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")"
-  },
-  {
-    "objectID": "slides/better-data-visualization.html#removing-y-axis-label",
-    "href": "slides/better-data-visualization.html#removing-y-axis-label",
-    "title": "Making your Data Visualizations More Effective",
-    "section": "",
-    "text": "ca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")"
-  },
-  {
-    "objectID": "slides/better-data-visualization.html#moving-legend",
-    "href": "slides/better-data-visualization.html#moving-legend",
-    "title": "Making your Data Visualizations More Effective",
-    "section": "",
-    "text": "ca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"top\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"by Development Stage\",\n       shape = \"by Development Stage\")"
-  },
-  {
-    "objectID": "slides/better-data-visualization.html#removing-legend",
-    "href": "slides/better-data-visualization.html#removing-legend",
-    "title": "Making your Data Visualizations More Effective",
-    "section": "",
-    "text": "legend_text &lt;- ca_childcare %&gt;% \n  filter(county_name == \"San Francisco County\", \n         study_year %in% c(2012, 2014)\n         ) %&gt;% \n  group_by(development_stage) %&gt;% \n  mutate(plot_year = if_else(development_stage == \"infant\",\n                             2012, \n                             2014), \n         plot_median = if_else(development_stage == \"infant\", \n                               median_weekly_childcare_cost + 50, \n                               median_weekly_childcare_cost - 15)\n         ) %&gt;% \n  distinct(plot_year, development_stage, .keep_all = TRUE)\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"none\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       subtitle = \"by Development Stage\",\n       shape = \"\", \n       color = \"\") +\n  geom_text(data = legend_text, \n            mapping = aes(x = plot_year, \n                          y = plot_median, \n                          color = development_stage, \n                          label = development_stage)\n            )\n\n\n\n\n\n\n\n# Makes the same annotation for each facet!\n  # annotate(geom = \"text\", \n  #          x = 2012, \n  #          y = 250, \n  #          color = \"steelblue\", \n  #          label = \"infant\"\n  #          )"
   },
   {
     "objectID": "slides/09-modeling.html#upcoming-tasks-deadlines",
@@ -3009,6 +2715,339 @@
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
     ]
+  },
+  {
+    "objectID": "slides/better-data-visualization.html",
+    "href": "slides/better-data-visualization.html",
+    "title": "Making your Data Visualizations More Effective",
+    "section": "",
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nchildcare_costs &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')\n\nRows: 34567 Columns: 61\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (61): county_fips_code, study_year, unr_16, funr_16, munr_16, unr_20to64...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ncounties &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')\n\nRows: 3144 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (3): county_name, state_name, state_abbreviation\ndbl (1): county_fips_code\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\n\nca_childcare &lt;- full_join(counties,\n                 childcare_costs,\n                 ) |&gt; \n  filter(state_abbreviation == \"CA\",\n         county_name %in% c(\"San Luis Obispo County\", \n                            \"Orange County\", \n                            \"San Francisco County\")\n         ) |&gt; \n  pivot_longer(cols = starts_with(\"mfcc_\"),\n               names_to = \"development_stage\",\n               values_to = \"median_weekly_childcare_cost\") |&gt;\n  filter(development_stage %in% c(\"mfcc_infant\", \"mfcc_toddler\")) |&gt; \n  mutate(across(.cols = c(county_name, state_abbreviation, development_stage), \n                .fns = ~ as.factor(.x)\n                ),\n         development_stage = as.factor(str_remove(development_stage, pattern = \"mfcc_\"))\n         ) |&gt; \n  select(county_name, study_year, development_stage, median_weekly_childcare_cost)\n\nJoining with `by = join_by(county_fips_code)`\n\n#write_csv(ca_childcare, file = \"ca_childcare_clean.csv\")\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             fill = county_name)\n         ) +\n  geom_bar(stat = \"identity\",\n           position = \"dodge\") +\n  facet_wrap(~ development_stage) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_fill_brewer(palette = \"Accent\") +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       fill = \"County\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"top\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"by Development Stage\",\n       shape = \"by Development Stage\")\n\n\n\n\n\n\n\n\n\n\n\n\nlegend_text &lt;- ca_childcare %&gt;% \n  filter(county_name == \"San Francisco County\", \n         study_year %in% c(2012, 2014)\n         ) %&gt;% \n  group_by(development_stage) %&gt;% \n  mutate(plot_year = if_else(development_stage == \"infant\",\n                             2012, \n                             2014), \n         plot_median = if_else(development_stage == \"infant\", \n                               median_weekly_childcare_cost + 50, \n                               median_weekly_childcare_cost - 15)\n         ) %&gt;% \n  distinct(plot_year, development_stage, .keep_all = TRUE)\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"none\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       subtitle = \"by Development Stage\",\n       shape = \"\", \n       color = \"\") +\n  geom_text(data = legend_text, \n            mapping = aes(x = plot_year, \n                          y = plot_median, \n                          color = development_stage, \n                          label = development_stage)\n            )\n\n\n\n\n\n\n\n# Makes the same annotation for each facet!\n  # annotate(geom = \"text\", \n  #          x = 2012, \n  #          y = 250, \n  #          color = \"steelblue\", \n  #          label = \"infant\"\n  #          )"
+  },
+  {
+    "objectID": "slides/better-data-visualization.html#join-clean-data",
+    "href": "slides/better-data-visualization.html#join-clean-data",
+    "title": "Making your Data Visualizations More Effective",
+    "section": "",
+    "text": "ca_childcare &lt;- full_join(counties,\n                 childcare_costs,\n                 ) |&gt; \n  filter(state_abbreviation == \"CA\",\n         county_name %in% c(\"San Luis Obispo County\", \n                            \"Orange County\", \n                            \"San Francisco County\")\n         ) |&gt; \n  pivot_longer(cols = starts_with(\"mfcc_\"),\n               names_to = \"development_stage\",\n               values_to = \"median_weekly_childcare_cost\") |&gt;\n  filter(development_stage %in% c(\"mfcc_infant\", \"mfcc_toddler\")) |&gt; \n  mutate(across(.cols = c(county_name, state_abbreviation, development_stage), \n                .fns = ~ as.factor(.x)\n                ),\n         development_stage = as.factor(str_remove(development_stage, pattern = \"mfcc_\"))\n         ) |&gt; \n  select(county_name, study_year, development_stage, median_weekly_childcare_cost)\n\nJoining with `by = join_by(county_fips_code)`\n\n#write_csv(ca_childcare, file = \"ca_childcare_clean.csv\")"
+  },
+  {
+    "objectID": "slides/better-data-visualization.html#childcare-costs-over-time-bar-plot",
+    "href": "slides/better-data-visualization.html#childcare-costs-over-time-bar-plot",
+    "title": "Making your Data Visualizations More Effective",
+    "section": "",
+    "text": "ca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             fill = county_name)\n         ) +\n  geom_bar(stat = \"identity\",\n           position = \"dodge\") +\n  facet_wrap(~ development_stage) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_fill_brewer(palette = \"Accent\") +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       fill = \"County\")"
+  },
+  {
+    "objectID": "slides/better-data-visualization.html#childcare-costs-over-time-line-graph",
+    "href": "slides/better-data-visualization.html#childcare-costs-over-time-line-graph",
+    "title": "Making your Data Visualizations More Effective",
+    "section": "",
+    "text": "ca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")"
+  },
+  {
+    "objectID": "slides/better-data-visualization.html#childcare-costs-over-time-line-graph-one-column",
+    "href": "slides/better-data-visualization.html#childcare-costs-over-time-line-graph-one-column",
+    "title": "Making your Data Visualizations More Effective",
+    "section": "",
+    "text": "ca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")"
+  },
+  {
+    "objectID": "slides/better-data-visualization.html#removing-y-axis-label",
+    "href": "slides/better-data-visualization.html#removing-y-axis-label",
+    "title": "Making your Data Visualizations More Effective",
+    "section": "",
+    "text": "ca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")"
+  },
+  {
+    "objectID": "slides/better-data-visualization.html#moving-legend",
+    "href": "slides/better-data-visualization.html#moving-legend",
+    "title": "Making your Data Visualizations More Effective",
+    "section": "",
+    "text": "ca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"top\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"by Development Stage\",\n       shape = \"by Development Stage\")"
+  },
+  {
+    "objectID": "slides/better-data-visualization.html#removing-legend",
+    "href": "slides/better-data-visualization.html#removing-legend",
+    "title": "Making your Data Visualizations More Effective",
+    "section": "",
+    "text": "legend_text &lt;- ca_childcare %&gt;% \n  filter(county_name == \"San Francisco County\", \n         study_year %in% c(2012, 2014)\n         ) %&gt;% \n  group_by(development_stage) %&gt;% \n  mutate(plot_year = if_else(development_stage == \"infant\",\n                             2012, \n                             2014), \n         plot_median = if_else(development_stage == \"infant\", \n                               median_weekly_childcare_cost + 50, \n                               median_weekly_childcare_cost - 15)\n         ) %&gt;% \n  distinct(plot_year, development_stage, .keep_all = TRUE)\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"none\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       subtitle = \"by Development Stage\",\n       shape = \"\", \n       color = \"\") +\n  geom_text(data = legend_text, \n            mapping = aes(x = plot_year, \n                          y = plot_median, \n                          color = development_stage, \n                          label = development_stage)\n            )\n\n\n\n\n\n\n\n# Makes the same annotation for each facet!\n  # annotate(geom = \"text\", \n  #          x = 2012, \n  #          y = 250, \n  #          color = \"steelblue\", \n  #          label = \"infant\"\n  #          )"
+  },
+  {
+    "objectID": "project/project-description.html",
+    "href": "project/project-description.html",
+    "title": "Final Project Guidelines",
+    "section": "",
+    "text": "Overview\nYour final project is your chance to demonstrate your knowledge from DATA 301 in a real-world setting. You will choose a dataset, or possibly multiple related datasets, and perform an analysis to address your group’s research question(s).\nYou will summarize your findings into a poster, and present it during the common hour final poster session (with both sections of DATA 301) on Saturday, March 15th from 1:10pm to 2:30pm. The poster session will be in our regularly scheduled classroom!\nProjects may be done in groups of up to 3 students. The guidelines are the same regardless; that is, if you choose to work alone, I will expect the same level of quality as if you choose to work in a group of 3.\n\n\n\n\n\n\nCaution\n\n\n\nNo extensions will be granted for projects, except in highly unusual, extenuating circumstances. Please start early!\n\n\n\n\nCheckpoint 1: Project Proposal\nTo make sure you are on track, you have a two-page project proposal due on Sunday, February 23.\nThis proposal must be two pages only, and it must contain:\n\nYour group member names.\nInformation about the dataset(s) you intend to analyze:\n\nWhere are the data located?\nWho collected the data and why?\nWhat information (variables) are in the dataset?\n\nResearch Questions: You should have one primary research question and a few secondary questions\nPreliminary exploration of your dataset(s): A few simple plots or summary statistics that relate to the variables you plan to study.\n\n\n\nFinding Data\nSome good places to find datasets are:\n\nKaggle\nTidy Tuesday\nGoogle Data Set Search\nReddit Datasets\nList of JSON APIs\nProject Gutenberg (good source of textual data)\nState or federal government websites, such as the U.S. Government’s Open Data\n\n\n\nPrinting Your Final Poster\nThis website has some poster templates that you can (but are not required to) use. Your poster will need to be printed on 24” x 36” paper. You may select all the most basic printing options (e.g., matte paper, no lamination, not mounted). I would recommend printing you poster at Cal Poly since basic posters cost about $18. You might need to check on their turnaround time, since they may be busy during Week 10.\nIf you need assistance with the cost of printing a poster, please let Dr. Theobold know.\n\n\nFinal Poster Grading\nYour posters will be graded on:\n\nPresentation:\n\nWas the poster clear and visually appealing?\nDo the visualizations tell a story?\nWere the presenters able to describe the project and answer questions?\n\nCorrectness:\n\nWere the correct summaries and analyses chosen for the data?\nWere the results correctly interpreted and described?\nWas the choice of analysis reasonable for the research question?\n\nComplexity:\n\nDid the project address multiple rich aspects of the dataset(s)?\nDid the project use skills from across the quarter to answer questions?\nDid the project incorporate something from Week 9 or 10? (Webscraping, APIs, data joining) or from beyond the course?\n\nData insight:\n\nWere the research questions interesting and insightful?\nDid the project make clear and relevant data conclusions?\nDoes the project tell a story with real-world impact?"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Data Science (in Python)",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nSunday, January 12\n\n\n\nLab 1A, 1B Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nLecture 2.1 Activity\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nLecture 2.2 Activity\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nSunday, January 19\n\n\n\nLab 2A, 2B Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nSunday, January 26\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-Words and TF-IDF\nActivity 4.2\nLab 4A\nLab 4B\n\n\n\n\nSunday, February 2\n\n\n\nLab 4A, 4B Due by Midnight\n\n\n\n5\nK-Nearest Neighbors & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nLecture 5.1 Activity\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nSpicing up Your Visualizations\nActivity 5.2\n\nExam 1 (in-class)\n\n\n\nFriday, February 7\n\n\n\nNo lab this week!\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nIntroduction to Modeling\nLecture 6.1 Activity\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nCross-Validation and Grid Search\nLecture 6.2 Activity\nActivity 6.2\nLab 6\n\n\n\n\nSunday, February 16\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nClassification\nLecture 7.1 Activity\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nLogistic Regression\nLecture 7.2 Activity\nActivity 7.2\nLab 7\n\n\n\n\nSunday, February 23\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nClustering & Joining Data\nTuesday, February 25\n\nUnsupervised Learning with K-Means\nLecture 8.1 Activity\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nCombining Datasets\nLecture 8.2 Activity\nActivity 8.2\nLab 8\n\n\n\n\nSunday, March 2\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nData Ethics\nTuesday, March 4\n\nData Ethics Part 1\nActivity 9.1\n\n\n\n\n\nThursday, March 6\n\nData Ethics Part 2\nActivity 9.2\n\n\n\n\n\nSunday, March 9\n\n\n\nNo lab this week!\nPractice Exam Review\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\nPoster Work Session\n\n\n\n\n\n\nThursday, March 13\n\nFirst Half: Practice Exam Review\n\nSecond Half: Exam 2\n\n\nExam 2 (in-class)\n\n\nFinals Week\nSaturday, March 15 (time TBD)\n\n\n\n\nPoster Presentations",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#about-me",
+    "href": "slides/00-welcome.html#about-me",
+    "title": "Welcome, Intro, and Setup",
+    "section": "About Me",
+    "text": "About Me\n\n\n\n\n\n\nGrew up in Grand Junction, CO\nBA in Stats: 2014 from Colorado Mesa University\nPhD in Stats: 2020 from Montana State University\n2020 - now: Professor of Stats at Cal Poly\nMy research: Statistics and data science education, R programming\nThings I like: Spending time outside (e.g., running, hiking, biking), travelling, going to concerts and musicals",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#grade-brakedown",
+    "href": "slides/00-welcome.html#grade-brakedown",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Grade Brakedown",
+    "text": "Grade Brakedown\n\n5%: Check-Ins – Questions interspersed throughout lecture\n10%: Lab Activities – Lab attendance is required\n25%: Weekly Assignments – due Saturdays at midnight\n15% each: Exams in Week 5 and Week 10.\n30%: Final project",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#important-dates",
+    "href": "slides/00-welcome.html#important-dates",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Important Dates",
+    "text": "Important Dates\n\nThurs, February 6: Exam 1 (in-class)\nFri, February 21: 1-page Project Proposal Due\nThurs, March 13: Exam 2 (in-class)\nSaturday, March 16 (before Finals Week: Final Project Poster Presentations",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#homework-late-policy",
+    "href": "slides/00-welcome.html#homework-late-policy",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Homework Late Policy",
+    "text": "Homework Late Policy\n\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.\nIf you’ve used your deadline extensions, late work has a 10% deduction per day for up to 5 days.\n\nThis policy also applies to deadline extension requests that are not submitted before the assignment’s deadline.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#missing-lab",
+    "href": "slides/00-welcome.html#missing-lab",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Missing Lab",
+    "text": "Missing Lab\n\nBest option: Go to another section.\nSecond-best option: Turn in your work by email to me.\nWorst option: Miss it entirely, get a 0.\nYou may miss lab up to two times during the quarter. If you need to miss / reschedule more than two of the labs this quarter, you will need to retake the class.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#discord-and-email",
+    "href": "slides/00-welcome.html#discord-and-email",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Discord and Email",
+    "text": "Discord and Email\n\nClass questions go on DISCORD\nUse my email only for personal concerns that you want to talk about privately to me.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#colab-notebooks",
+    "href": "slides/00-welcome.html#colab-notebooks",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Colab Notebooks",
+    "text": "Colab Notebooks\n\nIn Data Science, everyone uses Notebooks, not scripts, for coding.\nWe will be using Jupyter Notebooks (invented at Cal Poly!), hosted for free by Google Colab.\nIf you want to work offline, you can install Anaconda on your laptop.\nI recommend an IDE like PyCharm (or Positron) as well.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#academic-integrity",
+    "href": "slides/00-welcome.html#academic-integrity",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\n\nIf you copy text from a website into your essay, it’s cheating.\nIf you ask your friend to write your essay, it’s cheating.\nIf you pay someone else to write your essay, it’s cheating.\nIf you ask GenAI to do your work and then copy the answers, it’s cheating.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#conversation-not-copying",
+    "href": "slides/00-welcome.html#conversation-not-copying",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Conversation, not copying",
+    "text": "Conversation, not copying\nIt is okay (in fact, encouraged) to …\n\nAsk GenAI for tips on how to get started on a coding problem\nAsk GenAI to help find bugs in your code\nAsk GenAI to help explain concepts or functions\nPretend ChatGPT is your human tutor or TA!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
+    "href": "slides/00-welcome.html#activity-good-and-bad-use-of-ai",
+    "title": "Welcome, Intro, and Setup",
+    "section": "Activity: Good and bad use of AI",
+    "text": "Activity: Good and bad use of AI\n\nFind your group member\n\nIn the “People” tab on Canvas, find your “Day 1 Group”\n\nOnce you have found your group member, open the Activity 1.1 notebook (linked on Canvas).\n\n\n15-minutes:\n\nFirst, Person A follows the instructions in Part 1 of the notebook.\nThen, Person B follows the instructions in Part 2 of the notebook.\nFinally, discuss and answer the questions at the bottom.\n\n\n\n\n\n\n\n\n\nIf it is not your turn to type, you watch!\n\n\nDo not give input unless your partner asks for help.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 0 - Welcome & Course Set-up"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#course-objectives",
+    "href": "course-materials/syllabus.html#course-objectives",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Course Objectives",
+    "text": "Course Objectives\nAfter taking this course, you will be able to:\n\nAcquire and process tabular, textual, hierarchical, and geospatial data.\nUncover patterns by summarizing and visualizing data.\nApply machine learning to answer real-world prediction problems.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#prerequisites",
+    "href": "course-materials/syllabus.html#prerequisites",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nI expect you to enter this class with:\n\nBasic knowledge of Python and computer programming concepts.\nFamiliarity with computers and technology (e.g., Internet browsing, word processing, opening/saving files, converting files to PDF format, sending and receiving e-mail, etc.).\nA positive attitude, a curious mind, and a respect for ethical use of data science tools.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lecture-check-ins-5",
+    "href": "course-materials/syllabus.html#lecture-check-ins-5",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lecture Check-Ins (5%)",
+    "text": "Lecture Check-Ins (5%)\nEvery lecture will be accompanied by a simple “Check-In Quiz” on Canvas. This will ask you to input a few answers covered in lecture, and one short mid-lecture practice exercise. Infinite submissions are allowed without penalty, so there is no reason anyone should not get 100% in this category.\nIf you miss lecture, you can still complete the Check-Ins on your own time, by midnight the next day.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lab-attendance-and-activities-10",
+    "href": "course-materials/syllabus.html#lab-attendance-and-activities-10",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lab Attendance and Activities (10%)",
+    "text": "Lab Attendance and Activities (10%)\nAttendance and participation in the lab portion of class is required. Do not take this class if you cannot commit to attending every lecture and every lab.\n\nSwapping Lab Sections\nIf you cannot make it to your assigned lab, but you can attend another section’s lab on the same day, please e-mail Dr. Theobold to inform them that you wish to swap lab sections. You may do this two times throughout the quarter.\n\n\nMissing Lab\nIf you cannot make it to any lab sections that day, you may complete the Colab assignment from lab on your own, and e-mail a PDF to Dr. Theobold by midnight that night (the day you missed class). Dr. Theobold will grade your Colab, and this score will replace your attendance for that day. You may do this two times throughout the quarter.\nTo allow for emergencies, we will also forgive one absence at the end of the quarter.\n\n\n\n\n\n\nNote\n\n\n\nWe are effectively allowing you to miss / reschedule up to three labs out of 10. If you need to miss more than three, then you will need to retake this course next quarter.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#lab-assignments-25",
+    "href": "course-materials/syllabus.html#lab-assignments-25",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Lab Assignments (25%)",
+    "text": "Lab Assignments (25%)\nEach week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are due every Saturday at 11:59pm. See the Late Work section below for information on extensions or deductions for late submissions.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#exams-15-each",
+    "href": "course-materials/syllabus.html#exams-15-each",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Exams (15% each)",
+    "text": "Exams (15% each)\nYou will have two in-class exams, in Week 5 and Week 10. These will each cover half of the class material. Except in very extreme unforeseeable circumstances, no alternate exams will be given; please plan to be in class these days.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#project-30",
+    "href": "course-materials/syllabus.html#project-30",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Project (30%)",
+    "text": "Project (30%)\nAt the end of the quarter, you will formally present a poster of your findings on a real-world data question. To ensure that you start thinking about your project early, you are required to submit a 1-page abstract proposal in Week 7.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#communication",
+    "href": "course-materials/syllabus.html#communication",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Communication",
+    "text": "Communication\nFor questions of general interest, such as deadline clarifications or conceptual questions, please use the Class Discord Server. You should check the relevant thread of the server, as well as the syllabus, before reaching out to Dr. Theobold.\nOf course, if your question is truly private, such as a grade inquiry or a personal concern, you may email me directly.\n\n\n\n\n\n\nNote\n\n\n\nIf you email me to ask a question that should be public, I will likely ask you to post your question on Discord instead. Please don’t take this personally! It just means that you asked a good question, and I think the rest of the class could benefit from seeing the answer.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#late-work",
+    "href": "course-materials/syllabus.html#late-work",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Late Work",
+    "text": "Late Work\nLate assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!\n\n\n\n\n\n\nNote\n\n\n\nNote that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.\n\n\n\nDeadline Extensions\nIn case of emergency, you have two deadline “extensions” to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.\nThe rules for these are as follows:\n\nYou must request the extension through the Google form linked on Canvas. Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.\nThe extension must be requested before the deadline has passed (i.e., before Friday at 11:59pm). I do not grant after-deadline extensions for any reason.\n\nProperly requested extensions are automatically granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.\n\n\n\n\n\n\nNote\n\n\n\nThese deadline extensions are automatic! You don’t have to tell why you need the extension - maybe you have a busy week with other work, maybe you are traveling with a sports team, maybe you partied too hard for your friend’s birthday. It doesn’t matter to me!\nThe flip side of this, though, is that if you use your deadline extensions early on in the course, and then run into a bigger issues later on, you’re out of luck.\n\n\n\n\nSpecial cases\nSometimes, issues arise require more time than the auto-extension gives. In general, if something comes up in your life, I always want to find a way to help. Please let me know what your situation is, and we’ll work together to find a good solution.\nThe most important thing is that you tell me early. As a rule, I do not grant extensions after the deadline.\n\n\n\n\n\n\nNote\n\n\n\nOf course, in the case of a major crisis, that is truly exceptional and unforeseen, all these rules go out the window. I want you to feel comfortable reaching out to me when you are facing something extra difficult. We’ll figure it out.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#academic-integrity",
+    "href": "course-materials/syllabus.html#academic-integrity",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\nYou are expected to abide by the Cal Poly Code of Conduct at all times.\n\nPlagiarism\nYou are encouraged to work with other classmates on all but the exam portions of this class. You are also encouraged (realistically, required!) to make use of online resources to accomplish tasks.\nWhen dealing with code, follow these guidelines:\n\nNever copy-paste more than small snippets of code. That is, you might borrow a little three-line function from StackOverflow, but you should not copy over a full analysis you find on Kaggle.\nAttribute all code that is not completely your own. If you do borrow that StackOverflow snippet, provide a link to the source. If you reference a similar analysis for ideas, mention that in your description.\n\n\n\n\n\n\n\nWarning\n\n\n\nA good “rule of thumb” is: If I sat you down by yourself in a room with no internet, could you explain to me roughly what each line of code is doing? If not, you are probably borrowing more than you should from your online source.\n(In fact, this is exactly what I will do if I need to investigate possible cheating.)\n\n\n\nAI tools\nNew AI models like Chat GPT offer a whole new world of online coding resources. This is exciting! You should absolutely feel free to get help from these tools, they are excellent at answering questions.\nHowever, from an academic integrity perspective, treat these AI generative chat resources like, say, a tutor. Asking a tutor to help explain a homework concept to you or help debug your code? Totally fine! Giving the tutor a homework question and having them answer the whole thing? Nope. Talking to a tutor at all, about anything, during the course of the exam? Unacceptable.\n\n\n\nIntegrity Violations\nIf you accidentally forget a small citation, or go a little overboard in how much you “borrow” from StackOverflow, you’ll get a warning and a grade deduction on that assignment.\nAny instance of willful and deliberate cheating will result in a failing grade on the assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.\n\n\n\n\n\n\nWarning\n\n\n\nBe careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have both received a failing grade on the assignment and a report filed to OSRR.\n\n\n\n\nIntellectual property\nThe materials for this course are legally the professor’s intellectual property.\nMost class materials are publicly shared, and you are welcome to direct others to this resource at any time. You are also welcome to publicly share any or all of your work on the class project.\nNon-public class materials—most importantly, assignment solutions and any exam materials—may never be shared.\n\n\n\n\n\n\nWarning\n\n\n\nThis is not just an issue of academic honestly, it is quite literally a legal copyright scenario. Please do not distribute solutions or exam questions from this class anywhere, for any reason. Doing so is a violation of the Code of Conduct, and it may constitute a violation of U.S. copyright law.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-materials/syllabus.html#class-conduct",
+    "href": "course-materials/syllabus.html#class-conduct",
+    "title": "DATA 301: Introduction to Data Science",
+    "section": "Class Conduct",
+    "text": "Class Conduct\nIn this classroom, I expect you to be polite, respectful, inclusive, and open-minded.\nSome examples of how to be a good classmate include:\n\nDoing your best to avoid language that is ableist, racist, sexist, transphobic, or classist; or that perpetuates harmful stereotypes.\nAddressing your classmates (and your professor!) by their preferred name and pronouns.\nDoing your best to be aware of your own biases, privileges, and areas of ignorance.\nListening to others’ opinions, and making an effort to understand their perspective.\nTaking the time to help your classmates grasp concepts or solve problems, even when you are ready to move on.\n\n\nAttendance\nIt is my general expectation that you will attend lecture, and remain present until you have finished the day’s in-class work. However, I do not take formal attendance in class; as long as you engage with the material and complete the small check-ins, you can decide which lectures are useful to you.\nPlease do not email me letting me know when you are missing class - I don’t need to know if you are attending, it is your responsibility to catch up on the materials and check-ins you miss.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "exam-materials/practice-final.html",
+    "href": "exam-materials/practice-final.html",
+    "title": "Practice Exam 2",
+    "section": "",
+    "text": "Your friend’s grandfather, Professor Samuel Oak, is a Professor of Animal Studies at the local university. He has spent years of research cataloging the traits of creatures in your town known as Pokemon.\nProfessor Oak is interested in performing some modeling tasks on his collected data, but he took an Introductory Data Science class many decades ago and he has forgotten some of the concepts. He asks for you help editing his report.\nEach section of the report below is followed by a question from Professor Oak. You do not need to fix his analyses; you only need to answer his questions in words. Be clear and brief, and make sure you explain why your answer is right, not just what Professor Oak should do instead.\nThere will be no coding errors or typos in this report; only conceptual mistakes that are asked about in the questions."
+  },
+  {
+    "objectID": "exam-materials/practice-final.html#starter-types",
+    "href": "exam-materials/practice-final.html#starter-types",
+    "title": "Practice Exam 2",
+    "section": "Starter Types",
+    "text": "Starter Types\nIt has been observed by researchers that each Pokemon has a primary “type” related to its home habitat and innate abilities. We would like to understand what traits define these types.\nWe will first study the three “starter types”: Grass, Water, Fire, and Electric. So, first we will filter the df_pokemon DataFrame to include only starter types:\n\nstarter = ['Grass', 'Water', 'Fire', 'Electric']\nis_starter = df_pokemon['Type'].isin(starter)\ndf_starters = df_pokemon.loc[is_starter].copy()\n\nWe plan to fit a decision tree model to predict type from HP, Attack, Defense, and Speed. So, first we need to transform Type into a category:\n\ndf_starters['Type'] = df_starters['Type'].astype('category')\n\nNext, we fit the decision tree with scikitlearn:\n\nfrom sklearn.compose import make_column_transformer\nfrom sklearn.pipeline import make_pipeline\nfrom sklearn.preprocessing import OneHotEncoder\nfrom sklearn.tree import DecisionTreeClassifier\n\npreprocessor = make_column_transformer(\n  (OneHotEncoder(), [\"Legendary\"]),\n  remainder = \"passthrough\"\n)\n\ndt_pipeline = make_pipeline(\n  preprocessor,\n  DecisionTreeClassifier()\n)\n\nX = df_starters[['HP', 'Attack', 'Defense', 'Speed', 'Legendary']]\ny = df_starters['Type']\n\ndt_pipeline.fit(X, y);\ny_pred = dt_pipeline.predict(X)\n\nQuestion 1: Should I have standardized any variables before fitting my decision tree? Why or why not?\nQuestion 2: Should I chosen remainder = drop in my preprocesser? Why or why not?\n\nNext, we inspect how well the model performed with these data:\n\nfrom sklearn.metrics import confusion_matrix, accuracy_score\n\naccuracy_score(y, y_pred)\n\n0.9856115107913669\n\nconfusion_matrix(y, y_pred)\n\narray([[ 44,   0,   0,   0],\n       [  0,  52,   0,   0],\n       [  0,   2,  68,   0],\n       [  0,   2,   0, 110]])\n\n\nQuestion 3: I got an accuracy of 98.56%. That means this model is really good and I should use it to classify all Pokemon, right?\nQuestion 4: What does the confusion matrix tell me about this model?"
+  },
+  {
+    "objectID": "exam-materials/practice-final.html#legendary-ness",
+    "href": "exam-materials/practice-final.html#legendary-ness",
+    "title": "Practice Exam 2",
+    "section": "Legendary-ness",
+    "text": "Legendary-ness\nIn our studies, we have also noticed that some Pokemon are “Legendary”. This is a very rare status; only about 10% of all Pokemon achieve legendary status.\nWe would like to understand what defines a Legendary Pokemon, and be able to predict Legendary status when encountering a new species.\nWe will use a K-Nearest Neighbors model to predict Legendary status.\n\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.metrics import make_scorer, precision_score, recall_score, f1_score\nfrom sklearn.model_selection import GridSearchCV\n\npreprocessor = make_column_transformer(\n  (StandardScaler(), ['HP', 'Attack', 'Defense', 'Speed']),\n  remainder = \"drop\"\n  )\n\npipeline = make_pipeline(\n    preprocessor,\n    KNeighborsClassifier()\n    )\n\nWe have tuned the model for k at some values between 1 and 100:\n\nfrom sklearn.model_selection import GridSearchCV\n\nmy_scores = {\n      'precision': make_scorer(precision_score),\n      'recall': make_scorer(recall_score),\n      'f1_score': make_scorer(f1_score),\n      'accuracy': make_scorer(accuracy_score)\n      }\n\ngrid_cv = GridSearchCV(\n    pipeline,\n    param_grid = {\n        \"kneighborsclassifier__n_neighbors\": [1, 3, 5, 7, 10, 15, \n                                              20, 25, 50, 100],\n    },\n    scoring = my_scores,\n    refit = 'f1_score', \n    cv = 5)\n    \ngrid_cv.fit(X = df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n            y = df_pokemon['Legendary']);\n\nQuestion 5: Was I correct to scale my variables? Or could I have run this model without scaling?\n\n\n     k  precision  recall  f1_score  accuracy\n0    1       0.48    0.45      0.46      0.91\n1    3       0.57    0.40      0.47      0.93\n2    5       0.59    0.34      0.42      0.93\n3    7       0.54    0.34      0.42      0.92\n4   10       0.52    0.26      0.34      0.92\n5   15       0.56    0.31      0.39      0.92\n6   20       0.63    0.25      0.35      0.93\n7   25       0.77    0.26      0.38      0.93\n8   50       0.40    0.03      0.06      0.92\n9  100       0.00    0.00      0.00      0.92\n\n\nQuestion 6: What number of neighbors do you think I should choose? Why?\nQuestion 7: It looks like both precision and recall are zero at k = 100. Does this make sense, or did I do something wrong?"
+  },
+  {
+    "objectID": "exam-materials/practice-final.html#logistic-regression",
+    "href": "exam-materials/practice-final.html#logistic-regression",
+    "title": "Practice Exam 2",
+    "section": "Logistic Regression",
+    "text": "Logistic Regression\nSince we wanted be understand how each of these variables (HP, Attack, Defense, Speed) is related to legendary status, we also fit a logistic regression.\n\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = make_pipeline(\n    LogisticRegression()\n    )\n\npipeline.fit(X = df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n             y = df_pokemon['Legendary']);\n\n\n\n  coef_name  coef_value\n0        HP    0.040203\n1    Attack    0.014614\n2   Defense    0.035188\n3     Speed    0.056198\n\n\nModel interpretations:\n\nFor each point of HP the Pokemon has, the probability of it being Legendary increases by 0.04.\nFor each point of attack the Pokemon has, the probability of it being Legendary increases by 0.014\nFor each point of defense the Pokemon has, the probability of it being Legendary increases by 0.035\nFor each point of speed the Pokemon has, the probability of it being Legendary increases by 0.056\n\nQuestion 8: Help, I don’t remember how to interpret these coefficients! Did I get it right in the above? If not, can you correct it for me?\nBelow are estimates of the testing error rate for this logistic regression model:\n\nfrom sklearn.model_selection import cross_val_score\n\ncross_val_score(\n  pipeline,\n  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n  df_pokemon['Legendary'],\n  scoring = 'accuracy',\n  cv = 5).mean()\n\nnp.float64(0.93125)\n\ncross_val_score(\n  pipeline,\n  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n  df_pokemon['Legendary'],\n  scoring = 'precision',\n  cv = 5).mean()\n\nnp.float64(0.6444444444444445)\n\n  \ncross_val_score(\n  pipeline,\n  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n  df_pokemon['Legendary'],\n  scoring = 'recall',\n  cv = 5).mean()\n\nnp.float64(0.3538461538461538)\n\ncross_val_score(\n  pipeline,\n  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n  df_pokemon['Legendary'],\n  scoring = 'f1',\n  cv = 5).mean()\n\nnp.float64(0.45511961722488037)\n\n\nQuestion 9: Which of the models (Logistic Regression, or KNN with a particular k) would you recommend I use in my project? Why?"
   },
   {
     "objectID": "slides/13-kmeans.html#predictive-modeling",
@@ -3851,7 +3890,7 @@
     "href": "slides/08-knn.html#fit-the-preprocesser",
     "title": "K-Nearest-Neighbors",
     "section": "Fit the Preprocesser",
-    "text": "Fit the Preprocesser\nThen we fit it on the training data.\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11fc4fe00&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11fc4fe00&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11fc4fe00&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 16.47037037, 144.81481481,  17.04814815, 608.40740741,\n        25.18518519])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([4.09492455e-01, 5.14089163e+03, 1.89286694e+00, 1.60333525e+04,\n       6.54842250e+01])",
+    "text": "Fit the Preprocesser\nThen we fit it on the training data.\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 16.47037037, 144.81481481,  17.04814815, 608.40740741,\n        25.18518519])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([4.09492455e-01, 5.14089163e+03, 1.89286694e+00, 1.60333525e+04,\n       6.54842250e+01])",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -3873,7 +3912,7 @@
     "href": "slides/08-knn.html#what-if-we-had-fit-on-the-test-data",
     "title": "K-Nearest-Neighbors",
     "section": "What if we had fit on the test data?",
-    "text": "What if we had fit on the test data?\n\n\n\npreproc.fit(df_test[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11fc4fe00&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11fc4fe00&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11fc4fe00&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 18.6,  82. ,  18.4, 443. ,   3. ])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([0., 0., 0., 0., 0.])",
+    "text": "What if we had fit on the test data?\n\n\n\npreproc.fit(df_test[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 18.6,  82. ,  18.4, 443. ,   3. ])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([0., 0., 0., 0., 0.])",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -3895,7 +3934,7 @@
     "href": "slides/08-knn.html#all-together",
     "title": "K-Nearest-Neighbors",
     "section": "All together:",
-    "text": "All together:\n\n\npreproc = make_column_transformer(\n  (StandardScaler(), \n  make_column_selector(dtype_include = np.number)\n  ),\n  remainder = \"drop\"\n)\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11ffb8550&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11ffb8550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11ffb8550&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\ntrain_new = preproc.transform(df_train[features])\ntest_new = preproc.transform(df_test[features])",
+    "text": "All together:\n\n\npreproc = make_column_transformer(\n  (StandardScaler(), \n  make_column_selector(dtype_include = np.number)\n  ),\n  remainder = \"drop\"\n)\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\ntrain_new = preproc.transform(df_train[features])\ntest_new = preproc.transform(df_test[features])",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -3983,7 +4022,7 @@
     "href": "slides/08-knn.html#fitting",
     "title": "K-Nearest-Neighbors",
     "section": "Fitting",
-    "text": "Fitting\n\n\n\npipeline.fit(\n  y = df_train['price'], \n  X = df_train[features]\n  )\n\n\nPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11ffb8550&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11ffb8550&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11ffb8550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11ffb8550&gt; StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor()",
+    "text": "Fitting\n\n\n\npipeline.fit(\n  y = df_train['price'], \n  X = df_train[features]\n  )\n\n\nPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt; StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor()",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -5351,17 +5390,6 @@
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
-    ]
-  },
-  {
-    "objectID": "slides/12-logistic.html#standardization-2",
-    "href": "slides/12-logistic.html#standardization-2",
-    "title": "Logistic Regression",
-    "section": "Standardization",
-    "text": "Standardization\n\n\n   Coefficients Column\n0     -2.309090     I0\n1      0.801477  PA500\n\n\n\n“For every standard deviation above the mean someone’s I0 is, we predict 2.3 lower log-odds of cancer”\n\n\n\n“For every standard deviation above the mean someone’s PA500 is, we predict 0.80 higher log-odds of cancer.”",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 7, Part 2 - Logistic Regression"
     ]
   }
 ]
