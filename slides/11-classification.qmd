@@ -427,6 +427,9 @@ pd.DataFrame(confusion_matrix(y_train, y_train_predicted),
 
 Use a **grid search** and the **accuracy** score to find the *best* k-value for this modeling problem.
 
+<!-- TO ADD IN THE FUTURE -->
+<!-- In the GridSearchCV function, the argument refit='f1_score' specifies that after performing cross-validation with the provided scoring metrics (my_scores), the model should be retrained (refit) using the best hyperparameters based on the 'f1_score' metric. -->
+
 # Classification Metrics
 
 ## Case Study: Credit Card Fraud
