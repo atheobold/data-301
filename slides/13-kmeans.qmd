@@ -23,6 +23,43 @@ import pandas as pd
 from plotnine import *
 ```
 
+# Plan for the rest of the quarter
+
+## Weeks 8, 9, & 10
+
+::::::::: columns
+:::: {.column width="30%"}
+::: fragment
+**Week 8**
+
+- Last week of models!
+  + Statistical Learning Model: K-Means  
+  + Data Model: Joins
+:::
+::::
+
+:::: {.column width="30%"}
+::: fragment
+**Week 9**
+
+-   Data Ethics
+    + Data Context
+    + Model Ethics
+-   Project Work Sessions
+:::
+::::
+
+:::: {.column width="30%"}
+::: fragment
+**Week 10**
+
+-   Final Posters
+-   Practice Final
+-   Exam 2
+:::
+::::
+:::::::::
+
 # The story so far...
 
 ## Predictive Modeling
@@ -611,7 +648,7 @@ results = pd.DataFrame({
 
 -   Do these clusters match up to the species?
 
-2. Next, fit a 6-means model.
+2. Next, fit a 5-means model.
 
 -   Do those clusters match up to species and island?
 

@@ -3329,7 +3329,7 @@
     "href": "slides/13-kmeans.html#activity",
     "title": "Unsupervised Learning with K-Means",
     "section": "Activity",
-    "text": "Activity\n\nFit a 3-means model using all the numeric predictors in the penguins data.\n\n\nDescribe what each cluster represents.\nDo these clusters match up to the species?\n\n\nNext, fit a 6-means model.\n\n\nDo those clusters match up to species and island?",
+    "text": "Activity\n\nFit a 3-means model using all the numeric predictors in the penguins data.\n\n\nDescribe what each cluster represents.\nDo these clusters match up to the species?\n\n\nNext, fit a 5-means model.\n\n\nDo those clusters match up to species and island?",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -5390,6 +5390,17 @@
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
+    ]
+  },
+  {
+    "objectID": "slides/13-kmeans.html#weeks-8-9-10",
+    "href": "slides/13-kmeans.html#weeks-8-9-10",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Weeks 8, 9, & 10",
+    "text": "Weeks 8, 9, & 10\n\n\n\nWeek 8\n\nLast week of models!\n\nStatistical Learning Model: K-Means\n\nData Model: Joins\n\n\n\n\n\nWeek 9\n\nData Ethics\n\nData Context\nModel Ethics\n\nProject Work Sessions\n\n\n\n\nWeek 10\n\nFinal Posters\nPractice Final\nExam 2",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 1 - Unsupervised Learning"
     ]
   }
 ]
