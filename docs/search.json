@@ -4439,8 +4439,8 @@
     "objectID": "slides/14-merge.html#data-analysis-the-whole-game",
     "href": "slides/14-merge.html#data-analysis-the-whole-game",
     "title": "Combining Datasets",
-    "section": "Data analysis: The whole game",
-    "text": "Data analysis: The whole game\n\n\nAcquire data and clean it by fixing variable types, dropping or replacing missing data, and looking for other issues.\nExplore the dataset by making summaries and plots of one variable.\nEstablish research questions to answer with this data.\nCreate visualizations of two or more variables that address simple questions.\nFit predictive models to address more complex questions, and/or to prepare for prediction on future data.\nFit unsupervised models to answer open-ended questions.",
+    "section": "Data analysis: The Whole Game",
+    "text": "Data analysis: The Whole Game\n\n\nAcquire data and clean it by fixing variable types, dropping or replacing missing data, and looking for other issues.\nExplore the dataset by making summaries and plots of one variable.\nEstablish research questions to answer with this data.\nCreate visualizations of two or more variables that address simple questions.\nFit predictive models to address more complex questions, and/or to prepare for prediction on future data.\nFit unsupervised models to answer open-ended questions.",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5390,6 +5390,83 @@
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#cleaning-variables",
+    "href": "slides/14-merge.html#cleaning-variables",
+    "title": "Combining Datasets",
+    "section": "Cleaning Variables",
+    "text": "Cleaning Variables\nWhat does a Mode of 0 represent?\n\n\ndf_songs['Mode'] = (\n  df_songs['Mode']\n  .replace({1: 'Major', 0: 'Minor'})\n  )\n\nHow did I know that 0 represented a minor key?\n\n\nThe data documentation!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level",
+    "href": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level",
+    "title": "Combining Datasets",
+    "section": "Obtaining Coefficients for Every Variable Level",
+    "text": "Obtaining Coefficients for Every Variable Level\n\nEven if you converted TimeSignature and Mode into categorical / string variables, you will not get coefficient estimates for every level of these variables.\n\n\n\nQ: What do you get?\nA: Adjustments for each group relative to the “baseline” group.\n\n\n\n\nQ: What group is the “baseline” group?\nA: The group that comes first alphabetically (has the lowest ASCII representation).",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level-1",
+    "href": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level-1",
+    "title": "Combining Datasets",
+    "section": "Obtaining Coefficients for Every Variable Level",
+    "text": "Obtaining Coefficients for Every Variable Level\nHow do you get values for every level of a categorical variable?\n\nOne-hot Encoding!\n\nct = make_column_transformer(\n    (OneHotEncoder(handle_unknown = \"ignore\"),\n     [\"TimeSignature\", \"Mode\"]\n     ),\n    remainder = \"passthrough\"\n)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#penalized-logistic-regression-is-the-default",
+    "href": "slides/14-merge.html#penalized-logistic-regression-is-the-default",
+    "title": "Combining Datasets",
+    "section": "Penalized Logistic Regression is the Default!",
+    "text": "Penalized Logistic Regression is the Default!\n\npipeline = make_pipeline(\n    ct,\n  LogisticRegression(penalty = None)\n  )",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#model-error-versus-testing-error",
+    "href": "slides/14-merge.html#model-error-versus-testing-error",
+    "title": "Combining Datasets",
+    "section": "Model Error versus Testing Error",
+    "text": "Model Error versus Testing Error\n\n\n\n\nWhat is the accuracy of this model?\n\n\n\n\n\nthis model represents the errors of the model that was fit to the training data, where we know the value of the target variable\n\nCross-validation is not necessary here!\n\n\n\n\n\n\n\n\nIf you were to use this model to predict, what precision would you expect to get?\n\n\n\n\n\npredicting involves “testing” data, where we don’t know the value of the target variable\n\nCross-validation is necessary here!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#interpreting-logistic-regression-coefficents",
+    "href": "slides/14-merge.html#interpreting-logistic-regression-coefficents",
+    "title": "Combining Datasets",
+    "section": "Interpreting Logistic Regression Coefficents",
+    "text": "Interpreting Logistic Regression Coefficents\nEach coefficient is associated with the change in the log-odds of a song containing explicit lyrics.\n\n\nTimeSignature_1: 1.532310\n\nA 1/4 time signature is associated with an increase of 1.53 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\nSpeechiness: 5.185788\n\nAn increase of speechiness by 1 unit (making the song almost entirely made up of spoken words) is associated with an increase of 5.18 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\n\n\n\n\n\nDid you standard ize?\n\n\nIf so, your interpretation is not a 1 unit increase! Your interpretation is a 1 standard deviation increase above the mean.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#interpreting-coefficents",
+    "href": "slides/14-merge.html#interpreting-coefficents",
+    "title": "Combining Datasets",
+    "section": "Interpreting Coefficents",
+    "text": "Interpreting Coefficents\n\nEach coefficient is associated with the change in the log-odds of a song containing explicit lyrics.\n\n\n\nTimeSignature_1: 1.532310\n\nA 1/4 time signature is associated with an increase of 1.53 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\n\nSpeechiness: 5.185788\n\nAn increase of speechiness by 1 unit (making the song almost entirely made up of spoken words) is associated with an increase of 5.18 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\n\n\n\n\n\n\n\nDid you standardize?\n\n\nIf so, your interpretation is not a 1 unit increase! Your interpretation is a 1 standard deviation increase above the mean.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
     ]
   }
 ]

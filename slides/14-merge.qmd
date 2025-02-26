@@ -21,9 +21,179 @@ import pandas as pd
 from plotnine import *
 ```
 
+# Lab 7 Debrief
+
+## Cleaning Variables
+
+What does a `Mode` of 0 represent? 
+
+. . .
+
+```{python}
+#| eval: false
+#| label: convert-mode-to-meaningful-values
+#| code-line-numbers: false
+
+df_songs['Mode'] = (
+  df_songs['Mode']
+  .replace({1: 'Major', 0: 'Minor'})
+  )
+```
+
+How did I know that `0` represented a minor key?  
+
+. . .
+
+The [data documentation](https://developer.spotify.com/documentation/web-api/reference/get-audio-features)! 
+
+## Obtaining Coefficients for **Every** Variable Level
+
+::: {.midi}
+Even if you converted `TimeSignature` and `Mode` into categorical / string 
+variables, you **will not** get coefficient estimates for **every** level of 
+these variables. 
+:::
+
+. . .
+
+::: {.midi}
+**Q**: What do you get?
+
+**A**: Adjustments for each group relative to the "baseline" group.  
+:::
+
+. . .
+
+::: {.midi}
+**Q**: What group is the "baseline" group?
+
+**A**: The group that comes first alphabetically (has the lowest ASCII representation).
+:::
+
+## Obtaining Coefficients for **Every** Variable Level
+
+How do you get values for **every** level of a categorical variable?
+
+. . .
+
+One-hot Encoding! 
+
+```{python}
+#| eval: false
+#| label: one-hot-encode
+#| code-line-numbers: false
+
+ct = make_column_transformer(
+    (OneHotEncoder(handle_unknown = "ignore"),
+     ["TimeSignature", "Mode"]
+     ),
+    remainder = "passthrough"
+)
+```
+
+## Penalized Logistic Regression is the Default! 
+
+```{python}
+#| eval: false
+#| code-line-numbers: "3"
+
+pipeline = make_pipeline(
+    ct,
+  LogisticRegression(penalty = None)
+  )
+```
+
+## Model Error versus Testing Error
+
+::: columns
+::: {.column width="48%"}
+::: {.midi}
+> What is the accuracy of this model?
+:::
+
+</br>
+
+::: {.midi}
+::: {.fragment}
+***this model*** represents the errors of the model that was fit to the training
+data, where we know the value of the target variable
+
+::: {.fragment}
+Cross-validation is not necessary here!
+:::
+:::
+:::
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="47%"}
+::: {.midi}
+> If you were to use this model to predict, what **precision** would you expect to get? 
+:::
+
+</br>
+
+::: {.midi}
+::: {.fragment}
+***predicting*** involves "testing" data, where we don't know the value of the
+target variable
+
+::: {.fragment}
+Cross-validation is necessary here!
+:::
+:::
+:::
+:::
+:::
+
+## Interpreting Coefficents
+
+::: {.midi}
+Each coefficient is associated with the change in the ***log-odds of a song 
+containing explicit lyrics***. 
+:::
+
+. . .
+
+::: {.small}
+`TimeSignature_1`: `1.532310`
+
+> A 1/4 time signature is associated with an increase of 1.53 in the log-odds of
+> a song containing explicit lyrics. 
+
+:::
+
+</br> 
+
+. . .
+
+::: {.small}
+`Speechiness`: `5.185788`
+
+> An increase of speechiness by 1 unit (making the song almost entirely made up
+> of spoken words) is associated with an increase of 5.18 in the log-odds of a 
+> song containing explicit lyrics. 
+
+:::
+
+<!-- Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most likely represent music and other non-speech-like tracks. -->
+
+. . .
+
+::: {.small}
+::: {.callout-warning}
+# Did you standardize?
+
+If so, your interpretation ***is not a 1 unit increase***! Your interpretation 
+is a ***1 standard deviation increase above the mean***. 
+:::
+:::
+
 # The story so far...
 
-## Data analysis: The whole game
+## Data analysis: The Whole Game
 
 ::: {.midi}
 -   **Acquire** data and **clean** it by fixing variable types, dropping or
