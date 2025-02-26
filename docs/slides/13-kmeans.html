@@ -397,28 +397,85 @@
 
 </section>
 <section>
+<section id="plan-for-the-rest-of-the-quarter" class="title-slide slide level1 center">
+<h1>Plan for the rest of the quarter</h1>
+
+</section>
+<section id="weeks-8-9-10" class="slide level2">
+<h2>Weeks 8, 9, &amp; 10</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="fragment">
+<p><strong>Week 8</strong></p>
+<ul>
+<li>Last week of models!
+<ul>
+<li>Statistical Learning Model: K-Means<br>
+</li>
+<li>Data Model: Joins</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="fragment">
+<p><strong>Week 9</strong></p>
+<ul>
+<li>Data Ethics
+<ul>
+<li>Data Context</li>
+<li>Model Ethics</li>
+</ul></li>
+<li>Project Work Sessions</li>
+</ul>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="fragment">
+<p><strong>Week 10</strong></p>
+<ul>
+<li>Final Posters</li>
+<li>Practice Final</li>
+<li>Exam 2</li>
+</ul>
+</div>
+</div></div>
+</section></section>
+<section>
 <section id="the-story-so-far" class="title-slide slide level1 center">
 <h1>The story so far…</h1>
 
 </section>
 <section id="predictive-modeling" class="slide level2">
 <h2>Predictive Modeling</h2>
-<div class="midi">
 <div>
+<div class="midi">
 <ul>
 <li class="fragment"><p>In <strong>predictive modeling</strong>, a.k.a. <strong>supervised machine learning</strong>, we have a <strong>target variable</strong> we want to predict.</p></li>
 <li class="fragment"><p>We expect to have observations where we know the <em>predictors</em> but not the <em>target</em>.</p></li>
 <li class="fragment"><p>Our goal is to choose a <strong>modeling procedure</strong> to guess the value of the target variable based on the predictors.</p></li>
 <li class="fragment"><p>We use <strong>cross-validation</strong> to estimate the <strong>test error</strong> of various procedure options.</p></li>
-<li class="fragment"><p>We might compare different:</p>
-<ul>
-<li class="fragment">feature sets</li>
-<li class="fragment">preprocessing choices</li>
-<li class="fragment">model specifications/algorithms</li>
-<li class="fragment">tuning parameters</li>
-</ul></li>
+<li class="fragment"><p>We might compare different:</p></li>
 </ul>
 </div>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:47%;">
+<div class="small">
+<ol type="1">
+<li>feature sets</li>
+<li>preprocessing choices</li>
+</ol>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:47%;">
+<div class="small">
+<ol start="3" type="1">
+<li>model specifications / algorithms</li>
+<li>tuning parameters</li>
+</ol>
+</div>
+</div></div>
 </div>
 </section></section>
 <section>
@@ -505,13 +562,15 @@
 <section id="the-k-means-algorithm-1" class="slide level2">
 <h2>The K-Means Algorithm</h2>
 <p><strong>Procedure (3-means):</strong></p>
+<div>
 <ol type="1">
-<li><p>Choose 3 random observations to be the <strong>initial centroids</strong>.</p></li>
-<li><p>For each observation, determine which is the <strong>closest centroid</strong>.</p></li>
-<li><p>Create 3 <strong>clusters</strong> based on the closest centroid.</p></li>
-<li><p>Find the <strong>new centroid</strong> of each cluster.</p></li>
-<li><p>Repeat until the clusters don’t change.</p></li>
+<li class="fragment"><p>Choose 3 random observations to be the <strong>initial centroids</strong>.</p></li>
+<li class="fragment"><p>For each observation, determine which is the <strong>closest centroid</strong>.</p></li>
+<li class="fragment"><p>Create 3 <strong>clusters</strong> based on the closest centroid.</p></li>
+<li class="fragment"><p>Find the <strong>new centroid</strong> of each cluster.</p></li>
+<li class="fragment"><p>Repeat until the clusters don’t change.</p></li>
 </ol>
+</div>
 <div class="fragment">
 <p><a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/" class="uri">https://www.naftaliharris.com/blog/visualizing-k-means-clustering/</a></p>
 </div>
@@ -944,8 +1003,8 @@ purple        0.938075          -0.370088</code></pre>
 <!-- "bill_length_mm", "flipper_length_mm" -->
 <div>
 <ul>
-<li class="fragment"><p>Cluster 1 has a short bill, shortish flipper</p></li>
-<li class="fragment"><p>Cluster 2 has medium bill, long flipper</p></li>
+<li class="fragment"><p>Cluster 1 has a short bill and short flippers</p></li>
+<li class="fragment"><p>Cluster 2 has medium bill and long flipper</p></li>
 <li class="fragment"><p>Cluster 3 has long bill, and fairly average flipper</p></li>
 </ul>
 </div>
@@ -993,7 +1052,7 @@ Gentoo       0.0  122.0   1.0</code></pre>
 <li><p>Do these clusters match up to the species?</p></li>
 </ul>
 <ol start="2" type="1">
-<li>Next, fit a 6-means model.</li>
+<li>Next, fit a 5-means model.</li>
 </ol>
 <ul>
 <li>Do those clusters match up to species and island?</li>

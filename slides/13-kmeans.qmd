@@ -23,12 +23,49 @@ import pandas as pd
 from plotnine import *
 ```
 
+# Plan for the rest of the quarter
+
+## Weeks 8, 9, & 10
+
+::::::::: columns
+:::: {.column width="30%"}
+::: fragment
+**Week 8**
+
+- Last week of models!
+  + Statistical Learning Model: K-Means  
+  + Data Model: Joins
+:::
+::::
+
+:::: {.column width="30%"}
+::: fragment
+**Week 9**
+
+-   Data Ethics
+    + Data Context
+    + Model Ethics
+-   Project Work Sessions
+:::
+::::
+
+:::: {.column width="30%"}
+::: fragment
+**Week 10**
+
+-   Final Posters
+-   Practice Final
+-   Exam 2
+:::
+::::
+:::::::::
+
 # The story so far...
 
 ## Predictive Modeling
 
-::: {.midi}
 ::: {.incremental}
+::: {.midi}
 -   In **predictive modeling**, a.k.a. **supervised machine learning**, we have
 a **target variable** we want to predict.
 
@@ -42,11 +79,27 @@ target variable based on the predictors.
 procedure options.
 
 -   We might compare different:
+:::
+:::
 
-    -   feature sets
-    -   preprocessing choices
-    -   model specifications/algorithms
-    -   tuning parameters
+::: {.fragment}
+::: columns
+::: {.column width="47%"}
+::: {.small}
+1. feature sets
+2. preprocessing choices
+:::
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="47%"}
+::: {.small}
+3. model specifications / algorithms
+4. tuning parameters
+:::
+:::
 :::
 :::
 
@@ -136,6 +189,8 @@ A: We should look for groups of observations that are close to the same
 
 **Procedure (3-means):**
 
+::: {.incremental}
+
 1.  Choose 3 random observations to be the **initial centroids**.
 
 2.  For each observation, determine which is the **closest centroid**.
@@ -145,6 +200,7 @@ A: We should look for groups of observations that are close to the same
 4.  Find the **new centroid** of each cluster.
 
 5.  Repeat until the clusters don't change.
+:::
 
 . . .
 
@@ -552,9 +608,9 @@ centroids
 <!-- "bill_length_mm", "flipper_length_mm" -->
 
 ::: {.incremental}
--   Cluster 1 has a short bill, shortish flipper
+-   Cluster 1 has a short bill and short flippers
 
--   Cluster 2 has medium bill, long flipper
+-   Cluster 2 has medium bill and long flipper
 
 -   Cluster 3 has long bill, and fairly average flipper
 :::
@@ -592,7 +648,7 @@ results = pd.DataFrame({
 
 -   Do these clusters match up to the species?
 
-2. Next, fit a 6-means model.
+2. Next, fit a 5-means model.
 
 -   Do those clusters match up to species and island?
 

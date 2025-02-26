@@ -3054,7 +3054,7 @@
     "href": "slides/13-kmeans.html#predictive-modeling",
     "title": "Unsupervised Learning with K-Means",
     "section": "Predictive Modeling",
-    "text": "Predictive Modeling\n\n\n\nIn predictive modeling, a.k.a. supervised machine learning, we have a target variable we want to predict.\nWe expect to have observations where we know the predictors but not the target.\nOur goal is to choose a modeling procedure to guess the value of the target variable based on the predictors.\nWe use cross-validation to estimate the test error of various procedure options.\nWe might compare different:\n\nfeature sets\npreprocessing choices\nmodel specifications/algorithms\ntuning parameters",
+    "text": "Predictive Modeling\n\n\n\nIn predictive modeling, a.k.a. supervised machine learning, we have a target variable we want to predict.\nWe expect to have observations where we know the predictors but not the target.\nOur goal is to choose a modeling procedure to guess the value of the target variable based on the predictors.\nWe use cross-validation to estimate the test error of various procedure options.\nWe might compare different:\n\n\n\n\n\n\n\n\nfeature sets\npreprocessing choices\n\n\n\n\n\n\n\nmodel specifications / algorithms\ntuning parameters",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -3109,7 +3109,7 @@
     "href": "slides/13-kmeans.html#the-k-means-algorithm-1",
     "title": "Unsupervised Learning with K-Means",
     "section": "The K-Means Algorithm",
-    "text": "The K-Means Algorithm\nProcedure (3-means):\n\nChoose 3 random observations to be the initial centroids.\nFor each observation, determine which is the closest centroid.\nCreate 3 clusters based on the closest centroid.\nFind the new centroid of each cluster.\nRepeat until the clusters don’t change.\n\n\nhttps://www.naftaliharris.com/blog/visualizing-k-means-clustering/",
+    "text": "The K-Means Algorithm\nProcedure (3-means):\n\n\nChoose 3 random observations to be the initial centroids.\nFor each observation, determine which is the closest centroid.\nCreate 3 clusters based on the closest centroid.\nFind the new centroid of each cluster.\nRepeat until the clusters don’t change.\n\n\n\nhttps://www.naftaliharris.com/blog/visualizing-k-means-clustering/",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -3307,7 +3307,7 @@
     "href": "slides/13-kmeans.html#interpreting-k-means",
     "title": "Unsupervised Learning with K-Means",
     "section": "Interpreting K-Means",
-    "text": "Interpreting K-Means\nThe key takeaway here is the cluster centers:\n\ncentroids = model.cluster_centers_\ncentroids\n\narray([[-0.95823619, -0.80850204],\n       [ 0.66658932,  1.14779076],\n       [ 0.93807532, -0.37008779]])\n\n\n\n\n\nCluster 1 has a short bill, shortish flipper\nCluster 2 has medium bill, long flipper\nCluster 3 has long bill, and fairly average flipper",
+    "text": "Interpreting K-Means\nThe key takeaway here is the cluster centers:\n\ncentroids = model.cluster_centers_\ncentroids\n\narray([[-0.95823619, -0.80850204],\n       [ 0.66658932,  1.14779076],\n       [ 0.93807532, -0.37008779]])\n\n\n\n\n\nCluster 1 has a short bill and short flippers\nCluster 2 has medium bill and long flipper\nCluster 3 has long bill, and fairly average flipper",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -3329,7 +3329,7 @@
     "href": "slides/13-kmeans.html#activity",
     "title": "Unsupervised Learning with K-Means",
     "section": "Activity",
-    "text": "Activity\n\nFit a 3-means model using all the numeric predictors in the penguins data.\n\n\nDescribe what each cluster represents.\nDo these clusters match up to the species?\n\n\nNext, fit a 6-means model.\n\n\nDo those clusters match up to species and island?",
+    "text": "Activity\n\nFit a 3-means model using all the numeric predictors in the penguins data.\n\n\nDescribe what each cluster represents.\nDo these clusters match up to the species?\n\n\nNext, fit a 5-means model.\n\n\nDo those clusters match up to species and island?",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 1 - Unsupervised Learning"
@@ -5393,6 +5393,7 @@
     ]
   },
   {
+<<<<<<< HEAD
     "objectID": "slides/14-merge.html#cleaning-variables",
     "href": "slides/14-merge.html#cleaning-variables",
     "title": "Combining Datasets",
@@ -5467,6 +5468,16 @@
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
+=======
+    "objectID": "slides/13-kmeans.html#weeks-8-9-10",
+    "href": "slides/13-kmeans.html#weeks-8-9-10",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Weeks 8, 9, & 10",
+    "text": "Weeks 8, 9, & 10\n\n\n\nWeek 8\n\nLast week of models!\n\nStatistical Learning Model: K-Means\n\nData Model: Joins\n\n\n\n\n\nWeek 9\n\nData Ethics\n\nData Context\nModel Ethics\n\nProject Work Sessions\n\n\n\n\nWeek 10\n\nFinal Posters\nPractice Final\nExam 2",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 1 - Unsupervised Learning"
+>>>>>>> 0e548fca0501271c32cdf3f3cf185743e918eb9b
     ]
   }
 ]
