@@ -1775,7 +1775,7 @@
     "href": "slides/10-cross-val.html#estimating-error-for-test-data",
     "title": "Cross-Validation and Grid Search",
     "section": "Estimating Error for Test Data",
-    "text": "Estimating Error for Test Data\n\nmean_squared_error(y_test, pred_y_test)\n\n57.922771037840334",
+    "text": "Estimating Error for Test Data\n\nmean_squared_error(y_test, pred_y_test)\n\n540.5264636653949",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1907,7 +1907,7 @@
     "href": "slides/10-cross-val.html#getting-the-cross-validation-results",
     "title": "Cross-Validation and Grid Search",
     "section": "Getting the Cross Validation Results",
-    "text": "Getting the Cross Validation Results\n\n\npd.DataFrame(grid_cv.cv_results_)\n\n\n\n\n\n    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score\n0        0.001557      0.000302  ...      219.338831               12\n1        0.001271      0.000011  ...      209.511631                9\n2        0.001326      0.000063  ...      178.819362                6\n3        0.001267      0.000013  ...      217.989122               11\n4        0.001257      0.000013  ...      212.797774                7\n5        0.001261      0.000010  ...      205.240907                3\n6        0.001463      0.000300  ...      227.978005               10\n7        0.001256      0.000012  ...      175.175403                2\n8        0.001283      0.000029  ...      174.981203                5\n9        0.001255      0.000007  ...      175.186322                1\n10       0.001247      0.000008  ...      200.091917                4\n11       0.001243      0.000017  ...      232.710455                8\n\n[12 rows x 15 columns]",
+    "text": "Getting the Cross Validation Results\n\n\npd.DataFrame(grid_cv.cv_results_)\n\n\n\n\n\n    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score\n0        0.001742      0.000332  ...      219.338831               12\n1        0.001481      0.000168  ...      209.511631                9\n2        0.001374      0.000104  ...      178.819362                6\n3        0.002112      0.000538  ...      217.989122               11\n4        0.001574      0.000108  ...      212.797774                7\n5        0.002051      0.000476  ...      205.240907                3\n6        0.001356      0.000126  ...      227.978005               10\n7        0.001345      0.000091  ...      175.175403                2\n8        0.001311      0.000056  ...      174.981203                5\n9        0.001324      0.000092  ...      175.186322                1\n10       0.001273      0.000048  ...      200.091917                4\n11       0.001260      0.000033  ...      232.710455                8\n\n[12 rows x 15 columns]",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -2226,7 +2226,7 @@
     "href": "slides/06-preprocessing.html#finding-all-categorical-variables",
     "title": "Dummy Variables and Column Transformers",
     "section": "Finding All Categorical Variables",
-    "text": "Finding All Categorical Variables\n\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")\n\n\n\n\n\n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13bb3eba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13b99f750&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriNot fittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13bb3eba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13b99f750&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13bb3eba0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13b99f750&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder passthroughpassthrough",
+    "text": "Finding All Categorical Variables\n\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")\n\n\n\n\n\n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1114aaba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11130b750&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriNot fittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1114aaba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11130b750&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1114aaba0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11130b750&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder passthroughpassthrough",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -3048,6 +3048,17 @@
     "title": "Practice Exam 2",
     "section": "Logistic Regression",
     "text": "Logistic Regression\nSince we wanted be understand how each of these variables (HP, Attack, Defense, Speed) is related to legendary status, we also fit a logistic regression.\n\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = make_pipeline(\n    LogisticRegression()\n    )\n\npipeline.fit(X = df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n             y = df_pokemon['Legendary']);\n\n\n\n  coef_name  coef_value\n0        HP    0.040203\n1    Attack    0.014614\n2   Defense    0.035188\n3     Speed    0.056198\n\n\nModel interpretations:\n\nFor each point of HP the Pokemon has, the probability of it being Legendary increases by 0.04.\nFor each point of attack the Pokemon has, the probability of it being Legendary increases by 0.014\nFor each point of defense the Pokemon has, the probability of it being Legendary increases by 0.035\nFor each point of speed the Pokemon has, the probability of it being Legendary increases by 0.056\n\nQuestion 8: Help, I don’t remember how to interpret these coefficients! Did I get it right in the above? If not, can you correct it for me?\nBelow are estimates of the testing error rate for this logistic regression model:\n\nfrom sklearn.model_selection import cross_val_score\n\ncross_val_score(\n  pipeline,\n  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n  df_pokemon['Legendary'],\n  scoring = 'accuracy',\n  cv = 5).mean()\n\nnp.float64(0.93125)\n\ncross_val_score(\n  pipeline,\n  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n  df_pokemon['Legendary'],\n  scoring = 'precision',\n  cv = 5).mean()\n\nnp.float64(0.6444444444444445)\n\n  \ncross_val_score(\n  pipeline,\n  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n  df_pokemon['Legendary'],\n  scoring = 'recall',\n  cv = 5).mean()\n\nnp.float64(0.3538461538461538)\n\ncross_val_score(\n  pipeline,\n  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], \n  df_pokemon['Legendary'],\n  scoring = 'f1',\n  cv = 5).mean()\n\nnp.float64(0.45511961722488037)\n\n\nQuestion 9: Which of the models (Logistic Regression, or KNN with a particular k) would you recommend I use in my project? Why?"
+  },
+  {
+    "objectID": "slides/13-kmeans.html#weeks-8-9-10",
+    "href": "slides/13-kmeans.html#weeks-8-9-10",
+    "title": "Unsupervised Learning with K-Means",
+    "section": "Weeks 8, 9, & 10",
+    "text": "Weeks 8, 9, & 10\n\n\n\nWeek 8\n\nLast week of models!\n\nStatistical Learning Model: K-Means\n\nData Model: Joins\n\n\n\n\n\nWeek 9\n\nData Ethics\n\nData Context\nModel Ethics\n\nProject Work Sessions\n\n\n\n\nWeek 10\n\nFinal Posters\nPractice Final\nExam 2",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 1 - Unsupervised Learning"
+    ]
   },
   {
     "objectID": "slides/13-kmeans.html#predictive-modeling",
@@ -3890,7 +3901,7 @@
     "href": "slides/08-knn.html#fit-the-preprocesser",
     "title": "K-Nearest-Neighbors",
     "section": "Fit the Preprocesser",
-    "text": "Fit the Preprocesser\nThen we fit it on the training data.\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 16.47037037, 144.81481481,  17.04814815, 608.40740741,\n        25.18518519])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([4.09492455e-01, 5.14089163e+03, 1.89286694e+00, 1.60333525e+04,\n       6.54842250e+01])",
+    "text": "Fit the Preprocesser\nThen we fit it on the training data.\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x15606be00&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x15606be00&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x15606be00&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 16.47037037, 144.81481481,  17.04814815, 608.40740741,\n        25.18518519])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([4.09492455e-01, 5.14089163e+03, 1.89286694e+00, 1.60333525e+04,\n       6.54842250e+01])",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -3912,7 +3923,7 @@
     "href": "slides/08-knn.html#what-if-we-had-fit-on-the-test-data",
     "title": "K-Nearest-Neighbors",
     "section": "What if we had fit on the test data?",
-    "text": "What if we had fit on the test data?\n\n\n\npreproc.fit(df_test[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13482fe00&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 18.6,  82. ,  18.4, 443. ,   3. ])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([0., 0., 0., 0., 0.])",
+    "text": "What if we had fit on the test data?\n\n\n\npreproc.fit(df_test[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x15606be00&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x15606be00&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x15606be00&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 18.6,  82. ,  18.4, 443. ,   3. ])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([0., 0., 0., 0., 0.])",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -3934,7 +3945,7 @@
     "href": "slides/08-knn.html#all-together",
     "title": "K-Nearest-Neighbors",
     "section": "All together:",
-    "text": "All together:\n\n\npreproc = make_column_transformer(\n  (StandardScaler(), \n  make_column_selector(dtype_include = np.number)\n  ),\n  remainder = \"drop\"\n)\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\ntrain_new = preproc.transform(df_train[features])\ntest_new = preproc.transform(df_test[features])",
+    "text": "All together:\n\n\npreproc = make_column_transformer(\n  (StandardScaler(), \n  make_column_selector(dtype_include = np.number)\n  ),\n  remainder = \"drop\"\n)\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1564c8550&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1564c8550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1564c8550&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\ntrain_new = preproc.transform(df_train[features])\ntest_new = preproc.transform(df_test[features])",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -4022,7 +4033,7 @@
     "href": "slides/08-knn.html#fitting",
     "title": "K-Nearest-Neighbors",
     "section": "Fitting",
-    "text": "Fitting\n\n\n\npipeline.fit(\n  y = df_train['price'], \n  X = df_train[features]\n  )\n\n\nPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x134ae4550&gt; StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor()",
+    "text": "Fitting\n\n\n\npipeline.fit(\n  y = df_train['price'], \n  X = df_train[features]\n  )\n\n\nPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1564c8550&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1564c8550&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1564c8550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1564c8550&gt; StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor()",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -4433,6 +4444,72 @@
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#cleaning-variables",
+    "href": "slides/14-merge.html#cleaning-variables",
+    "title": "Combining Datasets",
+    "section": "Cleaning Variables",
+    "text": "Cleaning Variables\nWhat does a Mode of 0 represent?\n\n\ndf_songs['Mode'] = (\n  df_songs['Mode']\n  .replace({1: 'Major', 0: 'Minor'})\n  )\n\nHow did I know that 0 represented a minor key?\n\n\nThe data documentation!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level",
+    "href": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level",
+    "title": "Combining Datasets",
+    "section": "Obtaining Coefficients for Every Variable Level",
+    "text": "Obtaining Coefficients for Every Variable Level\n\nEven if you converted TimeSignature and Mode into categorical / string variables, you will not get coefficient estimates for every level of these variables.\n\n\n\nQ: What do you get?\nA: Adjustments for each group relative to the “baseline” group.\n\n\n\n\nQ: What group is the “baseline” group?\nA: The group that comes first alphabetically (has the lowest ASCII representation).",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level-1",
+    "href": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level-1",
+    "title": "Combining Datasets",
+    "section": "Obtaining Coefficients for Every Variable Level",
+    "text": "Obtaining Coefficients for Every Variable Level\nHow do you get values for every level of a categorical variable?\n\nOne-hot Encoding!\n\nct = make_column_transformer(\n    (OneHotEncoder(handle_unknown = \"ignore\"),\n     [\"TimeSignature\", \"Mode\"]\n     ),\n    remainder = \"passthrough\"\n)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#penalized-logistic-regression-is-the-default",
+    "href": "slides/14-merge.html#penalized-logistic-regression-is-the-default",
+    "title": "Combining Datasets",
+    "section": "Penalized Logistic Regression is the Default!",
+    "text": "Penalized Logistic Regression is the Default!\n\npipeline = make_pipeline(\n    ct,\n  LogisticRegression(penalty = None)\n  )",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#model-error-versus-testing-error",
+    "href": "slides/14-merge.html#model-error-versus-testing-error",
+    "title": "Combining Datasets",
+    "section": "Model Error versus Testing Error",
+    "text": "Model Error versus Testing Error\n\n\n\n\nWhat is the accuracy of this model?\n\n\n\n\n\nthis model represents the errors of the model that was fit to the training data, where we know the value of the target variable\n\nCross-validation is not necessary here!\n\n\n\n\n\n\n\n\nIf you were to use this model to predict, what precision would you expect to get?\n\n\n\n\n\npredicting involves “testing” data, where we don’t know the value of the target variable\n\nCross-validation is necessary here!",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/14-merge.html#interpreting-coefficents",
+    "href": "slides/14-merge.html#interpreting-coefficents",
+    "title": "Combining Datasets",
+    "section": "Interpreting Coefficents",
+    "text": "Interpreting Coefficents\n\nEach coefficient is associated with the change in the log-odds of a song containing explicit lyrics.\n\n\n\nTimeSignature_1: 1.532310\n\nA 1/4 time signature is associated with an increase of 1.53 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\n\nSpeechiness: 5.185788\n\nAn increase of speechiness by 1 unit (making the song almost entirely made up of spoken words) is associated with an increase of 5.18 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\n\n\n\n\n\n\n\nDid you standardize?\n\n\nIf so, your interpretation is not a 1 unit increase! Your interpretation is a 1 standard deviation increase above the mean.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
     ]
   },
   {
@@ -5390,94 +5467,6 @@
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
-    ]
-  },
-  {
-<<<<<<< HEAD
-    "objectID": "slides/14-merge.html#cleaning-variables",
-    "href": "slides/14-merge.html#cleaning-variables",
-    "title": "Combining Datasets",
-    "section": "Cleaning Variables",
-    "text": "Cleaning Variables\nWhat does a Mode of 0 represent?\n\n\ndf_songs['Mode'] = (\n  df_songs['Mode']\n  .replace({1: 'Major', 0: 'Minor'})\n  )\n\nHow did I know that 0 represented a minor key?\n\n\nThe data documentation!",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 8, Part 2 - Combining Datasets"
-    ]
-  },
-  {
-    "objectID": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level",
-    "href": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level",
-    "title": "Combining Datasets",
-    "section": "Obtaining Coefficients for Every Variable Level",
-    "text": "Obtaining Coefficients for Every Variable Level\n\nEven if you converted TimeSignature and Mode into categorical / string variables, you will not get coefficient estimates for every level of these variables.\n\n\n\nQ: What do you get?\nA: Adjustments for each group relative to the “baseline” group.\n\n\n\n\nQ: What group is the “baseline” group?\nA: The group that comes first alphabetically (has the lowest ASCII representation).",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 8, Part 2 - Combining Datasets"
-    ]
-  },
-  {
-    "objectID": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level-1",
-    "href": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level-1",
-    "title": "Combining Datasets",
-    "section": "Obtaining Coefficients for Every Variable Level",
-    "text": "Obtaining Coefficients for Every Variable Level\nHow do you get values for every level of a categorical variable?\n\nOne-hot Encoding!\n\nct = make_column_transformer(\n    (OneHotEncoder(handle_unknown = \"ignore\"),\n     [\"TimeSignature\", \"Mode\"]\n     ),\n    remainder = \"passthrough\"\n)",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 8, Part 2 - Combining Datasets"
-    ]
-  },
-  {
-    "objectID": "slides/14-merge.html#penalized-logistic-regression-is-the-default",
-    "href": "slides/14-merge.html#penalized-logistic-regression-is-the-default",
-    "title": "Combining Datasets",
-    "section": "Penalized Logistic Regression is the Default!",
-    "text": "Penalized Logistic Regression is the Default!\n\npipeline = make_pipeline(\n    ct,\n  LogisticRegression(penalty = None)\n  )",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 8, Part 2 - Combining Datasets"
-    ]
-  },
-  {
-    "objectID": "slides/14-merge.html#model-error-versus-testing-error",
-    "href": "slides/14-merge.html#model-error-versus-testing-error",
-    "title": "Combining Datasets",
-    "section": "Model Error versus Testing Error",
-    "text": "Model Error versus Testing Error\n\n\n\n\nWhat is the accuracy of this model?\n\n\n\n\n\nthis model represents the errors of the model that was fit to the training data, where we know the value of the target variable\n\nCross-validation is not necessary here!\n\n\n\n\n\n\n\n\nIf you were to use this model to predict, what precision would you expect to get?\n\n\n\n\n\npredicting involves “testing” data, where we don’t know the value of the target variable\n\nCross-validation is necessary here!",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 8, Part 2 - Combining Datasets"
-    ]
-  },
-  {
-    "objectID": "slides/14-merge.html#interpreting-logistic-regression-coefficents",
-    "href": "slides/14-merge.html#interpreting-logistic-regression-coefficents",
-    "title": "Combining Datasets",
-    "section": "Interpreting Logistic Regression Coefficents",
-    "text": "Interpreting Logistic Regression Coefficents\nEach coefficient is associated with the change in the log-odds of a song containing explicit lyrics.\n\n\nTimeSignature_1: 1.532310\n\nA 1/4 time signature is associated with an increase of 1.53 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\nSpeechiness: 5.185788\n\nAn increase of speechiness by 1 unit (making the song almost entirely made up of spoken words) is associated with an increase of 5.18 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\n\n\n\n\n\nDid you standard ize?\n\n\nIf so, your interpretation is not a 1 unit increase! Your interpretation is a 1 standard deviation increase above the mean.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 8, Part 2 - Combining Datasets"
-    ]
-  },
-  {
-    "objectID": "slides/14-merge.html#interpreting-coefficents",
-    "href": "slides/14-merge.html#interpreting-coefficents",
-    "title": "Combining Datasets",
-    "section": "Interpreting Coefficents",
-    "text": "Interpreting Coefficents\n\nEach coefficient is associated with the change in the log-odds of a song containing explicit lyrics.\n\n\n\nTimeSignature_1: 1.532310\n\nA 1/4 time signature is associated with an increase of 1.53 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\n\nSpeechiness: 5.185788\n\nAn increase of speechiness by 1 unit (making the song almost entirely made up of spoken words) is associated with an increase of 5.18 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\n\n\n\n\n\n\n\nDid you standardize?\n\n\nIf so, your interpretation is not a 1 unit increase! Your interpretation is a 1 standard deviation increase above the mean.",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 8, Part 2 - Combining Datasets"
-=======
-    "objectID": "slides/13-kmeans.html#weeks-8-9-10",
-    "href": "slides/13-kmeans.html#weeks-8-9-10",
-    "title": "Unsupervised Learning with K-Means",
-    "section": "Weeks 8, 9, & 10",
-    "text": "Weeks 8, 9, & 10\n\n\n\nWeek 8\n\nLast week of models!\n\nStatistical Learning Model: K-Means\n\nData Model: Joins\n\n\n\n\n\nWeek 9\n\nData Ethics\n\nData Context\nModel Ethics\n\nProject Work Sessions\n\n\n\n\nWeek 10\n\nFinal Posters\nPractice Final\nExam 2",
-    "crumbs": [
-      "Lecture Slides",
-      "Week 8, Part 1 - Unsupervised Learning"
->>>>>>> 0e548fca0501271c32cdf3f3cf185743e918eb9b
     ]
   }
 ]
