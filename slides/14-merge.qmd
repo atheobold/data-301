@@ -795,7 +795,7 @@ By default, in order to appear in the joined data, a key must be present in
 
 . . .
 
-This is actually what is called an ***inner join**, but there are other types
+This is actually what is called an **inner join**, but there are other types
 of joins! 
 
 # Other Types of Joins

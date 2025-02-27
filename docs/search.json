@@ -4583,7 +4583,7 @@
     "href": "slides/14-merge.html#joining-on-a-key-1",
     "title": "Combining Datasets",
     "section": "Joining on a Key",
-    "text": "Joining on a Key\nEach value of the primary key should only appear once, but it could appear many times in a foreign key.\n\n\n\n(\n  df_planes['tailnum']\n  .value_counts()\n)\n\ntailnum\nN10156    1\nN709EV    1\nN706JB    1\nN706SW    1\nN706TW    1\n         ..\nN395HA    1\nN395SW    1\nN396DA    1\nN396SW    1\nN999DN    1\nName: count, Length: 3322, dtype: int64\n\n\n\n\n\n\n(\n  df_flights['tailnum']\n  .value_counts()\n)\n\ntailnum\nN353JB    48\nN955UW    47\nN184JB    47\nN375JB    42\nN281JB    42\n          ..\nN8598B     1\nN317US     1\nN292WN     1\nN103US     1\nN957AT     1\nName: count, Length: 2600, dtype: int64",
+    "text": "Joining on a Key\nEach value of the primary key should only appear once, but it could appear many times in a foreign key.\n\n\n\n(\n  df_planes['tailnum']\n  .value_counts()\n)\n\ntailnum\nN999DN    1\nN10156    1\nN102UW    1\nN103US    1\nN104UW    1\n         ..\nN11192    1\nN11193    1\nN11194    1\nN11199    1\nN111US    1\nName: count, Length: 3322, dtype: int64\n\n\n\n\n\n\n(\n  df_flights['tailnum']\n  .value_counts()\n)\n\ntailnum\nN353JB    48\nN955UW    47\nN184JB    47\nN281JB    42\nN375JB    42\n          ..\nN8319F     1\nN8683B     1\nN919WN     1\nN119US     1\nN395HA     1\nName: count, Length: 2600, dtype: int64",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4627,7 +4627,7 @@
     "href": "slides/14-merge.html#analyzing-the-joined-data",
     "title": "Combining Datasets",
     "section": "Analyzing the Joined Data",
-    "text": "Analyzing the Joined Data\n\nWhich manufacturer’s planes made the most flights in November 2013?\n\n\ndf_joined[\"manufacturer\"].value_counts()\n\nmanufacturer\nBOEING                           6557\nEMBRAER                          5175\nAIRBUS                           3954\nAIRBUS INDUSTRIE                 3456\nBOMBARDIER INC                   2632\nMCDONNELL DOUGLAS AIRCRAFT CO     811\nMCDONNELL DOUGLAS                 330\nCANADAIR                          122\nMCDONNELL DOUGLAS CORPORATION     121\nCESSNA                             36\nCIRRUS DESIGN CORP                 21\nROBINSON HELICOPTER CO             19\nBARKER JACK L                      15\nPIPER                               9\nFRIEDEMANN JON                      8\nSIKORSKY                            6\nBELL                                5\nDEHAVILLAND                         4\nAGUSTA SPA                          3\nAMERICAN AIRCRAFT INC               3\nDOUGLAS                             2\nLAMBERT RICHARD                     2\nKILDALL GARY                        2\nLEARJET INC                         2\nMARZ BARRY                          1\nAVIAT AIRCRAFT INC                  1\nPAIR MIKE E                         1\nLEBLANC GLENN T                     1\nSTEWART MACO                        1\nName: count, dtype: int64",
+    "text": "Analyzing the Joined Data\n\nWhich manufacturer’s planes made the most flights in November 2013?\n\n\ndf_joined[\"manufacturer\"].value_counts()\n\nmanufacturer\nBOEING                           6557\nEMBRAER                          5175\nAIRBUS                           3954\nAIRBUS INDUSTRIE                 3456\nBOMBARDIER INC                   2632\nMCDONNELL DOUGLAS AIRCRAFT CO     811\nMCDONNELL DOUGLAS                 330\nCANADAIR                          122\nMCDONNELL DOUGLAS CORPORATION     121\nCESSNA                             36\nCIRRUS DESIGN CORP                 21\nROBINSON HELICOPTER CO             19\nBARKER JACK L                      15\nPIPER                               9\nFRIEDEMANN JON                      8\nSIKORSKY                            6\nBELL                                5\nDEHAVILLAND                         4\nAMERICAN AIRCRAFT INC               3\nAGUSTA SPA                          3\nLEARJET INC                         2\nLAMBERT RICHARD                     2\nDOUGLAS                             2\nKILDALL GARY                        2\nAVIAT AIRCRAFT INC                  1\nMARZ BARRY                          1\nPAIR MIKE E                         1\nLEBLANC GLENN T                     1\nSTEWART MACO                        1\nName: count, dtype: int64",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4803,7 +4803,7 @@
     "href": "slides/14-merge.html#missing-keys-2",
     "title": "Combining Datasets",
     "section": "Missing keys",
-    "text": "Missing keys\n\nHow does the merge() function determine which keys get kept?\n\nBy default, in order to appear in the joined data, a key must be present in both tables.\n\n\nThis is actually what is called an *inner join, but there are other types of joins!",
+    "text": "Missing keys\n\nHow does the merge() function determine which keys get kept?\n\nBy default, in order to appear in the joined data, a key must be present in both tables.\n\n\nThis is actually what is called an inner join, but there are other types of joins!",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
