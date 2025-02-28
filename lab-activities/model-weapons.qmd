@@ -1,12 +1,45 @@
 ---
-title: "What is a Model?"
+title: "Bomb Parts: What is a Model?"
 editor: source
 ---
 
-## Reading 
+## Reading
 
-[Bomb Parts: What is a Model?]()
+You can access the full PDF of this book here: [link to full PDF](https://www.dropbox.com/scl/fi/dgtmo2fews1lfm944r2vk/Weapons-of-Math-Destruction-Cathy-ONeil.pdf?rlkey=jkor96190c4nyh4spviocrxpz&st=3pkx7aox&dl=0)
+
+You can access just Chapter 1 of the book here: [link to Chapter 1]()
 
 ::: {.column-margin}
 ![](images/weapons-of-math-destruction.jpg)
 :::
+
+## Discussion Questions 
+
+1. What is the significance of the title Weapons of Math Destruction?
+
+2. According to O’Neil, is every mathematical model a Weapon of Math
+Destruction? Why or why not?
+
+3. O'Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is
+most vulnerable to being harmed by their use?
+
+4. Have you had experiences with algorithms that O’Neil’s account illuminates?
+
+The proliferation of WMDs seems to stem from our innate attraction to numeric
+rankings. Often, an “anti” WMD would require significant investment of time,
+money, and human capital to evaluate whatever metric (teacher performance,
+expected criminal recidivism, credit history etc.) is currently being assessed
+by a WMD. 
+
+<!-- What would it take for an education algorithm to meet all of O’Neil’s criteria for not doing damage? -->
+
+5. Is there a scale on which we believe we can replace the efficiency of
+WMDs with the more expensive alternative? Are algorithms our only answer to
+tackling big data?
+
+6. Should there be a Bill of Rights around data? What would it entail and who
+would it be for?
+
+7. What is (or what could be) the role of data scientists in data justice?
+
+## Project Application
