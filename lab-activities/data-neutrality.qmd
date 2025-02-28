@@ -1,0 +1,43 @@
+---
+title: "The Numbers Don’t Speak for Themselves"
+editor: source
+---
+
+## Reading 
+
+::: {.column-margin}
+![](images/data-feminism.jpeg)
+:::
+
+For the first part of this week, we are going to 
+interrogate the idea of data "neutrality." Specifically, we are going to learn about the
+the multiple layers of context that are important to consider when working with any set of data. 
+
+[The Numbers Don’t Speak for Themselves](https://data-feminism.mitpress.mit.edu/pub/czq9dfs5/release/3)
+
+> Data are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis.
+
+## Discussion Questions
+
+<!-- What problems does big data solve versus create? -->
+
+<!-- What are your thoughts on how we label graphs with context? -->
+
+<!-- Where does responsibility lie for proving data context in your area? How does funding play in? -->
+
+<!-- Which actors in the data ecosystem are responsible for providing context? End  users? Data publishers? Data intermediaries?   -->
+
+<!-- What steps can we take to ensure context is considered? How can we more effectively present context through data visualization? -->
+
+<!-- Which power imbalances have led to silences in the dataset or data that is missing altogether?  -->
+
+<!-- Library of missing data: -->
+<!-- https://mimionuoha.com/the-library-of-missing-datasets -->
+
+::: {.column-margin}
+Here is a discussion of this chapter with Catherine D'Ignazio and Lauren Klein:
+
+<iframe width="200" height="150" src="https://www.youtube.com/embed/eaoVeEIIpQc?si=dSLz3uRL0M0m-ubV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+:::
+
+## Project Application
