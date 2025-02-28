@@ -5471,5 +5471,33 @@
     "title": "What is a Model?",
     "section": "",
     "text": "Bomb Parts: What is a Model?"
+  },
+  {
+    "objectID": "lab-activities/data-neutrality.html",
+    "href": "lab-activities/data-neutrality.html",
+    "title": "The Numbers Don’t Speak for Themselves",
+    "section": "",
+    "text": "For the first part of this week, we are going to interrogate the idea of data “neutrality.” Specifically, we are going to learn about the the multiple layers of context that are important to consider when working with any set of data.\nThe Numbers Don’t Speak for Themselves\n\nData are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis."
+  },
+  {
+    "objectID": "lab-activities/data-neutrality.html#reading",
+    "href": "lab-activities/data-neutrality.html#reading",
+    "title": "The Numbers Don’t Speak for Themselves",
+    "section": "",
+    "text": "For the first part of this week, we are going to interrogate the idea of data “neutrality.” Specifically, we are going to learn about the the multiple layers of context that are important to consider when working with any set of data.\nThe Numbers Don’t Speak for Themselves\n\nData are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis."
+  },
+  {
+    "objectID": "lab-activities/data-neutrality.html#discussion-questions",
+    "href": "lab-activities/data-neutrality.html#discussion-questions",
+    "title": "The Numbers Don’t Speak for Themselves",
+    "section": "Discussion Questions",
+    "text": "Discussion Questions\nWe will use these questions to frame our discussion of this chapter:\n\nWhat problems does big data solve versus create?\nWhat are your thoughts on how we label graphs with context?\nWhich actors in the data ecosystem are responsible for providing context? End users? Data publishers? Data intermediaries?\nWhat steps can we take to ensure context is considered? How can we more effectively present context through data visualization?\nWhich power imbalances have led to silences in the dataset or data that is missing altogether?\n\n\n\n\n\nHere is a discussion of this chapter with Catherine D’Ignazio and Lauren Klein:"
+  },
+  {
+    "objectID": "lab-activities/data-neutrality.html#project-application",
+    "href": "lab-activities/data-neutrality.html#project-application",
+    "title": "The Numbers Don’t Speak for Themselves",
+    "section": "Project Application",
+    "text": "Project Application\nIn the “Data Context” section of your Final Poster, you are required to provide a description that directly addresses the:\n\nsocial,\ncultural,\nhistorical,\ninstitutional, and\nmaterial conditions under which the data were produced.\n\nPrior to attending Tuesday’s class, I would like you to practice outlining these conditions in the context of the housing data from Ames, Iowa.\n\nWhat are the social conditions of these data?\n\nWhat are the social influences of owning a house?\n\nWhat are the cultural conditions of these data?\n\nWhat is the culture surrounding home ownership in the United States?\n\nWhat are the historical conditions of these data?\n\nWhat is the history associated with home ownership in the US?\nWhat is the history associated with home ownership in Ames, Iowa?\n\nWhat are the institutional conditions of these data?\n\nWhat are the institutional forces that factor into home ownership?\n\nWhat are the material conditions of these data?\n\nHow were the data collected?\nWhat houses / neighborhoods / individuals are represented in these * What houses / neighborhoods / individuals are excluded from these data?"
   }
 ]
