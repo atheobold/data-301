@@ -3,7 +3,6 @@ project:
   output-dir: docs
   render: 
     - "*.qmd"
-    - "!/lab-activities"
     - "!/slides/data-ethics"
     - "!/slides/15-hierarchical.qmd"
 
