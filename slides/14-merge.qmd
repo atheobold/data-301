@@ -897,8 +897,7 @@ Which type of join would be best suited for each case?
 
 1.  We want to determine the names that have increased in popularity the most between 1920 and 2020.
 
-<!-- Right join -- we want to keep all the names in 2020 but only add names from 
-1920 that also exist in 2020. -->
+<!-- Left join -- we want to keep all the names in 1920 but only add names that still exist in 2020. -->
 
 2.  We want to graph the popularity of names over time.
 
@@ -1006,12 +1005,6 @@ function!
 in_both = df_1920['Name'].isin(df_2020['Name'])
 df_1920.loc[~in_both, 'Name']
 ```
-
-## Your turn
-
--   Did your name exist in 2020 but not 1920?
-
--   If so, how has the popularity changed?
 
 # Takeaways
 
