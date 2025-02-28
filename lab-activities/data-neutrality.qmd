@@ -6,7 +6,7 @@ editor: source
 ## Reading 
 
 ::: {.column-margin}
-![](images/data-feminism.jpeg)
+[![](images/data-feminism.jpeg)](https://data-feminism.mitpress.mit.edu/pub/czq9dfs5/release/3)
 :::
 
 For the first part of this week, we are going to 
