@@ -17,19 +17,19 @@ the multiple layers of context that are important to consider when working with 
 
 > Data are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis.
 
-## Discussion Questions
+## Discussion Questions 
 
-<!-- What problems does big data solve versus create? -->
+We will use these questions to frame our discussion of this chapter: 
 
-<!-- What are your thoughts on how we label graphs with context? -->
+1. What problems does big data solve versus create?
 
-<!-- Where does responsibility lie for proving data context in your area? How does funding play in? -->
+2. What are your thoughts on how we label graphs with context?
 
-<!-- Which actors in the data ecosystem are responsible for providing context? End  users? Data publishers? Data intermediaries?   -->
+3. Which actors in the data ecosystem are responsible for providing context? End users? Data publishers? Data intermediaries?
 
-<!-- What steps can we take to ensure context is considered? How can we more effectively present context through data visualization? -->
+4. What steps can we take to ensure context is considered? How can we more effectively present context through data visualization?
 
-<!-- Which power imbalances have led to silences in the dataset or data that is missing altogether?  -->
+5. Which power imbalances have led to silences in the dataset or data that is missing altogether?
 
 <!-- Library of missing data: -->
 <!-- https://mimionuoha.com/the-library-of-missing-datasets -->
@@ -41,3 +41,35 @@ Here is a discussion of this chapter with Catherine D'Ignazio and Lauren Klein:
 :::
 
 ## Project Application
+
+In the "Data Context" section of your Final Poster, you are required to
+provide a description that directly addresses the: 
+
+- social,
+- cultural,
+- historical,
+- institutional, and 
+- material conditions under which the data were produced. 
+
+Prior to attending Tuesday's class, I would like you to practice 
+outlining these conditions in the context of the housing data from 
+Ames, Iowa. 
+
+- What are the social conditions of these data?
+  * What are the social influences of owning a house? 
+
+- What are the cultural conditions of these data?
+  * What is the culture surrounding home ownership in the United States?
+  
+- What are the historical conditions of these data?
+  * What is the history associated with home ownership in the US?
+  * What is the history associated with home ownership in Ames, Iowa?
+  
+- What are the institutional conditions of these data?
+  * What are the institutional forces that factor into home ownership?
+
+- What are the material conditions of these data?
+  * How were the data collected?
+  * What houses / neighborhoods / individuals are represented in these     * What houses / neighborhoods / individuals are excluded from these 
+  data?
+
