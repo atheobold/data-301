@@ -132,35 +132,6 @@ Considering impact, harm, and power.
 
 ## Your turn!
 
-::: columns
-::: {.column width="47%"}
-::: {.callout-tip}
-# Option 1 -- Midterm Revisions
-
-:::{.smaller}
-- Think about how your model could impact *people*. 
-  * Who could your model detrimentally impact?
-  * In what way would these individual be impacted?
-  
-:::
-
-:::
-:::
-
-::: {.column width="5%"}
-:::
-
-::: {.column width="47%"}
-::: {.callout-note}
-# Option 2 -- Final Project
-
-::: {.smaller}
-- Outline a "Limitations" section
-  * What context were the data collected from? How does that limit what can be inferred from your model?
-  * How could your model detrimentally impact people? How will you ensure this will not happen? 
-
-:::
-:::
-:::
-:::
-
+- Outline a "Model Ethics" section
+  * How could your model detrimentally impact people? 
+  * How will you ensure this will not happen? 
