@@ -4450,8 +4450,8 @@
     "objectID": "slides/14-merge.html#cleaning-variables",
     "href": "slides/14-merge.html#cleaning-variables",
     "title": "Combining Datasets",
-    "section": "Cleaning Variables",
-    "text": "Cleaning Variables\nWhat does a Mode of 0 represent?\n\n\ndf_songs['Mode'] = (\n  df_songs['Mode']\n  .replace({1: 'Major', 0: 'Minor'})\n  )\n\nHow did I know that 0 represented a minor key?\n\n\nThe data documentation!",
+    "section": "",
+    "text": "What does a Mode of 0 represent?\n. . .\n\ndf_songs['Mode'] = (\n  df_songs['Mode']\n  .replace({1: 'Major', 0: 'Minor'})\n  )\n\nHow did I know that 0 represented a minor key?\n. . .\nThe data documentation!",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4461,8 +4461,8 @@
     "objectID": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level",
     "href": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level",
     "title": "Combining Datasets",
-    "section": "Obtaining Coefficients for Every Variable Level",
-    "text": "Obtaining Coefficients for Every Variable Level\n\nEven if you converted TimeSignature and Mode into categorical / string variables, you will not get coefficient estimates for every level of these variables.\n\n\n\nQ: What do you get?\nA: Adjustments for each group relative to the “baseline” group.\n\n\n\n\nQ: What group is the “baseline” group?\nA: The group that comes first alphabetically (has the lowest ASCII representation).",
+    "section": "",
+    "text": "Even if you converted TimeSignature and Mode into categorical / string variables, you will not get coefficient estimates for every level of these variables.\n\n. . .\n\nQ: What do you get?\nA: Adjustments for each group relative to the “baseline” group.\n\n. . .\n\nQ: What group is the “baseline” group?\nA: The group that comes first alphabetically (has the lowest ASCII representation).",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4472,8 +4472,8 @@
     "objectID": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level-1",
     "href": "slides/14-merge.html#obtaining-coefficients-for-every-variable-level-1",
     "title": "Combining Datasets",
-    "section": "Obtaining Coefficients for Every Variable Level",
-    "text": "Obtaining Coefficients for Every Variable Level\nHow do you get values for every level of a categorical variable?\n\nOne-hot Encoding!\n\nct = make_column_transformer(\n    (OneHotEncoder(handle_unknown = \"ignore\"),\n     [\"TimeSignature\", \"Mode\"]\n     ),\n    remainder = \"passthrough\"\n)",
+    "section": "",
+    "text": "How do you get values for every level of a categorical variable?\n. . .\nOne-hot Encoding!\n\nct = make_column_transformer(\n    (OneHotEncoder(handle_unknown = \"ignore\"),\n     [\"TimeSignature\", \"Mode\"]\n     ),\n    remainder = \"passthrough\"\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4483,8 +4483,8 @@
     "objectID": "slides/14-merge.html#penalized-logistic-regression-is-the-default",
     "href": "slides/14-merge.html#penalized-logistic-regression-is-the-default",
     "title": "Combining Datasets",
-    "section": "Penalized Logistic Regression is the Default!",
-    "text": "Penalized Logistic Regression is the Default!\n\npipeline = make_pipeline(\n    ct,\n  LogisticRegression(penalty = None)\n  )",
+    "section": "",
+    "text": "pipeline = make_pipeline(\n    ct,\n  LogisticRegression(penalty = None)\n  )",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4494,8 +4494,8 @@
     "objectID": "slides/14-merge.html#model-error-versus-testing-error",
     "href": "slides/14-merge.html#model-error-versus-testing-error",
     "title": "Combining Datasets",
-    "section": "Model Error versus Testing Error",
-    "text": "Model Error versus Testing Error\n\n\n\n\nWhat is the accuracy of this model?\n\n\n\n\n\nthis model represents the errors of the model that was fit to the training data, where we know the value of the target variable\n\nCross-validation is not necessary here!\n\n\n\n\n\n\n\n\nIf you were to use this model to predict, what precision would you expect to get?\n\n\n\n\n\npredicting involves “testing” data, where we don’t know the value of the target variable\n\nCross-validation is necessary here!",
+    "section": "",
+    "text": "What is the accuracy of this model?\n\n\n\n\n\nthis model represents the errors of the model that was fit to the training data, where we know the value of the target variable\n\nCross-validation is not necessary here!\n\n\n\n\n\n\n\n\nIf you were to use this model to predict, what precision would you expect to get?\n\n\n\n\n\npredicting involves “testing” data, where we don’t know the value of the target variable\n\nCross-validation is necessary here!",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4505,8 +4505,8 @@
     "objectID": "slides/14-merge.html#interpreting-coefficents",
     "href": "slides/14-merge.html#interpreting-coefficents",
     "title": "Combining Datasets",
-    "section": "Interpreting Coefficents",
-    "text": "Interpreting Coefficents\n\nEach coefficient is associated with the change in the log-odds of a song containing explicit lyrics.\n\n\n\nTimeSignature_1: 1.532310\n\nA 1/4 time signature is associated with an increase of 1.53 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\n\nSpeechiness: 5.185788\n\nAn increase of speechiness by 1 unit (making the song almost entirely made up of spoken words) is associated with an increase of 5.18 in the log-odds of a song containing explicit lyrics.\n\n\n\n\n\n\n\n\n\n\n\n\nDid you standardize?\n\n\nIf so, your interpretation is not a 1 unit increase! Your interpretation is a 1 standard deviation increase above the mean.",
+    "section": "",
+    "text": "Each coefficient is associated with the change in the log-odds of a song containing explicit lyrics.\n\n. . .\n\nTimeSignature_1: 1.532310\n\nA 1/4 time signature is associated with an increase of 1.53 in the log-odds of a song containing explicit lyrics.\n\n\n\n. . .\n\nSpeechiness: 5.185788\n\nAn increase of speechiness by 1 unit (making the song almost entirely made up of spoken words) is associated with an increase of 5.18 in the log-odds of a song containing explicit lyrics.\n\n\n\n. . .\n\n\n\n\n\n\n\nDid you standardize?\n\n\n\nIf so, your interpretation is not a 1 unit increase! Your interpretation is a 1 standard deviation increase above the mean.",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4583,7 +4583,7 @@
     "href": "slides/14-merge.html#joining-on-a-key-1",
     "title": "Combining Datasets",
     "section": "Joining on a Key",
-    "text": "Joining on a Key\nEach value of the primary key should only appear once, but it could appear many times in a foreign key.\n\n\n\n(\n  df_planes['tailnum']\n  .value_counts()\n)\n\ntailnum\nN999DN    1\nN10156    1\nN102UW    1\nN103US    1\nN104UW    1\n         ..\nN11192    1\nN11193    1\nN11194    1\nN11199    1\nN111US    1\nName: count, Length: 3322, dtype: int64\n\n\n\n\n\n\n(\n  df_flights['tailnum']\n  .value_counts()\n)\n\ntailnum\nN353JB    48\nN955UW    47\nN184JB    47\nN281JB    42\nN375JB    42\n          ..\nN8319F     1\nN8683B     1\nN919WN     1\nN119US     1\nN395HA     1\nName: count, Length: 2600, dtype: int64",
+    "text": "Joining on a Key\nEach value of the primary key should only appear once, but it could appear many times in a foreign key.\n\n\n\n(\n  df_planes['tailnum']\n  .value_counts()\n)\n\ntailnum\nN10156    1\nN709EV    1\nN706JB    1\nN706SW    1\nN706TW    1\n         ..\nN395HA    1\nN395SW    1\nN396DA    1\nN396SW    1\nN999DN    1\nName: count, Length: 3322, dtype: int64\n\n\n\n\n\n\n(\n  df_flights['tailnum']\n  .value_counts()\n)\n\ntailnum\nN353JB    48\nN955UW    47\nN184JB    47\nN375JB    42\nN281JB    42\n          ..\nN8598B     1\nN317US     1\nN292WN     1\nN103US     1\nN957AT     1\nName: count, Length: 2600, dtype: int64",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4605,7 +4605,7 @@
     "href": "slides/14-merge.html#overlapping-column-names",
     "title": "Combining Datasets",
     "section": "Overlapping Column Names",
-    "text": "Overlapping Column Names\n\n\n\nJoining two data frames results in a wider data frame, with more columns.\nBy default, Pandas adds the suffixes _x and _y to overlapping column names. , but this can be customized.\n\n\n\n\n\n\ndf_joined.columns\n\nIndex(['year_x', 'month', 'day', 'dep_time', 'sched_dep_time', 'dep_delay',\n       'arr_time', 'sched_arr_time', 'arr_delay', 'carrier', 'flight',\n       'origin', 'dest', 'air_time', 'distance', 'hour', 'minute', 'tailnum',\n       'year_y', 'type', 'manufacturer', 'model', 'engines', 'seats', 'speed',\n       'engine'],\n      dtype='object')",
+    "text": "Overlapping Column Names\n\n\n\nJoining two data frames results in a wider data frame, with more columns.\nBy default, Pandas adds the suffixes _x and _y to overlapping column names. , but this can be customized.\n\n\n\n. . .\n\n\ndf_joined.columns\n\nIndex(['year_x', 'month', 'day', 'dep_time', 'sched_dep_time', 'dep_delay',\n       'arr_time', 'sched_arr_time', 'arr_delay', 'carrier', 'flight',\n       'origin', 'dest', 'air_time', 'distance', 'hour', 'minute', 'tailnum',\n       'year_y', 'type', 'manufacturer', 'model', 'engines', 'seats', 'speed',\n       'engine'],\n      dtype='object')",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4616,7 +4616,7 @@
     "href": "slides/14-merge.html#overlapping-column-names-1",
     "title": "Combining Datasets",
     "section": "Overlapping Column Names",
-    "text": "Overlapping Column Names\nBut this can be customized!\n\n\ndf_joined = df_flights.merge(df_planes, on = \"tailnum\",\n                             suffixes = (\"_flight\", \"_plane\")\n                             )\n\n\n\n\n\n\nIndex(['year_flight', 'month', 'day', 'dep_time', 'sched_dep_time',\n       'dep_delay', 'arr_time', 'sched_arr_time', 'arr_delay', 'carrier',\n       'flight', 'origin', 'dest', 'air_time', 'distance', 'hour', 'minute',\n       'tailnum', 'year_plane', 'type', 'manufacturer', 'model', 'engines',\n       'seats', 'speed', 'engine'],\n      dtype='object')",
+    "text": "Overlapping Column Names\nBut this can be customized!\n\n\ndf_joined = df_flights.merge(df_planes, on = \"tailnum\",\n                             suffixes = (\"_flight\", \"_plane\")\n                             )\n\n\n. . .\n\n\n\nIndex(['year_flight', 'month', 'day', 'dep_time', 'sched_dep_time',\n       'dep_delay', 'arr_time', 'sched_arr_time', 'arr_delay', 'carrier',\n       'flight', 'origin', 'dest', 'air_time', 'distance', 'hour', 'minute',\n       'tailnum', 'year_plane', 'type', 'manufacturer', 'model', 'engines',\n       'seats', 'speed', 'engine'],\n      dtype='object')",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4627,7 +4627,7 @@
     "href": "slides/14-merge.html#analyzing-the-joined-data",
     "title": "Combining Datasets",
     "section": "Analyzing the Joined Data",
-    "text": "Analyzing the Joined Data\n\nWhich manufacturer’s planes made the most flights in November 2013?\n\n\ndf_joined[\"manufacturer\"].value_counts()\n\nmanufacturer\nBOEING                           6557\nEMBRAER                          5175\nAIRBUS                           3954\nAIRBUS INDUSTRIE                 3456\nBOMBARDIER INC                   2632\nMCDONNELL DOUGLAS AIRCRAFT CO     811\nMCDONNELL DOUGLAS                 330\nCANADAIR                          122\nMCDONNELL DOUGLAS CORPORATION     121\nCESSNA                             36\nCIRRUS DESIGN CORP                 21\nROBINSON HELICOPTER CO             19\nBARKER JACK L                      15\nPIPER                               9\nFRIEDEMANN JON                      8\nSIKORSKY                            6\nBELL                                5\nDEHAVILLAND                         4\nAMERICAN AIRCRAFT INC               3\nAGUSTA SPA                          3\nLEARJET INC                         2\nLAMBERT RICHARD                     2\nDOUGLAS                             2\nKILDALL GARY                        2\nAVIAT AIRCRAFT INC                  1\nMARZ BARRY                          1\nPAIR MIKE E                         1\nLEBLANC GLENN T                     1\nSTEWART MACO                        1\nName: count, dtype: int64",
+    "text": "Analyzing the Joined Data\n\nWhich manufacturer’s planes made the most flights in November 2013?\n\n\ndf_joined[\"manufacturer\"].value_counts()\n\nmanufacturer\nBOEING                           6557\nEMBRAER                          5175\nAIRBUS                           3954\nAIRBUS INDUSTRIE                 3456\nBOMBARDIER INC                   2632\nMCDONNELL DOUGLAS AIRCRAFT CO     811\nMCDONNELL DOUGLAS                 330\nCANADAIR                          122\nMCDONNELL DOUGLAS CORPORATION     121\nCESSNA                             36\nCIRRUS DESIGN CORP                 21\nROBINSON HELICOPTER CO             19\nBARKER JACK L                      15\nPIPER                               9\nFRIEDEMANN JON                      8\nSIKORSKY                            6\nBELL                                5\nDEHAVILLAND                         4\nAGUSTA SPA                          3\nAMERICAN AIRCRAFT INC               3\nDOUGLAS                             2\nLAMBERT RICHARD                     2\nKILDALL GARY                        2\nLEARJET INC                         2\nMARZ BARRY                          1\nAVIAT AIRCRAFT INC                  1\nPAIR MIKE E                         1\nLEBLANC GLENN T                     1\nSTEWART MACO                        1\nName: count, dtype: int64",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4638,7 +4638,7 @@
     "href": "slides/14-merge.html#example-weather-and-flights",
     "title": "Combining Datasets",
     "section": "Example: Weather and Flights",
-    "text": "Example: Weather and Flights\n\nWhat weather factors are related to flight delays?\n\n\nHere is a data set containing hourly weather data at each airport in 2013:\n\n\n\nCode\ndf_weather = pd.read_csv(f\"{data_dir}/weather.csv\")\n\n\n\n\n      airport  year  month  day  ...  wind_gust  precip  pressure  visib\n0         EWR  2013      1    1  ...        NaN     0.0    1012.0   10.0\n1         EWR  2013      1    1  ...        NaN     0.0    1012.3   10.0\n2         EWR  2013      1    1  ...        NaN     0.0    1012.5   10.0\n3         EWR  2013      1    1  ...        NaN     0.0    1012.2   10.0\n4         EWR  2013      1    1  ...        NaN     0.0    1011.9   10.0\n...       ...   ...    ...  ...  ...        ...     ...       ...    ...\n26110     LGA  2013     12   30  ...   21.86482     0.0    1017.1   10.0\n26111     LGA  2013     12   30  ...   21.86482     0.0    1018.8   10.0\n26112     LGA  2013     12   30  ...   23.01560     0.0    1019.5   10.0\n26113     LGA  2013     12   30  ...        NaN     0.0    1019.9   10.0\n26114     LGA  2013     12   30  ...        NaN     0.0    1020.9   10.0\n\n[26115 rows x 14 columns]",
+    "text": "Example: Weather and Flights\n\nWhat weather factors are related to flight delays?\n\n. . .\nHere is a data set containing hourly weather data at each airport in 2013:\n\n\n\nCode\ndf_weather = pd.read_csv(f\"{data_dir}/weather.csv\")\n\n\n\n\n      airport  year  month  day  ...  wind_gust  precip  pressure  visib\n0         EWR  2013      1    1  ...        NaN     0.0    1012.0   10.0\n1         EWR  2013      1    1  ...        NaN     0.0    1012.3   10.0\n2         EWR  2013      1    1  ...        NaN     0.0    1012.5   10.0\n3         EWR  2013      1    1  ...        NaN     0.0    1012.2   10.0\n4         EWR  2013      1    1  ...        NaN     0.0    1011.9   10.0\n...       ...   ...    ...  ...  ...        ...     ...       ...    ...\n26110     LGA  2013     12   30  ...   21.86482     0.0    1017.1   10.0\n26111     LGA  2013     12   30  ...   21.86482     0.0    1018.8   10.0\n26112     LGA  2013     12   30  ...   23.01560     0.0    1019.5   10.0\n26113     LGA  2013     12   30  ...        NaN     0.0    1019.9   10.0\n26114     LGA  2013     12   30  ...        NaN     0.0    1020.9   10.0\n\n[26115 rows x 14 columns]",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4693,7 +4693,7 @@
     "href": "slides/14-merge.html#how-does-rain-affects-departure-delays",
     "title": "Combining Datasets",
     "section": "How does rain affects departure delays?",
-    "text": "How does rain affects departure delays?\n\n\nCode\nfrom plotnine import *\n\n(\n  ggplot(data = df_jfk, \n         mapping = aes(x = \"precip\", y = \"dep_delay\")) +\n  geom_point(alpha = 0.2) +\n  labs(x = \"Precipitation (feet)\", \n       y = \"Departure Delay (minutes)\") +\n  theme_bw()\n)\n\n\n\nHmmmm….where did all the data go?",
+    "text": "How does rain affects departure delays?\n\n\nCode\nfrom plotnine import *\n\n(\n  ggplot(data = df_jfk, \n         mapping = aes(x = \"precip\", y = \"dep_delay\")) +\n  geom_point(alpha = 0.2) +\n  labs(x = \"Precipitation (feet)\", \n       y = \"Departure Delay (minutes)\") +\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\nHmmmm….where did all the data go?",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4792,7 +4792,7 @@
     "href": "slides/14-merge.html#missing-keys-1",
     "title": "Combining Datasets",
     "section": "Missing Keys?",
-    "text": "Missing Keys?\n\nWhy isn’t Maya in the joined data? It’s in the 2020 data…\n\ndf_2020[df_2020[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count\n60     Maya   F   3724\n28914  Maya   M      6\n\n\n\n\n\n…but it’s not in the 1920 data.\n\ndf_1920[df_1920[\"Name\"] == \"Maya\"]\n\nEmpty DataFrame\nColumns: [Name, Sex, Count]\nIndex: []",
+    "text": "Missing Keys?\n\nWhy isn’t Maya in the joined data? It’s in the 2020 data…\n\ndf_2020[df_2020[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count\n60     Maya   F   3724\n28914  Maya   M      6\n\n\n\n. . .\n\n…but it’s not in the 1920 data.\n\ndf_1920[df_1920[\"Name\"] == \"Maya\"]\n\nEmpty DataFrame\nColumns: [Name, Sex, Count]\nIndex: []",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4803,7 +4803,7 @@
     "href": "slides/14-merge.html#missing-keys-2",
     "title": "Combining Datasets",
     "section": "Missing keys",
-    "text": "Missing keys\n\nHow does the merge() function determine which keys get kept?\n\nBy default, in order to appear in the joined data, a key must be present in both tables.\n\n\nThis is actually what is called an inner join, but there are other types of joins!",
+    "text": "Missing keys\n\nHow does the merge() function determine which keys get kept?\n. . .\nBy default, in order to appear in the joined data, a key must be present in both tables.\n. . .\nThis is actually what is called an inner join, but there are other types of joins!",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4836,7 +4836,7 @@
     "href": "slides/14-merge.html#types-of-joins-2",
     "title": "Combining Datasets",
     "section": "Types of Joins",
-    "text": "Types of Joins\n\nWe can customize the type of join using the how = parameter of .merge(). By default, how = \"inner\".\n\ndf_joined_outer = (\n  df_1920\n  .merge(df_2020, \n         on = [\"Name\", \"Sex\"],\n         suffixes = (\"_1920\", \"_2020\"), \n         how = \"outer\")\n    )\n\n\n\n\n\n\ndf_joined_outer[df_joined_outer[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count_1920  Count_2020\n24999  Maya   F         NaN      3724.0\n25000  Maya   M         NaN         6.0",
+    "text": "Types of Joins\n\nWe can customize the type of join using the how = parameter of .merge(). By default, how = \"inner\".\n\ndf_joined_outer = (\n  df_1920\n  .merge(df_2020, \n         on = [\"Name\", \"Sex\"],\n         suffixes = (\"_1920\", \"_2020\"), \n         how = \"outer\")\n    )\n\n\n. . .\n\n\n\ndf_joined_outer[df_joined_outer[\"Name\"] == \"Maya\"]\n\n       Name Sex  Count_1920  Count_2020\n24999  Maya   F         NaN      3724.0\n25000  Maya   M         NaN         6.0",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4902,7 +4902,7 @@
     "href": "slides/14-merge.html#filtering-joins-3",
     "title": "Combining Datasets",
     "section": "Filtering Joins",
-    "text": "Filtering Joins\n\nWhich names existed in 1920 but don’t in 2020?\n\n\nIn Pandas, we can’t do these using .merge(), but we can use the isin() function!\n\nin_both = df_1920['Name'].isin(df_2020['Name'])\ndf_1920.loc[~in_both, 'Name']\n\n67          Myrtle\n245            Sue\n257         Nannie\n284         Virgie\n300      Bernadine\n           ...    \n10748         Ynes\n10750     Zaragoza\n10751        Zearl\n10752     Zeferino\n10755      Zygmont\nName: Name, Length: 5638, dtype: object",
+    "text": "Filtering Joins\n\nWhich names existed in 1920 but don’t in 2020?\n\n. . .\nIn Pandas, we can’t do these using .merge(), but we can use the isin() function!\n\nin_both = df_1920['Name'].isin(df_2020['Name'])\ndf_1920.loc[~in_both, 'Name']\n\n67          Myrtle\n245            Sue\n257         Nannie\n284         Virgie\n300      Bernadine\n           ...    \n10748         Ynes\n10750     Zaragoza\n10751        Zearl\n10752     Zeferino\n10755      Zygmont\nName: Name, Length: 5638, dtype: object",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5498,7 +5498,7 @@
     "href": "lab-activities/data-neutrality.html#project-application",
     "title": "The Numbers Don’t Speak for Themselves",
     "section": "Project Application",
-    "text": "Project Application\nIn the “Data Context” section of your Final Poster, you are required to provide a description that directly addresses the:\n\nsocial,\ncultural,\nhistorical,\ninstitutional, and\nmaterial conditions under which the data were produced.\n\nPrior to attending Tuesday’s class, I would like you to practice outlining these conditions in the context of the housing data from Ames, Iowa.\n\nWhat are the social conditions of these data?\n\nWhat are the social influences of owning a house?\n\nWhat are the cultural conditions of these data?\n\nWhat is the culture surrounding home ownership in the United States?\n\nWhat are the historical conditions of these data?\n\nWhat is the history associated with home ownership in the US?\nWhat is the history associated with home ownership in Ames, Iowa?\n\nWhat are the institutional conditions of these data?\n\nWhat are the institutional forces that factor into home ownership?\n\nWhat are the material conditions of these data?\n\nHow were the data collected?\nWhat houses / neighborhoods / individuals are represented in these * What houses / neighborhoods / individuals are excluded from these data?"
+    "text": "Project Application\nIn the “Data Context” section of your Final Poster, you are required to provide a description that directly addresses the:\n\nsocial,\ncultural,\nhistorical,\ninstitutional, and\nmaterial conditions under which the data were produced.\n\nPrior to attending Tuesday’s class, I would like you to practice outlining these conditions in the context of the housing data from Ames, Iowa.\n\nWhat are the social conditions of these data?\n\nWhat are the social influences of owning a house?\n\nWhat are the cultural conditions of these data?\n\nWhat is the culture surrounding home ownership in the United States?\n\nWhat are the historical conditions of these data?\n\nWhat is the history associated with home ownership in the US?\nWhat is the history associated with home ownership in Ames, Iowa?\n\nWhat are the institutional conditions of these data?\n\nWhat are the institutional forces that factor into home ownership?\n\nWhat are the material conditions of these data?\n\nHow were the data collected?\nWhat houses / neighborhoods / individuals are represented in these data?\n\nWhat houses / neighborhoods / individuals are excluded from these data?"
   },
   {
     "objectID": "lab-activities/model-weapons.html#discussion-questions",
@@ -5513,5 +5513,149 @@
     "title": "Bomb Parts: What is a Model?",
     "section": "Project Application",
     "text": "Project Application"
+  },
+  {
+    "objectID": "slides/15-data-ethics.html#feminism-as-action",
+    "href": "slides/15-data-ethics.html#feminism-as-action",
+    "title": "The Importance of Data Context",
+    "section": "Feminism as Action",
+    "text": "Feminism as Action\n\nBelief in and advocacy of the political, economic, and social equality of the women and men (and non-binary people) through organized activity on behalf of women’s rights and interests.\nMerriam Webster"
+  },
+  {
+    "objectID": "slides/15-data-ethics.html#intersectional-feminism",
+    "href": "slides/15-data-ethics.html#intersectional-feminism",
+    "title": "The Importance of Data Context",
+    "section": "Intersectional Feminism",
+    "text": "Intersectional Feminism\nFocuses beyond women and gender.\nFocuses on the distribution of power.\n\n\n\n\n\n\n\n\nIntersectionality is a concept out of Black feminism, conceptually derived by the Combahee River Collective and linguistically created by Kimberlee Crenshaw."
+  },
+  {
+    "objectID": "slides/15-data-ethics.html#data-is-the-new-oil.",
+    "href": "slides/15-data-ethics.html#data-is-the-new-oil.",
+    "title": "The Importance of Data Context",
+    "section": "“Data is the new oil.”",
+    "text": "“Data is the new oil.”\n\nThe Economist, Intel CEO, Reliance Industrices CEO, UAE Minister of Artifical Intelligence, Google execs, etc.\n\n\n“Data is the same old oppression.”\n\nBIPOC, white women, Indigenous people, immigrant communities, LGBTQ+ individuals, + more"
+  },
+  {
+    "objectID": "slides/15-data-ethics.html#elevating-emotion",
+    "href": "slides/15-data-ethics.html#elevating-emotion",
+    "title": "The Importance of Data Context",
+    "section": "Elevating Emotion",
+    "text": "Elevating Emotion\n\n“We focus on four conventions which imbue visualizations with a sense of objectivity, transparency and facticity. These include: (a) two-dimensional viewpoints, (b) clean layouts, (c) geometric shapes and lines, (d) the inclusion of data sources.”\nKennedy et al. (2016)\n\nhttps://guns.periscopic.com/\nhttp://www.antievictionmappingproject.net/narratives.html"
+  },
+  {
+    "objectID": "slides/15-data-ethics.html#library-of-missing-data",
+    "href": "slides/15-data-ethics.html#library-of-missing-data",
+    "title": "The Importance of Data Context",
+    "section": "Library of Missing Data",
+    "text": "Library of Missing Data\n\n\n\n\n\n\n\n\n\nThe Library of Missing Datasets\nMimi Onuoha"
+  },
+  {
+    "objectID": "slides/14-merge.html",
+    "href": "slides/14-merge.html",
+    "title": "Combining Datasets",
+    "section": "",
+    "text": "What does a Mode of 0 represent?\n. . .\n\ndf_songs['Mode'] = (\n  df_songs['Mode']\n  .replace({1: 'Major', 0: 'Minor'})\n  )\n\nHow did I know that 0 represented a minor key?\n. . .\nThe data documentation!\n\n\n\n\nEven if you converted TimeSignature and Mode into categorical / string variables, you will not get coefficient estimates for every level of these variables.\n\n. . .\n\nQ: What do you get?\nA: Adjustments for each group relative to the “baseline” group.\n\n. . .\n\nQ: What group is the “baseline” group?\nA: The group that comes first alphabetically (has the lowest ASCII representation).\n\n\n\n\nHow do you get values for every level of a categorical variable?\n. . .\nOne-hot Encoding!\n\nct = make_column_transformer(\n    (OneHotEncoder(handle_unknown = \"ignore\"),\n     [\"TimeSignature\", \"Mode\"]\n     ),\n    remainder = \"passthrough\"\n)\n\n\n\n\n\npipeline = make_pipeline(\n    ct,\n  LogisticRegression(penalty = None)\n  )\n\n\n\n\n\n\n\n\nWhat is the accuracy of this model?\n\n\n\n\n\nthis model represents the errors of the model that was fit to the training data, where we know the value of the target variable\n\nCross-validation is not necessary here!\n\n\n\n\n\n\n\n\nIf you were to use this model to predict, what precision would you expect to get?\n\n\n\n\n\npredicting involves “testing” data, where we don’t know the value of the target variable\n\nCross-validation is necessary here!\n\n\n\n\n\n\n\n\n\nEach coefficient is associated with the change in the log-odds of a song containing explicit lyrics.\n\n. . .\n\nTimeSignature_1: 1.532310\n\nA 1/4 time signature is associated with an increase of 1.53 in the log-odds of a song containing explicit lyrics.\n\n\n\n. . .\n\nSpeechiness: 5.185788\n\nAn increase of speechiness by 1 unit (making the song almost entirely made up of spoken words) is associated with an increase of 5.18 in the log-odds of a song containing explicit lyrics.\n\n\n\n. . .\n\n\n\n\n\n\n\nDid you standardize?\n\n\n\nIf so, your interpretation is not a 1 unit increase! Your interpretation is a 1 standard deviation increase above the mean.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 8, Part 2 - Combining Datasets"
+    ]
+  },
+  {
+    "objectID": "slides/15-data-ethics.html",
+    "href": "slides/15-data-ethics.html",
+    "title": "The Importance of Data Context",
+    "section": "",
+    "text": "Zero tolerance for: racism, sexism, homophobia, transphobia, ageism, ableism\nDo not make generalizations – Use “I” statements\nRespect one another\nIntent and impact both matter\nNon-judgmental\nEmbrace discomfort"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html",
+    "href": "slides/16-model-ethics.html",
+    "title": "What is a model?",
+    "section": "",
+    "text": "ethics – a discipline concerned with what is morally good and bad and morally right and wrong\n\n\n\nMeta-ethics (Ethics) – concerning the theoretical meaning and reference of moral propositions\n\n\n\nApplied ethics (ethics) – concerning what a person is obligated (or permitted) to do in a specific situation or a particular domain of action"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#ethics-and-ethics",
+    "href": "slides/16-model-ethics.html#ethics-and-ethics",
+    "title": "What is a model?",
+    "section": "",
+    "text": "ethics – a discipline concerned with what is morally good and bad and morally right and wrong\n\n\n\nMeta-ethics (Ethics) – concerning the theoretical meaning and reference of moral propositions\n\n\n\nApplied ethics (ethics) – concerning what a person is obligated (or permitted) to do in a specific situation or a particular domain of action"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#professional-ethics",
+    "href": "slides/16-model-ethics.html#professional-ethics",
+    "title": "What is a model?",
+    "section": "Professional Ethics",
+    "text": "Professional Ethics\n\n\n\n\nThe American Statistical Association’s Ethical Guidelines for Statistical Practice are intended to help statistics practitioners make decisions ethically. Additionally, the ethical guidelines aim to promote accountability by informing those who rely on statistical analysis of the standards they should expect.\n\n\n\n\n\nVisit Ethical Guidelines for Statistical Practice and discuss one of the guidelines with the person next to you.\n\nWhat surprises you?\nWhat did you learn?\nWhat scenario might this come into play?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#technical-responsibilities",
+    "href": "slides/16-model-ethics.html#technical-responsibilities",
+    "title": "What is a model?",
+    "section": "Technical Responsibilities",
+    "text": "Technical Responsibilities\n\nEnsuring analyses are valid.\n\n. . .\n\nChecking assumptions (e.g. no t-tests when sample size is small)\nMatching analyses to data types (e.g., no linear regression with 0/1 response)"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#reproducibility-and-documentation",
+    "href": "slides/16-model-ethics.html#reproducibility-and-documentation",
+    "title": "What is a model?",
+    "section": "Reproducibility and documentation",
+    "text": "Reproducibility and documentation\n\nBeing transparent about your process and its limitations.\n\n. . .\n\nReporting insignificant results, not just significant ones\nReproducibility and documentation of data processing\nBeing clear about the scope of the conclusions\nSharing your work openly when possible"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#professional-responsibilities",
+    "href": "slides/16-model-ethics.html#professional-responsibilities",
+    "title": "What is a model?",
+    "section": "Professional responsibilities",
+    "text": "Professional responsibilities\n\nPerforming analyses and communicating results in ways that are not misleading, even when you could get away with it.\n\n. . .\n\nNo p-hacking / gathering extra data until it’s significant\nNo switching your hypotheses after seeing the data (or running the analysis)\nNo dropping NAs unless you can justify that they are a random subset"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#section",
+    "href": "slides/16-model-ethics.html#section",
+    "title": "What is a model?",
+    "section": "",
+    "text": "“Data are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis.”"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#data-science-oath",
+    "href": "slides/16-model-ethics.html#data-science-oath",
+    "title": "What is a model?",
+    "section": "Data Science Oath",
+    "text": "Data Science Oath\n\n\nI will respect the privacy of my data subjects, for their data are not disclosed to me that the world may know, so I will tread with care in matters of privacy and security.\n\n\nI will remember that my data are not just numbers without meaning or context, but represent real people and situations, and that my work may lead to unintended societal consequences, such as inequality, poverty, and disparities due to algorithmic bias.\n\n\n\n\n\n\n\n\nNote\n\n\n\n\nNational Academy of Sciences\nData Values and Principles"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#social-responsibilities",
+    "href": "slides/16-model-ethics.html#social-responsibilities",
+    "title": "What is a model?",
+    "section": "Social Responsibilities",
+    "text": "Social Responsibilities\n\nConsidering impact, harm, and power.\n\n\n\nChecking that the data collection process is not harmful (e.g. unethical experiments, uncomfortable survey questions, omitting certain groups from the study)\nChecking that the data cleaning process is not harmful (e.g. “othering” groups)\nConsidering how conclusions will be used (e.g. who funded the study, what might they use it for, etc. - like crime prediction tools and such)"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#your-turn",
+    "href": "slides/16-model-ethics.html#your-turn",
+    "title": "What is a model?",
+    "section": "Your turn!",
+    "text": "Your turn!\n\n\n\n\n\n\n\n\nOption 1 – Midterm Revisions\n\n\n\n\n\nThink about how your model could impact people.\n\nWho could your model detrimentally impact?\nIn what way would these individual be impacted?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOption 2 – Final Project\n\n\n\n\n\nOutline a “Limitations” section\n\nWhat context were the data collected from? How does that limit what can be inferred from your model?\nHow could your model detrimentally impact people? How will you ensure this will not happen?"
+  },
+  {
+    "objectID": "slides/15-data-ethics.html#data-context",
+    "href": "slides/15-data-ethics.html#data-context",
+    "title": "The Importance of Data Context",
+    "section": "Data Context",
+    "text": "Data Context\nIn the “Data Context” section of your Final Poster, you are required to provide a description that directly addresses the:\n\nsocial,\ncultural,\nhistorical,\ninstitutional, and\nmaterial conditions under which the data were produced."
+  },
+  {
+    "objectID": "slides/15-data-ethics.html#example-ames-iowa-housing-data",
+    "href": "slides/15-data-ethics.html#example-ames-iowa-housing-data",
+    "title": "The Importance of Data Context",
+    "section": "Example: Ames, Iowa Housing Data",
+    "text": "Example: Ames, Iowa Housing Data\n\n\nWhat are the social conditions of these data?\nWhat are the cultural conditions of these data?\nWhat are the historical conditions of these data?\nWhat are the institutional conditions of these data?\nWhat are the material conditions of these data?"
+  },
+  {
+    "objectID": "slides/15-data-ethics.html#data-neutrality",
+    "href": "slides/15-data-ethics.html#data-neutrality",
+    "title": "The Importance of Data Context",
+    "section": "Data Neutrality",
+    "text": "Data Neutrality\n\nData are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis."
   }
 ]

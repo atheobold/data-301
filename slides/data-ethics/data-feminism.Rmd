@@ -210,20 +210,6 @@ Make Labor Visible
 class: center, middle, inverse
 
 ```{r, echo = FALSE, out.width = c("50%", "50%"), out.height = "125%"}
-knitr::include_graphics("images/data_file.PNG")
-
-knitr::include_graphics("images/missing_data_list.png")
-```
-
-> The Library of Missing Datasets
->
-> Mimi Onuoha
-
----
-
-class: center, middle, inverse
-
-```{r, echo = FALSE, out.width = c("50%", "50%"), out.height = "125%"}
 knitr::include_graphics("images/niunamenos.jpg")
 
 knitr::include_graphics("images/mexico_map.png")
@@ -232,75 +218,4 @@ knitr::include_graphics("images/mexico_map.png")
 > Maria Salguero's map of femicides in Mexico from 2016 - present. 
 
 <!-- Data are crowdsourced from Salguero's reading reports and citizen reports.  -->
-
----
-
-class: center, middle
-
-.large[
-Suppose Cal Poly is interested in summarizing the demographics of their 
-undergraduate students. They have designed the following question asking
-about student's gender identity:
-]
-
---
-
-.pull-left[
-.large[
-> **What is your gender identity?**   
-> 
-> Male, Female, Other
-
-]
-]
-
---
-
-.pull-right[
-.honey[.large[Who benefits from these options?]]
-
-.honey[.large[Who suffers from these options?]]
-]
-
----
-
-class: center, middle
-
-.huge[Rethink Binaries]
-
-.rhubarb[.larger[How would you redesign the survey question about student's
-gender identity?]]
-
----
-
-class: center, middle, inverse
-
-.larger[
-.honey[What would you say are characteristics of a "good" data visualization?
-]
-]
-
----
-
-.larger[An aura objectivity]
-
-.pull-left[
-![](images/active_shooters.PNG)
-]
-
-.pull-right[
-> "We focus on four conventions which imbue visualizations with a sense of objectivity, transparency and facticity. These include: (a) two-dimensional viewpoints, (b) clean layouts, (c) geometric shapes and lines, (d) the inclusion of data sources."  
->
-> Kennedy et al. (2016)
-]
-
----
-
-class: center, middle
-
-.huge[Elevate Emotion]
-
-<https://guns.periscopic.com/>
-
-<http://www.antievictionmappingproject.net/narratives.html>
 
