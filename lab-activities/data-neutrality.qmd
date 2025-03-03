@@ -70,6 +70,7 @@ Ames, Iowa.
 
 - What are the material conditions of these data?
   * How were the data collected?
-  * What houses / neighborhoods / individuals are represented in these     * What houses / neighborhoods / individuals are excluded from these 
+  * What houses / neighborhoods / individuals are represented in these data?      
+  * What houses / neighborhoods / individuals are excluded from these 
   data?
 
