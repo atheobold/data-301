@@ -8,22 +8,44 @@ execute:
   echo: true
 ---
 
+# Discussion Questions
+
+## What is the significance of the title Weapons of Math Destruction?
+
+## According to O’Neil, is every mathematical model a Weapon of Math
+Destruction? Why or why not?
+
+## O'Neil characterizes some algorithms as "Weapons of Math Destruction." Who is
+most vulnerable to being harmed by their use?
+
+## Have you had experiences with algorithms that O’Neil’s account illuminates?
+
+## Is there a scale on which we believe we can replace the efficiency of
+WMDs with the more expensive alternative? 
+
+Are algorithms our only answer to tackling big data?
+
+## What is (or what could be) the role of data scientists in data justice?
+
 ## ethics and Ethics
 
-***ethics*** -- a discipline concerned with what is morally good and bad and morally right and wrong
+***ethics*** -- a discipline concerned with what is morally good and bad and
+morally right and wrong
 
 </br>
 
 ::: columns
 ::: {.column width="40%"}
-Meta-ethics (**Ethics**) -- concerning the theoretical meaning and reference of moral propositions
+Meta-ethics (**Ethics**) -- concerning the theoretical meaning and reference of
+moral propositions
 :::
 
 ::: {.column width="5%"}
 :::
 
 ::: {.column width="55%"}
-Applied ethics (**ethics**) -- concerning what a person is obligated (or permitted) to do in a specific situation or a particular domain of action 
+Applied ethics (**ethics**) -- concerning what a person is obligated (or
+permitted) to do in a specific situation or a particular domain of action 
 
 :::
 :::
@@ -95,14 +117,6 @@ Performing analyses and communicating results in ways that are not misleading, e
 
 # Ethics
 
-##  {background-color="#B6CADA"}
-
-*"Data are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis."*
-
-::: {.centered}
-![](images/16-data-feminism.jpeg)
-:::
-
 ## Data Science Oath
 
 ::: {.smaller}
@@ -125,9 +139,13 @@ Considering impact, harm, and power.
 :::
 
 ::: {.incremental}
-- Checking that the data collection process is not harmful (e.g. unethical experiments, uncomfortable survey questions, omitting certain groups from the study)
-- Checking that the data cleaning process is not harmful (e.g. “othering” groups)
-- Considering how conclusions will be used (e.g. who funded the study, what might they use it for, etc. - like crime prediction tools and such)
+- Checking that the data collection process is not harmful (e.g. unethical
+experiments, uncomfortable survey questions, omitting certain groups from the
+study)
+- Checking that the data cleaning process is not harmful (e.g. “othering”
+groups)
+- Considering how conclusions will be used (e.g. who funded the study, what
+might they use it for, etc. - like crime prediction tools and such)
 :::
 
 ## Your turn!
