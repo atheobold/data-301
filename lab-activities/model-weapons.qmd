@@ -7,7 +7,7 @@ editor: source
 
 You can access the full PDF of this book here: [link to full PDF](https://www.dropbox.com/scl/fi/dgtmo2fews1lfm944r2vk/Weapons-of-Math-Destruction-Cathy-ONeil.pdf?rlkey=jkor96190c4nyh4spviocrxpz&st=3pkx7aox&dl=0)
 
-You can access just Chapter 1 of the book here: [link to Chapter 1]()
+You can access just Chapter 1 of the book here: [link to Chapter 1](https://www.dropbox.com/scl/fi/ec3tsyna714n9wo9bm81w/WOMD-Chapter-1.pdf?rlkey=3wv2tuwcxdvwyxhbvjzdx6ry1&st=wesd6v4z&dl=0)
 
 ::: {.column-margin}
 ![](images/weapons-of-math-destruction.jpg)
