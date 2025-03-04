@@ -2900,7 +2900,7 @@
     "href": "lab-activities/model-weapons.html#project-application",
     "title": "Bomb Parts: What is a Model?",
     "section": "Project Application",
-    "text": "Project Application"
+    "text": "Project Application\nIn your Final Project you are expected to have a “Model Ethics” section where you address the following questions:\n\nHow could your model detrimentally impact people?\nHow will you ensure this will not happen?"
   },
   {
     "objectID": "slides/00-welcome.html#about-me",
@@ -3024,28 +3024,28 @@
     "href": "slides/16-model-ethics.html#professional-ethics",
     "title": "What is a model?",
     "section": "Professional Ethics",
-    "text": "Professional Ethics\n\n\n\n\nThe American Statistical Association’s Ethical Guidelines for Statistical Practice are intended to help statistics practitioners make decisions ethically. Additionally, the ethical guidelines aim to promote accountability by informing those who rely on statistical analysis of the standards they should expect.\n\n\n\n\n\nVisit Ethical Guidelines for Statistical Practice and discuss one of the guidelines with the person next to you.\n\nWhat surprises you?\nWhat did you learn?\nWhat scenario might this come into play?"
+    "text": "Professional Ethics\n\n\nThe American Statistical Association’s Ethical Guidelines for Statistical Practice are intended to help statistics practitioners make decisions ethically. Additionally, the ethical guidelines aim to promote accountability by informing those who rely on statistical analysis of the standards they should expect."
   },
   {
     "objectID": "slides/16-model-ethics.html#technical-responsibilities",
     "href": "slides/16-model-ethics.html#technical-responsibilities",
     "title": "What is a model?",
     "section": "Technical Responsibilities",
-    "text": "Technical Responsibilities\n\nEnsuring analyses are valid.\n\n\n\nChecking assumptions (e.g. no t-tests when sample size is small)\nMatching analyses to data types (e.g., no linear regression with 0/1 response)"
+    "text": "Technical Responsibilities\n\nEnsuring analyses are valid.\n\n\n\nChecking assumptions (e.g. no regression when relationship isn’t linear).\nMatching analyses to data types (e.g., no linear regression with 0/1 response)."
   },
   {
     "objectID": "slides/16-model-ethics.html#reproducibility-and-documentation",
     "href": "slides/16-model-ethics.html#reproducibility-and-documentation",
     "title": "What is a model?",
     "section": "Reproducibility and documentation",
-    "text": "Reproducibility and documentation\n\nBeing transparent about your process and its limitations.\n\n\n\nReporting insignificant results, not just significant ones\nReproducibility and documentation of data processing\nBeing clear about the scope of the conclusions\nSharing your work openly when possible"
+    "text": "Reproducibility and documentation\n\nBeing transparent about your process and its limitations.\n\n\n\nReporting insignificant results, not just significant ones.\nMaintaining reproducibility and documenting all data processing.\nBeing clear about the scope of the conclusions.\nSharing your work openly when possible."
   },
   {
     "objectID": "slides/16-model-ethics.html#professional-responsibilities",
     "href": "slides/16-model-ethics.html#professional-responsibilities",
     "title": "What is a model?",
     "section": "Professional responsibilities",
-    "text": "Professional responsibilities\n\nPerforming analyses and communicating results in ways that are not misleading, even when you could get away with it.\n\n\n\nNo p-hacking / gathering extra data until it’s significant\nNo switching your hypotheses after seeing the data (or running the analysis)\nNo dropping NAs unless you can justify that they are a random subset"
+    "text": "Professional responsibilities\n\nPerforming analyses and communicating results in ways that are not misleading, even when you could get away with it.\n\n\n\nNo p-hacking / gathering extra data until it’s significant.\nNo switching your hypotheses after seeing the data (or running the analysis).\nNo dropping NAs unless you can justify why."
   },
   {
     "objectID": "slides/16-model-ethics.html#section",
@@ -3066,7 +3066,7 @@
     "href": "slides/16-model-ethics.html#social-responsibilities",
     "title": "What is a model?",
     "section": "Social Responsibilities",
-    "text": "Social Responsibilities\n\nConsidering impact, harm, and power.\n\n\n\nChecking that the data collection process is not harmful (e.g. unethical experiments, uncomfortable survey questions, omitting certain groups from the study)\nChecking that the data cleaning process is not harmful (e.g. “othering” groups)\nConsidering how conclusions will be used (e.g. who funded the study, what might they use it for, etc. - like crime prediction tools and such)"
+    "text": "Social Responsibilities\n\nConsidering impact, harm, and power.\n\n\nChecking that the data collection process is not harmful (e.g. unethical experiments, uncomfortable survey questions, omitting certain groups from the study)\nChecking that the data cleaning process is not harmful (e.g. “othering” groups)\nConsidering how conclusions will be used (e.g. who funded the study, what might they use it for, etc. - like crime prediction tools and such)"
   },
   {
     "objectID": "slides/16-model-ethics.html#your-turn",
@@ -5632,5 +5632,54 @@
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
     ]
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#what-is-the-significance-of-the-title-weapons-of-math-destruction",
+    "href": "slides/16-model-ethics.html#what-is-the-significance-of-the-title-weapons-of-math-destruction",
+    "title": "What is a model?",
+    "section": "What is the significance of the title Weapons of Math Destruction?",
+    "text": "What is the significance of the title Weapons of Math Destruction?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#according-to-oneil-is-every-mathematical-model-a-weapon-of-math",
+    "href": "slides/16-model-ethics.html#according-to-oneil-is-every-mathematical-model-a-weapon-of-math",
+    "title": "What is a model?",
+    "section": "According to O’Neil, is every mathematical model a Weapon of Math",
+    "text": "According to O’Neil, is every mathematical model a Weapon of Math\nDestruction? Why or why not?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#oneil-characterizes-some-algorithms-as-weapons-of-math-destruction.-who-is",
+    "href": "slides/16-model-ethics.html#oneil-characterizes-some-algorithms-as-weapons-of-math-destruction.-who-is",
+    "title": "What is a model?",
+    "section": "O’Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is",
+    "text": "O’Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is\nmost vulnerable to being harmed by their use?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#have-you-had-experiences-with-algorithms-that-oneils-account-illuminates",
+    "href": "slides/16-model-ethics.html#have-you-had-experiences-with-algorithms-that-oneils-account-illuminates",
+    "title": "What is a model?",
+    "section": "Have you had experiences with algorithms that O’Neil’s account illuminates?",
+    "text": "Have you had experiences with algorithms that O’Neil’s account illuminates?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#is-there-a-scale-on-which-we-believe-we-can-replace-the-efficiency-of",
+    "href": "slides/16-model-ethics.html#is-there-a-scale-on-which-we-believe-we-can-replace-the-efficiency-of",
+    "title": "What is a model?",
+    "section": "Is there a scale on which we believe we can replace the efficiency of",
+    "text": "Is there a scale on which we believe we can replace the efficiency of\nWMDs with the more expensive alternative?\nAre algorithms our only answer to tackling big data?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#what-is-or-what-could-be-the-role-of-data-scientists-in-data-justice",
+    "href": "slides/16-model-ethics.html#what-is-or-what-could-be-the-role-of-data-scientists-in-data-justice",
+    "title": "What is a model?",
+    "section": "What is (or what could be) the role of data scientists in data justice?",
+    "text": "What is (or what could be) the role of data scientists in data justice?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#ethics-and-ethics-1",
+    "href": "slides/16-model-ethics.html#ethics-and-ethics-1",
+    "title": "What is a model?",
+    "section": "ethics and Ethics",
+    "text": "ethics and Ethics\nethics – a discipline concerned with what is morally good and bad and morally right and wrong\n\n\n\n\nMeta-ethics (Ethics) – concerning the theoretical meaning and reference of moral propositions\n\n\n\nApplied ethics (ethics) – concerning what a person is obligated (or permitted) to do in a specific situation or a particular domain of action"
   }
 ]

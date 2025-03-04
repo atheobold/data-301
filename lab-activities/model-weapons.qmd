@@ -43,3 +43,9 @@ would it be for?
 7. What is (or what could be) the role of data scientists in data justice?
 
 ## Project Application
+
+In your Final Project you are expected to have a "Model Ethics" section 
+where you address the following questions:
+
+- How could your model detrimentally impact people? 
+- How will you ensure this will not happen? 
