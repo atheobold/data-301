@@ -121,7 +121,8 @@ How can we more effectively present context through data visualization?
 
 <http://www.antievictionmappingproject.net/narratives.html>
 
-# Which power imbalances have led to silences in the dataset or data that is missing altogether?
+# Which power imbalances have led to silences in the dataset or data that is
+missing altogether?
 
 ## Library of Missing Data
 
