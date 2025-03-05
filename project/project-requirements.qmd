@@ -1,0 +1,65 @@
+---
+title: "Final Project Requirements"
+subtitle: "DATA 301"
+editor: source
+---
+
+
+# Introduction
+
+This section should:
+
+- introduce the broader data context (social, cultural, historical,
+institutional)
+- introduce the data being analyzed (material context)
+- introduce the overarching research questions
+
+# Methods
+
+This section should discuss the methods you used to process the data and the 
+models you chose. Specifically, you should discuss:
+
+- How you cleaned / modified the original data and why. 
+- What features you considered for your analysis and why. 
+- What model(s) you chose for your analysis and why. 
+
+# Visualizations
+
+In this section you should present **two** (not three, not four) visualizations. The first visualization should address your primary research
+question and the second visualization should address your secondary research
+question (yes, only one!). 
+
+Additional criteria:
+
+- At least one plot must include 3+ variables.
+- Both plots must use non-default colors.
+- Both plots should follow the visualization "best 
+practice" outlined in the [course slides](https://docs.google.com/presentation/d/1ZIBJzHWQFJtsQzkak0W-Z5RxT-0wSrvGPckXxhs8M-c/edit?usp=sharing). 
+
+# Model
+
+In this section you need to fit a model(s) to the data to address your primary and secondary research questions. In this section you should explicitly state
+the modeling choices you made and the results of the model(s) you fit. 
+
+The following are *minimum* criteria for the model(s) you fit to your 
+data:
+
+- Include a model covered after the midterm exam (KNN, logistic regression, 
+linear regression, decision tree, k-means). 
+- Use cross-validation to estimate the testing error of the model
+- Choose a "meaningful" model metric to summarize the fit of a model
+
+# Results / Implications
+
+In this section you should connect the findings from your "Model" section to 
+the primary and secondary research questions you posed at the beginning of the
+project. 
+
+# Ethics & Limitations
+
+This section should discuss the ethics of the model(s) that were used in your
+analysis and how it(they) could detrimentally impact people. This section 
+should also outline the limitations with the model(s) that were fit. Based 
+on how the data were collected, what population can your model be inferred 
+onto?
+
