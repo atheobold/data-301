@@ -8,24 +8,54 @@ execute:
   echo: true
 ---
 
+# Plan for Next Week
+
+## Weeks 9 & 10
+
+::::::::: columns
+:::: {.column width="30%"}
+**Week 9**
+
+-   Data Ethics
+    + Data Context
+    + Model Ethics
+-   Project Work Sessions
+-   Starting Your Poster
+::::
+
+:::: {.column width="30%"}
+**Week 10**
+
+-   Tuesday: Review Practice Final
+-   Thursday: Exam 2
+::::
+
+:::: {.column width="30%"}
+**Finals Week**
+
+- Poster Presentations on Saturday, March 15th from 1:10 to 2:30.
+- In our original classroom! 
+- The Cal Poly print shop closes at 4pm on Friday! 
+:::
+::::
+:::::::::
+
 # Discussion Questions
 
-## What is the significance of the title Weapons of Math Destruction?
+<!-- ## What is the significance of the title Weapons of Math Destruction? -->
 
-## According to O’Neil, is every mathematical model a Weapon of Math
-Destruction? Why or why not?
+# According to O’Neil, is every mathematical model a Weapon of Math Destruction? Why or why not?
 
-## O'Neil characterizes some algorithms as "Weapons of Math Destruction." Who is
-most vulnerable to being harmed by their use?
+# O'Neil characterizes some algorithms as "Weapons of Math Destruction." Who is the most vulnerable to being harmed by their use?
 
-## Have you had experiences with algorithms that O’Neil’s account illuminates?
+# Have you had experiences with algorithms that O’Neil’s account illuminates?
 
-## Is there a scale on which we believe we can replace the efficiency of
-WMDs with the more expensive alternative? 
+<!-- ## Is there a scale on which we believe we can replace the efficiency of -->
+<!-- WMDs with the more expensive alternative?  -->
 
-Are algorithms our only answer to tackling big data?
+<!-- Are algorithms our only answer to tackling big data? -->
 
-## What is (or what could be) the role of data scientists in data justice?
+# What is (or what could be) the role of data scientists in data justice?
 
 # ethics and Ethics
 
@@ -76,7 +106,7 @@ those who rely on statistical analysis of the standards they should expect.
 - Matching analyses to data types (e.g., no linear regression with 0/1 
 response).
 
-## Reproducibility and documentation
+## Reproducibility and Documentation
 
 > Being transparent about your process and its limitations.
 
@@ -87,7 +117,7 @@ response).
 - Being clear about the scope of the conclusions.
 - Sharing your work openly when possible.
 
-## Professional responsibilities
+## Professional Responsibilities
 
 > Performing analyses and communicating results in ways that are not misleading,
 > even when you could get away with it.
@@ -133,8 +163,47 @@ groups)
 - Considering how conclusions will be used (e.g. who funded the study, what
 might they use it for, etc. - like crime prediction tools and such)
 
-## Your turn!
+# Final Project
 
-- Outline a "Model Ethics" section
-  * How could your model detrimentally impact people? 
-  * How will you ensure this will not happen? 
+## Final Project Requirements
+
+[This document describes the requirements of the Final Project](/project/project-requirements.qmd). 
+
+Your Poster will have six total sections:
+
+1. Introduction
+2. Methods
+3. Visualizations
+4. Model
+5. Results / Implications
+6. Ethics & Limitations
+
+## Ethics & Limitations
+
+::: columns
+::: {.column width="40%"}
+**Model Ethics**
+
+How could your model detrimentally impact people? 
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+**Limitations**
+
+What are the limitations of your models?
+What are the limitations of the inferences that can be made from these data?
+:::
+:::
+
+# Poster Presentations
+
+## A Folder Full of Resources
+
+[This Google Drive folder](https://drive.google.com/drive/folders/1L0Kl9MZ4NPowMJyju57bu3BJO2a8byJj?usp=sharing) contains:
+
+- poster templates
+- icons for Cal Poly (if you want to use)
+- a presentation on common poster formatting mistakes

@@ -3037,15 +3037,15 @@
     "objectID": "slides/16-model-ethics.html#reproducibility-and-documentation",
     "href": "slides/16-model-ethics.html#reproducibility-and-documentation",
     "title": "What is a model?",
-    "section": "Reproducibility and documentation",
-    "text": "Reproducibility and documentation\n\nBeing transparent about your process and its limitations.\n\n\n\nReporting insignificant results, not just significant ones.\nMaintaining reproducibility and documenting all data processing.\nBeing clear about the scope of the conclusions.\nSharing your work openly when possible."
+    "section": "Reproducibility and Documentation",
+    "text": "Reproducibility and Documentation\n\nBeing transparent about your process and its limitations.\n\n\n\nReporting insignificant results, not just significant ones.\nMaintaining reproducibility and documenting all data processing.\nBeing clear about the scope of the conclusions.\nSharing your work openly when possible."
   },
   {
     "objectID": "slides/16-model-ethics.html#professional-responsibilities",
     "href": "slides/16-model-ethics.html#professional-responsibilities",
     "title": "What is a model?",
-    "section": "Professional responsibilities",
-    "text": "Professional responsibilities\n\nPerforming analyses and communicating results in ways that are not misleading, even when you could get away with it.\n\n\n\nNo p-hacking / gathering extra data until it’s significant.\nNo switching your hypotheses after seeing the data (or running the analysis).\nNo dropping NAs unless you can justify why."
+    "section": "Professional Responsibilities",
+    "text": "Professional Responsibilities\n\nPerforming analyses and communicating results in ways that are not misleading, even when you could get away with it.\n\n\n\nNo p-hacking / gathering extra data until it’s significant.\nNo switching your hypotheses after seeing the data (or running the analysis).\nNo dropping NAs unless you can justify why."
   },
   {
     "objectID": "slides/16-model-ethics.html#section",
@@ -5688,5 +5688,47 @@
     "title": "Final Project Requirements",
     "section": "",
     "text": "Introduction\nThis section should:\n\nintroduce the broader data context (social, cultural, historical, institutional)\nintroduce the data being analyzed (material context)\nintroduce the overarching research questions\n\n\n\nMethods\nThis section should discuss the methods you used to process the data and the models you chose. Specifically, you should discuss:\n\nHow you cleaned / modified the original data and why.\nWhat features you considered for your analysis and why.\nWhat model(s) you chose for your analysis and why.\n\n\n\nVisualizations\nIn this section you should present two (not three, not four) visualizations. The first visualization should address your primary research question and the second visualization should address your secondary research question (yes, only one!).\nAdditional criteria:\n\nAt least one plot must include 3+ variables.\nBoth plots must use non-default colors.\nBoth plots should follow the visualization “best practice” outlined in the course slides.\n\n\n\nModel\nIn this section you need to fit a model(s) to the data to address your primary and secondary research questions. In this section you should explicitly state the modeling choices you made and the results of the model(s) you fit.\nThe following are minimum criteria for the model(s) you fit to your data:\n\nInclude a model covered after the midterm exam (KNN, logistic regression, linear regression, decision tree, k-means).\nUse cross-validation to estimate the testing error of the model\nChoose a “meaningful” model metric to summarize the fit of a model\n\n\n\nResults / Implications\nIn this section you should connect the findings from your “Model” section to the primary and secondary research questions you posed at the beginning of the project.\n\n\nEthics & Limitations\nThis section should discuss the ethics of the model(s) that were used in your analysis and how it(they) could detrimentally impact people. This section should also outline the limitations with the model(s) that were fit. Based on how the data were collected, what population can your model be inferred onto?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#weeks-9-10",
+    "href": "slides/16-model-ethics.html#weeks-9-10",
+    "title": "What is a model?",
+    "section": "Weeks 9 & 10",
+    "text": "Weeks 9 & 10\n\n\nWeek 9\n\nData Ethics\n\nData Context\nModel Ethics\n\nProject Work Sessions\nStarting Your Poster\n\n\nWeek 10\n\nTuesday: Review Practice Final\nThursday: Exam 2\n\n\nFinals Week\n\nPoster Presentations on Saturday, March 15th from 1:10 to 2:30.\nIn our original classroom!\nThe Cal Poly print shop closes at 4pm on Friday!\n\n\n:::::::::"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#final-project-requirements",
+    "href": "slides/16-model-ethics.html#final-project-requirements",
+    "title": "What is a model?",
+    "section": "Final Project Requirements",
+    "text": "Final Project Requirements\nThis document describes the requirements of the Final Project.\nYour Poster will have six total sections:\n\nIntroduction\nMethods\nVisualizations\nModel\nResults / Implications\nEthics & Limitations"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#ethics-limitations",
+    "href": "slides/16-model-ethics.html#ethics-limitations",
+    "title": "What is a model?",
+    "section": "Ethics & Limitations",
+    "text": "Ethics & Limitations\n\n\nModel Ethics\nHow could your model detrimentally impact people?\n\n\n\nLimitations\nWhat are the limitations of your models? What are the limitations of the inferences that can be made from these data?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#a-folder-full-of-resources",
+    "href": "slides/16-model-ethics.html#a-folder-full-of-resources",
+    "title": "What is a model?",
+    "section": "A Folder Full of Resources",
+    "text": "A Folder Full of Resources\nThis Google Drive folder contains:\n\nposter templates\nicons for Cal Poly (if you want to use)\na presentation on common poster formatting mistakes"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#according-to-oneil-is-every-mathematical-model-a-weapon-of-math-destruction-why-or-why-not",
+    "href": "slides/16-model-ethics.html#according-to-oneil-is-every-mathematical-model-a-weapon-of-math-destruction-why-or-why-not",
+    "title": "What is a model?",
+    "section": "According to O’Neil, is every mathematical model a Weapon of Math Destruction? Why or why not?",
+    "text": "According to O’Neil, is every mathematical model a Weapon of Math Destruction? Why or why not?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#oneil-characterizes-some-algorithms-as-weapons-of-math-destruction.-who-is-the-most-vulnerable-to-being-harmed-by-their-use",
+    "href": "slides/16-model-ethics.html#oneil-characterizes-some-algorithms-as-weapons-of-math-destruction.-who-is-the-most-vulnerable-to-being-harmed-by-their-use",
+    "title": "What is a model?",
+    "section": "O’Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is the most vulnerable to being harmed by their use?",
+    "text": "O’Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is the most vulnerable to being harmed by their use?"
   }
 ]
