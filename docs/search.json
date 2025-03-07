@@ -939,7 +939,7 @@
     "href": "slides/12-logistic.html#counter-example-linear-regression-2",
     "title": "Logistic Regression",
     "section": "Counter-Example: Linear Regression",
-    "text": "Counter-Example: Linear Regression\nProblem 1: Did we get “reasonable” predictions?\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\n\n\n\n\n\npred_cancer.min()\n\nnp.float64(-0.2666656752041746)\n\n\n\n\n\n\npred_cancer.max()\n\nnp.float64(1.1443978861600579)",
+    "text": "Counter-Example: Linear Regression\nProblem 1: Did we get “reasonable” predictions?\n\npred_cancer = pipeline.predict(df[[\"I0\", \"PA500\"]])\n\n\n\n\n\npred_cancer.min()\n\nnp.float64(-0.2666656752041747)\n\n\n\n\n\n\npred_cancer.max()\n\nnp.float64(1.144397886160058)",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
@@ -1687,7 +1687,7 @@
     "href": "slides/10-cross-val.html#estimated-intercept-and-slope",
     "title": "Cross-Validation and Grid Search",
     "section": "Estimated Intercept and Slope",
-    "text": "Estimated Intercept and Slope\n\n\nEstimated Intercept\n\n(\n  pipeline\n  .named_steps['linearregression']\n  .intercept_\n  )\n\nnp.float64(-0.2997193011856538)\n\n\n\n\n\nEstimated Slope\n\n(\n  pipeline\n  .named_steps['linearregression']\n  .coef_\n  )\n\narray([1.15601827])",
+    "text": "Estimated Intercept and Slope\n\n\nEstimated Intercept\n\n(\n  pipeline\n  .named_steps['linearregression']\n  .intercept_\n  )\n\nnp.float64(-0.29971930118565737)\n\n\n\n\n\nEstimated Slope\n\n(\n  pipeline\n  .named_steps['linearregression']\n  .coef_\n  )\n\narray([1.15601827])",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1775,7 +1775,7 @@
     "href": "slides/10-cross-val.html#estimating-error-for-test-data",
     "title": "Cross-Validation and Grid Search",
     "section": "Estimating Error for Test Data",
-    "text": "Estimating Error for Test Data\n\nmean_squared_error(y_test, pred_y_test)\n\n137.2633628889134",
+    "text": "Estimating Error for Test Data\n\nmean_squared_error(y_test, pred_y_test)\n\n61.63802731695058",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1830,7 +1830,7 @@
     "href": "slides/10-cross-val.html#what-do-we-do-with-these-numbers",
     "title": "Cross-Validation and Grid Search",
     "section": "What do we do with these numbers?",
-    "text": "What do we do with these numbers?\n\nfrom sklearn.model_selection import cross_val_score\n\ncvs = cross_val_score(pipeline, \n                      X = df_known, \n                      y = df_known['price'], \n                      cv = 10)\n\nSince we have 10 different values, what would you expect us to do?\n\nWell, this is a statistics class after all. So, you probably guessed we would take the mean.\n\ncvs.mean()\n\nnp.float64(-7.011401568335392)",
+    "text": "What do we do with these numbers?\n\nfrom sklearn.model_selection import cross_val_score\n\ncvs = cross_val_score(pipeline, \n                      X = df_known, \n                      y = df_known['price'], \n                      cv = 10)\n\nSince we have 10 different values, what would you expect us to do?\n\nWell, this is a statistics class after all. So, you probably guessed we would take the mean.\n\ncvs.mean()\n\nnp.float64(-7.01140156833539)",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -1907,7 +1907,7 @@
     "href": "slides/10-cross-val.html#getting-the-cross-validation-results",
     "title": "Cross-Validation and Grid Search",
     "section": "Getting the Cross Validation Results",
-    "text": "Getting the Cross Validation Results\n\n\npd.DataFrame(grid_cv.cv_results_)\n\n\n\n\n\n    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score\n0        0.001539      0.000305  ...      219.338831               12\n1        0.001251      0.000007  ...      209.511631                9\n2        0.001231      0.000007  ...      178.819362                6\n3        0.001232      0.000013  ...      217.989122               11\n4        0.001227      0.000002  ...      212.797774                7\n5        0.001233      0.000009  ...      205.240907                3\n6        0.001233      0.000009  ...      227.978005               10\n7        0.001239      0.000005  ...      175.175403                2\n8        0.001252      0.000019  ...      174.981203                5\n9        0.001240      0.000009  ...      175.186322                1\n10       0.001223      0.000003  ...      200.091917                4\n11       0.001229      0.000012  ...      232.710455                8\n\n[12 rows x 15 columns]",
+    "text": "Getting the Cross Validation Results\n\n\npd.DataFrame(grid_cv.cv_results_)\n\n\n\n\n\n    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score\n0        0.005399      0.000345  ...      219.338831               12\n1        0.005209      0.000147  ...      209.511631                9\n2        0.005149      0.000082  ...      178.819362                6\n3        0.005243      0.000175  ...      217.989122               11\n4        0.005174      0.000088  ...      212.797774                7\n5        0.005194      0.000125  ...      205.240907                3\n6        0.005265      0.000183  ...      227.978005               10\n7        0.005110      0.000065  ...      175.175403                2\n8        0.005226      0.000287  ...      174.981203                5\n9        0.005146      0.000161  ...      175.186322                1\n10       0.005152      0.000091  ...      200.091917                4\n11       0.005114      0.000090  ...      232.710455                8\n\n[12 rows x 15 columns]",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 2 - Cross Validation & Grid Search"
@@ -2039,7 +2039,7 @@
     "href": "slides/06-preprocessing.html#calculating-distances",
     "title": "Dummy Variables and Column Transformers",
     "section": "Calculating Distances",
-    "text": "Calculating Distances\n\n\ndists = pairwise_distances(df_scaled[[1707]], df_scaled)\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr  is_single_fam\n160          2978              5              1\n909          3082              5              1\n1288         2792              5              1\n2350         2784              5              1\n253          3222              5              1\n585          2640              5              1\n2027         2526              5              1\n2330         3390              5              1\n2501         2520              5              1",
+    "text": "Calculating Distances\n\n\ndists = pairwise_distances(df_scaled[[1707]], df_scaled)\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr  is_single_fam\n160          2978              5              1\n909          3082              5              1\n1288         2792              5              1\n2350         2784              5              1\n253          3222              5              1\n585          2640              5              1\n2027         2526              5              1\n2330         3390              5              1\n436          2520              5              1",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -2226,7 +2226,7 @@
     "href": "slides/06-preprocessing.html#finding-all-categorical-variables",
     "title": "Dummy Variables and Column Transformers",
     "section": "Finding All Categorical Variables",
-    "text": "Finding All Categorical Variables\n\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")\n\n\n\n\n\n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x115bc2ba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11593f750&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriNot fittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x115bc2ba0&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x11593f750&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x115bc2ba0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x11593f750&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder passthroughpassthrough",
+    "text": "Finding All Categorical Variables\n\nWhat if we want to tell sklearn, “Please dummify every categorical variable.”? Use a selector instead of exact column names!\n\n\n\n\nfrom sklearn.compose import make_column_selector\n\npreproc = make_column_transformer(\n    (StandardScaler(),  \n     make_column_selector(dtype_include = np.number)\n     ),\n    (OneHotEncoder(sparse_output = False), \n     make_column_selector(dtype_include = object)\n     ),\n    remainder = \"passthrough\")\n\n\n\n\n\n\npreproc.set_output(transform = \"pandas\")\n\nColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x113bcb640&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x113bf60b0&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriNot fittedColumnTransformer(remainder='passthrough',\n                  transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x113bcb640&gt;),\n                                ('onehotencoder',\n                                 OneHotEncoder(sparse_output=False),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x113bf60b0&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x113bcb640&gt; StandardScaler?Documentation for StandardScalerStandardScaler() onehotencoder&lt;sklearn.compose._column_transformer.make_column_selector object at 0x113bf60b0&gt; OneHotEncoder?Documentation for OneHotEncoderOneHotEncoder(sparse_output=False) remainder passthroughpassthrough",
     "crumbs": [
       "Lecture Slides",
       "Week 4, Part 1 - Dummy Variables & Column Transformers"
@@ -2721,7 +2721,7 @@
     "href": "slides/better-data-visualization.html",
     "title": "Making your Data Visualizations More Effective",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nchildcare_costs &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')\n\nRows: 34567 Columns: 61\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (61): county_fips_code, study_year, unr_16, funr_16, munr_16, unr_20to64...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ncounties &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')\n\nRows: 3144 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (3): county_name, state_name, state_abbreviation\ndbl (1): county_fips_code\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\n\nca_childcare &lt;- full_join(counties,\n                 childcare_costs,\n                 ) |&gt; \n  filter(state_abbreviation == \"CA\",\n         county_name %in% c(\"San Luis Obispo County\", \n                            \"Orange County\", \n                            \"San Francisco County\")\n         ) |&gt; \n  pivot_longer(cols = starts_with(\"mfcc_\"),\n               names_to = \"development_stage\",\n               values_to = \"median_weekly_childcare_cost\") |&gt;\n  filter(development_stage %in% c(\"mfcc_infant\", \"mfcc_toddler\")) |&gt; \n  mutate(across(.cols = c(county_name, state_abbreviation, development_stage), \n                .fns = ~ as.factor(.x)\n                ),\n         development_stage = as.factor(str_remove(development_stage, pattern = \"mfcc_\"))\n         ) |&gt; \n  select(county_name, study_year, development_stage, median_weekly_childcare_cost)\n\nJoining with `by = join_by(county_fips_code)`\n\n#write_csv(ca_childcare, file = \"ca_childcare_clean.csv\")\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             fill = county_name)\n         ) +\n  geom_bar(stat = \"identity\",\n           position = \"dodge\") +\n  facet_wrap(~ development_stage) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_fill_brewer(palette = \"Accent\") +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       fill = \"County\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"top\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"by Development Stage\",\n       shape = \"by Development Stage\")\n\n\n\n\n\n\n\n\n\n\n\n\nlegend_text &lt;- ca_childcare %&gt;% \n  filter(county_name == \"San Francisco County\", \n         study_year %in% c(2012, 2014)\n         ) %&gt;% \n  group_by(development_stage) %&gt;% \n  mutate(plot_year = if_else(development_stage == \"infant\",\n                             2012, \n                             2014), \n         plot_median = if_else(development_stage == \"infant\", \n                               median_weekly_childcare_cost + 50, \n                               median_weekly_childcare_cost - 15)\n         ) %&gt;% \n  distinct(plot_year, development_stage, .keep_all = TRUE)\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"none\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       subtitle = \"by Development Stage\",\n       shape = \"\", \n       color = \"\") +\n  geom_text(data = legend_text, \n            mapping = aes(x = plot_year, \n                          y = plot_median, \n                          color = development_stage, \n                          label = development_stage)\n            )\n\n\n\n\n\n\n\n# Makes the same annotation for each facet!\n  # annotate(geom = \"text\", \n  #          x = 2012, \n  #          y = 250, \n  #          color = \"steelblue\", \n  #          label = \"infant\"\n  #          )"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nchildcare_costs &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')\n\nRows: 34567 Columns: 61\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\ndbl (61): county_fips_code, study_year, unr_16, funr_16, munr_16, unr_20to64...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ncounties &lt;- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')\n\nRows: 3144 Columns: 4\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (3): county_name, state_name, state_abbreviation\ndbl (1): county_fips_code\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\n\nca_childcare &lt;- full_join(counties,\n                 childcare_costs,\n                 ) |&gt; \n  filter(state_abbreviation == \"CA\",\n         county_name %in% c(\"San Luis Obispo County\", \n                            \"Orange County\", \n                            \"San Francisco County\")\n         ) |&gt; \n  pivot_longer(cols = starts_with(\"mfcc_\"),\n               names_to = \"development_stage\",\n               values_to = \"median_weekly_childcare_cost\") |&gt;\n  filter(development_stage %in% c(\"mfcc_infant\", \"mfcc_toddler\")) |&gt; \n  mutate(across(.cols = c(county_name, state_abbreviation, development_stage), \n                .fns = ~ as.factor(.x)\n                ),\n         development_stage = as.factor(str_remove(development_stage, pattern = \"mfcc_\"))\n         ) |&gt; \n  select(county_name, study_year, development_stage, median_weekly_childcare_cost)\n\nJoining with `by = join_by(county_fips_code)`\n\n#write_csv(ca_childcare, file = \"ca_childcare_clean.csv\")\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             fill = county_name)\n         ) +\n  geom_bar(stat = \"identity\",\n           position = \"dodge\") +\n  facet_wrap(~ development_stage) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_fill_brewer(palette = \"Accent\") +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       fill = \"County\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"Weekly Median Childcare Cost ($)\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"Development \\nStage\",\n       shape = \"Development \\nStage\")\n\n\n\n\n\n\n\n\n\n\n\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"top\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       color = \"by Development Stage\",\n       shape = \"by Development Stage\")\n\n\n\n\n\n\n\n\n\n\n\n\nlegend_text &lt;- ca_childcare %&gt;% \n  filter(county_name == \"San Francisco County\", \n         study_year %in% c(2012, 2014)\n         ) %&gt;% \n  group_by(development_stage) %&gt;% \n  mutate(plot_year = if_else(development_stage == \"infant\",\n                             2012, \n                             2014), \n         plot_median = if_else(development_stage == \"infant\", \n                               median_weekly_childcare_cost + 50, \n                               median_weekly_childcare_cost - 15)\n         ) %&gt;% \n  distinct(plot_year, development_stage, .keep_all = TRUE)\n\nca_childcare |&gt; \n  ggplot(aes(x = study_year,\n             y = median_weekly_childcare_cost,\n             color = development_stage,\n             shape = development_stage)\n  ) +\n  geom_point() +\n  geom_line() +\n  scale_y_continuous(labels = scales::label_dollar()) +\n  facet_wrap(~ county_name, ncol = 1) +\n  scale_x_continuous(breaks = seq(2008, 2018, 2)) +\n  scale_color_manual(values = c(\"steelblue\", \"orange3\")) +\n  theme_bw() +\n  theme(legend.position = \"none\") +\n  labs(x = \"Year\",\n       y = \"\",\n       title = \"Weekly Median Cost of Childcare by CA County\",\n       subtitle = \"by Development Stage\",\n       shape = \"\", \n       color = \"\") +\n  geom_text(data = legend_text, \n            mapping = aes(x = plot_year, \n                          y = plot_median, \n                          color = development_stage, \n                          label = development_stage)\n            )\n\n\n\n\n\n\n\n# Makes the same annotation for each facet!\n  # annotate(geom = \"text\", \n  #          x = 2012, \n  #          y = 250, \n  #          color = \"steelblue\", \n  #          label = \"infant\"\n  #          )"
   },
   {
     "objectID": "slides/better-data-visualization.html#join-clean-data",
@@ -2829,11 +2829,50 @@
     "text": "Example: Ames, Iowa Housing Data\n\n\nWhat are the social conditions of these data?\nWhat are the cultural conditions of these data?\nWhat are the historical conditions of these data?\nWhat are the institutional conditions of these data?\nWhat are the material conditions of these data?"
   },
   {
-    "objectID": "project/project-description.html",
-    "href": "project/project-description.html",
-    "title": "Final Project Guidelines",
+    "objectID": "project/project-requirements.html",
+    "href": "project/project-requirements.html",
+    "title": "Final Project Requirements",
     "section": "",
-    "text": "Overview\nYour final project is your chance to demonstrate your knowledge from DATA 301 in a real-world setting. You will choose a dataset, or possibly multiple related datasets, and perform an analysis to address your group’s research question(s).\nYou will summarize your findings into a poster, and present it during the common hour final poster session (with both sections of DATA 301) on Saturday, March 15th from 1:10pm to 2:30pm. The poster session will be in our regularly scheduled classroom!\nProjects may be done in groups of up to 3 students. The guidelines are the same regardless; that is, if you choose to work alone, I will expect the same level of quality as if you choose to work in a group of 3.\n\n\n\n\n\n\nCaution\n\n\n\nNo extensions will be granted for projects, except in highly unusual, extenuating circumstances. Please start early!\n\n\n\n\nCheckpoint 1: Project Proposal\nTo make sure you are on track, you have a two-page project proposal due on Sunday, February 23.\nThis proposal must be two pages only, and it must contain:\n\nYour group member names.\nInformation about the dataset(s) you intend to analyze:\n\nWhere are the data located?\nWho collected the data and why?\nWhat information (variables) are in the dataset?\n\nResearch Questions: You should have one primary research question and a few secondary questions\nPreliminary exploration of your dataset(s): A few simple plots or summary statistics that relate to the variables you plan to study.\n\n\n\nFinding Data\nSome good places to find datasets are:\n\nKaggle\nTidy Tuesday\nGoogle Data Set Search\nReddit Datasets\nList of JSON APIs\nProject Gutenberg (good source of textual data)\nState or federal government websites, such as the U.S. Government’s Open Data\n\n\n\nPrinting Your Final Poster\nThis website has some poster templates that you can (but are not required to) use. Your poster will need to be printed on 24” x 36” paper. You may select all the most basic printing options (e.g., matte paper, no lamination, not mounted). I would recommend printing you poster at Cal Poly since basic posters cost about $18. You might need to check on their turnaround time, since they may be busy during Week 10.\nIf you need assistance with the cost of printing a poster, please let Dr. Theobold know.\n\n\nFinal Poster Grading\nYour posters will be graded on:\n\nPresentation:\n\nWas the poster clear and visually appealing?\nDo the visualizations tell a story?\nWere the presenters able to describe the project and answer questions?\n\nCorrectness:\n\nWere the correct summaries and analyses chosen for the data?\nWere the results correctly interpreted and described?\nWas the choice of analysis reasonable for the research question?\n\nComplexity:\n\nDid the project address multiple rich aspects of the dataset(s)?\nDid the project use skills from across the quarter to answer questions?\nDid the project incorporate something from Week 9 or 10? (Webscraping, APIs, data joining) or from beyond the course?\n\nData insight:\n\nWere the research questions interesting and insightful?\nDid the project make clear and relevant data conclusions?\nDoes the project tell a story with real-world impact?"
+    "text": "Introduction\nThis section should:\n\nintroduce the broader data context (social, cultural, historical, institutional)\nintroduce the data being analyzed (material context)\nintroduce the overarching research questions\n\n\n\nMethods\nThis section should discuss the methods you used to process the data and the models you chose. Specifically, you should discuss:\n\nHow you cleaned / modified the original data and why.\nWhat features you considered for your analysis and why.\nWhat model(s) you chose for your analysis and why.\n\n\n\nVisualizations\nIn this section you should present two (not three, not four) visualizations. The first visualization should address your primary research question and the second visualization should address your secondary research question (yes, only one!).\nAdditional criteria:\n\nAt least one plot must include 3+ variables.\nBoth plots must use non-default colors.\nBoth plots should follow the visualization “best practice” outlined in the course slides.\n\n\n\nModel\nIn this section you need to fit a model(s) to the data to address your primary and secondary research questions. In this section you should explicitly state the modeling choices you made and the results of the model(s) you fit.\nThe following are minimum criteria for the model(s) you fit to your data:\n\nInclude a model covered after the midterm exam (KNN, logistic regression, linear regression, decision tree, k-means).\nUse cross-validation to estimate the testing error of the model\nChoose a “meaningful” model metric to summarize the fit of a model\n\n\n\nResults / Implications\nIn this section you should connect the findings from your “Model” section to the primary and secondary research questions you posed at the beginning of the project.\n\n\nEthics & Limitations\nThis section should discuss the ethics of the model(s) that were used in your analysis and how it(they) could detrimentally impact people. This section should also outline the limitations with the model(s) that were fit. Based on how the data were collected, what population can your model be inferred onto?"
+  },
+  {
+    "objectID": "lab-activities/model-weapons.html",
+    "href": "lab-activities/model-weapons.html",
+    "title": "Bomb Parts: What is a Model?",
+    "section": "",
+    "text": "You can access the full PDF of this book here: link to full PDF\nYou can access just Chapter 1 of the book here: link to Chapter 1"
+  },
+  {
+    "objectID": "lab-activities/model-weapons.html#reading",
+    "href": "lab-activities/model-weapons.html#reading",
+    "title": "Bomb Parts: What is a Model?",
+    "section": "",
+    "text": "You can access the full PDF of this book here: link to full PDF\nYou can access just Chapter 1 of the book here: link to Chapter 1"
+  },
+  {
+    "objectID": "lab-activities/model-weapons.html#discussion-questions",
+    "href": "lab-activities/model-weapons.html#discussion-questions",
+    "title": "Bomb Parts: What is a Model?",
+    "section": "Discussion Questions",
+    "text": "Discussion Questions\n\nWhat is the significance of the title Weapons of Math Destruction?\nAccording to O’Neil, is every mathematical model a Weapon of Math Destruction? Why or why not?\nO’Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is most vulnerable to being harmed by their use?\nHave you had experiences with algorithms that O’Neil’s account illuminates?\n\nThe proliferation of WMDs seems to stem from our innate attraction to numeric rankings. Often, an “anti” WMD would require significant investment of time, money, and human capital to evaluate whatever metric (teacher performance, expected criminal recidivism, credit history etc.) is currently being assessed by a WMD.\n\n\nIs there a scale on which we believe we can replace the efficiency of WMDs with the more expensive alternative? Are algorithms our only answer to tackling big data?\nShould there be a Bill of Rights around data? What would it entail and who would it be for?\nWhat is (or what could be) the role of data scientists in data justice?"
+  },
+  {
+    "objectID": "lab-activities/model-weapons.html#project-application",
+    "href": "lab-activities/model-weapons.html#project-application",
+    "title": "Bomb Parts: What is a Model?",
+    "section": "Project Application",
+    "text": "Project Application\nIn your Final Project you are expected to have a “Model Ethics” section where you address the following questions:\n\nHow could your model detrimentally impact people?\nHow will you ensure this will not happen?"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Data Science (in Python)",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nSunday, January 12\n\n\n\nLab 1A, 1B Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nLecture 2.1 Activity\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nLecture 2.2 Activity\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nSunday, January 19\n\n\n\nLab 2A, 2B Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nSunday, January 26\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-Words and TF-IDF\nActivity 4.2\nLab 4A\nLab 4B\n\n\n\n\nSunday, February 2\n\n\n\nLab 4A, 4B Due by Midnight\n\n\n\n5\nK-Nearest Neighbors & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nLecture 5.1 Activity\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nSpicing up Your Visualizations\nActivity 5.2\n\nExam 1 (in-class)\n\n\n\nFriday, February 7\n\n\n\nNo lab this week!\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nIntroduction to Modeling\nLecture 6.1 Activity\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nCross-Validation and Grid Search\nLecture 6.2 Activity\nActivity 6.2\nLab 6\n\n\n\n\nSunday, February 16\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nClassification\nLecture 7.1 Activity\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nLogistic Regression\nLecture 7.2 Activity\nActivity 7.2\nLab 7\n\n\n\n\nSunday, February 23\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nClustering & Joining Data\nTuesday, February 25\n\nUnsupervised Learning with K-Means\nLecture 8.1 Activity\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nCombining Datasets\nLecture 8.2 Activity\nActivity 8.2\nLab 8\n\n\n\n\nSunday, March 2\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nData Ethics\nTuesday, March 4\nReading Guide: Data Context\nData Ethics Part 1\nNo Lab, Project Work Session\n\n\n\n\n\nThursday, March 6\nReading Guide: Model Ethics\nData Ethics Part 2\nNo Lab, Project Work Session\n\nProject Guidelines\n\n\n\nSunday, March 9\n\n\n\nNo lab this week!\nPractice Exam Review\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\nFirst Half: Practice Exam Review\nSecond Half: Poster Work Session\n\n\n\n\n\n\nThursday, March 13\n\nExam 2 (at beginning of class)\n\n\nExam 2 (in-class)\n\n\nFinals Week\nSaturday, March 15 1:10pm - 2:30pm\n\n\n\n\nPoster Presentations",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
   },
   {
     "objectID": "lab-activities/data-neutrality.html",
@@ -2864,43 +2903,11 @@
     "text": "Project Application\nIn the “Data Context” section of your Final Poster, you are required to provide a description that directly addresses the:\n\nsocial,\ncultural,\nhistorical,\ninstitutional, and\nmaterial conditions under which the data were produced.\n\nPrior to attending Tuesday’s class, I would like you to practice outlining these conditions in the context of the housing data from Ames, Iowa.\n\nWhat are the social conditions of these data?\n\nWhat are the social influences of owning a house?\n\nWhat are the cultural conditions of these data?\n\nWhat is the culture surrounding home ownership in the United States?\n\nWhat are the historical conditions of these data?\n\nWhat is the history associated with home ownership in the US?\nWhat is the history associated with home ownership in Ames, Iowa?\n\nWhat are the institutional conditions of these data?\n\nWhat are the institutional forces that factor into home ownership?\n\nWhat are the material conditions of these data?\n\nHow were the data collected?\nWhat houses / neighborhoods / individuals are represented in these data?\n\nWhat houses / neighborhoods / individuals are excluded from these data?"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Data Science (in Python)",
+    "objectID": "project/project-description.html",
+    "href": "project/project-description.html",
+    "title": "Final Project Guidelines",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the quarter. Note that this schedule will be updated as the quarter progresses, with all changes documented here.\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nRequired Reading\nLecture Slides\nLab Activity\nWeekly Assignment\nExams & Project\n\n\n\n\n0\nSunday, January 5\n\nWelcome to DATA 301!\n\n\n\n\n\n1 Summarizing Tabular Data\nTuesday, January 7\n\nTabular Data & Variable Summaries\nGenAI Activity (Link to Collab)\nActivity 1.1 (Link to Collab)\n\n\n\n\n\nThursday, January 9\n\nVisualizing and Comparing Categorical Variables\nActivity 1.2 (Link to Collab)\nLab 1A\nLab 1B\n\n\n\n\nSunday, January 12\n\n\n\nLab 1A, 1B Due by Midnight\n\n\n\n2 Summarizing & Visualizing Quantitative Data\nTuesday, January 14\n(Dr. T’s b-day)\n\nVisualizing and Summarizing Quantitative Variables\nLecture 2.1 Activity\nActivity 2.1 (Link to Collab)\n\n\n\n\n\nThursday, January 16\n\nMultivariate Summaries\nLecture 2.2 Activity\nActivity 2.2\nLab 2A\nLab 2B\n\n\n\n\nSunday, January 19\n\n\n\nLab 2A, 2B Due by Midnight\n\n\n\n3\nMeasuring Similarity with Distances\nTuesday, January 21\nNo Class (Classes Follow Monday Schedule)\n\n\n\n\n\n\n\nThursday, January 23\n\nDistances Between Observations\n\nLecture Activity 3.1\nActivity 3.1\nLab 3\n\n\n\n\nSunday, January 26\n\n\n\nLab 3 Due by Midnight\n\n\n\n4\nDummy Variables & TF-IDF\nTuesday, January 28\n\nDummy Variables and Column Transformers\nActivity 4.1\n\n\n\n\n\nThursday, January 30\n\nBag-of-Words and TF-IDF\nActivity 4.2\nLab 4A\nLab 4B\n\n\n\n\nSunday, February 2\n\n\n\nLab 4A, 4B Due by Midnight\n\n\n\n5\nK-Nearest Neighbors & Midterm Exam\nTuesday, February 4\n\nK-Nearest-Neighbors\nLecture 5.1 Activity\nActivity 5.1\n\n\n\n\n\nThursday, February 6\n\nSpicing up Your Visualizations\nActivity 5.2\n\nExam 1 (in-class)\n\n\n\nFriday, February 7\n\n\n\nNo lab this week!\n\n\n\n6\nClassification & Model Selection\nTuesday, February 11\n\nIntroduction to Modeling\nLecture 6.1 Activity\nActivity 6.1\n\n\n\n\n\nThursday, February 13\n\nCross-Validation and Grid Search\nLecture 6.2 Activity\nActivity 6.2\nLab 6\n\n\n\n\nSunday, February 16\n\n\n\nLab 6 Due by Midnight\n\n\n\n7\nLogistic Regression & Unsupervised Learning\nTuesday, February 18\n\nClassification\nLecture 7.1 Activity\nActivity 7.1\n\n\n\n\n\nThursday, February 20\n\nLogistic Regression\nLecture 7.2 Activity\nActivity 7.2\nLab 7\n\n\n\n\nSunday, February 23\n\n\n\nLab 7 Due by Midnight\nProject Proposal Due\n\n\n8\nClustering & Joining Data\nTuesday, February 25\n\nUnsupervised Learning with K-Means\nLecture 8.1 Activity\nActivity 8.1\n\n\n\n\n\nThursday, February 27\n\nCombining Datasets\nLecture 8.2 Activity\nActivity 8.2\nLab 8\n\n\n\n\nSunday, March 2\n\n\n\nLab 8 Due by Midnight\n\n\n\n9\nData Ethics\nTuesday, March 4\nReading Guide: Data Context\nData Ethics Part 1\nNo Lab, Project Work Session\n\n\n\n\n\nThursday, March 6\nReading Guide: Model Ethics\nData Ethics Part 2\nNo Lab, Project Work Session\n\nProject Guidelines\n\n\n\nSunday, March 9\n\n\n\nNo lab this week!\nPractice Exam Review\n\n\n10\nFinal Posters & Final Exam\nTuesday, March 11\n\nFirst Half: Practice Exam Review\nSecond Half: Poster Work Session\n\n\n\n\n\n\nThursday, March 13\n\nExam 2 (at beginning of class)\n\n\nExam 2 (in-class)\n\n\nFinals Week\nSaturday, March 15 1:10pm - 2:30pm\n\n\n\n\nPoster Presentations",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "lab-activities/model-weapons.html",
-    "href": "lab-activities/model-weapons.html",
-    "title": "Bomb Parts: What is a Model?",
-    "section": "",
-    "text": "You can access the full PDF of this book here: link to full PDF\nYou can access just Chapter 1 of the book here: link to Chapter 1"
-  },
-  {
-    "objectID": "lab-activities/model-weapons.html#reading",
-    "href": "lab-activities/model-weapons.html#reading",
-    "title": "Bomb Parts: What is a Model?",
-    "section": "",
-    "text": "You can access the full PDF of this book here: link to full PDF\nYou can access just Chapter 1 of the book here: link to Chapter 1"
-  },
-  {
-    "objectID": "lab-activities/model-weapons.html#discussion-questions",
-    "href": "lab-activities/model-weapons.html#discussion-questions",
-    "title": "Bomb Parts: What is a Model?",
-    "section": "Discussion Questions",
-    "text": "Discussion Questions\n\nWhat is the significance of the title Weapons of Math Destruction?\nAccording to O’Neil, is every mathematical model a Weapon of Math Destruction? Why or why not?\nO’Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is most vulnerable to being harmed by their use?\nHave you had experiences with algorithms that O’Neil’s account illuminates?\n\nThe proliferation of WMDs seems to stem from our innate attraction to numeric rankings. Often, an “anti” WMD would require significant investment of time, money, and human capital to evaluate whatever metric (teacher performance, expected criminal recidivism, credit history etc.) is currently being assessed by a WMD.\n\n\nIs there a scale on which we believe we can replace the efficiency of WMDs with the more expensive alternative? Are algorithms our only answer to tackling big data?\nShould there be a Bill of Rights around data? What would it entail and who would it be for?\nWhat is (or what could be) the role of data scientists in data justice?"
-  },
-  {
-    "objectID": "lab-activities/model-weapons.html#project-application",
-    "href": "lab-activities/model-weapons.html#project-application",
-    "title": "Bomb Parts: What is a Model?",
-    "section": "Project Application",
-    "text": "Project Application\nIn your Final Project you are expected to have a “Model Ethics” section where you address the following questions:\n\nHow could your model detrimentally impact people?\nHow will you ensure this will not happen?"
+    "text": "Overview\nYour final project is your chance to demonstrate your knowledge from DATA 301 in a real-world setting. You will choose a dataset, or possibly multiple related datasets, and perform an analysis to address your group’s research question(s).\nYou will summarize your findings into a poster, and present it during the common hour final poster session (with both sections of DATA 301) on Saturday, March 15th from 1:10pm to 2:30pm. The poster session will be in our regularly scheduled classroom!\nProjects may be done in groups of up to 3 students. The guidelines are the same regardless; that is, if you choose to work alone, I will expect the same level of quality as if you choose to work in a group of 3.\n\n\n\n\n\n\nCaution\n\n\n\nNo extensions will be granted for projects, except in highly unusual, extenuating circumstances. Please start early!\n\n\n\n\nCheckpoint 1: Project Proposal\nTo make sure you are on track, you have a two-page project proposal due on Sunday, February 23.\nThis proposal must be two pages only, and it must contain:\n\nYour group member names.\nInformation about the dataset(s) you intend to analyze:\n\nWhere are the data located?\nWho collected the data and why?\nWhat information (variables) are in the dataset?\n\nResearch Questions: You should have one primary research question and a few secondary questions\nPreliminary exploration of your dataset(s): A few simple plots or summary statistics that relate to the variables you plan to study.\n\n\n\nFinding Data\nSome good places to find datasets are:\n\nKaggle\nTidy Tuesday\nGoogle Data Set Search\nReddit Datasets\nList of JSON APIs\nProject Gutenberg (good source of textual data)\nState or federal government websites, such as the U.S. Government’s Open Data\n\n\n\nPrinting Your Final Poster\nThis website has some poster templates that you can (but are not required to) use. Your poster will need to be printed on 24” x 36” paper. You may select all the most basic printing options (e.g., matte paper, no lamination, not mounted). I would recommend printing you poster at Cal Poly since basic posters cost about $18. You might need to check on their turnaround time, since they may be busy during Week 10.\nIf you need assistance with the cost of printing a poster, please let Dr. Theobold know.\n\n\nFinal Poster Grading\nYour posters will be graded on:\n\nPresentation:\n\nWas the poster clear and visually appealing?\nDo the visualizations tell a story?\nWere the presenters able to describe the project and answer questions?\n\nCorrectness:\n\nWere the correct summaries and analyses chosen for the data?\nWere the results correctly interpreted and described?\nWas the choice of analysis reasonable for the research question?\n\nComplexity:\n\nDid the project address multiple rich aspects of the dataset(s)?\nDid the project use skills from across the quarter to answer questions?\nDid the project incorporate something from Week 9 or 10? (Webscraping, APIs, data joining) or from beyond the course?\n\nData insight:\n\nWere the research questions interesting and insightful?\nDid the project make clear and relevant data conclusions?\nDoes the project tell a story with real-world impact?"
   },
   {
     "objectID": "slides/00-welcome.html#about-me",
@@ -3013,11 +3020,18 @@
     ]
   },
   {
-    "objectID": "slides/16-model-ethics.html#ethics-and-ethics",
-    "href": "slides/16-model-ethics.html#ethics-and-ethics",
+    "objectID": "slides/16-model-ethics.html#weeks-9-10",
+    "href": "slides/16-model-ethics.html#weeks-9-10",
+    "title": "What is a model?",
+    "section": "Weeks 9 & 10",
+    "text": "Weeks 9 & 10\n\n\nWeek 9\n\nData Ethics\n\nData Context\nModel Ethics\n\nProject Work Sessions\nStarting Your Poster\n\n\nWeek 10\n\nTuesday: Review Practice Final\nThursday: Exam 2\n\n\nFinals Week\n\nPoster Presentations on Saturday, March 15th from 1:10 to 2:30.\nIn our original classroom!\nThe Cal Poly print shop closes at 4pm on Friday!\n\n\n:::::::::"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#ethics-and-ethics-1",
+    "href": "slides/16-model-ethics.html#ethics-and-ethics-1",
     "title": "What is a model?",
     "section": "ethics and Ethics",
-    "text": "ethics and Ethics\nethics – a discipline concerned with what is morally good and bad and morally right and wrong\n\n\n\nMeta-ethics (Ethics) – concerning the theoretical meaning and reference of moral propositions\n\n\n\nApplied ethics (ethics) – concerning what a person is obligated (or permitted) to do in a specific situation or a particular domain of action"
+    "text": "ethics and Ethics\nethics – a discipline concerned with what is morally good and bad and morally right and wrong\n\n\n\n\nMeta-ethics (Ethics) – concerning the theoretical meaning and reference of moral propositions\n\n\n\nApplied ethics (ethics) – concerning what a person is obligated (or permitted) to do in a specific situation or a particular domain of action"
   },
   {
     "objectID": "slides/16-model-ethics.html#professional-ethics",
@@ -3048,13 +3062,6 @@
     "text": "Professional Responsibilities\n\nPerforming analyses and communicating results in ways that are not misleading, even when you could get away with it.\n\n\n\nNo p-hacking / gathering extra data until it’s significant.\nNo switching your hypotheses after seeing the data (or running the analysis).\nNo dropping NAs unless you can justify why."
   },
   {
-    "objectID": "slides/16-model-ethics.html#section",
-    "href": "slides/16-model-ethics.html#section",
-    "title": "What is a model?",
-    "section": "",
-    "text": "“Data are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis.”"
-  },
-  {
     "objectID": "slides/16-model-ethics.html#data-science-oath",
     "href": "slides/16-model-ethics.html#data-science-oath",
     "title": "What is a model?",
@@ -3069,11 +3076,25 @@
     "text": "Social Responsibilities\n\nConsidering impact, harm, and power.\n\n\nChecking that the data collection process is not harmful (e.g. unethical experiments, uncomfortable survey questions, omitting certain groups from the study)\nChecking that the data cleaning process is not harmful (e.g. “othering” groups)\nConsidering how conclusions will be used (e.g. who funded the study, what might they use it for, etc. - like crime prediction tools and such)"
   },
   {
-    "objectID": "slides/16-model-ethics.html#your-turn",
-    "href": "slides/16-model-ethics.html#your-turn",
+    "objectID": "slides/16-model-ethics.html#final-project-requirements",
+    "href": "slides/16-model-ethics.html#final-project-requirements",
     "title": "What is a model?",
-    "section": "Your turn!",
-    "text": "Your turn!\n\nOutline a “Model Ethics” section\n\nHow could your model detrimentally impact people?\nHow will you ensure this will not happen?"
+    "section": "Final Project Requirements",
+    "text": "Final Project Requirements\nThis document describes the requirements of the Final Project.\nYour Poster will have six total sections:\n\nIntroduction\nMethods\nVisualizations\nModel\nResults / Implications\nEthics & Limitations"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#ethics-limitations",
+    "href": "slides/16-model-ethics.html#ethics-limitations",
+    "title": "What is a model?",
+    "section": "Ethics & Limitations",
+    "text": "Ethics & Limitations\n\n\nModel Ethics\nHow could your model detrimentally impact people?\n\n\n\nLimitations\nWhat are the limitations of your models? What are the limitations of the inferences that can be made from these data?"
+  },
+  {
+    "objectID": "slides/16-model-ethics.html#a-folder-full-of-resources",
+    "href": "slides/16-model-ethics.html#a-folder-full-of-resources",
+    "title": "What is a model?",
+    "section": "A Folder Full of Resources",
+    "text": "A Folder Full of Resources\nThis Google Drive folder contains:\n\nposter templates\nicons for Cal Poly (if you want to use)\na presentation on common poster formatting mistakes"
   },
   {
     "objectID": "course-materials/syllabus.html#course-objectives",
@@ -3812,7 +3833,7 @@
     "href": "slides/11-classification.html#precision-and-recall-by-hand-1",
     "title": "Classification",
     "section": "Precision and Recall by Hand",
-    "text": "Precision and Recall by Hand\n\nTo check our understanding of these definitions, let’s calculate a few precisions and recalls by hand.\nBut first we need to get the confusion matrix!\n\n\n\n\n\nCode\npipeline.fit(X_train, y_train);\ny_train_ = pipeline.predict(X_train)\nconfusion_matrix(y_train, y_train_)\n\n\narray([[56815,   120],\n       [ 1522,   597]])",
+    "text": "Precision and Recall by Hand\n\nTo check our understanding of these definitions, let’s calculate a few precisions and recalls by hand.\nBut first we need to get the confusion matrix!\n\n\n\n\n\nCode\npipeline.fit(X_train, y_train);\ny_train_ = pipeline.predict(X_train)\nconfusion_matrix(y_train, y_train_)\n\n\narray([[56814,   121],\n       [ 1519,   600]])",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -3823,7 +3844,7 @@
     "href": "slides/11-classification.html#now-lets-calculate",
     "title": "Classification",
     "section": "Now Let’s Calculate!",
-    "text": "Now Let’s Calculate!\n\n\n\nCode\nconf_mat = pd.DataFrame(confusion_matrix(y_train, y_train_), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n             \nconf_mat[\"Total\"] = conf_mat.sum(axis=1)\nconf_mat.loc[\"Total\"] = conf_mat.sum()\n\nconf_mat\n\n\n           0    1  Total\n0      56815  120  56935\n1       1522  597   2119\nTotal  58337  717  59054\n\n\n\n\n\nWhat is the (training) accuracy?\nWhat’s the precision for fraudulent transactions?\nWhat’s the recall for fraudulent transactions?",
+    "text": "Now Let’s Calculate!\n\n\n\nCode\nconf_mat = pd.DataFrame(confusion_matrix(y_train, y_train_), \n             columns = pipeline.classes_, \n             index = pipeline.classes_)\n             \nconf_mat[\"Total\"] = conf_mat.sum(axis=1)\nconf_mat.loc[\"Total\"] = conf_mat.sum()\n\nconf_mat\n\n\n           0    1  Total\n0      56814  121  56935\n1       1519  600   2119\nTotal  58333  721  59054\n\n\n\n\n\nWhat is the (training) accuracy?\nWhat’s the precision for fraudulent transactions?\nWhat’s the recall for fraudulent transactions?",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -3867,7 +3888,7 @@
     "href": "slides/11-classification.html#f1-score-1",
     "title": "Classification",
     "section": "F1 Score",
-    "text": "F1 Score\n\ncross_val_score(\n    pipeline,\n    X = X_train,\n    y = y_train,\n    scoring = \"f1_macro\",\n    cv = 10\n    ).mean()\n\nnp.float64(0.647618677299677)",
+    "text": "F1 Score\n\ncross_val_score(\n    pipeline,\n    X = X_train,\n    y = y_train,\n    scoring = \"f1_macro\",\n    cv = 10\n    ).mean()\n\nnp.float64(0.647384563849488)",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -3878,7 +3899,7 @@
     "href": "slides/11-classification.html#precision-recall-curve",
     "title": "Classification",
     "section": "Precision-Recall Curve",
-    "text": "Precision-Recall Curve\nAnother way to illustrate the trade off between precision and recall is to graph the precision-recall curve.\nFirst, we need the predicted probabilities.\n\ny_train_probs_ = pipeline.predict_proba(X_train)\ny_train_probs_\n\narray([[1. , 0. ],\n       [1. , 0. ],\n       [0.6, 0.4],\n       ...,\n       [1. , 0. ],\n       [0.8, 0.2],\n       [1. , 0. ]], shape=(59054, 2))",
+    "text": "Precision-Recall Curve\nAnother way to illustrate the trade off between precision and recall is to graph the precision-recall curve.\nFirst, we need the predicted probabilities.\n\ny_train_probs_ = pipeline.predict_proba(X_train)\ny_train_probs_\n\narray([[1. , 0. ],\n       [1. , 0. ],\n       [0.4, 0.6],\n       ...,\n       [1. , 0. ],\n       [0.8, 0.2],\n       [1. , 0. ]], shape=(59054, 2))",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 1 - Classification"
@@ -4076,7 +4097,7 @@
     "href": "slides/08-knn.html#fit-the-preprocesser",
     "title": "K-Nearest-Neighbors",
     "section": "Fit the Preprocesser",
-    "text": "Fit the Preprocesser\nThen we fit it on the training data.\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1393abe00&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1393abe00&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1393abe00&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 16.47037037, 144.81481481,  17.04814815, 608.40740741,\n        25.18518519])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([4.09492455e-01, 5.14089163e+03, 1.89286694e+00, 1.60333525e+04,\n       6.54842250e+01])",
+    "text": "Fit the Preprocesser\nThen we fit it on the training data.\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f95c90&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f95c90&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f95c90&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 16.47037037, 144.81481481,  17.04814815, 608.40740741,\n        25.18518519])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([4.09492455e-01, 5.14089163e+03, 1.89286694e+00, 1.60333525e+04,\n       6.54842250e+01])",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -4098,7 +4119,7 @@
     "href": "slides/08-knn.html#what-if-we-had-fit-on-the-test-data",
     "title": "K-Nearest-Neighbors",
     "section": "What if we had fit on the test data?",
-    "text": "What if we had fit on the test data?\n\n\n\npreproc.fit(df_test[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1393abe00&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1393abe00&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1393abe00&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 18.6,  82. ,  18.4, 443. ,   3. ])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([0., 0., 0., 0., 0.])",
+    "text": "What if we had fit on the test data?\n\n\n\npreproc.fit(df_test[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f95c90&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f95c90&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f95c90&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\n\n\n\npreproc.named_transformers_['standardscaler'].mean_\n\narray([ 18.6,  82. ,  18.4, 443. ,   3. ])\n\npreproc.named_transformers_['standardscaler'].var_\n\narray([0., 0., 0., 0., 0.])",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -4120,7 +4141,7 @@
     "href": "slides/08-knn.html#all-together",
     "title": "K-Nearest-Neighbors",
     "section": "All together:",
-    "text": "All together:\n\n\npreproc = make_column_transformer(\n  (StandardScaler(), \n  make_column_selector(dtype_include = np.number)\n  ),\n  remainder = \"drop\"\n)\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1397c8550&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1397c8550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1397c8550&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\ntrain_new = preproc.transform(df_train[features])\ntest_new = preproc.transform(df_test[features])",
+    "text": "All together:\n\n\npreproc = make_column_transformer(\n  (StandardScaler(), \n  make_column_selector(dtype_include = np.number)\n  ),\n  remainder = \"drop\"\n)\n\nfeatures = ['summer', 'har', 'sep', 'win', 'age']\n\n\n\npreproc.fit(df_train[features])\n\n\nColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f96fb0&gt;)])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.ColumnTransformer?Documentation for ColumnTransformeriFittedColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f96fb0&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f96fb0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() \n\n\n\ntrain_new = preproc.transform(df_train[features])\ntest_new = preproc.transform(df_test[features])",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -4208,7 +4229,7 @@
     "href": "slides/08-knn.html#fitting",
     "title": "K-Nearest-Neighbors",
     "section": "Fitting",
-    "text": "Fitting\n\n\n\npipeline.fit(\n  y = df_train['price'], \n  X = df_train[features]\n  )\n\n\nPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1397c8550&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1397c8550&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x1397c8550&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x1397c8550&gt; StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor()",
+    "text": "Fitting\n\n\n\npipeline.fit(\n  y = df_train['price'], \n  X = df_train[features]\n  )\n\n\nPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f96fb0&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())])In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.Pipeline?Documentation for PipelineiFittedPipeline(steps=[('columntransformer',\n                 ColumnTransformer(transformers=[('standardscaler',\n                                                  StandardScaler(),\n                                                  &lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f96fb0&gt;)])),\n                ('kneighborsregressor', KNeighborsRegressor())]) columntransformer: ColumnTransformer?Documentation for columntransformer: ColumnTransformerColumnTransformer(transformers=[('standardscaler', StandardScaler(),\n                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f96fb0&gt;)]) standardscaler&lt;sklearn.compose._column_transformer.make_column_selector object at 0x119f96fb0&gt; StandardScaler?Documentation for StandardScalerStandardScaler() KNeighborsRegressor?Documentation for KNeighborsRegressorKNeighborsRegressor()",
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
@@ -4560,7 +4581,7 @@
     "href": "slides/05-distances.html#finding-the-most-similar",
     "title": "Distances Between Observations",
     "section": "Finding the Most Similar",
-    "text": "Finding the Most Similar\n\n\n\n\ndists = pairwise_distances(df_scaled[[1707]], \n                           df_scaled)\ndists.argsort()\n\narray([[1707,  160,  909, ...,  158, 2723, 2279]], shape=(1, 2930))\n\n\n\n\n\n\n\n\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\n  \ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr\n160          2978              5\n909          3082              5\n1288         2792              5\n2350         2784              5\n253          3222              5\n2592         2640              5\n585          2640              5\n2027         2526              5\n2330         3390              5",
+    "text": "Finding the Most Similar\n\n\n\n\ndists = pairwise_distances(df_scaled[[1707]], \n                           df_scaled)\ndists.argsort()\n\narray([[1707,  160,  909, ...,  158, 2723, 2279]], shape=(1, 2930))\n\n\n\n\n\n\n\n\nbest = (\n  dists\n  .argsort()\n  .flatten()\n  [1:10]\n  )\n  \ndf_orig.iloc[best]\n\n      Gr Liv Area  Bedroom AbvGr\n160          2978              5\n909          3082              5\n1288         2792              5\n2350         2784              5\n253          3222              5\n585          2640              5\n2592         2640              5\n2027         2526              5\n2330         3390              5",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -4758,7 +4779,7 @@
     "href": "slides/14-merge.html#joining-on-a-key-1",
     "title": "Combining Datasets",
     "section": "Joining on a Key",
-    "text": "Joining on a Key\nEach value of the primary key should only appear once, but it could appear many times in a foreign key.\n\n\n\n(\n  df_planes['tailnum']\n  .value_counts()\n)\n\ntailnum\nN10156    1\nN709EV    1\nN706JB    1\nN706SW    1\nN706TW    1\n         ..\nN395HA    1\nN395SW    1\nN396DA    1\nN396SW    1\nN999DN    1\nName: count, Length: 3322, dtype: int64\n\n\n\n\n\n\n(\n  df_flights['tailnum']\n  .value_counts()\n)\n\ntailnum\nN353JB    48\nN955UW    47\nN184JB    47\nN375JB    42\nN281JB    42\n          ..\nN8598B     1\nN317US     1\nN292WN     1\nN103US     1\nN957AT     1\nName: count, Length: 2600, dtype: int64",
+    "text": "Joining on a Key\nEach value of the primary key should only appear once, but it could appear many times in a foreign key.\n\n\n\n(\n  df_planes['tailnum']\n  .value_counts()\n)\n\ntailnum\nN999DN    1\nN10156    1\nN102UW    1\nN103US    1\nN104UW    1\n         ..\nN11192    1\nN11193    1\nN11194    1\nN11199    1\nN111US    1\nName: count, Length: 3322, dtype: int64\n\n\n\n\n\n\n(\n  df_flights['tailnum']\n  .value_counts()\n)\n\ntailnum\nN353JB    48\nN955UW    47\nN184JB    47\nN281JB    42\nN375JB    42\n          ..\nN8319F     1\nN8683B     1\nN919WN     1\nN119US     1\nN395HA     1\nName: count, Length: 2600, dtype: int64",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -4802,7 +4823,7 @@
     "href": "slides/14-merge.html#analyzing-the-joined-data",
     "title": "Combining Datasets",
     "section": "Analyzing the Joined Data",
-    "text": "Analyzing the Joined Data\n\nWhich manufacturer’s planes made the most flights in November 2013?\n\n\ndf_joined[\"manufacturer\"].value_counts()\n\nmanufacturer\nBOEING                           6557\nEMBRAER                          5175\nAIRBUS                           3954\nAIRBUS INDUSTRIE                 3456\nBOMBARDIER INC                   2632\nMCDONNELL DOUGLAS AIRCRAFT CO     811\nMCDONNELL DOUGLAS                 330\nCANADAIR                          122\nMCDONNELL DOUGLAS CORPORATION     121\nCESSNA                             36\nCIRRUS DESIGN CORP                 21\nROBINSON HELICOPTER CO             19\nBARKER JACK L                      15\nPIPER                               9\nFRIEDEMANN JON                      8\nSIKORSKY                            6\nBELL                                5\nDEHAVILLAND                         4\nAGUSTA SPA                          3\nAMERICAN AIRCRAFT INC               3\nDOUGLAS                             2\nLAMBERT RICHARD                     2\nKILDALL GARY                        2\nLEARJET INC                         2\nMARZ BARRY                          1\nAVIAT AIRCRAFT INC                  1\nPAIR MIKE E                         1\nLEBLANC GLENN T                     1\nSTEWART MACO                        1\nName: count, dtype: int64",
+    "text": "Analyzing the Joined Data\n\nWhich manufacturer’s planes made the most flights in November 2013?\n\n\ndf_joined[\"manufacturer\"].value_counts()\n\nmanufacturer\nBOEING                           6557\nEMBRAER                          5175\nAIRBUS                           3954\nAIRBUS INDUSTRIE                 3456\nBOMBARDIER INC                   2632\nMCDONNELL DOUGLAS AIRCRAFT CO     811\nMCDONNELL DOUGLAS                 330\nCANADAIR                          122\nMCDONNELL DOUGLAS CORPORATION     121\nCESSNA                             36\nCIRRUS DESIGN CORP                 21\nROBINSON HELICOPTER CO             19\nBARKER JACK L                      15\nPIPER                               9\nFRIEDEMANN JON                      8\nSIKORSKY                            6\nBELL                                5\nDEHAVILLAND                         4\nAMERICAN AIRCRAFT INC               3\nAGUSTA SPA                          3\nLEARJET INC                         2\nLAMBERT RICHARD                     2\nDOUGLAS                             2\nKILDALL GARY                        2\nAVIAT AIRCRAFT INC                  1\nMARZ BARRY                          1\nPAIR MIKE E                         1\nLEBLANC GLENN T                     1\nSTEWART MACO                        1\nName: count, dtype: int64",
     "crumbs": [
       "Lecture Slides",
       "Week 8, Part 2 - Combining Datasets"
@@ -5632,103 +5653,5 @@
       "Lecture Slides",
       "Week 4, Part 2 - Bag-of-Words and TF-IDF"
     ]
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#what-is-the-significance-of-the-title-weapons-of-math-destruction",
-    "href": "slides/16-model-ethics.html#what-is-the-significance-of-the-title-weapons-of-math-destruction",
-    "title": "What is a model?",
-    "section": "What is the significance of the title Weapons of Math Destruction?",
-    "text": "What is the significance of the title Weapons of Math Destruction?"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#according-to-oneil-is-every-mathematical-model-a-weapon-of-math",
-    "href": "slides/16-model-ethics.html#according-to-oneil-is-every-mathematical-model-a-weapon-of-math",
-    "title": "What is a model?",
-    "section": "According to O’Neil, is every mathematical model a Weapon of Math",
-    "text": "According to O’Neil, is every mathematical model a Weapon of Math\nDestruction? Why or why not?"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#oneil-characterizes-some-algorithms-as-weapons-of-math-destruction.-who-is",
-    "href": "slides/16-model-ethics.html#oneil-characterizes-some-algorithms-as-weapons-of-math-destruction.-who-is",
-    "title": "What is a model?",
-    "section": "O’Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is",
-    "text": "O’Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is\nmost vulnerable to being harmed by their use?"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#have-you-had-experiences-with-algorithms-that-oneils-account-illuminates",
-    "href": "slides/16-model-ethics.html#have-you-had-experiences-with-algorithms-that-oneils-account-illuminates",
-    "title": "What is a model?",
-    "section": "Have you had experiences with algorithms that O’Neil’s account illuminates?",
-    "text": "Have you had experiences with algorithms that O’Neil’s account illuminates?"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#is-there-a-scale-on-which-we-believe-we-can-replace-the-efficiency-of",
-    "href": "slides/16-model-ethics.html#is-there-a-scale-on-which-we-believe-we-can-replace-the-efficiency-of",
-    "title": "What is a model?",
-    "section": "Is there a scale on which we believe we can replace the efficiency of",
-    "text": "Is there a scale on which we believe we can replace the efficiency of\nWMDs with the more expensive alternative?\nAre algorithms our only answer to tackling big data?"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#what-is-or-what-could-be-the-role-of-data-scientists-in-data-justice",
-    "href": "slides/16-model-ethics.html#what-is-or-what-could-be-the-role-of-data-scientists-in-data-justice",
-    "title": "What is a model?",
-    "section": "What is (or what could be) the role of data scientists in data justice?",
-    "text": "What is (or what could be) the role of data scientists in data justice?"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#ethics-and-ethics-1",
-    "href": "slides/16-model-ethics.html#ethics-and-ethics-1",
-    "title": "What is a model?",
-    "section": "ethics and Ethics",
-    "text": "ethics and Ethics\nethics – a discipline concerned with what is morally good and bad and morally right and wrong\n\n\n\n\nMeta-ethics (Ethics) – concerning the theoretical meaning and reference of moral propositions\n\n\n\nApplied ethics (ethics) – concerning what a person is obligated (or permitted) to do in a specific situation or a particular domain of action"
-  },
-  {
-    "objectID": "project/project-requirements.html",
-    "href": "project/project-requirements.html",
-    "title": "Final Project Requirements",
-    "section": "",
-    "text": "Introduction\nThis section should:\n\nintroduce the broader data context (social, cultural, historical, institutional)\nintroduce the data being analyzed (material context)\nintroduce the overarching research questions\n\n\n\nMethods\nThis section should discuss the methods you used to process the data and the models you chose. Specifically, you should discuss:\n\nHow you cleaned / modified the original data and why.\nWhat features you considered for your analysis and why.\nWhat model(s) you chose for your analysis and why.\n\n\n\nVisualizations\nIn this section you should present two (not three, not four) visualizations. The first visualization should address your primary research question and the second visualization should address your secondary research question (yes, only one!).\nAdditional criteria:\n\nAt least one plot must include 3+ variables.\nBoth plots must use non-default colors.\nBoth plots should follow the visualization “best practice” outlined in the course slides.\n\n\n\nModel\nIn this section you need to fit a model(s) to the data to address your primary and secondary research questions. In this section you should explicitly state the modeling choices you made and the results of the model(s) you fit.\nThe following are minimum criteria for the model(s) you fit to your data:\n\nInclude a model covered after the midterm exam (KNN, logistic regression, linear regression, decision tree, k-means).\nUse cross-validation to estimate the testing error of the model\nChoose a “meaningful” model metric to summarize the fit of a model\n\n\n\nResults / Implications\nIn this section you should connect the findings from your “Model” section to the primary and secondary research questions you posed at the beginning of the project.\n\n\nEthics & Limitations\nThis section should discuss the ethics of the model(s) that were used in your analysis and how it(they) could detrimentally impact people. This section should also outline the limitations with the model(s) that were fit. Based on how the data were collected, what population can your model be inferred onto?"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#weeks-9-10",
-    "href": "slides/16-model-ethics.html#weeks-9-10",
-    "title": "What is a model?",
-    "section": "Weeks 9 & 10",
-    "text": "Weeks 9 & 10\n\n\nWeek 9\n\nData Ethics\n\nData Context\nModel Ethics\n\nProject Work Sessions\nStarting Your Poster\n\n\nWeek 10\n\nTuesday: Review Practice Final\nThursday: Exam 2\n\n\nFinals Week\n\nPoster Presentations on Saturday, March 15th from 1:10 to 2:30.\nIn our original classroom!\nThe Cal Poly print shop closes at 4pm on Friday!\n\n\n:::::::::"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#final-project-requirements",
-    "href": "slides/16-model-ethics.html#final-project-requirements",
-    "title": "What is a model?",
-    "section": "Final Project Requirements",
-    "text": "Final Project Requirements\nThis document describes the requirements of the Final Project.\nYour Poster will have six total sections:\n\nIntroduction\nMethods\nVisualizations\nModel\nResults / Implications\nEthics & Limitations"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#ethics-limitations",
-    "href": "slides/16-model-ethics.html#ethics-limitations",
-    "title": "What is a model?",
-    "section": "Ethics & Limitations",
-    "text": "Ethics & Limitations\n\n\nModel Ethics\nHow could your model detrimentally impact people?\n\n\n\nLimitations\nWhat are the limitations of your models? What are the limitations of the inferences that can be made from these data?"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#a-folder-full-of-resources",
-    "href": "slides/16-model-ethics.html#a-folder-full-of-resources",
-    "title": "What is a model?",
-    "section": "A Folder Full of Resources",
-    "text": "A Folder Full of Resources\nThis Google Drive folder contains:\n\nposter templates\nicons for Cal Poly (if you want to use)\na presentation on common poster formatting mistakes"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#according-to-oneil-is-every-mathematical-model-a-weapon-of-math-destruction-why-or-why-not",
-    "href": "slides/16-model-ethics.html#according-to-oneil-is-every-mathematical-model-a-weapon-of-math-destruction-why-or-why-not",
-    "title": "What is a model?",
-    "section": "According to O’Neil, is every mathematical model a Weapon of Math Destruction? Why or why not?",
-    "text": "According to O’Neil, is every mathematical model a Weapon of Math Destruction? Why or why not?"
-  },
-  {
-    "objectID": "slides/16-model-ethics.html#oneil-characterizes-some-algorithms-as-weapons-of-math-destruction.-who-is-the-most-vulnerable-to-being-harmed-by-their-use",
-    "href": "slides/16-model-ethics.html#oneil-characterizes-some-algorithms-as-weapons-of-math-destruction.-who-is-the-most-vulnerable-to-being-harmed-by-their-use",
-    "title": "What is a model?",
-    "section": "O’Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is the most vulnerable to being harmed by their use?",
-    "text": "O’Neil characterizes some algorithms as “Weapons of Math Destruction.” Who is the most vulnerable to being harmed by their use?"
   }
 ]

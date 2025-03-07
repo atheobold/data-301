@@ -2,63 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/atheobold/data-301/slides/04-group-by.html</loc>
-    <lastmod>2025-01-22T18:59:54.651Z</lastmod>
+    <lastmod>2025-01-16T21:06:23.793Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/02-conditional-distributions.html</loc>
-    <lastmod>2025-01-12T17:27:40.414Z</lastmod>
+    <lastmod>2025-01-09T19:07:48.483Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/12-logistic.html</loc>
-    <lastmod>2025-02-21T17:59:41.196Z</lastmod>
+    <lastmod>2025-02-20T17:18:36.176Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/03-quantitative-variables.html</loc>
-    <lastmod>2025-01-15T17:54:20.571Z</lastmod>
+    <lastmod>2025-01-14T03:10:14.192Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/10-cross-val.html</loc>
-    <lastmod>2025-02-13T19:50:17.127Z</lastmod>
+    <lastmod>2025-02-13T02:31:42.168Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/06-preprocessing.html</loc>
-    <lastmod>2025-01-31T19:16:49.249Z</lastmod>
+    <lastmod>2025-01-29T14:11:13.804Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/01-tabular-data-summaries.html</loc>
-    <lastmod>2025-01-01T23:55:53.753Z</lastmod>
+    <lastmod>2025-01-03T18:05:54.418Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/09-modeling.html</loc>
-    <lastmod>2025-02-13T19:50:17.127Z</lastmod>
+    <lastmod>2025-02-11T03:39:02.212Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/better-data-visualization.html</loc>
-    <lastmod>2025-02-02T20:36:45.648Z</lastmod>
+    <lastmod>2025-02-02T01:44:44.411Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/15-data-ethics.html</loc>
     <lastmod>2025-03-04T14:13:04.998Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/atheobold/data-301/project/project-description.html</loc>
-    <lastmod>2025-02-13T19:50:17.127Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/atheobold/data-301/lab-activities/data-neutrality.html</loc>
-    <lastmod>2025-03-03T22:01:39.080Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/atheobold/data-301/index.html</loc>
-    <lastmod>2025-03-07T16:42:25.271Z</lastmod>
+    <loc>https://github.com/atheobold/data-301/project/project-requirements.html</loc>
+    <lastmod>2025-03-05T00:37:46.356Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/lab-activities/model-weapons.html</loc>
     <lastmod>2025-03-04T23:00:37.227Z</lastmod>
   </url>
   <url>
+    <loc>https://github.com/atheobold/data-301/index.html</loc>
+    <lastmod>2025-03-07T16:42:25.271Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/atheobold/data-301/lab-activities/data-neutrality.html</loc>
+    <lastmod>2025-03-03T22:01:39.080Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/atheobold/data-301/project/project-description.html</loc>
+    <lastmod>2025-02-13T03:10:32.348Z</lastmod>
+  </url>
+  <url>
     <loc>https://github.com/atheobold/data-301/slides/00-welcome.html</loc>
-    <lastmod>2025-01-01T22:28:42.919Z</lastmod>
+    <lastmod>2025-01-03T18:05:54.417Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/16-model-ethics.html</loc>
@@ -66,7 +70,7 @@
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/course-materials/syllabus.html</loc>
-    <lastmod>2024-12-28T22:00:03.570Z</lastmod>
+    <lastmod>2025-01-03T18:05:54.213Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/exam-materials/practice-final.html</loc>
@@ -74,30 +78,26 @@
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/13-kmeans.html</loc>
-    <lastmod>2025-02-26T16:18:07.549Z</lastmod>
+    <lastmod>2025-02-25T17:25:10.920Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/11-classification.html</loc>
-    <lastmod>2025-02-22T19:06:37.430Z</lastmod>
+    <lastmod>2025-02-24T21:34:27.075Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/08-knn.html</loc>
-    <lastmod>2025-02-09T21:55:18.297Z</lastmod>
+    <lastmod>2025-02-04T03:48:26.043Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/05-distances.html</loc>
-    <lastmod>2025-01-22T18:59:54.651Z</lastmod>
+    <lastmod>2025-01-21T16:00:27.143Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/14-merge.html</loc>
-    <lastmod>2025-03-03T03:19:30.170Z</lastmod>
+    <lastmod>2025-02-27T22:12:48.767Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/atheobold/data-301/slides/07-text-data.html</loc>
-    <lastmod>2025-01-31T19:16:49.249Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/atheobold/data-301/project/project-requirements.html</loc>
-    <lastmod>2025-03-05T00:37:46.356Z</lastmod>
+    <lastmod>2025-01-30T05:07:22.902Z</lastmod>
   </url>
 </urlset>
