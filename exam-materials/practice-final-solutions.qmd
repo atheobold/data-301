@@ -1,0 +1,382 @@
+---
+title: "Practice Exam 2 - Solutions by Dr. Theobold"
+subtitle: "DATA 301"
+editor: source
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+poke <- read_csv(here::here("exam-materials", 
+                            "pokemon.csv")
+                 )
+
+poke <- poke %>%
+  mutate(
+    Type = factor(`Type 1`),
+    Legendary = Legendary * 1
+  ) %>%
+  select(Name, Type, HP, Attack, Defense, Speed, Legendary)
+```
+
+# Instructions
+
+Your friend's grandfather, Professor Samuel Oak, is a Professor of Animal
+Studies at the local university. He has spent years of research cataloging the
+traits of creatures in your town known as Pokemon.
+
+Professor Oak is interested in performing some modeling tasks on his collected
+data, but he took an Introductory Data Science class many decades ago and he has
+forgotten some of the concepts. He asks for you help editing his report.
+
+Each section of the report below is followed by a question from Professor Oak. 
+You do **not** need to fix his analyses; you only need to answer his questions 
+in words. Be clear and brief, and make sure you explain *why* your answer is 
+right, not just what Professor Oak should do instead. 
+
+**There will be no coding errors or typos in this report; only conceptual
+mistakes that are asked about in the questions.**
+
+<!-- Submit your answers to the quiz on Canvas. -->
+
+------------------------------------------------------------------------
+
+# Report on Pokemon Species in Verdelume City
+
+### by Professor Samuel Oak
+
+```{r}
+#| include: false
+#| label: load-packages-declare-python-directory
+
+library(reticulate)
+use_python("/usr/local/bin/python3")
+
+```
+
+```{python}
+#| include: false
+#| label: import-pandas
+
+import pandas as pd
+```
+
+This report concerns 800 unique species of Pokemon observed in Pallet City. A
+snippet of the dataset is shown below:
+
+```{python}
+#| echo: false
+#| label: poke-data-preview
+
+df_pokemon = r.poke
+df_pokemon.head()
+```
+
+The following information was collected for each species:
+
+-   `Name`: the creature's species name
+-   `Type` (e.g., Grass, Water, Electric...)
+-   `HP`, or "hit points": the ability of the creature to withstand attacks
+-   `Attack`: the strength of the creature in a fight
+-   `Defense`: the creature's defensive ability in a fight
+-   `Speed`: the creature's quickness
+-   `Legendary`: whether the creature is considered legendary or not
+
+These variables are summarized below:
+
+```{python}
+#| label: poke-variable-description
+
+df_pokemon.describe()
+df_pokemon["Legendary"].value_counts()
+df_pokemon["Type"].value_counts()
+```
+
+## Starter Types
+
+It has been observed by researchers that each Pokemon has a primary "type"
+related to its home habitat and innate abilities. We would like to understand
+what traits define these types.
+
+We will first study the three "starter types": Grass, Water, Fire, and Electric.
+So, first we will filter the `df_pokemon` DataFrame to include only starter 
+types: 
+
+```{python}
+#| label: subset-starters
+
+starter = ['Grass', 'Water', 'Fire', 'Electric']
+is_starter = df_pokemon['Type'].isin(starter)
+df_starters = df_pokemon.loc[is_starter].copy()
+```
+
+We plan to fit a decision tree model to predict type from HP, Attack, Defense,
+and Speed. So, first we need to transform `Type` into a category:
+
+```{python}
+#| label: make-type-category
+
+df_starters['Type'] = df_starters['Type'].astype('category')
+```
+
+Next, we fit the decision tree with `scikitlearn`:
+
+```{python}
+#| label: decision-tree-for-starter-types
+
+from sklearn.compose import make_column_transformer
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.tree import DecisionTreeClassifier
+
+preprocessor = make_column_transformer(
+  (OneHotEncoder(), ["Legendary"]),
+  remainder = "passthrough"
+)
+
+dt_pipeline = make_pipeline(
+  preprocessor,
+  DecisionTreeClassifier()
+)
+
+X = df_starters[['HP', 'Attack', 'Defense', 'Speed', 'Legendary']]
+y = df_starters['Type']
+
+dt_pipeline.fit(X, y);
+y_pred = dt_pipeline.predict(X)
+```
+
+**Question 1: Should I have standardized any variables before fitting my decision tree? Why or why not?**
+
+No - standardizing is not needed in a decision tree, since we don't use distances to fit our model. It would only make the tree harder to interpret.
+
+**Question 2: Should I chosen `remainder = drop` in my preprocesser? Why or why not?**
+
+No - then you would be left with only the "Legendary" column as a predictor. 
+This would remove `HP`, `Attack`, `Defense`, and `Speed` as predictors. 
+
+</br>
+
+Next, we inspect how well the model performed with these data: 
+
+```{python}
+#| label: decision-tree-confusion
+
+from sklearn.metrics import confusion_matrix, accuracy_score
+
+accuracy_score(y, y_pred)
+confusion_matrix(y, y_pred)
+```
+
+**Question 3: I got an accuracy of 98.56%. That means this model is really good and I should use it to classify all Pokemon, right?**
+
+Not necessarily. This accuracy is the *training accuracy*. Just because the tree was able to "sort" the Pokemon in the training set doesn't mean it would do well on other datasets. We would want to cross-validate to get a better estimate of
+the testing accuracy.
+
+**Question 4: What does the confusion matrix tell me about this model?**
+
+It tells me that almost all the Pokemon were properly classified in the training
+data. Only four of them from the second type (Grass) were misclassified as
+either Fire or Electric.
+
+## Legendary-ness
+
+In our studies, we have also noticed that some Pokemon are "Legendary". This is
+a very rare status; only about 10% of all Pokemon achieve legendary status.
+
+We would like to understand what defines a Legendary Pokemon, and be able to
+predict Legendary status when encountering a new species.
+
+We will use a K-Nearest Neighbors model to predict Legendary status. 
+
+```{python}
+#| include: false
+
+import warnings
+warnings.filterwarnings('ignore')
+```
+
+```{python}
+#| warning: false
+#| message: false
+#| label: preprocess-pipeline-knn-legendary
+
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import make_scorer, precision_score, recall_score, f1_score
+from sklearn.model_selection import GridSearchCV
+
+preprocessor = make_column_transformer(
+  (StandardScaler(), ['HP', 'Attack', 'Defense', 'Speed']),
+  remainder = "drop"
+  )
+
+pipeline = make_pipeline(
+    preprocessor,
+    KNeighborsClassifier()
+    )
+```
+
+We have tuned the model for k at some values between 1 and 100:
+
+```{python}
+#| label: grid-search-k-legendary
+
+from sklearn.model_selection import GridSearchCV
+
+my_scores = {
+      'precision': make_scorer(precision_score),
+      'recall': make_scorer(recall_score),
+      'f1_score': make_scorer(f1_score),
+      'accuracy': make_scorer(accuracy_score)
+      }
+
+grid_cv = GridSearchCV(
+    pipeline,
+    param_grid = {
+        "kneighborsclassifier__n_neighbors": [1, 3, 5, 7, 10, 15, 
+                                              20, 25, 50, 100],
+    },
+    scoring = my_scores,
+    refit = 'f1_score', 
+    cv = 5)
+    
+grid_cv.fit(X = df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], 
+            y = df_pokemon['Legendary']);
+```
+
+**Question 5: Was I correct to scale my variables? Or could I have run this model without scaling?**
+
+It was very important to scale the variables! The KNN model uses distances to
+find nearest neighbors. If we don't scale, then those distance measurements will
+be dominated by the variable with the largest numbers.
+
+```{python}
+#| echo: false
+#| label: grid-search-knn-legendary-preview
+
+df_gridsearch = pd.DataFrame(grid_cv.cv_results_)
+
+df_gridsearch = df_gridsearch.rename(
+  columns = {"param_kneighborsclassifier__n_neighbors": 'k',
+  "mean_test_precision": "precision",
+  "mean_test_recall": "recall",
+  "mean_test_f1_score": "f1_score",
+  "mean_test_accuracy": "accuracy"
+})
+
+df_gridsearch[["k", "precision", "recall", "f1_score", "accuracy"]].round(2)
+```
+
+**Question 6: What number of neighbors do you think I should choose? Why?**
+
+`k` = 3 had the highest F1 score, but this value is fairly close to `k` = 1. 
+Based on the table, as `k` increases the precision increases and recall
+decreases. So, I might be more inclined to use a `k` = 1, where **both** 
+precision and recall are high. 
+
+**Question 7: It looks like both precision and recall are zero at k = 100. Does this make sense, or did I do something wrong?**
+
+<!-- 
+precision: false positives - predicting legendary when it is non-legendary
+recall: false negatives - predicting non-legendary when it is legendary
+-->
+
+This makes sense. Since the data is over 90% Non-Legendary (65 / 800), when 
+`k` = 100, we will essentially always have a majority of Non-Legendary
+neighbors. The majority of the neighbors being Non-Legendary means we will
+predict Non-Legendary for every Pokemon, so the precision for the Legendary
+Pokemon is 0 and the recall is 0.
+
+## Logistic Regression
+
+Since we wanted be understand how each of these variables (`HP`, `Attack`, 
+`Defense`, `Speed`) is related to legendary status, we also fit a logistic
+regression. 
+
+```{python}
+#| label: logistic-regression-legendary-cv
+
+from sklearn.linear_model import LogisticRegression
+
+pipeline = make_pipeline(
+    LogisticRegression()
+    )
+
+pipeline.fit(X = df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], 
+             y = df_pokemon['Legendary']);
+```
+
+```{python}
+#| label: logistic-regression-legendary-coefficients
+#| echo: false
+
+pd.DataFrame({
+  "coef_name": ['HP', 'Attack', 'Defense', 'Speed'],
+  "coef_value":pipeline.named_steps['logisticregression'].coef_[0]
+})
+```
+
+Model interpretations:
+
+-   For each point of HP the Pokemon has, the probability of it being Legendary
+increases by 0.04.
+
+-   For each point of attack the Pokemon has, the probability of it being
+Legendary increases by 0.014
+
+-   For each point of defense the Pokemon has, the probability of it being
+Legendary increases by 0.035
+
+-   For each point of speed the Pokemon has, the probability of it being
+Legendary increases by 0.056
+
+**Question 8: Help, I don't remember how to interpret these coefficients! Did I get it right in the above? If not, can you correct it for me?**
+
+Almost! But it's not the *probability* that increases, it's the *log-odds*.
+
+Below are estimates of the testing error rate for this logistic regression
+model:
+
+```{python}
+#| label: cross-val-logistic-metrics
+
+from sklearn.model_selection import cross_val_score
+
+cross_val_score(
+  pipeline,
+  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], 
+  df_pokemon['Legendary'],
+  scoring = 'accuracy',
+  cv = 5).mean()
+
+cross_val_score(
+  pipeline,
+  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], 
+  df_pokemon['Legendary'],
+  scoring = 'precision',
+  cv = 5).mean()
+  
+cross_val_score(
+  pipeline,
+  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], 
+  df_pokemon['Legendary'],
+  scoring = 'recall',
+  cv = 5).mean()
+
+cross_val_score(
+  pipeline,
+  df_pokemon[['HP', 'Attack', 'Defense', 'Speed']], 
+  df_pokemon['Legendary'],
+  scoring = 'f1',
+  cv = 5).mean()
+```
+
+**Question 9: Which of the models (Logistic Regression, or KNN with a particular k) would you recommend I use in my project? Why?**
+
+I would recommend the Logistic Regression, because the cross-validated F1 scores
+were less than 1% away from KNN, and Logistic Regression provides more
+interpretable results.
