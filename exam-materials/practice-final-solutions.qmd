@@ -178,9 +178,15 @@ the testing accuracy.
 
 **Question 4: What does the confusion matrix tell me about this model?**
 
-It tells me that almost all the Pokemon were properly classified in the training
-data. Only four of them from the second type (Grass) were misclassified as
-either Fire or Electric.
+The rows of the confusion matrix are the actual observations in the `Electric`,
+`Fire`, `Grass`, and `Water` groups (alphabetically ordered). The columns are
+the predicted values of these groups. The diagonal represents starter types that
+were correctly classified (were `Electric` and were predicted to be `Electric`). 
+The off diagonal values are where the model had misclassifications. 
+
+There are only two places were there misclassifications. Two observations that
+were `Grass` were misclassified as `Fire` and two observations that were `Water`
+were misclassified as `Fire`. 
 
 ## Legendary-ness
 
@@ -273,10 +279,15 @@ df_gridsearch[["k", "precision", "recall", "f1_score", "accuracy"]].round(2)
 
 **Question 6: What number of neighbors do you think I should choose? Why?**
 
-`k` = 3 had the highest F1 score, but this value is fairly close to `k` = 1. 
-Based on the table, as `k` increases the precision increases and recall
-decreases. So, I might be more inclined to use a `k` = 1, where **both** 
-precision and recall are high. 
+In the context of this problem, it seems like you would want to find as many of the legendary Pokemon as possible. Meaning, you would want to decrease your false negative rate. False negatives are associated with recall, so I would choose the `k` with the largest recall. Based on the table, this would be a `k` of 1. 
+
+::: {.callout-tip}
+This not the only argument that could be made! Any argument needs to have these elements: 
+
+- What metric(s) you are prioritizing 
+- Why
+- What value of k that leads you to choose
+:::
 
 **Question 7: It looks like both precision and recall are zero at k = 100. Does this make sense, or did I do something wrong?**
 
@@ -377,6 +388,18 @@ cross_val_score(
 
 **Question 9: Which of the models (Logistic Regression, or KNN with a particular k) would you recommend I use in my project? Why?**
 
-I would recommend the Logistic Regression, because the cross-validated F1 scores
-were less than 1% away from KNN, and Logistic Regression provides more
-interpretable results.
+Since I decided to prioritize recall, I would choose the KNN model. The recall
+for the KNN model is almost 10% higher than the logistic regression, which is 
+a pretty substantial difference. 
+
+::: {.callout-caution}
+Your decision here should be consistent with what you used to decide what value
+of `k` was best in Question 6.
+:::
+
+::: {.callout-tip}
+If the metrics of two models are close (e.g., an F1 of 65% and 67%), then you 
+should also consider the complexity of the model. How easy would it be to 
+explain a KNN model to someone? What about a logistic regression? That should 
+influence the model you choose!
+:::

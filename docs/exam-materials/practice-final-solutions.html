@@ -458,7 +458,8 @@ Name: count, dtype: int64</code></pre>
 <p><strong>Question 3: I got an accuracy of 98.56%. That means this model is really good and I should use it to classify all Pokemon, right?</strong></p>
 <p>Not necessarily. This accuracy is the <em>training accuracy</em>. Just because the tree was able to “sort” the Pokemon in the training set doesn’t mean it would do well on other datasets. We would want to cross-validate to get a better estimate of the testing accuracy.</p>
 <p><strong>Question 4: What does the confusion matrix tell me about this model?</strong></p>
-<p>It tells me that almost all the Pokemon were properly classified in the training data. Only four of them from the second type (Grass) were misclassified as either Fire or Electric.</p>
+<p>The rows of the confusion matrix are the actual observations in the <code>Electric</code>, <code>Fire</code>, <code>Grass</code>, and <code>Water</code> groups (alphabetically ordered). The columns are the predicted values of these groups. The diagonal represents starter types that were correctly classified (were <code>Electric</code> and were predicted to be <code>Electric</code>). The off diagonal values are where the model had misclassifications.</p>
+<p>There are only two places were there misclassifications. Two observations that were <code>Grass</code> were misclassified as <code>Fire</code> and two observations that were <code>Water</code> were misclassified as <code>Fire</code>.</p>
 </section>
 <section id="legendary-ness" class="level2">
 <h2 class="anchored" data-anchor-id="legendary-ness">Legendary-ness</h2>
@@ -523,7 +524,25 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p><strong>Question 6: What number of neighbors do you think I should choose? Why?</strong></p>
-<p><code>k</code> = 3 had the highest F1 score, but this value is fairly close to <code>k</code> = 1. Based on the table, as <code>k</code> increases the precision increases and recall decreases. So, I might be more inclined to use a <code>k</code> = 1, where <strong>both</strong> precision and recall are high.</p>
+<p>In the context of this problem, it seems like you would want to find as many of the legendary Pokemon as possible. Meaning, you would want to decrease your false negative rate. False negatives are associated with recall, so I would choose the <code>k</code> with the largest recall. Based on the table, this would be a <code>k</code> of 1.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This not the only argument that could be made! Any argument needs to have these elements:</p>
+<ul>
+<li>What metric(s) you are prioritizing</li>
+<li>Why</li>
+<li>What value of k that leads you to choose</li>
+</ul>
+</div>
+</div>
 <p><strong>Question 7: It looks like both precision and recall are zero at k = 100. Does this make sense, or did I do something wrong?</strong></p>
 <!-- 
 precision: false positives - predicting legendary when it is non-legendary
@@ -605,7 +624,33 @@ recall: false negatives - predicting non-legendary when it is legendary
 </div>
 </div>
 <p><strong>Question 9: Which of the models (Logistic Regression, or KNN with a particular k) would you recommend I use in my project? Why?</strong></p>
-<p>I would recommend the Logistic Regression, because the cross-validated F1 scores were less than 1% away from KNN, and Logistic Regression provides more interpretable results.</p>
+<p>Since I decided to prioritize recall, I would choose the KNN model. The recall for the KNN model is almost 10% higher than the logistic regression, which is a pretty substantial difference.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your decision here should be consistent with what you used to decide what value of <code>k</code> was best in Question 6.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the metrics of two models are close (e.g., an F1 of 65% and 67%), then you should also consider the complexity of the model. How easy would it be to explain a KNN model to someone? What about a logistic regression? That should influence the model you choose!</p>
+</div>
+</div>
 
 
 </section>
