@@ -1,6 +1,6 @@
 ---
 title: "DATA 301: Introduction to Data Science"
-subtitle: "Winter 2025"
+subtitle: "Winter 2026"
 format: 
     html:
       self-contained: true
@@ -48,24 +48,22 @@ library(RColorBrewer)
 
 **Section 01**
 
--   Lecture: 8:10am - 9:30am
--   Lab: 9:40am - 11:00am
+-   Lecture: 12:10pm - 1:30pm
+-   Lab: 1:40pm - 3:00pm
 
 **Section 02**
 
--   Lecture: 12:10pm - 1:30pm
--   Lab: 1:40pm - 3:00pm
+-   Lecture: 3:10pm - 2:30pm
+-   Lab: 4:40pm - 6:00pm
 
 ## Student Hours
 
 | Day                   | Time                            |
 |-----------------------|---------------------------------|
-| Wednesdays, in-person | 12:00 - 3:00pm (drop-in)        |
-| Fridays, Zoom         | 12:10 - 1:00pm (by appointment) |
+| Mondays, in-person    | 1:30 - 3:00pm (drop-in)           |
+| Wednesdays, in-person | 1:30 - 3:00pm (drop-in)        |
 
 Student hours held in-person on Wednesday afternoons. You can find me in my office, but if there's a lot of people we will likely move to one of the conference rooms in the Statistics Department (I'll leave a note on my door!).
-
-I also have reserved time on Friday afternoons for short (10-minute) one-on-one meetings. These meetings can be to ask clarifying questions about the homework or to discuss grades, but do know that you will be limited to 10-minutes! You can schedule Friday appointments through Calendly, using the following link: <https://calendly.com/allisontheobold/>
 :::::::
 
 ```{r}
@@ -75,8 +73,8 @@ I also have reserved time on Friday afternoons for short (10-minute) one-on-one 
 # Source: http://svmiller.com/blog/2020/08/a-ggplot-calendar-for-your-semester/
 
 quarter_dates <- seq(
-  mdy("January 6, 2025"), 
-  mdy("March 21, 2025"), 
+  mdy("January 6, 2026"), 
+  mdy("March 21, 2026"), 
   by = 1)
 
 # Weekday(s) of class
@@ -84,26 +82,28 @@ class_days <- c("Tue", "Thu")
 
 not_here_dates <- c(
   # MLK Day
-  mdy("January 20, 2025"),
+  mdy("January 19, 2026"),
+  # Classes follow Monday schedule
+  mdy("January 20, 2026"),
   # Presidents Day
-  mdy("February 17, 2025")
+  mdy("February 16, 2026")
   )
 
 exam_dates <- c(
-  mdy("February 6, 2025"),
-  mdy("March 13, 2025")
+  mdy("February 5, 2026"),
+  mdy("March 12, 2026")
   )
 
 project_dates <- c(
   #proposals due
-  mdy("February 16, 2025"),
+  mdy("February 15, 2026"),
   # poster presentations
-  mdy("March 15, 2025")
+  mdy("March 14, 2026")
   )
 
 finals_week <- seq(
-  mdy("March 17, 2025"),
-  mdy("March 21, 2025"), 
+  mdy("March 16, 2026"),
+  mdy("March 20, 2026"), 
   by = 1
   )
 
@@ -124,8 +124,8 @@ get_week_of_month <- function(date) {
 # Create a data frame of dates, assign to Cal
 Cal <- tibble(
   date = seq(
-    mdy("January 1, 2025"), 
-    mdy("March 21, 2025"), 
+    mdy("January 1, 2026"), 
+    mdy("March 21, 2026"), 
     by = 1
     )
   )  %>%
@@ -254,15 +254,15 @@ class_days <- filter(Cal, category == "Class Day") %>%
     ) %>%
   mutate(topic = c(
     "Intro; Summaries of tabular data",
-    "Multiple variables; Visualization",
-    "Distances between observations",
-    "Text data; tf-idf",
+    "Multiple variables; Visualization Pt. 1",
+    "Visualization Pt. 2; Distances between observations",
+    "Text data; TF-IDF",
     "Intro to ML",
     "KNN; Model evaluation",
     "Classification; model tuning",
     "Unsupervised learning; Hierarchical data",
-    "Webscraping, Combining data",
-    "Maps and Chloropleths"
+    "Combining data",
+    "Data Ethics"
     ),
     Date = str_squish(Date), 
     day = word(Date, start = 2, end = 2),
@@ -439,7 +439,7 @@ If you cannot make it to any lab sections that day, you may complete the Colab a
 To allow for emergencies, we will also forgive **one** absence at the end of the quarter.
 
 ::: callout-note
-We are effectively allowing you to miss / reschedule up to three labs out of 10. If you need to miss more than three, then you will need to retake this course next quarter.
+I am effectively allowing you to miss / reschedule up to three labs out of 10. If you need to miss more than three, then you will need to retake this course next quarter.
 :::
 
 ## Lab Assignments (25%)
@@ -468,11 +468,7 @@ If you email me to ask a question that should be public, I will likely ask you t
 
 ## Late Work
 
-Late assignments will automatically be docked -10% per day, up to a maximum grade penalty of 50%. That is, as long as your work is turned in by the end of Week 10, you will still get half credit for it!
-
-::: callout-note
-Note that turning in an assignment late means you will not get any feedback, and using lecture or section time to work on late assignments will not be tolerated.
-:::
+Late assignments will automatically be docked -10% per day, and will be accepted up to 5-days late. 
 
 ### Deadline Extensions
 
@@ -480,9 +476,9 @@ In case of emergency, you have two deadline "extensions" to use throughout the q
 
 The rules for these are as follows:
 
-1.  You must request the extension through the [Google form linked on Canvas](https://forms.gle/odWHxjS46mqqWTCN9). Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.
+1.  You must request the extension through the [Google form linked on Canvas](https://forms.gle/S2px8RTmej6aEFZx5). Any other request (e.g., by email, Discord message, verbally, etc.) does not count unless the Google form is filled out.
 
-2.  The extension must be requested ***before*** the deadline has passed (i.e., before Friday at 11:59pm). I do not grant after-deadline extensions for any reason.
+2.  The extension must be requested ***before*** the deadline has passed (i.e., before Saturday at 11:59pm). I do not grant after-deadline extensions for any reason.
 
 Properly requested extensions are **automatically** granted; you will not get a confirmation email or message, you will simply see your late penalties disappear at some point.
 
@@ -516,7 +512,7 @@ When dealing with code, follow these guidelines:
 
 -   Attribute **all** code that is not completely your own. If you do borrow that StackOverflow snippet, provide a link to the source. If you reference a similar analysis for ideas, mention that in your description.
 
-::: callout-warning
+::: callout-note
 A good "rule of thumb" is: If I sat you down by yourself in a room with no internet, could you explain to me roughly what each line of code is doing? If not, you are probably borrowing more than you should from your online source.
 
 (In fact, this is exactly what I will do if I need to investigate possible cheating.)
@@ -524,29 +520,44 @@ A good "rule of thumb" is: If I sat you down by yourself in a room with no inter
 
 #### AI tools
 
-New AI models like Chat GPT offer a whole new world of online coding resources. This is exciting! You should absolutely feel free to get help from these tools, they are excellent at answering questions.
+New AI models like ChatGPT offer a whole new world of online coding resources. This is exciting! You should absolutely feel free to get help from these tools, they are excellent at answering questions.
 
-However, from an academic integrity perspective, treat these AI generative chat resources like, say, a tutor. Asking a tutor to help explain a homework concept to you or help debug your code? Totally fine! Giving the tutor a homework question and having them answer the whole thing? Nope. Talking to a tutor at all, about anything, during the course of the exam? Unacceptable.
+However, from an academic integrity perspective, treat these generative AI resources like, say, a tutor. Asking a tutor to help explain a homework concept to you or help debug your code? Totally fine! Giving the tutor a homework question and having them answer the whole thing? Nope. Talking to a tutor at all, about anything, during the course of the exam? Unacceptable.
+
+::: callout-important
+To assist you in getting the most out of your conversations with Chat, I have the following guidelines:
+
+- Do not copy and paste any prompts from my assignments
+- Do not ask Chat to solve the problem for you
+- Tell Chat what you are trying to do and what tools / approaches you've tried
+- Ask for suggestions on what approaches you might want to take next
+- Probe why Chat is suggesting certain methods / tools instead of others
+:::
+
 
 ### Integrity Violations
 
-If you accidentally forget a small citation, or go a little overboard in how much you "borrow" from StackOverflow, you'll get a warning and a grade deduction on that assignment.
+If you accidentally forget a small citation, or go a little overboard in how much you "borrow" from StackOverflow, you'll get a warning. 
 
-Any instance of willful and deliberate cheating will result in a failing grade on the assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.
+Following your first warning, if you forget to cite a resource you used in your analysis, you will receive a 0 on that assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.
+
+The third instance of plagiarism will result in a failing course grade. 
 
 ::: callout-warning
-Be careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have **both** received a failing grade on the assignment and a report filed to OSRR.
+Be careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have **both** been academically dishonest.  
 :::
 
 ### Intellectual property
 
 The materials for this course are legally the professor's intellectual property.
 
-Most class materials are publicly shared, and you are welcome to direct others to this resource at any time. You are also welcome to publicly share any or all of your work on the class project.
+Most class materials are publicly shared, and you are welcome to direct others 
+to this resource at any time. You are also welcome to publicly share any or all
+of your work on the class project.
 
 Non-public class materials---most importantly, assignment solutions and any exam materials---may never be shared.
 
-::: callout-warning
+::: callout-note
 This is not just an issue of academic honestly, it is quite literally a legal copyright scenario. Please do not distribute solutions or exam questions from this class anywhere, for any reason. Doing so is a violation of the Code of Conduct, *and* it may constitute a violation of U.S. copyright law.
 :::
 
