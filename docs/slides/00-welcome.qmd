@@ -60,7 +60,8 @@ execute:
 
 -   Two deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 2-day (48-hour) deadline extension.
 
--   If you've used your deadline extensions, late work has a 10% deduction per day. Late work is accepted up to 5 days after the deadline.
+-   If you've used your deadline extensions, late work has a 10% deduction per
+day. Late work is accepted up to 5 days after the deadline.
 
     -   This policy also applies to deadline extension requests that are not submitted [before]{.underline} the assignment's deadline.
 
