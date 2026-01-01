@@ -2936,7 +2936,7 @@
     "href": "slides/00-welcome.html#important-dates",
     "title": "Welcome, Intro, and Setup",
     "section": "Important Dates",
-    "text": "Important Dates\n\nThurs, February 6: Exam 1 (in-class)\nFri, February 21: 1-page Project Proposal Due\nThurs, March 13: Exam 2 (in-class)\nSaturday, March 16 (before Finals Week: Final Project Poster Presentations",
+    "text": "Important Dates\n\nThurs, February 5: Exam 1 (in-class)\nSun, February 15: 1-page Project Proposal Due\nThurs, March 12: Exam 2 (in-class)\nSaturday, March 14 (before Finals Week): Final Project Poster Presentations",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -2947,7 +2947,7 @@
     "href": "slides/00-welcome.html#homework-late-policy",
     "title": "Welcome, Intro, and Setup",
     "section": "Homework Late Policy",
-    "text": "Homework Late Policy\n\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.\nIf you’ve used your deadline extensions, late work has a 10% deduction per day for up to 5 days.\n\nThis policy also applies to deadline extension requests that are not submitted before the assignment’s deadline.",
+    "text": "Homework Late Policy\n\nTwo deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 2-day (48-hour) deadline extension.\nIf you’ve used your deadline extensions, late work has a 10% deduction per day. Late work is accepted up to 5 days after the deadline.\n\nThis policy also applies to deadline extension requests that are not submitted before the assignment’s deadline.",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"
@@ -3002,7 +3002,7 @@
     "href": "slides/00-welcome.html#conversation-not-copying",
     "title": "Welcome, Intro, and Setup",
     "section": "Conversation, not copying",
-    "text": "Conversation, not copying\nIt is okay (in fact, encouraged) to …\n\nAsk GenAI for tips on how to get started on a coding problem\nAsk GenAI to help find bugs in your code\nAsk GenAI to help explain concepts or functions\nPretend ChatGPT is your human tutor or TA!",
+    "text": "Conversation, not copying\nIt is okay (in fact, encouraged) to …\n\nAsk GenAI for tips on how to get started on a coding problem\nAsk GenAI to help find bugs in your code\nAsk GenAI to help explain concepts or functions\nPretend ChatGPT is a tutor or a TA!",
     "crumbs": [
       "Lecture Slides",
       "Week 0 - Welcome & Course Set-up"

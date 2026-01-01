@@ -27,8 +27,7 @@ execute:
 
 -   My research: Statistics and data science education, R programming
 
--   Things I like: Spending time outside (e.g., running, hiking, biking), 
-travelling, going to concerts and musicals
+-   Things I like: Spending time outside (e.g., running, hiking, biking), travelling, going to concerts and musicals
 :::
 ::::
 ::::::
@@ -49,25 +48,22 @@ travelling, going to concerts and musicals
 
 ## Important Dates
 
--   **Thurs, February 6:** Exam 1 (in-class)
+-   **Thurs, February 5:** Exam 1 (in-class)
 
--   **Fri, February 21:** 1-page Project Proposal Due
+-   **Sun, February 15:** 1-page Project Proposal Due
 
--   **Thurs, March 13:** Exam 2 (in-class)
+-   **Thurs, March 12:** Exam 2 (in-class)
 
--   **Saturday, March 16 (before Finals Week:** Final Project Poster Presentations
+-   **Saturday, March 14 (before Finals Week):** Final Project Poster Presentations
 
 ## Homework Late Policy
 
--   Two deadline extensions: Fill out the form on Canvas before the deadline, 
-get an automatic 3-day (72-hour) deadline extension.
+-   Two deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 2-day (48-hour) deadline extension.
 
 -   If you've used your deadline extensions, late work has a 10% deduction per
-day for up to 5 days.
+day. Late work is accepted up to 5 days after the deadline.
 
-    * This policy also applies to deadline extension requests that are not 
-    submitted [before]{.underline} the assignment's deadline.
-
+    -   This policy also applies to deadline extension requests that are not submitted [before]{.underline} the assignment's deadline.
 
 ## Missing Lab
 
@@ -119,29 +115,28 @@ It is okay (in fact, encouraged) to ...
 
 -   Ask GenAI to help explain concepts or functions
 
--   **Pretend ChatGPT is your human tutor or TA!**
+-   **Pretend ChatGPT is a tutor or a TA!**
 
 ## Activity: Good and bad use of AI
 
-1.  Find your group member 
+1.  Find your group member
 
-    * In the "People" tab on Canvas, find your "Day 1 Group"
-    
-2.  Once you have found your group member, open the Activity 1.1 notebook 
-(linked on Canvas).
+    -   In the "People" tab on Canvas, find your "Day 1 Group"
 
-. . .
-
-**15-minutes:** 
-
-- First, Person A follows the instructions in Part 1 of the notebook. 
-- Then, Person B follows the instructions in Part 2 of the notebook. 
-- Finally, discuss and answer the questions at the bottom.
+2.  Once you have found your group member, open the Activity 1.1 notebook (linked on Canvas).
 
 . . .
 
-::: {.callout-warning}
-# If it is not your turn to type, you watch! 
+**15-minutes:**
 
-Do not give input unless your partner asks for help. 
+-   First, Person A follows the instructions in Part 1 of the notebook.
+-   Then, Person B follows the instructions in Part 2 of the notebook.
+-   Finally, discuss and answer the questions at the bottom.
+
+. . .
+
+::: callout-warning
+# If it is not your turn to type, you watch!
+
+Do not give input unless your partner asks for help.
 :::

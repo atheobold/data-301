@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
   <title>Introduction to Data Science – Welcome, Intro, and Setup</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,7 +28,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-a7ee4fc6db12f304bc30eda056fb7a0e.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-a39843259aa5179dad24436622ef3209.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -168,17 +168,17 @@
 <section id="important-dates" class="slide level2">
 <h2>Important Dates</h2>
 <ul>
-<li class="fragment"><p><strong>Thurs, February 6:</strong> Exam 1 (in-class)</p></li>
-<li class="fragment"><p><strong>Fri, February 21:</strong> 1-page Project Proposal Due</p></li>
-<li class="fragment"><p><strong>Thurs, March 13:</strong> Exam 2 (in-class)</p></li>
-<li class="fragment"><p><strong>Saturday, March 16 (before Finals Week:</strong> Final Project Poster Presentations</p></li>
+<li class="fragment"><p><strong>Thurs, February 5:</strong> Exam 1 (in-class)</p></li>
+<li class="fragment"><p><strong>Sun, February 15:</strong> 1-page Project Proposal Due</p></li>
+<li class="fragment"><p><strong>Thurs, March 12:</strong> Exam 2 (in-class)</p></li>
+<li class="fragment"><p><strong>Saturday, March 14 (before Finals Week):</strong> Final Project Poster Presentations</p></li>
 </ul>
 </section>
 <section id="homework-late-policy" class="slide level2">
 <h2>Homework Late Policy</h2>
 <ul>
-<li class="fragment"><p>Two deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 3-day (72-hour) deadline extension.</p></li>
-<li class="fragment"><p>If you’ve used your deadline extensions, late work has a 10% deduction per day for up to 5 days.</p>
+<li class="fragment"><p>Two deadline extensions: Fill out the form on Canvas before the deadline, get an automatic 2-day (48-hour) deadline extension.</p></li>
+<li class="fragment"><p>If you’ve used your deadline extensions, late work has a 10% deduction per day. Late work is accepted up to 5 days after the deadline.</p>
 <ul>
 <li class="fragment">This policy also applies to deadline extension requests that are not submitted <u>before</u> the assignment’s deadline.</li>
 </ul></li>
@@ -235,7 +235,7 @@
 <li class="fragment"><p>Ask GenAI for tips on how to get started on a coding problem</p></li>
 <li class="fragment"><p>Ask GenAI to help find bugs in your code</p></li>
 <li class="fragment"><p>Ask GenAI to help explain concepts or functions</p></li>
-<li class="fragment"><p><strong>Pretend ChatGPT is your human tutor or TA!</strong></p></li>
+<li class="fragment"><p><strong>Pretend ChatGPT is a tutor or a TA!</strong></p></li>
 </ul>
 </section>
 <section id="activity-good-and-bad-use-of-ai" class="slide level2">
@@ -462,7 +462,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -536,13 +536,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

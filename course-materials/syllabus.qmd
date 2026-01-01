@@ -357,7 +357,7 @@ This schedule is tentative and subject to change.
 class_cal
 ```
 
-```{r schedule}
+```{r}
 #| echo: false
 #| eval: true
 #| fig-pos: 'h'
