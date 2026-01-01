@@ -13,7 +13,6 @@ execute:
 #| label: load-python
 
 library(reticulate)
-use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
@@ -260,7 +259,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Predicting 1989

@@ -12,7 +12,6 @@ execute:
 #| include: false
 #| label: load-python
 library(reticulate)
-use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
@@ -96,7 +95,7 @@ Let's read the data, and also make a new variable called "Cancerous".
 
 import pandas as pd
 
-df = pd.read_csv("https://datasci112.stanford.edu/data/BreastTissue.csv")
+df = pd.read_csv("data/BreastTissue.csv")
 
 cancer_levels = ["car", "fad", "mas"]
 df['Cancerous'] = df['Class'].isin(cancer_levels)
@@ -238,7 +237,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Counter-Example: Linear Regression
@@ -279,7 +278,7 @@ plot = (
   labs(y = "Linear Regression Residuals")
   )
   
-plot.draw(plot)
+plot.show()
 ```
 
 ## Counter-Example: Linear Regression
@@ -316,7 +315,7 @@ plot = (
   labs(x = "Residual from Linear Regression Model")
   )
   
-plot.draw(plot)
+plot.show()
 ```
 
 # Logistic Regression
@@ -557,7 +556,7 @@ plot = (
        y = "Precision")
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 # Your turn
@@ -639,7 +638,7 @@ plot = (
   theme_bw()
 ) 
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 
@@ -675,7 +674,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 :::::

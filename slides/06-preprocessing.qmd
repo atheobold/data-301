@@ -12,7 +12,6 @@ execute:
 ```{r}
 #| include: false
 library(reticulate)
-use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
@@ -68,7 +67,7 @@ step, you should use the `StandardScaler()` or `MinMaxScaler()` functions.
 ```{python}
 #| code-line-numbers: false
 #| label: ames-data
-df = pd.read_table("https://datasci112.stanford.edu/data/housing.tsv")
+df = pd.read_table("data/housing.tsv")
 df.head()
 ```
 :::
@@ -204,7 +203,7 @@ Where have you seen one-hot-encoded variables already?
 ```{python}
 #| code-line-numbers: false
 #| label: data-reset
-df = pd.read_table("https://datasci112.stanford.edu/data/housing.tsv")
+df = pd.read_table("data/housing.tsv")
 ```
 
 # Dummifying Variables

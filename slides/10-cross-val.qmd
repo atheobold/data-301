@@ -11,7 +11,6 @@ execute:
 ```{r}
 #| include: false
 library(reticulate)
-use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
@@ -189,7 +188,7 @@ plot = (
   scale_y_continuous(labels = currency_format(precision = 0))
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## "Candidate" Regression Lines
@@ -264,7 +263,7 @@ plot = (
               linetype = "dotted")
   )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## The "best" slope and intercept

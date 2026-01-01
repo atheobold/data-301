@@ -13,7 +13,6 @@ editor: source
 #| label: load-package-set-python-directory
 
 library(reticulate)
-use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
@@ -32,7 +31,7 @@ import pandas as pd
 #| code-line-numbers: false
 #| label: read-data
 
-df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+df = pd.read_csv("data/titanic.csv")
 ```
 
 ```{python}
@@ -172,7 +171,7 @@ plot = (
   geom_boxplot()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 ::::::
@@ -237,7 +236,7 @@ plot = (
   geom_boxplot()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 ::::
 
@@ -277,7 +276,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 ::::
 :::::::
@@ -321,7 +320,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Calculating Percents
@@ -370,7 +369,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 
@@ -418,7 +417,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Option 1: Stacked Bar Plot
@@ -480,7 +479,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Option 2: Side-by-side Bar Plot
@@ -546,7 +545,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Option 3: Stacked Percentage Bar Plot
@@ -955,7 +954,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 
@@ -983,7 +982,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 :::::

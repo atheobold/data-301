@@ -11,7 +11,6 @@ execute:
 ```{r}
 #| include: false
 library(reticulate)
-use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
@@ -86,8 +85,7 @@ York City's airports (JFK, LaGuardia, and Newark) on November 16, 2013.
 #| code-line-numbers: false
 #| label: flight-data
 
-data_dir = "https://datasci112.stanford.edu/data/"
-df = pd.read_csv(data_dir + "flights_nyc_20131116.csv")
+df = pd.read_csv("data/flights.csv")
 df
 ```
 :::
@@ -128,7 +126,7 @@ plot = (
   theme_bw()
   )
   
-plot.draw(plot)
+plot.show()
 ```
 
 
@@ -185,7 +183,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Delays by Origin
@@ -220,7 +218,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Delays by Origin
@@ -255,7 +253,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Variable Transformations
@@ -311,7 +309,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 
@@ -344,7 +342,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 :::::
@@ -419,7 +417,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 # Boxplots
@@ -458,7 +456,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 :::
@@ -500,7 +498,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 :::
@@ -521,7 +519,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 This plot still was a *little* hard to read.
@@ -620,7 +618,7 @@ plot = (
   labs(x = "Departure Delay (minutes)")
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Freeing the Scales
@@ -652,7 +650,7 @@ plot = (
   labs(x = "Departure Delay (minutes)")
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 # Summaries by Group
@@ -868,7 +866,8 @@ flight from LGA to IAH on United Airlines. Which one was a "more extreme" delay?
 ```{python}
 #| echo: false
 #| label: titanic-data
-df_titanic = pd.read_csv(data_dir + "titanic.csv")
+
+df_titanic = pd.read_csv("data/titanic.csv")
 
 ```
 
@@ -910,7 +909,7 @@ plot = (
        y = "Fare Paid on Titanic")
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Scatterplots
@@ -983,7 +982,7 @@ plot = (
        y = "Fare Paid on Titanic")
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 :::
@@ -1027,7 +1026,7 @@ plot = (
        y = "Fare Paid on Titanic")
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 :::
@@ -1068,7 +1067,7 @@ plot = (
   ylim(0, 7)
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 
@@ -1109,7 +1108,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Describing the Relationship
@@ -1195,7 +1194,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Correlation
