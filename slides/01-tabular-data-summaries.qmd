@@ -14,7 +14,6 @@ editor: source
 #| label: load-packages-declare-python-directory
 
 library(reticulate)
-use_python("/usr/local/bin/python3")
 
 ```
 
@@ -30,6 +29,8 @@ reticulate::py_install("pandas", pip = TRUE)
 ## How to check if the packages were successfully installed
 reticulate::import("numpy")
 reticulate::import("pandas")
+reticulate::import("palmerpenguins")
+reticulate::import("plotnine")
 
 ```
 
@@ -89,7 +90,7 @@ We *read the data* into a program like `Python` by specifying:
 #| code-line-numbers: false
 #| label: read-in-data-from-online
 
-df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+df = pd.read_csv("data/titanic.csv")
 ```
 
 ::: callout-tip
@@ -123,12 +124,12 @@ df.head()
 #| code-line-numbers: false
 #| label: check-in-part-1
 
-df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+df = pd.read_csv("data/titanic.csv")
 ```
 :::
 
 ::: callout
-**Question 1:** What if this file lived on a computer instead of online?
+**Question 1:** What if this file lived online instead of locally?
 
 **Question 2:** Why didn't we have to specify that this dataset has a header?
 :::
