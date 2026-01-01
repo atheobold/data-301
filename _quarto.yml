@@ -4,6 +4,7 @@ project:
   render: 
     - "*.qmd"
     - "!/slides/data-ethics"
+    - "!/slides/11-classification.qmd"
     - "!/slides/15-hierarchical.qmd"
 
 website:
