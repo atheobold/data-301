@@ -19,7 +19,7 @@ execute:
 ::: midi
 -   Grew up in Grand Junction, CO
 
--   BA in Stats: 2014 from Colorado Mesa University
+-   BA in Stats & Economics: 2014 from Colorado Mesa University
 
 -   PhD in Stats: 2020 from Montana State University
 
@@ -40,7 +40,7 @@ execute:
 
 -   **10%**: Lab Activities -- Lab attendance is required
 
--   **25%**: Weekly Assignments -- due Saturdays at midnight
+-   **25%**: Weekly Assignments -- due Mondays at 5pm
 
 -   **15% each:** Exams in Week 5 and Week 10.
 
@@ -63,16 +63,6 @@ execute:
 -   If you've used your deadline extensions, late work has a 10% deduction per day. Late work is accepted up to 5 days after the deadline.
 
     -   This policy also applies to deadline extension requests that are not submitted [before]{.underline} the assignment's deadline.
-
-## Missing Lab
-
--   **Best option:** Go to another section.
-
--   **Second-best option:** Turn in your work by email to me.
-
--   **Worst option:** Miss it entirely, get a 0.
-
--   *You may miss lab [up to two times]{.underline} during the quarter. If you need to miss / reschedule more than two of the labs this quarter, you will need to retake the class.*
 
 ## Discord and Email
 
@@ -115,27 +105,3 @@ It is okay (in fact, encouraged) to ...
 -   Ask GenAI to help explain concepts or functions
 
 -   **Pretend ChatGPT is a tutor or a TA!**
-
-## Activity: Good and bad use of AI
-
-1.  Find your group member
-
-    -   In the "People" tab on Canvas, find your "Day 1 Group"
-
-2.  Once you have found your group member, open the Activity 1.1 notebook (linked on Canvas).
-
-. . .
-
-**15-minutes:**
-
--   First, Person A follows the instructions in Part 1 of the notebook.
--   Then, Person B follows the instructions in Part 2 of the notebook.
--   Finally, discuss and answer the questions at the bottom.
-
-. . .
-
-::: callout-warning
-# If it is not your turn to type, you watch!
-
-Do not give input unless your partner asks for help.
-:::
