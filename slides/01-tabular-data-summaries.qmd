@@ -94,7 +94,7 @@ df = pd.read_csv("data/titanic.csv")
 ```
 
 ::: callout-tip
-# `read_csv()` lives in `pandas`
+# `read_csv()` lives in the `pandas` library
 :::
 
 . . .
@@ -134,7 +134,9 @@ df = pd.read_csv("data/titanic.csv")
 **Question 2:** Why didn't we have to specify that this dataset has a header?
 :::
 
-## Looking at the rows
+# Data Frames are Comprised of Rows & Columns
+
+## Looking at the Rows
 
 :::::::: columns
 :::: {.column width="48%"}
@@ -165,9 +167,9 @@ df.iloc[1, :]
 
 . . .
 
--   What is the difference between `.loc` and `.iloc`?
-
--   What **type** of object is returned?
+::: {.callout-tip}
+## What is the difference between `.loc` and `.iloc`?
+:::
 
 ## loc, iloc, and index
 
@@ -175,7 +177,7 @@ df.iloc[1, :]
 #| code-line-numbers: false
 #| label: moving-name-to-row-ID
 
-df2 = df.set_index('name')
+df2 = df.set_index('Name')
 ```
 
 ::: small
@@ -190,7 +192,7 @@ df2.head()
 </br>
 
 ::: callout-warning
-# Why are there 13 columns now? (There were 14 before!)
+# Why are there 11 columns now? (There were 12 before!)
 :::
 
 ## loc, iloc, and index
@@ -220,22 +222,11 @@ df2.iloc[1, :]
 :::
 ::::::
 
-:::::::: columns
-:::: {.column width="48%"}
-::: fragment
-Why is `.loc` returning an error?
-:::
-::::
+. . .
 
-::: {.column width="3%"}
+::: {.callout-tip}
+# Why does `.loc` return an error but `.iloc` doesn't?
 :::
-
-:::: {.column width="47%"}
-::: fragment
-Why is `.iloc` not returning an error?
-:::
-::::
-::::::::
 
 ## loc, iloc, and index
 
@@ -280,7 +271,7 @@ df2.iloc[1, :]
 ::::::
 :::::::::::
 
-## Looking at columns
+## Looking at the Columns
 
 ::::::: columns
 ::: {.column width="50%"}
@@ -301,7 +292,7 @@ df.columns
 #| code-line-numbers: false
 #| label: extract-column
 
-df['home.dest']
+df['Age']
 ```
 :::
 ::::
@@ -341,7 +332,7 @@ type(df.iloc[1, :])
 #| code-line-numbers: false
 #| label: object-types-column-extract
 
-type(df['name'])
+type(df['Name'])
 ```
 
 . . .
@@ -352,7 +343,7 @@ type(df['name'])
 
 # Summarizing a Data Frame
 
-## Questions to ask
+## Questions to Ask
 
 -   Which variables (columns) are **categorical**?
 
@@ -385,7 +376,8 @@ df.describe()
 
 ## Changing Variable Types
 
--   The variable `pclass` was **categorical**, but Python assumed it was *quantitative*.
+-   The variable `Pclass` is **categorical**, but Python assumed it was 
+*quantitative* because it is comprised of numbers.
 
 -   It's our job to check and fix data!
 
@@ -395,7 +387,7 @@ df.describe()
 #| code-line-numbers: false
 #| label: changing-data-types
 
-df["pclass"] = df["pclass"].astype("category")
+df["Pclass"] = df["Pclass"].astype("category")
 ```
 
 </br>
@@ -412,7 +404,7 @@ df["pclass"] = df["pclass"].astype("category")
 #| code-line-numbers: false
 #| label: counts-of-class-variable
 
-df["pclass"].value_counts()
+df["Pclass"].value_counts()
 ```
 
 . . .
@@ -423,7 +415,7 @@ df["pclass"].value_counts()
 #| code-line-numbers: false
 #| label: proportions-of-class-variable
 
-df["pclass"].value_counts(normalize = True)
+df["Pclass"].value_counts(normalize = True)
 ```
 
 ## Lecture 1.1 Check in
