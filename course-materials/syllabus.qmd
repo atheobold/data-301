@@ -57,10 +57,10 @@ library(RColorBrewer)
 
 ## Student Hours
 
-| Day                   | Time                    |
-|-----------------------|-------------------------|
-| Mondays, in-person    | 1:30 - 3:00pm (drop-in) |
-| Wednesdays, in-person | 1:30 - 3:00pm (drop-in) |
+| Day                   | Time                     |
+|-----------------------|--------------------------|
+| Mondays, in-person    | 12:30 - 2:00pm (drop-in) |
+| Wednesdays, in-person | 12:30 - 2:00pm (drop-in) |
 
 Student hours held in-person on Wednesday afternoons. You can find me in my office, but if there's a lot of people we will likely move to one of the conference rooms in the Statistics Department (I'll leave a note on my door!).
 :::::::
