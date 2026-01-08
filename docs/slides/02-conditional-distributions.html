@@ -206,11 +206,14 @@
 <section id="getting-and-prepping-data" class="slide level2">
 <h2>Getting and Prepping Data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/titanic.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/titanic.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"pclass"</span>] <span class="op">=</span> df[<span class="st">"pclass"</span>].astype(<span class="st">"category"</span>)</span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"survived"</span>] <span class="op">=</span> df[<span class="st">"survived"</span>].astype(<span class="st">"category"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Pclass"</span>] <span class="op">=</span> df[<span class="st">"Pclass"</span>].astype(<span class="st">"category"</span>)</span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Survived"</span>] <span class="op">=</span> df[<span class="st">"Survived"</span>].astype(<span class="st">"category"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="thinking-about-variable-types" class="slide level2">
@@ -218,137 +221,121 @@
 <div class="small">
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 28%">
+<col style="width: 8%">
+<col style="width: 6%">
 <col style="width: 4%">
+<col style="width: 36%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 11%">
 <col style="width: 5%">
 <col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 19%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">name</th>
-<th style="text-align: left;">pclass</th>
-<th style="text-align: left;">survived</th>
-<th style="text-align: left;">sex</th>
-<th style="text-align: right;">age</th>
-<th style="text-align: right;">sibsp</th>
-<th style="text-align: right;">parch</th>
-<th style="text-align: left;">ticket</th>
-<th style="text-align: right;">fare</th>
-<th style="text-align: left;">cabin</th>
-<th style="text-align: left;">embarked</th>
-<th style="text-align: left;">boat</th>
-<th style="text-align: right;">body</th>
-<th style="text-align: left;">home.dest</th>
+<th style="text-align: right;">PassengerId</th>
+<th style="text-align: left;">Survived</th>
+<th style="text-align: left;">Pclass</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Sex</th>
+<th style="text-align: right;">Age</th>
+<th style="text-align: right;">SibSp</th>
+<th style="text-align: right;">Parch</th>
+<th style="text-align: left;">Ticket</th>
+<th style="text-align: right;">Fare</th>
+<th style="text-align: left;">Cabin</th>
+<th style="text-align: left;">Embarked</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Allen, Miss. Elisabeth Walton</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">29.0000</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">24160</td>
-<td style="text-align: right;">211.3375</td>
-<td style="text-align: left;">B5</td>
-<td style="text-align: left;">S</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: right;">NaN</td>
-<td style="text-align: left;">St Louis, MO</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Allison, Master. Hudson Trevor</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">0.9167</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">113781</td>
-<td style="text-align: right;">151.5500</td>
-<td style="text-align: left;">C22 C26</td>
-<td style="text-align: left;">S</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: right;">NaN</td>
-<td style="text-align: left;">Montreal, PQ / Chesterville, ON</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Allison, Miss. Helen Loraine</td>
-<td style="text-align: left;">1</td>
 <td style="text-align: left;">0</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">2.0000</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">113781</td>
-<td style="text-align: right;">151.5500</td>
-<td style="text-align: left;">C22 C26</td>
-<td style="text-align: left;">S</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NaN</td>
-<td style="text-align: left;">Montreal, PQ / Chesterville, ON</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Allison, Mr.&nbsp;Hudson Joshua Creighton</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">30.0000</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">113781</td>
-<td style="text-align: right;">151.5500</td>
-<td style="text-align: left;">C22 C26</td>
-<td style="text-align: left;">S</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">135</td>
-<td style="text-align: left;">Montreal, PQ / Chesterville, ON</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Allison, Mrs.&nbsp;Hudson J C (Bessie Waldo Daniels)</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">female</td>
-<td style="text-align: right;">25.0000</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">113781</td>
-<td style="text-align: right;">151.5500</td>
-<td style="text-align: left;">C22 C26</td>
-<td style="text-align: left;">S</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NaN</td>
-<td style="text-align: left;">Montreal, PQ / Chesterville, ON</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Anderson, Mr.&nbsp;Harry</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">male</td>
-<td style="text-align: right;">48.0000</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">19952</td>
-<td style="text-align: right;">26.5500</td>
-<td style="text-align: left;">E12</td>
-<td style="text-align: left;">S</td>
 <td style="text-align: left;">3</td>
+<td style="text-align: left;">Braund, Mr.&nbsp;Owen Harris</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">A/5 21171</td>
+<td style="text-align: right;">7.2500</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">S</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Cumings, Mrs.&nbsp;John Bradley (Florence Briggs Thayer)</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">PC 17599</td>
+<td style="text-align: right;">71.2833</td>
+<td style="text-align: left;">C85</td>
+<td style="text-align: left;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Heikkinen, Miss. Laina</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">STON/O2. 3101282</td>
+<td style="text-align: right;">7.9250</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">S</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Futrelle, Mrs.&nbsp;Jacques Heath (Lily May Peel)</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">113803</td>
+<td style="text-align: right;">53.1000</td>
+<td style="text-align: left;">C123</td>
+<td style="text-align: left;">S</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Allen, Mr.&nbsp;William Henry</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">373450</td>
+<td style="text-align: right;">8.0500</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">S</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Moran, Mr.&nbsp;James</td>
+<td style="text-align: left;">male</td>
 <td style="text-align: right;">NaN</td>
-<td style="text-align: left;">New York, NY</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">330877</td>
+<td style="text-align: right;">8.4583</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Q</td>
 </tr>
 </tbody>
 </table>
@@ -361,54 +348,58 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>df.iloc[<span class="dv">5</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">5</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>name         Anderson, Mr. Harry
-pclass                         1
-survived                       1
-sex                         male
-age                         48.0
-sibsp                          0
-parch                          0
-ticket                     19952
-fare                       26.55
-cabin                        E12
-embarked                       S
-boat                           3
-body                         NaN
-home.dest           New York, NY
+<pre><code>PassengerId                   6
+Survived                      0
+Pclass                        3
+Name           Moran, Mr. James
+Sex                        male
+Age                         NaN
+SibSp                         0
+Parch                         0
+Ticket                   330877
+Fare                     8.4583
+Cabin                       NaN
+Embarked                      Q
 Name: 5, dtype: object</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"name"</span>].head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Name"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0                      Allen, Miss. Elisabeth Walton
-1                     Allison, Master. Hudson Trevor
-2                       Allison, Miss. Helen Loraine
-3               Allison, Mr. Hudson Joshua Creighton
-4    Allison, Mrs. Hudson J C (Bessie Waldo Daniels)
-Name: name, dtype: object</code></pre>
+<pre><code>0                                Braund, Mr. Owen Harris
+1      Cumings, Mrs. John Bradley (Florence Briggs Th...
+2                                 Heikkinen, Miss. Laina
+3           Futrelle, Mrs. Jacques Heath (Lily May Peel)
+4                               Allen, Mr. William Henry
+                             ...                        
+886                                Montvila, Rev. Juozas
+887                         Graham, Miss. Margaret Edith
+888             Johnston, Miss. Catherine Helen "Carrie"
+889                                Behr, Mr. Karl Howell
+890                                  Dooley, Mr. Patrick
+Name: Name, Length: 891, dtype: object</code></pre>
 </div>
 </div>
 </div></div>
 </section>
 <section id="quick-summary-of-quantitative-variables" class="slide level2">
 <h2>Quick Summary of Quantitative Variables</h2>
-<div class="small">
+<div class="midi">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>df.describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>               age        sibsp        parch         fare        body
-count  1046.000000  1309.000000  1309.000000  1308.000000  121.000000
-mean     29.881135     0.498854     0.385027    33.295479  160.809917
-std      14.413500     1.041658     0.865560    51.758668   97.696922
-min       0.166700     0.000000     0.000000     0.000000    1.000000
-25%      21.000000     0.000000     0.000000     7.895800   72.000000
-50%      28.000000     0.000000     0.000000    14.454200  155.000000
-75%      39.000000     1.000000     0.000000    31.275000  256.000000
-max      80.000000     8.000000     9.000000   512.329200  328.000000</code></pre>
+<pre><code>       PassengerId         Age       SibSp       Parch        Fare
+count   891.000000  714.000000  891.000000  891.000000  891.000000
+mean    446.000000   29.699118    0.523008    0.381594   32.204208
+std     257.353842   14.526497    1.102743    0.806057   49.693429
+min       1.000000    0.420000    0.000000    0.000000    0.000000
+25%     223.500000   20.125000    0.000000    0.000000    7.910400
+50%     446.000000   28.000000    0.000000    0.000000   14.454200
+75%     668.500000   38.000000    1.000000    0.000000   31.000000
+max     891.000000   80.000000    8.000000    6.000000  512.329200</code></pre>
 </div>
 </div>
 </div>
@@ -416,22 +407,24 @@ max      80.000000     8.000000     9.000000   512.329200  328.000000</code></pr
 <section id="summarizing-categorical-variables" class="slide level2">
 <h2>Summarizing Categorical Variables</h2>
 <p>The list of percents for each category is called the <strong>distribution</strong> of the variable.</p>
+<div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"pclass"</span>].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Pclass"</span>].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>pclass
-3    709
-1    323
-2    277
+<pre><code>Pclass
+3    491
+1    216
+2    184
 Name: count, dtype: int64</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"pclass"</span>].value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Pclass"</span>].value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>pclass
-3    0.541635
-1    0.246753
-2    0.211612
+<pre><code>Pclass
+3    0.551066
+1    0.242424
+2    0.206510
 Name: proportion, dtype: float64</code></pre>
+</div>
 </div>
 </div>
 </section></section>
@@ -442,7 +435,7 @@ Name: proportion, dtype: float64</code></pre>
 </section>
 <section id="the-grammar-of-graphics" class="slide level2">
 <h2>The Grammar of Graphics</h2>
-<p>The <em>grammar of graphics</em> is a framework for creating data visualizations.</p>
+<p>The <em>Grammar of Graphics</em> (GoG) is a framework for creating data visualizations.</p>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="small">
@@ -456,53 +449,77 @@ Name: proportion, dtype: float64</code></pre>
 </div><div class="column" style="width:5%;">
 
 </div><div class="column" style="width:55%;">
-<p><img data-src="images/02-ggplot-layers.png"></p>
+<p><img data-src="images/02-ggplot-layers.png" alt="A picture demonstrating the central idea of the grammar of graphics, that a visualization is comprised of layers. Each layer is displayed as a 3-D square in a different color with text written next to it. The first layer is the data, followed by the aesthetics, then the geometries, then facets, then statistics, then coordinates, then finally a theme."></p>
 </div></div>
 </section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
+<section id="penguins" class="slide level2">
+<h2>Penguins!</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> palmerpenguins <span class="im">import</span> load_penguins</span>
+<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> load_penguins()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="images/02-adelie-penguin.jpg" alt="A picture of an Adelie penguin. The penguin looks like a standard penguin, but has a very short bill."></p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:55%;">
+<p><img data-src="images/02-chinstrap-penguin.jpeg" alt="A picture of a Chinstrap penguin. You can tell the penguin is a Chinstrap penguin because it has a small black line underneath its jawline that looks like a strap."></p>
+</div></div>
+</section>
+<section id="example-plotnine-code" class="slide level2">
+<h2>Example <code>plotnine</code> Code</h2>
+<div class="midi">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> ggplot, geom_point, aes, geom_boxplot, labs</span>
+<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>  ggplot(penguins, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"species"</span>, </span>
+<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a>                                 y <span class="op">=</span> <span class="st">"bill_length_mm"</span>, </span>
+<span id="cb14-6"><a aria-hidden="true" tabindex="-1"></a>                                 fill <span class="op">=</span> <span class="st">"sex"</span>)</span>
+<span id="cb14-7"><a aria-hidden="true" tabindex="-1"></a>        ) <span class="op">+</span></span>
+<span id="cb14-8"><a aria-hidden="true" tabindex="-1"></a>  geom_boxplot() <span class="op">+</span> </span>
+<span id="cb14-9"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Species"</span>, </span>
+<span id="cb14-10"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Bill Length (mm)"</span>, </span>
+<span id="cb14-11"><a aria-hidden="true" tabindex="-1"></a>       fill <span class="op">=</span> <span class="st">"Penguin Sex"</span>)</span>
+<span id="cb14-12"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Take 90-seconds</strong></p>
+</div>
+<div class="callout-content">
+<p>Draw what plot you think this code would produce.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="revealed" class="slide level2">
+<h2>Revealed!</h2>
+
+<img data-src="02-conditional-distributions_files/figure-revealjs/boxplot-1.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<section id="aesthetics-geometries" class="slide level2">
+<h2>Aesthetics &amp; Geometries</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="small">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> palmerpenguins <span class="im">import</span> load_penguins</span>
-<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> ggplot, geom_point, aes, geom_boxplot</span>
-<span id="cb13-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> load_penguins()</span>
-<span id="cb13-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb13-8"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> penguins, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"species"</span>, </span>
-<span id="cb13-9"><a aria-hidden="true" tabindex="-1"></a>                                        y <span class="op">=</span> <span class="st">"bill_length_mm"</span>, </span>
-<span id="cb13-10"><a aria-hidden="true" tabindex="-1"></a>                                        fill <span class="op">=</span> <span class="st">"sex"</span>)</span>
-<span id="cb13-11"><a aria-hidden="true" tabindex="-1"></a>        ) <span class="op">+</span></span>
-<span id="cb13-12"><a aria-hidden="true" tabindex="-1"></a>  geom_boxplot()</span>
-<span id="cb13-13"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="02-conditional-distributions_files/figure-revealjs/boxplot-1.png" width="614"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Aesthetics</strong></p>
-<p>Where are variables mapped to aspects of the plot?</p>
+<p>The Grammar of Graphics framework map variables from the data to <strong>aesthetics</strong> in the plot.</p>
+<p><br></p>
+<p><strong>What aesthetics are variables mapped onto in the plot?</strong></p>
 </div><div class="column" style="width:50%;">
 <div class="fragment">
-<p><strong>Geometry</strong></p>
-<p>What shape(s) are used to represent the data / observations?</p>
+<p>The GoG also uses different geometries to represent the data.</p>
+<p><br></p>
+<p><strong>What shape(s) are used to represent the data / observations in the plot?</strong></p>
 </div>
 </div></div>
-</div>
 </section>
 <section id="plotnine" class="slide level2">
 <h2>plotnine</h2>
@@ -520,33 +537,7 @@ Name: proportion, dtype: float64</code></pre>
 </section>
 <section id="themes" class="slide level2">
 <h2>Themes</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="small">
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> penguins, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"species"</span>, </span>
-<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a>                                        y <span class="op">=</span> <span class="st">"bill_length_mm"</span>, </span>
-<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>                                        fill <span class="op">=</span> <span class="st">"sex"</span>)</span>
-<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a>         ) <span class="op">+</span> </span>
-<span id="cb14-6"><a aria-hidden="true" tabindex="-1"></a>  geom_boxplot()</span>
-<span id="cb14-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="02-conditional-distributions_files/figure-revealjs/boxplot-no-theme-plot-3.png" width="614"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="small">
+<div class="midi">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -558,22 +549,16 @@ Name: proportion, dtype: float64</code></pre>
 <span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a>                       fill <span class="op">=</span> <span class="st">"sex"</span>)</span>
 <span id="cb15-7"><a aria-hidden="true" tabindex="-1"></a>                       ) <span class="op">+</span> </span>
 <span id="cb15-8"><a aria-hidden="true" tabindex="-1"></a>  geom_boxplot() <span class="op">+</span> </span>
-<span id="cb15-9"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb15-10"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-9"><a aria-hidden="true" tabindex="-1"></a>   labs(x <span class="op">=</span> <span class="st">"Species"</span>, </span>
+<span id="cb15-10"><a aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> <span class="st">"Bill Length (mm)"</span>, </span>
+<span id="cb15-11"><a aria-hidden="true" tabindex="-1"></a>        fill <span class="op">=</span> <span class="st">"Penguin Sex"</span>) <span class="op">+</span></span>
+<span id="cb15-12"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb15-13"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="02-conditional-distributions_files/figure-revealjs/boxplot-theme-classic-plot-5.png" width="614"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
+
+<img data-src="02-conditional-distributions_files/figure-revealjs/boxplot-theme-classic-plot-3.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
 <section id="check-in" class="slide level2">
 <h2>Check-In</h2>
 <p>What are the <em>aesthetics</em> and <em>geometry</em> in the cartoon plot below?</p>
@@ -589,30 +574,46 @@ Name: proportion, dtype: float64</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb16-4"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"pclass"</span>)) <span class="op">+</span> </span>
+<span id="cb16-4"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Pclass"</span>)) <span class="op">+</span> </span>
 <span id="cb16-5"><a aria-hidden="true" tabindex="-1"></a>  geom_bar() <span class="op">+</span> </span>
-<span id="cb16-6"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb16-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Class of Passenger on Titanic"</span>) <span class="op">+</span></span>
+<span id="cb16-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb16-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 
-<img data-src="02-conditional-distributions_files/figure-revealjs/bar-plot-7.png" width="614" class="r-stretch"></section>
+<img data-src="02-conditional-distributions_files/figure-revealjs/bar-plot-5.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
 <section id="calculating-percents" class="slide level2">
 <h2>Calculating Percents</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a>pclass_dist <span class="op">=</span> (</span>
-<span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'pclass'</span>]</span>
+<span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'Pclass'</span>]</span>
 <span id="cb17-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb17-4"><a aria-hidden="true" tabindex="-1"></a>  .reset_index()</span>
 <span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb17-6"><a aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb17-7"><a aria-hidden="true" tabindex="-1"></a>pclass_dist</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  pclass  proportion
-0      3    0.541635
-1      1    0.246753
-2      2    0.211612</code></pre>
+<pre><code>  Pclass  proportion
+0      3    0.551066
+1      1    0.242424
+2      2    0.206510</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Why reset the index? What does that do?</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -624,10 +625,11 @@ Name: proportion, dtype: float64</code></pre>
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> pclass_dist, </span>
-<span id="cb19-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"pclass"</span>, y <span class="op">=</span> <span class="st">"proportion"</span>)) <span class="op">+</span> </span>
+<span id="cb19-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Pclass"</span>, y <span class="op">=</span> <span class="st">"proportion"</span>)) <span class="op">+</span> </span>
 <span id="cb19-4"><a aria-hidden="true" tabindex="-1"></a>  geom_col() <span class="op">+</span> <span class="co">### notice this change to a column plot!</span></span>
-<span id="cb19-5"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb19-6"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-5"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Class of Passenger on Titanic"</span>) <span class="op">+</span></span>
+<span id="cb19-6"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb19-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -637,7 +639,7 @@ Name: proportion, dtype: float64</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="02-conditional-distributions_files/figure-revealjs/proportion-bar-plot-9.png" width="614"></p>
+<p><img data-src="02-conditional-distributions_files/figure-revealjs/proportion-bar-plot-7.png" width="614"></p>
 </figure>
 </div>
 </div>
@@ -646,7 +648,7 @@ Name: proportion, dtype: float64</code></pre>
 
 </div><div class="column" style="width:40%;">
 <div class="fragment">
-<div class="small">
+<div class="midi">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -676,15 +678,17 @@ Name: proportion, dtype: float64</code></pre>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"pclass"</span>, fill <span class="op">=</span> <span class="st">"sex"</span>)) <span class="op">+</span> </span>
+<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Pclass"</span>, fill <span class="op">=</span> <span class="st">"Sex"</span>)) <span class="op">+</span> </span>
 <span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a>  geom_bar(position <span class="op">=</span> <span class="st">"stack"</span>) <span class="op">+</span> </span>
-<span id="cb20-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb20-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Class of Passenger on Titanic"</span>, </span>
+<span id="cb20-5"><a aria-hidden="true" tabindex="-1"></a>       fill <span class="op">=</span> <span class="st">"Sex of Passenger"</span>) <span class="op">+</span></span>
+<span id="cb20-6"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb20-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 
-<img data-src="02-conditional-distributions_files/figure-revealjs/stacked-bar-plot-11.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<img data-src="02-conditional-distributions_files/figure-revealjs/stacked-bar-plot-9.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
 <section id="option-1-stacked-bar-plot-1" class="slide level2">
 <h2>Option 1: Stacked Bar Plot</h2>
 <blockquote>
@@ -722,15 +726,17 @@ Name: proportion, dtype: float64</code></pre>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"pclass"</span>, fill <span class="op">=</span> <span class="st">"sex"</span>)) <span class="op">+</span> </span>
+<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Pclass"</span>, fill <span class="op">=</span> <span class="st">"Sex"</span>)) <span class="op">+</span> </span>
 <span id="cb21-3"><a aria-hidden="true" tabindex="-1"></a>  geom_bar(position <span class="op">=</span> <span class="st">"dodge"</span>) <span class="op">+</span> </span>
-<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb21-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Class of Passenger on Titanic"</span>, </span>
+<span id="cb21-5"><a aria-hidden="true" tabindex="-1"></a>       fill <span class="op">=</span> <span class="st">"Sex of Passenger"</span>) <span class="op">+</span></span>
+<span id="cb21-6"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb21-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 
-<img data-src="02-conditional-distributions_files/figure-revealjs/side-by-side-barplot-13.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<img data-src="02-conditional-distributions_files/figure-revealjs/side-by-side-barplot-11.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
 <section id="option-2-side-by-side-bar-plot-1" class="slide level2">
 <h2>Option 2: Side-by-side Bar Plot</h2>
 <blockquote>
@@ -769,15 +775,17 @@ Name: proportion, dtype: float64</code></pre>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"pclass"</span>, fill <span class="op">=</span> <span class="st">"sex"</span>)) <span class="op">+</span> </span>
-<span id="cb22-3"><a aria-hidden="true" tabindex="-1"></a>  geom_bar(position <span class="op">=</span> <span class="st">"fill"</span>) <span class="op">+</span> </span>
-<span id="cb22-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb22-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Pclass"</span>, fill <span class="op">=</span> <span class="st">"Sex"</span>)) <span class="op">+</span> </span>
+<span id="cb22-3"><a aria-hidden="true" tabindex="-1"></a>  geom_bar(position <span class="op">=</span> <span class="st">"fill"</span>) <span class="op">+</span></span>
+<span id="cb22-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Class of Passenger on Titanic"</span>, </span>
+<span id="cb22-5"><a aria-hidden="true" tabindex="-1"></a>       fill <span class="op">=</span> <span class="st">"Sex of Passenger"</span>) <span class="op">+</span></span>
+<span id="cb22-6"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb22-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 
-<img data-src="02-conditional-distributions_files/figure-revealjs/stacked-percentage-barplot-15.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<img data-src="02-conditional-distributions_files/figure-revealjs/stacked-percentage-barplot-13.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
 <section id="option-3-stacked-percentage-bar-plot-1" class="slide level2">
 <h2>Option 3: Stacked Percentage Bar Plot</h2>
 <blockquote>
@@ -816,7 +824,6 @@ Name: proportion, dtype: float64</code></pre>
 <p>You can do this by:</p>
 <ul>
 <li><p>Finding and using a different <code>theme</code></p></li>
-<li><p>Using <code>labs()</code> to change the axis labels</p></li>
 <li><p>Trying different variables</p></li>
 <li><p>Trying a different <em>geometries</em></p></li>
 <li><p>Using <code>+ scale_fill_manual()</code> to change the colors being used</p></li>
@@ -850,17 +857,21 @@ Name: proportion, dtype: float64</code></pre>
 <section id="two-categorical-variables" class="slide level2">
 <h2>Two Categorical Variables</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"Pclass"</span>, <span class="st">"Sex"</span>]].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>pclass  sex   
-3       male      493
-        female    216
-1       male      179
-2       male      171
-1       female    144
-2       female    106
+<pre><code>Pclass  Sex   
+3       male      347
+        female    144
+1       male      122
+2       male      108
+1       female     94
+2       female     76
 Name: count, dtype: int64</code></pre>
 </div>
+</div>
+<div class="fragment">
+<p><br> <br></p>
+<p>But this is a little hard to read…</p>
 </div>
 </section>
 <section id="two-way-table" class="slide level2">
@@ -868,21 +879,20 @@ Name: count, dtype: int64</code></pre>
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]]</span>
+<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"Pclass"</span>, <span class="st">"Sex"</span>]]</span>
 <span id="cb25-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts()</span>
 <span id="cb25-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
 <span id="cb25-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
-<pre><code>sex     female  male
-pclass              
-1          144   179
-2          106   171
-3          216   493</code></pre>
+<pre><code>Sex     female  male
+Pclass              
+1           94   122
+2           76   108
+3          144   347</code></pre>
 </div>
 </div></div>
 <p><br></p>
-<p>This is sometimes called a <em>cross-tab</em> or <em>cross-tabulation</em>.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -901,16 +911,16 @@ pclass
 <h2>Two-way Table - Percents</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]]</span>
+<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"Pclass"</span>, <span class="st">"Sex"</span>]]</span>
 <span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
 <span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>sex       female      male
-pclass                    
-1       0.110008  0.136746
-2       0.080978  0.130634
-3       0.165011  0.376623</code></pre>
+<pre><code>Sex       female      male
+Pclass                    
+1       0.105499  0.136925
+2       0.085297  0.121212
+3       0.161616  0.389450</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -918,20 +928,19 @@ pclass
 </section>
 <section id="switching-variable-order" class="slide level2">
 <h2>Switching Variable Order</h2>
-<p><strong>What cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if <code>"sex"</code> came first and <code>"pclass"</code> came second?</strong></p>
+<p><strong>What cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if <code>"Sex"</code> came first and <code>"Pclass"</code> came second?</strong></p>
 <div class="fragment">
-<p><br></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"sex"</span>, <span class="st">"pclass"</span>]]</span>
+<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"Sex"</span>, <span class="st">"Pclass"</span>]]</span>
 <span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb29-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
 <span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>pclass         1         2         3
-sex                                 
-female  0.110008  0.080978  0.165011
-male    0.136746  0.130634  0.376623</code></pre>
+<pre><code>Pclass         1         2         3
+Sex                                 
+female  0.105499  0.085297  0.161616
+male    0.136925  0.121212  0.389450</code></pre>
 </div>
 </div>
 </div>
@@ -941,14 +950,13 @@ male    0.136746  0.130634  0.376623</code></pre>
 <p>We call this the <strong><em>joint distribution</em></strong> of the two variables.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>sex       female      male
-pclass                    
-1       0.110008  0.136746
-2       0.080978  0.130634
-3       0.165011  0.376623</code></pre>
+<pre><code>Sex       female      male
+Pclass                    
+1       0.105499  0.136925
+2       0.085297  0.121212
+3       0.161616  0.389450</code></pre>
 </div>
 </div>
-<p><br></p>
 <blockquote>
 <p>Of all the passengers on the Titanic, 11% were female passengers riding in first class.</p>
 </blockquote>
@@ -971,7 +979,7 @@ pclass
 <ul>
 <li>144 / 466 = 31% <strong>of female identifying passengers</strong> rode in first class</li>
 </ul>
-<p>Here we <strong><em>conditioned on</em></strong> the passenger being female, and then looked at the <strong><em>conditional distribution</em></strong> of <code>pclass</code>.</p>
+<p>Here we <strong><em>conditioned on</em></strong> the passenger being female, and then looked at the <strong><em>conditional distribution</em></strong> of <code>Pclass</code>.</p>
 </div>
 </section>
 <section id="conditional-distribution-from-percentages" class="slide level2">
@@ -985,7 +993,6 @@ pclass
 <ul>
 <li>0.11 / 0.355 = 31% <strong>of female identifying passengers</strong> rode in first class</li>
 </ul>
-<p>Here we <strong><em>conditioned on</em></strong> the passenger being female, and then looked at the <strong><em>conditional distribution</em></strong> of <code>pclass</code>.</p>
 </section>
 <section id="swapping-variables" class="slide level2">
 <h2>Swapping Variables</h2>
@@ -998,7 +1005,7 @@ pclass
 <ul>
 <li>144 / 323 = 44.6% <strong>of first class passengers</strong> identified as female</li>
 </ul>
-<p>Here we <strong><em>conditioned on</em></strong> the passenger being in first class, and then looked at the <strong><em>conditional distribution</em></strong> of <code>sex</code>.</p>
+<p>Here we <strong><em>conditioned on</em></strong> the passenger being in first class, and then looked at the <strong><em>conditional distribution</em></strong> of <code>Sex</code>.</p>
 </section>
 <section id="which-one-to-condition-on" class="slide level2">
 <h2>Which one to condition on?</h2>
@@ -1025,7 +1032,7 @@ pclass
 <div class="column" style="width:47%;">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a>marginal_class <span class="op">=</span> (</span>
-<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'pclass'</span>]</span>
+<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'Pclass'</span>]</span>
 <span id="cb32-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb32-4"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -1033,10 +1040,10 @@ pclass
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>marginal_class</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>pclass
-3    0.541635
-1    0.246753
-2    0.211612
+<pre><code>Pclass
+3    0.551066
+1    0.242424
+2    0.206510
 Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
@@ -1045,7 +1052,7 @@ Name: proportion, dtype: float64</code></pre>
 </div><div class="column" style="width:48%;">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>marginal_sex <span class="op">=</span> (</span>
-<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'sex'</span>]</span>
+<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'Sex'</span>]</span>
 <span id="cb35-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb35-4"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -1053,9 +1060,9 @@ Name: proportion, dtype: float64</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>marginal_sex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>sex
-male      0.644003
-female    0.355997
+<pre><code>Sex
+male      0.647587
+female    0.352413
 Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
@@ -1068,18 +1075,18 @@ Name: proportion, dtype: float64</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex <span class="op">=</span> (</span>
-<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]]</span>
+<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"Pclass"</span>, <span class="st">"Sex"</span>]]</span>
 <span id="cb38-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb38-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
 <span id="cb38-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb38-6"><a aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb38-7"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex.divide(marginal_sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>sex       female      male
-pclass                    
-1       0.309013  0.212337
-2       0.227468  0.202847
-3       0.463519  0.584816</code></pre>
+<pre><code>Sex       female      male
+Pclass                    
+1       0.299363  0.211438
+2       0.242038  0.187175
+3       0.458599  0.601386</code></pre>
 </div>
 </div>
 </section>
@@ -1090,9 +1097,9 @@ pclass
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a>marginal_sex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>sex
-male      0.644003
-female    0.355997
+<pre><code>Sex
+male      0.647587
+female    0.352413
 Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
@@ -1102,11 +1109,11 @@ Name: proportion, dtype: float64</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>sex       female      male
-pclass                    
-1       0.110008  0.136746
-2       0.080978  0.130634
-3       0.165011  0.376623</code></pre>
+<pre><code>Sex       female      male
+Pclass                    
+1       0.105499  0.136925
+2       0.085297  0.121212
+3       0.161616  0.389450</code></pre>
 </div>
 </div>
 </div></div>
@@ -1116,11 +1123,11 @@ pclass
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex.divide(marginal_sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>sex       female      male
-pclass                    
-1       0.309013  0.212337
-2       0.227468  0.202847
-3       0.463519  0.584816</code></pre>
+<pre><code>Sex       female      male
+Pclass                    
+1       0.299363  0.211438
+2       0.242038  0.187175
+3       0.458599  0.601386</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:5%;">
@@ -1134,11 +1141,11 @@ pclass
 <p>Should the <strong>rows</strong> or <strong>columns</strong> add up to 100%? Why?</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>sex       female      male
-pclass                    
-1       0.309013  0.212337
-2       0.227468  0.202847
-3       0.463519  0.584816</code></pre>
+<pre><code>Sex       female      male
+Pclass                    
+1       0.299363  0.211438
+2       0.242038  0.187175
+3       0.458599  0.601386</code></pre>
 </div>
 </div>
 </section>
@@ -1146,17 +1153,17 @@ pclass
 <h2>Conditional on Class</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex <span class="op">=</span> (</span>
-<span id="cb47-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"sex"</span>, <span class="st">"pclass"</span>]]</span>
+<span id="cb47-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"Sex"</span>, <span class="st">"Pclass"</span>]]</span>
 <span id="cb47-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb47-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
 <span id="cb47-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb47-6"><a aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb47-7"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex.divide(marginal_class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>pclass        1         2         3
-sex                                
-female  0.44582  0.382671  0.304654
-male    0.55418  0.617329  0.695346</code></pre>
+<pre><code>Pclass         1         2         3
+Sex                                 
+female  0.435185  0.413043  0.293279
+male    0.564815  0.586957  0.706721</code></pre>
 </div>
 </div>
 </section>
@@ -1164,7 +1171,7 @@ male    0.55418  0.617329  0.695346</code></pre>
 <h2>What if you get it backwards?</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex <span class="op">=</span> (</span>
-<span id="cb49-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]]</span>
+<span id="cb49-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"Pclass"</span>, <span class="st">"Sex"</span>]]</span>
 <span id="cb49-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb49-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
 <span id="cb49-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
@@ -1172,15 +1179,15 @@ male    0.55418  0.617329  0.695346</code></pre>
 <span id="cb49-7"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex.divide(marginal_class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         1   2   3  female  male
-pclass                          
+Pclass                          
 1      NaN NaN NaN     NaN   NaN
 2      NaN NaN NaN     NaN   NaN
 3      NaN NaN NaN     NaN   NaN</code></pre>
 </div>
 </div>
 </section>
-<section id="which-plot-better-answers-the-question" class="slide level2">
-<h2>Which plot better answers the question:</h2>
+<section id="which-plot-better-answers" class="slide level2">
+<h2>Which plot better answers:</h2>
 <blockquote>
 <p>“Did women tend to ride in first class more than men?”</p>
 </blockquote>
@@ -1190,17 +1197,19 @@ pclass
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb51-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">"pclass"</span>, fill <span class="op">=</span> <span class="st">"sex"</span>)) <span class="op">+</span> </span>
+<span id="cb51-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">"Pclass"</span>, fill <span class="op">=</span> <span class="st">"Sex"</span>)) <span class="op">+</span> </span>
 <span id="cb51-3"><a aria-hidden="true" tabindex="-1"></a>  geom_bar(position <span class="op">=</span> <span class="st">"fill"</span>) <span class="op">+</span> </span>
-<span id="cb51-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb51-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb51-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Class of Passenger on Titanic"</span>, </span>
+<span id="cb51-5"><a aria-hidden="true" tabindex="-1"></a>       fill <span class="op">=</span> <span class="st">"Sex of Passenger"</span>) <span class="op">+</span></span>
+<span id="cb51-6"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb51-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="02-conditional-distributions_files/figure-revealjs/filled-bar-plot-question-17.png" width="614"></p>
+<p><img data-src="02-conditional-distributions_files/figure-revealjs/filled-bar-plot-question-15.png" width="614"></p>
 </figure>
 </div>
 </div>
@@ -1210,17 +1219,19 @@ pclass
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb52-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">"sex"</span>, fill <span class="op">=</span> <span class="st">"pclass)) + </span></span>
+<span id="cb52-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">"Sex"</span>, fill <span class="op">=</span> <span class="st">"Pclass)) + </span></span>
 <span id="cb52-3"><a aria-hidden="true" tabindex="-1"></a><span class="er">  geom_bar</span>(position <span class="op">=</span> <span class="st">"fill"</span>) <span class="op">+</span> </span>
-<span id="cb52-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb52-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb52-4"><a aria-hidden="true" tabindex="-1"></a>  labs(fill <span class="op">=</span> <span class="st">"Class of Passenger on Titanic"</span>, </span>
+<span id="cb52-5"><a aria-hidden="true" tabindex="-1"></a>       x <span class="op">=</span> <span class="st">"Sex of Passenger"</span>) <span class="op">+</span></span>
+<span id="cb52-6"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb52-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="02-conditional-distributions_files/figure-revealjs/filled-bar-plot-question-2-19.png" width="614"></p>
+<p><img data-src="02-conditional-distributions_files/figure-revealjs/filled-bar-plot-question-2-17.png" width="614"></p>
 </figure>
 </div>
 </div>
