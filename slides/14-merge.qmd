@@ -11,7 +11,6 @@ execute:
 ```{r}
 #| include: false
 library(reticulate)
-use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
@@ -231,8 +230,7 @@ One data set contains information about flights in Nov. 2013...
 #| code-fold: true
 
 import pandas as pd
-data_dir = "https://datasci112.stanford.edu/data/nycflights13/"
-df_flights = pd.read_csv(f"{data_dir}/flights11.csv")
+df_flights = pd.read_csv("data/flights.csv")
 ```
 
 ```{python}
@@ -253,7 +251,7 @@ df_flights
 #| code-line-numbers: false
 #| label: read-in-plane-data
 
-df_planes = pd.read_csv(f"{data_dir}/planes.csv")
+df_planes = pd.read_csv("data/planes.csv")
 ```
 
 ```{python}
@@ -416,7 +414,7 @@ Here is a data set containing hourly weather data at each airport in 2013:
 #| code-fold: true
 #| label: read-in-weather-data
 
-df_weather = pd.read_csv(f"{data_dir}/weather.csv")
+df_weather = pd.read_csv("data/weather.csv")
 ```
 
 ```{python}
@@ -437,7 +435,7 @@ df_weather
 
 (
   df_weather
-  [["airport", "year", "month", "day",
+  [["origin", "year", "month", "day",
   "hour", "wind_gust", "precip", "pressure",
   "visib"
   ]]
@@ -453,7 +451,7 @@ df_weather
 
 (
   df_weather
-  .groupby(["airport", "year", "month", "day", "hour"])
+  .groupby(["origin", "year", "month", "day", "hour"])
   .size()
 )
 ```
@@ -468,7 +466,7 @@ Let's start by looking at flights out of JFK only, for simplicity.
 #| label: jfk-subset
 
 df_flights_jfk = df_flights[df_flights["origin"] == "JFK"]
-df_weather_jfk = df_weather[df_weather["airport"] == "JFK"]
+df_weather_jfk = df_weather[df_weather["origin"] == "JFK"]
 ```
 :::
 
@@ -530,7 +528,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 Hmmmm....where did all the data go?
@@ -569,7 +567,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Joining on Keys with Different Names
@@ -583,7 +581,7 @@ plot.draw(plot)
 -   For example, if we want to join the (entire) flights data to the weather
 data, we would need to include the *airport* in the key.
 
--   But the airport is called `origin` in `df_flights` and `airport` in `df_weather`.
+-   But the airport is called `origin` in `df_flights` and `origin` in `df_weather`.
 
 -   The `.merge()` function provides `left_on =` and `right_on =` arguments for
 specifying different column names in the **left** (first) and **right** 
@@ -600,7 +598,7 @@ specifying different column names in the **left** (first) and **right**
 df_flights_weather = df_flights.merge(
     df_weather,
     left_on = ("origin", "year", "month", "day", "hour"),
-    right_on = ("airport", "year", "month", "day", "hour")
+    right_on = ("origin", "year", "month", "day", "hour")
     )
 ```
 
@@ -619,7 +617,7 @@ up our plot.
 
 df_rain = (
   df_flights_weather
-  .groupby(["airport", "precip"])["dep_delay"]
+  .groupby(["origin", "precip"])["dep_delay"]
   .mean()
   .reset_index()
   )
@@ -635,7 +633,7 @@ df_rain = (
 
 (
   ggplot(data = df_rain, 
-         mapping = aes(x = "precip", y = "dep_delay", color = "airport")) +
+         mapping = aes(x = "precip", y = "dep_delay", color = "origin")) +
   geom_point() +
   geom_line() +
   labs(x = "Precipitation (feet)", 
@@ -652,7 +650,7 @@ df_rain = (
 
 plot = (
   ggplot(data = df_rain, 
-         mapping = aes(x = "precip", y = "dep_delay", color = "airport")) +
+         mapping = aes(x = "precip", y = "dep_delay", color = "origin")) +
   geom_point() +
   geom_line() + 
   labs(x = "Precipitation (feet)", 
@@ -661,7 +659,7 @@ plot = (
   theme(legend_position = "top")
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 # Joins with Missing Keys

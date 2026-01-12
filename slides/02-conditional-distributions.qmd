@@ -13,7 +13,6 @@ editor: source
 #| label: load-package-set-python-directory
 
 library(reticulate)
-use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
@@ -32,15 +31,19 @@ import pandas as pd
 #| code-line-numbers: false
 #| label: read-data
 
-df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+import pandas as pd
+
+df = pd.read_csv("data/titanic.csv")
 ```
+
+</br>
 
 ```{python}
 #| code-line-numbers: false
 #| label: changing-data-type
 
-df["pclass"] = df["pclass"].astype("category")
-df["survived"] = df["survived"].astype("category")
+df["Pclass"] = df["Pclass"].astype("category")
+df["Survived"] = df["Survived"].astype("category")
 ```
 
 ## Thinking About Variable Types
@@ -61,6 +64,7 @@ knitr::kable(head(py$df))
 ::: {.column width="50%"}
 ```{python}
 #| label: iloc
+#| code-line-numbers: false
 
 df.iloc[5,]
 ```
@@ -71,14 +75,14 @@ df.iloc[5,]
 #| code-line-numbers: false
 #| label: accessing-column
 
-df["name"].head()
+df["Name"]
 ```
 :::
 :::::
 
 ## Quick Summary of Quantitative Variables
 
-::: {.small}
+::: {.midi}
 ```{python}
 #| code-line-numbers: false
 #| label: summarizing-data
@@ -91,19 +95,21 @@ df.describe()
 
 The list of percents for each category is called the **distribution** of the variable.
 
+::: {.midi}
 ```{python}
 #| code-line-numbers: false
 #| label: counts-and-proportions-of-different-classes
 
-df["pclass"].value_counts()
-df["pclass"].value_counts(normalize = True)
+df["Pclass"].value_counts()
+df["Pclass"].value_counts(normalize = True)
 ```
+:::
 
 # Visualizing One Categorical Variable
 
 ## The Grammar of Graphics
 
-The *grammar of graphics* is a framework for creating data visualizations.
+The *Grammar of Graphics* (GoG) is a framework for creating data visualizations.
 
 ::: columns
 ::: {.column width="40%"}
@@ -122,78 +128,112 @@ A visualization consists of:
 :::
 
 ::: {.column width="55%"}
-![](images/02-ggplot-layers.png)
+![](images/02-ggplot-layers.png){fig-alt="A picture demonstrating the central idea of the grammar of graphics, that a visualization is comprised of layers. Each layer is displayed as a 3-D square in a different color with text written next to it. The first layer is the data, followed by the aesthetics, then the geometries, then facets, then statistics, then coordinates, then finally a theme."}
 :::
 :::
 
-## Example
+## Penguins!
 
-:::::: columns
-:::: {.column width="50%"}
-::: small
+```{python}
+#| label: load-penguins-data
+#| code-line-numbers: false
+
+from palmerpenguins import load_penguins
+
+penguins = load_penguins()
+```
+
+::: columns
+::: {.column width="40%"}
+![](images/02-adelie-penguin.jpg){fig-alt="A picture of an Adelie penguin. The penguin looks like a standard penguin, but has a very short bill."}
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+![](images/02-chinstrap-penguin.jpeg){fig-alt="A picture of a Chinstrap penguin. You can tell the penguin is a Chinstrap penguin because it has a small black line underneath its jawline that looks like a strap."}
+:::
+:::
+
+
+## Example `plotnine` Code
+
+::: midi
 ```{python}
 #| eval: false
 #| label: code-for-boxplot
 #| code-line-numbers: false
 
-import pandas as pd
-from palmerpenguins import load_penguins
-from plotnine import ggplot, geom_point, aes, geom_boxplot
-
-penguins = load_penguins()
+from plotnine import ggplot, geom_point, aes, geom_boxplot, labs
 
 (
-  ggplot(data = penguins, mapping = aes(x = "species", 
-                                        y = "bill_length_mm", 
-                                        fill = "sex")
+  ggplot(penguins, mapping = aes(x = "species", 
+                                 y = "bill_length_mm", 
+                                 fill = "sex")
         ) +
-  geom_boxplot()
+  geom_boxplot() + 
+  labs(x = "Species", 
+       y = "Bill Length (mm)", 
+       fill = "Penguin Sex")
 )
 ```
 :::
-::::
 
-::: {.column width="50%"}
+. . .
+
+::: {.callout-tip}
+# Take 90-seconds
+
+Draw what plot you think this code would produce.
+:::
+
+## Revealed!
+
+
 ```{python}
 #| echo: false
 #| label: boxplot
+#| fig-align: center
 
-import pandas as pd
-from palmerpenguins import load_penguins
-from plotnine import ggplot, geom_point, aes, geom_boxplot
-
-penguins = load_penguins()
+from plotnine import ggplot, geom_point, aes, geom_boxplot, labs
 
 plot = (
   ggplot(penguins, mapping = aes(x = "species", 
                                  y = "bill_length_mm", 
                                  fill = "sex")
         ) +
-  geom_boxplot()
+  geom_boxplot() + 
+  labs(x = "Species", 
+       y = "Bill Length (mm)", 
+       fill = "Penguin Sex")
 )
 
-plot.draw(plot)
+plot.show()
 ```
-:::
-::::::
 
-. . .
+## Aesthetics & Geometries
 
-:::::: columns
+::: columns
 ::: {.column width="50%"}
-**Aesthetics**
+The Grammar of Graphics framework map variables from the data to **aesthetics**
+in the plot. 
 
-Where are variables mapped to aspects of the plot?
+</br>
+
+**What aesthetics are variables mapped onto in the plot?**
 :::
 
-:::: {.column width="50%"}
-::: fragment
-**Geometry**
+::: {.column width="50%"}
+::: {.fragment}
+The GoG also uses different geometries to represent the data. 
 
-What shape(s) are used to represent the data / observations?
+</br>
+
+**What shape(s) are used to represent the data / observations in the plot?**
 :::
-::::
-::::::
+:::
+:::
 
 ## plotnine
 
@@ -206,43 +246,7 @@ The `plotnine` library implements the *grammar of graphics* in Python.
 
 ## Themes
 
-::::::: columns
-:::: {.column width="50%"}
-::: small
-```{python}
-#| code-fold: true
-#| code-line-numbers: false
-#| label: boxplot-no-theme-code
-#| eval: false
-
-(
-  ggplot(data = penguins, mapping = aes(x = "species", 
-                                        y = "bill_length_mm", 
-                                        fill = "sex")
-         ) + 
-  geom_boxplot()
-)
-```
-:::
-
-```{python}
-#| label: boxplot-no-theme-plot
-#| echo: false
-
-plot = (
-  ggplot(penguins, aes(x = "species", 
-                       y = "bill_length_mm", 
-                       fill = "sex")
-         ) + 
-  geom_boxplot()
-)
-
-plot.draw(plot)
-```
-::::
-
-:::: {.column width="50%"}
-::: small
+::: midi
 ```{python}
 #| code-fold: true
 #| code-line-numbers: false
@@ -257,6 +261,9 @@ from plotnine import theme_bw
                        fill = "sex")
                        ) + 
   geom_boxplot() + 
+   labs(x = "Species", 
+        y = "Bill Length (mm)", 
+        fill = "Penguin Sex") +
   theme_bw()
 )
 ```
@@ -265,6 +272,7 @@ from plotnine import theme_bw
 ```{python}
 #| label: boxplot-theme-classic-plot
 #| echo: false
+#| fig-align: center
 
 from plotnine import theme_bw
 
@@ -274,13 +282,15 @@ plot = (
                        fill = "sex")
                        ) + 
   geom_boxplot() + 
+   labs(x = "Species", 
+        y = "Bill Length (mm)", 
+        fill = "Penguin Sex") +
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
-::::
-:::::::
+
 
 ## Check-In
 
@@ -302,8 +312,9 @@ To visualize the **distribution** of a categorical variable, we should use a **b
 from plotnine import *
 
 (
-  ggplot(data = df, mapping = aes(x = "pclass")) + 
+  ggplot(data = df, mapping = aes(x = "Pclass")) + 
   geom_bar() + 
+  labs(x = "Class of Passenger on Titanic") +
   theme_bw()
 )
 ```
@@ -312,16 +323,18 @@ from plotnine import *
 ```{python}
 #| label: bar-plot
 #| echo: false
+#| fig-align: center
 
 from plotnine import *
 
 plot = (
-  ggplot(df, mapping = aes(x = "pclass")) + 
+  ggplot(data = df, mapping = aes(x = "Pclass")) + 
   geom_bar() + 
+  labs(x = "Class of Passenger on Titanic") +
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Calculating Percents
@@ -331,13 +344,19 @@ plot.draw(plot)
 #| label: df-of-proportions
 
 pclass_dist = (
-  df['pclass']
+  df['Pclass']
   .value_counts(normalize = True)
   .reset_index()
   )
   
 pclass_dist
 ```
+
+. . .
+
+::: {.callout-tip}
+# Why reset the index? What does that do?
+:::
 
 ## Percents on Plots
 
@@ -350,8 +369,9 @@ pclass_dist
 
 (
   ggplot(data = pclass_dist, 
-         mapping = aes(x = "pclass", y = "proportion")) + 
+         mapping = aes(x = "Pclass", y = "proportion")) + 
   geom_col() + ### notice this change to a column plot!
+  labs(x = "Class of Passenger on Titanic") +
   theme_bw()
 )
 ```
@@ -365,12 +385,13 @@ pclass_dist
 
 plot = (
   ggplot(data = pclass_dist, 
-         mapping = aes(x = "pclass", y = "proportion")) + 
+         mapping = aes(x = "Pclass", y = "proportion")) + 
   geom_col() + ### notice this change to a column plot!
+  labs(x = "Class of Passenger on Titanic") +
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 
@@ -379,9 +400,11 @@ plot.draw(plot)
 
 ::::: {.column width="40%"}
 :::: fragment
-::: small
+::: midi
 ::: callout-tip
-Technically, you could still use `geom_bar()`, but you would need to specify that you didn't want it to use `stat = "count"` (the default). You've already calculated the proportions, so you would use `geom_bar(stat = "identity")`.
+Technically, you could still use `geom_bar()`, but you would need to specify
+that you didn't want it to use `stat = "count"` (the default). You've already
+calculated the proportions, so you would use `geom_bar(stat = "identity")`.
 :::
 :::
 ::::
@@ -400,8 +423,10 @@ Technically, you could still use `geom_bar()`, but you would need to specify tha
 #| eval: false
 
 (
-  ggplot(data = df, mapping = aes(x = "pclass", fill = "sex")) + 
+  ggplot(data = df, mapping = aes(x = "Pclass", fill = "Sex")) + 
   geom_bar(position = "stack") + 
+  labs(x = "Class of Passenger on Titanic", 
+       fill = "Sex of Passenger") +
   theme_bw()
 )
 ```
@@ -413,12 +438,14 @@ Technically, you could still use `geom_bar()`, but you would need to specify tha
 #| fig-align: center
 
 plot = (
-  ggplot(data = df, mapping = aes(x = "pclass", fill = "sex")) + 
+  ggplot(data = df, mapping = aes(x = "Pclass", fill = "Sex")) + 
   geom_bar(position = "stack") + 
+  labs(x = "Class of Passenger on Titanic", 
+       fill = "Sex of Passenger") +
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Option 1: Stacked Bar Plot
@@ -462,8 +489,10 @@ plot.draw(plot)
 #| eval: false
 
 (
-  ggplot(data = df, mapping = aes(x = "pclass", fill = "sex")) + 
+  ggplot(data = df, mapping = aes(x = "Pclass", fill = "Sex")) + 
   geom_bar(position = "dodge") + 
+  labs(x = "Class of Passenger on Titanic", 
+       fill = "Sex of Passenger") +
   theme_bw()
 )
 ```
@@ -475,12 +504,14 @@ plot.draw(plot)
 #| fig-align: center
 
 plot = (
-  ggplot(data = df, mapping = aes(x = "pclass", fill = "sex")) + 
+  ggplot(data = df, mapping = aes(x = "Pclass", fill = "Sex")) + 
   geom_bar(position = "dodge") + 
+  labs(x = "Class of Passenger on Titanic", 
+       fill = "Sex of Passenger") +
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Option 2: Side-by-side Bar Plot
@@ -528,8 +559,10 @@ plot.draw(plot)
 #| eval: false
 
 (
-  ggplot(data = df, mapping = aes(x = "pclass", fill = "sex")) + 
-  geom_bar(position = "fill") + 
+  ggplot(data = df, mapping = aes(x = "Pclass", fill = "Sex")) + 
+  geom_bar(position = "fill") +
+  labs(x = "Class of Passenger on Titanic", 
+       fill = "Sex of Passenger") +
   theme_bw()
 )
 ```
@@ -541,12 +574,14 @@ plot.draw(plot)
 #| fig-align: center
 
 plot = (
-  ggplot(data = df, mapping = aes(x = "pclass", fill = "sex")) + 
+  ggplot(data = df, mapping = aes(x = "Pclass", fill = "Sex")) + 
   geom_bar(position = "fill") + 
+  labs(x = "Class of Passenger on Titanic", 
+       fill = "Sex of Passenger") +
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Option 3: Stacked Percentage Bar Plot
@@ -591,8 +626,6 @@ You can do this by:
 
 -   Finding and using a different `theme`
 
--   Using `labs()` to change the axis labels
-
 -   Trying different variables
 
 -   Trying a different *geometries*
@@ -620,8 +653,15 @@ You can do this by:
 #| code-line-numbers: false
 #| label: counts-for-two-categorical-variables
 
-df[["pclass", "sex"]].value_counts()
+df[["Pclass", "Sex"]].value_counts()
 ```
+
+. . .
+
+</br>
+</br>
+
+But this is a little hard to read...
 
 ## Two-way Table
 
@@ -631,15 +671,13 @@ df[["pclass", "sex"]].value_counts()
 #| label: pivoting-table-of-counts
 
 (
-  df[["pclass", "sex"]]
+  df[["Pclass", "Sex"]]
   .value_counts()
   .unstack()
   )
 ```
 
 </br>
-
-This is sometimes called a *cross-tab* or *cross-tabulation*.
 
 ::: callout-tip
 # Pivot Table
@@ -654,7 +692,7 @@ Essentially `unstack()` has pivoted the `sex` column from **long format** (where
 #| label: pivoted-table-of-percents
 
 (
-  df[["pclass", "sex"]]
+  df[["Pclass", "Sex"]]
   .value_counts(normalize = True)
   .unstack()
   )
@@ -666,18 +704,16 @@ All of these values should sum to 1, aka, 100%!
 
 ## Switching Variable Order
 
-**What cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if `"sex"` came first and `"pclass"` came second?**
+**What cross-tabulation would you expect if we changed the order of the variables? In other words, what would happen if `"Sex"` came first and `"Pclass"` came second?**
 
 . . .
-
-</br>
 
 ```{python}
 #| code-line-numbers: false
 #| label: changing-order-of-categorical-variables
 
 (
-  df[["sex", "pclass"]]
+  df[["Sex", "Pclass"]]
   .value_counts(normalize = True)
   .unstack()
   )
@@ -692,7 +728,7 @@ We call this the ***joint distribution*** of the two variables.
 #| label: joint-distribution-pclass-sex
 
 ( 
-  df[["pclass", "sex"]]
+  df[["Pclass", "Sex"]]
   .value_counts(normalize = True)
   .unstack()
   )
@@ -703,8 +739,6 @@ We call this the ***joint distribution*** of the two variables.
 # Add column totals
 #table.loc["Total"] = table.sum(axis = 0)
 ```
-
-</br>
 
 > Of all the passengers on the Titanic, 11% were female passengers riding in first class.
 
@@ -727,7 +761,7 @@ So:
 
 -   144 / 466 = 31% **of female identifying passengers** rode in first class
 
-Here we ***conditioned on*** the passenger being female, and then looked at the ***conditional distribution*** of `pclass`.
+Here we ***conditioned on*** the passenger being female, and then looked at the ***conditional distribution*** of `Pclass`.
 
 ## Conditional Distribution from Percentages
 
@@ -741,8 +775,6 @@ So:
 
 -   0.11 / 0.355 = 31% **of female identifying passengers** rode in first class
 
-Here we ***conditioned on*** the passenger being female, and then looked at the ***conditional distribution*** of `pclass`.
-
 ## Swapping Variables
 
 We know that:
@@ -755,7 +787,7 @@ So:
 
 -   144 / 323 = 44.6% **of first class passengers** identified as female
 
-Here we ***conditioned on*** the passenger being in first class, and then looked at the ***conditional distribution*** of `sex`.
+Here we ***conditioned on*** the passenger being in first class, and then looked at the ***conditional distribution*** of `Sex`.
 
 ## Which one to condition on?
 
@@ -786,7 +818,7 @@ When we study two variables, we call the individual one-variable distributions t
 #| label: marginal-class
 
 marginal_class = (
-  df['pclass']
+  df['Pclass']
   .value_counts(normalize = True)
   )
 ```
@@ -808,7 +840,7 @@ marginal_class
 #| label: marginal-sex
 
 marginal_sex = (
-  df['sex']
+  df['Sex']
   .value_counts(normalize = True)
   )
 ```
@@ -833,7 +865,7 @@ We need to divide the **joint distribution** (e.g. "11% of passengers were first
 #| label: joint-to-marginal-sex
 
 joint_class_sex = (
-  df[["pclass", "sex"]]
+  df[["Pclass", "Sex"]]
   .value_counts(normalize = True)
   .unstack()
   )
@@ -903,7 +935,7 @@ joint_class_sex.divide(marginal_sex)
 #| label: joint-conditional-on-class
 
 joint_class_sex = (
-  df[["sex", "pclass"]]
+  df[["Sex", "Pclass"]]
   .value_counts(normalize = True)
   .unstack()
   )
@@ -918,7 +950,7 @@ joint_class_sex.divide(marginal_class)
 #| label: joint-conditional-wrong-division
 
 joint_class_sex = (
-  df[["pclass", "sex"]]
+  df[["Pclass", "Sex"]]
   .value_counts(normalize = True)
   .unstack()
   )
@@ -926,7 +958,7 @@ joint_class_sex = (
 joint_class_sex.divide(marginal_class)
 ```
 
-## Which plot better answers the question:
+## Which plot better answers:
 
 > "Did women tend to ride in first class more than men?"
 
@@ -939,8 +971,10 @@ joint_class_sex.divide(marginal_class)
 #| eval: false
 
 (
-  ggplot(df, aes(x = "pclass", fill = "sex")) + 
+  ggplot(df, aes(x = "Pclass", fill = "Sex")) + 
   geom_bar(position = "fill") + 
+  labs(x = "Class of Passenger on Titanic", 
+       fill = "Sex of Passenger") +
   theme_bw()
 )
 ```
@@ -950,12 +984,14 @@ joint_class_sex.divide(marginal_class)
 #| echo: false
 
 plot = (
-  ggplot(df, aes(x = "pclass", fill = "sex")) + 
+  ggplot(df, aes(x = "Pclass", fill = "Sex")) + 
   geom_bar(position = "fill") + 
+  labs(x = "Class of Passenger on Titanic", 
+       fill = "Sex of Passenger") +
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 
@@ -967,8 +1003,10 @@ plot.draw(plot)
 #| eval: false
 
 (
-  ggplot(df, aes(x = "sex", fill = "pclass)) + 
+  ggplot(df, aes(x = "Sex", fill = "Pclass)) + 
   geom_bar(position = "fill") + 
+  labs(fill = "Class of Passenger on Titanic", 
+       x = "Sex of Passenger") +
   theme_bw()
 )
 ```
@@ -978,12 +1016,14 @@ plot.draw(plot)
 #| echo: false
 
 plot = (
-  ggplot(df, aes(x = "sex", fill = "pclass")) + 
+  ggplot(df, aes(x = "Sex", fill = "Pclass")) + 
   geom_bar(position = "fill") + 
+  labs(fill = "Class of Passenger on Titanic", 
+       x = "Sex of Passenger") +
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 :::::

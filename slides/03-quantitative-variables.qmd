@@ -13,7 +13,6 @@ execute:
 #| label: load-python
 
 library(reticulate)
-use_python("/usr/local/bin/python3")
 ```
 
 ```{python}
@@ -96,7 +95,7 @@ post questions on Discord about the lab, I will be displeased.
 #| code-line-numbers: false
 #| label: titanic-data-cleaning
 
-df = pd.read_csv("https://datasci112.stanford.edu/data/titanic.csv")
+df = pd.read_csv("data/titanic.csv")
 
 df["pclass"] = df["pclass"].astype("category")
 df["survived"] = df["survived"].astype("category")
@@ -182,7 +181,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 # Quantitative Variables
@@ -258,7 +257,7 @@ plot = (
   theme_bw() 
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Option 2: Treat it as a quantitative variable! 
@@ -300,7 +299,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 # Adding Style to Your Histogram
@@ -346,7 +345,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 :::
@@ -387,7 +386,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 :::
 :::
@@ -435,7 +434,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 
@@ -484,7 +483,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 ## Distributions
@@ -574,7 +573,7 @@ plot = (
   theme_bw()
 )
 
-plot.draw(plot)
+plot.show()
 ```
 
 . . .
@@ -806,7 +805,7 @@ plot = (
        title = "Changes in Sum of Squared Error Based on Choice of Center")
   )
   
-plot.draw(plot)
+plot.show()
 ```
 
 

@@ -3,7 +3,6 @@ title: "DATA 301: Introduction to Data Science"
 subtitle: "Winter 2026"
 format: 
     html:
-      self-contained: true
       toc: true
       toc-location: left
       toc-title: "Contents"
@@ -58,10 +57,10 @@ library(RColorBrewer)
 
 ## Student Hours
 
-| Day                   | Time                            |
-|-----------------------|---------------------------------|
-| Mondays, in-person    | 1:30 - 3:00pm (drop-in)           |
-| Wednesdays, in-person | 1:30 - 3:00pm (drop-in)        |
+| Day                   | Time                     |
+|-----------------------|--------------------------|
+| Mondays, in-person    | 12:30 - 2:00pm (drop-in) |
+| Wednesdays, in-person | 12:30 - 2:00pm (drop-in) |
 
 Student hours held in-person on Wednesday afternoons. You can find me in my office, but if there's a lot of people we will likely move to one of the conference rooms in the Statistics Department (I'll leave a note on my door!).
 :::::::
@@ -357,7 +356,7 @@ This schedule is tentative and subject to change.
 class_cal
 ```
 
-```{r schedule}
+```{r}
 #| echo: false
 #| eval: true
 #| fig-pos: 'h'
@@ -444,7 +443,7 @@ I am effectively allowing you to miss / reschedule up to three labs out of 10. I
 
 ## Lab Assignments (25%)
 
-Each week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are **due every Saturday at 11:59pm**. See the Late Work section below for information on extensions or deductions for late submissions.
+Each week, you will be assigned longer homeworks, which will ask you to analyze a real-world data scenario. These assignments are **due every Monday at 5pm**. See the Late Work section below for information on extensions or deductions for late submissions.
 
 ## Exams (15% each)
 
@@ -468,11 +467,11 @@ If you email me to ask a question that should be public, I will likely ask you t
 
 ## Late Work
 
-Late assignments will automatically be docked -10% per day, and will be accepted up to 5-days late. 
+Late assignments will automatically be docked -10% per day, and will be accepted up to 5-days late.
 
 ### Deadline Extensions
 
-In case of emergency, you have two deadline "extensions" to use throughout the quarter on any Lab Assignment. This will grant you a 72-hour (3-day) extension.
+In case of emergency, you have two deadline "extensions" to use throughout the quarter on any Lab Assignment. This will grant you a 48-hour (2-day) extension.
 
 The rules for these are as follows:
 
@@ -527,33 +526,30 @@ However, from an academic integrity perspective, treat these generative AI resou
 ::: callout-important
 To assist you in getting the most out of your conversations with Chat, I have the following guidelines:
 
-- Do not copy and paste any prompts from my assignments
-- Do not ask Chat to solve the problem for you
-- Tell Chat what you are trying to do and what tools / approaches you've tried
-- Ask for suggestions on what approaches you might want to take next
-- Probe why Chat is suggesting certain methods / tools instead of others
+-   Do not copy and paste any prompts from my assignments
+-   Do not ask Chat to solve the problem for you
+-   Tell Chat what you are trying to do and what tools / approaches you've tried
+-   Ask for suggestions on what approaches you might want to take next
+-   Probe why Chat is suggesting certain methods / tools instead of others
 :::
-
 
 ### Integrity Violations
 
-If you accidentally forget a small citation, or go a little overboard in how much you "borrow" from StackOverflow, you'll get a warning. 
+If you accidentally forget a small citation, or go a little overboard in how much you "borrow" from StackOverflow, you'll get a warning.
 
 Following your first warning, if you forget to cite a resource you used in your analysis, you will receive a 0 on that assignment and I will file a academic integrity report with the Office of Student Rights and responsibilities.
 
-The third instance of plagiarism will result in a failing course grade. 
+The third instance of plagiarism will result in a failing course grade.
 
 ::: callout-warning
-Be careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have **both** been academically dishonest.  
+Be careful about being on the giving end as well as the taking end. For example: If you send your finished assignment to a friend, and that friend copies it, you have **both** been academically dishonest.
 :::
 
 ### Intellectual property
 
 The materials for this course are legally the professor's intellectual property.
 
-Most class materials are publicly shared, and you are welcome to direct others 
-to this resource at any time. You are also welcome to publicly share any or all
-of your work on the class project.
+Most class materials are publicly shared, and you are welcome to direct others to this resource at any time. You are also welcome to publicly share any or all of your work on the class project.
 
 Non-public class materials---most importantly, assignment solutions and any exam materials---may never be shared.
 
