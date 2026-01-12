@@ -433,15 +433,6 @@ Use a **grid search** and the **accuracy** score to find the *best* k-value for 
 
 ## Case Study: Credit Card Fraud
 
-```{python}
-#| echo: false
-#| eval: false
-#| label: other-fraud-datasets
-test_transaction = pd.read_csv('/kaggle/input/ieee-fraud-detection/test_transaction.csv')
-train_identity = pd.read_csv('/kaggle/input/ieee-fraud-detection/train_identity.csv')
-test_identity = pd.read_csv('/kaggle/input/ieee-fraud-detection/test_identity.csv')
-```
-
 ::: {.midi}
 We have a data set of credit card transactions from Vesta.
 
@@ -449,7 +440,7 @@ We have a data set of credit card transactions from Vesta.
 #| code-line-numbers: false
 #| label: credit-card-data
 
-df_fraud = pd.read_csv('data/train_transaction.csv')
+df_fraud = pd.read_csv('data/fraud.csv')
 
 ```
 :::

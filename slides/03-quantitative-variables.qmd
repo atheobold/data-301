@@ -57,11 +57,11 @@ post questions on Discord about the lab, I will be displeased.
 
 ::: {.small}
 ::: {.incremental}
-- Labs are due the day after lab (like lecture quizzes / activities). 
+- Labs will be due the day after lab. 
     * Tuesday's lab is due on Wednesday at 11:59pm.
     * Thursday's lab is due on Friday at 11:59pm.
     
-- End of week assignments are due on Sundays at 11:59pm (not Saturdays). 
+- End of week assignments are due on Mondays at 5pm. 
 :::
 :::
 :::
@@ -95,10 +95,10 @@ post questions on Discord about the lab, I will be displeased.
 #| code-line-numbers: false
 #| label: titanic-data-cleaning
 
-df = pd.read_csv("data/titanic.csv")
+titanic = pd.read_csv("data/titanic.csv")
 
-df["pclass"] = df["pclass"].astype("category")
-df["survived"] = df["survived"].astype("category")
+titanic["Pclass"] = titanic["Pclass"].astype("category")
+titanic["Survived"] = titanic["Survived"].astype("category")
 ```
 
 ## Marginal Distributions
@@ -111,7 +111,7 @@ If I choose a passenger **at random**, what is the **probability** they rode in
 #| label: marginal-first-class
 
 marginal_class = (
-  df['pclass']
+  titanic['Pclass']
   .value_counts(normalize = True)
   )
 marginal_class
@@ -127,7 +127,7 @@ woman who rode in first class?
 #| label: joint-woman-first-class
 
 joint_class_sex = (
-  df[["pclass", "sex"]]
+  titanic[["Pclass", "Sex"]]
   .value_counts(normalize=True)
   .unstack()
   )
@@ -145,7 +145,7 @@ class?
 #| label: marginal-woman-first-class
 
 marginal_sex = (
-  df['sex']
+  titanic['Sex']
   .value_counts(normalize = True)
   )
   
@@ -162,7 +162,7 @@ joint_class_sex.divide(marginal_sex)
 #| eval: false
 
 (
-  ggplot(df, aes(x = "sex", fill = "pclass")) + 
+  ggplot(data = titanic, aes(x = "Sex", fill = "Pclass")) + 
   geom_bar(position = "fill") + 
   theme_bw()
 )
@@ -176,7 +176,7 @@ joint_class_sex.divide(marginal_sex)
 #| fig-align: center
 
 plot = (
-  ggplot(df, aes(x = "pclass", fill = "sex")) + 
+  ggplot(data = titanic, mapping = aes(x = "Pclass", fill = "Sex")) + 
   geom_bar(position = "fill") + 
   theme_bw()
 )
@@ -186,21 +186,16 @@ plot.show()
 
 # Quantitative Variables
 
-## Quantitative Variables
+. . .
 
-We have analyzed a quantitative variable already. Where?
+We have already analyzed a quantitative variable in the COVID data!
 
-In the Colombia COVID data!
-
-::: {.small}
 ```{python}
-#| code-line-numbers: false
 #| label: read-in-covid-data
+#| echo: false
 
 df_CO = pd.read_csv("http://dlsun.github.io/pods/data/covid/colombia_2020-05-28.csv")
-df_CO
 ```
-:::
 
 # Visualizing One Quantitative Variable
 
@@ -233,9 +228,13 @@ Then, we could treat `age` as categorical and make a **barplot**:
 #| eval: false
 
 (
-  ggplot(df_CO, aes(x = "age")) + 
+  ggplot(data = df_CO, mapping = aes(x = "age")) + 
   geom_bar() + 
-  theme_bw()
+  labs(x = "", 
+       y = "", 
+       title = "Age Demographics of Columbia's Population (2020)"
+       ) +
+  theme_bw() 
 )
 ```
 :::
@@ -248,7 +247,7 @@ Then, we could treat `age` as categorical and make a **barplot**:
 #| fig-align: center
 
 plot = (
-  ggplot(df_CO, aes(x = "age")) + 
+  ggplot(data = df_CO, mapping = aes(x = "age")) + 
   geom_bar() + 
   labs(x = "", 
        y = "", 
@@ -259,6 +258,10 @@ plot = (
 
 plot.show()
 ```
+
+. . .
+
+But this process seems a bit odd...
 
 ## Option 2: Treat it as a quantitative variable! 
 
@@ -272,7 +275,7 @@ A **histogram** uses *equal sized bins* to summarize a *quantitative variable*.
 #| code-fold: true
 
 (
-  ggplot(df_CO, aes(x = "Edad")) + 
+  ggplot(data = df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram() + 
   labs(x = "", 
        y = "", 
@@ -290,7 +293,7 @@ A **histogram** uses *equal sized bins* to summarize a *quantitative variable*.
 #| fig-align: center
 
 plot = (
-  ggplot(df_CO, aes(x = "Edad")) + 
+  ggplot(data =df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram() + 
   labs(x = "", 
        y = "", 
@@ -316,9 +319,10 @@ To tweak your histogram, you can change the **binwith**:
 #| code-line-numbers: false
 #| label: histogram-binwidth-1-year-code
 #| eval: false
+#| code-fold: true
 
 (
-  ggplot(df_CO, aes(x = "Edad")) + 
+  ggplot(data =df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(binwidth = 1) + 
   labs(x = "", 
        y = "", 
@@ -336,7 +340,7 @@ To tweak your histogram, you can change the **binwith**:
 #| echo: false
 
 plot = (
-  ggplot(df_CO, aes(x = "Edad")) + 
+  ggplot(data =df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(binwidth = 1) + 
   labs(x = "", 
        y = "", 
@@ -357,9 +361,10 @@ plot.show()
 #| code-line-numbers: false
 #| label: histogram-binwidth-10-years-code
 #| eval: false
+#| code-fold: true
 
 (
-  ggplot(df_CO, aes(x = "Edad")) + 
+  ggplot(data =df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(binwidth = 10) + 
   labs(x = "", 
        y = "", 
@@ -377,7 +382,7 @@ plot.show()
 #| echo: false
 
 plot = (
-  ggplot(df_CO, aes(x = "Edad")) + 
+  ggplot(data =df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(binwidth = 10) + 
   labs(x = "", 
        y = "", 
@@ -402,10 +407,10 @@ plot.show()
 #| eval: false
 
 (
-  ggplot(df_CO, aes(x = "Edad")) + 
+  ggplot(data =df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(binwidth = 10, 
-                 color = "white", 
-                 fill = "gray") + 
+                 color = "orange", 
+                 fill = "darkgray") + 
   labs(x = "", 
        y = "", 
        title = "Age Demographics of Columbia's Population (2020)"
@@ -423,10 +428,10 @@ plot.show()
 #| fig-align: center
 
 plot = (
-  ggplot(df_CO, aes(x = "Edad")) + 
+  ggplot(data =df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(binwidth = 10, 
-                 color = "white", 
-                 fill = "gray") + 
+                 color = "orange", 
+                 fill = "darkgray") + 
   labs(x = "", 
        y = "", 
        title = "Age Demographics of Columbia's Population (2020)"
@@ -449,11 +454,11 @@ plot.show()
 #| echo: true
 
 (
-  ggplot(df_CO, mapping = aes(x = "Edad")) + 
+  ggplot(data =df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(mapping = aes(y = '..density..'), 
                  binwidth = 10, 
-                 color = "white", 
-                 fill = "gray") + 
+                 color = "orange", 
+                 fill = "darkgray") + 
   labs(x = "", 
        y = "", 
        title = "Age Demographics of Columbia's Population (2020)"
@@ -471,11 +476,11 @@ plot.show()
 #| eval: true
 
 plot = (
-  ggplot(df_CO, mapping = aes(x = "Edad")) + 
+  ggplot(data =df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(mapping = aes(y = '..density..'), 
                  binwidth = 10, 
-                 color = "white", 
-                 fill = "gray") + 
+                 color = "orange", 
+                 fill = "darkgray") + 
   labs(x = "", 
        y = "", 
        title = "Age Demographics of Columbia's Population (2020)"
@@ -546,7 +551,9 @@ About what percent of people in this dataset are below 18?
 (
   ggplot(data = df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(mapping = aes(y = '..density..'), 
-                 bins = 10) + 
+                 bins = 10, 
+                 color = "orange", 
+                 fill = "darkgray") + 
   geom_vline(xintercept = 18, 
              color = "red", 
              size = 2, 
@@ -565,7 +572,9 @@ About what percent of people in this dataset are below 18?
 plot = (
   ggplot(data = df_CO, mapping = aes(x = "Edad")) + 
   geom_histogram(mapping = aes(y = '..density..'), 
-                 bins = 10) + 
+                 bins = 10, 
+                 color = "orange", 
+                 fill = "darkgray") + 
   geom_vline(xintercept = 18, 
              color = "red", 
              size = 2, 
@@ -651,6 +660,8 @@ sum_age / n
 
 . . .
 
+</br>
+
 Short version: use the built-in `.mean()` function!
 
 ```{python}
@@ -676,6 +687,11 @@ Let's investigate this.
 -   Calculate the *mean* price
 
 -   See how many people paid *more than mean price*
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 5)
+```
 
 ## What happened
 
@@ -777,7 +793,8 @@ res_df = pd.DataFrame({"center": cs, "sq_error": sum_squared_distances})
   geom_line() +
   labs(x = "Mean", 
        y = "", 
-       title = "Changes in Sum of Squared Error Based on Choice of Center")
+       title = "Changes in Sum of Squared Error Based on Choice of Center") +
+  theme_bw()
   )
 ```
 :::
@@ -802,7 +819,8 @@ plot = (
   geom_line() +
   labs(x = "Mean", 
        y = "", 
-       title = "Changes in Sum of Squared Error Based on Choice of Center")
+       title = "Changes in Sum of Squared Error Based on Choice of Center") +
+  theme_bw()
   )
   
 plot.show()
@@ -893,6 +911,8 @@ Similar to calculating the mean, we could find the variance manually:
 ```
 
 . . .
+
+</br>
 
 ...or using a built-in Python function.
 

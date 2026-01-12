@@ -2882,7 +2882,7 @@
     "href": "slides/03-quantitative-variables.html#changes-from-week-1",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Changes from Week 1",
-    "text": "Changes from Week 1\n\nWeek 1 taught me that I need to make some adjustments!\n\n\n\n\n\nLab Attendance\n\n\nIs not required. However, if you do not attend lab and come to student hours or post questions on Discord about the lab, I will be displeased.\n\n\n\n\n\n\n\nDeadlines\n\n\n\nLabs are due the day after lab (like lecture quizzes / activities).\n\nTuesday’s lab is due on Wednesday at 11:59pm.\nThursday’s lab is due on Friday at 11:59pm.\n\nEnd of week assignments are due on Sundays at 11:59pm (not Saturdays).\n\n\n\n\n\n\n\n\nLab Submissions\n\n\n\nPDFs will be required for every Collab submission.\n\nYour code cannot be more than 80 characters—where the grey line appears in Collab.\nUse returns!",
+    "text": "Changes from Week 1\n\nWeek 1 taught me that I need to make some adjustments!\n\n\n\n\n\nLab Attendance\n\n\nIs not required. However, if you do not attend lab and come to student hours or post questions on Discord about the lab, I will be displeased.\n\n\n\n\n\n\n\nDeadlines\n\n\n\nLabs will be due the day after lab.\n\nTuesday’s lab is due on Wednesday at 11:59pm.\nThursday’s lab is due on Friday at 11:59pm.\n\nEnd of week assignments are due on Mondays at 5pm.\n\n\n\n\n\n\n\n\nLab Submissions\n\n\n\nPDFs will be required for every Collab submission.\n\nYour code cannot be more than 80 characters—where the grey line appears in Collab.\nUse returns!",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -2893,7 +2893,7 @@
     "href": "slides/03-quantitative-variables.html#getting-prepping-and-summarizing-data",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Getting, prepping, and summarizing data",
-    "text": "Getting, prepping, and summarizing data\n\ndf = pd.read_csv(\"data/titanic.csv\")\n\ndf[\"pclass\"] = df[\"pclass\"].astype(\"category\")\ndf[\"survived\"] = df[\"survived\"].astype(\"category\")",
+    "text": "Getting, prepping, and summarizing data\n\ntitanic = pd.read_csv(\"data/titanic.csv\")\n\ntitanic[\"Pclass\"] = titanic[\"Pclass\"].astype(\"category\")\ntitanic[\"Survived\"] = titanic[\"Survived\"].astype(\"category\")",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -2904,7 +2904,7 @@
     "href": "slides/03-quantitative-variables.html#marginal-distributions",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Marginal Distributions",
-    "text": "Marginal Distributions\nIf I choose a passenger at random, what is the probability they rode in 1st class?\n\nmarginal_class = (\n  df['pclass']\n  .value_counts(normalize = True)\n  )\nmarginal_class\n\npclass\n3    0.541635\n1    0.246753\n2    0.211612\nName: proportion, dtype: float64",
+    "text": "Marginal Distributions\nIf I choose a passenger at random, what is the probability they rode in 1st class?\n\nmarginal_class = (\n  titanic['Pclass']\n  .value_counts(normalize = True)\n  )\nmarginal_class\n\nPclass\n3    0.551066\n1    0.242424\n2    0.206510\nName: proportion, dtype: float64",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -2915,7 +2915,7 @@
     "href": "slides/03-quantitative-variables.html#joint-distributions",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Joint Distributions",
-    "text": "Joint Distributions\nIf I choose a passenger at random, what is the probability they are a woman who rode in first class?\n\njoint_class_sex = (\n  df[[\"pclass\", \"sex\"]]\n  .value_counts(normalize=True)\n  .unstack()\n  )\n  \njoint_class_sex\n\nsex       female      male\npclass                    \n1       0.110008  0.136746\n2       0.080978  0.130634\n3       0.165011  0.376623",
+    "text": "Joint Distributions\nIf I choose a passenger at random, what is the probability they are a woman who rode in first class?\n\njoint_class_sex = (\n  titanic[[\"Pclass\", \"Sex\"]]\n  .value_counts(normalize=True)\n  .unstack()\n  )\n  \njoint_class_sex\n\nSex       female      male\nPclass                    \n1       0.105499  0.136925\n2       0.085297  0.121212\n3       0.161616  0.389450",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -2926,7 +2926,7 @@
     "href": "slides/03-quantitative-variables.html#conditional-distributions",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Conditional Distributions",
-    "text": "Conditional Distributions\nIf I choose a woman at random, what is the probability they rode in first class?\n\nmarginal_sex = (\n  df['sex']\n  .value_counts(normalize = True)\n  )\n  \njoint_class_sex.divide(marginal_sex)\n\nsex       female      male\npclass                    \n1       0.309013  0.212337\n2       0.227468  0.202847\n3       0.463519  0.584816",
+    "text": "Conditional Distributions\nIf I choose a woman at random, what is the probability they rode in first class?\n\nmarginal_sex = (\n  titanic['Sex']\n  .value_counts(normalize = True)\n  )\n  \njoint_class_sex.divide(marginal_sex)\n\nSex       female      male\nPclass                    \n1       0.299363  0.211438\n2       0.242038  0.187175\n3       0.458599  0.601386",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -2937,7 +2937,7 @@
     "href": "slides/03-quantitative-variables.html#visualizing-with-plotnine",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Visualizing with plotnine",
-    "text": "Visualizing with plotnine\n\n\n(\n  ggplot(df, aes(x = \"sex\", fill = \"pclass\")) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)",
+    "text": "Visualizing with plotnine\n\n\n(\n  ggplot(data = titanic, aes(x = \"Sex\", fill = \"Pclass\")) + \n  geom_bar(position = \"fill\") + \n  theme_bw()\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -2970,7 +2970,7 @@
     "href": "slides/03-quantitative-variables.html#option-1-then-make-a-barplot",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Option 1: Then make a barplot",
-    "text": "Option 1: Then make a barplot\nThen, we could treat age as categorical and make a barplot:\n\n\n\nCode\n(\n  ggplot(df_CO, aes(x = \"age\")) + \n  geom_bar() + \n  theme_bw()\n)",
+    "text": "Option 1: Then make a barplot\nThen, we could treat age as categorical and make a barplot:\n\n\n\nCode\n(\n  ggplot(data = df_CO, mapping = aes(x = \"age\")) + \n  geom_bar() + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw() \n)\n\n\n\n\n\nBut this process seems a bit odd…",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -2981,7 +2981,7 @@
     "href": "slides/03-quantitative-variables.html#option-2-treat-it-as-a-quantitative-variable",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Option 2: Treat it as a quantitative variable!",
-    "text": "Option 2: Treat it as a quantitative variable!\nA histogram uses equal sized bins to summarize a quantitative variable.\n\n\n\nCode\n(\n  ggplot(df_CO, aes(x = \"Edad\")) + \n  geom_histogram() + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw()\n)",
+    "text": "Option 2: Treat it as a quantitative variable!\nA histogram uses equal sized bins to summarize a quantitative variable.\n\n\n\nCode\n(\n  ggplot(data = df_CO, mapping = aes(x = \"Edad\")) + \n  geom_histogram() + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw()\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -2992,7 +2992,7 @@
     "href": "slides/03-quantitative-variables.html#changing-binwidth",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Changing Binwidth",
-    "text": "Changing Binwidth\nTo tweak your histogram, you can change the binwith:\n\n\n\n\n\n(\n  ggplot(df_CO, aes(x = \"Edad\")) + \n  geom_histogram(binwidth = 1) + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(\n  ggplot(df_CO, aes(x = \"Edad\")) + \n  geom_histogram(binwidth = 10) + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw()\n)",
+    "text": "Changing Binwidth\nTo tweak your histogram, you can change the binwith:\n\n\n\n\n\n\nCode\n(\n  ggplot(data =df_CO, mapping = aes(x = \"Edad\")) + \n  geom_histogram(binwidth = 1) + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n(\n  ggplot(data =df_CO, mapping = aes(x = \"Edad\")) + \n  geom_histogram(binwidth = 10) + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw()\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -3003,7 +3003,7 @@
     "href": "slides/03-quantitative-variables.html#adding-color-outline",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Adding Color & Outline",
-    "text": "Adding Color & Outline\n\n\n\nCode\n(\n  ggplot(df_CO, aes(x = \"Edad\")) + \n  geom_histogram(binwidth = 10, \n                 color = \"white\", \n                 fill = \"gray\") + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw()\n)",
+    "text": "Adding Color & Outline\n\n\n\nCode\n(\n  ggplot(data =df_CO, mapping = aes(x = \"Edad\")) + \n  geom_histogram(binwidth = 10, \n                 color = \"orange\", \n                 fill = \"darkgray\") + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw()\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -3014,7 +3014,7 @@
     "href": "slides/03-quantitative-variables.html#using-percents-instead-of-counts",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Using Percents Instead of Counts",
-    "text": "Using Percents Instead of Counts\n\n\n\nCode\n(\n  ggplot(df_CO, mapping = aes(x = \"Edad\")) + \n  geom_histogram(mapping = aes(y = '..density..'), \n                 binwidth = 10, \n                 color = \"white\", \n                 fill = \"gray\") + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw()\n)",
+    "text": "Using Percents Instead of Counts\n\n\n\nCode\n(\n  ggplot(data =df_CO, mapping = aes(x = \"Edad\")) + \n  geom_histogram(mapping = aes(y = '..density..'), \n                 binwidth = 10, \n                 color = \"orange\", \n                 fill = \"darkgray\") + \n  labs(x = \"\", \n       y = \"\", \n       title = \"Age Demographics of Columbia's Population (2020)\"\n       ) +\n  theme_bw()\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -3047,7 +3047,7 @@
     "href": "slides/03-quantitative-variables.html#densities-1",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Densities",
-    "text": "Densities\nAbout what percent of people in this dataset are below 18?\n\n\n\nCode\n(\n  ggplot(data = df_CO, mapping = aes(x = \"Edad\")) + \n  geom_histogram(mapping = aes(y = '..density..'), \n                 bins = 10) + \n  geom_vline(xintercept = 18, \n             color = \"red\", \n             size = 2, \n             linetype = \"dashed\") +\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\nHow would you code it?",
+    "text": "Densities\nAbout what percent of people in this dataset are below 18?\n\n\n\nCode\n(\n  ggplot(data = df_CO, mapping = aes(x = \"Edad\")) + \n  geom_histogram(mapping = aes(y = '..density..'), \n                 bins = 10, \n                 color = \"orange\", \n                 fill = \"darkgray\") + \n  geom_vline(xintercept = 18, \n             color = \"red\", \n             size = 2, \n             linetype = \"dashed\") +\n  theme_bw()\n)\n\n\n\n\n\n\n\n\n\n\n\nHow would you code it?",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -3080,7 +3080,7 @@
     "href": "slides/03-quantitative-variables.html#means-in-python",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Means in Python",
-    "text": "Means in Python\nLong version: find the sum and the number of observations\n\nsum_age = df_CO[\"Edad\"].sum()\nn = len(df_CO)\n\nsum_age / n\n\nnp.float64(39.04742568792872)\n\n\n\nShort version: use the built-in .mean() function!\n\ndf_CO[\"Edad\"].mean()\n\nnp.float64(39.04742568792872)",
+    "text": "Means in Python\nLong version: find the sum and the number of observations\n\nsum_age = df_CO[\"Edad\"].sum()\nn = len(df_CO)\n\nsum_age / n\n\nnp.float64(39.04742568792872)\n\n\n\n\nShort version: use the built-in .mean() function!\n\ndf_CO[\"Edad\"].mean()\n\nnp.float64(39.04742568792872)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -3124,7 +3124,7 @@
     "href": "slides/03-quantitative-variables.html#minimizing-squared-error",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Minimizing squared error",
-    "text": "Minimizing squared error\n\n\n\nCode\ncs = range(1, 60)\nsum_squared_distances = []\n\nfor c in cs:\n  (\n    sum_squared_distances\n    .append(\n      (\n        (df_CO[\"Edad\"] - c) ** 2\n      )\n      .sum()\n      )\n\nres_df = pd.DataFrame({\"center\": cs, \"sq_error\": sum_squared_distances})\n\n(\n  ggplot(res_df, aes(x = 'center', y = 'sq_error')) + \n  geom_line() +\n  labs(x = \"Mean\", \n       y = \"\", \n       title = \"Changes in Sum of Squared Error Based on Choice of Center\")\n  )",
+    "text": "Minimizing squared error\n\n\n\nCode\ncs = range(1, 60)\nsum_squared_distances = []\n\nfor c in cs:\n  (\n    sum_squared_distances\n    .append(\n      (\n        (df_CO[\"Edad\"] - c) ** 2\n      )\n      .sum()\n      )\n\nres_df = pd.DataFrame({\"center\": cs, \"sq_error\": sum_squared_distances})\n\n(\n  ggplot(res_df, aes(x = 'center', y = 'sq_error')) + \n  geom_line() +\n  labs(x = \"Mean\", \n       y = \"\", \n       title = \"Changes in Sum of Squared Error Based on Choice of Center\") +\n  theme_bw()\n  )",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"
@@ -3168,7 +3168,7 @@
     "href": "slides/03-quantitative-variables.html#variance-in-python",
     "title": "Visualizing and Summarizing Quantitative Variables",
     "section": "Variance in Python",
-    "text": "Variance in Python\nSimilar to calculating the mean, we could find the variance manually:\n\n(\n  ((df_CO[\"Edad\"] - df_CO[\"Edad\"].mean()) ** 2)\n  .sum() / (len(df_CO) - 1)\n  )\n\nnp.float64(348.0870469898451)\n\n\n\n…or using a built-in Python function.\n\ndf_CO[\"Edad\"].var()\n\nnp.float64(348.0870469898451)",
+    "text": "Variance in Python\nSimilar to calculating the mean, we could find the variance manually:\n\n(\n  ((df_CO[\"Edad\"] - df_CO[\"Edad\"].mean()) ** 2)\n  .sum() / (len(df_CO) - 1)\n  )\n\nnp.float64(348.0870469898451)\n\n\n\n\n…or using a built-in Python function.\n\ndf_CO[\"Edad\"].var()\n\nnp.float64(348.0870469898451)",
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 1 - Visualizing and Summarizing Quantitative Variables"

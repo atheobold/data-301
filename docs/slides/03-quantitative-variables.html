@@ -186,6 +186,8 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../site_libs/countdown-0.6.0/countdown.css" rel="stylesheet">
+  <script src="../site_libs/countdown-0.6.0/countdown.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -227,12 +229,12 @@
 </div>
 <div class="small">
 <ul>
-<li class="fragment">Labs are due the day after lab (like lecture quizzes / activities).
+<li class="fragment">Labs will be due the day after lab.
 <ul>
 <li class="fragment">Tuesday’s lab is due on Wednesday at 11:59pm.</li>
 <li class="fragment">Thursday’s lab is due on Friday at 11:59pm.</li>
 </ul></li>
-<li class="fragment">End of week assignments are due on Sundays at 11:59pm (not Saturdays).</li>
+<li class="fragment">End of week assignments are due on Mondays at 5pm.</li>
 </ul>
 </div>
 </div>
@@ -263,10 +265,10 @@
 <section id="getting-prepping-and-summarizing-data" class="slide level2">
 <h2>Getting, prepping, and summarizing data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/titanic.csv"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>titanic <span class="op">=</span> pd.read_csv(<span class="st">"data/titanic.csv"</span>)</span>
 <span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"pclass"</span>] <span class="op">=</span> df[<span class="st">"pclass"</span>].astype(<span class="st">"category"</span>)</span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"survived"</span>] <span class="op">=</span> df[<span class="st">"survived"</span>].astype(<span class="st">"category"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>titanic[<span class="st">"Pclass"</span>] <span class="op">=</span> titanic[<span class="st">"Pclass"</span>].astype(<span class="st">"category"</span>)</span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a>titanic[<span class="st">"Survived"</span>] <span class="op">=</span> titanic[<span class="st">"Survived"</span>].astype(<span class="st">"category"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="marginal-distributions" class="slide level2">
@@ -274,15 +276,15 @@
 <p>If I choose a passenger <strong>at random</strong>, what is the <strong>probability</strong> they rode in 1st class?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>marginal_class <span class="op">=</span> (</span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'pclass'</span>]</span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>  titanic[<span class="st">'Pclass'</span>]</span>
 <span id="cb2-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb2-4"><a aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb2-5"><a aria-hidden="true" tabindex="-1"></a>marginal_class</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>pclass
-3    0.541635
-1    0.246753
-2    0.211612
+<pre><code>Pclass
+3    0.551066
+1    0.242424
+2    0.206510
 Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
@@ -292,18 +294,18 @@ Name: proportion, dtype: float64</code></pre>
 <p>If I choose a passenger <strong>at random</strong>, what is the <strong>probability</strong> they are a woman who rode in first class?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex <span class="op">=</span> (</span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>  df[[<span class="st">"pclass"</span>, <span class="st">"sex"</span>]]</span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>  titanic[[<span class="st">"Pclass"</span>, <span class="st">"Sex"</span>]]</span>
 <span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a>  .unstack()</span>
 <span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>sex       female      male
-pclass                    
-1       0.110008  0.136746
-2       0.080978  0.130634
-3       0.165011  0.376623</code></pre>
+<pre><code>Sex       female      male
+Pclass                    
+1       0.105499  0.136925
+2       0.085297  0.121212
+3       0.161616  0.389450</code></pre>
 </div>
 </div>
 </section>
@@ -312,17 +314,17 @@ pclass
 <p>If I choose a <strong>woman</strong> at random, what is the probability they rode in first class?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>marginal_sex <span class="op">=</span> (</span>
-<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>  df[<span class="st">'sex'</span>]</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>  titanic[<span class="st">'Sex'</span>]</span>
 <span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a>  .value_counts(normalize <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a>joint_class_sex.divide(marginal_sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>sex       female      male
-pclass                    
-1       0.309013  0.212337
-2       0.227468  0.202847
-3       0.463519  0.584816</code></pre>
+<pre><code>Sex       female      male
+Pclass                    
+1       0.299363  0.211438
+2       0.242038  0.187175
+3       0.458599  0.601386</code></pre>
 </div>
 </div>
 </section>
@@ -331,7 +333,7 @@ pclass
 <div class="small">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">"sex"</span>, fill <span class="op">=</span> <span class="st">"pclass"</span>)) <span class="op">+</span> </span>
+<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> titanic, aes(x <span class="op">=</span> <span class="st">"Sex"</span>, fill <span class="op">=</span> <span class="st">"Pclass"</span>)) <span class="op">+</span> </span>
 <span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a>  geom_bar(position <span class="op">=</span> <span class="st">"fill"</span>) <span class="op">+</span> </span>
 <span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
 <span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -339,38 +341,13 @@ pclass
 </div>
 
 <img data-src="03-quantitative-variables_files/figure-revealjs/barplot-sex-classes-1.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section></section>
-<section>
 <section id="quantitative-variables" class="title-slide slide level1 center">
 <h1>Quantitative Variables</h1>
-
+<div class="fragment">
+<p>We have already analyzed a quantitative variable in the COVID data!</p>
+</div>
 </section>
-<section id="quantitative-variables-1" class="slide level2">
-<h2>Quantitative Variables</h2>
-<p>We have analyzed a quantitative variable already. Where?</p>
-<p>In the Colombia COVID data!</p>
-<div class="small">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>df_CO <span class="op">=</span> pd.read_csv(<span class="st">"http://dlsun.github.io/pods/data/covid/colombia_2020-05-28.csv"</span>)</span>
-<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>df_CO</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Departamento  Edad  ... Fecha de diagnóstico Fecha recuperado
-0            Bogotá D.C.    19  ...           2020-03-06       2020-03-13
-1        Valle del Cauca    34  ...           2020-03-09       2020-03-19
-2              Antioquia    50  ...           2020-03-09       2020-03-15
-3              Antioquia    55  ...           2020-03-11       2020-03-26
-4              Antioquia    25  ...           2020-03-11       2020-03-23
-...                  ...   ...  ...                  ...              ...
-25361  Buenaventura D.E.    48  ...           2020-05-28              NaN
-25362    Valle del Cauca    55  ...           2020-05-28              NaN
-25363  Buenaventura D.E.    39  ...           2020-05-28              NaN
-25364    Valle del Cauca    13  ...           2020-05-28              NaN
-25365            Córdoba     0  ...           2020-05-28              NaN
 
-[25366 rows x 10 columns]</code></pre>
-</div>
-</div>
-</div>
-</section></section>
 <section>
 <section id="visualizing-one-quantitative-variable" class="title-slide slide level1 center">
 <h1>Visualizing One Quantitative Variable</h1>
@@ -380,13 +357,13 @@ pclass
 <h2>Option 1: Convert it to categorical</h2>
 <p>To visualize the age variable, we did the following:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">"age"</span>] <span class="op">=</span> pd.cut(</span>
-<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>    df_CO[<span class="st">"Edad"</span>],</span>
-<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>    bins <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">120</span>],</span>
-<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> [<span class="st">"0-9"</span>, <span class="st">"10-19"</span>, <span class="st">"20-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60-69"</span>, <span class="st">"70-79"</span>, <span class="st">"80+"</span>],</span>
-<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a>    right <span class="op">=</span> <span class="va">False</span>, </span>
-<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a>    ordered <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">"age"</span>] <span class="op">=</span> pd.cut(</span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>    df_CO[<span class="st">"Edad"</span>],</span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a>    bins <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">120</span>],</span>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> [<span class="st">"0-9"</span>, <span class="st">"10-19"</span>, <span class="st">"20-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>, <span class="st">"50-59"</span>, <span class="st">"60-69"</span>, <span class="st">"70-79"</span>, <span class="st">"80+"</span>],</span>
+<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a>    right <span class="op">=</span> <span class="va">False</span>, </span>
+<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a>    ordered <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb9-7"><a aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="option-1-then-make-a-barplot" class="slide level2">
@@ -396,16 +373,23 @@ pclass
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df_CO, aes(x <span class="op">=</span> <span class="st">"age"</span>)) <span class="op">+</span> </span>
-<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a>  geom_bar() <span class="op">+</span> </span>
-<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_CO, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"age"</span>)) <span class="op">+</span> </span>
+<span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a>  geom_bar() <span class="op">+</span> </span>
+<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
+<span id="cb10-7"><a aria-hidden="true" tabindex="-1"></a>       ) <span class="op">+</span></span>
+<span id="cb10-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() </span>
+<span id="cb10-9"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 
-<img data-src="03-quantitative-variables_files/figure-revealjs/barplot-of-ages-3.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<img data-src="03-quantitative-variables_files/figure-revealjs/barplot-of-ages-3.png" class="quarto-figure quarto-figure-center r-stretch" width="614"><div class="fragment">
+<p>But this process seems a bit odd…</p>
+</div>
+</section>
 <section id="option-2-treat-it-as-a-quantitative-variable" class="slide level2">
 <h2>Option 2: Treat it as a quantitative variable!</h2>
 <p>A <strong>histogram</strong> uses <em>equal sized bins</em> to summarize a <em>quantitative variable</em>.</p>
@@ -413,15 +397,15 @@ pclass
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df_CO, aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
-<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram() <span class="op">+</span> </span>
-<span id="cb13-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb13-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb13-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
-<span id="cb13-7"><a aria-hidden="true" tabindex="-1"></a>       ) <span class="op">+</span></span>
-<span id="cb13-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb13-9"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_CO, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
+<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram() <span class="op">+</span> </span>
+<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
+<span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a>       ) <span class="op">+</span></span>
+<span id="cb11-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb11-9"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -440,15 +424,18 @@ pclass
 <div class="fragment">
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df_CO, aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
-<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram(binwidth <span class="op">=</span> <span class="dv">1</span>) <span class="op">+</span> </span>
-<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb14-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
-<span id="cb14-7"><a aria-hidden="true" tabindex="-1"></a>       ) <span class="op">+</span></span>
-<span id="cb14-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb14-9"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span>df_CO, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
+<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram(binwidth <span class="op">=</span> <span class="dv">1</span>) <span class="op">+</span> </span>
+<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb12-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
+<span id="cb12-7"><a aria-hidden="true" tabindex="-1"></a>       ) <span class="op">+</span></span>
+<span id="cb12-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb12-9"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </div>
 <div class="cell">
@@ -465,15 +452,18 @@ pclass
 <div class="fragment">
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df_CO, aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
-<span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram(binwidth <span class="op">=</span> <span class="dv">10</span>) <span class="op">+</span> </span>
-<span id="cb15-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
-<span id="cb15-7"><a aria-hidden="true" tabindex="-1"></a>       ) <span class="op">+</span></span>
-<span id="cb15-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb15-9"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span>df_CO, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
+<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram(binwidth <span class="op">=</span> <span class="dv">10</span>) <span class="op">+</span> </span>
+<span id="cb13-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb13-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb13-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
+<span id="cb13-7"><a aria-hidden="true" tabindex="-1"></a>       ) <span class="op">+</span></span>
+<span id="cb13-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb13-9"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </div>
 <div class="cell">
@@ -494,17 +484,17 @@ pclass
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df_CO, aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
-<span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram(binwidth <span class="op">=</span> <span class="dv">10</span>, </span>
-<span id="cb16-4"><a aria-hidden="true" tabindex="-1"></a>                 color <span class="op">=</span> <span class="st">"white"</span>, </span>
-<span id="cb16-5"><a aria-hidden="true" tabindex="-1"></a>                 fill <span class="op">=</span> <span class="st">"gray"</span>) <span class="op">+</span> </span>
-<span id="cb16-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb16-7"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb16-8"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
-<span id="cb16-9"><a aria-hidden="true" tabindex="-1"></a>       ) <span class="op">+</span></span>
-<span id="cb16-10"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb16-11"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span>df_CO, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
+<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram(binwidth <span class="op">=</span> <span class="dv">10</span>, </span>
+<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>                 color <span class="op">=</span> <span class="st">"orange"</span>, </span>
+<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a>                 fill <span class="op">=</span> <span class="st">"darkgray"</span>) <span class="op">+</span> </span>
+<span id="cb14-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb14-7"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb14-8"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
+<span id="cb14-9"><a aria-hidden="true" tabindex="-1"></a>       ) <span class="op">+</span></span>
+<span id="cb14-10"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb14-11"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -516,18 +506,18 @@ pclass
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>(</span>
-<span id="cb17-2"><a></a>  ggplot(df_CO, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
-<span id="cb17-3"><a></a>  geom_histogram(mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">'..density..'</span>), </span>
-<span id="cb17-4"><a></a>                 binwidth <span class="op">=</span> <span class="dv">10</span>, </span>
-<span id="cb17-5"><a></a>                 color <span class="op">=</span> <span class="st">"white"</span>, </span>
-<span id="cb17-6"><a></a>                 fill <span class="op">=</span> <span class="st">"gray"</span>) <span class="op">+</span> </span>
-<span id="cb17-7"><a></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb17-8"><a></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb17-9"><a></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
-<span id="cb17-10"><a></a>       ) <span class="op">+</span></span>
-<span id="cb17-11"><a></a>  theme_bw()</span>
-<span id="cb17-12"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" data-code-line-numbers="3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>(</span>
+<span id="cb15-2"><a></a>  ggplot(data <span class="op">=</span>df_CO, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
+<span id="cb15-3"><a></a>  geom_histogram(mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">'..density..'</span>), </span>
+<span id="cb15-4"><a></a>                 binwidth <span class="op">=</span> <span class="dv">10</span>, </span>
+<span id="cb15-5"><a></a>                 color <span class="op">=</span> <span class="st">"orange"</span>, </span>
+<span id="cb15-6"><a></a>                 fill <span class="op">=</span> <span class="st">"darkgray"</span>) <span class="op">+</span> </span>
+<span id="cb15-7"><a></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb15-8"><a></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb15-9"><a></a>       title <span class="op">=</span> <span class="st">"Age Demographics of Columbia's Population (2020)"</span></span>
+<span id="cb15-10"><a></a>       ) <span class="op">+</span></span>
+<span id="cb15-11"><a></a>  theme_bw()</span>
+<span id="cb15-12"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -595,16 +585,18 @@ pclass
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_CO, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
-<span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram(mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">'..density..'</span>), </span>
-<span id="cb18-4"><a aria-hidden="true" tabindex="-1"></a>                 bins <span class="op">=</span> <span class="dv">10</span>) <span class="op">+</span> </span>
-<span id="cb18-5"><a aria-hidden="true" tabindex="-1"></a>  geom_vline(xintercept <span class="op">=</span> <span class="dv">18</span>, </span>
-<span id="cb18-6"><a aria-hidden="true" tabindex="-1"></a>             color <span class="op">=</span> <span class="st">"red"</span>, </span>
-<span id="cb18-7"><a aria-hidden="true" tabindex="-1"></a>             size <span class="op">=</span> <span class="dv">2</span>, </span>
-<span id="cb18-8"><a aria-hidden="true" tabindex="-1"></a>             linetype <span class="op">=</span> <span class="st">"dashed"</span>) <span class="op">+</span></span>
-<span id="cb18-9"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb18-10"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_CO, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Edad"</span>)) <span class="op">+</span> </span>
+<span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram(mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">'..density..'</span>), </span>
+<span id="cb16-4"><a aria-hidden="true" tabindex="-1"></a>                 bins <span class="op">=</span> <span class="dv">10</span>, </span>
+<span id="cb16-5"><a aria-hidden="true" tabindex="-1"></a>                 color <span class="op">=</span> <span class="st">"orange"</span>, </span>
+<span id="cb16-6"><a aria-hidden="true" tabindex="-1"></a>                 fill <span class="op">=</span> <span class="st">"darkgray"</span>) <span class="op">+</span> </span>
+<span id="cb16-7"><a aria-hidden="true" tabindex="-1"></a>  geom_vline(xintercept <span class="op">=</span> <span class="dv">18</span>, </span>
+<span id="cb16-8"><a aria-hidden="true" tabindex="-1"></a>             color <span class="op">=</span> <span class="st">"red"</span>, </span>
+<span id="cb16-9"><a aria-hidden="true" tabindex="-1"></a>             size <span class="op">=</span> <span class="dv">2</span>, </span>
+<span id="cb16-10"><a aria-hidden="true" tabindex="-1"></a>             linetype <span class="op">=</span> <span class="st">"dashed"</span>) <span class="op">+</span></span>
+<span id="cb16-11"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb16-12"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -632,7 +624,7 @@ pclass
 <div class="column" style="width:40%;">
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">'Edad'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">'Edad'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0        19
 1        34
@@ -686,18 +678,19 @@ Name: Edad, Length: 25366, dtype: int64</code></pre>
 <h2>Means in Python</h2>
 <p>Long version: find the <strong>sum</strong> and the <strong>number of observations</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>sum_age <span class="op">=</span> df_CO[<span class="st">"Edad"</span>].<span class="bu">sum</span>()</span>
-<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(df_CO)</span>
-<span id="cb21-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a>sum_age <span class="op">/</span> n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>sum_age <span class="op">=</span> df_CO[<span class="st">"Edad"</span>].<span class="bu">sum</span>()</span>
+<span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(df_CO)</span>
+<span id="cb19-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a aria-hidden="true" tabindex="-1"></a>sum_age <span class="op">/</span> n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(39.04742568792872)</code></pre>
 </div>
 </div>
 <div class="fragment">
+<p><br></p>
 <p>Short version: use the built-in <code>.mean()</code> function!</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">"Edad"</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">"Edad"</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(39.04742568792872)</code></pre>
 </div>
@@ -715,6 +708,11 @@ Name: Edad, Length: 25366, dtype: int64</code></pre>
 <li><p>Calculate the <em>mean</em> price</p></li>
 <li><p>See how many people paid <em>more than mean price</em></p></li>
 </ul>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_05af45da" minutes="5" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
 </section>
 <section id="what-happened" class="slide level2">
 <h2>What happened</h2>
@@ -731,7 +729,7 @@ Name: Edad, Length: 25366, dtype: int64</code></pre>
 <li>Recall: Ages 4, 84, 12, 27, 7.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>ages <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">84</span>, <span class="dv">12</span>, <span class="dv">27</span>, <span class="dv">7</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>ages <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">84</span>, <span class="dv">12</span>, <span class="dv">27</span>, <span class="dv">7</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Imagine that we had to “guess” the age of the next person.</li>
@@ -745,13 +743,13 @@ Name: Edad, Length: 25366, dtype: int64</code></pre>
 <li>If we guess 26.8, then our “squared error” for these five people is:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a>sq_error <span class="op">=</span> (ages <span class="op">-</span> <span class="fl">26.8</span>) <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb26-4"><a aria-hidden="true" tabindex="-1"></a>  sq_error</span>
-<span id="cb26-5"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">1</span>)</span>
-<span id="cb26-6"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">sum</span>()</span>
-<span id="cb26-7"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a>sq_error <span class="op">=</span> (ages <span class="op">-</span> <span class="fl">26.8</span>) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb24-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb24-4"><a aria-hidden="true" tabindex="-1"></a>  sq_error</span>
+<span id="cb24-5"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb24-6"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">sum</span>()</span>
+<span id="cb24-7"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(4402.6)</code></pre>
 </div>
@@ -767,12 +765,12 @@ Name: Edad, Length: 25366, dtype: int64</code></pre>
 <li>If we guess 20, then our “squared error” for these five people is:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>sq_error <span class="op">=</span> (ages <span class="op">-</span> <span class="dv">20</span>) <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb28-3"><a aria-hidden="true" tabindex="-1"></a>  sq_error</span>
-<span id="cb28-4"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">1</span>)</span>
-<span id="cb28-5"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">sum</span>()</span>
-<span id="cb28-6"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a>sq_error <span class="op">=</span> (ages <span class="op">-</span> <span class="dv">20</span>) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb26-3"><a aria-hidden="true" tabindex="-1"></a>  sq_error</span>
+<span id="cb26-4"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb26-5"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">sum</span>()</span>
+<span id="cb26-6"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(4634)</code></pre>
 </div>
@@ -787,33 +785,34 @@ Name: Edad, Length: 25366, dtype: int64</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>cs <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">60</span>)</span>
-<span id="cb30-2"><a aria-hidden="true" tabindex="-1"></a>sum_squared_distances <span class="op">=</span> []</span>
-<span id="cb30-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> cs:</span>
-<span id="cb30-5"><a aria-hidden="true" tabindex="-1"></a>  (</span>
-<span id="cb30-6"><a aria-hidden="true" tabindex="-1"></a>    sum_squared_distances</span>
-<span id="cb30-7"><a aria-hidden="true" tabindex="-1"></a>    .append(</span>
-<span id="cb30-8"><a aria-hidden="true" tabindex="-1"></a>      (</span>
-<span id="cb30-9"><a aria-hidden="true" tabindex="-1"></a>        (df_CO[<span class="st">"Edad"</span>] <span class="op">-</span> c) <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb30-10"><a aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb30-11"><a aria-hidden="true" tabindex="-1"></a>      .<span class="bu">sum</span>()</span>
-<span id="cb30-12"><a aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb30-13"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-14"><a aria-hidden="true" tabindex="-1"></a>res_df <span class="op">=</span> pd.DataFrame({<span class="st">"center"</span>: cs, <span class="st">"sq_error"</span>: sum_squared_distances})</span>
-<span id="cb30-15"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-16"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb30-17"><a aria-hidden="true" tabindex="-1"></a>  ggplot(res_df, aes(x <span class="op">=</span> <span class="st">'center'</span>, y <span class="op">=</span> <span class="st">'sq_error'</span>)) <span class="op">+</span> </span>
-<span id="cb30-18"><a aria-hidden="true" tabindex="-1"></a>  geom_line() <span class="op">+</span></span>
-<span id="cb30-19"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Mean"</span>, </span>
-<span id="cb30-20"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb30-21"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Changes in Sum of Squared Error Based on Choice of Center"</span>)</span>
-<span id="cb30-22"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>cs <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">60</span>)</span>
+<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>sum_squared_distances <span class="op">=</span> []</span>
+<span id="cb28-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> cs:</span>
+<span id="cb28-5"><a aria-hidden="true" tabindex="-1"></a>  (</span>
+<span id="cb28-6"><a aria-hidden="true" tabindex="-1"></a>    sum_squared_distances</span>
+<span id="cb28-7"><a aria-hidden="true" tabindex="-1"></a>    .append(</span>
+<span id="cb28-8"><a aria-hidden="true" tabindex="-1"></a>      (</span>
+<span id="cb28-9"><a aria-hidden="true" tabindex="-1"></a>        (df_CO[<span class="st">"Edad"</span>] <span class="op">-</span> c) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb28-10"><a aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb28-11"><a aria-hidden="true" tabindex="-1"></a>      .<span class="bu">sum</span>()</span>
+<span id="cb28-12"><a aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb28-13"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-14"><a aria-hidden="true" tabindex="-1"></a>res_df <span class="op">=</span> pd.DataFrame({<span class="st">"center"</span>: cs, <span class="st">"sq_error"</span>: sum_squared_distances})</span>
+<span id="cb28-15"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-16"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb28-17"><a aria-hidden="true" tabindex="-1"></a>  ggplot(res_df, aes(x <span class="op">=</span> <span class="st">'center'</span>, y <span class="op">=</span> <span class="st">'sq_error'</span>)) <span class="op">+</span> </span>
+<span id="cb28-18"><a aria-hidden="true" tabindex="-1"></a>  geom_line() <span class="op">+</span></span>
+<span id="cb28-19"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Mean"</span>, </span>
+<span id="cb28-20"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">""</span>, </span>
+<span id="cb28-21"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Changes in Sum of Squared Error Based on Choice of Center"</span>) <span class="op">+</span></span>
+<span id="cb28-22"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb28-23"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 
-<img data-src="03-quantitative-variables_files/figure-revealjs/plot-of-squared-error-17.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section></section>
+<img data-src="03-quantitative-variables_files/figure-revealjs/plot-of-squared-error-1.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section></section>
 <section>
 <section id="summaries-of-center-median" class="title-slide slide level1 center">
 <h1>Summaries of Center: Median</h1>
@@ -858,7 +857,7 @@ Name: Edad, Length: 25366, dtype: int64</code></pre>
 <p>Ages: 4, 84, 12, 7, 27. What is the <strong>median</strong>?</p>
 <p>Median age in the Columbia data:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">"Edad"</span>].median()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">"Edad"</span>].median()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(37.0)</code></pre>
 </div>
@@ -897,18 +896,19 @@ Name: Edad, Length: 25366, dtype: int64</code></pre>
 <h2>Variance in Python</h2>
 <p>Similar to calculating the mean, we could find the variance manually:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb33-2"><a aria-hidden="true" tabindex="-1"></a>  ((df_CO[<span class="st">"Edad"</span>] <span class="op">-</span> df_CO[<span class="st">"Edad"</span>].mean()) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb33-3"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">sum</span>() <span class="op">/</span> (<span class="bu">len</span>(df_CO) <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb33-4"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a>  ((df_CO[<span class="st">"Edad"</span>] <span class="op">-</span> df_CO[<span class="st">"Edad"</span>].mean()) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb31-3"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">sum</span>() <span class="op">/</span> (<span class="bu">len</span>(df_CO) <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb31-4"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(348.0870469898451)</code></pre>
 </div>
 </div>
 <div class="fragment">
+<p><br></p>
 <p>…or using a built-in Python function.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">"Edad"</span>].var()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">"Edad"</span>].var()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(348.0870469898451)</code></pre>
 </div>
@@ -929,7 +929,7 @@ Name: Edad, Length: 25366, dtype: int64</code></pre>
 <li>To get it in more interpretable language, we can take the square root:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a>np.sqrt(df_CO[<span class="st">"Edad"</span>].var())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>np.sqrt(df_CO[<span class="st">"Edad"</span>].var())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(18.65709106452142)</code></pre>
 </div>
@@ -940,7 +940,7 @@ Name: Edad, Length: 25366, dtype: int64</code></pre>
 <div class="midi">
 <p>Or, we use the built-in function!</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">"Edad"</span>].std()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a>df_CO[<span class="st">"Edad"</span>].std()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(18.65709106452142)</code></pre>
 </div>
