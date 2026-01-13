@@ -56,12 +56,13 @@ post questions on Discord about the lab, I will be displeased.
 :::
 
 ::: {.small}
-::: {.incremental}
-- Labs will be due the day after lab. 
-    * Tuesday's lab is due on Wednesday at 11:59pm.
-    * Thursday's lab is due on Friday at 11:59pm.
-    
-- End of week assignments are due on Mondays at 5pm. 
+Labs will be due the day after lab.
+
+  - Tuesday's lab is due on Wednesday at 11:59pm.
+  - Thursday's lab is due on Friday at 11:59pm.
+
+::: {.fragment}
+Quizzes from the lecture slides are due by 11:59pm that night.
 :::
 :::
 :::
@@ -73,14 +74,13 @@ post questions on Discord about the lab, I will be displeased.
 ::: {.column width="30%"}
 ::: {.fragment}
 ::: {.midi}
-**Lab Submissions**
+**Lab Activities**
 :::
 
 ::: {.small}
-- PDFs will be required for [every]{.underline} Collab submission. 
-  * Your code cannot be more than 80 characters---where the grey line appears in
-  Collab. 
-  * Use returns! 
+I'm going to do my best to ensure **all** the skills necessary to complete the 
+lab activities are covered during lecture.
+
 :::
 :::
 :::
