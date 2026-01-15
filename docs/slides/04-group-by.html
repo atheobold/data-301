@@ -234,7 +234,6 @@
 <section id="quantitative-variables-so-far" class="slide level2">
 <h2>Quantitative Variables So Far</h2>
 <ul>
-<li><p>Visualizing by <strong>converting to categorical</strong>.</p></li>
 <li><p>Visualizing with <strong>histograms</strong> or <strong>densities</strong>.</p></li>
 <li><p>Estimating <strong>probabilities</strong> from histograms and densities.</p></li>
 <li><p>Describing the <strong>skew</strong>.</p></li>
@@ -256,23 +255,24 @@
 <p>Let’s look at a data set of all domestic flights that departed from one of New York City’s airports (JFK, LaGuardia, and Newark) on November 16, 2013.</p>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/flights.csv"</span>)</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>data_dir <span class="op">=</span> <span class="st">"https://datasci112.stanford.edu/data/"</span></span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(data_dir <span class="op">+</span> <span class="st">"flights_nyc_20131116.csv"</span>)</span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        year  month  day  ...  hour  minute             time_hour
-0       2013      1    1  ...     5      15  2013-01-01T10:00:00Z
-1       2013      1    1  ...     5      29  2013-01-01T10:00:00Z
-2       2013      1    1  ...     5      40  2013-01-01T10:00:00Z
-3       2013      1    1  ...     5      45  2013-01-01T10:00:00Z
-4       2013      1    1  ...     6       0  2013-01-01T11:00:00Z
-...      ...    ...  ...  ...   ...     ...                   ...
-336771  2013      9   30  ...    14      55  2013-09-30T18:00:00Z
-336772  2013      9   30  ...    22       0  2013-10-01T02:00:00Z
-336773  2013      9   30  ...    12      10  2013-09-30T16:00:00Z
-336774  2013      9   30  ...    11      59  2013-09-30T15:00:00Z
-336775  2013      9   30  ...     8      40  2013-09-30T12:00:00Z
+<pre><code>    carrier  flight origin dest  dep_delay
+0        US    1895    EWR  CLT       -5.0
+1        UA    1014    LGA  IAH       -3.0
+2        AA    2243    JFK  MIA        2.0
+3        UA     303    JFK  SFO       -8.0
+4        US     795    LGA  PHL       -8.0
+..      ...     ...    ...  ...        ...
+573      B6     745    JFK  PSE       -3.0
+574      B6     839    JFK  BQN        0.0
+575      UA     360    EWR  PBI        NaN
+576      US    1946    EWR  CLT        NaN
+577      US    2142    LGA  BOS        NaN
 
-[336776 rows x 19 columns]</code></pre>
+[578 rows x 5 columns]</code></pre>
 </div>
 </div>
 </div>
@@ -297,15 +297,15 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">'dep_delay'</span>].median()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(-2.0)</code></pre>
+<pre><code>np.float64(-4.0)</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">'dep_delay'</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(12.639070257304708)</code></pre>
+<pre><code>np.float64(2.0469565217391303)</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">'dep_delay'</span>].std()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(40.21006089212995)</code></pre>
+<pre><code>np.float64(23.52882923523891)</code></pre>
 </div>
 </div>
 </section>
@@ -350,8 +350,9 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">'dep_delay'</span>)) <span class="op">+</span> </span>
 <span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram() <span class="op">+</span> </span>
-<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Departure Delay (minutes)"</span>)</span>
+<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -365,8 +366,9 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">'dep_delay'</span>, fill <span class="op">=</span> <span class="st">'origin'</span>)) <span class="op">+</span> </span>
 <span id="cb10-3"><a aria-hidden="true" tabindex="-1"></a>  geom_histogram() <span class="op">+</span> </span>
-<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb10-5"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Departure Delay (minutes)"</span>)</span>
+<span id="cb10-6"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -374,7 +376,7 @@
 <img data-src="04-group-by_files/figure-revealjs/overlapping-histograms-3.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
 <section id="delays-by-origin-2" class="slide level2">
 <h2>Delays by Origin</h2>
-<p>… but overlapping <strong>densities</strong> often look nicer…</p>
+<p>…overlapping <strong>densities</strong> often look nicer…</p>
 <div class="small">
 <div class="cell">
 <details class="code-fold">
@@ -382,8 +384,10 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">'dep_delay'</span>, fill <span class="op">=</span> <span class="st">'origin'</span>)) <span class="op">+</span> </span>
 <span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>  geom_density() <span class="op">+</span> </span>
-<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Departure Delay (minutes)"</span>, </span>
+<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a>       fill <span class="op">=</span> <span class="st">"Airport Origin"</span>)</span>
+<span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -399,8 +403,10 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">'dep_delay'</span>, fill <span class="op">=</span> <span class="st">'origin'</span>)) <span class="op">+</span> </span>
 <span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a>  geom_density(alpha <span class="op">=</span> <span class="fl">0.5</span>) <span class="op">+</span> </span>
-<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Departure Delay (minutes)"</span>, </span>
+<span id="cb12-6"><a aria-hidden="true" tabindex="-1"></a>       fill <span class="op">=</span> <span class="st">"Airport Origin"</span>)</span>
+<span id="cb12-7"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -516,8 +522,10 @@
 <span id="cb16-7"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb16-8"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">'log_delay'</span>, fill <span class="op">=</span> <span class="st">'origin'</span>)) <span class="op">+</span> </span>
 <span id="cb16-9"><a aria-hidden="true" tabindex="-1"></a>  geom_density(alpha <span class="op">=</span> <span class="fl">0.5</span>) <span class="op">+</span> </span>
-<span id="cb16-10"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
-<span id="cb16-11"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-10"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb16-11"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Departure Delay (log minutes)"</span>, </span>
+<span id="cb16-12"><a aria-hidden="true" tabindex="-1"></a>       fill <span class="op">=</span> <span class="st">"Airport Origin"</span>)</span>
+<span id="cb16-13"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -540,7 +548,7 @@
 <span id="cb17-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">'log_delay'</span>, x <span class="op">=</span> <span class="st">'origin'</span>)) <span class="op">+</span> </span>
 <span id="cb17-3"><a aria-hidden="true" tabindex="-1"></a>  geom_boxplot() <span class="op">+</span> </span>
 <span id="cb17-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Log Delay (minutes)"</span>, </span>
+<span id="cb17-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Departure Delay (log minutes)"</span>, </span>
 <span id="cb17-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Comparing Departure Delays for NYC Airports"</span>) <span class="op">+</span></span>
 <span id="cb17-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
 <span id="cb17-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -567,7 +575,7 @@
 <span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">'log_delay'</span>, x <span class="op">=</span> <span class="st">'origin'</span>)) <span class="op">+</span> </span>
 <span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a>  geom_boxplot() <span class="op">+</span></span>
 <span id="cb18-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">""</span>, </span>
-<span id="cb18-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Log Delay (minutes)"</span>, </span>
+<span id="cb18-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Departure Delay (log minutes)"</span>, </span>
 <span id="cb18-6"><a aria-hidden="true" tabindex="-1"></a>       title <span class="op">=</span> <span class="st">"Comparing Departure Delays for NYC Airports"</span>) <span class="op">+</span></span>
 <span id="cb18-7"><a aria-hidden="true" tabindex="-1"></a>  coord_flip() <span class="op">+</span></span>
 <span id="cb18-8"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
@@ -606,20 +614,20 @@
 <span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a>df_jfk <span class="op">=</span> df[is_jfk]</span>
 <span id="cb19-3"><a aria-hidden="true" tabindex="-1"></a>df_jfk</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        year  month  day  ...             time_hour  delay_shifted  log_delay
-2       2013      1    1  ...  2013-01-01T10:00:00Z           46.0   3.828641
-3       2013      1    1  ...  2013-01-01T10:00:00Z           43.0   3.761200
-8       2013      1    1  ...  2013-01-01T11:00:00Z           41.0   3.713572
-10      2013      1    1  ...  2013-01-01T11:00:00Z           42.0   3.737670
-11      2013      1    1  ...  2013-01-01T11:00:00Z           42.0   3.737670
-...      ...    ...  ...  ...                   ...            ...        ...
-336766  2013      9   30  ...  2013-10-01T02:00:00Z           34.0   3.526361
-336767  2013      9   30  ...  2013-10-01T02:00:00Z           39.0   3.663562
-336768  2013      9   30  ...  2013-10-01T02:00:00Z           56.0   4.025352
-336769  2013      9   30  ...  2013-10-01T03:00:00Z           34.0   3.526361
-336771  2013      9   30  ...  2013-09-30T18:00:00Z            NaN        NaN
+<pre><code>    carrier  flight origin dest  dep_delay  delay_shifted  log_delay
+2        AA    2243    JFK  MIA        2.0           22.0   3.091042
+3        UA     303    JFK  SFO       -8.0           12.0   2.484907
+11       EV    5716    JFK  IAD       -4.0           16.0   2.772589
+12       B6     583    JFK  MCO       -3.0           17.0   2.833213
+14       B6    1403    JFK  SJU       -2.0           18.0   2.890372
+..      ...     ...    ...  ...        ...            ...        ...
+570      B6     718    JFK  BOS        1.0           21.0   3.044522
+571      B6    1816    JFK  SYR       20.0           40.0   3.688879
+572      B6    1503    JFK  SJU      -10.0           10.0   2.302585
+573      B6     745    JFK  PSE       -3.0           17.0   2.833213
+574      B6     839    JFK  BQN        0.0           20.0   2.995732
 
-[111279 rows x 21 columns]</code></pre>
+[208 rows x 7 columns]</code></pre>
 </div>
 </div>
 </div>
@@ -639,18 +647,18 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>is_jfk <span class="op">=</span> (df[<span class="st">'origin'</span>] <span class="op">==</span> <span class="st">"JFK"</span>)</span>
 <span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a>is_jfk</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0         False
-1         False
-2          True
-3          True
-4         False
-          ...  
-336771     True
-336772    False
-336773    False
-336774    False
-336775    False
-Name: origin, Length: 336776, dtype: bool</code></pre>
+<pre><code>0      False
+1      False
+2       True
+3       True
+4      False
+       ...  
+573     True
+574     True
+575    False
+576    False
+577    False
+Name: origin, Length: 578, dtype: bool</code></pre>
 </div>
 </div>
 </div>
@@ -665,18 +673,18 @@ Name: origin, Length: 336776, dtype: bool</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>df_jfk <span class="op">=</span> df[is_jfk]</span>
 <span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a>df_jfk[<span class="st">"origin"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>2         JFK
-3         JFK
-8         JFK
-10        JFK
-11        JFK
-         ... 
-336766    JFK
-336767    JFK
-336768    JFK
-336769    JFK
-336771    JFK
-Name: origin, Length: 111279, dtype: object</code></pre>
+<pre><code>2      JFK
+3      JFK
+11     JFK
+12     JFK
+14     JFK
+      ... 
+570    JFK
+571    JFK
+572    JFK
+573    JFK
+574    JFK
+Name: origin, Length: 208, dtype: object</code></pre>
 </div>
 </div>
 </div>
@@ -691,8 +699,9 @@ Name: origin, Length: 111279, dtype: object</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(x <span class="op">=</span> <span class="st">'dep_delay'</span>)) <span class="op">+</span> </span>
 <span id="cb25-3"><a aria-hidden="true" tabindex="-1"></a>  geom_density() <span class="op">+</span> </span>
-<span id="cb25-4"><a aria-hidden="true" tabindex="-1"></a>  facet_wrap(<span class="st">'origin'</span>)</span>
-<span id="cb25-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb25-4"><a aria-hidden="true" tabindex="-1"></a>  facet_wrap(<span class="st">'origin'</span>) <span class="op">+</span></span>
+<span id="cb25-5"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Departure Delay (minutes)"</span>)</span>
+<span id="cb25-6"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 
@@ -746,9 +755,9 @@ Name: origin, Length: 111279, dtype: object</code></pre>
 <span id="cb27-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>origin
-EWR    15.107954
-JFK    12.112159
-LGA    10.346876
+EWR    4.064935
+JFK    1.461538
+LGA   -0.485294
 Name: dep_delay, dtype: float64</code></pre>
 </div>
 </div>
@@ -765,9 +774,9 @@ Name: dep_delay, dtype: float64</code></pre>
 <span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>origin
-EWR   -1.0
-JFK   -1.0
-LGA   -3.0
+EWR   -3.0
+JFK   -4.0
+LGA   -6.0
 Name: dep_delay, dtype: float64</code></pre>
 </div>
 </div>
@@ -848,9 +857,9 @@ Name: dep_delay, dtype: float64</code></pre>
 <span id="cb32-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>origin
-EWR    41.323704
-JFK    39.035071
-LGA    39.993021
+EWR    25.646258
+JFK    18.713927
+LGA    26.121365
 Name: dep_delay, dtype: float64</code></pre>
 </div>
 </div>
@@ -925,7 +934,7 @@ Name: dep_delay, dtype: float64</code></pre>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_titanic, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)) <span class="op">+</span> </span>
+<span id="cb38-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_titanic, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'Age'</span>, y <span class="op">=</span> <span class="st">'Fare'</span>)) <span class="op">+</span> </span>
 <span id="cb38-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span></span>
 <span id="cb38-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Age of Passenger"</span>, </span>
 <span id="cb38-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Fare Paid on Titanic"</span>)</span>
@@ -967,7 +976,7 @@ Name: dep_delay, dtype: float64</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_titanic, </span>
-<span id="cb39-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)</span>
+<span id="cb39-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'Age'</span>, y <span class="op">=</span> <span class="st">'Fare'</span>)</span>
 <span id="cb39-4"><a aria-hidden="true" tabindex="-1"></a>         ) <span class="op">+</span> </span>
 <span id="cb39-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span></span>
 <span id="cb39-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Age of Passenger"</span>, </span>
@@ -989,7 +998,7 @@ Name: dep_delay, dtype: float64</code></pre>
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb40-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_titanic, </span>
-<span id="cb40-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)</span>
+<span id="cb40-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'Age'</span>, y <span class="op">=</span> <span class="st">'Fare'</span>)</span>
 <span id="cb40-4"><a aria-hidden="true" tabindex="-1"></a>         ) <span class="op">+</span> </span>
 <span id="cb40-5"><a aria-hidden="true" tabindex="-1"></a>  geom_jitter(size <span class="op">=</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
 <span id="cb40-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Age of Passenger"</span>, </span>
@@ -1019,7 +1028,7 @@ Name: dep_delay, dtype: float64</code></pre>
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb41-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_titanic, </span>
-<span id="cb41-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)</span>
+<span id="cb41-3"><a aria-hidden="true" tabindex="-1"></a>         mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'Age'</span>, y <span class="op">=</span> <span class="st">'Fare'</span>)</span>
 <span id="cb41-4"><a aria-hidden="true" tabindex="-1"></a>         ) <span class="op">+</span> </span>
 <span id="cb41-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point(alpha <span class="op">=</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
 <span id="cb41-6"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Age of Passenger"</span>, </span>
@@ -1060,11 +1069,11 @@ Name: dep_delay, dtype: float64</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>is_third<span class="op">=</span> df_titanic[<span class="st">'pclass'</span>] <span class="op">==</span> <span class="dv">3</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>is_third <span class="op">=</span> df_titanic[<span class="st">'Pclass'</span>] <span class="op">==</span> <span class="dv">3</span></span>
 <span id="cb42-2"><a aria-hidden="true" tabindex="-1"></a>df_third <span class="op">=</span> df_titanic[is_third]</span>
 <span id="cb42-3"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-4"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb42-5"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df_third, aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)) <span class="op">+</span> </span>
+<span id="cb42-5"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df_third, aes(x <span class="op">=</span> <span class="st">'Age'</span>, y <span class="op">=</span> <span class="st">'Fare'</span>)) <span class="op">+</span> </span>
 <span id="cb42-6"><a aria-hidden="true" tabindex="-1"></a>  geom_jitter(alpha <span class="op">=</span> <span class="fl">0.8</span>) <span class="op">+</span> </span>
 <span id="cb42-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
 <span id="cb42-8"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1111,11 +1120,11 @@ Name: dep_delay, dtype: float64</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a>mean_age <span class="op">=</span> df_third[<span class="st">'age'</span>].mean()</span>
-<span id="cb43-2"><a aria-hidden="true" tabindex="-1"></a>mean_fare <span class="op">=</span> df_third[<span class="st">'fare'</span>].mean()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a>mean_age <span class="op">=</span> df_third[<span class="st">'Age'</span>].mean()</span>
+<span id="cb43-2"><a aria-hidden="true" tabindex="-1"></a>mean_fare <span class="op">=</span> df_third[<span class="st">'Fare'</span>].mean()</span>
 <span id="cb43-3"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-4"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb43-5"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_third, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'age'</span>, y <span class="op">=</span> <span class="st">'fare'</span>)) <span class="op">+</span> </span>
+<span id="cb43-5"><a aria-hidden="true" tabindex="-1"></a>  ggplot(data <span class="op">=</span> df_third, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">'Age'</span>, y <span class="op">=</span> <span class="st">'Fare'</span>)) <span class="op">+</span> </span>
 <span id="cb43-6"><a aria-hidden="true" tabindex="-1"></a>  geom_jitter(alpha <span class="op">=</span> <span class="fl">0.8</span>) <span class="op">+</span> </span>
 <span id="cb43-7"><a aria-hidden="true" tabindex="-1"></a>  geom_vline(xintercept <span class="op">=</span> mean_age, color <span class="op">=</span> <span class="st">"red"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>) <span class="op">+</span> </span>
 <span id="cb43-8"><a aria-hidden="true" tabindex="-1"></a>  geom_hline(yintercept <span class="op">=</span> mean_fare, color <span class="op">=</span> <span class="st">"red"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>) <span class="op">+</span> </span>
@@ -1132,11 +1141,11 @@ Name: dep_delay, dtype: float64</code></pre>
 <h2>Correlation</h2>
 <p>Interpret this result:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>df_third[[<span class="st">'age'</span>, <span class="st">'fare'</span>]].corr()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>df_third[[<span class="st">'Age'</span>, <span class="st">'Fare'</span>]].corr()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           age      fare
-age   1.000000 -0.238137
-fare -0.238137  1.000000</code></pre>
+<pre><code>           Age      Fare
+Age   1.000000 -0.260315
+Fare -0.260315  1.000000</code></pre>
 </div>
 </div>
 <div class="fragment">

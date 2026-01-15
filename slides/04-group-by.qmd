@@ -57,8 +57,6 @@ distributions.
 
 ## Quantitative Variables So Far
 
--   Visualizing by **converting to categorical**.
-
 -   Visualizing with **histograms** or **densities**.
 
 -   Estimating **probabilities** from histograms and densities.
@@ -85,7 +83,8 @@ York City's airports (JFK, LaGuardia, and Newark) on November 16, 2013.
 #| code-line-numbers: false
 #| label: flight-data
 
-df = pd.read_csv("data/flights.csv")
+data_dir = "https://datasci112.stanford.edu/data/"
+df = pd.read_csv(data_dir + "flights_nyc_20131116.csv")
 df
 ```
 :::
@@ -123,7 +122,8 @@ We already know how to **visualize** the flight delays:
 plot = (
   ggplot(df, mapping = aes(x = 'dep_delay')) + 
   geom_histogram(binwidth = 5) + 
-  theme_bw()
+  theme_bw() +
+  labs(x = "Departure Delay (minutes)")
   )
   
 plot.show()
@@ -147,7 +147,8 @@ plot.show()
 (
   ggplot(df, aes(x = 'dep_delay')) + 
   geom_histogram() + 
-  theme_bw()
+  theme_bw() +
+  labs(x = "Departure Delay (minutes)")
 )
 ```
 
@@ -165,7 +166,8 @@ Overlapping **histograms** can be really hard to read...
 (
   ggplot(df, aes(x = 'dep_delay', fill = 'origin')) + 
   geom_histogram() + 
-  theme_bw()
+  theme_bw() +
+  labs(x = "Departure Delay (minutes)")
 )
 ```
 :::
@@ -180,7 +182,9 @@ Overlapping **histograms** can be really hard to read...
 plot = (
   ggplot(df, aes(x = 'dep_delay', fill = 'origin')) + 
   geom_histogram(binwidth = 5) + 
-  theme_bw()
+  theme_bw() +
+  labs(x = "Departure Delay (minutes)", 
+       fill = "Airport Origin")
 )
 
 plot.show()
@@ -188,7 +192,7 @@ plot.show()
 
 ## Delays by Origin
 
-... but overlapping **densities** often look nicer...
+...overlapping **densities** often look nicer...
 
 ::: {.small}
 ```{python}
@@ -200,7 +204,9 @@ plot.show()
 (
   ggplot(df, aes(x = 'dep_delay', fill = 'origin')) + 
   geom_density() + 
-  theme_bw()
+  theme_bw() +
+  labs(x = "Departure Delay (minutes)", 
+       fill = "Airport Origin")
 )
 ```
 :::
@@ -215,7 +221,9 @@ plot.show()
 plot = (
   ggplot(df, aes(x = 'dep_delay', fill = 'origin')) + 
   geom_density() + 
-  theme_bw()
+  theme_bw() +
+  labs(x = "Departure Delay (minutes)", 
+       fill = "Airport Origin")
 )
 
 plot.show()
@@ -235,7 +243,9 @@ plot.show()
 (
   ggplot(df, aes(x = 'dep_delay', fill = 'origin')) + 
   geom_density(alpha = 0.5) + 
-  theme_bw()
+  theme_bw() +
+  labs(x = "Departure Delay (minutes)", 
+       fill = "Airport Origin")
 )
 ```
 :::
@@ -250,7 +260,9 @@ plot.show()
 plot = (
   ggplot(df, aes(x = 'dep_delay', fill = 'origin')) + 
   geom_density(alpha = 0.5) + 
-  theme_bw()
+  theme_bw() +
+  labs(x = "Departure Delay (minutes)", 
+       fill = "Airport Origin")
 )
 
 plot.show()
@@ -393,7 +405,9 @@ df['log_delay'] = np.log(df['delay_shifted'])
 (
   ggplot(df, aes(x = 'log_delay', fill = 'origin')) + 
   geom_density(alpha = 0.5) + 
-  theme_bw()
+  theme_bw() +
+  labs(x = "Departure Delay (log minutes)", 
+       fill = "Airport Origin")
 )
 ```
 :::
@@ -414,7 +428,9 @@ df['log_delay'] = np.log(df['delay_shifted'])
 plot = (
   ggplot(df, aes(x = 'log_delay', fill = 'origin')) + 
   geom_density(alpha = 0.5) + 
-  theme_bw()
+  theme_bw() +
+  labs(x = "Departure Delay (log minutes)", 
+       fill = "Airport Origin")
 )
 
 plot.show()
@@ -436,7 +452,7 @@ plot.show()
   ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) + 
   geom_boxplot() + 
   labs(x = "", 
-       y = "Log Delay (minutes)", 
+       y = "Departure Delay (log minutes)", 
        title = "Comparing Departure Delays for NYC Airports") +
   theme_bw()
 )
@@ -451,7 +467,7 @@ plot = (
   ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) + 
   geom_boxplot() + 
   labs(x = "", 
-       y = "Log Delay (minutes)", 
+       y = "Departure Delay (log minutes)", 
        title = "Comparing Departure Delays for NYC Airports") +
   theme_bw()
 )
@@ -476,7 +492,7 @@ plot.show()
   ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) + 
   geom_boxplot() +
   labs(x = "", 
-       y = "Log Delay (minutes)", 
+       y = "Departure Delay (log minutes)", 
        title = "Comparing Departure Delays for NYC Airports") +
   coord_flip() +
   theme_bw()
@@ -492,7 +508,7 @@ plot = (
   ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) + 
   geom_boxplot() + 
   labs(x = "", 
-       y = "Log Delay (minutes)", 
+       y = "Departure Delay (log minutes)", 
        title = "Comparing Departure Delays for NYC Airports") +
   coord_flip() +
   theme_bw()
@@ -514,7 +530,7 @@ plot.show()
 plot = (
   ggplot(df, aes(x = 'log_delay', fill = 'origin')) + 
   geom_density(alpha = 0.5) + 
-  labs(x = "Log Departure Delay (minutes)", 
+  labs(x = "Departure Delay (log minutes)", 
        fill = "Airport Origin") +
   theme_bw()
 )
@@ -600,7 +616,8 @@ Fortunately, `plotnine` (and other plotting packages) has a trick for you!
 (
   ggplot(df, aes(x = 'dep_delay')) + 
   geom_density() + 
-  facet_wrap('origin')
+  facet_wrap('origin') +
+  labs(x = "Departure Delay (minutes)")
 )
 ```
 :::
@@ -888,7 +905,7 @@ To **visualize** two quantitative variables, we make a **scatterplot** (or
 #| eval: false
 
 (
-  ggplot(data = df_titanic, mapping = aes(x = 'age', y = 'fare')) + 
+  ggplot(data = df_titanic, mapping = aes(x = 'Age', y = 'Fare')) + 
   geom_point() +
   labs(x = "Age of Passenger", 
        y = "Fare Paid on Titanic")
@@ -903,7 +920,7 @@ To **visualize** two quantitative variables, we make a **scatterplot** (or
 #| fig-width: 3
 
 plot = (
-  ggplot(data = df_titanic, mapping = aes(x = 'age', y = 'fare')) + 
+  ggplot(data = df_titanic, mapping = aes(x = 'Age', y = 'Fare')) + 
   geom_point() +
   labs(x = "Age of Passenger", 
        y = "Fare Paid on Titanic")
@@ -932,7 +949,7 @@ plot.show()
 
 (
   ggplot(data = df_titanic, 
-         mapping = aes(x = 'age', y = 'fare')
+         mapping = aes(x = 'Age', y = 'Fare')
          ) + 
   geom_point() +
   labs(x = "Age of Passenger", 
@@ -959,7 +976,7 @@ Did you notice how difficult it was to pick out each point?
 
 (
   ggplot(data = df_titanic, 
-         mapping = aes(x = 'age', y = 'fare')
+         mapping = aes(x = 'Age', y = 'Fare')
          ) + 
   geom_jitter(size = 0.5) +
   labs(x = "Age of Passenger", 
@@ -975,7 +992,7 @@ Did you notice how difficult it was to pick out each point?
 
 plot = (
   ggplot(data = df_titanic, 
-         mapping = aes(x = 'age', y = 'fare')
+         mapping = aes(x = 'Age', y = 'Fare')
          ) + 
   geom_jitter(size = 0.5) +
   labs(x = "Age of Passenger", 
@@ -1003,7 +1020,7 @@ plot.show()
 
 (
   ggplot(data = df_titanic, 
-         mapping = aes(x = 'age', y = 'fare')
+         mapping = aes(x = 'Age', y = 'Fare')
          ) + 
   geom_point(alpha = 0.5) +
   labs(x = "Age of Passenger", 
@@ -1019,7 +1036,7 @@ plot.show()
 
 plot = (
   ggplot(data = df_titanic, 
-         mapping = aes(x = 'age', y = 'fare')
+         mapping = aes(x = 'Age', y = 'Fare')
          ) + 
   geom_point(alpha = 0.5) +
   labs(x = "Age of Passenger", 
@@ -1050,15 +1067,15 @@ Can you re-create this plot?
 #| fig-align: center
 
 df_titanic['log_fare'] = np.where(
-  df_titanic['fare'] > 0, 
-  np.log(df_titanic['fare']), 
+  df_titanic['Fare'] > 0, 
+  np.log(df_titanic['Fare']), 
   np.nan
 )
 
-df_titanic['pclass'] = df_titanic['pclass'].astype('category')
+df_titanic['Pclass'] = df_titanic['Pclass'].astype('category')
 
 plot = (
-  ggplot(df_titanic, mapping = aes(x = 'age', y = 'log_fare', color = 'pclass')) + 
+  ggplot(df_titanic, mapping = aes(x = 'Age', y = 'log_fare', color = 'Pclass')) + 
   geom_point() + 
   theme_bw() +
   labs(x = "Age of Passenger", 
@@ -1083,11 +1100,11 @@ Let's look at just third class:
 #| label: third-class-scatterplot-code
 #| eval: false
 
-is_third= df_titanic['pclass'] == 3
+is_third = df_titanic['Pclass'] == 3
 df_third = df_titanic[is_third]
 
 (
-  ggplot(df_third, aes(x = 'age', y = 'fare')) + 
+  ggplot(df_third, aes(x = 'Age', y = 'Fare')) + 
   geom_jitter(alpha = 0.8) + 
   theme_bw()
 )
@@ -1099,11 +1116,11 @@ df_third = df_titanic[is_third]
 #| echo: false
 #| fig-align: center
 
-is_third= df_titanic['pclass'] == 3
+is_third= df_titanic['Pclass'] == 3
 df_third = df_titanic[is_third]
 
 plot = (
-  ggplot(df_third, aes(x = 'age', y = 'fare')) + 
+  ggplot(df_third, aes(x = 'Age', y = 'Fare')) + 
   geom_jitter(alpha = 0.8) + 
   theme_bw()
 )
@@ -1161,11 +1178,11 @@ What if we want a **numerical summary** of the relationship between variables?
 #| label: age-fare-scatterplot-with-means-code
 #| eval: false
 
-mean_age = df_third['age'].mean()
-mean_fare = df_third['fare'].mean()
+mean_age = df_third['Age'].mean()
+mean_fare = df_third['Fare'].mean()
 
 (
-  ggplot(data = df_third, mapping = aes(x = 'age', y = 'fare')) + 
+  ggplot(data = df_third, mapping = aes(x = 'Age', y = 'Fare')) + 
   geom_jitter(alpha = 0.8) + 
   geom_vline(xintercept = mean_age, color = "red", linetype = "dashed") + 
   geom_hline(yintercept = mean_fare, color = "red", linetype = "dashed") + 
@@ -1181,11 +1198,11 @@ mean_fare = df_third['fare'].mean()
 #| echo: false
 #| fig-align: center
 
-mean_age = df_third['age'].mean()
-mean_fare = df_third['fare'].mean()
+mean_age = df_third['Age'].mean()
+mean_fare = df_third['Fare'].mean()
 
 plot = (
-  ggplot(df_third, aes(x = 'age', y = 'fare')) + 
+  ggplot(df_third, aes(x = 'Age', y = 'Fare')) + 
   geom_jitter(alpha = 0.8) +   
   geom_vline(xintercept = mean_age, color = "red", linetype = "dashed") + 
   geom_hline(yintercept = mean_fare, color = "red", linetype = "dashed") + 
@@ -1205,7 +1222,7 @@ Interpret this result:
 #| code-line-numbers: false
 #| label: correlation-age-fare
 
-df_third[['age', 'fare']].corr()
+df_third[['Age', 'Fare']].corr()
 
 ```
 
