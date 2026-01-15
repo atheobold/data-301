@@ -5373,5 +5373,49 @@
       "Lecture Slides",
       "Week 1, Part 2 - Visualizing and Comparing Categorical Variables"
     ]
+  },
+  {
+    "objectID": "slides/04-group-by.html#group-by-indices",
+    "href": "slides/04-group-by.html#group-by-indices",
+    "title": "Multivariate Summaries",
+    "section": "Group-by Indices",
+    "text": "Group-by Indices\nWhat are the indices of the output of .groupby()?\n\n\n(\n  df\n  .groupby(by = \"origin\")[\"dep_delay\"]\n  .median()\n)\n\norigin\nEWR   -3.0\nJFK   -4.0\nLGA   -6.0\nName: dep_delay, dtype: float64",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 2, Part 2 - Multivariate Summaries"
+    ]
+  },
+  {
+    "objectID": "slides/04-group-by.html#grouping-by-multiple-variables",
+    "href": "slides/04-group-by.html#grouping-by-multiple-variables",
+    "title": "Multivariate Summaries",
+    "section": "Grouping by Multiple Variables",
+    "text": "Grouping by Multiple Variables\nWhat if I wanted to know if different airlines had different delays?\n\n\n\nsmall_carriers = (\n  df[\"carrier\"]\n  .isin([\"AA\", \"UA\", \"DL\"])\n  )\n\n(\n  df[small_carriers]\n  .groupby(by = [\"origin\", \"carrier\"])[\"dep_delay\"]\n  .median()\n)\n\n\norigin  carrier\nEWR     AA        -3.5\n        DL         0.0\n        UA         0.0\nJFK     AA        -3.0\n        DL        -4.0\n        UA        -5.0\nLGA     AA        -6.0\n        DL        -5.5\n        UA        -5.5\nName: dep_delay, dtype: float64\n\n\n\n\nWhat are the indices of this output?",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 2, Part 2 - Multivariate Summaries"
+    ]
+  },
+  {
+    "objectID": "slides/04-group-by.html#reseting-indices",
+    "href": "slides/04-group-by.html#reseting-indices",
+    "title": "Multivariate Summaries",
+    "section": "Reseting Indices",
+    "text": "Reseting Indices\n\n\n(\n  df\n  .groupby(by = \"origin\")[\"dep_delay\"]\n  .median()\n  .reset_index()\n)\n\n  origin  dep_delay\n0    EWR       -3.0\n1    JFK       -4.0\n2    LGA       -6.0",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 2, Part 2 - Multivariate Summaries"
+    ]
+  },
+  {
+    "objectID": "slides/04-group-by.html#reseting-multiple-indices",
+    "href": "slides/04-group-by.html#reseting-multiple-indices",
+    "title": "Multivariate Summaries",
+    "section": "Reseting Multiple Indices",
+    "text": "Reseting Multiple Indices\n\n\n\n(\n  df[small_carriers]\n  .groupby(by = [\"origin\", \"carrier\"])[\"dep_delay\"]\n  .median()\n  .reset_index()\n)\n\n\n  origin carrier  dep_delay\n0    EWR      AA       -3.5\n1    EWR      DL        0.0\n2    EWR      UA        0.0\n3    JFK      AA       -3.0\n4    JFK      DL       -4.0\n5    JFK      UA       -5.0\n6    LGA      AA       -6.0\n7    LGA      DL       -5.5\n8    LGA      UA       -5.5",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 2, Part 2 - Multivariate Summaries"
+    ]
   }
 ]

@@ -436,88 +436,88 @@ plot = (
 plot.show()
 ```
 
-# Boxplots
-## Another option: Boxplots
+<!-- # Boxplots -->
+<!-- ## Another option: Boxplots -->
 
-::: columns
-::: {.column width="48%"}
-::: {.small}
-```{python}
-#| code-fold: true
-#| code-line-numbers: false
-#| label: vertical-boxplot-code
-#| eval: false
+<!-- ::: columns -->
+<!-- ::: {.column width="48%"} -->
+<!-- ::: {.small} -->
+<!-- ```{python} -->
+<!-- #| code-fold: true -->
+<!-- #| code-line-numbers: false -->
+<!-- #| label: vertical-boxplot-code -->
+<!-- #| eval: false -->
 
-(
-  ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) + 
-  geom_boxplot() + 
-  labs(x = "", 
-       y = "Departure Delay (log minutes)", 
-       title = "Comparing Departure Delays for NYC Airports") +
-  theme_bw()
-)
-```
-:::
+<!-- ( -->
+<!--   ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) +  -->
+<!--   geom_boxplot() +  -->
+<!--   labs(x = "",  -->
+<!--        y = "Departure Delay (log minutes)",  -->
+<!--        title = "Comparing Departure Delays for NYC Airports") + -->
+<!--   theme_bw() -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ::: -->
 
-```{python}
-#| label: vertical-boxplots
-#| echo: false
+<!-- ```{python} -->
+<!-- #| label: vertical-boxplots -->
+<!-- #| echo: false -->
 
-plot = (
-  ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) + 
-  geom_boxplot() + 
-  labs(x = "", 
-       y = "Departure Delay (log minutes)", 
-       title = "Comparing Departure Delays for NYC Airports") +
-  theme_bw()
-)
+<!-- plot = ( -->
+<!--   ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) +  -->
+<!--   geom_boxplot() +  -->
+<!--   labs(x = "",  -->
+<!--        y = "Departure Delay (log minutes)",  -->
+<!--        title = "Comparing Departure Delays for NYC Airports") + -->
+<!--   theme_bw() -->
+<!-- ) -->
 
-plot.show()
-```
+<!-- plot.show() -->
+<!-- ``` -->
 
-:::
+<!-- ::: -->
 
-::: {.column width="2%"}
-:::
+<!-- ::: {.column width="2%"} -->
+<!-- ::: -->
 
-::: {.column width="50%"}
-::: {.small}
-```{python}
-#| code-fold: true
-#| code-line-numbers: false
-#| label: horizontal-boxplot-code
-#| eval: false
+<!-- ::: {.column width="50%"} -->
+<!-- ::: {.small} -->
+<!-- ```{python} -->
+<!-- #| code-fold: true -->
+<!-- #| code-line-numbers: false -->
+<!-- #| label: horizontal-boxplot-code -->
+<!-- #| eval: false -->
 
-(
-  ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) + 
-  geom_boxplot() +
-  labs(x = "", 
-       y = "Departure Delay (log minutes)", 
-       title = "Comparing Departure Delays for NYC Airports") +
-  coord_flip() +
-  theme_bw()
-)
-```
-:::
+<!-- ( -->
+<!--   ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) +  -->
+<!--   geom_boxplot() + -->
+<!--   labs(x = "",  -->
+<!--        y = "Departure Delay (log minutes)",  -->
+<!--        title = "Comparing Departure Delays for NYC Airports") + -->
+<!--   coord_flip() + -->
+<!--   theme_bw() -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ::: -->
 
-```{python}
-#| label: horizontal-boxplots
-#| echo: false
+<!-- ```{python} -->
+<!-- #| label: horizontal-boxplots -->
+<!-- #| echo: false -->
 
-plot = (
-  ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) + 
-  geom_boxplot() + 
-  labs(x = "", 
-       y = "Departure Delay (log minutes)", 
-       title = "Comparing Departure Delays for NYC Airports") +
-  coord_flip() +
-  theme_bw()
-)
+<!-- plot = ( -->
+<!--   ggplot(df, mapping = aes(y = 'log_delay', x = 'origin')) +  -->
+<!--   geom_boxplot() +  -->
+<!--   labs(x = "",  -->
+<!--        y = "Departure Delay (log minutes)",  -->
+<!--        title = "Comparing Departure Delays for NYC Airports") + -->
+<!--   coord_flip() + -->
+<!--   theme_bw() -->
+<!-- ) -->
 
-plot.show()
-```
-:::
-:::
+<!-- plot.show() -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ::: -->
 
 
 # Facetting
@@ -752,6 +752,82 @@ plot.show()
 )
 ```
 
+## Group-by Indices
+
+What are the indices of the output of `.groupby()`?
+
+::: {.midi}
+```{python}
+#| code-line-numbers: false
+#| label: group-by-median-indices
+
+(
+  df
+  .groupby(by = "origin")["dep_delay"]
+  .median()
+)
+```
+:::
+
+## Reseting Indices
+
+::: {.midi}
+```{python}
+#| code-line-numbers: false
+#| label: group-by-median-reset-indices
+
+(
+  df
+  .groupby(by = "origin")["dep_delay"]
+  .median()
+  .reset_index()
+)
+```
+:::
+
+## Grouping by Multiple Variables
+
+What if I wanted to know if different airlines had different delays?
+
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| label: group-by-multiple
+#| output-location: column
+
+small_carriers = (
+  df["carrier"]
+  .isin(["AA", "UA", "DL"])
+  )
+
+(
+  df[small_carriers]
+  .groupby(by = ["origin", "carrier"])["dep_delay"]
+  .median()
+)
+```
+:::
+
+. . .
+
+What are the indices of this output?
+
+## Reseting Multiple Indices
+
+::: {.small}
+```{python}
+#| code-line-numbers: false
+#| label: group-by-multiple-reset-index
+#| output-location: column
+
+(
+  df[small_carriers]
+  .groupby(by = ["origin", "carrier"])["dep_delay"]
+  .median()
+  .reset_index()
+)
+```
+:::
 # Standardized Values
 
 ## Simple Example: Exam Scores
@@ -877,6 +953,12 @@ Who got "unluckier"?
 
 -   The first row is a flight from EWR to CLT on US Airways. The second row is a
 flight from LGA to IAH on United Airlines. Which one was a "more extreme" delay?
+
+```{r}
+#| echo: false
+
+countdown::countdown(minutes = 10)
+```
 
 # Relationships Between Quantitative Variables
 
