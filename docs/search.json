@@ -3289,7 +3289,7 @@
     "href": "slides/05-distances.html#ames-house-prices",
     "title": "Distances Between Observations",
     "section": "Ames house prices",
-    "text": "Ames house prices\n\n\ndf = pd.read_table(\"data/housing.tsv\",\n                    sep = \"\\\\t\")\ndf.head()\n\n   Order        PID  MS SubClass  ... Sale Type  Sale Condition  SalePrice\n0      1  526301100           20  ...       WD           Normal     215000\n1      2  526350040           20  ...       WD           Normal     105000\n2      3  526351010           20  ...       WD           Normal     172000\n3      4  526353030           20  ...       WD           Normal     244000\n4      5  527105010           60  ...       WD           Normal     189900\n\n[5 rows x 82 columns]\n\n\n\n\n\n\n\n\nread_table not read_csv\n\n\nThis is a tsv file (tab separated values), so we need to use a different function to read in our data! The sep argument allows you to specify the delimiter the file uses, but you can also allow the system to autodetect the delimiter.",
+    "text": "Ames house prices\n\n\nhousing = pd.read_table(\"data/housing.tsv\",\n                    sep = \"\\\\t\")\nhousing.head()\n\n   Order        PID  MS SubClass  ... Sale Type  Sale Condition  SalePrice\n0      1  526301100           20  ...       WD           Normal     215000\n1      2  526350040           20  ...       WD           Normal     105000\n2      3  526351010           20  ...       WD           Normal     172000\n3      4  526353030           20  ...       WD           Normal     244000\n4      5  527105010           60  ...       WD           Normal     189900\n\n[5 rows x 82 columns]\n\n\n\n\n\n\n\n\nread_table not read_csv\n\n\nThis is a tsv file (tab separated values), so we need to use a different function to read in our data! The sep argument allows you to specify the delimiter the file uses, but you can also allow the system to autodetect the delimiter.",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -3300,7 +3300,7 @@
     "href": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms",
     "title": "Distances Between Observations",
     "section": "How does house size relate to number of bedrooms?",
-    "text": "How does house size relate to number of bedrooms?\n\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(x = \"Gr Liv Area\", y = \"Bedroom AbvGr\"))  + \n  geom_point() +\n  labs(x = \"Total Living Area\", \n       y = \"Number of Bedrooms\")\n )",
+    "text": "How does house size relate to number of bedrooms?\n\n\n\n\nCode\n(\n  ggplot(housing, mapping = aes(x = \"Gr Liv Area\", y = \"Bedroom AbvGr\"))  + \n  geom_point() +\n  labs(x = \"Total Living Area\", \n       y = \"Number of Bedrooms\") +\n  theme_bw()\n )",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -3311,7 +3311,7 @@
     "href": "slides/05-distances.html#how-does-house-size-relate-to-number-of-bedrooms-1",
     "title": "Distances Between Observations",
     "section": "How does house size relate to number of bedrooms?",
-    "text": "How does house size relate to number of bedrooms?\nWhat statistic would you calculate?\n\n\ndf[[\"Gr Liv Area\", \"Bedroom AbvGr\"]].corr()\n\n               Gr Liv Area  Bedroom AbvGr\nGr Liv Area       1.000000       0.516808\nBedroom AbvGr     0.516808       1.000000",
+    "text": "How does house size relate to number of bedrooms?\nWhat statistic would you calculate?\n\n\nhousing[[\"Gr Liv Area\", \"Bedroom AbvGr\"]].corr()\n\n               Gr Liv Area  Bedroom AbvGr\nGr Liv Area       1.000000       0.516808\nBedroom AbvGr     0.516808       1.000000",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -3322,7 +3322,7 @@
     "href": "slides/05-distances.html#similarity",
     "title": "Distances Between Observations",
     "section": "Similarity",
-    "text": "Similarity\nHow might we answer the question, “Are these two houses similar?”\n\n\n\n\ndf.loc[1707, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\n\n\n\n\n\n\n\ndf.loc[290, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2650\nBedroom AbvGr       6\nName: 290, dtype: object",
+    "text": "Similarity\nHow might we answer the question, “Are these two houses similar?”\n\n\n\n\nhousing.loc[1707, \n            [\"Gr Liv Area\", \n             \"Bedroom AbvGr\"]\n           ]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\n\n\n\n\n\n\n\nhousing.loc[290, \n            [\"Gr Liv Area\", \n             \"Bedroom AbvGr\"]\n           ]\n\nGr Liv Area      2650\nBedroom AbvGr       6\nName: 290, dtype: object",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -3333,7 +3333,7 @@
     "href": "slides/05-distances.html#distance",
     "title": "Distances Between Observations",
     "section": "Distance",
-    "text": "Distance\nThe distance between the two observations is:\n\\[ \\sqrt{ (2956 - 2650)^2 + (5 - 6)^2} = 306 \\]\n\n… what does this number mean? Not much!\nBut we can use it to compare sets of houses and find houses that appear to be the most similar.",
+    "text": "Distance\nThe distance between the two observations is:\n\n\\[ \\sqrt{ (2956 - 2650)^2 + (5 - 6)^2} = 306 \\]\n\n… what does this number mean? Not much!\nBut we can use it to compare sets of houses and find houses that appear to be the most similar.",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -3344,7 +3344,7 @@
     "href": "slides/05-distances.html#another-house-to-consider",
     "title": "Distances Between Observations",
     "section": "Another House to Consider",
-    "text": "Another House to Consider\n\n\n\ndf.loc[1707, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\n\n\n\n\n\ndf.loc[291, [\"Gr Liv Area\", \"Bedroom AbvGr\"]]\n\nGr Liv Area      1666\nBedroom AbvGr       3\nName: 291, dtype: object\n\n\n\n\n\\[ \\sqrt{ (2956 - 1666)^2 + (5 - 3)^2} = 1290 \\]\nThus, house 1707 is more similar to house 290 than to house 291.",
+    "text": "Another House to Consider\n\n\n\n\nhousing.loc[290, \n            [\"Gr Liv Area\", \n             \"Bedroom AbvGr\"]\n           ]\n\nGr Liv Area      2650\nBedroom AbvGr       6\nName: 290, dtype: object\n\n\n\n\\[ \\sqrt{ (2956 - 2650)^2 + (5 - 6)^2} \\newline = 306 \\]\n\n\n\n\n\n\n\nhousing.loc[291, \n            [\"Gr Liv Area\", \n             \"Bedroom AbvGr\"]\n           ]\n\nGr Liv Area      1666\nBedroom AbvGr       3\nName: 291, dtype: object\n\n\n\\[ \\sqrt{ (2956 - 1666)^2 + (5 - 3)^2} \\newline = 1290 \\]\n\n\n\n\n\nThus, house 1707 is more similar to house 290 than to house 291.",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -3366,7 +3366,7 @@
     "href": "slides/05-distances.html#house-160-seems-more-similar",
     "title": "Distances Between Observations",
     "section": "House 160 seems more similar…",
-    "text": "House 160 seems more similar…\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 2, shape = 17) + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\")\n)",
+    "text": "House 160 seems more similar…\n\n\n\nCode\n(\n  ggplot(housing, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(housing.loc[[1707]], color = \"orange\", size = 5, shape = \"x\") + \n  geom_point(housing.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(housing.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\")\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -3377,7 +3377,7 @@
     "href": "slides/05-distances.html#even-if-we-zoom-in",
     "title": "Distances Between Observations",
     "section": "…even if we zoom in…",
-    "text": "…even if we zoom in…\n\n\n\nCode\n(\n  ggplot(df, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\") +\n  scale_y_continuous(limits = (2500, 3500))\n)",
+    "text": "…even if we zoom in…\n\n\n\nCode\n(\n  ggplot(housing, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(housing.loc[[1707]], color = \"orange\", size = 5, shape = \"x\") + \n  geom_point(housing.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(housing.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\") +\n  scale_y_continuous(limits = (2500, 3500))\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -3388,7 +3388,7 @@
     "href": "slides/05-distances.html#but-not-if-we-put-the-axes-on-the-same-scale",
     "title": "Distances Between Observations",
     "section": "…but not if we put the axes on the same scale!",
-    "text": "…but not if we put the axes on the same scale!\n\n\n\nCode\n(\n  ggplot(df, aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\") +\n  scale_y_continuous(limits = (2900, 3000)) +\n  scale_x_continuous(limits = (0, 100))\n)",
+    "text": "…but not if we put the axes on the same scale!\n\n\n\nCode\n(\n  ggplot(housing, aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(housing.loc[[1707]], color = \"orange\", size = 5, shape = \"x\") + \n  geom_point(housing.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(housing.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\") +\n  scale_y_continuous(limits = (2900, 3000)) +\n  scale_x_continuous(limits = (0, 100))\n)",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -3410,7 +3410,7 @@
     "href": "slides/05-distances.html#scaling-1",
     "title": "Distances Between Observations",
     "section": "Scaling",
-    "text": "Scaling\n\n\ndf['size_scaled'] = (df['Gr Liv Area'] - df['Gr Liv Area'].mean()) / df['Gr Liv Area'].std()\ndf['bdrm_scaled'] = (df['Bedroom AbvGr'] - df['Bedroom AbvGr'].mean()) / df['Bedroom AbvGr'].std()\n\n\n\n\n\nCode\n(\n  ggplot(df, aes(y = \"size_scaled\", x = \"bdrm_scaled\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(df.loc[[1707]], color = \"red\", size = 5, shape = \"x\") + \n  geom_point(df.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(df.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Standardized)\", \n       x = \"Number of Bedrooms (Standardized)\") \n)",
+    "text": "Scaling\n\n\nhousing['size_scaled'] = (housing['Gr Liv Area'] - housing['Gr Liv Area'].mean()) / housing['Gr Liv Area'].std()\nhousing['bdrm_scaled'] = (housing['Bedroom AbvGr'] - housing['Bedroom AbvGr'].mean()) / housing['Bedroom AbvGr'].std()\n\n\n\n\n\nCode\n(\n  ggplot(housing, aes(y = \"size_scaled\", x = \"bdrm_scaled\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(housing.loc[[1707]], color = \"orange\", size = 5, shape = \"x\") + \n  geom_point(housing.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(housing.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Standardized)\", \n       x = \"Number of Bedrooms (Standardized)\") \n)",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -3454,7 +3454,7 @@
     "href": "slides/05-distances.html#fit",
     "title": "Distances Between Observations",
     "section": "Fit",
-    "text": "Fit\nThe scaler object “learns” the means and standard deviations.\n\n\ndf_orig = df[['Gr Liv Area', 'Bedroom AbvGr']]\nscaler.fit(df_orig)\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFitted\n        \n            \n                Parameters\n                \n\n\n\n\n\n\n\n\n\ncopy copy: bool, default=True\n\nIf False, try to avoid a copy and do inplace scaling instead.\nThis is not guaranteed to always work inplace; e.g. if the data is\nnot a NumPy array or scipy.sparse CSR matrix, a copy may still be\nreturned.\nTrue\n\n\n\nwith_mean with_mean: bool, default=True\n\nIf True, center the data before scaling.\nThis does not work (and will raise an exception) when attempted on\nsparse matrices, because centering them entails building a dense\nmatrix which in common use cases is likely to be too large to fit in\nmemory.\nTrue\n\n\n\nwith_std with_std: bool, default=True\n\nIf True, scale the data to unit variance (or equivalently,\nunit standard deviation).\nTrue\n\n\n\n\n            \n        \n    \n\nscaler.mean_\n\narray([1499.69044369,    2.85426621])\n\nscaler.scale_\n\narray([505.4226158 ,   0.82758988])\n\n\n\n\nWe still have not altered the data at all!",
+    "text": "Fit\nThe scaler object “learns” the means and standard deviations.\n\n\ndf_orig = housing[['Gr Liv Area', 'Bedroom AbvGr']]\nscaler.fit(df_orig)\n\nStandardScaler()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.StandardScaler?Documentation for StandardScaleriFitted\n        \n            \n                Parameters\n                \n\n\n\n\n\n\n\n\n\ncopy copy: bool, default=True\n\nIf False, try to avoid a copy and do inplace scaling instead.\nThis is not guaranteed to always work inplace; e.g. if the data is\nnot a NumPy array or scipy.sparse CSR matrix, a copy may still be\nreturned.\nTrue\n\n\n\nwith_mean with_mean: bool, default=True\n\nIf True, center the data before scaling.\nThis does not work (and will raise an exception) when attempted on\nsparse matrices, because centering them entails building a dense\nmatrix which in common use cases is likely to be too large to fit in\nmemory.\nTrue\n\n\n\nwith_std with_std: bool, default=True\n\nIf True, scale the data to unit variance (or equivalently,\nunit standard deviation).\nTrue\n\n\n\n\n            \n        \n    \n\nscaler.mean_\n\narray([1499.69044369,    2.85426621])\n\nscaler.scale_\n\narray([505.4226158 ,   0.82758988])\n\n\n\n\nWe still have not altered the data at all!",
     "crumbs": [
       "Lecture Slides",
       "Week 3 - Distances Between Observations"
@@ -5416,6 +5416,28 @@
     "crumbs": [
       "Lecture Slides",
       "Week 2, Part 2 - Multivariate Summaries"
+    ]
+  },
+  {
+    "objectID": "slides/05-distances.html#other-houses-to-consider",
+    "href": "slides/05-distances.html#other-houses-to-consider",
+    "title": "Distances Between Observations",
+    "section": "Other Houses to Consider",
+    "text": "Other Houses to Consider\n\n\n\n\nhousing.loc[1707, \n            [\"Gr Liv Area\", \n             \"Bedroom AbvGr\"]\n           ]\n\nGr Liv Area      2956\nBedroom AbvGr       5\nName: 1707, dtype: object\n\n\n\n\\[ \\sqrt{ (2956 - 1666)^2 + (5 - 3)^2} \\newline = 1290 \\]\n\n\n\n\n\n\nhousing.loc[291, \n            [\"Gr Liv Area\", \n             \"Bedroom AbvGr\"]\n           ]\n\nGr Liv Area      1666\nBedroom AbvGr       3\nName: 291, dtype: object\n\n\n\\[ \\sqrt{ (2650 - 1666)^2 + (6 - 3)^2} = 1290 \\]\n\n\n\n\nThus, house 1707 is more similar to house 290 than to house 291.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 3 - Distances Between Observations"
+    ]
+  },
+  {
+    "objectID": "slides/05-distances.html#house-160-seems-more-similar-to-1707",
+    "href": "slides/05-distances.html#house-160-seems-more-similar-to-1707",
+    "title": "Distances Between Observations",
+    "section": "House 160 seems more similar to 1707…",
+    "text": "House 160 seems more similar to 1707…\n\n\n\nCode\n(\n  ggplot(housing, mapping = aes(y = \"Gr Liv Area\", x = \"Bedroom AbvGr\")) + \n  geom_point(color = \"lightgrey\") + \n  geom_point(housing.loc[[1707]], color = \"orange\", size = 5, shape = \"x\") + \n  geom_point(housing.loc[[160]], color = \"blue\", size = 2) + \n  geom_point(housing.loc[[2336]], color = \"green\", size = 2) + \n  theme_bw() +\n  labs(y = \"Total Living Area (Square Feet)\", \n       x = \"Number of Bedrooms\")\n)",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 3 - Distances Between Observations"
     ]
   }
 ]

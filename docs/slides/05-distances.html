@@ -271,70 +271,75 @@
 <span id="cb3-11"><a aria-hidden="true" tabindex="-1"></a>  .divide(bolt_stats[<span class="st">"std"</span>])</span>
 <span id="cb3-12"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="lambda-functions" class="slide level2">
-<h2><code>lambda</code> Functions</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>phelps_sec <span class="op">=</span> (</span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>  df_phelps[<span class="st">"Time"</span>]</span>
-<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">str</span>.split(<span class="st">":"</span>)</span>
-<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a>  .<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">float</span>(x[<span class="dv">0</span>])<span class="op">*</span><span class="dv">60</span> <span class="op">+</span> <span class="bu">float</span>(x[<span class="dv">1</span>]))</span>
-<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="fragment">
-<p><br></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>df_phelps[[<span class="st">"Minutes"</span>, <span class="st">"Seconds"</span>]] <span class="op">=</span> df_phelps[<span class="st">"Time"</span>].<span class="bu">str</span>.split(<span class="st">":"</span>)</span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>df_phelps[<span class="st">"Time_New"</span>] <span class="op">=</span> (</span>
-<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a>  df_phelps[<span class="st">"Minutes"</span>].astype(<span class="bu">float</span>) <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span></span>
-<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a>  df_phelps[<span class="st">"Seconds"</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
+<!-- ## `lambda` Functions -->
+<!-- ```{python} -->
+<!-- #| eval: false -->
+<!-- #| label: lambda-function-times -->
+<!-- #| echo: true -->
+<!-- #| code-line-numbers: false -->
+<!-- phelps_sec = ( -->
+<!--   df_phelps["Time"] -->
+<!--   .str.split(":") -->
+<!--   .apply(lambda x: float(x[0])*60 + float(x[1])) -->
+<!-- ) -->
+<!-- ``` -->
+<!-- . . . -->
+<!-- </br> -->
+<!-- ```{python} -->
+<!-- #| eval: false -->
+<!-- #| label: my-approach-times -->
+<!-- #| echo: true -->
+<!-- #| code-line-numbers: false -->
+<!-- df_phelps[["Minutes", "Seconds"]] = df_phelps["Time"].str.split(":") -->
+<!-- df_phelps["Time_New"] = ( -->
+<!--   df_phelps["Minutes"].astype(float) * 60 + -->
+<!--   df_phelps["Seconds"].astype(float) -->
+<!--   ) -->
+<!-- ``` -->
 </section>
 <section id="a-loop-is-often-not-necessary" class="slide level2">
 <h2>A loop is often not necessary</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>split_times <span class="op">=</span> df_phelps[<span class="st">"Time"</span>].<span class="bu">str</span>.split(<span class="st">":"</span>)</span>
-<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>seconds <span class="op">=</span> []</span>
-<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> time <span class="kw">in</span> split_times:</span>
-<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a>  minute <span class="op">=</span> <span class="bu">int</span>(time[<span class="dv">0</span>])</span>
-<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a>  second <span class="op">=</span> <span class="bu">float</span>(time[<span class="dv">1</span>])</span>
-<span id="cb6-7"><a aria-hidden="true" tabindex="-1"></a>  seconds.append((minute <span class="op">*</span> <span class="dv">60</span>) <span class="op">+</span> second)</span>
-<span id="cb6-8"><a aria-hidden="true" tabindex="-1"></a>  df_phelps[<span class="st">"Seconds"</span>] <span class="op">=</span> seconds</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>split_times <span class="op">=</span> df_phelps[<span class="st">"Time"</span>].<span class="bu">str</span>.split(<span class="st">":"</span>)</span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>seconds <span class="op">=</span> []</span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> time <span class="kw">in</span> split_times:</span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a>  minute <span class="op">=</span> <span class="bu">int</span>(time[<span class="dv">0</span>])</span>
+<span id="cb4-6"><a aria-hidden="true" tabindex="-1"></a>  second <span class="op">=</span> <span class="bu">float</span>(time[<span class="dv">1</span>])</span>
+<span id="cb4-7"><a aria-hidden="true" tabindex="-1"></a>  seconds.append((minute <span class="op">*</span> <span class="dv">60</span>) <span class="op">+</span> second)</span>
+<span id="cb4-8"><a aria-hidden="true" tabindex="-1"></a>  df_phelps[<span class="st">"Seconds"</span>] <span class="op">=</span> seconds</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="when-to-make-a-function" class="slide level2">
 <h2>When to make a function?</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> time_to_secs(time_str):</span>
-<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a>  mins, secs <span class="op">=</span> time_str.split(<span class="st">':'</span>)</span>
-<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">float</span>(mins) <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> <span class="bu">float</span>(secs)</span>
-<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a>df_phelps[<span class="st">'time_secs'</span>] <span class="op">=</span> df_phelps[<span class="st">'Time'</span>].<span class="bu">apply</span>(time_to_secs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> time_to_secs(time_str):</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>  mins, secs <span class="op">=</span> time_str.split(<span class="st">':'</span>)</span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">float</span>(mins) <span class="op">*</span> <span class="dv">60</span> <span class="op">+</span> <span class="bu">float</span>(secs)</span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a>df_phelps[<span class="st">'time_secs'</span>] <span class="op">=</span> df_phelps[<span class="st">'Time'</span>].<span class="bu">apply</span>(time_to_secs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
 <p><br></p>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_simpson_index(values, position):</span>
-<span id="cb8-2"><a aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert values to a Pandas Series, ensuring they are strings</span></span>
-<span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a>    values_series <span class="op">=</span> pd.Series(values).astype(<span class="bu">str</span>)</span>
-<span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract the specified character based on the position</span></span>
-<span id="cb8-7"><a aria-hidden="true" tabindex="-1"></a>    extracted_character <span class="op">=</span> values_series.<span class="bu">str</span>[position]</span>
-<span id="cb8-8"><a aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-9"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the frequency of each character</span></span>
-<span id="cb8-10"><a aria-hidden="true" tabindex="-1"></a>    character_counts <span class="op">=</span> extracted_character.value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-11"><a aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-12"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute the Simpson's Index</span></span>
-<span id="cb8-13"><a aria-hidden="true" tabindex="-1"></a>    simpson_index <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> <span class="bu">sum</span>(character_counts <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb8-14"><a aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-15"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> simpson_index</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_simpson_index(values, position):</span>
+<span id="cb6-2"><a aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert values to a Pandas Series, ensuring they are strings</span></span>
+<span id="cb6-4"><a aria-hidden="true" tabindex="-1"></a>    values_series <span class="op">=</span> pd.Series(values).astype(<span class="bu">str</span>)</span>
+<span id="cb6-5"><a aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract the specified character based on the position</span></span>
+<span id="cb6-7"><a aria-hidden="true" tabindex="-1"></a>    extracted_character <span class="op">=</span> values_series.<span class="bu">str</span>[position]</span>
+<span id="cb6-8"><a aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-9"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the frequency of each character</span></span>
+<span id="cb6-10"><a aria-hidden="true" tabindex="-1"></a>    character_counts <span class="op">=</span> extracted_character.value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-11"><a aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-12"><a aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute the Simpson's Index</span></span>
+<span id="cb6-13"><a aria-hidden="true" tabindex="-1"></a>    simpson_index <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> <span class="bu">sum</span>(character_counts <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb6-14"><a aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-15"><a aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> simpson_index</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -373,9 +378,9 @@
 <h2>Ames house prices</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_table(<span class="st">"data/housing.tsv"</span>,</span>
-<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>                    sep <span class="op">=</span> <span class="st">"</span><span class="ch">\\</span><span class="st">t"</span>)</span>
-<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>housing <span class="op">=</span> pd.read_table(<span class="st">"data/housing.tsv"</span>,</span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a>                    sep <span class="op">=</span> <span class="st">"</span><span class="ch">\\</span><span class="st">t"</span>)</span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a>housing.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Order        PID  MS SubClass  ... Sale Type  Sale Condition  SalePrice
 0      1  526301100           20  ...       WD           Normal     215000
@@ -409,12 +414,13 @@
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Gr Liv Area"</span>, y <span class="op">=</span> <span class="st">"Bedroom AbvGr"</span>))  <span class="op">+</span> </span>
-<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span></span>
-<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Total Living Area"</span>, </span>
-<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Number of Bedrooms"</span>)</span>
-<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a> )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(housing, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"Gr Liv Area"</span>, y <span class="op">=</span> <span class="st">"Bedroom AbvGr"</span>))  <span class="op">+</span> </span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span></span>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"Total Living Area"</span>, </span>
+<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a>       y <span class="op">=</span> <span class="st">"Number of Bedrooms"</span>) <span class="op">+</span></span>
+<span id="cb9-6"><a aria-hidden="true" tabindex="-1"></a>  theme_bw()</span>
+<span id="cb9-7"><a aria-hidden="true" tabindex="-1"></a> )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -434,7 +440,7 @@
 <p>What <em>statistic</em> would you calculate?</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"Gr Liv Area"</span>, <span class="st">"Bedroom AbvGr"</span>]].corr()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>housing[[<span class="st">"Gr Liv Area"</span>, <span class="st">"Bedroom AbvGr"</span>]].corr()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               Gr Liv Area  Bedroom AbvGr
 Gr Liv Area       1.000000       0.516808
@@ -453,9 +459,12 @@ Bedroom AbvGr     0.516808       1.000000</code></pre>
 <p>How might we answer the question, “Are these two houses similar?”</p>
 <div class="columns">
 <div class="column" style="width:45%;">
-<div class="small">
+<div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">1707</span>, [<span class="st">"Gr Liv Area"</span>, <span class="st">"Bedroom AbvGr"</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>housing.loc[<span class="dv">1707</span>, </span>
+<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a>            [<span class="st">"Gr Liv Area"</span>, </span>
+<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a>             <span class="st">"Bedroom AbvGr"</span>]</span>
+<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a>           ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Gr Liv Area      2956
 Bedroom AbvGr       5
@@ -466,9 +475,12 @@ Name: 1707, dtype: object</code></pre>
 </div><div class="column" style="width:10%;">
 
 </div><div class="column" style="width:45%;">
-<div class="small">
+<div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">290</span>, [<span class="st">"Gr Liv Area"</span>, <span class="st">"Bedroom AbvGr"</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>housing.loc[<span class="dv">290</span>, </span>
+<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>            [<span class="st">"Gr Liv Area"</span>, </span>
+<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a>             <span class="st">"Bedroom AbvGr"</span>]</span>
+<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>           ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Gr Liv Area      2650
 Bedroom AbvGr       6
@@ -481,6 +493,7 @@ Name: 290, dtype: object</code></pre>
 <section id="distance" class="slide level2">
 <h2>Distance</h2>
 <p>The <strong>distance</strong> between the <strong>two observations</strong> is:</p>
+<p><br></p>
 <p><span class="math display">\[ \sqrt{ (2956 - 2650)^2 + (5 - 6)^2} = 306 \]</span></p>
 <div class="fragment">
 <p>… what does this number mean? Not much!</p>
@@ -491,29 +504,45 @@ Name: 290, dtype: object</code></pre>
 <h2>Another House to Consider</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
+<div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">1707</span>, [<span class="st">"Gr Liv Area"</span>, <span class="st">"Bedroom AbvGr"</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>housing.loc[<span class="dv">290</span>, </span>
+<span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>            [<span class="st">"Gr Liv Area"</span>, </span>
+<span id="cb16-3"><a aria-hidden="true" tabindex="-1"></a>             <span class="st">"Bedroom AbvGr"</span>]</span>
+<span id="cb16-4"><a aria-hidden="true" tabindex="-1"></a>           ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Gr Liv Area      2956
-Bedroom AbvGr       5
-Name: 1707, dtype: object</code></pre>
+<pre><code>Gr Liv Area      2650
+Bedroom AbvGr       6
+Name: 290, dtype: object</code></pre>
 </div>
+</div>
+<p><br></p>
+<p><span class="math display">\[ \sqrt{ (2956 - 2650)^2 + (5 - 6)^2} \newline = 306 \]</span></p>
 </div>
 </div><div class="column" style="width:10%;">
 
 </div><div class="column" style="width:45%;">
+<div class="fragment">
+<div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">291</span>, [<span class="st">"Gr Liv Area"</span>, <span class="st">"Bedroom AbvGr"</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>housing.loc[<span class="dv">291</span>, </span>
+<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a>            [<span class="st">"Gr Liv Area"</span>, </span>
+<span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a>             <span class="st">"Bedroom AbvGr"</span>]</span>
+<span id="cb18-4"><a aria-hidden="true" tabindex="-1"></a>           ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Gr Liv Area      1666
 Bedroom AbvGr       3
 Name: 291, dtype: object</code></pre>
 </div>
 </div>
+<p><span class="math display">\[ \sqrt{ (2956 - 1666)^2 + (5 - 3)^2} \newline = 1290 \]</span></p>
+</div>
+</div>
 </div></div>
 <div class="fragment">
-<p><span class="math display">\[ \sqrt{ (2956 - 1666)^2 + (5 - 3)^2} = 1290 \]</span></p>
+<div class="midi">
 <p>Thus, house 1707 is <strong>more similar</strong> to house 290 than to house 291.</p>
+</div>
 </div>
 </section>
 <section id="lecture-activity-part-1" class="slide level2">
@@ -523,7 +552,7 @@ Name: 291, dtype: object</code></pre>
 </blockquote>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_d3c8ff1d" minutes="10" seconds="0" update-every="1" tabindex="0" style="bottom:0;left:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_68679827" minutes="10" seconds="0" update-every="1" tabindex="0" style="bottom:0;left:0;"></countdown-timer>
 </div>
 </div>
 </section></section>
@@ -532,22 +561,22 @@ Name: 291, dtype: object</code></pre>
 <h1>Scaling / Standardizing</h1>
 
 </section>
-<section id="house-160-seems-more-similar" class="slide level2">
-<h2>House 160 seems more similar…</h2>
+<section id="house-160-seems-more-similar-to-1707" class="slide level2">
+<h2>House 160 seems more similar to 1707…</h2>
 <div class="small">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">"Gr Liv Area"</span>, x <span class="op">=</span> <span class="st">"Bedroom AbvGr"</span>)) <span class="op">+</span> </span>
-<span id="cb22-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point(color <span class="op">=</span> <span class="st">"lightgrey"</span>) <span class="op">+</span> </span>
-<span id="cb22-4"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">1707</span>]], color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="dv">2</span>, shape <span class="op">=</span> <span class="dv">17</span>) <span class="op">+</span> </span>
-<span id="cb22-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">160</span>]], color <span class="op">=</span> <span class="st">"blue"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
-<span id="cb22-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">2336</span>]], color <span class="op">=</span> <span class="st">"green"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
-<span id="cb22-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
-<span id="cb22-8"><a aria-hidden="true" tabindex="-1"></a>  labs(y <span class="op">=</span> <span class="st">"Total Living Area (Square Feet)"</span>, </span>
-<span id="cb22-9"><a aria-hidden="true" tabindex="-1"></a>       x <span class="op">=</span> <span class="st">"Number of Bedrooms"</span>)</span>
-<span id="cb22-10"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(housing, mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">"Gr Liv Area"</span>, x <span class="op">=</span> <span class="st">"Bedroom AbvGr"</span>)) <span class="op">+</span> </span>
+<span id="cb20-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point(color <span class="op">=</span> <span class="st">"lightgrey"</span>) <span class="op">+</span> </span>
+<span id="cb20-4"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">1707</span>]], color <span class="op">=</span> <span class="st">"orange"</span>, size <span class="op">=</span> <span class="dv">5</span>, shape <span class="op">=</span> <span class="st">"x"</span>) <span class="op">+</span> </span>
+<span id="cb20-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">160</span>]], color <span class="op">=</span> <span class="st">"blue"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
+<span id="cb20-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">2336</span>]], color <span class="op">=</span> <span class="st">"green"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
+<span id="cb20-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb20-8"><a aria-hidden="true" tabindex="-1"></a>  labs(y <span class="op">=</span> <span class="st">"Total Living Area (Square Feet)"</span>, </span>
+<span id="cb20-9"><a aria-hidden="true" tabindex="-1"></a>       x <span class="op">=</span> <span class="st">"Number of Bedrooms"</span>)</span>
+<span id="cb20-10"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -559,17 +588,17 @@ Name: 291, dtype: object</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">"Gr Liv Area"</span>, x <span class="op">=</span> <span class="st">"Bedroom AbvGr"</span>)) <span class="op">+</span> </span>
-<span id="cb23-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point(color <span class="op">=</span> <span class="st">"lightgrey"</span>) <span class="op">+</span> </span>
-<span id="cb23-4"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">1707</span>]], color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="dv">5</span>, shape <span class="op">=</span> <span class="st">"x"</span>) <span class="op">+</span> </span>
-<span id="cb23-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">160</span>]], color <span class="op">=</span> <span class="st">"blue"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
-<span id="cb23-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">2336</span>]], color <span class="op">=</span> <span class="st">"green"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
-<span id="cb23-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
-<span id="cb23-8"><a aria-hidden="true" tabindex="-1"></a>  labs(y <span class="op">=</span> <span class="st">"Total Living Area (Square Feet)"</span>, </span>
-<span id="cb23-9"><a aria-hidden="true" tabindex="-1"></a>       x <span class="op">=</span> <span class="st">"Number of Bedrooms"</span>) <span class="op">+</span></span>
-<span id="cb23-10"><a aria-hidden="true" tabindex="-1"></a>  scale_y_continuous(limits <span class="op">=</span> (<span class="dv">2500</span>, <span class="dv">3500</span>))</span>
-<span id="cb23-11"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(housing, mapping <span class="op">=</span> aes(y <span class="op">=</span> <span class="st">"Gr Liv Area"</span>, x <span class="op">=</span> <span class="st">"Bedroom AbvGr"</span>)) <span class="op">+</span> </span>
+<span id="cb21-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point(color <span class="op">=</span> <span class="st">"lightgrey"</span>) <span class="op">+</span> </span>
+<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">1707</span>]], color <span class="op">=</span> <span class="st">"orange"</span>, size <span class="op">=</span> <span class="dv">5</span>, shape <span class="op">=</span> <span class="st">"x"</span>) <span class="op">+</span> </span>
+<span id="cb21-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">160</span>]], color <span class="op">=</span> <span class="st">"blue"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
+<span id="cb21-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">2336</span>]], color <span class="op">=</span> <span class="st">"green"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
+<span id="cb21-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb21-8"><a aria-hidden="true" tabindex="-1"></a>  labs(y <span class="op">=</span> <span class="st">"Total Living Area (Square Feet)"</span>, </span>
+<span id="cb21-9"><a aria-hidden="true" tabindex="-1"></a>       x <span class="op">=</span> <span class="st">"Number of Bedrooms"</span>) <span class="op">+</span></span>
+<span id="cb21-10"><a aria-hidden="true" tabindex="-1"></a>  scale_y_continuous(limits <span class="op">=</span> (<span class="dv">2500</span>, <span class="dv">3500</span>))</span>
+<span id="cb21-11"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -581,18 +610,18 @@ Name: 291, dtype: object</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb24-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(y <span class="op">=</span> <span class="st">"Gr Liv Area"</span>, x <span class="op">=</span> <span class="st">"Bedroom AbvGr"</span>)) <span class="op">+</span> </span>
-<span id="cb24-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point(color <span class="op">=</span> <span class="st">"lightgrey"</span>) <span class="op">+</span> </span>
-<span id="cb24-4"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">1707</span>]], color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="dv">5</span>, shape <span class="op">=</span> <span class="st">"x"</span>) <span class="op">+</span> </span>
-<span id="cb24-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">160</span>]], color <span class="op">=</span> <span class="st">"blue"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
-<span id="cb24-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">2336</span>]], color <span class="op">=</span> <span class="st">"green"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
-<span id="cb24-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
-<span id="cb24-8"><a aria-hidden="true" tabindex="-1"></a>  labs(y <span class="op">=</span> <span class="st">"Total Living Area (Square Feet)"</span>, </span>
-<span id="cb24-9"><a aria-hidden="true" tabindex="-1"></a>       x <span class="op">=</span> <span class="st">"Number of Bedrooms"</span>) <span class="op">+</span></span>
-<span id="cb24-10"><a aria-hidden="true" tabindex="-1"></a>  scale_y_continuous(limits <span class="op">=</span> (<span class="dv">2900</span>, <span class="dv">3000</span>)) <span class="op">+</span></span>
-<span id="cb24-11"><a aria-hidden="true" tabindex="-1"></a>  scale_x_continuous(limits <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">100</span>))</span>
-<span id="cb24-12"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(housing, aes(y <span class="op">=</span> <span class="st">"Gr Liv Area"</span>, x <span class="op">=</span> <span class="st">"Bedroom AbvGr"</span>)) <span class="op">+</span> </span>
+<span id="cb22-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point(color <span class="op">=</span> <span class="st">"lightgrey"</span>) <span class="op">+</span> </span>
+<span id="cb22-4"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">1707</span>]], color <span class="op">=</span> <span class="st">"orange"</span>, size <span class="op">=</span> <span class="dv">5</span>, shape <span class="op">=</span> <span class="st">"x"</span>) <span class="op">+</span> </span>
+<span id="cb22-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">160</span>]], color <span class="op">=</span> <span class="st">"blue"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
+<span id="cb22-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">2336</span>]], color <span class="op">=</span> <span class="st">"green"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
+<span id="cb22-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb22-8"><a aria-hidden="true" tabindex="-1"></a>  labs(y <span class="op">=</span> <span class="st">"Total Living Area (Square Feet)"</span>, </span>
+<span id="cb22-9"><a aria-hidden="true" tabindex="-1"></a>       x <span class="op">=</span> <span class="st">"Number of Bedrooms"</span>) <span class="op">+</span></span>
+<span id="cb22-10"><a aria-hidden="true" tabindex="-1"></a>  scale_y_continuous(limits <span class="op">=</span> (<span class="dv">2900</span>, <span class="dv">3000</span>)) <span class="op">+</span></span>
+<span id="cb22-11"><a aria-hidden="true" tabindex="-1"></a>  scale_x_continuous(limits <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">100</span>))</span>
+<span id="cb22-12"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -620,24 +649,24 @@ Name: 291, dtype: object</code></pre>
 <h2>Scaling</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">'size_scaled'</span>] <span class="op">=</span> (df[<span class="st">'Gr Liv Area'</span>] <span class="op">-</span> df[<span class="st">'Gr Liv Area'</span>].mean()) <span class="op">/</span> df[<span class="st">'Gr Liv Area'</span>].std()</span>
-<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">'bdrm_scaled'</span>] <span class="op">=</span> (df[<span class="st">'Bedroom AbvGr'</span>] <span class="op">-</span> df[<span class="st">'Bedroom AbvGr'</span>].mean()) <span class="op">/</span> df[<span class="st">'Bedroom AbvGr'</span>].std()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>housing[<span class="st">'size_scaled'</span>] <span class="op">=</span> (housing[<span class="st">'Gr Liv Area'</span>] <span class="op">-</span> housing[<span class="st">'Gr Liv Area'</span>].mean()) <span class="op">/</span> housing[<span class="st">'Gr Liv Area'</span>].std()</span>
+<span id="cb23-2"><a aria-hidden="true" tabindex="-1"></a>housing[<span class="st">'bdrm_scaled'</span>] <span class="op">=</span> (housing[<span class="st">'Bedroom AbvGr'</span>] <span class="op">-</span> housing[<span class="st">'Bedroom AbvGr'</span>].mean()) <span class="op">/</span> housing[<span class="st">'Bedroom AbvGr'</span>].std()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="small">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(df, aes(y <span class="op">=</span> <span class="st">"size_scaled"</span>, x <span class="op">=</span> <span class="st">"bdrm_scaled"</span>)) <span class="op">+</span> </span>
-<span id="cb26-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point(color <span class="op">=</span> <span class="st">"lightgrey"</span>) <span class="op">+</span> </span>
-<span id="cb26-4"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">1707</span>]], color <span class="op">=</span> <span class="st">"red"</span>, size <span class="op">=</span> <span class="dv">5</span>, shape <span class="op">=</span> <span class="st">"x"</span>) <span class="op">+</span> </span>
-<span id="cb26-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">160</span>]], color <span class="op">=</span> <span class="st">"blue"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
-<span id="cb26-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point(df.loc[[<span class="dv">2336</span>]], color <span class="op">=</span> <span class="st">"green"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
-<span id="cb26-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
-<span id="cb26-8"><a aria-hidden="true" tabindex="-1"></a>  labs(y <span class="op">=</span> <span class="st">"Total Living Area (Standardized)"</span>, </span>
-<span id="cb26-9"><a aria-hidden="true" tabindex="-1"></a>       x <span class="op">=</span> <span class="st">"Number of Bedrooms (Standardized)"</span>) </span>
-<span id="cb26-10"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb24-2"><a aria-hidden="true" tabindex="-1"></a>  ggplot(housing, aes(y <span class="op">=</span> <span class="st">"size_scaled"</span>, x <span class="op">=</span> <span class="st">"bdrm_scaled"</span>)) <span class="op">+</span> </span>
+<span id="cb24-3"><a aria-hidden="true" tabindex="-1"></a>  geom_point(color <span class="op">=</span> <span class="st">"lightgrey"</span>) <span class="op">+</span> </span>
+<span id="cb24-4"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">1707</span>]], color <span class="op">=</span> <span class="st">"orange"</span>, size <span class="op">=</span> <span class="dv">5</span>, shape <span class="op">=</span> <span class="st">"x"</span>) <span class="op">+</span> </span>
+<span id="cb24-5"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">160</span>]], color <span class="op">=</span> <span class="st">"blue"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
+<span id="cb24-6"><a aria-hidden="true" tabindex="-1"></a>  geom_point(housing.loc[[<span class="dv">2336</span>]], color <span class="op">=</span> <span class="st">"green"</span>, size <span class="op">=</span> <span class="dv">2</span>) <span class="op">+</span> </span>
+<span id="cb24-7"><a aria-hidden="true" tabindex="-1"></a>  theme_bw() <span class="op">+</span></span>
+<span id="cb24-8"><a aria-hidden="true" tabindex="-1"></a>  labs(y <span class="op">=</span> <span class="st">"Total Living Area (Standardized)"</span>, </span>
+<span id="cb24-9"><a aria-hidden="true" tabindex="-1"></a>       x <span class="op">=</span> <span class="st">"Number of Bedrooms (Standardized)"</span>) </span>
+<span id="cb24-10"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -650,7 +679,7 @@ Name: 291, dtype: object</code></pre>
 </blockquote>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_0075c413" minutes="10" seconds="0" update-every="1" tabindex="0" style="bottom:0;left:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_5de3894d" minutes="10" seconds="0" update-every="1" tabindex="0" style="bottom:0;left:0;"></countdown-timer>
 </div>
 </div>
 </section></section>
@@ -680,10 +709,10 @@ Name: 291, dtype: object</code></pre>
 <section id="specify" class="slide level2">
 <h2>Specify</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
-<span id="cb27-4"><a aria-hidden="true" tabindex="-1"></a>scaler</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb25-4"><a aria-hidden="true" tabindex="-1"></a>scaler</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
@@ -1406,8 +1435,8 @@ forceTheme('sk-container-id-1');</script>
 <p>The <code>scaler</code> object “learns” the means and standard deviations.</p>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>df_orig <span class="op">=</span> df[[<span class="st">'Gr Liv Area'</span>, <span class="st">'Bedroom AbvGr'</span>]]</span>
-<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>scaler.fit(df_orig)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a>df_orig <span class="op">=</span> housing[[<span class="st">'Gr Liv Area'</span>, <span class="st">'Bedroom AbvGr'</span>]]</span>
+<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a>scaler.fit(df_orig)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <style>#sk-container-id-2 {
   /* Definition of color scheme common for light and dark mode */
@@ -2122,11 +2151,11 @@ function forceTheme(elementId) {
 
 forceTheme('sk-container-id-2');</script>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>scaler.mean_</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>scaler.mean_</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([1499.69044369,    2.85426621])</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>scaler.scale_</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>scaler.scale_</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([505.4226158 ,   0.82758988])</code></pre>
 </div>
@@ -2139,8 +2168,8 @@ forceTheme('sk-container-id-2');</script>
 <section id="transform" class="slide level2">
 <h2>Transform</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>df_scaled <span class="op">=</span> scaler.transform(df_orig)</span>
-<span id="cb33-2"><a aria-hidden="true" tabindex="-1"></a>df_scaled</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>df_scaled <span class="op">=</span> scaler.transform(df_orig)</span>
+<span id="cb31-2"><a aria-hidden="true" tabindex="-1"></a>df_scaled</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([[ 0.30926506,  0.17609421],
        [-1.19442705, -1.03223376],
@@ -2164,7 +2193,7 @@ forceTheme('sk-container-id-2');</script>
 <div class="fragment">
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame(df_scaled, columns <span class="op">=</span> df_orig.columns)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>pd.DataFrame(df_scaled, columns <span class="op">=</span> df_orig.columns)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Gr Liv Area  Bedroom AbvGr
 0        0.309265       0.176094
@@ -2188,9 +2217,9 @@ forceTheme('sk-container-id-2');</script>
 <section id="distances-with-sklearn" class="slide level2">
 <h2>Distances with sklearn</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
-<span id="cb37-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a aria-hidden="true" tabindex="-1"></a>pairwise_distances(df_scaled[[<span class="dv">1707</span>]], df_scaled)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
+<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a aria-hidden="true" tabindex="-1"></a>pairwise_distances(df_scaled[[<span class="dv">1707</span>]], df_scaled)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([[3.52929876, 5.45459713, 4.0252646 , ..., 4.61305666, 4.76999349,
         3.06886734]], shape=(1, 2930))</code></pre>
@@ -2203,9 +2232,9 @@ forceTheme('sk-container-id-2');</script>
 <div class="column" style="width:48%;">
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> pairwise_distances(df_scaled[[<span class="dv">1707</span>]], </span>
-<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a>                           df_scaled)</span>
-<span id="cb39-3"><a aria-hidden="true" tabindex="-1"></a>dists.argsort()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> pairwise_distances(df_scaled[[<span class="dv">1707</span>]], </span>
+<span id="cb37-2"><a aria-hidden="true" tabindex="-1"></a>                           df_scaled)</span>
+<span id="cb37-3"><a aria-hidden="true" tabindex="-1"></a>dists.argsort()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>array([[1707,  160,  909, ...,  158, 2723, 2279]], shape=(1, 2930))</code></pre>
 </div>
@@ -2216,14 +2245,14 @@ forceTheme('sk-container-id-2');</script>
 </div><div class="column" style="width:50%;">
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a>best <span class="op">=</span> (</span>
-<span id="cb41-2"><a aria-hidden="true" tabindex="-1"></a>  dists</span>
-<span id="cb41-3"><a aria-hidden="true" tabindex="-1"></a>  .argsort()</span>
-<span id="cb41-4"><a aria-hidden="true" tabindex="-1"></a>  .flatten()</span>
-<span id="cb41-5"><a aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>:<span class="dv">10</span>]</span>
-<span id="cb41-6"><a aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb41-7"><a aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb41-8"><a aria-hidden="true" tabindex="-1"></a>df_orig.iloc[best]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a>best <span class="op">=</span> (</span>
+<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a>  dists</span>
+<span id="cb39-3"><a aria-hidden="true" tabindex="-1"></a>  .argsort()</span>
+<span id="cb39-4"><a aria-hidden="true" tabindex="-1"></a>  .flatten()</span>
+<span id="cb39-5"><a aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>:<span class="dv">10</span>]</span>
+<span id="cb39-6"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb39-7"><a aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb39-8"><a aria-hidden="true" tabindex="-1"></a>df_orig.iloc[best]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Gr Liv Area  Bedroom AbvGr
 160          2978              5
@@ -2247,7 +2276,7 @@ forceTheme('sk-container-id-2');</script>
 </blockquote>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_9b97cd99" minutes="10" seconds="0" update-every="1" tabindex="0" style="bottom:0;left:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_ce2c85c6" minutes="10" seconds="0" update-every="1" tabindex="0" style="bottom:0;left:0;"></countdown-timer>
 </div>
 </div>
 </section></section>
@@ -2279,7 +2308,7 @@ forceTheme('sk-container-id-2');</script>
 </blockquote>
 <div class="cell">
 <div class="cell-output-display">
-<countdown-timer class="countdown" id="timer_0cb90ca5" minutes="10" seconds="0" update-every="1" tabindex="0" style="bottom:0;left:0;"></countdown-timer>
+<countdown-timer class="countdown" id="timer_cac2e9f0" minutes="10" seconds="0" update-every="1" tabindex="0" style="bottom:0;left:0;"></countdown-timer>
 </div>
 </div>
 </section></section>

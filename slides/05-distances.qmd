@@ -121,37 +121,37 @@ standardized_bolt = (
 ```
 
 
-## `lambda` Functions
+<!-- ## `lambda` Functions -->
 
-```{python}
-#| eval: false
-#| label: lambda-function-times
-#| echo: true
-#| code-line-numbers: false
+<!-- ```{python} -->
+<!-- #| eval: false -->
+<!-- #| label: lambda-function-times -->
+<!-- #| echo: true -->
+<!-- #| code-line-numbers: false -->
 
-phelps_sec = (
-  df_phelps["Time"]
-  .str.split(":")
-  .apply(lambda x: float(x[0])*60 + float(x[1]))
-)
-```
+<!-- phelps_sec = ( -->
+<!--   df_phelps["Time"] -->
+<!--   .str.split(":") -->
+<!--   .apply(lambda x: float(x[0])*60 + float(x[1])) -->
+<!-- ) -->
+<!-- ``` -->
 
-. . .
+<!-- . . . -->
 
-</br>
+<!-- </br> -->
 
-```{python}
-#| eval: false
-#| label: my-approach-times
-#| echo: true
-#| code-line-numbers: false
+<!-- ```{python} -->
+<!-- #| eval: false -->
+<!-- #| label: my-approach-times -->
+<!-- #| echo: true -->
+<!-- #| code-line-numbers: false -->
 
-df_phelps[["Minutes", "Seconds"]] = df_phelps["Time"].str.split(":")
-df_phelps["Time_New"] = (
-  df_phelps["Minutes"].astype(float) * 60 +
-  df_phelps["Seconds"].astype(float)
-  )
-```
+<!-- df_phelps[["Minutes", "Seconds"]] = df_phelps["Time"].str.split(":") -->
+<!-- df_phelps["Time_New"] = ( -->
+<!--   df_phelps["Minutes"].astype(float) * 60 + -->
+<!--   df_phelps["Seconds"].astype(float) -->
+<!--   ) -->
+<!-- ``` -->
 
 ## A loop is often not necessary
 
@@ -256,9 +256,9 @@ boxplots, or facetting
 #| code-line-numbers: false
 #| label: ames-housing-data
 
-df = pd.read_table("data/housing.tsv",
+housing = pd.read_table("data/housing.tsv",
                     sep = "\\t")
-df.head()
+housing.head()
 ```
 
 
@@ -284,10 +284,11 @@ delimiter.
 #| eval: false
 
 (
-  ggplot(df, mapping = aes(x = "Gr Liv Area", y = "Bedroom AbvGr"))  + 
+  ggplot(housing, mapping = aes(x = "Gr Liv Area", y = "Bedroom AbvGr"))  + 
   geom_point() +
   labs(x = "Total Living Area", 
-       y = "Number of Bedrooms")
+       y = "Number of Bedrooms") +
+  theme_bw()
  )
 ```
 :::
@@ -300,10 +301,11 @@ delimiter.
 #| echo: false
 
 plot = (
-  ggplot(df, mapping = aes(y = "Gr Liv Area", x = "Bedroom AbvGr"))  + 
+  ggplot(housing, mapping = aes(y = "Gr Liv Area", x = "Bedroom AbvGr"))  + 
   geom_point() +
   labs(y = "Total Living Area (Square Feet)", 
-       x = "Number of Bedrooms")
+       x = "Number of Bedrooms") +
+  theme_bw()
  )
 
 plot.show()
@@ -319,7 +321,7 @@ What *statistic* would you calculate?
 #| code-line-numbers: false
 #| label: bedroom-size-correlation
 
-df[["Gr Liv Area", "Bedroom AbvGr"]].corr()
+housing[["Gr Liv Area", "Bedroom AbvGr"]].corr()
 ```
 
 # Measuring Similarity with Distance
@@ -330,12 +332,15 @@ How might we answer the question, "Are these two houses similar?"
 
 ::: columns
 ::: {.column width="45%"}
-::: {.small}
+::: {.midi}
 ```{python}
 #| code-line-numbers: false
 #| label: house-1
 
-df.loc[1707, ["Gr Liv Area", "Bedroom AbvGr"]]
+housing.loc[1707, 
+            ["Gr Liv Area", 
+             "Bedroom AbvGr"]
+           ]
 ```
 :::
 :::
@@ -344,12 +349,15 @@ df.loc[1707, ["Gr Liv Area", "Bedroom AbvGr"]]
 :::
 
 ::: {.column width="45%"}
-::: {.small}
+::: {.midi}
 ```{python}
 #| code-line-numbers: false
 #| label: house-2
 
-df.loc[290, ["Gr Liv Area", "Bedroom AbvGr"]]
+housing.loc[290, 
+            ["Gr Liv Area", 
+             "Bedroom AbvGr"]
+           ]
 ```
 :::
 :::
@@ -358,6 +366,8 @@ df.loc[290, ["Gr Liv Area", "Bedroom AbvGr"]]
 ## Distance
 
 The **distance** between the **two observations** is:
+
+</br>
 
 $$ \sqrt{ (2956 - 2650)^2 + (5 - 6)^2} = 306 $$
 
@@ -372,35 +382,52 @@ be the **most similar**.
 
 ::: columns
 ::: {.column width="45%"}
+::: {.midi}
 ```{python}
 #| code-line-numbers: false
 #| label: house-1-again
 
-df.loc[1707, ["Gr Liv Area", "Bedroom AbvGr"]]
-
+housing.loc[290, 
+            ["Gr Liv Area", 
+             "Bedroom AbvGr"]
+           ]
 ```
 
+</br>
+
+$$ \sqrt{ (2956 - 2650)^2 + (5 - 6)^2} \newline = 306 $$ 
+:::
 :::
 
 ::: {.column width="10%"}
 :::
 
 ::: {.column width="45%"}
+::: {.fragment}
+::: {.midi}
 ```{python}
 #| code-line-numbers: false
 #| label: house-3
 
-df.loc[291, ["Gr Liv Area", "Bedroom AbvGr"]]
+housing.loc[291, 
+            ["Gr Liv Area", 
+             "Bedroom AbvGr"]
+           ]
 ```
 
+$$ \sqrt{ (2956 - 1666)^2 + (5 - 3)^2} \newline = 1290 $$ 
+
+:::
+:::
 :::
 :::
 
 . . .
 
-$$ \sqrt{ (2956 - 1666)^2 + (5 - 3)^2} = 1290 $$ 
 
+::: {.midi}
 Thus, house 1707 is **more similar** to house 290 than to house 291.
+:::
 
 ## [Lecture Activity Part 1]{.large}
 
@@ -414,7 +441,7 @@ countdown(minutes = 10, left = "0")
 
 # Scaling / Standardizing
 
-## House 160 seems more similar...
+## House 160 seems more similar to 1707...
 
 ::: {.small}
 ```{python}
@@ -424,11 +451,11 @@ countdown(minutes = 10, left = "0")
 #| eval: false
 
 (
-  ggplot(df, mapping = aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
+  ggplot(housing, mapping = aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
   geom_point(color = "lightgrey") + 
-  geom_point(df.loc[[1707]], color = "red", size = 2, shape = 17) + 
-  geom_point(df.loc[[160]], color = "blue", size = 2) + 
-  geom_point(df.loc[[2336]], color = "green", size = 2) + 
+  geom_point(housing.loc[[1707]], color = "orange", size = 5, shape = "x") + 
+  geom_point(housing.loc[[160]], color = "blue", size = 2) + 
+  geom_point(housing.loc[[2336]], color = "green", size = 2) + 
   theme_bw() +
   labs(y = "Total Living Area (Square Feet)", 
        x = "Number of Bedrooms")
@@ -442,11 +469,11 @@ countdown(minutes = 10, left = "0")
 #| fig-align: center
 
 plot = (
-  ggplot(df, mapping = aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
+  ggplot(housing, mapping = aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
   geom_point(color = "lightgrey") + 
-  geom_point(df.loc[[1707]], color = "red", size = 5, shape = "x") + 
-  geom_point(df.loc[[160]], color = "blue", size = 2) + 
-  geom_point(df.loc[[2336]], color = "green", size = 2) + 
+  geom_point(housing.loc[[1707]], color = "orange", size = 5, shape = "x") + 
+  geom_point(housing.loc[[160]], color = "blue", size = 2) + 
+  geom_point(housing.loc[[2336]], color = "green", size = 2) + 
   theme_bw() +
   labs(y = "Total Living Area (Square Feet)", 
        x = "Number of Bedrooms")
@@ -465,11 +492,11 @@ plot.show()
 #| eval: false
 
 (
-  ggplot(df, mapping = aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
+  ggplot(housing, mapping = aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
   geom_point(color = "lightgrey") + 
-  geom_point(df.loc[[1707]], color = "red", size = 5, shape = "x") + 
-  geom_point(df.loc[[160]], color = "blue", size = 2) + 
-  geom_point(df.loc[[2336]], color = "green", size = 2) + 
+  geom_point(housing.loc[[1707]], color = "orange", size = 5, shape = "x") + 
+  geom_point(housing.loc[[160]], color = "blue", size = 2) + 
+  geom_point(housing.loc[[2336]], color = "green", size = 2) + 
   theme_bw() +
   labs(y = "Total Living Area (Square Feet)", 
        x = "Number of Bedrooms") +
@@ -484,11 +511,11 @@ plot.show()
 #| fig-align: center
 
 plot = (
-  ggplot(df, mapping = aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
+  ggplot(housing, mapping = aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
   geom_point(color = "lightgrey") + 
-  geom_point(df.loc[[1707]], color = "red", size = 5, shape = "x") + 
-  geom_point(df.loc[[160]], color = "blue", size = 2) + 
-  geom_point(df.loc[[2336]], color = "green", size = 2) + 
+  geom_point(housing.loc[[1707]], color = "orange", size = 5, shape = "x") + 
+  geom_point(housing.loc[[160]], color = "blue", size = 2) + 
+  geom_point(housing.loc[[2336]], color = "green", size = 2) + 
   theme_bw() +
   labs(y = "Total Living Area (Square Feet)", 
        x = "Number of Bedrooms") +
@@ -508,11 +535,11 @@ plot.show()
 #| eval: false
 
 (
-  ggplot(df, aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
+  ggplot(housing, aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
   geom_point(color = "lightgrey") + 
-  geom_point(df.loc[[1707]], color = "red", size = 5, shape = "x") + 
-  geom_point(df.loc[[160]], color = "blue", size = 2) + 
-  geom_point(df.loc[[2336]], color = "green", size = 2) + 
+  geom_point(housing.loc[[1707]], color = "orange", size = 5, shape = "x") + 
+  geom_point(housing.loc[[160]], color = "blue", size = 2) + 
+  geom_point(housing.loc[[2336]], color = "green", size = 2) + 
   theme_bw() +
   labs(y = "Total Living Area (Square Feet)", 
        x = "Number of Bedrooms") +
@@ -528,11 +555,11 @@ plot.show()
 #| fig-align: center
 
 plot = (
-  ggplot(df, aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
+  ggplot(housing, aes(y = "Gr Liv Area", x = "Bedroom AbvGr")) + 
   geom_point(color = "lightgrey") + 
-  geom_point(df.loc[[1707]], color = "red", size = 5, shape = "x") + 
-  geom_point(df.loc[[160]], color = "blue", size = 2) + 
-  geom_point(df.loc[[2336]], color = "green", size = 2) + 
+  geom_point(housing.loc[[1707]], color = "orange", size = 5, shape = "x") + 
+  geom_point(housing.loc[[160]], color = "blue", size = 2) + 
+  geom_point(housing.loc[[2336]], color = "green", size = 2) + 
   theme_bw() +
   labs(y = "Total Living Area (Square Feet)", 
        x = "Number of Bedrooms") +
@@ -562,8 +589,8 @@ subtract the mean, divide by the standard deviation
 ```{python}
 #| code-line-numbers: false
 
-df['size_scaled'] = (df['Gr Liv Area'] - df['Gr Liv Area'].mean()) / df['Gr Liv Area'].std()
-df['bdrm_scaled'] = (df['Bedroom AbvGr'] - df['Bedroom AbvGr'].mean()) / df['Bedroom AbvGr'].std()
+housing['size_scaled'] = (housing['Gr Liv Area'] - housing['Gr Liv Area'].mean()) / housing['Gr Liv Area'].std()
+housing['bdrm_scaled'] = (housing['Bedroom AbvGr'] - housing['Bedroom AbvGr'].mean()) / housing['Bedroom AbvGr'].std()
 ```
 :::
 
@@ -575,11 +602,11 @@ df['bdrm_scaled'] = (df['Bedroom AbvGr'] - df['Bedroom AbvGr'].mean()) / df['Bed
 #| eval: false
 
 (
-  ggplot(df, aes(y = "size_scaled", x = "bdrm_scaled")) + 
+  ggplot(housing, aes(y = "size_scaled", x = "bdrm_scaled")) + 
   geom_point(color = "lightgrey") + 
-  geom_point(df.loc[[1707]], color = "red", size = 5, shape = "x") + 
-  geom_point(df.loc[[160]], color = "blue", size = 2) + 
-  geom_point(df.loc[[2336]], color = "green", size = 2) + 
+  geom_point(housing.loc[[1707]], color = "orange", size = 5, shape = "x") + 
+  geom_point(housing.loc[[160]], color = "blue", size = 2) + 
+  geom_point(housing.loc[[2336]], color = "green", size = 2) + 
   theme_bw() +
   labs(y = "Total Living Area (Standardized)", 
        x = "Number of Bedrooms (Standardized)") 
@@ -593,11 +620,11 @@ df['bdrm_scaled'] = (df['Bedroom AbvGr'] - df['Bedroom AbvGr'].mean()) / df['Bed
 #| fig-align: center
 
 plot = (
-  ggplot(df, aes(y = "size_scaled", x = "bdrm_scaled")) + 
+  ggplot(housing, aes(y = "size_scaled", x = "bdrm_scaled")) + 
   geom_point(color = "lightgrey") + 
-  geom_point(df.loc[[1707]], color = "red", size = 5, shape = "x") + 
-  geom_point(df.loc[[160]], color = "blue", size = 2) + 
-  geom_point(df.loc[[2336]], color = "green", size = 2) + 
+  geom_point(housing.loc[[1707]], color = "orange", size = 5, shape = "x") + 
+  geom_point(housing.loc[[160]], color = "blue", size = 2) + 
+  geom_point(housing.loc[[2336]], color = "green", size = 2) + 
   theme_bw() +
   labs(y = "Total Living Area (Standardized)", 
        x = "Number of Bedrooms (Standardized)") 
@@ -657,7 +684,7 @@ The `scaler` object "learns" the means and standard deviations.
 ```{python}
 #| code-line-numbers: false
 
-df_orig = df[['Gr Liv Area', 'Bedroom AbvGr']]
+df_orig = housing[['Gr Liv Area', 'Bedroom AbvGr']]
 scaler.fit(df_orig)
 scaler.mean_
 scaler.scale_
