@@ -800,17 +800,6 @@ countdown(minutes = 10, left = "0")
 
     $$\sum_{j=1}^m |x_j - x'_j|$$
 
-## [Lecture Activity Part 4]{.large}
-
-> Complete Part Four of the activity linked in Canvas.
-
-```{r}
-#| echo: false
-#| label: countdown-part-4
-
-countdown(minutes = 10, left = "0")
-```
-
 # Takeaways
 
 ## Takeaways
