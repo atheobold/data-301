@@ -8,7 +8,6 @@ execute:
   echo: true
 ---
 
-
 ```{r}
 #| include: false
 library(reticulate)
@@ -19,7 +18,533 @@ library(reticulate)
 import numpy as np
 import pandas as pd
 from plotnine import *
+
 ```
+
+# Activity 3.1
+
+## Fill vs Color for Scatterplots 
+
+```{python}
+#| echo: false
+
+df = pd.read_table("https://datasci112.stanford.edu/data/auto-mpg-clean.tsv")
+```
+
+::: columns
+::: {.column width="48%"}
+::: {.small}
+```{python}
+#| code-fold: true
+#| eval: false
+#| label: scatterplot-fill-code
+(
+    ggplot(df, mapping = aes(x = "horsepower", y = "mpg", fill = "origin")) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Horsepower",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture")
+    )
+```
+:::
+
+```{python}
+#| echo: false
+#| label: scatterplot-fill
+#| fig-align: center
+
+plot = (
+    ggplot(df, mapping = aes(x = "horsepower", y = "mpg", fill = "origin")) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Horsepower",
+         y = "Miles Per Gallon",
+         fill = "Country of Manufacture")
+    )
+    
+plot.show()
+```
+
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="50%"}
+::: {.small}
+```{python}
+#| code-fold: true
+#| eval: false
+#| label: scatterplot-color-code
+
+(
+    ggplot(df, mapping = aes(x = "horsepower", y = "mpg", color = "origin")) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Horsepower",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture")
+    )
+```
+:::
+
+```{python}
+#| echo: false
+#| label: scatterplot-color
+#| fig-align: center
+
+plot = (
+    ggplot(df, mapping = aes(x = "horsepower", y = "mpg", color = "origin")) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Horsepower",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture")
+    )
+plot.show()
+```
+
+:::
+:::
+
+## Nicely Formatted Axis Labels
+
+::: columns
+::: {.column width="48%"}
+::: {.small}
+```{python}
+#| echo: true
+#| eval: false
+#| code-fold: true
+#| label: axis-labels-bad-code
+
+(
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") 
+)
+
+```
+:::
+
+```{python}
+#| echo: false
+#| code-fold: true
+#| label: axis-labels-bad
+
+plot = (
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture")
+)
+
+plot.show()
+```
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="50%"}
+::: {.small}
+```{python}
+#| echo: true
+#| eval: false
+#| code-fold: true
+#| label: axis-labels-code
+
+(
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1984, 2)
+        )
+        )
+)
+
+```
+:::
+
+```{python}
+#| echo: false
+#| code-fold: true
+#| label: axis-labels
+
+plot = (
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1984, 2)
+        )
+        )
+)
+
+plot.show()
+```
+
+:::
+:::
+
+## Displaying Every Point
+
+<!-- - jittering instead of points -->
+
+::: columns
+::: {.column width="48%"}
+
+</br>
+
+```{python}
+#| echo: false
+#| code-fold: true
+#| label: no-jitter
+
+plot = (
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1984, 2)
+        )
+        )
+)
+
+plot.show()
+```
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="50%"}
+::: {.small}
+```{python}
+#| echo: true
+#| eval: false
+#| code-fold: true
+#| label: jitter-points-code
+
+(
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_jitter() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1984, 2)
+        )
+        )
+)
+
+```
+:::
+
+```{python}
+#| echo: false
+#| code-fold: true
+#| label: jitter-points
+
+plot = (
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_jitter() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1984, 2)
+        )
+        )
+)
+
+plot.show()
+```
+
+:::
+:::
+
+## Redundant Legends
+
+```{python}
+#| echo: false
+#| code-fold: true
+#| label: redundant-legend
+#| fig-align: center
+#| fig-width: 36
+
+plot = (
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_jitter() +
+    facet_wrap("origin") +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1985, 5)
+        )
+        )
+)
+
+plot.show()
+```
+
+## Removing Your Legend
+
+::: {.small}
+```{python}
+#| eval: false
+#| code-fold: true
+#| label: remove-legend-code
+
+(
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_jitter() +
+    facet_wrap("origin") +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1985, 5)
+        )
+        ) + 
+    theme(legend_position = "none")
+)
+```
+:::
+
+```{python}
+#| echo: false
+#| label: remove-legend
+#| fig-align: center
+
+plot = (
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_jitter() +
+    facet_wrap("origin") +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1985, 5)
+        )
+        ) + 
+    theme(legend_position = "none")
+)
+
+plot.show()
+```
+
+## Adding Descriptive Labels to Facets
+
+::: {.small}
+```{python}
+#| code-fold: true
+#| label: student-facet-code
+#| eval: false
+
+(
+    ggplot(df, aes(x = 'horsepower', y = 'mpg', color = 'origin'))
+    + geom_point()
+    + facet_wrap('~ cylinders', labeller = labeller(cylinders=lambda x: f'{x} cylinders'))
+    + labs(title = 'Horsepower vs. Fuel Efficiency by Origin and Cylinders',
+    x = 'Horsepower', 
+    y = 'Fuel Efficiency (MPG)', color = 'Origin')
+    + theme_bw()
+)
+```
+:::
+
+```{python}
+#| label: student-facet-labels
+#| echo: false 
+
+plot = (
+    ggplot(df, aes(x = 'horsepower', y = 'mpg', color = 'origin'))
+    + geom_point()
+    + facet_wrap('~ cylinders', labeller = labeller(cylinders=lambda x: f'{x} cylinders'))
+    + labs(title = 'Horsepower vs. Fuel Efficiency by Origin and Cylinders',
+    x = 'Horsepower', 
+    y = 'Fuel Efficiency (MPG)', color = 'Origin')
+    + theme_bw()
+)
+
+plot.show()
+```
+
+## `geom_line()`
+
+::: columns
+::: {.column width="48%"}
+::: {.small}
+```{python}
+#| code-fold: true
+#| eval: false
+#| label: mult-obs-line-code
+
+(
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_line() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1985, 5)
+        )
+        )
+)
+```
+
+```{python}
+#| echo: false
+#| label: mult-obs-line
+
+plot = (
+    ggplot(df, mapping = aes(x = "model year",
+                             y = "mpg",
+                             color = "origin")
+    ) +
+    geom_line() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1985, 5)
+        )
+        )
+)
+
+plot.show()
+```
+
+:::
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="50%"}
+::: {.small}
+```{python}
+#| code-fold: true
+#| eval: false
+#| label: one-obs-line-code
+
+year_means = (
+    df
+    .groupby(["model year", "origin"])["mpg"]
+    .mean()
+    .reset_index()
+)
+
+(
+    ggplot(year_means, mapping = aes(x = "model year",
+                                      y = "mpg",
+                                      color = "origin")
+    ) +
+    geom_line() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1985, 5)
+        )
+        )
+)
+```
+:::
+
+```{python}
+#| echo: false
+#| label: one-obs-line
+
+year_means = (
+    df
+    .groupby(["model year", "origin"])["mpg"]
+    .mean()
+    .reset_index()
+)
+
+plot = (
+    ggplot(year_means, mapping = aes(x = "model year",
+                                      y = "mpg",
+                                      color = "origin")
+    ) +
+    geom_line() +
+    theme_bw() +
+    labs(x = "Year of Manufacture",
+         y = "Miles Per Gallon",
+         color = "Country of Manufacture") +
+    scale_x_continuous(
+        breaks = list(range(1970, 1985, 5)
+        )
+        )
+)
+
+plot.show()
+```
+:::
+:::
 
 # The story last week...
 
@@ -186,7 +711,7 @@ best = (
   dists
   .argsort()
   .flatten()
-  [1:10]
+  [0:6]
   )
 df_orig.iloc[best]
 ```
@@ -303,7 +828,6 @@ encoder.fit(df[["Bldg Type"]])
 #| label: sklearn-dummy-building-transform
 
 df_bldg = encoder.transform(df[["Bldg Type"]])
-df_bldg
 ```
 :::
 
@@ -314,10 +838,9 @@ df_bldg
 ::: {.small}
 ```{python}
 #| code-line-numbers: false
-#| label: dense-matrix-code
-#| eval: false
+#| label: sparse-matrix
 
-df_bldg.todense()
+df_bldg
 ```
 :::
 :::
@@ -328,7 +851,7 @@ df_bldg.todense()
 ::: {.column width="55%"}
 ::: {.small}
 ```{python}
-#| echo: false
+#| echo: true
 #| label: show-dense-matrix
 
 df_bldg.todense()
@@ -482,6 +1005,8 @@ Try the following:
 ## Multiple Preprocessing Steps
 
 Why are **column transformers** so useful? We can do **multiple preprocessing steps** at once!
+
+</br>
 
 ::: {.midi}
 ```{python}

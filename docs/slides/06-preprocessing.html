@@ -199,6 +199,316 @@
 
 </section>
 <section>
+<section id="activity-3.1" class="title-slide slide level1 center">
+<h1>Activity 3.1</h1>
+
+</section>
+<section id="fill-vs-color-for-scatterplots" class="slide level2">
+<h2>Fill vs Color for Scatterplots</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>(</span>
+<span id="cb1-2"><a></a>    ggplot(df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"horsepower"</span>, y <span class="op">=</span> <span class="st">"mpg"</span>, fill <span class="op">=</span> <span class="st">"origin"</span>)) <span class="op">+</span></span>
+<span id="cb1-3"><a></a>    geom_point() <span class="op">+</span></span>
+<span id="cb1-4"><a></a>    theme_bw() <span class="op">+</span></span>
+<span id="cb1-5"><a></a>    labs(x <span class="op">=</span> <span class="st">"Horsepower"</span>,</span>
+<span id="cb1-6"><a></a>         y <span class="op">=</span> <span class="st">"Miles Per Gallon"</span>,</span>
+<span id="cb1-7"><a></a>         color <span class="op">=</span> <span class="st">"Country of Manufacture"</span>)</span>
+<span id="cb1-8"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="06-preprocessing_files/figure-revealjs/scatterplot-fill-1.png" class="quarto-figure quarto-figure-center" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:50%;">
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>(</span>
+<span id="cb2-2"><a></a>    ggplot(df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"horsepower"</span>, y <span class="op">=</span> <span class="st">"mpg"</span>, color <span class="op">=</span> <span class="st">"origin"</span>)) <span class="op">+</span></span>
+<span id="cb2-3"><a></a>    geom_point() <span class="op">+</span></span>
+<span id="cb2-4"><a></a>    theme_bw() <span class="op">+</span></span>
+<span id="cb2-5"><a></a>    labs(x <span class="op">=</span> <span class="st">"Horsepower"</span>,</span>
+<span id="cb2-6"><a></a>         y <span class="op">=</span> <span class="st">"Miles Per Gallon"</span>,</span>
+<span id="cb2-7"><a></a>         color <span class="op">=</span> <span class="st">"Country of Manufacture"</span>)</span>
+<span id="cb2-8"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="06-preprocessing_files/figure-revealjs/scatterplot-color-3.png" class="quarto-figure quarto-figure-center" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="nicely-formatted-axis-labels" class="slide level2">
+<h2>Nicely Formatted Axis Labels</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>(</span>
+<span id="cb3-2"><a></a>    ggplot(df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"model year"</span>,</span>
+<span id="cb3-3"><a></a>                             y <span class="op">=</span> <span class="st">"mpg"</span>,</span>
+<span id="cb3-4"><a></a>                             color <span class="op">=</span> <span class="st">"origin"</span>)</span>
+<span id="cb3-5"><a></a>    ) <span class="op">+</span></span>
+<span id="cb3-6"><a></a>    geom_point() <span class="op">+</span></span>
+<span id="cb3-7"><a></a>    theme_bw() <span class="op">+</span></span>
+<span id="cb3-8"><a></a>    labs(x <span class="op">=</span> <span class="st">"Year of Manufacture"</span>,</span>
+<span id="cb3-9"><a></a>         y <span class="op">=</span> <span class="st">"Miles Per Gallon"</span>,</span>
+<span id="cb3-10"><a></a>         color <span class="op">=</span> <span class="st">"Country of Manufacture"</span>) </span>
+<span id="cb3-11"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="06-preprocessing_files/figure-revealjs/axis-labels-bad-5.png" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:50%;">
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>(</span>
+<span id="cb4-2"><a></a>    ggplot(df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"model year"</span>,</span>
+<span id="cb4-3"><a></a>                             y <span class="op">=</span> <span class="st">"mpg"</span>,</span>
+<span id="cb4-4"><a></a>                             color <span class="op">=</span> <span class="st">"origin"</span>)</span>
+<span id="cb4-5"><a></a>    ) <span class="op">+</span></span>
+<span id="cb4-6"><a></a>    geom_point() <span class="op">+</span></span>
+<span id="cb4-7"><a></a>    theme_bw() <span class="op">+</span></span>
+<span id="cb4-8"><a></a>    labs(x <span class="op">=</span> <span class="st">"Year of Manufacture"</span>,</span>
+<span id="cb4-9"><a></a>         y <span class="op">=</span> <span class="st">"Miles Per Gallon"</span>,</span>
+<span id="cb4-10"><a></a>         color <span class="op">=</span> <span class="st">"Country of Manufacture"</span>) <span class="op">+</span></span>
+<span id="cb4-11"><a></a>    scale_x_continuous(</span>
+<span id="cb4-12"><a></a>        breaks <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1970</span>, <span class="dv">1984</span>, <span class="dv">2</span>)</span>
+<span id="cb4-13"><a></a>        )</span>
+<span id="cb4-14"><a></a>        )</span>
+<span id="cb4-15"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="06-preprocessing_files/figure-revealjs/axis-labels-7.png" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="displaying-every-point" class="slide level2">
+<h2>Displaying Every Point</h2>
+<!-- - jittering instead of points -->
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="06-preprocessing_files/figure-revealjs/no-jitter-9.png" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:50%;">
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>(</span>
+<span id="cb5-2"><a></a>    ggplot(df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"model year"</span>,</span>
+<span id="cb5-3"><a></a>                             y <span class="op">=</span> <span class="st">"mpg"</span>,</span>
+<span id="cb5-4"><a></a>                             color <span class="op">=</span> <span class="st">"origin"</span>)</span>
+<span id="cb5-5"><a></a>    ) <span class="op">+</span></span>
+<span id="cb5-6"><a></a>    geom_jitter() <span class="op">+</span></span>
+<span id="cb5-7"><a></a>    theme_bw() <span class="op">+</span></span>
+<span id="cb5-8"><a></a>    labs(x <span class="op">=</span> <span class="st">"Year of Manufacture"</span>,</span>
+<span id="cb5-9"><a></a>         y <span class="op">=</span> <span class="st">"Miles Per Gallon"</span>,</span>
+<span id="cb5-10"><a></a>         color <span class="op">=</span> <span class="st">"Country of Manufacture"</span>) <span class="op">+</span></span>
+<span id="cb5-11"><a></a>    scale_x_continuous(</span>
+<span id="cb5-12"><a></a>        breaks <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1970</span>, <span class="dv">1984</span>, <span class="dv">2</span>)</span>
+<span id="cb5-13"><a></a>        )</span>
+<span id="cb5-14"><a></a>        )</span>
+<span id="cb5-15"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="06-preprocessing_files/figure-revealjs/jitter-points-11.png" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="redundant-legends" class="slide level2">
+<h2>Redundant Legends</h2>
+
+<img data-src="06-preprocessing_files/figure-revealjs/redundant-legend-13.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<section id="removing-your-legend" class="slide level2">
+<h2>Removing Your Legend</h2>
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>(</span>
+<span id="cb6-2"><a></a>    ggplot(df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"model year"</span>,</span>
+<span id="cb6-3"><a></a>                             y <span class="op">=</span> <span class="st">"mpg"</span>,</span>
+<span id="cb6-4"><a></a>                             color <span class="op">=</span> <span class="st">"origin"</span>)</span>
+<span id="cb6-5"><a></a>    ) <span class="op">+</span></span>
+<span id="cb6-6"><a></a>    geom_jitter() <span class="op">+</span></span>
+<span id="cb6-7"><a></a>    facet_wrap(<span class="st">"origin"</span>) <span class="op">+</span></span>
+<span id="cb6-8"><a></a>    theme_bw() <span class="op">+</span></span>
+<span id="cb6-9"><a></a>    labs(x <span class="op">=</span> <span class="st">"Year of Manufacture"</span>,</span>
+<span id="cb6-10"><a></a>         y <span class="op">=</span> <span class="st">"Miles Per Gallon"</span>,</span>
+<span id="cb6-11"><a></a>         color <span class="op">=</span> <span class="st">"Country of Manufacture"</span>) <span class="op">+</span></span>
+<span id="cb6-12"><a></a>    scale_x_continuous(</span>
+<span id="cb6-13"><a></a>        breaks <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1970</span>, <span class="dv">1985</span>, <span class="dv">5</span>)</span>
+<span id="cb6-14"><a></a>        )</span>
+<span id="cb6-15"><a></a>        ) <span class="op">+</span> </span>
+<span id="cb6-16"><a></a>    theme(legend_position <span class="op">=</span> <span class="st">"none"</span>)</span>
+<span id="cb6-17"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+
+<img data-src="06-preprocessing_files/figure-revealjs/remove-legend-15.png" class="quarto-figure quarto-figure-center r-stretch" width="614"></section>
+<section id="adding-descriptive-labels-to-facets" class="slide level2">
+<h2>Adding Descriptive Labels to Facets</h2>
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>(</span>
+<span id="cb7-2"><a></a>    ggplot(df, aes(x <span class="op">=</span> <span class="st">'horsepower'</span>, y <span class="op">=</span> <span class="st">'mpg'</span>, color <span class="op">=</span> <span class="st">'origin'</span>))</span>
+<span id="cb7-3"><a></a>    <span class="op">+</span> geom_point()</span>
+<span id="cb7-4"><a></a>    <span class="op">+</span> facet_wrap(<span class="st">'~ cylinders'</span>, labeller <span class="op">=</span> labeller(cylinders<span class="op">=</span><span class="kw">lambda</span> x: <span class="ss">f'</span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> cylinders'</span>))</span>
+<span id="cb7-5"><a></a>    <span class="op">+</span> labs(title <span class="op">=</span> <span class="st">'Horsepower vs. Fuel Efficiency by Origin and Cylinders'</span>,</span>
+<span id="cb7-6"><a></a>    x <span class="op">=</span> <span class="st">'Horsepower'</span>, </span>
+<span id="cb7-7"><a></a>    y <span class="op">=</span> <span class="st">'Fuel Efficiency (MPG)'</span>, color <span class="op">=</span> <span class="st">'Origin'</span>)</span>
+<span id="cb7-8"><a></a>    <span class="op">+</span> theme_bw()</span>
+<span id="cb7-9"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+
+<img data-src="06-preprocessing_files/figure-revealjs/student-facet-labels-17.png" width="614" class="r-stretch"></section>
+<section id="geom_line" class="slide level2">
+<h2><code>geom_line()</code></h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>(</span>
+<span id="cb8-2"><a></a>    ggplot(df, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"model year"</span>,</span>
+<span id="cb8-3"><a></a>                             y <span class="op">=</span> <span class="st">"mpg"</span>,</span>
+<span id="cb8-4"><a></a>                             color <span class="op">=</span> <span class="st">"origin"</span>)</span>
+<span id="cb8-5"><a></a>    ) <span class="op">+</span></span>
+<span id="cb8-6"><a></a>    geom_line() <span class="op">+</span></span>
+<span id="cb8-7"><a></a>    theme_bw() <span class="op">+</span></span>
+<span id="cb8-8"><a></a>    labs(x <span class="op">=</span> <span class="st">"Year of Manufacture"</span>,</span>
+<span id="cb8-9"><a></a>         y <span class="op">=</span> <span class="st">"Miles Per Gallon"</span>,</span>
+<span id="cb8-10"><a></a>         color <span class="op">=</span> <span class="st">"Country of Manufacture"</span>) <span class="op">+</span></span>
+<span id="cb8-11"><a></a>    scale_x_continuous(</span>
+<span id="cb8-12"><a></a>        breaks <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1970</span>, <span class="dv">1985</span>, <span class="dv">5</span>)</span>
+<span id="cb8-13"><a></a>        )</span>
+<span id="cb8-14"><a></a>        )</span>
+<span id="cb8-15"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="06-preprocessing_files/figure-revealjs/mult-obs-line-19.png" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:50%;">
+<div class="small">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>year_means <span class="op">=</span> (</span>
+<span id="cb9-2"><a></a>    df</span>
+<span id="cb9-3"><a></a>    .groupby([<span class="st">"model year"</span>, <span class="st">"origin"</span>])[<span class="st">"mpg"</span>]</span>
+<span id="cb9-4"><a></a>    .mean()</span>
+<span id="cb9-5"><a></a>    .reset_index()</span>
+<span id="cb9-6"><a></a>)</span>
+<span id="cb9-7"><a></a></span>
+<span id="cb9-8"><a></a>(</span>
+<span id="cb9-9"><a></a>    ggplot(year_means, mapping <span class="op">=</span> aes(x <span class="op">=</span> <span class="st">"model year"</span>,</span>
+<span id="cb9-10"><a></a>                                      y <span class="op">=</span> <span class="st">"mpg"</span>,</span>
+<span id="cb9-11"><a></a>                                      color <span class="op">=</span> <span class="st">"origin"</span>)</span>
+<span id="cb9-12"><a></a>    ) <span class="op">+</span></span>
+<span id="cb9-13"><a></a>    geom_line() <span class="op">+</span></span>
+<span id="cb9-14"><a></a>    theme_bw() <span class="op">+</span></span>
+<span id="cb9-15"><a></a>    labs(x <span class="op">=</span> <span class="st">"Year of Manufacture"</span>,</span>
+<span id="cb9-16"><a></a>         y <span class="op">=</span> <span class="st">"Miles Per Gallon"</span>,</span>
+<span id="cb9-17"><a></a>         color <span class="op">=</span> <span class="st">"Country of Manufacture"</span>) <span class="op">+</span></span>
+<span id="cb9-18"><a></a>    scale_x_continuous(</span>
+<span id="cb9-19"><a></a>        breaks <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1970</span>, <span class="dv">1985</span>, <span class="dv">5</span>)</span>
+<span id="cb9-20"><a></a>        )</span>
+<span id="cb9-21"><a></a>        )</span>
+<span id="cb9-22"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="06-preprocessing_files/figure-revealjs/one-obs-line-21.png" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
 <section id="the-story-last-week" class="title-slide slide level1 center">
 <h1>The story last week…</h1>
 
@@ -261,8 +571,8 @@
 <h2>Recall: AMES Housing data</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_table(<span class="st">"data/housing.tsv"</span>)</span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_table(<span class="st">"data/housing.tsv"</span>)</span>
+<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Order        PID  MS SubClass  ... Sale Type  Sale Condition  SalePrice
 0      1  526301100           20  ...       WD           Normal     215000
@@ -285,7 +595,7 @@
 <h2>What about categorical variables?</h2>
 <p>Suppose we want to include the variable <code>Bldg Type</code> in our distance calculation…</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Bldg Type"</span>].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Bldg Type"</span>].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Bldg Type
 1Fam      2425
@@ -305,8 +615,8 @@ Name: count, dtype: int64</code></pre>
 <h2>Converting to Binary</h2>
 <p>Let’s instead think about a variable that summarizes whether an observation is a single family home or not.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"is_single_fam"</span>] <span class="op">=</span> df[<span class="st">"Bldg Type"</span>] <span class="op">==</span> <span class="st">"1Fam"</span></span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"is_single_fam"</span>].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"is_single_fam"</span>] <span class="op">=</span> df[<span class="st">"Bldg Type"</span>] <span class="op">==</span> <span class="st">"1Fam"</span></span>
+<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"is_single_fam"</span>].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>is_single_fam
 True     2425
@@ -338,8 +648,8 @@ Name: count, dtype: int64</code></pre>
 <div class="fragment">
 <p>Remember that that computers interpret logical values (<code>True</code> / <code>False</code>) the same as <code>1</code> / <code>0</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"is_single_fam"</span>] <span class="op">=</span> df[<span class="st">"is_single_fam"</span>].astype(<span class="st">"int"</span>)</span>
-<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"is_single_fam"</span>].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"is_single_fam"</span>] <span class="op">=</span> df[<span class="st">"is_single_fam"</span>].astype(<span class="st">"int"</span>)</span>
+<span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>df[<span class="st">"is_single_fam"</span>].value_counts()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>is_single_fam
 1    2425
@@ -354,10 +664,10 @@ Name: count, dtype: int64</code></pre>
 <p><strong>Specify</strong></p>
 <div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
-<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> pairwise_distances</span>
+<span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
@@ -365,8 +675,8 @@ Name: count, dtype: int64</code></pre>
 <div class="midi">
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>df_orig <span class="op">=</span> df[[<span class="st">'Gr Liv Area'</span>, <span class="st">'Bedroom AbvGr'</span>, <span class="st">'is_single_fam'</span>]]</span>
-<span id="cb10-2"><a aria-hidden="true" tabindex="-1"></a>scaler.fit(df_orig)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>df_orig <span class="op">=</span> df[[<span class="st">'Gr Liv Area'</span>, <span class="st">'Bedroom AbvGr'</span>, <span class="st">'is_single_fam'</span>]]</span>
+<span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a>scaler.fit(df_orig)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <style>#sk-container-id-1 {
@@ -1089,7 +1399,7 @@ forceTheme('sk-container-id-1');</script>
 <p><strong>Transform</strong></p>
 <div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>df_scaled <span class="op">=</span> scaler.transform(df_orig)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>df_scaled <span class="op">=</span> scaler.transform(df_orig)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1098,25 +1408,22 @@ forceTheme('sk-container-id-1');</script>
 <h2>Calculating Distances</h2>
 <div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> pairwise_distances(df_scaled[[<span class="dv">1707</span>]], df_scaled)</span>
-<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a>best <span class="op">=</span> (</span>
-<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a>  dists</span>
-<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a>  .argsort()</span>
-<span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a>  .flatten()</span>
-<span id="cb12-6"><a aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>:<span class="dv">10</span>]</span>
-<span id="cb12-7"><a aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-8"><a aria-hidden="true" tabindex="-1"></a>df_orig.iloc[best]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>dists <span class="op">=</span> pairwise_distances(df_scaled[[<span class="dv">1707</span>]], df_scaled)</span>
+<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a>best <span class="op">=</span> (</span>
+<span id="cb21-3"><a aria-hidden="true" tabindex="-1"></a>  dists</span>
+<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a>  .argsort()</span>
+<span id="cb21-5"><a aria-hidden="true" tabindex="-1"></a>  .flatten()</span>
+<span id="cb21-6"><a aria-hidden="true" tabindex="-1"></a>  [<span class="dv">0</span>:<span class="dv">6</span>]</span>
+<span id="cb21-7"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-8"><a aria-hidden="true" tabindex="-1"></a>df_orig.iloc[best]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Gr Liv Area  Bedroom AbvGr  is_single_fam
+1707         2956              5              1
 160          2978              5              1
 909          3082              5              1
 1288         2792              5              1
 2350         2784              5              1
-253          3222              5              1
-585          2640              5              1
-2027         2526              5              1
-2330         3390              5              1
-2501         2520              5              1</code></pre>
+253          3222              5              1</code></pre>
 </div>
 </div>
 </div>
@@ -1131,7 +1438,7 @@ forceTheme('sk-container-id-1');</script>
 <section id="lets-reset-the-dataset-now" class="title-slide slide level1 center">
 <h1>Let’s reset the dataset now…</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_table(<span class="st">"data/housing.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_table(<span class="st">"data/housing.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 
@@ -1156,7 +1463,7 @@ forceTheme('sk-container-id-1');</script>
 <h2>Dummifying in Pandas</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a>pd.get_dummies(df[[<span class="st">"Bldg Type"</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a>pd.get_dummies(df[[<span class="st">"Bldg Type"</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Bldg Type_1Fam  Bldg Type_2fmCon  ...  Bldg Type_Twnhs  Bldg Type_TwnhsE
 0               True             False  ...            False             False
@@ -1214,9 +1521,9 @@ forceTheme('sk-container-id-1');</script>
 <p><strong>Specify</strong></p>
 <div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
-<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a>encoder <span class="op">=</span> OneHotEncoder()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
+<span id="cb27-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a aria-hidden="true" tabindex="-1"></a>encoder <span class="op">=</span> OneHotEncoder()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
@@ -1224,7 +1531,7 @@ forceTheme('sk-container-id-1');</script>
 <div class="midi">
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>encoder.fit(df[[<span class="st">"Bldg Type"</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>encoder.fit(df[[<span class="st">"Bldg Type"</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <style>#sk-container-id-2 {
@@ -2069,12 +2376,7 @@ forceTheme('sk-container-id-2');</script>
 <p><strong>Transform</strong></p>
 <div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>df_bldg <span class="op">=</span> encoder.transform(df[[<span class="st">"Bldg Type"</span>]])</span>
-<span id="cb20-2"><a aria-hidden="true" tabindex="-1"></a>df_bldg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;Compressed Sparse Row sparse matrix of dtype 'float64'
-    with 2930 stored elements and shape (2930, 5)&gt;</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a>df_bldg <span class="op">=</span> encoder.transform(df[[<span class="st">"Bldg Type"</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2085,7 +2387,11 @@ forceTheme('sk-container-id-2');</script>
 <div class="column" style="width:40%;">
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>df_bldg.todense()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>df_bldg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;Compressed Sparse Row sparse matrix of dtype 'float64'
+    with 2930 stored elements and shape (2930, 5)&gt;</code></pre>
+</div>
 </div>
 </div>
 </div><div class="column" style="width:5%;">
@@ -2093,6 +2399,7 @@ forceTheme('sk-container-id-2');</script>
 </div><div class="column" style="width:55%;">
 <div class="small">
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>df_bldg.todense()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>matrix([[1., 0., 0., 0., 0.],
         [1., 0., 0., 0., 0.],
@@ -2177,23 +2484,23 @@ forceTheme('sk-container-id-2');</script>
 <section id="column-transformers-specify" class="slide level2">
 <h2>Column Transformers – Specify</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_transformer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_transformer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">"Gr Liv Area"</span>, <span class="st">"Bedroom AbvGr"</span>, <span class="st">"Full Bath"</span>, <span class="st">"Half Bath"</span>, <span class="st">"Bldg Type"</span>, <span class="st">"Neighborhood"</span>]</span>
-<span id="cb25-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a aria-hidden="true" tabindex="-1"></a>preproc <span class="op">=</span> make_column_transformer(</span>
-<span id="cb25-4"><a aria-hidden="true" tabindex="-1"></a>  (OneHotEncoder(), [<span class="st">"Bldg Type"</span>, <span class="st">"Neighborhood"</span>]),</span>
-<span id="cb25-5"><a aria-hidden="true" tabindex="-1"></a>    remainder <span class="op">=</span> <span class="st">"passthrough"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">"Gr Liv Area"</span>, <span class="st">"Bedroom AbvGr"</span>, <span class="st">"Full Bath"</span>, <span class="st">"Half Bath"</span>, <span class="st">"Bldg Type"</span>, <span class="st">"Neighborhood"</span>]</span>
+<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a aria-hidden="true" tabindex="-1"></a>preproc <span class="op">=</span> make_column_transformer(</span>
+<span id="cb35-4"><a aria-hidden="true" tabindex="-1"></a>  (OneHotEncoder(), [<span class="st">"Bldg Type"</span>, <span class="st">"Neighborhood"</span>]),</span>
+<span id="cb35-5"><a aria-hidden="true" tabindex="-1"></a>    remainder <span class="op">=</span> <span class="st">"passthrough"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
 <section id="column-transformers-fit" class="slide level2">
 <h2>Column Transformers – Fit</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a>preproc.fit(df[features])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>preproc.fit(df[features])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <style>#sk-container-id-3 {
   /* Definition of color scheme common for light and dark mode */
@@ -3187,7 +3494,7 @@ forceTheme('sk-container-id-3');</script>
 <section id="column-transformers-transform" class="slide level2">
 <h2>Column Transformers – Transform</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a>preproc.transform(df[features])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a>preproc.transform(df[features])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;Compressed Sparse Row sparse matrix of dtype 'float64'
     with 15717 stored elements and shape (2930, 37)&gt;</code></pre>
@@ -3215,23 +3522,24 @@ forceTheme('sk-container-id-3');</script>
 <section id="multiple-preprocessing-steps" class="slide level2">
 <h2>Multiple Preprocessing Steps</h2>
 <p>Why are <strong>column transformers</strong> so useful? We can do <strong>multiple preprocessing steps</strong> at once!</p>
+<p><br></p>
 <div class="midi">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb29-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a aria-hidden="true" tabindex="-1"></a>preproc <span class="op">=</span> make_column_transformer(</span>
-<span id="cb29-4"><a aria-hidden="true" tabindex="-1"></a>        (StandardScaler(), </span>
-<span id="cb29-5"><a aria-hidden="true" tabindex="-1"></a>        [<span class="st">"Gr Liv Area"</span>, <span class="st">"Bedroom AbvGr"</span>, <span class="st">"Full Bath"</span>, <span class="st">"Half Bath"</span>]),</span>
-<span id="cb29-6"><a aria-hidden="true" tabindex="-1"></a>        (OneHotEncoder(sparse_output <span class="op">=</span> <span class="va">False</span>), </span>
-<span id="cb29-7"><a aria-hidden="true" tabindex="-1"></a>        [<span class="st">"Bldg Type"</span>, <span class="st">"Neighborhood"</span>]),</span>
-<span id="cb29-8"><a aria-hidden="true" tabindex="-1"></a>        remainder <span class="op">=</span> <span class="st">"drop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a aria-hidden="true" tabindex="-1"></a>preproc <span class="op">=</span> make_column_transformer(</span>
+<span id="cb39-4"><a aria-hidden="true" tabindex="-1"></a>        (StandardScaler(), </span>
+<span id="cb39-5"><a aria-hidden="true" tabindex="-1"></a>        [<span class="st">"Gr Liv Area"</span>, <span class="st">"Bedroom AbvGr"</span>, <span class="st">"Full Bath"</span>, <span class="st">"Half Bath"</span>]),</span>
+<span id="cb39-6"><a aria-hidden="true" tabindex="-1"></a>        (OneHotEncoder(sparse_output <span class="op">=</span> <span class="va">False</span>), </span>
+<span id="cb39-7"><a aria-hidden="true" tabindex="-1"></a>        [<span class="st">"Bldg Type"</span>, <span class="st">"Neighborhood"</span>]),</span>
+<span id="cb39-8"><a aria-hidden="true" tabindex="-1"></a>        remainder <span class="op">=</span> <span class="st">"drop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
 <section id="fit" class="slide level2">
 <h2>Fit!</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>preproc.fit(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a>preproc.fit(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <style>#sk-container-id-4 {
   /* Definition of color scheme common for light and dark mode */
@@ -4271,7 +4579,7 @@ forceTheme('sk-container-id-4');</script>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>preproc.set_output(transform <span class="op">=</span> <span class="st">"pandas"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a>preproc.set_output(transform <span class="op">=</span> <span class="st">"pandas"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <style>#sk-container-id-5 {
   /* Definition of color scheme common for light and dark mode */
@@ -5315,8 +5623,8 @@ forceTheme('sk-container-id-5');</script>
 <h2>Transform!</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a>df_transformed <span class="op">=</span> preproc.transform(df)</span>
-<span id="cb32-2"><a aria-hidden="true" tabindex="-1"></a>df_transformed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>df_transformed <span class="op">=</span> preproc.transform(df)</span>
+<span id="cb42-2"><a aria-hidden="true" tabindex="-1"></a>df_transformed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      standardscaler__Gr Liv Area  ...  onehotencoder__Neighborhood_Veenker
 0                        0.309265  ...                                  0.0
@@ -5344,23 +5652,23 @@ forceTheme('sk-container-id-5');</script>
 <div class="fragment">
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_selector</span>
-<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a aria-hidden="true" tabindex="-1"></a>preproc <span class="op">=</span> make_column_transformer(</span>
-<span id="cb34-4"><a aria-hidden="true" tabindex="-1"></a>    (StandardScaler(),  </span>
-<span id="cb34-5"><a aria-hidden="true" tabindex="-1"></a>     make_column_selector(dtype_include <span class="op">=</span> np.number)</span>
-<span id="cb34-6"><a aria-hidden="true" tabindex="-1"></a>     ),</span>
-<span id="cb34-7"><a aria-hidden="true" tabindex="-1"></a>    (OneHotEncoder(sparse_output <span class="op">=</span> <span class="va">False</span>), </span>
-<span id="cb34-8"><a aria-hidden="true" tabindex="-1"></a>     make_column_selector(dtype_include <span class="op">=</span> <span class="bu">object</span>)</span>
-<span id="cb34-9"><a aria-hidden="true" tabindex="-1"></a>     ),</span>
-<span id="cb34-10"><a aria-hidden="true" tabindex="-1"></a>    remainder <span class="op">=</span> <span class="st">"passthrough"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_selector</span>
+<span id="cb44-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a aria-hidden="true" tabindex="-1"></a>preproc <span class="op">=</span> make_column_transformer(</span>
+<span id="cb44-4"><a aria-hidden="true" tabindex="-1"></a>    (StandardScaler(),  </span>
+<span id="cb44-5"><a aria-hidden="true" tabindex="-1"></a>     make_column_selector(dtype_include <span class="op">=</span> np.number)</span>
+<span id="cb44-6"><a aria-hidden="true" tabindex="-1"></a>     ),</span>
+<span id="cb44-7"><a aria-hidden="true" tabindex="-1"></a>    (OneHotEncoder(sparse_output <span class="op">=</span> <span class="va">False</span>), </span>
+<span id="cb44-8"><a aria-hidden="true" tabindex="-1"></a>     make_column_selector(dtype_include <span class="op">=</span> <span class="bu">object</span>)</span>
+<span id="cb44-9"><a aria-hidden="true" tabindex="-1"></a>     ),</span>
+<span id="cb44-10"><a aria-hidden="true" tabindex="-1"></a>    remainder <span class="op">=</span> <span class="st">"passthrough"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 <div class="fragment">
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>preproc.set_output(transform <span class="op">=</span> <span class="st">"pandas"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a>preproc.set_output(transform <span class="op">=</span> <span class="st">"pandas"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <style>#sk-container-id-6 {
   /* Definition of color scheme common for light and dark mode */
@@ -5914,10 +6222,10 @@ a.param-doc-link::before {
 }
 </style><div id="sk-container-id-6" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>ColumnTransformer(remainder='passthrough',
                   transformers=[('standardscaler', StandardScaler(),
-                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x13e8b91c0&gt;),
+                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x306de78f0&gt;),
                                 ('onehotencoder',
                                  OneHotEncoder(sparse_output=False),
-                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x16b6b7680&gt;)])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-18" type="checkbox"><label for="sk-estimator-id-18" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>ColumnTransformer</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for ColumnTransformer</span></a><span class="sk-estimator-doc-link ">i<span>Not fitted</span></span></div></label><div class="sk-toggleable__content " data-param-prefix="">
+                                 &lt;sklearn.compose._column_transformer.make_column_selector object at 0x3073b34a0&gt;)])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-18" type="checkbox"><label for="sk-estimator-id-18" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>ColumnTransformer</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for ColumnTransformer</span></a><span class="sk-estimator-doc-link ">i<span>Not fitted</span></span></div></label><div class="sk-toggleable__content " data-param-prefix="">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -6067,7 +6375,7 @@ The default value for `force_int_remainder_cols` will change from<br>
 
             </details>
         </div>
-    </div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-19" type="checkbox"><label for="sk-estimator-id-19" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>standardscaler</div></div></label><div class="sk-toggleable__content " data-param-prefix="standardscaler__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x13e8b91c0&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-20" type="checkbox"><label for="sk-estimator-id-20" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content " data-param-prefix="standardscaler__">
+    </div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-19" type="checkbox"><label for="sk-estimator-id-19" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>standardscaler</div></div></label><div class="sk-toggleable__content " data-param-prefix="standardscaler__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x306de78f0&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-20" type="checkbox"><label for="sk-estimator-id-20" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content " data-param-prefix="standardscaler__">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -6113,7 +6421,7 @@ unit standard deviation).</span></a></td>
 
             </details>
         </div>
-    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-21" type="checkbox"><label for="sk-estimator-id-21" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>onehotencoder</div></div></label><div class="sk-toggleable__content " data-param-prefix="onehotencoder__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x16b6b7680&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-22" type="checkbox"><label for="sk-estimator-id-22" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>OneHotEncoder</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></div></label><div class="sk-toggleable__content " data-param-prefix="onehotencoder__">
+    </div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-21" type="checkbox"><label for="sk-estimator-id-21" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>onehotencoder</div></div></label><div class="sk-toggleable__content " data-param-prefix="onehotencoder__"><pre>&lt;sklearn.compose._column_transformer.make_column_selector object at 0x3073b34a0&gt;</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-22" type="checkbox"><label for="sk-estimator-id-22" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>OneHotEncoder</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></div></label><div class="sk-toggleable__content " data-param-prefix="onehotencoder__">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -6406,7 +6714,7 @@ forceTheme('sk-container-id-6');</script>
 <h2>Fit <strong>AND</strong> Transform!</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>preproc.fit_transform(df[features])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a aria-hidden="true" tabindex="-1"></a>preproc.fit_transform(df[features])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      standardscaler__Gr Liv Area  ...  onehotencoder__Neighborhood_Veenker
 0                        0.309265  ...                                  0.0
