@@ -51,13 +51,14 @@ from plotnine import *
 
 ::: {.small}
 - 80-minutes 
-  - First part of class (8:10 - 9:30am; 12:10 - 1:30pm)
+  - First part of class (12:10 - 1:30am; 3:10 - 4:30pm)
 :::
 :::
 
 ::: {.fragment}
 ::: {.small}
 - Google Collab Notebook
+  - Completed on the Desktop computer in front of you
 :::
 :::
 
@@ -74,11 +75,9 @@ from plotnine import *
 ::: {.fragment}
 ::: {.small}
 - Resources you [**can not**]{.underline} use:
-  * Other humans
   * Generative AI for anything beyond text completion 
   * Google for anything except to reach Python documentation pages
 
-:::
 :::
 :::
 :::
@@ -88,7 +87,7 @@ from plotnine import *
 
 - [Dataset on coffee attributes](https://github.com/atheobold/data-301/blob/main/exam-materials/coffee_clean.csv)
   * Derived from a [Kaggle dataset (link to documentation)](https://www.kaggle.com/datasets/fatihb/coffee-quality-data-cqi?resource=download)
-  * Raw data can be downloaded [here (link to data)](https://raw.githubusercontent.com/atheobold/data-301/refs/heads/main/exam-materials/coffee_clean.csv)
+  * Raw data can be downloaded [here (link to data)](https://github.com/atheobold/data-301/blob/main/exam-materials/coffee_kaggle.csv)
   
 ::: columns
 ::: {.column width="50%"}
@@ -105,6 +104,25 @@ from plotnine import *
 
 # The story so far...
 
+## Preprocessing
+
+For quantitative variables:
+
+::: {.midi}
+-   **Standardize:** Subtract the *mean* (of the column) and divide by the *standard deviation* (of the column).
+
+-   **MinMax:** Subtract the *minimum* value, divide by the *range*.
+:::
+
+For categorical variables:
+
+::: {.midi}
+-   **OneHotEncode:** Create dummy variables (columns of 0s and 1s) for every
+level of a categorical variables.
+
+Use `make_column_transformer()` to have **multiple** preprocessing steps. 
+:::
+
 ## Distances
 
 -   We measure similarity between **observations** by calculating **distances**.
@@ -113,19 +131,12 @@ from plotnine import *
 
 -   **Manhattan distance**: sum of absolute differences
 
--   In **scikit-learn**, use the `pairwise_distances()` function to get back a *2D numpy array* of distances.
+-   In **scikit-learn**, use the `pairwise_distances()` function to get back a
+*2D numpy array* of distances.
 
-## Scaling
+. . .
 
--   It is important that all our **features** be on the same **scale** for distances to be meaningful.
-
--   **Standardize:** Subtract the *mean* (of the column) and divide by the *standard deviation* (of the column).
-
--   **MinMax:** Subtract the *minimum* value, divide by the *range*.
-
--   In `scikit-learn`, use the `StandardScaler()` or `MinMaxScaler()` functions.
-
--   Follow the **specify** - **fit** - **transform** code structure.
+[But what if our data are text instead of categories?]{.large}
 
 # Bag of Words
 
@@ -245,10 +256,27 @@ Counter(
 
 ... then, we put these counts into a `Series`. 
 
+```{python}
+#| code-line-numbers: false
+#| label: bag-of-words-for-one-file-series
+
+pd.Series(
+    Counter(
+      docs["hop_on_pop.txt"]
+      .split()
+      )
+  )
+```
+
+## Bag-of-Words Representation
+
+... then, we do this for **every** document. 
+
 ::: {.small}
 ```{python}
 #| code-line-numbers: false
 #| label: bag-of-words-for-all-files-series
+#| output-location: column
 
 [
   pd.Series(
@@ -258,9 +286,13 @@ Counter(
 ```
 :::
 
-<!-- - `Counter(doc.split())` splits each document by word and counts the frequency of each word -->
-<!-- - `for doc in docs.values()` iterates over every document -->
-<!-- - `pd.Series()` converts the `Counter()` object into a Pandas Series, where the index is the unique words and the values are their frequencies. -->
+::: {.small}
+::: {.incremental}
+- `Counter(doc.split())` splits each document by word and counts word frequencies
+- `for doc in docs.values()` iterates over every document
+- `pd.Series()` converts the `Counter()` object into a Pandas Series
+:::
+:::
 
 ## Create a DataFrame
 
@@ -272,9 +304,11 @@ Counter(
 #| label: bag-of-words-for-all-files-dataframe
 
 pd.DataFrame(
-    [pd.Series(
+    [
+      pd.Series(
       Counter(doc.split())
-      ) for doc in docs.values()],
+      ) for doc in docs.values()
+      ],
     index = docs.keys()
     )
 ```
@@ -377,30 +411,34 @@ Counter({'UP': 1, 'PUP': 3, 'Pup': 4, 'is': 10, 'up.': 2, ...})
 
 -   By default, `scikit-learn` strips punctuation and converts all characters to lowercase.
 
-## Text Normalizing in `sklearn`
+<!-- ## Text Normalizing in `sklearn` -->
 
-::: {.midi}
-If you don't want `scikit-learn` to normalize for punctuation and capitalization, you can do the following:
-:::
+<!-- ::: {.midi} -->
+<!-- If you don't want `scikit-learn` to normalize for punctuation and capitalization, you can do the following: -->
+<!-- ::: -->
 
-::: {.small}
-```{python}
-#| code-line-numbers: false
-#| label: not-normalized
+<!-- ::: {.small} -->
+<!-- ```{python} -->
+<!-- #| code-line-numbers: false -->
+<!-- #| label: not-normalized -->
 
-vec = CountVectorizer(lowercase = False, token_pattern = r"[\S]+")
-vec.fit(docs.values())
-vec.transform(docs.values())
-```
-:::
+<!-- vec = CountVectorizer(lowercase = False) -->
+<!-- vec.fit(docs.values()) -->
+<!-- vec.transform(docs.values()) -->
+<!-- ``` -->
+<!-- ::: -->
 
-::: {.small}
-::: {.callout-tip}
-# `CountVectorizer()`
+<!-- ::: {.small} -->
+<!-- ::: {.callout-tip} -->
+<!-- # `CountVectorizer()` -->
 
-Setting `lowercase = False` doesn't automatically convert every word to lowercase. `token_pattern = r"[\S]+"` declares a regular expression that treats every sequence of characters that is not whitespace (`[\S]`) as a single token.
-:::
-:::
+<!-- The default values for `token_pattern` is `r"(?u)\b\w\w+\b"` which keeps only -->
+<!-- word characters (a–z, A–Z, digits) that are at least 2 characters long and  -->
+<!-- ignores punctuation.  -->
+
+<!-- r"[\S]+"` declares a regular expression that treats every sequence of characters that is not whitespace (`[\S]`) as a single token. -->
+<!-- ::: -->
+<!-- ::: -->
 
 # N-grams
 
@@ -441,7 +479,7 @@ $$\begin{array}{l|ccccccc}
 
 ## N-grams in `scikit-learn`
  
-::: {.midi}
+::: {.small}
 We can easily modify our previous approach by specifying `ngram_range =` in `CountVectorizer()`. To get bigrams, we set the range to `(2, 2)`. 
 :::
 
@@ -573,6 +611,8 @@ docs.keys()
 :::
 :::
 
+. . .
+
 ::: {.callout-tip}
 This is how data scientists do **authorship identification**!
 :::
@@ -603,6 +643,8 @@ pairwise_distances(bow_seuss)[7]
 -   Wouldn't a *longer document* have *more words*, and thus be able to "match" other documents?
 
 -   Wouldn't *more common words* appear in more documents, and thus cause them to "match"?
+
+. . .
 
 -   Recall: We have many options for **scaling**
 
@@ -654,7 +696,7 @@ documents = [
 
 from sklearn.feature_extraction.text import CountVectorizer
 
-vec = CountVectorizer(token_pattern = r"\w+")
+vec = CountVectorizer()
 vec.fit(documents)
 bow_matrix = vec.transform(documents)
 bow_matrix
@@ -790,7 +832,7 @@ If a document is longer, it is more likely to share words with other documents.
 #| code-line-numbers: false
 #| label: total-document-length
 
-bow_totals = bow_dataframe.sum(axis = 1)
+bow_totals = bow_dataframe.sum(axis = "columns")
 bow_totals
 ```
 
@@ -803,7 +845,7 @@ Let's use *frequencies* instead of *counts*.
 #| code-line-numbers: false
 #| label: document-frequencies
 
-bow_tf = bow_dataframe.divide(bow_totals, axis = 0)
+bow_tf = bow_dataframe.divide(bow_totals, axis = "rows")
 bow_tf
 ```
 :::
@@ -863,32 +905,17 @@ has_word[["darkness", "light", "hate"]]
 
 Then, let's calculate how often the word occurred across the four documents.
 
-::: columns
-::: {.column width="60%"}
 ```{python}
 #| code-line-numbers: false
 #| label: frequency-of-words-across-documents
 
 bow_df = (
   has_word
-  .sum(axis = 0) / 4
+  .sum(axis = "rows") / 4
   )
 bow_df
 ```
 
-:::
-
-::: {.column width="5%"}
-:::
-
-::: {.column width="35%"}
-::: {.callout-tip}
-# `axis = 0`
-
-What values are we summing?
-:::
-:::
-:::
 
 ## IDF - Step 3
 
@@ -917,9 +944,9 @@ Notice we are using $log(\frac{1}{p_i})$ to get the IDFs.
 :::
 :::
 
-## IDF - Step 4
+## TF-IDF Compilation
 
-Adjust for the inverse document frequencies:
+Take the term frequencies: 
 
 ::: columns
 ::: {.column width="40%"}
@@ -948,17 +975,17 @@ bow_log_idf[["darkness", "light", "hate"]]
 :::
 :::
 
+And adjust for the inverse document frequencies:
+
 ::: {.small}
 ```{python}
 #| code-line-numbers: false
 #| label: tf-idf-scale
 
-bow_tf_idf = bow_tf.multiply(bow_log_idf, axis = 1)
+bow_tf_idf = bow_tf.multiply(bow_log_idf, axis = "columns")
 
 ```
 :::
-
-</br> 
 
 ::: {.small}
 ```{python}
@@ -1002,7 +1029,7 @@ dists[0].argsort()
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # These options ensure that the numbers match our example above
-vec = TfidfVectorizer(smooth_idf = False)
+vec = TfidfVectorizer()
 ```
 :::
 
@@ -1073,6 +1100,24 @@ We used $\text{log} \Bigg ( \frac{1}{\frac{\text{df(t)}}{n}} \Bigg )$ which is t
 But, we never added 1 before taking the log...
 
 > The effect of adding "1" to the idf in the equation above is that terms with zero idf, i.e., terms that occur in all documents in a training set, will not be entirely ignored. 
+
+## Not Adding 1 to the IDF
+
+The `smooth_idf` argument in  `TfidfVectorizer()` controls whether to add 1 
+to the IDF or not. 
+
+</br>
+
+If you **do not** want to add 1 to the IDF, then you can specify 
+`smooth_idf = False`:
+
+```{python}
+#| eval: false
+#| code-line-numbers: false
+#| label: not-adding-one
+
+vec = TfidfVectorizer(smooth_idf = FALSE)
+```
 
 ## `sklearn` TF
 
