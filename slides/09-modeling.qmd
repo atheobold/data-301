@@ -20,6 +20,8 @@ import pandas as pd
 from plotnine import *
 ```
 
+## {background-color="white" background-image="images/09-data-fest-2026.png" background-size="1250px"}
+
 # Starting Your Final Projects 
 
 ## Upcoming Tasks / Deadlines
