@@ -289,7 +289,6 @@ results = pd.DataFrame({
   "predicted_prices": pred_y_train,
 })
 results["squared error"] = (results["predicted_prices"] - results["real_prices"])**2
-results
 ```
 :::
 

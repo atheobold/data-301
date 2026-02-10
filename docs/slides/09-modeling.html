@@ -1513,40 +1513,10 @@ forceTheme('sk-container-id-1');</script>
 <span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"real_prices"</span>: df_train[<span class="st">'price'</span>],</span>
 <span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"predicted_prices"</span>: pred_y_train,</span>
 <span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb8-7"><a aria-hidden="true" tabindex="-1"></a>results[<span class="st">"squared error"</span>] <span class="op">=</span> (results[<span class="st">"predicted_prices"</span>] <span class="op">-</span> results[<span class="st">"real_prices"</span>])<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb8-8"><a aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-7"><a aria-hidden="true" tabindex="-1"></a>results[<span class="st">"squared error"</span>] <span class="op">=</span> (results[<span class="st">"predicted_prices"</span>] <span class="op">-</span> results[<span class="st">"real_prices"</span>])<span class="op">**</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>    real_prices  predicted_prices  squared error
-0          37.0              36.2           0.64
-1          63.0              41.4         466.56
-2          45.0              46.6           2.56
-3          22.0              28.8          46.24
-4          18.0              46.4         806.56
-5          66.0              35.2         948.64
-6          14.0              13.0           1.00
-7         100.0              56.6        1883.56
-8          33.0              40.4          54.76
-9          17.0              16.0           1.00
-10         31.0              37.0          36.00
-11         11.0              12.2           1.44
-12         47.0              32.0         225.00
-13         19.0              26.0          49.00
-14         11.0              11.8           0.64
-15         12.0              18.2          38.44
-16         40.0              29.8         104.04
-17         27.0              24.8           4.84
-18         10.0              13.6          12.96
-19         16.0              28.8         163.84
-20         11.0              19.8          77.44
-21         30.0              24.0          36.00
-22         25.0              18.8          38.44
-23         11.0              25.0         196.00
-24         27.0              18.4          73.96
-25         21.0              18.4           6.76
-26         14.0              25.8         139.24</code></pre>
-</div>
+
 </div>
 </div>
 </div>
@@ -1555,7 +1525,7 @@ forceTheme('sk-container-id-1');</script>
 <h2>Measuring Error</h2>
 <p>The most common way to measure “leftover noise” is the <strong>sum of squared error</strong> or equivalently, the <strong>mean squared error</strong>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>results[<span class="st">"squared error"</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>results[<span class="st">"squared error"</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(200.57629629629628)</code></pre>
 </div>
@@ -1565,14 +1535,14 @@ forceTheme('sk-container-id-1');</script>
 <h2>Best K</h2>
 <p>Now let’s try it for some different values of <span class="math inline">\(k\)</span></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>]:</span>
-<span id="cb12-2"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> make_pipeline(</span>
-<span id="cb12-3"><a aria-hidden="true" tabindex="-1"></a>    ct,</span>
-<span id="cb12-4"><a aria-hidden="true" tabindex="-1"></a>    KNeighborsRegressor(n_neighbors <span class="op">=</span> k)</span>
-<span id="cb12-5"><a aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-6"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> pipeline.fit(X <span class="op">=</span> df_train, y <span class="op">=</span> df_train[<span class="st">'price'</span>])</span>
-<span id="cb12-7"><a aria-hidden="true" tabindex="-1"></a>  pred_y_train <span class="op">=</span> pipeline.predict(X <span class="op">=</span> df_train)</span>
-<span id="cb12-8"><a aria-hidden="true" tabindex="-1"></a>  ((df_train[<span class="st">'price'</span>] <span class="op">-</span> pred_y_train)<span class="op">**</span><span class="dv">2</span>).mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>]:</span>
+<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> make_pipeline(</span>
+<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>    ct,</span>
+<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a>    KNeighborsRegressor(n_neighbors <span class="op">=</span> k)</span>
+<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> pipeline.fit(X <span class="op">=</span> df_train, y <span class="op">=</span> df_train[<span class="st">'price'</span>])</span>
+<span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a>  pred_y_train <span class="op">=</span> pipeline.predict(X <span class="op">=</span> df_train)</span>
+<span id="cb11-8"><a aria-hidden="true" tabindex="-1"></a>  ((df_train[<span class="st">'price'</span>] <span class="op">-</span> pred_y_train)<span class="op">**</span><span class="dv">2</span>).mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.0)
 np.float64(123.2304526748971)
@@ -1598,11 +1568,11 @@ np.float64(378.9575703703703)</code></pre>
 <section id="another-test-training-split" class="slide level2">
 <h2>Another Test / Training Split</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> (df[<span class="st">"year"</span>] <span class="op">&gt;</span> <span class="dv">1970</span>) <span class="op">&amp;</span> (df[<span class="st">"year"</span>] <span class="op">&lt;</span> <span class="dv">1981</span>)</span>
-<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> df[<span class="st">"year"</span>] <span class="op">&lt;</span> <span class="dv">1971</span></span>
-<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>df_train_new <span class="op">=</span> df[train].copy()</span>
-<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a>df_test_new <span class="op">=</span> df[test].copy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> (df[<span class="st">"year"</span>] <span class="op">&gt;</span> <span class="dv">1970</span>) <span class="op">&amp;</span> (df[<span class="st">"year"</span>] <span class="op">&lt;</span> <span class="dv">1981</span>)</span>
+<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> df[<span class="st">"year"</span>] <span class="op">&lt;</span> <span class="dv">1971</span></span>
+<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a aria-hidden="true" tabindex="-1"></a>df_train_new <span class="op">=</span> df[train].copy()</span>
+<span id="cb13-5"><a aria-hidden="true" tabindex="-1"></a>df_test_new <span class="op">=</span> df[test].copy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><br></p>
 <ul>
@@ -1615,17 +1585,17 @@ np.float64(378.9575703703703)</code></pre>
 <h2>Try Again: Best K</h2>
 <div class="small">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">15</span>):</span>
-<span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> make_pipeline(</span>
-<span id="cb15-3"><a aria-hidden="true" tabindex="-1"></a>    ct,</span>
-<span id="cb15-4"><a aria-hidden="true" tabindex="-1"></a>    KNeighborsRegressor(n_neighbors <span class="op">=</span> k))</span>
-<span id="cb15-5"><a aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb15-6"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> pipeline.fit(X <span class="op">=</span> df_train_new, </span>
-<span id="cb15-7"><a aria-hidden="true" tabindex="-1"></a>                          y <span class="op">=</span> df_train_new[<span class="st">'price'</span>])</span>
-<span id="cb15-8"><a aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-9"><a aria-hidden="true" tabindex="-1"></a>  pred_y_test <span class="op">=</span> pipeline.predict(X <span class="op">=</span> df_test_new)</span>
-<span id="cb15-10"><a aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-11"><a aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="bu">str</span>(k) <span class="op">+</span> <span class="st">":"</span> <span class="op">+</span> <span class="bu">str</span>(((df_test_new[<span class="st">'price'</span>] <span class="op">-</span> pred_y_test)<span class="op">**</span><span class="dv">2</span>).mean()))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">15</span>):</span>
+<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> make_pipeline(</span>
+<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a>    ct,</span>
+<span id="cb14-4"><a aria-hidden="true" tabindex="-1"></a>    KNeighborsRegressor(n_neighbors <span class="op">=</span> k))</span>
+<span id="cb14-5"><a aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb14-6"><a aria-hidden="true" tabindex="-1"></a>  pipeline <span class="op">=</span> pipeline.fit(X <span class="op">=</span> df_train_new, </span>
+<span id="cb14-7"><a aria-hidden="true" tabindex="-1"></a>                          y <span class="op">=</span> df_train_new[<span class="st">'price'</span>])</span>
+<span id="cb14-8"><a aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-9"><a aria-hidden="true" tabindex="-1"></a>  pred_y_test <span class="op">=</span> pipeline.predict(X <span class="op">=</span> df_test_new)</span>
+<span id="cb14-10"><a aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-11"><a aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="bu">str</span>(k) <span class="op">+</span> <span class="st">":"</span> <span class="op">+</span> <span class="bu">str</span>(((df_test_new[<span class="st">'price'</span>] <span class="op">-</span> pred_y_test)<span class="op">**</span><span class="dv">2</span>).mean()))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1:183.0
 2:139.85
