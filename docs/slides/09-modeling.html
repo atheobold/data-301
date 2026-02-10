@@ -198,6 +198,24 @@
 </div>
 
 </section>
+<section id="todays-outline" class="slide level2">
+<h2>Today’s Outline</h2>
+<ul>
+<li>DataFest Announcement</li>
+<li>Details on Final Project Proposals</li>
+<li>Framework for “Modeling”
+<ul>
+<li>Types of Models</li>
+<li>Modeling Goal</li>
+</ul></li>
+<li>Revisiting KNN
+<ul>
+<li>Measurement Error</li>
+<li>Choosing “Best” <span class="math inline">\(k\)</span></li>
+<li>Training Error &amp; Testing Error</li>
+</ul></li>
+</ul>
+</section>
 <section id="section" class="slide level2" data-background-color="white" data-background-image="images/09-data-fest-2026.png" data-background-size="1250px">
 <h2></h2>
 </section>
@@ -229,8 +247,8 @@
 </div>
 </div>
 </section>
-<section id="project-proposal---due-sunday-february-23" class="slide level2">
-<h2>Project Proposal - Due Sunday, February 23</h2>
+<section id="project-proposal---due-monday-february-23-at-5pm" class="slide level2">
+<h2>Project Proposal - Due Monday, February 23 (at 5pm)</h2>
 <div class="midi">
 <ol type="1">
 <li><p>Your group member names.</p></li>
@@ -321,6 +339,7 @@
 <p>… or more complex…</p>
 <p><span class="math display">\[y_i = 0.5*x_{1i} + 0.5*x_{2i} + \epsilon_i\]</span></p>
 <p>“A person’s height is equal to the average of their biological mother’s height and biological father’s height, plus some randomness”</p>
+<div class="fragment">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -331,6 +350,7 @@
 </div>
 <div class="callout-content">
 <p>Do you think there is “more randomness” in the first function or this one?</p>
+</div>
 </div>
 </div>
 </div>
@@ -1512,8 +1532,7 @@ forceTheme('sk-container-id-1');</script>
 <span id="cb8-3"><a aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb8-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"real_prices"</span>: df_train[<span class="st">'price'</span>],</span>
 <span id="cb8-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"predicted_prices"</span>: pred_y_train,</span>
-<span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb8-7"><a aria-hidden="true" tabindex="-1"></a>results[<span class="st">"squared error"</span>] <span class="op">=</span> (results[<span class="st">"predicted_prices"</span>] <span class="op">-</span> results[<span class="st">"real_prices"</span>])<span class="op">**</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-6"><a aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -1525,7 +1544,11 @@ forceTheme('sk-container-id-1');</script>
 <h2>Measuring Error</h2>
 <p>The most common way to measure “leftover noise” is the <strong>sum of squared error</strong> or equivalently, the <strong>mean squared error</strong>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>results[<span class="st">"squared error"</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>results[<span class="st">"squared error"</span>] <span class="op">=</span> (</span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>  results[<span class="st">"predicted_prices"</span>] <span class="op">-</span> results[<span class="st">"real_prices"</span>]</span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a>  )<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a aria-hidden="true" tabindex="-1"></a>results[<span class="st">"squared error"</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(200.57629629629628)</code></pre>
 </div>
@@ -1692,7 +1715,7 @@ np.float64(378.9575703703703)</code></pre>
 <h2>Big decisions</h2>
 <ul>
 <li><p>Which models to try</p></li>
-<li><p>Which column transformers to try</p></li>
+<li><p>How to preprocess the data</p></li>
 <li><p>How much to tune</p></li>
 <li><p>How to measure the “success” of a model</p></li>
 </ul>

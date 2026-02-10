@@ -4180,7 +4180,7 @@
     "href": "slides/09-modeling.html#generative-process-1",
     "title": "Introduction to Modeling",
     "section": "Generative Process",
-    "text": "Generative Process\n… or more complex…\n\\[y_i = 0.5*x_{1i} + 0.5*x_{2i} + \\epsilon_i\\]\n“A person’s height is equal to the average of their biological mother’s height and biological father’s height, plus some randomness”\n\n\n\n\n\n\nTip\n\n\nDo you think there is “more randomness” in the first function or this one?",
+    "text": "Generative Process\n… or more complex…\n\\[y_i = 0.5*x_{1i} + 0.5*x_{2i} + \\epsilon_i\\]\n“A person’s height is equal to the average of their biological mother’s height and biological father’s height, plus some randomness”\n\n\n\n\n\n\n\nTip\n\n\nDo you think there is “more randomness” in the first function or this one?",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -4268,7 +4268,7 @@
     "href": "slides/09-modeling.html#measuring-error",
     "title": "Introduction to Modeling",
     "section": "Measuring Error",
-    "text": "Measuring Error\n\nThe most common way to measure “leftover noise” is the sum of squared error or equivalently, the mean squared error.\n\n\n\n\npred_y_train = pipeline.predict(X = df_train)\n\nresults = pd.DataFrame({\n  \"real_prices\": df_train['price'],\n  \"predicted_prices\": pred_y_train,\n})\nresults[\"squared error\"] = (results[\"predicted_prices\"] - results[\"real_prices\"])**2",
+    "text": "Measuring Error\n\nThe most common way to measure “leftover noise” is the sum of squared error or equivalently, the mean squared error.\n\n\n\n\npred_y_train = pipeline.predict(X = df_train)\n\nresults = pd.DataFrame({\n  \"real_prices\": df_train['price'],\n  \"predicted_prices\": pred_y_train,\n})",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -4279,7 +4279,7 @@
     "href": "slides/09-modeling.html#measuring-error-1",
     "title": "Introduction to Modeling",
     "section": "Measuring Error",
-    "text": "Measuring Error\nThe most common way to measure “leftover noise” is the sum of squared error or equivalently, the mean squared error.\n\nresults[\"squared error\"].mean()\n\nnp.float64(200.57629629629628)",
+    "text": "Measuring Error\nThe most common way to measure “leftover noise” is the sum of squared error or equivalently, the mean squared error.\n\nresults[\"squared error\"] = (\n  results[\"predicted_prices\"] - results[\"real_prices\"]\n  )**2\n\nresults[\"squared error\"].mean()\n\nnp.float64(200.57629629629628)",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -4378,7 +4378,7 @@
     "href": "slides/09-modeling.html#big-decisions",
     "title": "Introduction to Modeling",
     "section": "Big decisions",
-    "text": "Big decisions\n\nWhich models to try\nWhich column transformers to try\nHow much to tune\nHow to measure the “success” of a model",
+    "text": "Big decisions\n\nWhich models to try\nHow to preprocess the data\nHow much to tune\nHow to measure the “success” of a model",
     "crumbs": [
       "Lecture Slides",
       "Week 6, Part 1 - Introduction to Modeling"
@@ -5592,6 +5592,28 @@
     "crumbs": [
       "Lecture Slides",
       "Week 5 Part 1 - KNN"
+    ]
+  },
+  {
+    "objectID": "slides/09-modeling.html#todays-outline",
+    "href": "slides/09-modeling.html#todays-outline",
+    "title": "Introduction to Modeling",
+    "section": "Today’s Outline",
+    "text": "Today’s Outline\n\nDataFest Announcement\nDetails on Final Project Proposals\nFramework for “Modeling”\n\nTypes of Models\nModeling Goal\n\nRevisiting KNN\n\nMeasurement Error\nChoosing “Best” \\(k\\)\nTraining Error & Testing Error",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 6, Part 1 - Introduction to Modeling"
+    ]
+  },
+  {
+    "objectID": "slides/09-modeling.html#project-proposal---due-monday-february-23-at-5pm",
+    "href": "slides/09-modeling.html#project-proposal---due-monday-february-23-at-5pm",
+    "title": "Introduction to Modeling",
+    "section": "Project Proposal - Due Monday, February 23 (at 5pm)",
+    "text": "Project Proposal - Due Monday, February 23 (at 5pm)\n\n\nYour group member names.\nInformation about the dataset(s) you intend to analyze:\n\nWhere are the data located?\nWho collected the data and why?\nWhat information (variables) are in the dataset?\n\nResearch Questions: You should have one primary research question and a few secondary questions\nPreliminary exploration of your dataset(s): A few simple plots or summary statistics that relate to the variables you plan to study.",
+    "crumbs": [
+      "Lecture Slides",
+      "Week 6, Part 1 - Introduction to Modeling"
     ]
   }
 ]

@@ -20,6 +20,20 @@ import pandas as pd
 from plotnine import *
 ```
 
+## Today's Outline
+
+- DataFest Announcement
+- Details on Final Project Proposals
+- Framework for "Modeling"
+    * Types of Models
+    * Modeling Goal
+- Revisiting KNN
+    * Measurement Error
+    * Choosing "Best" $k$
+    * Training Error & Testing Error
+    
+
+
 ## {background-color="white" background-image="images/09-data-fest-2026.png" background-size="1250px"}
 
 # Starting Your Final Projects 
@@ -37,7 +51,7 @@ The [Final Project instructions page](../project/project-description.qmd) has
 suggestions for where to find datasets. 
 :::
 
-## Project Proposal - Due Sunday, February 23
+## Project Proposal - Due Monday, February 23 (at 5pm)
 
 ::: {.midi}
 1.  Your group member names.
@@ -125,6 +139,8 @@ $$y_i = \mu + \epsilon_i$$
 $$y_i = 0.5*x_{1i} + 0.5*x_{2i} + \epsilon_i$$
 
 "A person's height is equal to the average of their biological mother's height and biological father's height, plus some randomness"
+
+. . .
 
 ::: {.callout-tip}
 Do you think there is "more randomness" in the first function or this one?
@@ -288,7 +304,6 @@ results = pd.DataFrame({
   "real_prices": df_train['price'],
   "predicted_prices": pred_y_train,
 })
-results["squared error"] = (results["predicted_prices"] - results["real_prices"])**2
 ```
 :::
 
@@ -300,6 +315,10 @@ or equivalently, the **mean squared error**.
 ```{python}
 #| code-line-numbers: false
 #| label: mse
+
+results["squared error"] = (
+  results["predicted_prices"] - results["real_prices"]
+  )**2
 
 results["squared error"].mean()
 ```
@@ -501,7 +520,7 @@ for k in range(1,17):
 
 -   Which models to try
 
--   Which column transformers to try
+-   How to preprocess the data 
 
 -   How much to tune
 
