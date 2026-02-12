@@ -22,18 +22,60 @@ import pandas as pd
 from plotnine import *
 ```
 
-# More Information About Final Projects!
+# Final Project Groups
 
-# Final Project Presentations
+Let's take 5-minutes and form groups with other students in the class!
 
-> Will take place on Saturday, March 15 from 1:10pm to 2:30pm, in our classroom! 
+```{r}
+#| echo: false
 
-## If you are having trouble finding a group to work with
+countdown::countdown(minutes = 5)
+```
 
-fill out this Google Form and Dr. T will help you! 
+## Reporting Your Group
+
+Did you find a group to work with? Please fill out this form!
+
+Do you still need to find a group to work with? Please fill out this form!
 
 ::: {.centered}
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFTbTxIwqVEQa3r_nUMtJUa85gLsNpA4qvUo3FOns4GLTGlw/viewform?embedded=true" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<iframe src="https://forms.gle/gyEAisg2cavhLaW7A" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+:::
+
+# Exam 1
+
+## Revision Opportunities
+
+You have the opportunity to earn back up to **75%** of the points you lost. 
+
+::: {.midi}
+Revisions must include reflections addressing:
+
+- what aspects of your previous answer were incorrect / misleading / incomplete
+- what you changed about your answer to remedy this issue
+- what you learned during this process 
+
+::: {.callout-important}
+# Revisions are about learning
+
+As such, your reflections should tell me (briefly) what you learned. **Quality** 
+of reflection is better than quantity. 
+:::
+:::
+
+## Revision Submissions - Due Monday, February 23 at 5pm
+
+::: {.midi}
+- Revisions should be done in a new (clean) [Colab Notebook](https://colab.research.google.com/drive/1kyLC8i5uJTYjc__V02YAJaNp6ClbuROG?usp=sharing)
+  * Reflections should come at the **beginning** of each problem
+
+- Your revisions will be submitted to the **same** assignment portal
+
+- To be eligible for regrading, your revisions must be:
+  * Submitted as a PDF (with a Colab link)
+  * Printed to landscape
+  * Have all your code visible
+  * Reflections for every problem being revised
 :::
 
 # The story so far...
@@ -121,7 +163,9 @@ Goal: Use observations $(x_1, y_1), ..., (x_n, y_n)$ to estimate $\beta_0$ and $
 ::: {.callout-tip}
 # What are these parameters???
 
-In Statistics, we use $\beta_0$ to represent the **population** intercept and $\beta_1$ to represent the slope. By "population" we mean the true slope of the line for every observation in the population of interest.
+In Statistics, we use $\beta_0$ to represent the **population** intercept and
+$\beta_1$ to represent the slope. By "population" we mean the true slope of the
+line for the entire population of interest.
 :::
 
 ## Measures of Success
@@ -196,7 +240,10 @@ plot.show()
 ::: {.midi}
 Consider five possible regression equations:
 
-$$\text{price} = 25 + 0*\text{age}$$ $$\text{price} = 0 + 10*\text{age}$$ $$\text{price} = 20 + 1*\text{age}$$ $$\text{price} = -40 + 3*\text{age}$$
+$$\text{price} = 25 + 0*\text{age}$$ 
+$$\text{price} = 0 + 1*\text{age}$$ 
+$$\text{price} = 20 + 1*\text{age}$$ 
+$$\text{price} = -40 + 3*\text{age}$$
 
 Which one do you think will be "closest" to the points on the scatterplot?
 :::
@@ -558,13 +605,11 @@ cross_val_score(pipeline,
 . . .
 
 ::: {.midi}
-**Why use negative root mean squared error?**
+The metrics from `sklearn` will **always** want to be *maximized*.
 
 ::: {.incremental}
--   To be consistent! We will **always** want to *maximize* this score. 
-  
-  + Larger *R-Squared* values explain more of the variance in the response (y). 
-  + Larger *negative* RMSE (smaller RMSE) means the "leftover" variance in y 
++ Larger *R-Squared* values explain more of the variance in the response (y). 
++ Larger *negative* RMSE (smaller RMSE) means the "leftover" variance in y 
   is minimized.
 :::
 :::
@@ -739,7 +784,7 @@ grid_cv.fit(df_known,
 
 . . .
 
--   **How many different models were fit with this grid?**
+[**How many different models were fit with this grid?**]{.large}
 
 ## Getting the Cross Validation Results
 
@@ -802,7 +847,7 @@ model:
 
 2.  Should we use *Linear Regression* or *KNN* or something else? (**Model selection**)
 
-3.  Which value of $k$ should we use? (**Hyperparameter tuning**)
+3.  Which value of $k$ should we use? (**Parameter tuning**)
 :::
 
 ## Model Evaluation

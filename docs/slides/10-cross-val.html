@@ -186,6 +186,8 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../site_libs/countdown-0.6.0/countdown.css" rel="stylesheet">
+  <script src="../site_libs/countdown-0.6.0/countdown.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -198,25 +200,73 @@
 </div>
 
 </section>
-<section id="more-information-about-final-projects" class="title-slide slide level1 center">
-<h1>More Information About Final Projects!</h1>
-
-</section>
-
 <section>
-<section id="final-project-presentations" class="title-slide slide level1 center">
-<h1>Final Project Presentations</h1>
-<blockquote>
-<p>Will take place on Saturday, March 15 from 1:10pm to 2:30pm, in our classroom!</p>
-</blockquote>
+<section id="final-project-groups" class="title-slide slide level1 center">
+<h1>Final Project Groups</h1>
+<p>Let’s take 5-minutes and form groups with other students in the class!</p>
+<div class="cell">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_66eb50b1" minutes="5" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
 </section>
-<section id="if-you-are-having-trouble-finding-a-group-to-work-with" class="slide level2">
-<h2>If you are having trouble finding a group to work with</h2>
-<p>fill out this Google Form and Dr.&nbsp;T will help you!</p>
+<section id="reporting-your-group" class="slide level2">
+<h2>Reporting Your Group</h2>
+<p>Did you find a group to work with? Please fill out this form!</p>
+<p>Do you still need to find a group to work with? Please fill out this form!</p>
 <div class="centered">
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFTbTxIwqVEQa3r_nUMtJUa85gLsNpA4qvUo3FOns4GLTGlw/viewform?embedded=true" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">
+<iframe src="https://forms.gle/gyEAisg2cavhLaW7A" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">
 Loading…
 </iframe>
+</div>
+</section></section>
+<section>
+<section id="exam-1" class="title-slide slide level1 center">
+<h1>Exam 1</h1>
+
+</section>
+<section id="revision-opportunities" class="slide level2">
+<h2>Revision Opportunities</h2>
+<p>You have the opportunity to earn back up to <strong>75%</strong> of the points you lost.</p>
+<div class="midi">
+<p>Revisions must include reflections addressing:</p>
+<ul>
+<li>what aspects of your previous answer were incorrect / misleading / incomplete</li>
+<li>what you changed about your answer to remedy this issue</li>
+<li>what you learned during this process</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Revisions are about learning</strong></p>
+</div>
+<div class="callout-content">
+<p>As such, your reflections should tell me (briefly) what you learned. <strong>Quality</strong> of reflection is better than quantity.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="revision-submissions---due-monday-february-23-at-5pm" class="slide level2">
+<h2>Revision Submissions - Due Monday, February 23 at 5pm</h2>
+<div class="midi">
+<ul>
+<li><p>Revisions should be done in a new (clean) <a href="https://colab.research.google.com/drive/1kyLC8i5uJTYjc__V02YAJaNp6ClbuROG?usp=sharing">Colab Notebook</a></p>
+<ul>
+<li>Reflections should come at the <strong>beginning</strong> of each problem</li>
+</ul></li>
+<li><p>Your revisions will be submitted to the <strong>same</strong> assignment portal</p></li>
+<li><p>To be eligible for regrading, your revisions must be:</p>
+<ul>
+<li>Submitted as a PDF (with a Colab link)</li>
+<li>Printed to landscape</li>
+<li>Have all your code visible</li>
+<li>Reflections for every problem being revised</li>
+</ul></li>
+</ul>
 </div>
 </section></section>
 <section>
@@ -305,7 +355,7 @@ Loading…
 <p><strong>What are these parameters???</strong></p>
 </div>
 <div class="callout-content">
-<p>In Statistics, we use <span class="math inline">\(\beta_0\)</span> to represent the <strong>population</strong> intercept and <span class="math inline">\(\beta_1\)</span> to represent the slope. By “population” we mean the true slope of the line for every observation in the population of interest.</p>
+<p>In Statistics, we use <span class="math inline">\(\beta_0\)</span> to represent the <strong>population</strong> intercept and <span class="math inline">\(\beta_1\)</span> to represent the slope. By “population” we mean the true slope of the line for the entire population of interest.</p>
 </div>
 </div>
 </div>
@@ -359,7 +409,7 @@ Loading…
 <h2>“Candidate” Regression Lines</h2>
 <div class="midi">
 <p>Consider five possible regression equations:</p>
-<p><span class="math display">\[\text{price} = 25 + 0*\text{age}\]</span> <span class="math display">\[\text{price} = 0 + 10*\text{age}\]</span> <span class="math display">\[\text{price} = 20 + 1*\text{age}\]</span> <span class="math display">\[\text{price} = -40 + 3*\text{age}\]</span></p>
+<p><span class="math display">\[\text{price} = 25 + 0*\text{age}\]</span> <span class="math display">\[\text{price} = 0 + 1*\text{age}\]</span> <span class="math display">\[\text{price} = 20 + 1*\text{age}\]</span> <span class="math display">\[\text{price} = -40 + 3*\text{age}\]</span></p>
 <p>Which one do you think will be “closest” to the points on the scatterplot?</p>
 </div>
 </section>
@@ -1419,7 +1469,7 @@ Name: age, dtype: float64</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a aria-hidden="true" tabindex="-1"></a>mean_squared_error(y_test, pred_y_test)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>557.9683953509431</code></pre>
+<pre><code>202.1869287937509</code></pre>
 </div>
 </div>
 </section>
@@ -1469,11 +1519,10 @@ Name: age, dtype: float64</code></pre>
 </div>
 <div class="fragment">
 <div class="midi">
-<p><strong>Why use negative root mean squared error?</strong></p>
+<p>The metrics from <code>sklearn</code> will <strong>always</strong> want to be <em>maximized</em>.</p>
 <ul>
-<li class="fragment"><p>To be consistent! We will <strong>always</strong> want to <em>maximize</em> this score.</p></li>
-<li class="fragment"><p>Larger <em>R-Squared</em> values explain more of the variance in the response (y).</p></li>
-<li class="fragment"><p>Larger <em>negative</em> RMSE (smaller RMSE) means the “leftover” variance in y is minimized.</p></li>
+<li class="fragment">Larger <em>R-Squared</em> values explain more of the variance in the response (y).</li>
+<li class="fragment">Larger <em>negative</em> RMSE (smaller RMSE) means the “leftover” variance in y is minimized.</li>
 </ul>
 </div>
 </div>
@@ -2821,9 +2870,7 @@ forceTheme('sk-container-id-2');</script>
 </div>
 </div></div>
 <div class="fragment">
-<ul>
-<li><strong>How many different models were fit with this grid?</strong></li>
-</ul>
+<p><span class="large"><strong>How many different models were fit with this grid?</strong></span></p>
 </div>
 </div></section>
 <section id="getting-the-cross-validation-results" class="slide level2">
@@ -2837,18 +2884,18 @@ forceTheme('sk-container-id-2');</script>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>    mean_fit_time  std_fit_time  ...  std_test_score  rank_test_score
-0        0.001139      0.000250  ...      219.338831               12
-1        0.000985      0.000026  ...      209.511631                9
-2        0.000985      0.000018  ...      178.819362                6
-3        0.000978      0.000018  ...      217.989122               11
-4        0.001017      0.000081  ...      212.797774                7
-5        0.000957      0.000026  ...      205.240907                3
-6        0.000979      0.000019  ...      227.978005               10
-7        0.000976      0.000022  ...      175.175403                2
-8        0.000974      0.000017  ...      174.981203                5
-9        0.000982      0.000026  ...      175.186322                1
-10       0.001078      0.000092  ...      200.091917                4
-11       0.001015      0.000014  ...      232.710455                8
+0        0.001094      0.000260  ...      219.338831               12
+1        0.000930      0.000041  ...      209.511631                9
+2        0.000901      0.000032  ...      178.819362                6
+3        0.000895      0.000019  ...      217.989122               11
+4        0.000896      0.000017  ...      212.797774                7
+5        0.000886      0.000011  ...      205.240907                3
+6        0.000893      0.000016  ...      227.978005               10
+7        0.000891      0.000017  ...      175.175403                2
+8        0.000973      0.000092  ...      174.981203                5
+9        0.000924      0.000054  ...      175.186322                1
+10       0.001127      0.000295  ...      200.091917                4
+11       0.001012      0.000160  ...      232.710455                8
 
 [12 rows x 15 columns]</code></pre>
 </div>
@@ -2901,7 +2948,7 @@ forceTheme('sk-container-id-2');</script>
 <ol type="1">
 <li class="fragment"><p>Which <em>predictors</em> should we include, and how should we preprocess them? (<strong>Feature selection</strong>)</p></li>
 <li class="fragment"><p>Should we use <em>Linear Regression</em> or <em>KNN</em> or something else? (<strong>Model selection</strong>)</p></li>
-<li class="fragment"><p>Which value of <span class="math inline">\(k\)</span> should we use? (<strong>Hyperparameter tuning</strong>)</p></li>
+<li class="fragment"><p>Which value of <span class="math inline">\(k\)</span> should we use? (<strong>Parameter tuning</strong>)</p></li>
 </ol>
 </section>
 <section id="model-evaluation-1" class="slide level2">
