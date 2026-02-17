@@ -8,6 +8,8 @@ execute:
   echo: true
 ---
 
+<!-- NEED TO FIX FLIGHT DATA -->
+
 ```{r}
 #| include: false
 library(reticulate)
@@ -230,7 +232,8 @@ One data set contains information about flights in Nov. 2013...
 #| code-fold: true
 
 import pandas as pd
-df_flights = pd.read_csv("data/flights.csv")
+data_dir = "https://datasci112.stanford.edu/data/"
+df_flights = pd.read_csv(data_dir + "flights_nyc_20131116.csv")
 ```
 
 ```{python}
@@ -251,7 +254,7 @@ df_flights
 #| code-line-numbers: false
 #| label: read-in-plane-data
 
-df_planes = pd.read_csv("data/planes.csv")
+df_planes = pd.read_csv(data_dir + "planes_nyc_20131116.csv")
 ```
 
 ```{python}
