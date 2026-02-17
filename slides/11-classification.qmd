@@ -25,13 +25,26 @@ from plotnine import *
 ## Project Proposal - Due Sunday, February 23
 
 ::: {.midi}
-1.  Your group member names.
+1.  The names of the members of your group. 
 
 2.  Information about the dataset(s) you intend to analyze:
 
-    -   Where are the data located?
-    -   Who collected the data and why?
-    -   What information (variables) are in the dataset?
+::: columns
+::: {.column width="48%"}
+-   Where are the data located?
+-   When were the data collected?
+-   Who collected the data?
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+-   Why were the data collected?
+-   What information (variables) are in the dataset?
+:::
+:::
+
 
 3.  Research Questions: You should have one primary research question and a few
 secondary questions
@@ -39,12 +52,6 @@ secondary questions
 4.  Preliminary exploration of your dataset(s): A few simple plots or summary
 statistics that relate to the variables you plan to study.
 :::
-
-## Who are you working with?
-
-Please take 3-minutes and fill out this form: 
-
-<https://forms.gle/QMsNkkY1P7KQbzJq9>
 
 # The story so far...
 
@@ -142,7 +149,9 @@ from plotnine import *
          mapping = aes(x = "I0", y = "PA500", color = "Class")) +
   geom_point(size = 2) +
   theme_bw() +
-  theme(legend_position = "top")
+  theme(legend_position = "top") +
+  labs(x = "I0 (Impedivity at 0 kHz)", 
+       y = "Phase Angle at 500 kHz")
     )
 ```
 
@@ -159,7 +168,9 @@ plot = (
          mapping = aes(x = "I0", y = "PA500", color = "Class")) +
   geom_point(size = 2) +
   theme_bw() +
-  theme(legend_position = "top")
+  theme(legend_position = "top") +
+  labs(x = "I0 (Impedivity at 0 kHz)", 
+       y = "Phase Angle at 500 kHz")
     )
 
 plot.show()
@@ -199,8 +210,10 @@ from plotnine import *
   geom_point(data = X_unknown, 
              mapping = aes(x = "I0", y = "PA500"), size = 3) +
   theme_bw() +
-  theme(legend_position = "top")
-)
+  theme(legend_position = "top") +
+  labs(x = "I0 (Impedivity at 0 kHz)", 
+       y = "Phase Angle at 500 kHz")
+  )
 ```
 :::
 
@@ -218,8 +231,10 @@ plot = (
   geom_point(data = X_unknown, 
              mapping = aes(x = "I0", y = "PA500"), size = 3) +
   theme_bw() +
-  theme(legend_position = "top")
-)
+  theme(legend_position = "top") +
+  labs(x = "I0 (Impedivity at 0 kHz)", 
+       y = "Phase Angle at 500 kHz")
+    )
 
 plot.show()
 ```
@@ -290,8 +305,10 @@ X_unknown = pd.DataFrame({"I0": [400, 2200], "PA500": [.18, 0.05]})
   geom_point(data = X_unknown, 
              mapping = aes(x = "I0", y = "PA500"), size = 3) +
   theme_bw() +
-  theme(legend_position = "top")
-)
+  theme(legend_position = "top") +
+  labs(x = "I0 (Impedivity at 0 kHz)", 
+       y = "Phase Angle at 500 kHz")
+    )
 ```
 :::
 
@@ -310,8 +327,10 @@ plot = (
   geom_point(data = X_unknown, 
              mapping = aes(x = "I0", y = "PA500"), size = 3) +
   theme_bw() +
-  theme(legend_position = "top")
-)
+  theme(legend_position = "top") +
+  labs(x = "I0 (Impedivity at 0 kHz)", 
+       y = "Phase Angle at 500 kHz")
+  )
 
 plot.show()
 ```
@@ -357,7 +376,9 @@ $$\text{accuracy} = \frac{\text{# correct predictions}}{\text{# predictions}}$$
 from sklearn.model_selection import cross_val_score
 
 scores = cross_val_score(
-    pipeline, X_train, y_train,
+    pipeline, 
+    X_train, 
+    y_train,
     scoring = "accuracy",
     cv = 10)
     
@@ -394,17 +415,6 @@ y_train_predicted = pipeline.predict(X_train)
 confusion_matrix(y_train, y_train_predicted)
 ```
 
-::: {.callout-tip}
-# Remember we made the `pipeline` previously!
-
-```{python}
-#| eval: false
-#| code-line-numbers: false
-
-pipeline = pipeline.fit(X_train, y_train)
-```
-:::
-
 ## Confusion Matrix with Classes
 
 ```{python}
@@ -425,6 +435,18 @@ pd.DataFrame(confusion_matrix(y_train, y_train_predicted),
 ## Activity
 
 Use a **grid search** and the **accuracy** score to find the *best* k-value for this modeling problem.
+
+Your grid should include:
+
+- $k$ (the number of neighbors)
+- the distance metric (manhattan, euclidean)
+- whether the mean should be used when standardizing
+- whether the standard deviation should be used when standardizing
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 15)
+```
 
 <!-- TO ADD IN THE FUTURE -->
 <!-- In the GridSearchCV function, the argument refit='f1_score' specifies that after performing cross-validation with the provided scoring metrics (my_scores), the model should be retrained (refit) using the best hyperparameters based on the 'f1_score' metric. -->
@@ -471,22 +493,22 @@ We can use $k$-nearest neighbors for classification:
 
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import make_column_transformer
+from sklearn.compose import make_column_selector
 
 ct = make_column_transformer(
-        (OneHotEncoder(handle_unknown = "ignore", sparse_output = False), 
-        ["card4", "card6", "P_emaildomain"]),
-        remainder = "passthrough")
-        
+    (StandardScaler(),  
+     make_column_selector(dtype_include = np.number)
+     ),
+    (OneHotEncoder(sparse_output = False), 
+     make_column_selector(dtype_include = object)
+     ),
+    remainder = "passthrough")
+   
 pipeline = make_pipeline(
   ct,
-  StandardScaler(),
   KNeighborsClassifier(n_neighbors = 5)
   )
 ```
-
-::: {.callout-caution}
-# What is this transformer doing? What about the pipeline?
-:::
 :::
 
 ## Training a Classifier
@@ -555,7 +577,9 @@ fraudulent transactions.
 
 We need a score that measures "accuracy for class $c$"!
 
-There are at least two reasonable definitions:
+. . .
+
+There are at least two reasonable options:
 
 > ***Precision***: $P(\text{correct } | \text{ predicted class } c)$
 
@@ -630,19 +654,22 @@ conf_mat = pd.DataFrame(confusion_matrix(y_train, y_train_),
              columns = pipeline.classes_, 
              index = pipeline.classes_)
              
-conf_mat["Total"] = conf_mat.sum(axis=1)
+conf_mat["Total"] = conf_mat.sum(axis = "columns")
 conf_mat.loc["Total"] = conf_mat.sum()
 
 conf_mat
 ```
 :::
 
-::: {.small}
+</br>
+</br>
+
+::: {.midi}
 -   What is the (training) accuracy?
 
--   What's the precision for fraudulent transactions?
+-   What's the precision for fraudulent transactions (`1`)?
 
--   What's the recall for fraudulent transactions?
+-   What's the recall for fraudulent transactions (`1`)?
 :::
 
 ## Trade Off Between Precision and Recall
