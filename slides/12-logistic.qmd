@@ -569,11 +569,11 @@ pd.DataFrame(conf_mat,
 #| code-line-numbers: false
 #| label: code-for-precision-low
 
-precision_2 = (
+precision_1 = (
   conf_mat[1,1] / 
   conf_mat[:,1].sum()
   )
-precision_2
+precision_1
 ```
 
 :::
@@ -586,11 +586,11 @@ precision_2
 #| code-line-numbers: false
 #| label: code-for-recall-low
 
-recall_2 = (
+recall_1 = (
   conf_mat[1,1] / 
   conf_mat[1, :].sum()
   )
-recall_2
+recall_1
 ```
 
 :::

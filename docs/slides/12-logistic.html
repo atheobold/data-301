@@ -681,11 +681,11 @@
 <div class="columns">
 <div class="column" style="width:48%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>precision_2 <span class="op">=</span> (</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>precision_1 <span class="op">=</span> (</span>
 <span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a>  conf_mat[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">/</span> </span>
 <span id="cb34-3"><a aria-hidden="true" tabindex="-1"></a>  conf_mat[:,<span class="dv">1</span>].<span class="bu">sum</span>()</span>
 <span id="cb34-4"><a aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb34-5"><a aria-hidden="true" tabindex="-1"></a>precision_2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb34-5"><a aria-hidden="true" tabindex="-1"></a>precision_1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.7397260273972602)</code></pre>
 </div>
@@ -694,11 +694,11 @@
 
 </div><div class="column" style="width:48%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>recall_2 <span class="op">=</span> (</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>recall_1 <span class="op">=</span> (</span>
 <span id="cb36-2"><a aria-hidden="true" tabindex="-1"></a>  conf_mat[<span class="dv">1</span>,<span class="dv">1</span>] <span class="op">/</span> </span>
 <span id="cb36-3"><a aria-hidden="true" tabindex="-1"></a>  conf_mat[<span class="dv">1</span>, :].<span class="bu">sum</span>()</span>
 <span id="cb36-4"><a aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb36-5"><a aria-hidden="true" tabindex="-1"></a>recall_2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb36-5"><a aria-hidden="true" tabindex="-1"></a>recall_1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(1.0)</code></pre>
 </div>

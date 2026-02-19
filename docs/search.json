@@ -336,7 +336,7 @@
     "href": "slides/12-logistic.html#lower-threshold-1",
     "title": "Logistic Regression",
     "section": "Lower Threshold",
-    "text": "Lower Threshold\n\n\n    0   1\n0  33  19\n1   0  54\n\n\n\n\n\nprecision_2 = (\n  conf_mat[1,1] / \n  conf_mat[:,1].sum()\n  )\nprecision_2\n\nnp.float64(0.7397260273972602)\n\n\n\n\n\n\nrecall_2 = (\n  conf_mat[1,1] / \n  conf_mat[1, :].sum()\n  )\nrecall_2\n\nnp.float64(1.0)",
+    "text": "Lower Threshold\n\n\n    0   1\n0  33  19\n1   0  54\n\n\n\n\n\nprecision_1 = (\n  conf_mat[1,1] / \n  conf_mat[:,1].sum()\n  )\nprecision_1\n\nnp.float64(0.7397260273972602)\n\n\n\n\n\n\nrecall_1 = (\n  conf_mat[1,1] / \n  conf_mat[1, :].sum()\n  )\nrecall_1\n\nnp.float64(1.0)",
     "crumbs": [
       "Lecture Slides",
       "Week 7, Part 2 - Logistic Regression"
