@@ -34,6 +34,7 @@ from plotnine import *
 - Last week of models!
   + Statistical Learning Model: K-Means  
   + Data Model: Joins
+- Last lab assignment!
 :::
 ::::
 
