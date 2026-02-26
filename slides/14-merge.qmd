@@ -8,19 +8,81 @@ execute:
   echo: true
 ---
 
-<!-- NEED TO FIX FLIGHT DATA -->
-
 ```{r}
 #| include: false
+#| eval: true
+
 library(reticulate)
 ```
 
 ```{python}
 #| include: false
+#| eval: true
+
 import numpy as np
 import pandas as pd
 from plotnine import *
 ```
+
+# Plan for Today
+
+::: {.midi}
+1. What's ahead with Final Projects
+
+2. Debrief on Lab 7
+:::
+
+::: {.small}
+- Why clean a variable
+- Categorical variables vs. one-hot encoded variables
+- Model errors
+- Coefficient interpretation
+:::
+
+[3. Discuss different types of joins]{.midi}
+
+::: {.small}
+- Keys
+- The `merge()` function
+- Joining on multiple keys
+- Joining on keys with different names
+- Different types of joins
+:::
+
+# Final Project
+
+## Visualizations
+
+::: {.midi}
+Your final poster will contain **two** (not three, not four) visualizations. 
+
+1. A visualization which addresses your primary research question. 
+2. A visualization which addresses your secondary research question.
+:::
+
+. . .
+
+::: {.midi}
+- At least one plot must include 3+ variables.
+- Both plots must use non-default colors.
+- Both plots should follow the visualization "best practices" outlined in the
+[project resources](https://docs.google.com/presentation/d/1ZIBJzHWQFJtsQzkak0W-Z5RxT-0wSrvGPckXxhs8M-c/edit?slide=id.p#slide=id.p).
+:::
+
+## Data Models
+
+::: {.midi}
+Fit a model(s) to the data to address your primary and secondary research
+questions. You are expected to explicitly state the modeling choices you made
+and the results of the model(s) you fit.
+
+The following are *minimum* criteria for the model(s) you fit to your data:
+
+- Include a model covered after the midterm exam (KNN, logistic regression, 
+linear regression, decision tree, k-means).
+- Use cross-validation to estimate the testing error of the model.
+- Choose a "meaningful" model metric to summarize the fit of a model.
+:::
 
 # Lab 7 Debrief
 
@@ -159,7 +221,7 @@ containing explicit lyrics***.
 . . .
 
 ::: {.small}
-`TimeSignature_1`: `1.532310`
+`TimeSignature_1`: `1.536751`
 
 > A 1/4 time signature is associated with an increase of 1.53 in the log-odds of
 > a song containing explicit lyrics. 
@@ -171,46 +233,15 @@ containing explicit lyrics***.
 . . .
 
 ::: {.small}
-`Speechiness`: `5.185788`
+`Speechiness`: `0.963213`
 
-> An increase of speechiness by 1 unit (making the song almost entirely made up
-> of spoken words) is associated with an increase of 5.18 in the log-odds of a 
-> song containing explicit lyrics. 
+> An increase of speechiness by 1 standard devation above the mean 
+> (making the song almost entirely made up of spoken words) is associated with
+> an increase of 0.96 in the log-odds of a song containing explicit lyrics. 
 
 :::
 
 <!-- Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most likely represent music and other non-speech-like tracks. -->
-
-. . .
-
-::: {.small}
-::: {.callout-warning}
-# Did you standardize?
-
-If so, your interpretation ***is not a 1 unit increase***! Your interpretation 
-is a ***1 standard deviation increase above the mean***. 
-:::
-:::
-
-# The story so far...
-
-## Data analysis: The Whole Game
-
-::: {.midi}
--   **Acquire** data and **clean** it by fixing variable types, dropping or
-replacing missing data, and looking for other issues.
-
--   **Explore** the dataset by making summaries and plots of *one variable*.
-
--   Establish **research questions** to answer with this data.
-
--   Create **visualizations** of *two or more variables* that address simple questions.
-
--   Fit **predictive models** to address more complex questions, and/or to 
-prepare for prediction on future data.
-
--   Fit **unsupervised models** to answer open-ended questions.
-:::
 
 # Joining Datasets
 
@@ -219,26 +250,26 @@ prepare for prediction on future data.
 Sometimes, information is spread across multiple data sets.
 
 For example, suppose we want to know which manufacturer's planes made the most
-flights in November 2013.
+flights in 2013.
 
 ## Example: Information on Flights
 
-One data set contains information about flights in Nov. 2013...
+One data set contains information about flights from January to September 
+2013...
 
 ::: {.midi}
 ```{python}
 #| code-line-numbers: false
 #| label: read-in-flights-data
-#| code-fold: true
+#| eval: true
 
-import pandas as pd
-data_dir = "https://datasci112.stanford.edu/data/"
-df_flights = pd.read_csv(data_dir + "flights_nyc_20131116.csv")
+df_flights = pd.read_csv("data/flights.csv")
 ```
 
 ```{python}
 #| echo: false
 #| label: flights-head
+#| eval: true
 
 df_flights
 ```
@@ -250,16 +281,17 @@ df_flights
 
 ::: {.midi}
 ```{python}
-#| code-fold: true
 #| code-line-numbers: false
 #| label: read-in-plane-data
+#| eval: true
 
-df_planes = pd.read_csv(data_dir + "planes_nyc_20131116.csv")
+df_planes = pd.read_csv("data/planes.csv")
 ```
 
 ```{python}
 #| echo: false
 #| label: planes-head
+#| eval: true
 
 df_planes
 ```
@@ -286,6 +318,36 @@ primary key of another data frame.
 -   Planes are uniquely identified by their *tail number* (`tailnum`).
 :::
 
+## Key for Planes
+
+What column (or set of columns) uniquely identifies an observation in this 
+dataset?
+
+::: {.midi}
+```{python}
+#| echo: false
+#| label: planes-again
+#| eval: true
+
+df_planes
+```
+:::
+
+## Key for Flights
+
+What column (or set of columns) uniquely identifies an observation in this 
+dataset?
+
+::: {.midi}
+```{python}
+#| echo: false
+#| label: flights-again
+#| eval: true
+
+df_flights
+```
+:::
+
 ## Joining on a Key
 
 Each value of the **primary key** should only appear once, but it could appear
@@ -296,6 +358,7 @@ many times in a **foreign key**.
 ```{python}
 #| code-line-numbers: false
 #| label: flights-tail-num
+#| eval: true
 
 (
   df_planes['tailnum']
@@ -312,6 +375,7 @@ many times in a **foreign key**.
 ```{python}
 #| code-line-numbers: false
 #| label: planes-tail-num
+#| eval: true
 
 (
   df_flights['tailnum']
@@ -330,6 +394,7 @@ The Pandas function `.merge()` can be used to join two `DataFrame`s on a key.
 ```{python}
 #| code-line-numbers: false
 #| label: merge-planes-flights
+#| eval: true
 
 df_joined = df_flights.merge(df_planes, on = "tailnum")
 ```
@@ -337,6 +402,7 @@ df_joined = df_flights.merge(df_planes, on = "tailnum")
 ```{python}
 #| echo: false
 #| label: merged-flights-head
+#| eval: true
 
 df_joined   
 ```
@@ -349,7 +415,7 @@ df_joined
 -   Joining two data frames results in a *wider* data frame, with more columns.
 
 -   By default, Pandas adds the suffixes `_x` and `_y` to overlapping column
-names. , but this can be customized.
+names, but this can be customized.
 :::
 :::
 
@@ -359,6 +425,7 @@ names. , but this can be customized.
 ```{python}
 #| code-line-numbers: false
 #| label: joined-data-column-names
+#| eval: true
 
 df_joined.columns
 ```
@@ -372,6 +439,7 @@ But this can be customized!
 ```{python}
 #| code-line-numbers: "2"
 #| label: customize-duplicate-columns
+#| eval: true
 
 df_joined = df_flights.merge(df_planes, on = "tailnum",
                              suffixes = ("_flight", "_plane")
@@ -385,6 +453,7 @@ df_joined = df_flights.merge(df_planes, on = "tailnum",
 ```{python}
 #| echo: false
 #| label: joined-data-column-names-customized
+#| eval: true
 
 df_joined.columns
 ```
@@ -397,6 +466,7 @@ df_joined.columns
 ```{python}
 #| code-line-numbers: false
 #| label: manufacturer-counts-nov
+#| eval: true
 
 df_joined["manufacturer"].value_counts()
 ```
@@ -461,41 +531,31 @@ df_weather
 
 ## A Key with Multiple Columns
 
-Let's start by looking at flights out of JFK only, for simplicity.
-
-::: {.midi}
-```{python}
-#| code-line-numbers: false
-#| label: jfk-subset
-
-df_flights_jfk = df_flights[df_flights["origin"] == "JFK"]
-df_weather_jfk = df_weather[df_weather["origin"] == "JFK"]
-```
-:::
-
-## A Key with Multiple Columns
-
-We need to join to the weather data on year, month, day, and hour.
+We need to join to the weather data on the origin, year, month, day, and hour.
 
 ::: {.midi}
 ```{python}
 #| code-line-numbers: false
 #| label: join-flights-weather
 
-df_jfk = df_flights_jfk.merge(df_weather_jfk, 
-                              on = ("year", "month", "day", "hour")
+df_flights_weather = df_flights.merge(df_weather, 
+                                      on = ("origin", 
+                                            "year", 
+                                            "month", 
+                                            "day", 
+                                            "hour")
                               )
 ```
 
 ```{python}
 #| echo: false
-#| label: joined-jfk-weather-head
+#| label: joined-weather-head
 
-df_jfk
+df_flights_weather
 ```
 :::
 
-## How does rain affects departure delays?
+## How does rain affect departure delays?
 
 ```{python}
 #| code-fold: true
@@ -506,8 +566,8 @@ df_jfk
 from plotnine import *
 
 (
-  ggplot(data = df_jfk, 
-         mapping = aes(x = "precip", y = "dep_delay")) +
+  ggplot(data = df_flights_weather, 
+         mapping = aes(x = "precip", y = "dep_delay", color = "origin")) +
   geom_point(alpha = 0.2) +
   labs(x = "Precipitation (feet)", 
        y = "Departure Delay (minutes)") +
@@ -523,8 +583,8 @@ from plotnine import *
 from plotnine import *
 
 plot = (
-  ggplot(data = df_jfk, 
-         mapping = aes(x = "precip", y = "dep_delay")) +
+  ggplot(data = df_flights_weather, 
+         mapping = aes(x = "precip", y = "dep_delay", color = "origin")) +
   geom_point(alpha = 0.2) +
   labs(x = "Precipitation (feet)", 
        y = "Departure Delay (minutes)") +
@@ -536,7 +596,7 @@ plot.show()
 
 Hmmmm....where did all the data go?
 
-## How does rain affects departure delays?
+## How does rain affect departure delays?
 
 ```{python}
 #| code-fold: true
@@ -545,8 +605,8 @@ Hmmmm....where did all the data go?
 #| code-line-numbers: false
 
 (
-  ggplot(data = df_jfk, 
-         mapping = aes(x = "precip", y = "dep_delay")) +
+  ggplot(data = df_flights_weather, 
+         mapping = aes(x = "precip", y = "dep_delay", color = "origin")) +
   geom_jitter(alpha = 0.2, width = 0.1) +
   labs(x = "Precipitation (feet)", 
        y = "Departure Delay (minutes)", 
@@ -561,8 +621,8 @@ Hmmmm....where did all the data go?
 #| fig-align: center
 
 plot = (
-  ggplot(data = df_jfk, 
-         mapping = aes(x = "precip", y = "dep_delay")) +
+  ggplot(data = df_flights_weather, 
+         mapping = aes(x = "precip", y = "dep_delay", color = "origin")) +
   geom_jitter(alpha = 0.2, width = 0.1) +
   labs(x = "Precipitation (feet)", 
        y = "Departure Delay (minutes)", 
@@ -573,6 +633,10 @@ plot = (
 plot.show()
 ```
 
+. . .
+
+What changes would make this plot even better?
+
 ## Joining on Keys with Different Names
 
 ::: {.incremental}
@@ -581,10 +645,8 @@ plot.show()
 
 -   This frequently happens if the data sets come from different sources.
 
--   For example, if we want to join the (entire) flights data to the weather
-data, we would need to include the *airport* in the key.
-
--   But the airport is called `origin` in `df_flights` and `origin` in `df_weather`.
+-   For example, suppose the airport was named `origin` in `df_flights` but
+was named `airport` in `df_weather`. 
 
 -   The `.merge()` function provides `left_on =` and `right_on =` arguments for
 specifying different column names in the **left** (first) and **right** 
@@ -597,72 +659,13 @@ specifying different column names in the **left** (first) and **right**
 ```{python}
 #| code-line-numbers: "3-4"
 #| label: joining-multiple-keys
+#| eval: false
 
 df_flights_weather = df_flights.merge(
     df_weather,
     left_on = ("origin", "year", "month", "day", "hour"),
-    right_on = ("origin", "year", "month", "day", "hour")
+    right_on = ("airport", "year", "month", "day", "hour")
     )
-```
-
-## Rain and delays by airport
-
-Now we can visualize how rain impacts delays at each airport! 
-
-</br>
-
-But first, let's find the mean amount of rain for each departure delay to clean
-up our plot. 
-
-```{python}
-#| code-line-numbers: false
-#| label: mean-rain
-
-df_rain = (
-  df_flights_weather
-  .groupby(["origin", "precip"])["dep_delay"]
-  .mean()
-  .reset_index()
-  )
-```
-
-## Rain and delays by airport
-
-```{python}
-#| code-fold: true
-#| label: precip-delay-mean-code
-#| eval: false
-#| code-line-numbers: false
-
-(
-  ggplot(data = df_rain, 
-         mapping = aes(x = "precip", y = "dep_delay", color = "origin")) +
-  geom_point() +
-  geom_line() +
-  labs(x = "Precipitation (feet)", 
-       y = "Departure Delay (minutes)") +
-  theme_bw() +
-  theme(legend_position = "top")
-)
-```
-
-```{python}
-#| label: precip-delay-mean
-#| echo: false
-#| fig-align: center
-
-plot = (
-  ggplot(data = df_rain, 
-         mapping = aes(x = "precip", y = "dep_delay", color = "origin")) +
-  geom_point() +
-  geom_line() + 
-  labs(x = "Precipitation (feet)", 
-       y = "Departure Delay (minutes)") +
-  theme_bw() +
-  theme(legend_position = "top")
-)
-
-plot.show()
 ```
 
 # Joins with Missing Keys
@@ -725,7 +728,7 @@ df_2020
 
 ## Joins
 
-We can merge these two data sets on a primary key...
+We can merge these two data sets on a their primary keys...
 
 ```{python}
 #| code-line-numbers: false
@@ -747,9 +750,7 @@ df_joined = (
 df_joined
 ```
 
-## Missing Keys?
-
-... but what happened to some of the names?
+## What happened to some of the names?
 
 ```{python}
 #| code-line-numbers: false
@@ -758,7 +759,7 @@ df_joined
 df_joined[df_joined["Name"] == "Maya"]
 ```
 
-## Missing Keys?
+</br>
 
 ::: {.midi}
 Why isn't Maya in the joined data? It's in the 2020 data...
@@ -770,10 +771,11 @@ Why isn't Maya in the joined data? It's in the 2020 data...
 df_2020[df_2020["Name"] == "Maya"]
 ```
 :::
-. . .
+
+## Missing Keys
 
 ::: {.midi}
-...but it's not in the 1920 data.
+...but Maya is not in the 1920 data.
 
 ```{python}
 #| code-line-numbers: false
@@ -783,44 +785,36 @@ df_1920[df_1920["Name"] == "Maya"]
 ```
 :::
 
-## Missing keys
+. . .
 
 </br>
 
-How does the `merge()` function determine which keys get kept?
+What type of join did the `merge()` function make by default?
 
 . . .
 
-By default, in order to appear in the joined data, a key must be present in
-*both* tables.
+**An inner join!**
 
-. . .
-
-This is actually what is called an **inner join**, but there are other types
-of joins! 
 
 # Other Types of Joins
 
 ## Types of Joins
 
-::: {.midi}
-::: {.incremental}
--   By default, Pandas does an ***inner join***, which only keeps keys that are
-present in *both* tables.
-
--   An ***outer join*** keeps any key that is present in either table.
-
--   A ***left join*** keeps all keys in the left table, even if they are not in
-the right table. But any keys that are only in the right table are dropped.
-
--   A ***right join*** keeps all keys in the right table, even if they are not
-in the left table. But any keys that are only in the left table are dropped.
-:::
-:::
-
-## Types of Joins
-
 ![](images/14-joins.png){fig-alt="A Venn diagram illustrating four types of joins using two overlapping circles in each diagram. The highlighted (green) areas represent the included data for each join type. Inner Join: Only the overlapping region of both circles is highlighted, representing the common data between the two tables. Left Join: The entire left circle, including its overlap with the right circle, is highlighted, representing all data from the left table and any matching data from the right table. Right Join: The entire right circle, including its overlap with the left circle, is highlighted, representing all data from the right table and any matching data from the left table. Outer Join: Both entire circles are highlighted, representing all data from both tables, including matches and non-matches."}
+<!-- ::: {.midi} -->
+<!-- ::: {.incremental} -->
+<!-- -   By default, Pandas does an ***inner join***, which only keeps keys that are -->
+<!-- present in *both* tables. -->
+
+<!-- -   An ***outer join*** keeps any key that is present in either table. -->
+
+<!-- -   A ***left join*** keeps all keys in the left table, even if they are not in -->
+<!-- the right table. But any keys that are only in the right table are dropped. -->
+
+<!-- -   A ***right join*** keeps all keys in the right table, even if they are not -->
+<!-- in the left table. But any keys that are only in the left table are dropped. -->
+<!-- ::: -->
+<!-- ::: -->
 
 ## Types of Joins
 
@@ -896,7 +890,8 @@ df_joined_right[df_joined_right["Name"] == "Maya"]
 
 Which type of join would be best suited for each case?
 
-1.  We want to determine the names that have increased in popularity the most between 1920 and 2020.
+1.  We want to determine the names that have increased in popularity the most
+between 1920 and 2020.
 
 <!-- Left join -- we want to keep all the names in 1920 but only add names that still exist in 2020. -->
 
@@ -904,80 +899,31 @@ Which type of join would be best suited for each case?
 
 <!-- Inner join -- we can only plot names in both data sets! -->
 
-3.  We want to determine the names that have decreased in popularity the most between 1920 and 2020.
+3.  We want to know what names from 1920 are no longer in use in 2020.
 
-<!-- Left join -- we want to keep all the names in 1920 but don't care about
-names in 2020 that weren't in 1920. -->
-
-<!-- # Many-to-Many Joins -->
-
-<!-- ## Many-to-Many Relationships {.smaller} -->
-
-<!-- -   So far, the keys we've joined on have been the primary key of (at least) one table. -->
-
-<!-- -   If we join to the primary key of another table, then the relationship is **one-to-one** (since primary keys uniquely identify rows). -->
-
-<!-- -   If we join to the foreign key of another table, then the relationship is **one-to-many**. -->
-
-<!-- -   What if we join on a key that is not a primary key? -->
-
-<!-- -   That is, what if the key does not uniquely identify rows in either table so that each value of the key might appear multiple times? -->
-
-<!-- -   This relaionship is called **many-to-many**. -->
-
-<!-- ## Many-to-Many Example -->
-
-<!-- What if we only joined on the name? -->
-
-<!-- ```{python} -->
-<!-- df_1920.merge(df_2020, on="Name") -->
-<!-- ``` -->
-
-<!-- ## Preventing Bugs -->
-
-<!-- -   Most of the time, many-to-many joins are a bug, caused by a misunderstanding about the primary key. -->
-
-<!-- -   Pandas allows us to specify the relationship we are expecting. It will fail with an error if the relationship is a different kind. -->
-
-<!-- -   For example, suppose we thought that "name" was the primary key of the baby name tables. -->
-
-<!-- ```{python} -->
-<!-- #| eval: false -->
-<!-- df_1920.merge(df_2020, on="Name", -->
-<!--               validate="one_to_one") -->
-<!-- ``` -->
-
-<!-- ```          -->
-<!-- MergeError: Merge keys are not unique in either left or right dataset; not a one-to-one merge -->
-<!-- ``` -->
-
-<!-- Errors are (sometimes) your friend. They can prevent you from making even bigger mistakes! -->
+<!-- Filtering join -- an anti join! -->
 
 # Filtering Joins
 
 ## Filtering Joins
+Inner, outer, left, and right are known as **mutating joins**, because they
+create new combined data sets.
 
-::: {.midi}
+</br>
 
-Inner, outer, left, and right are known as **mutating joins**, because they create new combined data sets.
-
-::: {.incremental}
--   There are two other types of joins that we use for **filtering** to get rid
-of some rows:
-
--   A **semi-join** tells us which keys in the *left* **are** present in the
-*right*.
-
--   An **anti-join** tells us which keys in the left **are not** present in the
-right.
-:::
-:::
+There are two other types of joins that we use for **filtering**---to remove 
+certain rows from the data. 
 
 ## Filtering Joins
 
 ::: columns
 ::: {.column width="47%"}
 ![](images/14-semi-join.png){fig-alt="A diagram illustrating the concept of a semi-join. On the left, two tables are shown: The first table (x) has two columns, with labeled values (x1, x2, x3) in the first column and numerical values (1, 2, 3) in the second column. The second table (y) has two columns, where the second column contains numerical values (4, 2, 1), and the first column has values (y3, y2, y1). Lines connect matching values between the two tables: 1 from x is found in y, as is 2, but 3 is not present in y. The result of the semi-join is shown in a table on the right, containing only the rows from x where a match was found in y. The output table has two columns: key and val_x, and it retains only the rows with keys 1 and 2 from x (x1 and x2), omitting x3 since 3 is not present in y."}
+
+</br>
+
+A **semi-join** tells us which keys in the *left dataset* 
+[**are also**]{.underline} present in the *right dataset*.
 :::
 
 ::: {.column width="3%"}
@@ -986,6 +932,12 @@ right.
 ::: {.column width="48%"}
 ::: {.fragment}
 ![](images/14-anti-join.png){fig-alt="A diagram illustrating the concept of an anti-join (anti_join(x, y)). On the left, two tables are shown: The first table (x) has two columns, with labeled values (x1, x2, x3) in the first column and numerical values (1, 2, 3) in the second column. The second table (y) has two columns, where the second column contains numerical values (4, 2, 1), and the first column has values (y3, y2, y1). Lines connect matching values between the two tables: 1 from x is found in y, as is 2, but 3 is not present in y. Red lines indicate rows that have matches, which are excluded in the anti-join. The result of the anti-join is shown in a table on the right, containing only the row from x where no match was found in y. The output table has two columns: key and val_x, and it retains only the row with key 3 from x (x3), omitting x1 and x2 since they had matches in y."}
+
+</br>
+
+An **anti-join** tells us which keys in the *left dataset* 
+[**are not**]{.underline} present in the *right dataset*.
+
 :::
 :::
 :::
@@ -996,8 +948,8 @@ right.
 
 . . .
 
-In Pandas, we can't do these using `.merge()`, but we can use the `isin()` 
-function! 
+In Pandas, we can't do these using `.merge()`, but we can use the `isin()`
+function!
 
 ```{python}
 #| code-line-numbers: false
@@ -1024,3 +976,5 @@ df_1920.loc[~in_both, 'Name']
 
 -   Use `.isin()` to see which keys in one dataset exist in the other.
 :::
+
+
