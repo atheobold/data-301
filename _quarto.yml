@@ -5,7 +5,6 @@ project:
     - "*.qmd"
     - "!/slides/data-ethics"
     - "!/slides/15-hierarchical.qmd"
-    - "!/slides/14-merge.qmd"
 
 website:
   page-navigation: true
