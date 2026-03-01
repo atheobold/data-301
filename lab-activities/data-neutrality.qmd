@@ -3,36 +3,32 @@ title: "The Numbers Don’t Speak for Themselves"
 editor: source
 ---
 
-## Reading 
-
 ::: {.column-margin}
 [![](images/data-feminism.jpeg)](https://data-feminism.mitpress.mit.edu/pub/czq9dfs5/release/3)
 :::
 
-For the first part of this week, we are going to 
-interrogate the idea of data "neutrality." Specifically, we are going to learn about the
-the multiple layers of context that are important to consider when working with any set of data. 
+This week we are going to learn about the the multiple layers of context that 
+are important to consider when working with any set of data. 
 
-[The Numbers Don’t Speak for Themselves](https://data-feminism.mitpress.mit.edu/pub/czq9dfs5/release/3)
+### Required Reading: [The Numbers Don’t Speak for Themselves](https://data-feminism.mitpress.mit.edu/pub/czq9dfs5/release/3)
 
-> Data are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis.
+> Data are not neutral or objective. They are the products of unequal social
+> relations, and this context is essential for conducting accurate, ethical
+> analysis.
 
 ## Discussion Questions 
 
 We will use these questions to frame our discussion of this chapter: 
 
-1. What problems does big data solve versus create?
+1. Which actors in the data ecosystem are responsible for providing context? End users? Data publishers? Data intermediaries?
 
-2. What are your thoughts on how we label graphs with context?
+2. What steps can we take to ensure context is considered? 
 
-3. Which actors in the data ecosystem are responsible for providing context? End users? Data publishers? Data intermediaries?
+3. How can we more effectively present context through data visualization? 
 
-4. What steps can we take to ensure context is considered? How can we more effectively present context through data visualization?
+4. What are your thoughts on how we label graphs with context?
 
 5. Which power imbalances have led to silences in the dataset or data that is missing altogether?
-
-<!-- Library of missing data: -->
-<!-- https://mimionuoha.com/the-library-of-missing-datasets -->
 
 ::: {.column-margin}
 Here is a discussion of this chapter with Catherine D'Ignazio and Lauren Klein:
@@ -51,15 +47,17 @@ provide a description that directly addresses the:
 - institutional, and 
 - material conditions under which the data were produced. 
 
-Prior to attending Tuesday's class, I would like you to practice 
-outlining these conditions in the context of the housing data from 
-Ames, Iowa. 
+### Discussion Questions
+
+Prior to Tuesday's class, I would like you to practice outlining these
+conditions in the context of the housing data from Ames, Iowa. 
 
 - What are the social conditions of these data?
   * What are the social influences of owning a house? 
 
 - What are the cultural conditions of these data?
   * What is the culture surrounding home ownership in the United States?
+  * Does owning a house look the same for everyone?
   
 - What are the historical conditions of these data?
   * What is the history associated with home ownership in the US?

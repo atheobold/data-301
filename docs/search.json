@@ -60,7 +60,7 @@
     "href": "slides/15-data-ethics.html#data-neutrality",
     "title": "The Importance of Data Context",
     "section": "Data Neutrality",
-    "text": "Data Neutrality\n\nData are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis."
+    "text": "Data Neutrality\n\nData are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis.\n\n\n{“A screenshot of the ‘Data and Documentation’ page for the Youth Risk Behavior and Surveillance System (YRBSS) arm of the CDC. The top of the website has a yellow banner which says, ‘Per a court order, HHS is required to restore this website as of 11:59PM ET, February 11, 2025. Any information on this page promoting gender ideology is extremely inaccurate and disconnected from the immutable biological reality that there are two sexes, male and female. The Trump Administration rejects gender ideology and condemns the harms it causes to children, by promoting their chemical and surgical mutilation, and to women, by depriving them of their dignity, safety, well-being, and opportunities. This page does not reflect biological reality and therefore the Administration and this Department rejects it.’ This banner appeared shortly after President Trump was elected as a diclaimer for the data related to gender that the YRBSS survey studies.”}"
   },
   {
     "objectID": "slides/15-data-ethics.html#feminism-as-action",
@@ -81,21 +81,21 @@
     "href": "slides/15-data-ethics.html#data-is-the-new-oil.",
     "title": "The Importance of Data Context",
     "section": "“Data is the new oil.”",
-    "text": "“Data is the new oil.”\n\nThe Economist, Intel CEO, Reliance Industrices CEO, UAE Minister of Artifical Intelligence, Google execs, etc.\n\n\n“Data is the same old oppression.”\n\nBIPOC, white women, Indigenous people, immigrant communities, LGBTQ+ individuals, + more"
+    "text": "“Data is the new oil.”\n\nThe Economist, Intel CEO, Reliance Industrices CEO, UAE Minister of Artifical Intelligence, Google execs, etc.\n\n\n“Data is the same old oppression.”\n\nBIPOC, Indigenous people, immigrant communities, LGBTQ+ individuals, white women + more"
   },
   {
     "objectID": "slides/15-data-ethics.html#elevating-emotion",
     "href": "slides/15-data-ethics.html#elevating-emotion",
     "title": "The Importance of Data Context",
     "section": "Elevating Emotion",
-    "text": "Elevating Emotion\n\n“We focus on four conventions which imbue visualizations with a sense of objectivity, transparency and facticity. These include: (a) two-dimensional viewpoints, (b) clean layouts, (c) geometric shapes and lines, (d) the inclusion of data sources.”\nKennedy et al. (2016)\n\nhttps://guns.periscopic.com/\nhttp://www.antievictionmappingproject.net/narratives.html"
+    "text": "Elevating Emotion\n\n\n“We focus on four conventions which imbue visualizations with a sense of objectivity, transparency and facticity. These include: (a) two-dimensional viewpoints, (b) clean layouts, (c) geometric shapes and lines, (d) the inclusion of data sources.”\nKennedy et al. (2016)"
   },
   {
     "objectID": "slides/15-data-ethics.html#library-of-missing-data",
     "href": "slides/15-data-ethics.html#library-of-missing-data",
     "title": "The Importance of Data Context",
     "section": "Library of Missing Data",
-    "text": "Library of Missing Data\n\n\n\n\n\n\n\n\n\nThe Library of Missing Datasets\nMimi Onuoha"
+    "text": "Library of Missing Data\n\n\n\n\n\n\n\n\n\n\n“When you look into them, you start to realize that they almost universally intersect with the interests of the most vulnerable.”\nMimi Onuoha"
   },
   {
     "objectID": "slides/15-data-ethics.html#data-context",
@@ -109,7 +109,7 @@
     "href": "slides/15-data-ethics.html#example-ames-iowa-housing-data",
     "title": "The Importance of Data Context",
     "section": "Example: Ames, Iowa Housing Data",
-    "text": "Example: Ames, Iowa Housing Data\n\nWhat are the social conditions of these data?\nWhat are the cultural conditions of these data?\nWhat are the historical conditions of these data?\nWhat are the institutional conditions of these data?\nWhat are the material conditions of these data?"
+    "text": "Example: Ames, Iowa Housing Data\n\n\nWhat are the social conditions of these data?\n\nWhat are the social influences of owning a house?\n\n\n\n\n\n\nWhat are the cultural conditions of these data?\n\nWhat is the culture surrounding home ownership in the United States?\nDoes owning a house look the same for everyone?\n\n\n\n\n\n\n\nWhat are the historical conditions of these data?\n\nWhat is the history associated with home ownership in the US?\nWhat is the history associated with home ownership in Ames, Iowa?\n\n\n\n\n\n\n\nWhat are the institutional conditions of these data?\n\nWhat are the institutional forces that factor into home ownership?\n\n\n\n\n\n\n\nWhat are the material conditions of these data?\n\nHow were the data collected?\nWhat houses / neighborhoods / individuals are represented in these data? Excluded from these data?"
   },
   {
     "objectID": "slides/13-kmeans.html#weeks-8-9-10",
@@ -2682,28 +2682,28 @@
     "href": "lab-activities/data-neutrality.html",
     "title": "The Numbers Don’t Speak for Themselves",
     "section": "",
-    "text": "For the first part of this week, we are going to interrogate the idea of data “neutrality.” Specifically, we are going to learn about the the multiple layers of context that are important to consider when working with any set of data.\nThe Numbers Don’t Speak for Themselves\n\nData are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis."
+    "text": "This week we are going to learn about the the multiple layers of context that are important to consider when working with any set of data."
   },
   {
     "objectID": "lab-activities/data-neutrality.html#reading",
     "href": "lab-activities/data-neutrality.html#reading",
     "title": "The Numbers Don’t Speak for Themselves",
     "section": "",
-    "text": "For the first part of this week, we are going to interrogate the idea of data “neutrality.” Specifically, we are going to learn about the the multiple layers of context that are important to consider when working with any set of data.\nThe Numbers Don’t Speak for Themselves\n\nData are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis."
+    "text": "This week we are going to learn about the the multiple layers of context that are important to consider when working with any set of data.\n\n\n\nData are not neutral or objective. They are the products of unequal social relations, and this context is essential for conducting accurate, ethical analysis."
   },
   {
     "objectID": "lab-activities/data-neutrality.html#discussion-questions",
     "href": "lab-activities/data-neutrality.html#discussion-questions",
     "title": "The Numbers Don’t Speak for Themselves",
     "section": "Discussion Questions",
-    "text": "Discussion Questions\nWe will use these questions to frame our discussion of this chapter:\n\nWhat problems does big data solve versus create?\nWhat are your thoughts on how we label graphs with context?\nWhich actors in the data ecosystem are responsible for providing context? End users? Data publishers? Data intermediaries?\nWhat steps can we take to ensure context is considered? How can we more effectively present context through data visualization?\nWhich power imbalances have led to silences in the dataset or data that is missing altogether?\n\n\n\n\n\nHere is a discussion of this chapter with Catherine D’Ignazio and Lauren Klein:"
+    "text": "Discussion Questions\nWe will use these questions to frame our discussion of this chapter:\n\nWhich actors in the data ecosystem are responsible for providing context? End users? Data publishers? Data intermediaries?\nWhat steps can we take to ensure context is considered?\nHow can we more effectively present context through data visualization?\nWhat are your thoughts on how we label graphs with context?\nWhich power imbalances have led to silences in the dataset or data that is missing altogether?\n\n\n\nHere is a discussion of this chapter with Catherine D’Ignazio and Lauren Klein:"
   },
   {
     "objectID": "lab-activities/data-neutrality.html#project-application",
     "href": "lab-activities/data-neutrality.html#project-application",
     "title": "The Numbers Don’t Speak for Themselves",
     "section": "Project Application",
-    "text": "Project Application\nIn the “Data Context” section of your Final Poster, you are required to provide a description that directly addresses the:\n\nsocial,\ncultural,\nhistorical,\ninstitutional, and\nmaterial conditions under which the data were produced.\n\nPrior to attending Tuesday’s class, I would like you to practice outlining these conditions in the context of the housing data from Ames, Iowa.\n\nWhat are the social conditions of these data?\n\nWhat are the social influences of owning a house?\n\nWhat are the cultural conditions of these data?\n\nWhat is the culture surrounding home ownership in the United States?\n\nWhat are the historical conditions of these data?\n\nWhat is the history associated with home ownership in the US?\nWhat is the history associated with home ownership in Ames, Iowa?\n\nWhat are the institutional conditions of these data?\n\nWhat are the institutional forces that factor into home ownership?\n\nWhat are the material conditions of these data?\n\nHow were the data collected?\nWhat houses / neighborhoods / individuals are represented in these data?\n\nWhat houses / neighborhoods / individuals are excluded from these data?"
+    "text": "Project Application\nIn the “Data Context” section of your Final Poster, you are required to provide a description that directly addresses the:\n\nsocial,\ncultural,\nhistorical,\ninstitutional, and\nmaterial conditions under which the data were produced.\n\n\nDiscussion Questions\nPrior to Tuesday’s class, I would like you to practice outlining these conditions in the context of the housing data from Ames, Iowa.\n\nWhat are the social conditions of these data?\n\nWhat are the social influences of owning a house?\n\nWhat are the cultural conditions of these data?\n\nWhat is the culture surrounding home ownership in the United States?\nDoes owning a house look the same for everyone?\n\nWhat are the historical conditions of these data?\n\nWhat is the history associated with home ownership in the US?\nWhat is the history associated with home ownership in Ames, Iowa?\n\nWhat are the institutional conditions of these data?\n\nWhat are the institutional forces that factor into home ownership?\n\nWhat are the material conditions of these data?\n\nHow were the data collected?\nWhat houses / neighborhoods / individuals are represented in these data?\n\nWhat houses / neighborhoods / individuals are excluded from these data?"
   },
   {
     "objectID": "project/project-description.html",
@@ -5769,5 +5769,19 @@
     "title": "What is a model?",
     "section": "A Folder Full of Resources",
     "text": "A Folder Full of Resources\nThis Google Drive folder contains:\n\nposter templates\nicons for Cal Poly (if you want to use)\na presentation on common poster formatting mistakes"
+  },
+  {
+    "objectID": "slides/15-data-ethics.html#data-feminism",
+    "href": "slides/15-data-ethics.html#data-feminism",
+    "title": "The Importance of Data Context",
+    "section": "Data Feminism",
+    "text": "Data Feminism\n\n\nFocuses beyond women and gender.\nFocuses on the distribution of power."
+  },
+  {
+    "objectID": "slides/15-data-ethics.html#example",
+    "href": "slides/15-data-ethics.html#example",
+    "title": "The Importance of Data Context",
+    "section": "Example:",
+    "text": "Example:"
   }
 ]
