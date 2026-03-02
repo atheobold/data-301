@@ -1,16 +1,32 @@
 ---
 title: "The Importance of Data Context"
-format:  
+format: 
   revealjs: 
     theme: [default, style.scss]
+revealjs-plugins:
+  - editable
+filters:
+  - editable
 editor: source
 execute:
   echo: true
 ---
 
+## Over the last 8 weeks...
+
+![](images/16-alex-peretti.jpeg){.absolute width=216.469px height=253.119px left=0px top=89px}
+![](images/16-renee-good.jpeg){.absolute width=303.017px height=194.169px left=130.593px top=285.256px}
+
+![](images/16-ilam-conejo-ramos.png){.absolute width=307.154px height=231.665px left=353.847px top=84.0358px}
+
+![](images/16-ice-minneapolis.png){.absolute width=360.373px height=257.766px left=668.627px top=74px}
+
+![](images/16-venezulela.png){.absolute width=279.38px height=197.299px left=-112.919px top=500.591px}
+![](images/16-iran-war.png){.absolute width=475.19px height=322.416px left=513.81px top=369.584px}
+
 # Discussion Norms
 
-- Zero tolerance for: racism, sexism, homophobia, transphobia, ageism, ableism 
+- Zero tolerance for: racism, sexism, homophobia, transphobia, ageism, ableism\ 
 
 - Do not make generalizations -- Use "I" statements
 
@@ -18,22 +34,9 @@ execute:
 
 - Intent and impact *both* matter
 
-- Non-judgmental 
+- Non-judgmental\ 
 
 - Embrace discomfort
-
-# Land Acknowledgement
-
-> Cal Poly sits on the land of the yak titʸu titʸu yak tiłhini,
-Northern Chumash tribe. We acknowledge, respect, and thank the yak titʸu titʸu
-yak tiłhini on whose **stolen land** we are guests. 
-
-Indigenous people are not relics of the past. We who work and live here must
-bear witness to the ongoing effects of colonization.
-
-<!-- Land acknowledgements do not exist in a past tense, or historical context:  -->
-<!-- colonialism is a current ongoing process, and we need to build our mindfulness -->
-<!-- of our present participation. -->
 
 ## Data Feminism
 
@@ -43,16 +46,7 @@ bear witness to the ongoing effects of colonization.
 
 Focuses beyond women and gender.
 
-Focuses on the distribution of **power**. 
-
-<!-- ## Feminism as Action -->
-
-<!-- > Belief in and advocacy of the political, economic, and social -->
-<!-- > equality of the women and men (and non-binary people) through organized -->
-<!-- > activity on behalf of women's rights and interests.  -->
-<!-- >  -->
-<!-- > Merriam Webster -->
-
+Focuses on the distribution of **power**.\ 
 
 # Data is Power
 
@@ -65,7 +59,7 @@ Focuses on the distribution of **power**.
 
 [**"Data is the same old oppression."**]{style="font-size: 1.5em; color: #0F4C81;"}
 
-> BIPOC, Indigenous people, immigrant communities, LGBTQ+ individuals, white 
+> BIPOC, Indigenous people, immigrant communities, LGBTQ+ individuals, white\ 
 women + more
 
 ![](images/16-books.jpg){fig-alt="A compilation of the front covers of various books all written about data as a tool of oppression, Weapons of Math Destruction by Cathy O'Neil, Algorithms of Oppression by Safiya Noble, Automating Inequality by Virginia Eubanks, Machine Bias by ProPublica, Race After Technology by Ruha Benjamin, and Invisible Women by Caroline Criado-Perez."}
@@ -82,11 +76,11 @@ women + more
 
 # Discussion Questions
 
-# Which actors in the data ecosystem are responsible for providing context? 
+# Which actors in the data ecosystem are responsible for providing context?\ 
 
 End users? Data publishers? Data intermediaries?
 
-# What steps can we take to ensure context is considered? 
+# What steps can we take to ensure context is considered?\ 
 
 How can we more effectively present context through data visualization?
 
@@ -98,18 +92,18 @@ How can we more effectively present context through data visualization?
 > "We focus on four conventions which imbue visualizations with a sense of
 > objectivity, transparency and facticity. These include: (a) two-dimensional
 > viewpoints, (b) clean layouts, (c) geometric shapes and lines, (d) the
-> inclusion of data sources."  
+> inclusion of data sources."\ \ 
 >
 > Kennedy et al. (2016)
 :::
 
 ::: columns
 ::: {.column width="50%"}
-![](images/racism-in-jail-1.jpg){fig-alt="A barplot of the number of mental health diagnoses that people in prison receive. The barplot is in decreasing order, with White people receiving the largest number of diagnoses (23%), followed by Black people (16%), followed by Hispanic people (13%), and then a group labeled Other. The title of the plot says 'Mental Health in Jail' with a subtitle that reads 'Rate of mental health diagnosis of inmates.'"}
+![](images/16-racism-in-jail-1.jpg){fig-alt="A barplot of the number of mental health diagnoses that people in prison receive. The barplot is in decreasing order, with White people receiving the largest number of diagnoses (23%), followed by Black people (16%), followed by Hispanic people (13%), and then a group labeled Other. The title of the plot says 'Mental Health in Jail' with a subtitle that reads 'Rate of mental health diagnosis of inmates.'"}
 :::
 
 ::: {.column width="50%"}
-![](images/racism-in-jail-2.jpg){fig-alt="The same barplot as previously, but the title of the plot has been changed to say 'Racism in Jail' with a subtitle that reads 'White people get more mental health diagnoses.'"}
+![](images/16-racism-in-jail-2.jpg){fig-alt="The same barplot as previously, but the title of the plot has been changed to say 'Racism in Jail' with a subtitle that reads 'White people get more mental health diagnoses.'"}
 :::
 :::
 
@@ -132,7 +126,7 @@ How can we more effectively present context through data visualization?
 
 ::: {.small}
 > "When you look into them, you start to realize that they almost universally
-> intersect with the interests of the most vulnerable." 
+> intersect with the interests of the most vulnerable."\ 
 >
 > Mimi Onuoha
 :::
@@ -142,19 +136,19 @@ How can we more effectively present context through data visualization?
 ## Data Context
 
 In the "Data Context" section of your Final Poster, you are required to
-provide a description that directly addresses the: 
+provide a description that directly addresses the:\ 
 
 - social,
 - cultural,
 - historical,
-- institutional, and 
-- material conditions under which the data were produced. 
+- institutional, and\ 
+- material conditions under which the data were produced.\ 
 
 ## Example: Ames, Iowa Housing Data
 
 ::: {.small}
 - What are the social conditions of these data?
-  * What are the social influences of owning a house? 
+  * What are the social influences of owning a house?\ 
 :::
 
 . . .
@@ -185,6 +179,6 @@ provide a description that directly addresses the:
 ::: {.small}
 - What are the material conditions of these data?
   * How were the data collected?
-  * What houses / neighborhoods / individuals are represented in these data? 
+  * What houses / neighborhoods / individuals are represented in these data?\ 
   Excluded from these data?
 :::
