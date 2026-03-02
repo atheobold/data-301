@@ -3,10 +3,10 @@ title: "The Importance of Data Context"
 format: 
   revealjs: 
     theme: [default, style.scss]
-revealjs-plugins:
-  - editable
-filters:
-  - editable
+# revealjs-plugins:
+#   - editable
+# filters:
+#   - editable
 editor: source
 execute:
   echo: true
@@ -26,7 +26,7 @@ execute:
 
 # Discussion Norms
 
-- Zero tolerance for: racism, sexism, homophobia, transphobia, ageism, ableism\ 
+- Zero tolerance for: racism, sexism, homophobia, transphobia, ageism, ableism
 
 - Do not make generalizations -- Use "I" statements
 
@@ -34,7 +34,7 @@ execute:
 
 - Intent and impact *both* matter
 
-- Non-judgmental\ 
+- Non-judgmental
 
 - Embrace discomfort
 
@@ -46,7 +46,7 @@ execute:
 
 Focuses beyond women and gender.
 
-Focuses on the distribution of **power**.\ 
+Focuses on the distribution of **power**. 
 
 # Data is Power
 
@@ -59,7 +59,7 @@ Focuses on the distribution of **power**.\
 
 [**"Data is the same old oppression."**]{style="font-size: 1.5em; color: #0F4C81;"}
 
-> BIPOC, Indigenous people, immigrant communities, LGBTQ+ individuals, white\ 
+> BIPOC, Indigenous people, immigrant communities, LGBTQ+ individuals, white
 women + more
 
 ![](images/16-books.jpg){fig-alt="A compilation of the front covers of various books all written about data as a tool of oppression, Weapons of Math Destruction by Cathy O'Neil, Algorithms of Oppression by Safiya Noble, Automating Inequality by Virginia Eubanks, Machine Bias by ProPublica, Race After Technology by Ruha Benjamin, and Invisible Women by Caroline Criado-Perez."}
@@ -76,11 +76,11 @@ women + more
 
 # Discussion Questions
 
-# Which actors in the data ecosystem are responsible for providing context?\ 
+# Which actors in the data ecosystem are responsible for providing context?
 
 End users? Data publishers? Data intermediaries?
 
-# What steps can we take to ensure context is considered?\ 
+# What steps can we take to ensure context is considered?
 
 How can we more effectively present context through data visualization?
 
@@ -92,7 +92,7 @@ How can we more effectively present context through data visualization?
 > "We focus on four conventions which imbue visualizations with a sense of
 > objectivity, transparency and facticity. These include: (a) two-dimensional
 > viewpoints, (b) clean layouts, (c) geometric shapes and lines, (d) the
-> inclusion of data sources."\ \ 
+> inclusion of data sources."
 >
 > Kennedy et al. (2016)
 :::
@@ -126,7 +126,7 @@ How can we more effectively present context through data visualization?
 
 ::: {.small}
 > "When you look into them, you start to realize that they almost universally
-> intersect with the interests of the most vulnerable."\ 
+> intersect with the interests of the most vulnerable."
 >
 > Mimi Onuoha
 :::
@@ -136,19 +136,19 @@ How can we more effectively present context through data visualization?
 ## Data Context
 
 In the "Data Context" section of your Final Poster, you are required to
-provide a description that directly addresses the:\ 
+provide a description that directly addresses the: 
 
 - social,
 - cultural,
 - historical,
-- institutional, and\ 
-- material conditions under which the data were produced.\ 
+- institutional, and
+- material conditions under which the data were produced.
 
 ## Example: Ames, Iowa Housing Data
 
 ::: {.small}
 - What are the social conditions of these data?
-  * What are the social influences of owning a house?\ 
+  * What are the social influences of owning a house?
 :::
 
 . . .
@@ -179,6 +179,15 @@ provide a description that directly addresses the:\
 ::: {.small}
 - What are the material conditions of these data?
   * How were the data collected?
-  * What houses / neighborhoods / individuals are represented in these data?\ 
+  * What houses / neighborhoods / individuals are represented in these data? 
   Excluded from these data?
 :::
+
+# Next Week
+
+## Exam 2 on Thursday
+
+The practice final is posted on Canvas 
+([and the course website](../exam-materials/practice-final.qmd)).
+
+We will discuss the practice final during class on Tuesday! 
