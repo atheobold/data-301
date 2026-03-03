@@ -1,0 +1,86 @@
+---
+title: "The Importance of Data Context"
+format: pdf
+---
+
+## Over the last 8 weeks...
+![](images/16-news-combined.png)
+
+# Discussion Norms
+
+- Zero tolerance for: racism, sexism, homophobia, transphobia, ageism, ableism
+- Do not make generalizations -- Use "I" statements
+- Respect one another
+- Intent and impact *both* matter
+- Non-judgmental
+- Embrace discomfort
+
+\newpage
+
+## Data is Power
+
+> Data are not neutral or objective. They are the products of unequal social
+> relations, and this context is essential for conducting accurate, ethical
+> analysis.
+
+![](images/16-yrbss-data-trump.png)
+\vspace{0.25cm}
+
+## Discussion Questions
+
+1. Which actors in the data ecosystem are responsible for providing context?
+End users? Data publishers? Data intermediaries?
+
+\vspace{0.5cm}
+
+2. What steps can we take to ensure context is considered? How can we more
+effectively present context through data visualization?
+
+\vspace{0.5cm}
+
+3. What are your thoughts (or experiences) on how we label graphs with context?
+
+\vspace{0.5cm}
+
+4. Which power imbalances have led to silences in the dataset or data that are
+missing altogether?
+
+\newpage
+
+## Data Context
+
+In the "Data Context" section of your Final Poster, you are required to
+provide a description that directly addresses the: 
+
+- social,
+- cultural,
+- historical,
+- institutional, and
+- material conditions under which the data were produced.
+
+## Ames Housing Data
+
+- What are the social conditions of these data?
+  * What are the social influences of owning a house?
+
+\vspace{0.75cm}
+
+- What are the cultural conditions of these data?
+  * What is the culture surrounding home ownership in the United States?
+  * Does owning a house look the same for everyone?
+
+- What are the historical conditions of these data?
+  * What is the history associated with home ownership in the US?
+  * What is the history associated with home ownership in Ames, Iowa?
+
+\vspace{0.75cm}
+
+- What are the institutional conditions of these data?
+  * What are the institutional forces that factor into home ownership?
+
+\vspace{0.75cm}
+
+- What are the material conditions of these data?
+  * How were the data collected?
+  * What houses / neighborhoods / individuals are represented in these data? 
+  Excluded from these data?
