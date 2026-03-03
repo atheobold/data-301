@@ -3,8 +3,9 @@ project:
   output-dir: docs
   render: 
     - "*.qmd"
-    - "!/slides/data-ethics"
+    - "!/slides/16-model-ethics.qmd"
     - "!/slides/15-hierarchical.qmd"
+    
 
 website:
   page-navigation: true
